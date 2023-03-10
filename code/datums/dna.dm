@@ -104,6 +104,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/stability = 100
 	///Did we take something like mutagen? In that case we cant get our genes scanned to instantly cheese all the powers.
 	var/scrambled = FALSE
+	var/skin_tone_override //because custom skin tones are not found in the skin_tones global list.
 
 
 /datum/dna/New(mob/living/new_holder)
@@ -131,6 +132,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	destination.dna.unique_enzymes = unique_enzymes
 	destination.dna.unique_identity = unique_identity
 	destination.dna.blood_type = blood_type
+	destination.dna.skin_tone_override = skin_tone_override
 	destination.dna.unique_features = unique_features
 	destination.dna.features = features.Copy()
 	destination.dna.real_name = real_name
@@ -149,6 +151,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.unique_identity = unique_identity
 	new_dna.unique_features = unique_features
 	new_dna.blood_type = blood_type
+	new_dna.skin_tone_override = skin_tone_override
 	new_dna.features = features.Copy()
 	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
 	new_dna.mutant_bodyparts = mutant_bodyparts.Copy()
@@ -434,6 +437,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		&& species.type == target_dna.species.type \
 		&& compare_list(features, target_dna.features) \
 		&& blood_type == target_dna.blood_type \
+		&& skin_tone_override != target_dna.skin_tone_override \
 	)
 		return TRUE
 

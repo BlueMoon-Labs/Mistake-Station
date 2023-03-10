@@ -5,7 +5,7 @@
 	icon_state = "clockwork_slab"
 	icon_state = "clockwork_slab"
 	body_parts_covered = HAND_LEFT | ARM_LEFT
-	attack_verb = list("показывает время")
+	attack_verb_simple = list("показывает время")
 
 /obj/item/clothing/wrists/clockwork_watch
 	name = "Красные Стильные Часы"
@@ -14,7 +14,7 @@
 	icon_state = "redwork_slab"
 	icon_state = "redwork_slab"
 	body_parts_covered = HAND_LEFT | ARM_LEFT
-	attack_verb = list("показывает время")
+	attack_verb_simple = list("показывает время")
 
 /obj/item/clothing/wrists/clockwork_watch/examine(mob/user)
 	. = ..()

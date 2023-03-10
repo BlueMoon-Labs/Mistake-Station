@@ -9,7 +9,7 @@
 	icon_state = "e_watchdog"
 	icon_state = "e_watchdog"
 	body_parts_covered = HAND_LEFT | ARM_LEFT
-	attack_verb = list("showed the time to")
+	attack_verb_simple = list("showed the time to")
 
 /obj/item/clothing/wrists/donator/bm/modern_watch/examine(mob/user)
 	. = ..()

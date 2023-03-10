@@ -16,56 +16,6 @@
 /datum/reagent/fermi/on_merge(data, amount, mob/living/carbon/M, purity)//basically on_mob_add but for merging
 	. = ..()
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//										HATIMUIM
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//Adds a heat upon your head, and tips their hat
-//Also has a speech alteration effect when the hat is there
-//Increase armour; 1 armour per 10u
-//but if you OD it becomes negative.
-
-
-/datum/reagent/fermi/hatmium //for hatterhat
-	name = "Hat growth serium"
-	description = "A strange substance that draws in a hat from the hat dimention."
-	color = "#7c311a" // rgb: , 0, 255
-	taste_description = "like jerky, whiskey and an off aftertaste of a crypt"
-	metabolization_rate = 0.2
-	overdose_threshold = 25
-	chemical_flags = REAGENT_DONOTSPLIT
-	ph = 4
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-
-/datum/reagent/fermi/hatmium/on_mob_add(mob/living/carbon/human/M)
-	. = ..()
-	if(M.head)
-		var/obj/item/W = M.head
-		M.dropItemToGround(W, TRUE)
-	var/hat = new /obj/item/clothing/head/hattip()
-	M.equip_to_slot(hat, ITEM_SLOT_HEAD, 1, 1)
-
-
-/datum/reagent/fermi/hatmium/on_mob_life(mob/living/carbon/human/M)
-	if(!istype(M.head, /obj/item/clothing/head/hattip))
-		return ..()
-	var/hatArmor = 0
-	if(!overdosed)
-		hatArmor = (creation_purity/10)
-	else
-		hatArmor = (creation_purity/10)
-	if(hatArmor > 90)
-		return ..()
-	var/obj/item/W = M.head
-	W.armor = W.armor.modifyAllRatings(hatArmor)
-	..()
-
-/datum/reagent/fermi/hatmium/reaction_turf(turf/T, reac_volume)
-	if(reac_volume >= 5)
-		new /obj/item/clothing/head/hattip(T)
-	..()
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //										FURRANIUM
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,11 +36,10 @@
 	var/obj/item/organ/internal/tongue/T
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/fermi/furranium/reaction_mob(mob/living/carbon/human/M, method=INJECT, reac_volume)
+/datum/reagent/fermi/furranium/expose_mob(mob/living/carbon/human/M, method=INJECT, reac_volume)
 	if(method == INJECT)
 		var/turf/T = get_turf(M)
 		M.adjustOxyLoss(15)
-		M.DefaultCombatKnockdown(50)
 		M.Stun(50)
 		M.emote("cough")
 		var/obj/item/toy/plush/P = pick(subtypesof(/obj/item/toy/plush))
@@ -180,7 +129,7 @@
 		O.forceMove(new_shell)
 
 //Extra interaction for which spraying it on an existing sentient plushie aheals them, so they can be revived!
-/datum/reagent/fermi/plushmium/reaction_mob(mob/living/M, method=TOUCH, reac_volume)
+/datum/reagent/fermi/plushmium/expose_mob(mob/living/M, method=TOUCH, reac_volume)
 	if(istype(M, /mob/living/simple_animal/pet/plushie) && reac_volume >= 1)
 		M.revive(full_heal = 1, admin_revive = 1)
 
@@ -317,7 +266,7 @@
 	log_reagent("FERMICHEM: [H] ckey: [H.key] has returned to normal")
 
 
-/datum/reagent/fermi/secretcatchem/reaction_mob(var/mob/living/L)
+/datum/reagent/fermi/secretcatchem/expose_mob(var/mob/living/L)
 	if(istype(L, /mob/living/simple_animal/pet/cat/custom_cat) && creation_purity >= 0.85)
 		var/mob/living/simple_animal/pet/cat/custom_cat/catto = L
 		if(catto.origin)

@@ -57,7 +57,7 @@
 	throw_speed = 3
 	throw_range = 6
 	hitsound = 'sound/weapons/genhit.ogg'
-	attack_verb = list("stubbed", "poked")
+	attack_verb_simple = list("stubbed", "poked")
 	extended = 0
 	var/extended_force = 17 //I decided to not add bleeding but because of that, but increased damage, wounds will kill the guy pretty quickly anyways
 	var/extended_throwforce = 10
@@ -75,7 +75,7 @@
 		w_class = WEIGHT_CLASS_SMALL //if it becomes normal you can decapitate a guy with a straight razor
 		throwforce = extended_throwforce
 		icon_state = extended_icon_state
-		attack_verb = list("slashed", "stabbed", "sliced", "slit", "shaved", "diced", "cut")
+		attack_verb_simple = list("slashed", "stabbed", "sliced", "slit", "shaved", "diced", "cut")
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		sharpness = SHARP_EDGED
 		tool_behaviour = TOOL_SCALPEL
@@ -84,7 +84,7 @@
 		w_class = WEIGHT_CLASS_TINY
 		throwforce = initial(throwforce)
 		icon_state = initial(icon_state)
-		attack_verb = list("stubbed", "poked")
+		attack_verb_simple = list("stubbed", "poked")
 		hitsound = 'sound/weapons/genhit.ogg'
 		sharpness = SHARP_NONE
 		tool_behaviour = null

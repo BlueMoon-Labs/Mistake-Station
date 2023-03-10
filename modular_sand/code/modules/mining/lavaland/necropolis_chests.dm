@@ -202,7 +202,7 @@
 	var/hitsound_on = 'sound/weapons/bladeslice.ogg'
 	armour_penetration = 50
 	light_color = "#ff0000"//BLOOD RED
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	attack_verb_simple = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	block_chance = 0
 	var/block_chance_on = 50
 	max_integrity = 400
@@ -916,7 +916,7 @@
 	block_chance = 20 //again, slight buff
 	armour_penetration = 200 //the armor penetration is really what makes this unique and actually worth it so boomp it
 	hitsound = 'modular_sand/sound/sif/sif_slash.ogg'
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut", "gutted", "gored")
+	attack_verb_simple = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut", "gutted", "gored")
 	sharpness = SHARP_EDGED
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
@@ -1064,7 +1064,7 @@
 	custom_materials = list(/datum/material/diamond=10000, /datum/material/titanium=20000, /datum/material/plasma=20000)
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	attack_verb = list("drilled")
+	attack_verb_simple = list("drilled")
 	var/cooldowntime = 50
 	var/cooldown = 0
 	var/digrange = 7

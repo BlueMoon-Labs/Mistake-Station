@@ -138,6 +138,15 @@
 #define ORGAN_SLOT_EXTERNAL_BODYMARKINGS "bodymarkings"
 #define ORGAN_SLOT_EXTERNAL_POD_HAIR "pod_hair"
 
+/// Гениталии
+#define ORGAN_SLOT_PENIS "penis"
+#define ORGAN_SLOT_WOMB "womb"
+#define ORGAN_SLOT_VAGINA "vagina"
+#define ORGAN_SLOT_TESTICLES "testicles"
+#define ORGAN_SLOT_BREASTS "breasts"
+#define ORGAN_SLOT_BUTT "butt"
+#define ORGAN_SLOT_BELLY "belly"
+#define ORGAN_SLOT_ANUS "anus"
 
 /// Xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"
