@@ -230,3 +230,6 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_CRUNCHY_BUSH_WHACK "crunchy_bush_whack"
 #define SFX_TREE_CHOP "tree_chop"
 #define SFX_ROCK_TAP "rock_tap"
+
+#define RUSSIAN_SCREAMS list('modular_bluemoon/SmiLeY/sounds/russian/cyka1.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus1.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus2.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus3.ogg',\
+	'modular_bluemoon/SmiLeY/sounds/russian/rus4.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus5.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus6.ogg')

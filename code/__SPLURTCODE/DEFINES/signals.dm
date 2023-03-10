@@ -1,0 +1,6 @@
+#define COMSIG_MOB_CAME "mob_came"
+#define COMSIG_HEALTH_SCAN "health_scan"
+#define COMSIG_ORGAN_INSERTED "organ_inserted"
+#define COMSIG_MOB_CLIMAX "mob_coomed"
+#define COMSIG_OBJ_WRITTEN_ON "written_on"
+#define COMSIG_MOB_LUST_UPDATED "mob_lust_updated"

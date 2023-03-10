@@ -136,6 +136,13 @@
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE
 	//SKYRAT EDIT ADDITION END
 
+	// Я не знаю, чо ета.
+	if(iscarbon(source))
+		var/mob/living/carbon/C = source
+		if(C.voremode)
+			C.disable_vore_mode()
+	// Я не знаю, чо ета.
+
 	if(silent || !(client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)))
 		return
 	if(combat_mode)
@@ -182,6 +189,14 @@
 /mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
 	if(user == src || anchored || !isturf(user.loc))
 		return FALSE
+
+	//normal vore check.
+	if(user.pulling && user.grab_state == GRAB_AGGRESSIVE && user.voremode)
+		if(ismob(user.pulling))
+			var/mob/P = user.pulling
+			user.vore_attack(user, P, src) // User, Pulled, Predator target (which can be user, pulling, or src)
+			return
+
 	if(!user.pulling || user.pulling != src)
 		user.start_pulling(src, supress_message = supress_message)
 		return
@@ -221,6 +236,8 @@
 		if(!do_after(user, grab_upgrade_time, src))
 			return FALSE
 		if(!user.pulling || user.pulling != src || user.grab_state != old_grab_state)
+			return FALSE
+		if(user.voremode && user.grab_state == GRAB_AGGRESSIVE)
 			return FALSE
 	user.setGrabState(user.grab_state + 1)
 	switch(user.grab_state)

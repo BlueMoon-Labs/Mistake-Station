@@ -217,6 +217,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/uses_advanced_reskins = FALSE
 	// SKYRAT EDIT ADDITION END
 
+	var/list/alternate_screams = list() //REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
 /obj/item/Initialize(mapload)
 
 	if(attack_verb_continuous)

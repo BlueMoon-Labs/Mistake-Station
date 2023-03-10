@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 30 //SKYRAT EDIT - ORIGINAL 3
+	var/max_save_slots = 10 //Bluemoon Edit - Original 30 //SKYRAT EDIT - ORIGINAL 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -58,6 +58,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/exp = list()
 
 	var/action_buttons_screen_locs = list()
+
+	//bad stuff
+	var/vore_flags = 0
+	var/list/belly_prefs = list()
+	var/vore_taste = "nothing in particular"
+	var/vore_smell = null
+	var/toggleeatingnoise = TRUE
+	var/toggledigestionnoise = TRUE
+	var/hound_sleeper = TRUE
+	var/cit_toggles = TOGGLES_CITADEL
 
 	///Someone thought we were nice! We get a little heart in OOC until we join the server past the below time (we can keep it until the end of the round otherwise)
 	var/hearted
