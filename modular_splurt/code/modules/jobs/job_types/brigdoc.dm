@@ -72,7 +72,7 @@
 	name = "brig physician bowman headset"
 	desc = "This is used by your elite security force's brig physician. Protects ears from flashbangs."
 	icon_state = "sec_headset_alt"
-	item_state = "sec_headset_alt"
+	icon_state = "sec_headset_alt"
 	bowman = TRUE
 
 /obj/item/encryptionkey/headset_brigdoc

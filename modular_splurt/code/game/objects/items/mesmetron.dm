@@ -5,7 +5,7 @@
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face..."
 	icon = 'modular_splurt/icons/obj/pocketwatch.dmi'
 	icon_state = "pocketwatch"
-	item_state = "pocketwatch"
+	icon_state = "pocketwatch"
 	w_class = WEIGHT_CLASS_SMALL
 	throw_range = 7
 	throw_speed = 3
@@ -91,13 +91,13 @@
 	//Close it
 	if(icon_state == "pocketwatch")
 		icon_state = "pocketwatch_closed"
-		item_state = "pocketwatch_closed"
+		icon_state = "pocketwatch_closed"
 		desc = "An elaborate pocketwatch, with a captivating gold etching. It's closed however and you can't see it's face"
 		closed = TRUE
 		return
 	//Open it
 	icon_state = "pocketwatch"
-	item_state = "pocketwatch"
+	icon_state = "pocketwatch"
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face..."
 	closed = FALSE
 

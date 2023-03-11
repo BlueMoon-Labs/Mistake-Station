@@ -4,7 +4,7 @@
 	name = "civilian CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has civilian colors."
 	icon_state = "cbrnsuitciv"
-	item_state = "cbrnsuitciv"
+	icon_state = "cbrnsuitciv"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
@@ -27,37 +27,37 @@
 	name = "engineering CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has engineering colors."
 	icon_state = "cbrnsuiteng"
-	item_state = "cbrnsuiteng"
+	icon_state = "cbrnsuiteng"
 
 /obj/item/clothing/suit/cbrn/security
 	name = "engineering CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has security colors."
 	icon_state = "cbrnsuitsec"
-	item_state = "cbrnsuitsec"
+	icon_state = "cbrnsuitsec"
 
 /obj/item/clothing/suit/cbrn/medical
 	name = "medical CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has medical colors."
 	icon_state = "cbrnsuitmed"
-	item_state = "cbrnsuitmed"
+	icon_state = "cbrnsuitmed"
 
 /obj/item/clothing/suit/cbrn/cargo
 	name = "cargo CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has cargo colors."
 	icon_state = "cbrnsuitcargo"
-	item_state = "cbrnsuitcargo"
+	icon_state = "cbrnsuitcargo"
 
 /obj/item/clothing/suit/cbrn/science
 	name = "science CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has science colors."
 	icon_state = "cbrnsuitsci"
-	item_state = "cbrnsuitsci"
+	icon_state = "cbrnsuitsci"
 
 /obj/item/clothing/suit/cbrn/service
 	name = "service CBRN suit"
 	desc = "Chemical, Biological, Radiological and Nuclear. A suit design for harsh environmental conditions short of no atmosphere. This one has service colors."
 	icon_state = "cbrnsuitserv"
-	item_state = "cbrnsuitserv"
+	icon_state = "cbrnsuitserv"
 
 //MOPP gear and Advance MOPP gear
 
@@ -65,7 +65,7 @@
 	name = "MOPP suit"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. It has armor sowed into it."
 	icon_state = "moppsuit"
-	item_state = "moppsuit"
+	icon_state = "moppsuit"
 	allowed = list(/obj/item/flashlight, /obj/item/gun/ballistic/revolver, /obj/item/gun/ballistic/automatic, /obj/item/gun/ballistic/automatic/pistol, /obj/item/gun/energy, /obj/item/gun/ballistic/shotgun,  /obj/item/tank/internals/doubleoxygen, /obj/item/tank/internals/oxygen, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/geiger_counter)
 	slowdown = 0.5
 	armor = list("melee" = 35, "bullet" = 50, "laser" = 30,"energy" = 20, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100) //I can tell I will have to fucking balance this... several times it feels like -Radar
@@ -81,25 +81,25 @@
 	name = "advance MOPP suit 'Commander'"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. This is an advance version for ERT Commanders."
 	icon_state = "moppsuitertcom"
-	item_state = "moppsuitertcom"
+	icon_state = "moppsuitertcom"
 
 /obj/item/clothing/suit/cbrn/mopp/advance/security
 	name = "advance MOPP suit 'Security'"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. This is an advance version for ERT Security members."
 	icon_state = "moppsuitertsec"
-	item_state = "moppsuitertsec"
+	icon_state = "moppsuitertsec"
 
 /obj/item/clothing/suit/cbrn/mopp/advance/medical
 	name = "advance MOPP suit 'Medical'"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. This is an advance version for ERT Medical members."
 	icon_state = "moppsuitertmed"
-	item_state = "moppsuitertmed"
+	icon_state = "moppsuitertmed"
 
 /obj/item/clothing/suit/cbrn/mopp/advance/engi
 	name = "advance MOPP suit 'Engineer'"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. This is an advance version for ERT Engineering members."
 	icon_state = "moppsuiterteng"
-	item_state = "moppsuiterteng"
+	icon_state = "moppsuiterteng"
 
 //CBRN/MOPP tanks
 
@@ -124,7 +124,7 @@
 	name = "double plasma internals tank"
 	desc = "A double tank of plasma gas designed specifically for use as internals, particularly for plasma-based lifeforms. If you're not a Plasmaman, you probably shouldn't use this."
 	icon_state = "plasmaman_tankcbrn"
-	item_state = "plasmaman_tankcbrn"
+	icon_state = "plasmaman_tankcbrn"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	lefthand_file = 'modular_splurt/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/items_righthand.dmi'

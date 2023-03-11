@@ -11,7 +11,7 @@
 /datum/interaction/lewd/titgrope_self/display_interaction(mob/living/user)
 	var/message
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		message = "[pick("с силой сжимает свои собственные сиськи.",
 					"резко хватается за свои сиськи.",
 					"крепко сжимает свою грудь.",

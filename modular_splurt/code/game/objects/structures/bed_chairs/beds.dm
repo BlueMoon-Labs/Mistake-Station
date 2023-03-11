@@ -1,4 +1,4 @@
-/obj/structure/bed/ComponentInitialize()
+/obj/structure/bed/Initialize()
 	. = ..()
 	AddElement(/datum/element/crawl_under)
 

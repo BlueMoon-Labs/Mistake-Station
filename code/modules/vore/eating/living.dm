@@ -232,7 +232,6 @@
 		//Actual escaping
 		B.release_specific_contents(src,TRUE) //we might as well take advantage of that specific belly's handling. Else we stay blinded forever.
 		message_admins("[src] used OOC escape to escape from [B.owner]'s belly.")
-		log_consent("[src] used OOC escape to escape from [B.owner]'s belly.")
 		src.stop_sound_channel(CHANNEL_PREYLOOP)
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "fedprey", /datum/mood_event/fedprey)
 		for(var/mob/living/simple_animal/SA in range(10))
@@ -354,7 +353,7 @@
 		to_chat(src, "<span class='warning'>You can't do that so fast, slow down.</span>")
 		return
 
-	DelayNextAction(CLICK_CD_MELEE, flush = TRUE)
+	changeNext_move(CLICK_CD_MELEE, flush = TRUE)
 
 	var/list/lickable = list()
 	for(var/mob/living/L in view(1))
@@ -406,7 +405,7 @@
 		to_chat(src, "<span class='warning'>You can't do that so fast, slow down.</span>")
 		return
 
-	DelayNextAction(CLICK_CD_MELEE, flush = TRUE)
+	changeNext_move(CLICK_CD_MELEE, flush = TRUE)
 
 	var/list/smellable = list()
 	for(var/mob/living/L in view(1))

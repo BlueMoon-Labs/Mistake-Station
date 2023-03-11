@@ -73,7 +73,7 @@
 	size_multiplier = 2
 	gold_core_spawnable = HOSTILE_SPAWN
 
-/mob/living/simple_animal/hostile/bigmouse/ComponentInitialize()
+/mob/living/simple_animal/hostile/bigmouse/Initialize()
 	. = ..()
 	AddElement(/datum/element/ventcrawling, given_tier = VENTCRAWLER_ALWAYS)
 
@@ -88,7 +88,7 @@
 	..()
 	if(client)
 		return
-	if(M.a_intent == INTENT_HARM)
+	if(M.combat_mode == TRUE)
 		faction = list("hostile", "rat")
 	return
 

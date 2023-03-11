@@ -3,7 +3,7 @@
 	name = "latex sleeves"
 	desc = "A pair of shiny latex sleeves that covers ones arms."
 	icon_state = "latex"
-	item_state = "latex"
+	icon_state = "latex"
 	icon = 'modular_splurt/icons/obj/clothing/gloves.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mobs/gloves.dmi'
 	mutantrace_variation = NONE
@@ -12,13 +12,13 @@
 	name = "security sleeves"
 	desc = "A pair of latex sleeves, with a band of red above the elbows denoting that the wearer is part of the security team."
 	icon_state = "latexsec"
-	item_state = "latexsec"
+	icon_state = "latexsec"
 
 /obj/item/clothing/head/dominatrixcap
 	name = "dominatrix cap"
 	desc = "A sign of authority, over the body."
 	icon_state = "dominatrix"
-	item_state = "dominatrix"
+	icon_state = "dominatrix"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mobs/head.dmi'
 	mutantrace_variation = NONE
@@ -27,7 +27,7 @@
 	name = "high heels"
 	desc = "They make the wearer appear taller, and more noisey!"
 	icon_state = "highheels"
-	item_state = "highheels"
+	icon_state = "highheels"
 	icon = 'modular_splurt/icons/obj/clothing/shoes.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mobs/feet.dmi'
 
@@ -44,7 +44,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "stole"
-	item_state = ""	//no inhands
+	icon_state = ""	//no inhands
 
 /obj/item/clothing/neck/stole/black
 	name = "black boa"
@@ -52,14 +52,14 @@
 	icon = 'modular_splurt/icons/obj/clothing/neck.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "stole"
-	item_state = ""	//no inhands
+	icon_state = ""	//no inhands
 	color = "#3d3d3d"
 
 /obj/item/clothing/suit/fluffyhalfcrop
 	name = "fluffy half-crop jacket"
 	desc = "A fluffy synthetic fur half-cropped jacket, less about warmth, more about style!"
 	icon_state = "fluffy"
-	item_state = "fluffy"
+	icon_state = "fluffy"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mobs/suits.dmi'
 	body_parts_covered = CHEST|LEGS|ARMS
@@ -72,7 +72,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	icon_state = "ccdress"
 	mob_overlay_icon = 'modular_splurt/icons/mobs/suits.dmi'
-	item_state = "r_suit"
+	icon_state = "r_suit"
 	can_adjust = FALSE
 	//We will never know why CC can make their skimpy outfits tough as nails
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -94,7 +94,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "raccveralls"
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	item_state = "raccveralls"
+	icon_state = "raccveralls"
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
@@ -104,7 +104,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "office_revealing"
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	item_state = "office_revealing"
+	icon_state = "office_revealing"
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
@@ -114,8 +114,8 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "vaultsuit"
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	item_state = "b_suit"
-	item_state = "b_suit"
+	icon_state = "b_suit"
+	icon_state = "b_suit"
 	can_adjust = FALSE
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	mutantrace_variation = STYLE_DIGITIGRADE | STYLE_ALL_TAURIC
@@ -146,7 +146,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	icon_state = "tunnelfox"
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
-	item_state = "tunnelfox"
+	icon_state = "tunnelfox"
 	body_parts_covered = CHEST|LEGS|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	togglename = "buttons"

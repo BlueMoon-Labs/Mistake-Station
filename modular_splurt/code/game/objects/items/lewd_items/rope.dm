@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 	desc = "A rope designed to not cut into one's skin, the perfect thing for tying someone up."
 	icon = 'modular_splurt/icons/obj/rope.dmi'
 	icon_state = "rope"
-	item_state = "rope"
+	icon_state = "rope"
 	color = "#fc60db"
 	w_class = WEIGHT_CLASS_SMALL
 	breakouttime = 600 //Deciseconds = 60s = 1 minute
@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 				C.visible_message("<span class='danger'>[user] is trying to strengthen the rope on [C]!</span>", \
 								"<span class='userdanger'>[user] is trying to strengthen the rope on [C]!</span>")
 			process_knot(C, user)
-			
+
 		if(ROPE_TARGET_LEGS, ROPE_TARGET_LEGS_OBJECT)
 			if(C.legcuffed != null && !istype(C.legcuffed, /obj/item/restraints/bondage_rope))
 				to_chat(user, "<span class='warning'>[C] is already legcuffed...</span>")
@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 	if(distance > ROPE_MAX_DISTANCE_MASTER)
 		to_chat(user, "<span class='warning'>The rope isn't long enough to tie a knot.</span>")
 		return
-	
+
 	for(var/type in GLOB.bondage_rope_objects)
 		if(istype(O, type))
 			finish_knot_object(O, type)
@@ -171,7 +171,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		if(ROPE_TARGET_LEGS_OBJECT)
 			if(C != user || ROPE_SELF_APPLY_INSTANT)
 				apply_legs(C)
-	
+
 	rope_state = ROPE_STATE_DECIDING_OBJECT
 	set_roped_mob(C)
 	set_roped_master(user)
@@ -210,9 +210,9 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		if(ROPE_TARGET_LEGS)
 			apply_legs(target)
 	forceMove(target)
-	
+
 	set_rope_slowdown(target)
-	
+
 // Sets state to ROPE_STATE_TIED, applies handcuffed effect (if needed) and disappears rope
 /obj/item/restraints/bondage_rope/proc/finish_knot_object(obj/O, O_type)
 	rope_state = ROPE_STATE_TIED
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 /obj/item/restraints/bondage_rope/proc/check_rope_state()
 	if(rope_state == ROPE_STATE_UNTIED)
 		return TRUE
-	
+
 	if(roped_mob == null)
 		if(roped_master != null)
 			to_chat(roped_master, "<span class='warning'>Seems like whoever you were roping... Is gone?</span>")
@@ -259,7 +259,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		to_chat(roped_mob, "<span class='warning'>The thing you were tied to... Is gone?</span>")
 		reset_rope_state()
 		return FALSE
-	
+
 	return TRUE
 
 // Restores the rope into the initial state
@@ -379,7 +379,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		return
 	target.handcuffed = src
 	target.update_handcuffed()
-	
+
 // Taken from handcuffs code
 /obj/item/restraints/bondage_rope/proc/apply_legs(mob/living/carbon/target)
 	if(target == null || target.legcuffed != null)
@@ -424,7 +424,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		if(src && target_choice && !user.incapacitated() && in_range(user,src))
 			sanitize_inlist(target_choice, GLOB.bondage_rope_targets, "Legs")
 			rope_target = GLOB.bondage_rope_targets[target_choice]
-	
+
 /obj/item/restraints/bondage_rope/proc/set_roped_mob(mob/living/carbon/new_mob)
 	if(roped_mob != null)
 		UnregisterSignal(roped_mob, COMSIG_MOVABLE_MOVED)

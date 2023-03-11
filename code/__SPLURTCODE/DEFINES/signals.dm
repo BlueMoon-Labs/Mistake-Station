@@ -4,3 +4,8 @@
 #define COMSIG_MOB_CLIMAX "mob_coomed"
 #define COMSIG_OBJ_WRITTEN_ON "written_on"
 #define COMSIG_MOB_LUST_UPDATED "mob_lust_updated"
+
+//Mood
+#define COMSIG_ADD_MOOD_EVENT "add_mood_event" //Called when you send a mood event from anywhere in the code.
+#define COMSIG_CLEAR_MOOD_EVENT "clear_mood_event" //Called when you clear a mood event from anywhere in the code.
+#define COMSIG_MODIFY_SANITY "update_mood" //Called when you want to increase or decrease sanity from anywhere in the code.

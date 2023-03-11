@@ -30,7 +30,6 @@
 			if(cli.prefs.extremeharm != "No")
 				if(prob(15))
 					C.bleed(5)
-					C.add_splatter_floor(get_turf(BLOOD_COLOR_HUMAN), TRUE)
 					new/obj/effect/decal/cleanable/blood
 				if(prob(45))
 					C.adjustOrganLoss(ORGAN_SLOT_EARS, rand(10,20))

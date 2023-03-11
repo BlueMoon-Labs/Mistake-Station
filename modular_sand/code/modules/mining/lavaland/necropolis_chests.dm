@@ -219,7 +219,7 @@
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/unwield)
 
-/obj/item/crucible/ComponentInitialize()
+/obj/item/crucible/Initialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=25, icon_wielded="crucible1", wieldsound = 'sound/weapons/saberon.ogg', unwieldsound = 'sound/weapons/saberoff.ogg')
 
@@ -740,7 +740,7 @@
 	M.apply_status_effect(onuse)
 	qdel(src)
 
-/obj/item/stock_parts/cell/high/plus/argent/ComponentInitialize()
+/obj/item/stock_parts/cell/high/plus/argent/Initialize()
 	. = ..()
 	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF)
 
@@ -1070,13 +1070,13 @@
 	var/digrange = 7
 	var/range = 7
 
-/obj/item/rogue/ComponentInitialize()
+/obj/item/rogue/Initialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=20)
 
 /obj/item/rogue/afterattack(atom/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		var/datum/component/two_handed/TH = GetComponent(/datum/component/two_handed)
 		if(TH.wielded && isliving(target) && proximity_flag && cooldown <= world.time)
 			cooldown = world.time + (cooldowntime * 0.5)

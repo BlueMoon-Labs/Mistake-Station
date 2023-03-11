@@ -1,6 +1,6 @@
 /obj/item/storage/photo_album
 	desc = "A big book used to store photos and mementos."
-	item_state = "album"
+	icon_state = "album"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/misc/books_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/misc/books_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL

@@ -66,7 +66,7 @@
 		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/bang4.ogg',
 							'modular_sand/sound/interactions/bang5.ogg',
 							'modular_sand/sound/interactions/bang6.ogg'), 70, 1, -1)
-	else if(user.a_intent == INTENT_HARM)
+	else if(user.combat_mode == TRUE)
 		return ..()
 
 /**
@@ -517,7 +517,7 @@
 			portal_target.do_jitter_animation() //make your partner shake too!
 		else
 			user.visible_message("<span class='warning'><b>'[src]'</b> подает звуковой сигнал и не позволяет <b>[M]</b> войти.</span>")
-	else if(user.a_intent == INTENT_HARM)
+	else if(user.combat_mode == TRUE)
 		return ..()
 
 /obj/item/portallight/proc/updatesleeve()
@@ -767,7 +767,7 @@
 
 /obj/item/paper/fluff/portallight
 	name = "Инструкция по Использованию Портального Фонарика"
-	info = "Благодарим вас за покупку Портального Фонарика Silver Love Portal!<BR>\
+	note_info = "Благодарим вас за покупку Портального Фонарика Silver Love Portal!<BR>\
 	Для использования просто зарегистрируйте ваш новый Портальный Фонарик при помощи предоставленного нижнего белья, чтобы соединить их вместе, после чего попросите своего любовника надеть белье.<BR>\
 	Повеселитесь, любовники,<BR>\
 	<BR>\

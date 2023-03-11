@@ -2,7 +2,7 @@
 	icon = 'modular_splurt/icons/obj/milking_machine.dmi'
 	name = "milking machine"
 	icon_state = "Off"
-	item_state = "Off"
+	icon_state = "Off"
 	desc = "A pocket sized pump and tubing assembly designed to collect and store products from mammary glands."
 
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_POCKETS
@@ -56,7 +56,7 @@
 /obj/item/milking_machine/update_icon_state()
 	. = ..()
 	icon_state = "[on ? "On" : "Off"][inserted_item ? "Beaker" : ""]" //hardcoding icon states isn't particularly good
-	item_state = icon_state //but i'll leave it since i don't want to fuck with icons
+	icon_state = icon_state //but i'll leave it since i don't want to fuck with icons
 
 /obj/item/milking_machine/AltClick(mob/living/user)
 	add_fingerprint(user)
@@ -68,14 +68,14 @@
 /obj/item/milking_machine/penis
 	name = "cock milker"
 	icon_state = "PenisOff"
-	item_state = "PenisOff"
+	icon_state = "PenisOff"
 	desc = "A pocket sized pump and tubing assembly designed to collect and store products from the penis."
 	target_organ = ORGAN_SLOT_PENIS
 
 /obj/item/milking_machine/penis/update_icon_state()
 	. = ..()
 	icon_state = "Penis[icon_state]" //for the record, i'm not doing icon states any better than sand.
-	item_state = icon_state
+	icon_state = icon_state
 
 /obj/item/milking_machine/afterattack(mob/living/carbon/human/victim, mob/living/user) //use clear argument names, "H" is quite unclear
 	if(!istype(victim) || !istype(user)) //check if we actually have the type we're expecting

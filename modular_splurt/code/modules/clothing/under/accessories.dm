@@ -4,7 +4,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/accessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/accessories.dmi'
 	icon_state = "shortcrop"
-	item_state = "shortcrop"
+	icon_state = "shortcrop"
 	minimize_when_attached = FALSE
 
 /obj/item/clothing/accessory/longcrop
@@ -13,7 +13,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/accessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/accessories.dmi'
 	icon_state = "longcrop"
-	item_state = "longcrop"
+	icon_state = "longcrop"
 	minimize_when_attached = FALSE
 
 /obj/item/clothing/accessory/formalcrop
@@ -22,5 +22,5 @@
 	icon = 'modular_splurt/icons/obj/clothing/accessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/accessories.dmi'
 	icon_state = "formalcrop"
-	item_state = "formalcrop"
+	icon_state = "formalcrop"
 	minimize_when_attached = FALSE

@@ -54,38 +54,34 @@
 	max_distance = 1
 
 /datum/interaction/lewd/titgrope/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(user.a_intent == INTENT_HELP)
+	if(user.combat_mode == FALSE)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> нежно ощупывает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> мягко хватается за грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> проводит несколькими пальцами вдоль груди \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> деликатно сжимает сосок \the <b>[target]</b>.</span>",
-					"<span class='lewd'>\The <b>[user]</b> возбуждённо проводит пальцем вдоль груди \the <b>[target]</b>.</span>"))
-	if(user.a_intent == INTENT_DISARM)
-		user.visible_message(
-				pick("<span class='lewd'>\The <b>[user]</b> нежно ощупывает грудь \the <b>[target]</b>.</span>",
+					"<span class='lewd'>\The <b>[user]</b> возбуждённо проводит пальцем вдоль груди \the <b>[target]</b>.</span>",
+					"<span class='lewd'>\The <b>[user]</b> нежно ощупывает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> мягко хватается за грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> проводит несколькими пальцами вдоль груди \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> деликатно сжимает сосок \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> возбуждённо проводит пальцем вдоль груди \the <b>[target]</b>.</span>"))
-	if(user.a_intent == INTENT_GRAB)
+	if(user.combat_mode == TRUE)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> с силой сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> резко хватается за сиськи \the <b>[target]</b>!</span>",
 					"<span class='lewd'>\The <b>[user]</b> крепко сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> шлёпает по сиськам \the <b>[target]</b>!</span>",
-					"<span class='lewd'>\The <b>[user]</b> максимально грубо сжимает груди \the <b>[target]</b>.</span>"))
-	if(user.a_intent == INTENT_HARM)
-		user.visible_message(
-				pick("<span class='lewd'>\The <b>[user]</b> с силой сжимает грудь \the <b>[target]</b>.</span>",
+					"<span class='lewd'>\The <b>[user]</b> максимально грубо сжимает груди \the <b>[target]</b>.</span>",
+					"<span class='lewd'>\The <b>[user]</b> с силой сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> резко хватается за сиськи \the <b>[target]</b>!</span>",
 					"<span class='lewd'>\The <b>[user]</b> крепко сжимает грудь \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> шлёпает по сиськам \the <b>[target]</b>!</span>",
 					"<span class='lewd'>\The <b>[user]</b> максимально грубо сжимает груди \the <b>[target]</b>.</span>"))
 	if(prob(5 + target.get_lust()))
-		if(target.a_intent == INTENT_HELP)
+		if(target.combat_mode == FALSE)
 			user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> дрожит от возбуждения.</span>",
 					"<span class='lewd'>\The <b>[target]</b> тихо стонет.</span>",
@@ -95,7 +91,7 @@
 					"<span class='lewd'>\The <b>[target]</b> возбуждённо проводит пальцем вдоль своей груди.</span>"))
 			if(target.get_lust() < 5)
 				target.set_lust(5)
-		if(target.a_intent == INTENT_DISARM)
+		if(target.combat_mode == FALSE)
 			if(target.restrained())
 				user.visible_message(
 					pick("<span class='lewd'>\The <b>[target]</b> игриво извивается в попытке снять физические ограничения.</span>",
@@ -110,15 +106,13 @@
 						"<span class='lewd'>\The <b>[target]</b> толкает обнажённую грудь вперёд и дразняще проводит несколькими пальцами <b>[user]</b> по своему соску.</span>"))
 			if(target.get_lust() < 10)
 				target.add_lust(1)
-	if(target.a_intent == INTENT_GRAB)
+	if(target.combat_mode == TRUE)
+		user.adjustBruteLoss(5)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> крепко сжимает запястье <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> впивается ногтями в руку <b>[user]</b>.</span>",
-				"<span class='lewd'>\The <b>[target]</b> хватает <b>[user]</b> за запястье буквально на секунду.</span>"))
-	if(target.a_intent == INTENT_HARM)
-		user.adjustBruteLoss(5)
-		user.visible_message(
-				pick("<span class='lewd'>\The <b>[target]</b> грубо отталкивает <b>[user]</b>.</span>",
+				"<span class='lewd'>\The <b>[target]</b> хватает <b>[user]</b> за запястье буквально на секунду.</span>",
+				"<span class='lewd'>\The <b>[target]</b> грубо отталкивает <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> сердито впивается в руку <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> яростно борется с <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> впивается в предплечье <b>[user]</b> роговыми пластинками.</span>",

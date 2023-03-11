@@ -44,7 +44,7 @@ GLOBAL_LIST_INIT(egg_skins, list( \
 	integrity_failure = 0.9
 	obj_flags = UNIQUE_RENAME
 
-/obj/item/oviposition_egg/ComponentInitialize()
+/obj/item/oviposition_egg/Initialize()
 	. = ..()
 	AddComponent(/datum/component/organ_inflation, 0)
 

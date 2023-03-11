@@ -3,7 +3,7 @@
 	desc = "A device used to rapidly deploy tiles."
 	icon = 'modular_splurt/icons/obj/tools.dmi'
 	icon_state = "rtl"
-	item_state = "rtl"
+	icon_state = "rtl"
 	var/obj/item/stack/tile/plasteel/loaded
 	var/max_amount = 240
 	var/active = FALSE
@@ -17,7 +17,7 @@
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
 	update_icon()
 
-/obj/item/rtl/ComponentInitialize()
+/obj/item/rtl/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	AddComponent(/datum/component/two_handed)
@@ -69,10 +69,10 @@
 
 /obj/item/rtl/update_icon_state()
 	icon_state = initial(icon_state)
-	item_state = initial(item_state)
+	icon_state = initial(icon_state)
 	if(!loaded || !loaded.amount)
 		icon_state += "-empty"
-		item_state += "-0"
+		icon_state += "-0"
 
 /obj/item/rtl/proc/is_empty(mob/user)
 	update_icon()
@@ -111,7 +111,7 @@
 		return
 	if(is_empty(user, 0))
 		to_chat(user, span_warning("\The [src] is empty!"))
-		return	
+		return
 
 	var/turf/T = get_turf(user)
 	if(!istype(T, /turf/open/floor/plating))

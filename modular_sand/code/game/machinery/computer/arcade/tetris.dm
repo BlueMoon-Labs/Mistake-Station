@@ -16,7 +16,7 @@
 	circuit = /obj/item/circuitboard/computer/arcade/tetris
 	COOLDOWN_DECLARE(TETRIS_COOLDOWN_MAIN)
 
-/obj/machinery/computer/arcade/tetris/Topic(href, href_list)
+/obj/machinery/computer/arcade/tetris/Topic(href, href_list, mob/living/user)
 	if(..())
 		return 1
 	else
@@ -65,7 +65,7 @@
 				return
 
 			// Define user ID card
-			var/obj/item/card/id/user_id = usr.get_idcard()
+			var/obj/item/card/id/user_id = user.get_idcard(TRUE)
 
 			// Check if ID exists
 			// Check if ID has science access
@@ -89,7 +89,7 @@
 		return
 	add_fingerprint(user)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(machine_stat & (BROKEN|NOPOWER))
 		return
 
 	if(user.client)

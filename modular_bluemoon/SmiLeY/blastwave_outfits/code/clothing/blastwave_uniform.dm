@@ -3,7 +3,6 @@
 	desc = "An utilitarian uniform of rugged warfare."
 	icon = 'modular_bluemoon/smiley/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_bluemoon/smiley/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/smiley/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "blastwave_uniform"
 	armor_type = /datum/armor/clothing_under
 	can_adjust = FALSE

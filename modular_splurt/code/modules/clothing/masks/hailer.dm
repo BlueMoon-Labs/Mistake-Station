@@ -5,7 +5,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/head/lewd_masks.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/head/lewd_masks-digi.dmi'
 	icon_state = "sluthailer"
-	item_state = "sluthailer"
+	icon_state = "sluthailer"
 	aggressiveness = 0 //can't have your pets being mean!
 	actions_types = list(/datum/action/item_action/halt)
 

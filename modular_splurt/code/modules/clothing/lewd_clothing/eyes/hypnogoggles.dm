@@ -3,7 +3,7 @@
 	desc = "Woaa-a-ah... This is lewd."
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/eyes/lewd_eyes.dmi'
 	icon_state = "hypnogoggles"
-	item_state = "hypnogoggles"
+	icon_state = "hypnogoggles"
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/eyes/lewd_eyes.dmi'
 	lefthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_left.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
@@ -51,7 +51,7 @@
 		"teal" = image(icon = src.icon, icon_state = "hypnogoggles_teal"))
 
 //to update model lol
-/obj/item/clothing/glasses/hypno/ComponentInitialize()
+/obj/item/clothing/glasses/hypno/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
@@ -88,7 +88,7 @@
 /obj/item/clothing/glasses/hypno/update_icon_state()
 	. = ..()
 	icon_state = icon_state = "[initial(icon_state)]_[current_hypnogoggles_color]"
-	item_state = "[initial(icon_state)]_[current_hypnogoggles_color]"
+	icon_state = "[initial(icon_state)]_[current_hypnogoggles_color]"
 
 /datum/brain_trauma/induced_hypnosis
 	name = "Hypnosis"

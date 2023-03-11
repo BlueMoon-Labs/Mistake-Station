@@ -36,7 +36,7 @@
 	minbodytemp = 150
 	maxbodytemp = 500
 
-/mob/living/simple_animal/hostile/carrion/ComponentInitialize()
+/mob/living/simple_animal/hostile/carrion/Initialize()
 	. = ..()
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_CLAW)
 	AddElement(/datum/element/ventcrawling, given_tier = VENTCRAWLER_ALWAYS)

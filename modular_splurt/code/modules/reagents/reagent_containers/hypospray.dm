@@ -5,7 +5,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "crocinpen"
-	item_state = "crocinpen"
+	icon_state = "crocinpen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/drug/aphrodisiac = 30)
@@ -17,7 +17,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "hcrocinpen"
-	item_state = "hcrocinpen"
+	icon_state = "hcrocinpen"
 	list_reagents = list(/datum/reagent/drug/aphrodisiacplus = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/breastgrowth
@@ -27,7 +27,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "succupen"
-	item_state = "succupen"
+	icon_state = "succupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/fermi/breast_enlarger = 30)
@@ -39,7 +39,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "incupen"
-	item_state = "incupen"
+	icon_state = "incupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/fermi/penis_enlarger = 30)
@@ -51,7 +51,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "denbupen"
-	item_state = "denbupen"
+	icon_state = "denbupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/fermi/butt_enlarger = 30)
@@ -63,7 +63,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "bellypen"
-	item_state = "bellypen"
+	icon_state = "bellypen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/fermi/belly_inflator = 30)
@@ -75,7 +75,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "prospen"
-	item_state = "prospen"
+	icon_state = "prospen"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/growthchem = 30)
@@ -92,7 +92,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "bombpen"
-	item_state = "bombpen"
+	icon_state = "bombpen"
 	volume = 60
 	amount_per_transfer_from_this = 60
 	list_reagents = list(

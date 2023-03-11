@@ -5,7 +5,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	icon_state = "plaguedoctor_red"
-	item_state = "plaguedoctor_red"
+	icon_state = "plaguedoctor_red"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 2,ENERGY = 2, BOMB = 0, BIO = 75, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/retractor/plague
@@ -65,13 +65,13 @@
 	name = "doctor's bag"
 	icon = 'modular_splurt/icons/obj/plaguedoc.dmi'
 	icon_state = "docbag"
-	item_state = "briefcase"
+	icon_state = "briefcase"
 	lefthand_file = 'icons/mob/inhands/equipment/briefcase_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/briefcase_righthand.dmi'
 	desc = "A large black leather bag for storing medical tools"
 	slot_flags = null
 
-/obj/item/storage/backpack/docbag/ComponentInitialize()
+/obj/item/storage/backpack/docbag/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 50
@@ -106,7 +106,7 @@
 	desc = "A cane used by a plague doctor, complete with fancy gold embelishments."
 	icon = 'modular_splurt/icons/obj/plaguedoc.dmi'
 	icon_state = "cane_plague"
-	item_state = "stick"
+	icon_state = "stick"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	force = 5

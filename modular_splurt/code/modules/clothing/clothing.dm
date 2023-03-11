@@ -8,7 +8,7 @@
 
 //A call on attemp_forcefeed() without async to properly know if it worked or not. In theory this shouldn't cause any issues as only a small part of the population should ever run this.VS normal eating.
 /obj/item/reagent_containers/food/snacks/clothing/attack(mob/living/M, mob/living/user, attackchain_flags = NONE, damage_multiplier = 1)
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		return ..()
 	return attempt_forcefeed(M, user)
 

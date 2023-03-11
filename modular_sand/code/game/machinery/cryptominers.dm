@@ -85,7 +85,7 @@
 	// Check if disabled
 	// Check if panel is open
 	// Check if user is in HELP intent
-	if(!mining && panel_open && user.a_intent == INTENT_HELP)
+	if(!mining && panel_open && user.combat_mode == FALSE)
 		// Attempt to locate user's ID
 		var/id_card = W.GetID()
 

@@ -23,7 +23,7 @@
 
 /obj/item/crusher_trophy/golden_skull/on_mark_detonation(mob/living/target, mob/living/user)
 	if(target.stat == DEAD)
-		if(istype(target, /mob/living/simple_animal/hostile/asteroid) && user.a_intent == INTENT_GRAB)
+		if(istype(target, /mob/living/simple_animal/hostile/asteroid) && user.combat_mode == TRUE)
 			var/mob/living/simple_animal/hostile/asteroid/L = target
 			L.revive(full_heal = 1, admin_revive = 1)
 			L.attack_same = 0
@@ -41,7 +41,7 @@
 		is_wielded = TH.wielded
 	else
 		user.is_holding_item_of_type(/obj/item/melee/zweihander)
-	if(ishuman(target) && (target.stat == DEAD) && (is_wielded) && user.a_intent == INTENT_GRAB)
+	if(ishuman(target) && (target.stat == DEAD) && (is_wielded) && user.combat_mode == TRUE)
 		var/confirm = input("Are you sure you want to turn [target] into a friendly legion?", "Legionification") in list("Yes", "No")
 		if(confirm == "Yes")
 			var/mob/living/carbon/human/H = target

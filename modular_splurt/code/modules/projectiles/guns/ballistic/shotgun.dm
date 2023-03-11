@@ -16,7 +16,7 @@
 	name = "sawn-off double-barreled shotgun"
 	desc = "Omar's coming!"
 	icon_state = "sawnshotgun"
-	item_state = "sawnshotgun"
+	icon_state = "sawnshotgun"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
@@ -40,7 +40,7 @@
 	desc = "A cheap hunting rifle chambered .308."
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "308"
-	item_state = "308"
+	icon_state = "308"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	fire_sound = "sound/weapons/Gunshot4.ogg"
@@ -64,7 +64,7 @@
 	desc = "A cheap varmint rifle chambered in .22 Long rifle. It has a nonremovable magazine"
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "varmint_rifle"
-	item_state = "varmintrifle"
+	icon_state = "varmintrifle"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	fire_sound = "sound/weapons/Gunshot2.ogg"
@@ -96,7 +96,7 @@
 	putting a nicely sized hole in a man-sized target with a .45 Long round has stayed relatively timeless."
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "brushgun"
-	item_state = "leveraction"
+	icon_state = "leveraction"
 	fire_sound = "sound/weapons/revolvershot.ogg"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/levergun/brush2
 
@@ -119,7 +119,7 @@
 	desc = "A cheap hunting shotgun."
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "hunting"
-	item_state = "shotgun"
+	icon_state = "shotgun"
 	fire_delay = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot
 	w_class = WEIGHT_CLASS_BULKY

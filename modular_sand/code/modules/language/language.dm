@@ -7,22 +7,15 @@
 /datum/language/modular_sand/sergal
 	name = LANGUAGE_SERGAL
 	desc = "The dominant language of the Sergal homeworld, Tal. It consists of aggressive low-pitched hissing and throaty growling."
-	speech_verb = "snarls"
-	ask_verb = "snarls"
-	exclaim_verb = "barks"
 	key = "z"
 	space_chance = 40
 	syllables = list("grr", "gah", "woof", "arf", "arra", "rah", "wor", "sarg")
 	icon_state = "cheese"
 	flags = TONGUELESS_SPEECH
-	restricted = FALSE
 
 /datum/language/modular_sand/buggy
 	name = "Buggy"
 	desc = "A barely comprehensible language, spoken by insectoid-like races."
-	speech_verb = "flutters"
-	ask_verb = "flits"
-	exclaim_verb = "flaps"
 	key = "f"
 	flags = TONGUELESS_SPEECH
 	space_chance = 10
@@ -32,15 +25,10 @@
 	)
 	icon_state = "buggy"
 	default_priority = 94
-	restricted = FALSE
 
 /datum/language/modular_sand/calcic
 	name = "Calcic"
 	desc = "The disjointed and staccato language of plasmamen. Also understood by skeletons."
-	speech_verb = "rattles"
-	ask_verb = "queries"
-	exclaim_verb = "screeches"
-	whisper_verb = "clicks"
 	key = "q"
 	flags = TONGUELESS_SPEECH
 	space_chance = 10
@@ -53,15 +41,10 @@
 	)
 	icon_state = "calcic"
 	default_priority = 89
-	restricted = FALSE
 
 /datum/language/modular_sand/dunmeri
 	name = "Dunmeri"
 	desc = "The native language of the dark elves of lavaland."
-	speech_verb = "proclaims"
-	ask_verb = "queries"
-	exclaim_verb = "declares"
-	whisper_verb = "hushes"
 	key = "v"
 	space_chance = 30
 	flags = TONGUELESS_SPEECH
@@ -76,14 +59,10 @@
 	)
 	icon_state = "dunmeri"
 	default_priority = 92
-	restricted = FALSE
 
 /datum/language/modular_sand/moffic
 	name = "Moffic"
 	desc = "The language of the Mothpeople borders on complete unintelligibility."
-	speech_verb = "flutters"
-	ask_verb = "flits"
-	exclaim_verb = "flaps"
 	key = "m"
 	flags = TONGUELESS_SPEECH
 	space_chance = 10
@@ -96,14 +75,10 @@
 	)
 	icon_state = "moffic"
 	default_priority = 93
-	restricted = FALSE
 
 /datum/language/modular_sand/shadowtongue
 	name = "Shadowtongue"
 	desc = "What a grand and intoxicating innocence."
-	speech_verb = "growls"
-	ask_verb = "growls"
-	exclaim_verb = "roars"
 	key = "x"
 	flags = TONGUELESS_SPEECH
 	space_chance = 50
@@ -118,15 +93,10 @@
 	)
 	icon_state = "shadowtongue"
 	default_priority = 95
-	restricted = TRUE
 
 /datum/language/modular_sand/solcommon
 	name = "Sol Common"
 	desc = "The old Earthen language of Latin, re-adopted into the modern day to offer more identity to Humanity."
-	speech_verb = "proclaims"
-	ask_verb = "queries"
-	exclaim_verb = "declares"
-	whisper_verb = "hushes"
 	key = "p"
 	space_chance = 30
 	default_priority = 96
@@ -137,32 +107,3 @@
 		"eius", "modi", "inci","ad", "vel", "eum", "iure", "hic", "pa", "mit", "dis", "du", "di", "tol", "mi"
 	)
 	icon_state = "solcommon"
-	restricted = FALSE
-
-/datum/language/modular_sand/technorussian
-	name = "Technorussian"
-	desc = "Ancient language of Russian colonists, rusted with time and bastardized with technical terms in everyday use."
-	speech_verb = "proclaims"
-	ask_verb = "queries"
-	exclaim_verb = "declares"
-	whisper_verb = "hushes"
-	key = "2"
-	space_chance = 70
-	default_priority = 98
-	flags = TONGUELESS_SPEECH
-	syllables = list("zhena", "reb", "kot", "tvoy", "vodka", "blyad", "verbovka", "ponimat", "zhit", "kley", "sto", "yat", "si", "det", \
-					 "re", "be", "nok", "chto", "techno", "kak", "govor", "navernoe", "da", "net", "horosho", "pochemu", "privet","lubov", \
-					 "ebat", "krovat", "stol", "za", "ryad", "ka", "voyna", "dumat", "patroni", "tarakanu", "zdorovie", "day", "dengi", \
-					 "pizdec", "mat", "tvoyu", "suka", "ayblya", "uebok", "sosi", "ebi", "huyar", "trahat", "pizda", "uebu", "zaebal", "zgorela", \
-					 "pizduy", "srat", "naydu", "ubyi", "uebishe", "blyadina", "priebali", "prosrali", "suche", "voituyay", "tupoy", "daun", "churka", \
-					 "nelez", "sovershenstvo", "viju", "stradaniye", "smusl", "spaseniye", "pomosh", "zvezdu", "kosmos", "pokorim", "lublu", "bereza",  \
-					 "zashishu", "luna", "planeta", "voshod", "mercaet", "smeshno", "razum", "trud", "mucheniya", "chudo", "borba", "sudba", "svoboda", \
-					 "provodimost", "inicializaciya", "compilaciya", "izolaciya", "teplootdacha", "izlucheniye", "osnasheniye", \
-					 "vidimost", "indukciya", "ionizaciya", "laser", "svyaz", "provodka", "atmosfera", "davleniye", "temperatura", \
-					 "obyem", "massa", "scorost", "uskoreniye", "radiaciya", "ves", "neobhodimost", "dokozatelstvo", "teorema", "kipeniye", \
-					 "inovaciya", "proruv", "turbulentnost", "zashita", "pitaniye", "zamukaniye", "korotkoye", "dlennoye", "verticalno", \
-					 "portal", "systema", "electronika", "nigilizm", "anarhizm", "communistu", "tupuye", "sopla", "obshivka", "obtekaemost", \
-					 "dinamica", "statica", "organizacuya", "yeyenet", "radio", "peredacha", "priem", "slushno", "chastota", "gerts", "stantiya", \
-					 "suda", "huyar", "odin", "dva", "tri", "holod", "granata", "ne", "re", "ru", "korabl")
-	icon_state = "technorussian"
-	restricted = FALSE

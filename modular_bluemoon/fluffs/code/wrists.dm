@@ -13,8 +13,8 @@
 
 /obj/item/clothing/wrists/donator/bm/modern_watch/examine(mob/user)
 	. = ..()
-	. += "<span class='info'>Station Time: [STATION_TIME_TIMESTAMP("hh:mm:ss", world.time)]"
+	. += "<span class='info'>Station Time: [station_time_timestamp("hh:mm:ss", world.time)]"
 
 /obj/item/clothing/wrists/donator/bm/modern_watch/attack(mob/target, mob/user)
 	. = ..()
-	to_chat(target, "<span class='info'>Station Time: [STATION_TIME_TIMESTAMP("hh:mm:ss", world.time)]")
+	to_chat(target, "<span class='info'>Station Time: [station_time_timestamp("hh:mm:ss", world.time)]")

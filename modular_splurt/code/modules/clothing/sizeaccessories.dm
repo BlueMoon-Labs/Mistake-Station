@@ -5,7 +5,7 @@
 	desc = "An expensive, shimmering SynTech ring gilded with golden NanoTrasen markings. It will 'normalize' the size of the user to a specified height approved for work-conditions, as long as it is equipped. The artificial violet gem inside twinkles ominously."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
 	icon_state = "ring"
-	item_state = "sring" //No use in a unique sprite since it's just one pixel
+	icon_state = "sring" //No use in a unique sprite since it's just one pixel
 	w_class = WEIGHT_CLASS_TINY
 	body_parts_covered = 0
 	transfer_prints = TRUE
@@ -37,7 +37,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/hands.dmi'
 	icon_state = "wristband"
-	item_state = "syntechband"
+	icon_state = "syntechband"
 
 /obj/item/clothing/wrists/syntech/equipped(mob/user, slot)
 	if(slot != ITEM_SLOT_WRISTS)
@@ -64,7 +64,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "pendant"
-	item_state = "pendant"
+	icon_state = "pendant"
 
 //For neck items
 /obj/item/clothing/neck/syntech/equipped(mob/living/user, slot)
@@ -90,7 +90,7 @@
 	desc = "A sleek, tight-fitting choker embezzled with silver to gold, adorned with vibrant purple studs; combined technology of NanoTrasen and SynTech. It will 'normalize' the size of the user to a specified height for approved work-conditions, as long as it is equipped. There is a small screen buzzing with information."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
 	icon_state = "choker"
-	item_state = "collar"
+	icon_state = "collar"
 
 //Syntech Collar
 /obj/item/clothing/neck/syntech/collar
@@ -99,4 +99,4 @@
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "collar"
-	item_state = "collar"
+	icon_state = "collar"

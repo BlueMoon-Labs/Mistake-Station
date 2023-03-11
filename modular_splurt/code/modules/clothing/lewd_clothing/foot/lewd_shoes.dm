@@ -3,7 +3,7 @@
 	name = "latex heels"
 	desc = "Your feet hurt just looking at them."
 	icon_state = "latexheels"
-	item_state = "latexheels"
+	icon_state = "latexheels"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
@@ -52,7 +52,7 @@
 	name = "latex socks"
 	desc = "A pair of shiny, form fitting socks made out of a durable material."
 	icon_state = "latexsocks"
-	item_state = "latexsocks"
+	icon_state = "latexsocks"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
@@ -74,7 +74,7 @@
 	name = "dominant heels"
 	desc = "A pair of aesthetically pleasing heels."
 	icon_state = "dominaheels"
-	item_state = "dominaheels"
+	icon_state = "dominaheels"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'

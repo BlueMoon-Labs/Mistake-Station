@@ -2,7 +2,7 @@
 	name = "latex catsuit"
 	desc = "A shiny uniform that fits snugly to the skin."
 	icon_state = "latex_catsuit_female"
-	item_state = "latex_catsuit"
+	icon_state = "latex_catsuit"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/uniform/lewd_uniform.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-digi.dmi'

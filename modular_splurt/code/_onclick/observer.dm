@@ -2,7 +2,7 @@
 /atom/attack_ghost(mob/dead/observer/user)
 	. = ..()
 	if(!. && user.client)
-		if(!(IsAdminGhost(user) || user?.client.prefs.inquisitive_ghost) && (CONFIG_GET(flag/ghost_interaction) && istype(src, /mob/living)))
+		if(!(isAdminObserver(user) || user?.client.prefs.inquisitive_ghost) && (CONFIG_GET(flag/ghost_interaction) && istype(src, /mob/living)))
 			var/mob/living/H = src
 			H.do_ass_slap(user)
 
@@ -20,7 +20,7 @@
 		return
 	if(istype(H))
 		H.adjust_arousal(20, "masochism", maso=TRUE)
-		if(HAS_TRAIT(H, TRAIT_MASO) && H.has_dna() && prob(10))
+		if(HAS_TRAIT(H, TRAIT_MASOCHISM) && H.has_dna() && prob(10))
 			H.mob_climax(forced_climax=TRUE, cause="masochism")
 	if(!HAS_TRAIT(src, TRAIT_PERMABONER))
 		H.dna.species.stop_wagging_tail(src)

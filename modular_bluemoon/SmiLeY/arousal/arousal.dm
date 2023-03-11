@@ -43,7 +43,7 @@
 
 /mob/living/carbon/human/proc/adjust_arousal(strength, cause = "manual toggle", aphro = FALSE,maso = FALSE) // returns all genitals that were adjust
 	var/list/obj/item/organ/genital/genit_list = list()
-	if(!client?.prefs.arousable || (aphro && (client?.prefs.cit_toggles & NO_APHRO)) || (maso && !HAS_TRAIT(src, TRAIT_MASO)))
+	if(!client?.prefs.arousable || (aphro && (client?.prefs.cit_toggles & NO_APHRO)) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
 		return // no adjusting made here
 	var/enabling = strength > 0
 	for(var/obj/item/organ/genital/G in internal_organs)
@@ -81,9 +81,9 @@
 		R.trans_to(condomclimax(), R.total_volume)
 	else
 		if(spill && R.total_volume >= 5)
-			R.reaction(turfing ? target : target.loc, TOUCH, 1, 0)
+			R.expose(turfing ? target : target.loc, TOUCH, 1, 0)
 		if(!turfing)
-			R.trans_to(target, R.total_volume * (spill ? G.fluid_transfer_factor : 1), log = TRUE)
+			R.trans_to(target, R.total_volume * (spill ? G.fluid_transfer_factor : 1))
 	G.last_orgasmed = world.time
 	R.clear_reagents()
 	//skyrat edit - chock i am going to beat you to death
@@ -134,7 +134,6 @@
 			return
 	to_chat(src,"<span class='userlove'>[G.name] стимулируется вашими же усилиями, вы пытаетесь наполнить <b>[container]</b>.</span>")
 	message_admins("[ADMIN_LOOKUPFLW(src)] использует [ru_ego()] [G.name], чтобы наполнить <b>[container]</b> [G.get_fluid_name()].")
-	log_consent("[key_name(src)] использует [ru_ego()] [G.name], чтобы наполнить <b>[container]</b> [G.get_fluid_name()].")
 	do_climax(fluid_source, container, G, FALSE, cover = TRUE)
 
 /mob/living/carbon/human/proc/pick_climax_genitals(silent = FALSE)
@@ -177,7 +176,6 @@
 			return target
 		else
 			message_admins("[ADMIN_LOOKUPFLW(src)] tried to climax with [target], but [target] did not consent.")
-			log_consent("[key_name(src)] tried to climax with [target], but [target] did not consent.")
 
 /mob/living/carbon/human/proc/pick_climax_container(silent = FALSE)
 	var/list/containers_list = list()

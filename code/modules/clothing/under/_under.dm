@@ -21,6 +21,12 @@
 	var/alt_covers_chest = FALSE // for adjusted/rolled-down jumpsuits, FALSE = exposes chest and arms, TRUE = exposes arms only
 	var/obj/item/clothing/accessory/attached_accessory
 	var/mutable_appearance/accessory_overlay
+	var/dummy_thick = FALSE // is able to hold accessories on its item
+	//SANDSTORM EDIT - Removed the old attached accessory system. We use a list of accessories instead.
+	var/max_accessories = 3
+	var/list/obj/item/clothing/accessory/attached_accessories = list()
+	var/list/mutable_appearance/accessory_overlays = list()
+	//SANDSTORM EDIT END
 
 /datum/armor/clothing_under
 	bio = 10
@@ -166,31 +172,39 @@
 /mob/living/carbon/human/dummy/update_sensor_list()
 	return
 
-/obj/item/clothing/under/proc/attach_accessory(obj/item/tool, mob/user, notifyAttach = 1)
+/obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1)
 	. = FALSE
-	if(!istype(tool, /obj/item/clothing/accessory))
-		return
-	var/obj/item/clothing/accessory/accessory = tool
-	if(attached_accessory)
-		if(user)
-			to_chat(user, span_warning("[src] already has an accessory."))
-		return
+	if(istype(I, /obj/item/clothing/accessory) && !istype(I, /obj/item/clothing/accessory/ring))
+		var/obj/item/clothing/accessory/A = I
+		if(length(attached_accessories) >= max_accessories)
+			if(user)
+				to_chat(user, "<span class='warning'>[src] already has [length(attached_accessories)] accessories.</span>")
+			return
+		if(dummy_thick)
+			if(user)
+				to_chat(user, "<span class='warning'>[src] is too bulky and cannot have accessories attached to it!</span>")
+			return
+		else
+			if(user && !user.temporarilyRemoveItemFromInventory(I))
+				return
+			if(!A.attach(src, user))
+				return
 
-	if(!accessory.can_attach_accessory(src, user)) //Make sure the suit has a place to put the accessory.
-		return
-	if(user && !user.temporarilyRemoveItemFromInventory(accessory))
-		return
-	if(!accessory.attach(src, user))
-		return
+			if(user && notifyAttach)
+				to_chat(user, "<span class='notice'>You attach [I] to [src].</span>")
 
-	. = TRUE
-	if(user && notifyAttach)
-		to_chat(user, span_notice("You attach [accessory] to [src]."))
+			if((flags_inv & HIDEACCESSORY) || (A.flags_inv & HIDEACCESSORY))
+				return TRUE
 
-	var/accessory_color = attached_accessory.icon_state
-	accessory_overlay = mutable_appearance(attached_accessory.worn_icon, "[accessory_color]")
-	accessory_overlay.alpha = attached_accessory.alpha
-	accessory_overlay.color = attached_accessory.color
+			//SANDSTORM EDIT
+			accessory_overlays = list(mutable_appearance('icons/mob/clothing/accessories.dmi', "blank"))
+			for(var/obj/item/clothing/accessory/attached_accessory in attached_accessories)
+			var/accessory_color = attached_accessory.icon_state
+			var/mutable_appearance/accessory_overlay = mutable_appearance(attached_accessory.worn_icon, "[accessory_color]")
+			accessory_overlay.alpha = attached_accessory.alpha
+			accessory_overlay.color = attached_accessory.color
+			accessory_overlays += accessory_overlay
+			//SANDSTORM EDIT END
 
 	update_appearance()
 	if(!ishuman(loc))

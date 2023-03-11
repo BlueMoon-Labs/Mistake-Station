@@ -31,7 +31,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/clothing_righthand.dmi'
 	icon_state = "coatsecuritypink"
-	item_state = "coatsecuritypink"
+	icon_state = "coatsecuritypink"
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/security/pink
 
 /obj/item/clothing/head/hooded/winterhood/security/pink
@@ -45,7 +45,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "jacket_yellow"
-	item_state = "jacket_yellow"
+	icon_state = "jacket_yellow"
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
 	mutantrace_variation = NONE
@@ -55,25 +55,25 @@
 	name = "Orange Jacket"
 	desc = "A orange jacket with a fluffy collar."
 	icon_state = "jacket_orange"
-	item_state = "jacket_orange"
+	icon_state = "jacket_orange"
 
 /obj/item/clothing/suit/toggle/rp_jacket/red
 	name = "Red Jacket"
 	desc = "A red jacket with a fluffy collar."
 	icon_state = "jacket_red"
-	item_state = "jacket_red"
+	icon_state = "jacket_red"
 
 /obj/item/clothing/suit/toggle/rp_jacket/purple
 	name = "Purple Jacket"
 	desc = "A purple jacket with a fluffy collar."
 	icon_state = "jacket_purple"
-	item_state = "jacket_purple"
+	icon_state = "jacket_purple"
 
 /obj/item/clothing/suit/toggle/rp_jacket/white
 	name = "White Jacket"
 	desc = "A white jacket with a fluffy collar."
 	icon_state = "jacket_white"
-	item_state = "jacket_white"
+	icon_state = "jacket_white"
 
 /obj/item/clothing/suit/baroness
 	name = "Baroness Dress"
@@ -81,7 +81,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "baroness"
-	item_state = "baroness"
+	icon_state = "baroness"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 	flags_inv = HIDESHOES|HIDEUNDERWEAR
@@ -90,7 +90,7 @@
 	name = "Green Ball Dress"
 	desc = "This dress looks a bit like the one an estranged aunt would wear."
 	icon_state = "ladyballat"
-	item_state = "ladyballat"
+	icon_state = "ladyballat"
 
 /obj/item/clothing/suit/flatwoods
 	name = "Flatwoods Dress"
@@ -98,7 +98,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "flatwoods"
-	item_state = "flatwoods"
+	icon_state = "flatwoods"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 	flags_inv = HIDESHOES|HIDEUNDERWEAR
@@ -112,7 +112,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "corpus"
-	item_state = "armor"
+	icon_state = "armor"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET|HANDS
 	hoodtype = /obj/item/clothing/head/hooded/corpus
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT //"Hide shoes" but digi shoes don't get hidden, too bad!
@@ -158,7 +158,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "maiddress"
-	item_state = "maiddress"
+	icon_state = "maiddress"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 	flags_inv = HIDESHOES|HIDEUNDERWEAR
@@ -169,7 +169,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "pyramidhead"
-	item_state = "apron"
+	icon_state = "apron"
 	hoodtype = /obj/item/clothing/head/hooded/pyramidhead
 	body_parts_covered = CHEST|GROIN|LEGS
 	mutantrace_variation = NONE
@@ -181,7 +181,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	icon_state = "pyramidhead"
-	item_state = "pyramidhead"
+	icon_state = "pyramidhead"
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEFACE|HIDEMASK|HIDESNOUT|HIDENECK
 
 // GWTB-inspired stuff wooo
@@ -211,7 +211,7 @@
 	desc = "A generic, drab olive trench coat with polychromic spots."
 	var/list/poly_colors = list("#E6E6E6", "#D6D6D6", "#D6D6D6")
 
-/obj/item/clothing/suit/goner/fake/poly/ComponentInitialize()
+/obj/item/clothing/suit/goner/fake/poly/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, poly_colors, 3)
 

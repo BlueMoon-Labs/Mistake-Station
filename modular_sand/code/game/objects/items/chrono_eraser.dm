@@ -207,6 +207,7 @@
 		mob_underlay.icon_state = "frame[RPpos]"
 		underlays = list() //hack: BYOND refuses to update the underlay to match the icon_state otherwise
 		underlays += mob_underlay
+	return ..()
 
 /obj/structure/chrono_field/process()
 	if(captured)
@@ -256,12 +257,14 @@
 /obj/structure/chrono_field/assume_air()
 	return 0
 
+/* Я не ебу.
 /obj/structure/chrono_field/return_air() //we always have nominal air and temperature
 	var/datum/gas_mixture/GM = new
 	GM.set_moles(GAS_O2, MOLES_O2STANDARD)
 	GM.set_moles(GAS_N2, MOLES_N2STANDARD)
 	GM.set_temperature(T20C)
 	return GM
+*/
 
 /obj/structure/chrono_field/singularity_act()
 	return

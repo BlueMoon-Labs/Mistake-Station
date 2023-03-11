@@ -8,7 +8,7 @@
 	name = "deprivation helmet"
 	desc = "Completely cuts off the wearer from the outside world."
 	icon_state = "dephelmet"
-	item_state = "dephelmet"
+	icon_state = "dephelmet"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 25, "rad" = 0, "fire" = 20, "acid" = 15, "wound" = 0)
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/head/lewd_hats.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/head/lewd_hats.dmi'
@@ -165,13 +165,13 @@
 	for(M in src.actions)
 		if(istype(M, /datum/action/item_action/toggle_vision))
 			M.button_icon_state = "[current_helmet_color]_blind"
-			M.icon_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
+			M.icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 		if(istype(M, /datum/action/item_action/toggle_hearing))
 			M.button_icon_state = "[current_helmet_color]_deaf"
-			M.icon_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
+			M.icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 		if(istype(M, /datum/action/item_action/toggle_speech))
 			M.button_icon_state = "[current_helmet_color]_mute"
-			M.icon_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
+			M.icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 	update_icon()
 
 //to check if we can change helmet's model
@@ -194,7 +194,7 @@
 /obj/item/clothing/head/helmet/space/deprivation_helmet/update_icon_state()
 	.=..()
 	icon_state = "[initial(icon_state)]_[current_helmet_color]"
-	item_state = "[initial(icon_state)]_[current_helmet_color]"
+	icon_state = "[initial(icon_state)]_[current_helmet_color]"
 //Code for applying the deprivation aspects upon equip
 /obj/item/clothing/head/helmet/space/deprivation_helmet/equipped(mob/living/carbon/human/user, slot)
 	. = ..()

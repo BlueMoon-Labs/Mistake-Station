@@ -171,7 +171,7 @@
 			if(hud_used.inventory_shown)
 				client.screen += belt
 
-		var/t_state = belt.item_state
+		var/t_state = belt.icon_state
 		if(!t_state)
 			t_state = belt.icon_state
 
@@ -270,7 +270,7 @@
 							observers = null
 							break
 
-		var/t_state = I.item_state
+		var/t_state = I.icon_state
 		if(!t_state)
 			t_state = I.icon_state
 

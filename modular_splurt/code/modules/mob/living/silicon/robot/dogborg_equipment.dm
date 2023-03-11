@@ -137,7 +137,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 	icon_state = "dbag"
 	w_class = WEIGHT_CLASS_BULKY
 
-/obj/item/storage/bag/borgdelivery/ComponentInitialize()
+/obj/item/storage/bag/borgdelivery/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_BULKY
@@ -285,9 +285,9 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 	desc = "MediHound specific shock paws."
 	icon = 'modular_sand/icons/mob/dogborg.dmi'
 	icon_state = "defibpaddles0"
-	item_state = "defibpaddles0"
+	icon_state = "defibpaddles0"
 
-/obj/item/shockpaddles/cyborg/hound/ComponentInitialize()
+/obj/item/shockpaddles/cyborg/hound/Initialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed)
 

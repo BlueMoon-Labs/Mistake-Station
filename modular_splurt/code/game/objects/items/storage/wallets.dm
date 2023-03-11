@@ -10,7 +10,7 @@
 	item_flags = NO_MAT_REDEMPTION
 	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 
-/obj/item/storage/wallet/bluespace/ComponentInitialize()
+/obj/item/storage/wallet/bluespace/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 12

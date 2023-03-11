@@ -1,5 +1,5 @@
 //Main code edits
-/obj/structure/table/ComponentInitialize()
+/obj/structure/table/Initialize()
 	. = ..()
 	AddElement(/datum/element/crawl_under)
 

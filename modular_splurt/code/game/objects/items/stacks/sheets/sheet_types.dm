@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(shadow_wood_recipes, list ( \
 	desc = "An purplish wood, it has nothing of special besides its color."
 	singular_name = "shadow wood plank"
 	icon_state = "sheet-shadow_wood"
-	item_state = "sheet-shadow_wood"
+	icon_state = "sheet-shadow_wood"
 	icon = 'modular_splurt/icons/obj/stack_objects.dmi'
 	sheettype = "shadow_wood"
 	merge_type = /obj/item/stack/sheet/mineral/wood/shadow
@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(mush_wood_recipes, list ( \
 	desc = "A material similar to wood, except for being fireproof."
 	singular_name = "mushroom plank"
 	icon_state = "sheet-mush_wood"
-	item_state = "sheet-mush_wood"
+	icon_state = "sheet-mush_wood"
 	icon = 'modular_splurt/icons/obj/stack_objects.dmi'
 	sheettype = "mush_wood"
 	merge_type = /obj/item/stack/sheet/mineral/wood/mushroom
@@ -68,7 +68,7 @@ GLOBAL_LIST_INIT(mush_wood_recipes, list ( \
 	desc = "A long soft material. This one is just made out of cotton rather then any spiders or wyrms"
 	singular_name = "silk sheet"
 	icon_state = "sheet-silk"
-	item_state = "sheet-cloth"
+	icon_state = "sheet-cloth"
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/silk
 	grind_results = list(/datum/reagent/cellulose = 2)
@@ -99,7 +99,7 @@ GLOBAL_LIST_INIT(micro_bricks_recipes, list( \
 	singular_name = "Micro Brick"
 	icon = 'modular_splurt/icons/obj/stack_objects.dmi'
 	icon_state = "SmallBucket"
-	item_state = "SmallBucket"
+	icon_state = "SmallBucket"
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
 	flags_1 = CONDUCT_1
 	resistance_flags = FIRE_PROOF

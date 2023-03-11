@@ -4,13 +4,13 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "detective_lanyard"
-	item_state = "detective_lanyard"
+	icon_state = "detective_lanyard"
 
 /obj/item/clothing/suit/toggle/brigdesec
 	name = "bridge officer jacket"
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket_bridgesec"
-	item_state = "suitjacket_bridgesec"
+	icon_state = "suitjacket_bridgesec"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	blood_overlay_type = "coat"
@@ -22,7 +22,7 @@
 	name = "\improper Head of Personnel's parade jacket"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "hopformal"
-	item_state = "hopformal"
+	icon_state = "hopformal"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit.dmi'

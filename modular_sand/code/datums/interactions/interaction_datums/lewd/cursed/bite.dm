@@ -11,7 +11,7 @@
 /datum/interaction/lewd/bite/display_interaction(mob/living/user, mob/living/partner)
 	var/message
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		user.is_fucking(partner, CUM_TARGET_HAND)
 		partner.adjustBruteLoss(rand(4,12))
 		message = "[pick("прижимается к <b>[partner]</b>, раскрывает рот и начинает кусаться.",
@@ -32,7 +32,6 @@
 			if(cli.prefs.extremeharm != "No")
 				if(prob(30))
 					C.bleed(5)
-					C.add_splatter_floor(get_turf(BLOOD_COLOR_HUMAN), TRUE)
 					new/obj/effect/decal/cleanable/blood
 
 	if(prob(50 + partner.get_lust()))

@@ -25,7 +25,7 @@
 	desc = "A simple tool with a small knife, screwdriver, and wirecutters. Currently has the screwdriver extended."
 	icon_state = "armyknife_screw"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
-	item_state = "screwdriver"
+	icon_state = "screwdriver"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	force = 4
@@ -51,8 +51,8 @@
 	desc = "A simple tool with a small knife, screwdriver, and wirecutters. Currently has the wirecutters extended."
 	icon_state = "armyknife_cutter"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
-	item_state = "jawsoflife"
-	item_state = "cutters"
+	icon_state = "jawsoflife"
+	icon_state = "cutters"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	hitsound = 'sound/items/wirecutter.ogg'
@@ -78,7 +78,7 @@
 	name = "Army Multitool"
 	icon_state = "armyknife_blade"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
-	item_state = "switchblade_ext"
+	icon_state = "switchblade_ext"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	desc = "A simple tool with a small knife, screwdriver, and wirecutters. Currently has the knife extended."

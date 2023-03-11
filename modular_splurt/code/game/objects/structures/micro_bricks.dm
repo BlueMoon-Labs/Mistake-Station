@@ -3,7 +3,7 @@
 	anchored = FALSE
 	var/buildstacktype = /obj/item/stack/sheet/micro_bricks
 
-/obj/structure/micro_brick/ComponentInitialize()
+/obj/structure/micro_brick/Initialize()
 	. = ..()
 	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE)
 

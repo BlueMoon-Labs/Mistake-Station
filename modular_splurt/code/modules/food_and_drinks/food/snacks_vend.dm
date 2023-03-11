@@ -130,7 +130,7 @@
 	icon_type = "jelly bean"
 	spawn_type = /obj/item/reagent_containers/food/snacks/jellybean
 
-/obj/item/storage/fancy/jellybean_bowl/ComponentInitialize()
+/obj/item/storage/fancy/jellybean_bowl/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 10
@@ -180,7 +180,7 @@
 	icon_type = "jelly bean"
 	spawn_type = /obj/item/reagent_containers/food/snacks/jellybean/lewd
 
-/obj/item/storage/fancy/jellybean_pack/ComponentInitialize()
+/obj/item/storage/fancy/jellybean_pack/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 27

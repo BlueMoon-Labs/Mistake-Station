@@ -3,7 +3,7 @@
 	desc = "Fit for a cleric!"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	icon_state = "holy_mace"
-	item_state = "holy_mace"
+	icon_state = "holy_mace"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
@@ -15,7 +15,7 @@
 	desc = "A staff used by traditional bishops and popes."
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	icon_state = "papal_staff"
-	item_state = "papal_staff"
+	icon_state = "papal_staff"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY

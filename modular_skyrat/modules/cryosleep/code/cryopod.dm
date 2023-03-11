@@ -140,6 +140,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
+	var/tele = FALSE
 
 	var/open_icon_state = "cryopod-open"
 	var/on_store_message = "has entered long-term storage."

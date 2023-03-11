@@ -62,7 +62,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "domina"
-	item_state = "domina"
+	icon_state = "domina"
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -73,7 +73,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "bluedress"
-	item_state = "bluedress"
+	icon_state = "bluedress"
 	can_adjust = FALSE
 	fitted = NO_FEMALE_UNIFORM // So it won't delete boobs
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
@@ -85,7 +85,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "performer"
-	item_state = "performer"
+	icon_state = "performer"
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 	body_parts_covered = CHEST
@@ -103,7 +103,7 @@
 	desc = "A \"\"\"tactical\"\"\" security jumpsuit with the legs replaced by a skirt. No matter how you adjust it, it always feels a little too small."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "secslutskirt"
-	item_state = "secslutskirt"
+	icon_state = "secslutskirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30, "wound" = 10)
 	can_adjust = FALSE
@@ -114,7 +114,7 @@
 	desc = "A \"\"\"tactical\"\"\" security jumpsuit with the legs replaced by a skirt. No matter how you adjust it, it always feels a little too small. This one seems to have an experimental color scheme."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "secslutskirtpink"
-	item_state = "secslutskirtpink"
+	icon_state = "secslutskirtpink"
 	can_adjust = FALSE
 	body_parts_covered = CHEST|GROIN|ARMS
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
@@ -125,7 +125,7 @@
 	desc = "This can't be dress code compliant, can it?"
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "secstripper"
-	item_state = "secstripper"
+	icon_state = "secstripper"
 	can_adjust = FALSE
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
@@ -136,7 +136,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "brigphys"
-	item_state = "brigphys"
+	icon_state = "brigphys"
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
 	can_adjust = FALSE
 	strip_delay = 50
@@ -150,7 +150,7 @@
 	name = "brig physician skirt"
 	desc = "The uniform of the Brig Physician. Do know harm, with a skirt"
 	icon_state = "brigphysf"
-	item_state = "brigphysf"
+	icon_state = "brigphysf"
 	body_parts_covered = CHEST|GROIN|ARMS
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
@@ -160,7 +160,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "blueshield"
-	item_state = "blueshield"
+	icon_state = "blueshield"
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
 	can_adjust = FALSE
 	strip_delay = 50
@@ -174,27 +174,27 @@
 	name = "blueshield formal outfit"
 	desc = "The formal uniform of the Blueshield. It makes you feel protected while looking great."
 	icon_state = "blueformal"
-	item_state = "blueformal"
+	icon_state = "blueformal"
 
 /obj/item/clothing/under/rank/blueshield/formal/skirt
 	name = "blueshield formal skirt"
 	desc = "The formal uniform of the Blueshield. It makes you feel protected while looking great. A lot better than the stuffy pants."
 	icon_state = "blueshieldskirt"
-	item_state = "blueshieldskirt"
+	icon_state = "blueshieldskirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 
 /obj/item/clothing/under/rank/blueshield/skirt
 	name = "blueshield skirt"
 	desc = "The uniform of the Blueshield. It makes you feel protected, even with a bit of a breeze."
 	icon_state = "blueshieldf"
-	item_state = "blueshieldf"
+	icon_state = "blueshieldf"
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
 /obj/item/clothing/under/plasmaman/security/blueshield
 	name = "security plasma envirosuit"
 	desc = "A slick black and blue  plasmaman containment suit designed for the Blueshield."
 	icon_state = "bs_envirosuit"
-	item_state = "bs_envirosuit"
+	icon_state = "bs_envirosuit"
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
@@ -203,7 +203,7 @@
 	name = "head of security's plasma envirosuit helmet"
 	desc = "A plasmaman containment helmet designed for the Blueshield, menacing black with blue stripes."
 	icon_state = "bs_envirohelm"
-	item_state = "bs_envirohelm"
+	icon_state = "bs_envirohelm"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mobs/head.dmi'
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 25, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 60)
@@ -214,7 +214,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "bridgesec"
-	item_state = "bridgesec"
+	icon_state = "bridgesec"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 0)
 	can_adjust = FALSE
 	strip_delay = 25
@@ -227,7 +227,7 @@
 /obj/item/clothing/under/rank/bridgeofficer/skirt
 	name = "bridge officer skirt"
 	icon_state = "bridgesecf"
-	item_state = "bridgesecf"
+	icon_state = "bridgesecf"
 	body_parts_covered = CHEST|GROIN|ARMS
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
@@ -237,7 +237,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "bridgesecformal"
-	item_state = "bridgesecformal"
+	icon_state = "bridgesecformal"
 
 /obj/item/clothing/under/cyberpunksleek
 	name = "modern sweater"
@@ -246,7 +246,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "cyberpunksleek"
-	item_state = "cyberpunksleek"
+	icon_state = "cyberpunksleek"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	can_adjust = FALSE
 
@@ -257,7 +257,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "cyberpunksleek_long"
-	item_state = "cyberpunksleek_long"
+	icon_state = "cyberpunksleek_long"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	can_adjust = FALSE
 
@@ -267,7 +267,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "pentatop"
-	item_state = "pentatop"
+	icon_state = "pentatop"
 	body_parts_covered = CHEST
 	can_adjust = FALSE
 
@@ -292,7 +292,7 @@
 	desc = "An utilitarian uniform with polychromic spots."
 	var/list/poly_colors = list("#E6E6E6")
 
-/obj/item/clothing/under/goner/fake/poly/ComponentInitialize()
+/obj/item/clothing/under/goner/fake/poly/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, poly_colors, 1)
 
@@ -328,7 +328,7 @@
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
-/obj/item/clothing/under/misc/leia_outfit/ComponentInitialize()
+/obj/item/clothing/under/misc/leia_outfit/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, list("#C61818", "#D4AF37"), 2)
 
@@ -338,7 +338,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "poly_performer"
 
-/obj/item/clothing/under/performer/polychromic/ComponentInitialize()
+/obj/item/clothing/under/performer/polychromic/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, list("#ffffff"), 1)
 

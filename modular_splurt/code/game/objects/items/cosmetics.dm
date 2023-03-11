@@ -35,7 +35,7 @@
 	desc = "Paint with a fine brush to do your nails, or someone elses."
 	icon = 'modular_splurt/icons/obj/cosmetic.dmi'
 	icon_state = "nailcap"
-	item_state = "nailpolish"
+	icon_state = "nailpolish"
 	w_class = WEIGHT_CLASS_SMALL
 	var/paint = "black"
 	var/mutable_appearance/bottle //show the colour on the bottle.

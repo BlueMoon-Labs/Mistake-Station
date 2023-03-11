@@ -4,6 +4,6 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "captainblacksuit"
-	item_state = "captainblacksuit"
+	icon_state = "captainblacksuit"
 	can_adjust = FALSE
 	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_ALL_TAURIC

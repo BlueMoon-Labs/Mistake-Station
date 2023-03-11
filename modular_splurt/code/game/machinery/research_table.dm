@@ -37,7 +37,7 @@
 		. += "<span class='notice'>The panel is <b>screwed</b> open and you could change generation type with a <b>multitool</b>.</span>"
 
 /obj/machinery/research_table/multitool_act(mob/living/user, obj/item/I)
-	if(user.a_intent == INTENT_HELP)
+	if(user.combat_mode == FALSE)
 		if(panel_open && !slaver_mode) // Do not let slaver version switch to science mode, they should only generate credits.
 			user.visible_message("<span class='notice'>[user] begins changing the generation type on \the [src].</span>", "<span class='notice'>You begin changing the generation type on \the [src].</span>")
 			if(do_after(user, 5 SECONDS, TRUE, src))

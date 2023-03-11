@@ -24,6 +24,7 @@
 	surgerytime = max(AUTODOC_TIME_BASE,10)
 
 /obj/machinery/autodoc/RefreshParts()
+	. = ..()
 	var/max_time = AUTODOC_TIME_BASE
 	for(var/obj/item/stock_parts/L in component_parts)
 		max_time -= (L.rating*10)
@@ -146,6 +147,8 @@
 
 
 /obj/machinery/autodoc/update_icon()
+	. = ..()
+
 	overlays.Cut()
 	if(!state_open)
 		if(processing)
@@ -156,12 +159,12 @@
 		else
 			overlays += "[icon_state]_door_off"
 			if(occupant)
-				if(powered(EQUIP))
+				if(powered())
 					overlays += "[icon_state]_stack"
 					overlays += "[icon_state]_yellow"
 			else
 				overlays += "[icon_state]_red"
-	else if(powered(EQUIP))
+	else if(powered())
 		overlays += "[icon_state]_red"
 	if(panel_open)
 		overlays += "[icon_state]_panel"

@@ -5,14 +5,14 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "hop_parade_male"
-	item_state = "hop_parade_male"
+	icon_state = "hop_parade_male"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/parade/female
 	name = "head of personnel's parade uniform"
 	desc = "A female head of personnel's luxury-wear, for special occasions."
 	icon_state = "hop_parade_female"
-	item_state = "hop_parade_female"
+	icon_state = "hop_parade_female"
 	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/civilian/lawyer/galaxy_blue
@@ -22,7 +22,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	item_state = "b_suit"
+	icon_state = "b_suit"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/galaxy_red
@@ -32,5 +32,5 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "galaxy_red"
-	item_state = "r_suit"
+	icon_state = "r_suit"
 	can_adjust = FALSE

@@ -15,13 +15,13 @@
 	desc = "A mask made of soft vinyl and latex, representing the head of a mythical kitsune."
 	icon = 'modular_splurt/icons/obj/clothing/masks.dmi'
 	icon_state = "kitsune"
-	item_state = "kitsune"
+	icon_state = "kitsune"
 */
 
 /obj/item/clothing/mask/gas/cbrn
 	name = "CBRN gas mask"
 	desc = "Chemical, Biological, Radiological and Nuclear. A heavy duty gas mask design to be worn in hazardous environments. Actually works like a gas mask as well as can be connected to internal air supply."
-	item_state = "gas_cbrn"
+	icon_state = "gas_cbrn"
 	icon_state = "gas_cbrn"
 	icon = 'modular_splurt/icons/obj/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
@@ -40,7 +40,7 @@
 /obj/item/clothing/mask/gas/cbrn/mopp
 	name = "MOPP gas mask"
 	desc = "Mission Oriented Protective Posture. A heavy duty gas mask design to be worn in hazardous combat environments. Actually works like a gas mask as well as can be connected to internal air supply."
-	item_state = "gas_mopp"
+	icon_state = "gas_mopp"
 	icon_state = "gas_mopp"
 	armor = list("melee" = 10, "bullet" = 5, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 
@@ -80,7 +80,7 @@
 	name = "broken night vision health scanner HUD"
 	desc = "An advanced medical heads-up display that allows doctors to find patients in complete darkness. However the electronics seem to no longer work"
 	icon_state = "healthhudnight"
-	item_state = "glasses"
+	icon_state = "glasses"
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
 /obj/item/clothing/glasses/brokenhud/health/sunglasses
@@ -129,4 +129,4 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	icon_state = "ballgag"
-	item_state = "ballgag"
+	icon_state = "ballgag"

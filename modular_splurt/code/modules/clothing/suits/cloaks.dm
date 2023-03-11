@@ -19,7 +19,7 @@
 	icon_state = "boatcloak"
 	var/list/poly_colors = list("#FCFCFC", "#454F5C", "#CCCEE2")
 
-/obj/item/clothing/neck/cloak/alt/boatcloak/polychromic/ComponentInitialize()
+/obj/item/clothing/neck/cloak/alt/boatcloak/polychromic/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, poly_colors, 3)
 

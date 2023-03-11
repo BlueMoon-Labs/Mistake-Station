@@ -1,5 +1,5 @@
 /mob/living/carbon/wendigo/attack_hulk(mob/living/carbon/human/user, does_attack_animation = FALSE)
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		. = ..(user, TRUE)
 		if(.)
 			return

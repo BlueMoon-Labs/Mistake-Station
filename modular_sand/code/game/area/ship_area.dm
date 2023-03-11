@@ -38,7 +38,7 @@
 	name = "Ship Maintenance"
 	icon_state = "ship_maint"
 	has_gravity = STANDARD_GRAVITY
-	ambientsounds = MAINTENANCE
+	ambientsounds = list('sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg', 'sound/ambience/ambigen9.ogg', 'sound/ambience/ambigen10.ogg')
 
 /area/ship/maint/north
 	name = "Ship Maint North"

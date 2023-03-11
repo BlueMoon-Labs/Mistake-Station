@@ -9,7 +9,7 @@
 	name = "Hypnotize"
 	desc = "Stare deeply into someone's eyes, drawing them into a hypnotic slumber."
 	button_icon_state = "Hypno_eye"
-	icon_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
+	icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 	background_icon_state = "bg_alien"
 
 /datum/action/innate/Hypnotize/Activate()
@@ -217,13 +217,13 @@
 /datum/action/innate/hydra
 	name = "Switch head"
 	desc = "Switch between each of the heads on your body."
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "art_summon"
 
 /datum/action/innate/hydrareset
 	name = "Reset speech"
 	desc = "Go back to speaking as a whole."
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "art_summon"
 
 /datum/action/innate/hydrareset/Activate()
@@ -251,7 +251,7 @@
 	button_icon_state = "power_torpor"
 	background_icon_state = "vamp_power_off"
 	buttontooltipstyle = "cult"
-	icon_icon = 'icons/mob/actions/bloodsucker.dmi'
+	icon = 'icons/mob/actions/bloodsucker.dmi'
 	button_icon = 'icons/mob/actions/bloodsucker.dmi'
 
 // Action: Bite
@@ -410,7 +410,7 @@
 		playsound(get_turf(target), 'sound/effects/splat.ogg', 40, 1)
 
 		// Check for masochism
-		if(!HAS_TRAIT(bite_target, TRAIT_MASO))
+		if(!HAS_TRAIT(bite_target, TRAIT_MASOCHISM))
 			// Force bite_target to play the scream emote
 			bite_target.emote("scream")
 
@@ -676,7 +676,7 @@
 /datum/action/cooldown/werewolf
 	name = "Werewolf Ability"
 	desc = "Do something related to werewolves."
-	icon_icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
+	icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "Transform"
 	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUN | AB_CHECK_CONSCIOUS | AB_CHECK_ALIVE
 	cooldown_time = 5 SECONDS
@@ -892,7 +892,7 @@
 /datum/action/gargoyle/transform
 	name = "Transform"
 	desc = "Transform into a statue, regaining energy in the process. Additionally, you will slowly heal while in statue form."
-	icon_icon = 'icons/mob/actions/actions_changeling.dmi'
+	icon = 'icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "ling_camouflage"
 	var/obj/structure/statue/gargoyle/current = null
 
@@ -930,7 +930,7 @@
 /datum/action/gargoyle/check
 	name = "Check"
 	desc = "Check your current energy levels."
-	icon_icon = 'icons/mob/actions/actions_clockcult.dmi'
+	icon = 'icons/mob/actions/actions_clockcult.dmi'
 	button_icon_state = "Linked Vanguard"
 
 /datum/action/gargoyle/check/Trigger()
@@ -942,7 +942,7 @@
 /datum/action/gargoyle/pause
 	name = "Preserve"
 	desc = "Become near-motionless, thusly conserving your energy until you move from your current tile. Note, you will lose a chunk of energy when you inevitably move from your current position, so you cannot abuse this!"
-	icon_icon = 'icons/mob/actions/actions_flightsuit.dmi'
+	icon = 'icons/mob/actions/actions_flightsuit.dmi'
 	button_icon_state = "flightsuit_lock"
 
 /datum/action/gargoyle/pause/Trigger()
@@ -965,7 +965,7 @@
 /datum/action/rad_fiend
 	name = "Broken Rad Action"
 	desc = "Report this to a coder."
-	icon_icon = 'icons/effects/effects.dmi'
+	icon = 'icons/effects/effects.dmi'
 	button_icon_state = "static"
 
 /datum/action/rad_fiend/update_glow

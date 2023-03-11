@@ -3,7 +3,7 @@
 /datum/action/sizecode_smallsprite
 	name = "Toggle Giant Sprite"
 	desc = "Others will always see you as giant"
-	icon_icon = 'icons/mob/screen_gen_old.dmi'
+	icon = 'icons/mob/screen_gen_old.dmi'
 	button_icon_state = "health1"
 	background_icon_state = "bg_alien"
 	var/small = FALSE

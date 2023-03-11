@@ -19,7 +19,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/head_muzzled.dmi'
 	icon_state = "hev"
-	item_state = "hev"
+	icon_state = "hev"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 10, "energy" = 5, "bomb" = 80, "bio" = 100, "rad" = 100, "fire" = 60, "acid" = 60)
@@ -35,7 +35,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	icon_state = "hev"
-	item_state = "hev"
+	icon_state = "hev"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT //Same as an emergency firesuit. Not ideal for extended exposure.
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -93,7 +93,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	icon_state = "golden_pa"
-	item_state = "golden_pa"
+	icon_state = "golden_pa"
 	max_charges = 4
 	current_charges = 4
 	recharge_delay = 15
@@ -116,7 +116,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/head_muzzled.dmi'
 	icon_state = "hardsuit0-goldenpa"
-	item_state = "hardsuit0-goldenpa"
+	icon_state = "hardsuit0-goldenpa"
 	hardsuit_type = "goldenpa"
 	armor = list("melee" = 80, "bullet" = 80, "laser" = 50, "energy" = 50, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	strip_delay = 130
@@ -129,7 +129,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	icon_state = "tesla_pa"
-	item_state = "tesla_pa"
+	icon_state = "tesla_pa"
 	armor = list("melee" = 70, "bullet" = 70, "laser" = 90, "energy" = 90, "bomb" = 70, "bio" = 100, "rad" = 40, "fire" = 100, "acid" = 100)
 	strip_delay = 300
 	equip_delay_self = 300
@@ -192,7 +192,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/head_muzzled.dmi'
 	icon_state = "teslaup"
-	item_state = "teslaup"
+	icon_state = "teslaup"
 	armor = list("melee" = 70, "bullet" = 70, "laser" = 90, "energy" = 90, "bomb" = 70, "bio" = 100, "rad" = 10, "fire" = 100, "acid" = 100)
 	strip_delay = 130
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -204,7 +204,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	icon_state = "advanced_pa"
-	item_state = "advanced_pa"
+	icon_state = "advanced_pa"
 	armor = list("melee" = 95, "bullet" = 95, "laser" = 70, "energy" = 80, "bomb" = 70, "bio" = 100, "rad" = 40, "fire" = 100, "acid" = 100)
 	strip_delay = 300 //chonky armor means chonky strip
 	equip_delay_self = 300
@@ -227,7 +227,7 @@
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/head_muzzled.dmi'
 	icon_state = "adv_pa"
-	item_state = "adv_pa"
+	icon_state = "adv_pa"
 	armor = list("melee" = 95, "bullet" = 90, "laser" = 70, "energy" = 80, "bomb" = 70, "bio" = 100, "rad" = 40, "fire" = 100, "acid" = 100)
 	strip_delay = 300
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -238,7 +238,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/hats.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	icon_state = "hardsuit0-corpus"
-	item_state = "hardsuit0-corpus"
+	icon_state = "hardsuit0-corpus"
 	armor = list(MELEE = 10, BULLET = 5, LASER = 10, ENERGY = 5, BOMB = 10, BIO = 100, RAD = 75, FIRE = 50, ACID = 75, WOUND = 10)
 	strip_delay = 300
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -251,7 +251,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "hardsuit-corpus"
-	item_state = "hardsuit-corpus"
+	icon_state = "hardsuit-corpus"
 	max_integrity = 300
 	armor = list(MELEE = 15, BULLET = 10, LASER = 15, ENERGY = 10, BOMB = 10, BIO = 100, RAD = 100, FIRE = 50, ACID = 75, WOUND = 15)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)

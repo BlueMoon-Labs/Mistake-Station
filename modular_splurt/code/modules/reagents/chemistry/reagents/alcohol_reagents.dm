@@ -368,7 +368,7 @@
 	glass_icon_state = "ionstorm"
 	glass_name = "glass of Ion Storm"
 	glass_desc = "You're not sure how this mixture is stable or even if it's drinkable, but it does remind you of a hot cup of apple cider on a cold winter morning"
-	pH = 6.5
+	ph = 6.5
 	value = REAGENT_VALUE_UNCOMMON
 	boozepwr = 30
 	quality = DRINK_FANTASTIC

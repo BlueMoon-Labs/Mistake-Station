@@ -30,7 +30,7 @@
 						"нежно и довольно добродушно смотрит в глаза \the <b>[partner]</b>, когда вдруг его личико накрывается пиздой.",
 						"ехидно ухмыляется и покачивает своими бёдрами перед лицом \the <b>[partner]</b>, после чего вжимается в лицо партнёра своей промежностью.",
 						)
-					if(partner.a_intent == INTENT_HARM)
+					if(partner.combat_mode == TRUE)
 						partner.adjustBruteLoss(2)
 						retaliation_message = pick(
 							"испытывает глубокое недовольство от того, что находится там.",
@@ -48,7 +48,7 @@
 						"смотрит в глаза \the <b>[partner]</b>, когда гениталии прижимается к ожидающему язычку.",
 						"сильно вращает своими бёдрами и погружается в рот \the <b>[partner]</b>.",
 						)
-					if(partner.a_intent == INTENT_HARM)
+					if(partner.combat_mode == TRUE)
 						partner.adjustBruteLoss(2)
 						retaliation_message = pick(
 							"смотрит вверх из-под колен \the [user] и раз за разом пытается вывернуться в попытке выбраться.",
@@ -65,7 +65,7 @@
 				"беспомощно смотрит в глаза \the <b>[partner]</b> и вынужденно держится между бёдрами.",
 				"с силой прижимает свои бёдра к лицу \the <b>[partner]</b>.",
 				)
-			if(partner.a_intent == INTENT_HARM)
+			if(partner.combat_mode == TRUE)
 				partner.adjustBruteLoss(2)
 				retaliation_message = pick(
 					"смотрит вверх из-под колен \the [user] и раз за разом пытается вывернуться в попытке выбраться.",
@@ -126,7 +126,7 @@
 			partner.emote("chokes on \the [user]")
 			if(prob(1) && istype(partner)) //Handled on modular_splurt
 				partner.adjustOxyLoss(20)
-		if(partner.a_intent == INTENT_HARM)
+		if(partner.combat_mode == TRUE)
 			partner.adjustBruteLoss(3)
 			retaliation_message = pick(
 				"смотрит вверх из-под колен \the [user] и раз за разом пытается вывернуться в попытке выбраться.",

@@ -2,7 +2,7 @@
 	name = "CBRN gloves"
 	desc = "Chemical, Biological, Radiological and Nuclear. Thick black gloves design for working in hazardous environments. Warning not shock proof."
 	icon_state = "black"
-	item_state = "blackgloves"
+	icon_state = "blackgloves"
 	siemens_coefficient = 1
 	permeability_coefficient = 0.05
 	strip_delay = 80

@@ -2,7 +2,7 @@
 	name = "bdsm whip"
 	desc = "A less lethal version of the whip the librarian has. Still hurts, but just the way you like it."
 	icon_state = "whip"
-	item_state = "crop"
+	icon_state = "crop"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
@@ -33,7 +33,7 @@
 	name = "khopesh"
 	desc = "An sickle-shaped sword that evolved from battle axes"
 	icon_state = "khopesh"
-	item_state = "khopesh"
+	icon_state = "khopesh"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/swords_righthand.dmi'

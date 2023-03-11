@@ -13,7 +13,7 @@
 	desc = "A favorite by spaceship door gunners. This one has been ripped off it's mount."
 	icon_state = "m2a1closed100"
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
-	item_state = "m2a1closedmag"
+	icon_state = "m2a1closedmag"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	fire_sound = "sound/weapons/gunshotshotgunshot.ogg"
@@ -48,7 +48,7 @@
 
 /obj/item/gun/ballistic/automatic/m2a1/update_icon_state()
 	icon_state = "m2a1[cover_open ? "open" : "closed"][magazine ? CEILING(get_ammo(0)/25, 1)*25 : "-empty"]"
-	item_state = "m2a1[cover_open ? "openmag" : "closedmag"]"
+	icon_state = "m2a1[cover_open ? "openmag" : "closedmag"]"
 
 /obj/item/gun/ballistic/automatic/m2a1/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
 	if(cover_open)
@@ -87,7 +87,7 @@
 	desc = "A Mars copy of the greatest battle implement ever devised."
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "m1garand"
-	item_state = "moistnugget"
+	icon_state = "moistnugget"
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/garand
@@ -126,7 +126,7 @@
 	desc = "The right arm of the Free Trade Union "
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "fnfal"
-	item_state = "moistnugget"
+	icon_state = "moistnugget"
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/fal
@@ -145,7 +145,7 @@
 	desc = "The left arm of the Free Trade Union "
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "smg22"
-	item_state = "shotgun"
+	icon_state = "shotgun"
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/smg22 //This magazine may never be used, who knows

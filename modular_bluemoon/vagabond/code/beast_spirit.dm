@@ -60,7 +60,7 @@
 /datum/action/innate/beastchange
 	name = "Change Appearance"
 	desc = "Change your feral appearance."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "change"
 	var/beastskin = ""
 	var/beastsound = 'modular_bluemoon/vagabond/sound/wolf.ogg'
@@ -97,7 +97,7 @@
 /datum/action/innate/beastsex
 	name = "Toggle Aroused"
 	desc = "Switch between horny and not horny."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "sex"
 
 /datum/action/innate/beastsex/Activate()
@@ -121,7 +121,7 @@
 /datum/action/innate/beastpose
 	name = "Toggle Pose"
 	desc = "Switch between poses."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "pose"
 
 /datum/action/innate/beastpose/Activate()

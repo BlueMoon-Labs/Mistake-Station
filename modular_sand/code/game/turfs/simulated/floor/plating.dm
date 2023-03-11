@@ -35,7 +35,7 @@
 			if(!I.use_tool(src, user, 50, volume = 160)) //extra loud to let people know something's going down
 				return
 			new /obj/item/stack/tile/plasteel(get_turf(src))
-			ReplaceWithLattice()
+			attempt_lattice_replacement()
 			to_chat(user, "<span class='notice'>You remove [src].</span>")
 			balloon_alert(user, "removed")
 			return

@@ -3,7 +3,7 @@
 	desc = "A cheap energy pistol produced by Wattz and Hertz. Has no external ammo indicator. It looks easily modifiable"
 	icon = 'modular_splurt/icons/obj/guns/energy.dmi'
 	icon_state = "wattz1000"
-	item_state = "caplaser"
+	icon_state = "caplaser"
 	w_class = WEIGHT_CLASS_SMALL
 	cell_type = /obj/item/stock_parts/cell{charge = 700; maxcharge = 700}
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler)
@@ -54,7 +54,7 @@
 	desc = "An exotic laser rifle of Corpus make, someone's scrawled the word 'GROFIT' on the stock."
 	icon = 'modular_splurt/icons/obj/guns/energy.dmi'
 	icon_state = "dera"
-	item_state = "dera"
+	icon_state = "dera"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL

@@ -3,7 +3,7 @@
 	desc = "A poorly modified RCD outfitted to construct only tables. Reload with metal, glass and plasteel."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "arcd"
-	item_state = "oldrcd"
+	icon_state = "oldrcd"
 	custom_price = PRICE_ABOVE_EXPENSIVE
 	custom_premium_price = PRICE_ALMOST_ONE_GRAND
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON

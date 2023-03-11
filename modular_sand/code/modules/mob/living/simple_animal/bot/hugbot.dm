@@ -144,7 +144,7 @@
 	return attack_hand(user)
 
 /mob/living/simple_animal/bot/hugbot/attack_hand(mob/living/carbon/human/H)
-	if(H.a_intent == INTENT_DISARM && mode != BOT_TIPPED)
+	if(H.combat_mode == FALSE && mode != BOT_TIPPED)
 		H.visible_message("<span class='danger'>[H] begins tipping over [src].</span>", "<span class='warning'>You begin tipping over [src]...</span>")
 		balloon_alert(H, "tipping over")
 
@@ -158,7 +158,7 @@
 		if(do_after(H, 3 SECONDS, target=src))
 			tip_over(H)
 
-	else if(H.a_intent == INTENT_HELP && mode == BOT_TIPPED)
+	else if(H.combat_mode == FALSE && mode == BOT_TIPPED)
 		H.visible_message("<span class='notice'>[H] begins righting [src].</span>", "<span class='notice'>You begin righting [src]...</span>")
 		balloon_alert(H, "righting")
 		if(do_after(H, 3 SECONDS, target=src))

@@ -35,7 +35,7 @@
 	desc = "Used by obese officers to save their breath for running."
 	icon = 'modular_splurt/icons/obj/device.dmi'
 	icon_state = "voice0"
-	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
+	icon_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = WEIGHT_CLASS_TINY
 	var/use_message = "Halt! Security!"
 	var/spamcheck = 0
@@ -157,7 +157,7 @@
 	icon = 'modular_splurt/icons/obj/badge.dmi'
 	icon_state = "security_badge"
 	mob_overlay_icon = 'icons/mob/clothing/accessories.dmi'
-	item_state = "lawerbadge"
+	icon_state = "lawerbadge"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FIRE_PROOF
 	var/owner = null	//To prevent people from just renaming the thing if they steal it

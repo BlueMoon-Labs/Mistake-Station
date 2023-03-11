@@ -4,7 +4,7 @@
 
 /obj/item/dildo/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
 	//var/possessive_verb = user.ru_ego()
-	user.DelayNextAction(CLICK_CD_RANGE)
+	user.changeNext_move(CLICK_CD_RANGE)
 	var/message = ""
 	var/lust_amt = 0
 	if(ishuman(M) && (M?.client?.prefs?.toggles & VERB_CONSENT))
@@ -28,7 +28,7 @@
 		playsound(loc, pick('modular_sand/sound/interactions/bang4.ogg',
 							'modular_sand/sound/interactions/bang5.ogg',
 							'modular_sand/sound/interactions/bang6.ogg'), 70, 1, -1)
-	else if(user.a_intent == INTENT_HARM)
+	else if(user.combat_mode == TRUE)
 		return ..()
 
 /obj/item/dildo/attack_self(mob/living/carbon/human/user as mob)

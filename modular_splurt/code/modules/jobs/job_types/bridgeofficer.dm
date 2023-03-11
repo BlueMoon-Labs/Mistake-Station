@@ -51,7 +51,7 @@
 	name = "bridge officer headset"
 	desc = "This is used by bridge officers."
 	icon_state = "com_headset"
-	item_state = "com_headset"
+	icon_state = "com_headset"
 	keyslot = new /obj/item/encryptionkey/headset_bo
 	command = TRUE
 
@@ -59,7 +59,7 @@
 	name = "bridge officer bowman headset"
 	desc = "This is used by bridge officers. It protects from flashbangs"
 	icon_state = "com_headset_alt"
-	item_state = "com_headset_alt"
+	icon_state = "com_headset_alt"
 	bowman = TRUE
 
 /obj/item/encryptionkey/headset_bo

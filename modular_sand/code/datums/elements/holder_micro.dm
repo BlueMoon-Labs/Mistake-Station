@@ -45,7 +45,7 @@
 	return
 
 /datum/element/mob_holder/micro/proc/mob_try_pickup_micro(mob/living/carbon/source, mob/living/carbon/user)
-	if(!(user.a_intent == INTENT_GRAB))
+	if(!(user.combat_mode == TRUE))
 		return FALSE
 	if(!ishuman(user) || !user.Adjacent(source) || user.incapacitated())
 		return FALSE
@@ -129,7 +129,7 @@
 /obj/item/clothing/head/mob_holder/micro/attack_self(mob/living/user)
 	if(!user.CheckActionCooldown())
 		return
-	user.DelayNextAction(CLICK_CD_MELEE, flush = TRUE)
+	user.changeNext_move(CLICK_CD_MELEE, flush = TRUE)
 	var/mob/living/carbon/human/M = held_mob
 	if(istype(M))
 		if(user.a_intent == "harm") //TO:DO, rework all of these interactions to be a lot more in depth

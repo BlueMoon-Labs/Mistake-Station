@@ -63,7 +63,7 @@
 
 /datum/action/neckfire
 	name = "Toggle Neckfire Glow"
-	icon_icon = 'modular_splurt/icons/mob/dullahan_neckfire.dmi'
+	icon = 'modular_splurt/icons/mob/dullahan_neckfire.dmi'
 	button_icon_state = "neckfire_action"
 
 /datum/action/neckfire/Trigger()

@@ -12,7 +12,7 @@
 	desc = "An extremely dangerous implant which can be used in a variety of ways. Mostly killing."
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	icon_state = "mblade"
-	item_state = "mblade"
+	icon_state = "mblade"
 	lefthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/weapons/melee_righthand.dmi'
 	force = 45

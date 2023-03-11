@@ -146,7 +146,7 @@
 	name = "generic gun part"
 	icon_state = "shotstock"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
-	item_state = "assembly"
+	icon_state = "assembly"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	desc = "generic gun part is generic."

@@ -21,7 +21,7 @@
 	desc = "A plastic helmet with polychromic spot."
 	var/list/poly_colors = list("#D9D9D9")
 
-/obj/item/clothing/head/helmet/goner/fake/poly/ComponentInitialize()
+/obj/item/clothing/head/helmet/goner/fake/poly/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, poly_colors, 1)
 
@@ -62,7 +62,7 @@
 	desc = "A cheap officer cap with polychromic pin."
 	var/list/poly_colors = list("#F2F2F2")
 
-/obj/item/clothing/head/helmet/goner/officer/fake/poly/ComponentInitialize()
+/obj/item/clothing/head/helmet/goner/officer/fake/poly/Initialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, poly_colors, 1)
 

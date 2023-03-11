@@ -41,9 +41,18 @@
 	if(prob(OD_CHANCE_NO_TRAUMA) || HAS_TRAIT(exposed_mob, TRAIT_BIMBO))
 		return ..()
 
-	to_chat(exposed_mob, span_purple("Your libido is going haywire! It feels like speaking is much harder..."))
+	to_chat(exposed_mob, span_purple("Ваше либидо сходит с ума! Такое ощущение, что говорить становится намного труднее..."))
 	exposed_mob.gain_trauma(/datum/brain_trauma/very_special/bimbo, TRAUMA_RESILIENCE_BASIC)
 	ADD_TRAIT(exposed_mob, TRAIT_BIMBO, LEWDCHEM_TRAIT)
+
+/datum/reagent/drug/aphrodisiacplus/overdose_process(mob/living/M)
+	if(M && M.client?.prefs.arousable && !(M.client?.prefs.cit_toggles & NO_APHRO) && prob(33))
+		if(prob(5) && ishuman(M) && M.has_dna() && (M.client?.prefs.cit_toggles & BIMBOFICATION))
+			if(!HAS_TRAIT(M,TRAIT_PERMABONER))
+				to_chat(M, "<span class='userlove'>Ваше либидо сходит с ума!</span>")
+				M.log_message("Made perma-horny by hexacrocin.",LOG_EMOTE)
+				ADD_TRAIT(M,TRAIT_PERMABONER,APHRO_TRAIT)
+	..()
 
 /datum/chemical_reaction/hexacrocin
 	results = list(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 1)

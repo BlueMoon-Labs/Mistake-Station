@@ -12,7 +12,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_left.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
 	icon_state = "mindcontroller"
-	item_state = "mindcontroller"
+	icon_state = "mindcontroller"
 	var/obj/item/clothing/neck/mind_collar/collar = null
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -32,7 +32,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/neck/lewd_neck.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/neck/lewd_neck.dmi'
 	icon_state = "mindcollar"
-	item_state = "mindcollar"
+	icon_state = "mindcollar"
 	var/obj/item/mind_controller/remote = null
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small/collar/mind_collar
 	var/emoting = "Shivers"

@@ -4,7 +4,6 @@
 	message = "lets out a growl."
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
-	restraint_check = FALSE
 
 /datum/emote/living/growl/run_emote(mob/user, params, type_override, intentional)
 	if(ishuman(user))

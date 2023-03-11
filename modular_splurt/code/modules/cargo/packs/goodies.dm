@@ -2,7 +2,7 @@
 	name = "butterfly knife"
 	icon_state = "butterflyknife"
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
-	item_state = "knife"
+	icon_state = "knife"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	desc = "A sharp, concealable, fodling knife. Also known as a Balisong fan knife."

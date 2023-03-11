@@ -3,9 +3,9 @@
 	desc = "Holds a variety of gear for \"alternative\" peacekeeping."
 	icon = 'modular_splurt/icons/obj/clothing/belts.dmi'
 	icon_state = "slutbelt"
-	item_state = "security"
+	icon_state = "security"
 
-obj/item/storage/belt/slut/ComponentInitialize()
+obj/item/storage/belt/slut/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 5
@@ -36,5 +36,5 @@ obj/item/storage/belt/slut/ComponentInitialize()
 	desc = "A pleated sash that pairs well with a suit jacket."
 	icon = 'modular_splurt/icons/obj/clothing/belts.dmi'
 	icon_state = "cummerbund"
-	item_state = "cummerbund"
+	icon_state = "cummerbund"
 

@@ -4,7 +4,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/neck/cit_neck.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "shockseccollar"
-	item_state = "shockseccollar"
+	icon_state = "shockseccollar"
 
 /obj/item/electropack/Topic(href, href_list)
 	var/mob/living/carbon/C = usr

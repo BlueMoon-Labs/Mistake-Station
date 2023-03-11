@@ -519,16 +519,6 @@
 	. = ..()
 	if(!COOLDOWN_FINISHED(LM, refractory_period))
 		. += "...ощущается сексуальная истощённость."
-	switch(a_intent)
-		if(INTENT_HELP)
-			. += "...ведёт себя мягко."
-		if(INTENT_DISARM)
-			. += "...ведёт себя игриво."
-		if(INTENT_GRAB)
-			. += "...ведёт себя грубо."
-		if(INTENT_HARM)
-			. += "...выглядит агрессивно!"
-	//Here comes the fucking weird shit.
 	if(client)
 		var/client/cli = client
 		var/client/ucli = LM.client

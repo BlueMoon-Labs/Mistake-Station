@@ -8,7 +8,7 @@
 	max_distance = 1
 
 /datum/interaction/lewd/nipsuck/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if((user.a_intent == INTENT_HELP) || (user.a_intent == INTENT_DISARM))
+	if((user.combat_mode == FALSE))
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> аккуратно хватается за грудь партнёра и нежно обсасывает [pick("сосок", "соски")] \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> поглаживает грудь партнёра, аккуратно хватаясь своими губами за [pick("сосок", "соски")] \the <b>[target]</b>.</span>",
@@ -29,7 +29,7 @@
 			if(B.fluid_id)
 				user.reagents.add_reagent(B.fluid_id, rand(1,2 * modifier))
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == TRUE)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> с силой обхватывает грудь партнёра и грубо посасывает [pick("сосок", "соски")] \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> хватается губами за [pick("сосок", "соски")], касается зубками \the <b>[target]</b>'s и начинает грубо посасывать.</span>"))
@@ -49,7 +49,7 @@
 			if(B.fluid_id)
 				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
 
-	if(user.a_intent == INTENT_GRAB)
+	if(user.combat_mode == TRUE)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> крепко обхватывает грудь партнёра и активно обсасывает [pick("сосок", "соски")] \the <b>[target]</b>.</span>",
 					"<span class='lewd'>\The <b>[user]</b> поглаживает грудь партнёра и крепко хватается своими губами за [pick("сосок", "соски")] \the <b>[target]</b>.</span>",
@@ -71,7 +71,7 @@
 				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
 
 	if(prob(5 + target.get_lust()))
-		if(target.a_intent == INTENT_HELP)
+		if(target.combat_mode == FALSE)
 			user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> дрожит от возбуждения.</span>",
 					"<span class='lewd'>\The <b>[target]</b> тихо стонет.</span>",
@@ -82,7 +82,7 @@
 					"<span class='lewd'>\The <b>[target]</b> дрожит от возбуждения и довольно выдыхает, когда \the <b>[user]</b> наслаждается содержимым грудей.</span>"))
 			if(target.get_lust() < 5)
 				target.set_lust(5)
-	if(target.a_intent == INTENT_DISARM)
+	if(target.combat_mode == FALSE)
 		if (target.restrained())
 			user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> игриво извивается в попытке снять физические ограничения.</span>",
@@ -97,12 +97,12 @@
 					"<span class='lewd'>\The <b>[target]</b> толкает обнажённую грудь вперёд и дразняще проводит несколькими пальцами <b>[user]</b> по своему соску.</span>"))
 			if(target.get_lust() < 10)
 				target.add_lust(1)
-	if(target.a_intent == INTENT_GRAB)
+	if(target.combat_mode == TRUE)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> крепко сжимает запястье <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> впивается ногтями в руку <b>[user]</b>.</span>",
 				"<span class='lewd'>\The <b>[target]</b> хватает <b>[user]</b> за запястье буквально на секунду.</span>"))
-	if(target.a_intent == INTENT_HARM)
+	if(target.combat_mode == TRUE)
 		if (target.restrained())
 			user.adjustBruteLoss(5)
 			user.visible_message(

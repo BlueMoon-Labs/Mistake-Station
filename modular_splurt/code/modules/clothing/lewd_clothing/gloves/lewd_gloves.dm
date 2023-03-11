@@ -3,7 +3,7 @@
 	name = "Latex gloves"
 	desc = "Awesome looking gloves that are satisfying to the touch."
 	icon_state = "latexgloves"
-	item_state = "latexgloves"
+	icon_state = "latexgloves"
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/gloves/lewd_gloves.dmi'
 	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/gloves/lewd_gloves.dmi'

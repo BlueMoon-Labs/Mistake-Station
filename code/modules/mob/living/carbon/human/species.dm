@@ -126,6 +126,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/siemens_coeff = 1
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
 	var/fixed_mut_color = ""
+	var/whitelisted = 0 		//Is this species restricted to certain players?
+	var/whitelist = list() 		//List the ckeys that can use this species, if it's whitelisted.: list("John Doe", "poopface666", "SeeALiggerPullTheTrigger") Spaces & capitalization can be included or ignored entirely for each key as it checks for both.
 	///Special mutation that can be found in the genepool exclusively in this species. Dont leave empty or changing species will be a headache
 	var/inert_mutation = /datum/mutation/human/dwarfism
 	///Used to set the mob's death_sound upon species change
@@ -1011,6 +1013,39 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.back && H.back.atom_storage?.can_insert(I, H, messages = TRUE))
 				return TRUE
 			return FALSE
+		if(ITEM_SLOT_ACCESSORY)
+			if(istype(I, /obj/item/clothing/accessory/ring))
+				if(istype(H.gloves))
+					var/obj/item/clothing/gloves/attaching_target = H.gloves
+					if(length(attaching_target.attached_accessories) > attaching_target.max_accessories)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is at maximum capacity!"
+						return FALSE
+					if(attaching_target.dummy_thick)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] are too bulky and cannot have accessories attached to it!"
+						return FALSE
+					else
+						return TRUE
+				else if(disable_warning)
+					disable_warning[1] = "\The [H.w_uniform] cannot have any attachments."
+				return FALSE
+			else
+				if(istype(H.w_uniform, /obj/item/clothing/under))
+					var/obj/item/clothing/under/attaching_target = H.w_uniform
+					if(length(attaching_target.attached_accessories) > attaching_target.max_accessories)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is at maximum capacity!"
+						return FALSE
+					if(attaching_target.dummy_thick)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is too bulky and cannot have accessories attached to it!"
+						return FALSE
+					else
+						return TRUE
+				else if(disable_warning)
+					disable_warning[1] = "\The [H.w_uniform] cannot have any attachments."
+				return FALSE
 
 	return FALSE //Unsupported slot
 

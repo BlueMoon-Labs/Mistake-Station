@@ -69,7 +69,7 @@
 	name = "blueshield bowman headset"
 	desc = "This is used by the blueshield. It protects from flashbangs"
 	icon_state = "com_headset_alt"
-	item_state = "com_headset_alt"
+	icon_state = "com_headset_alt"
 	keyslot = new /obj/item/encryptionkey/headset_blueshield
 	bowman = TRUE
 	command = TRUE
