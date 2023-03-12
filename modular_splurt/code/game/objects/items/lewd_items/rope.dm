@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 /obj/item/restraints/bondage_rope/proc/process_knot(mob/living/carbon/C, mob/living/user)
 	switch(rope_target)
 		if(ROPE_TARGET_HANDS_IN_FRONT, ROPE_TARGET_HANDS_BEHIND, ROPE_TARGET_HANDS_OBJECT)
-			if(do_mob(user, C, 30) && (C.get_num_arms(FALSE) >= 2 || C.get_arm_ignore()))
+			if(do_after(user, C, 30) && (C.get_num_arms(FALSE) >= 2 || C.get_arm_ignore()))
 				playsound(loc, cuffsound, 30, 1, -2)
 				SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 				log_combat(user, C, "handcuffed")
@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 			else
 				to_chat(user, "<span class='warning'>You fail to tie [C]'s hands!</span>")
 		if(ROPE_TARGET_LEGS, ROPE_TARGET_LEGS_OBJECT)
-			if(do_mob(user, C, 30) && (C.get_num_legs(FALSE) >= 2 || C.get_leg_ignore()))
+			if(do_after(user, C, 30) && (C.get_num_legs(FALSE) >= 2 || C.get_leg_ignore()))
 				playsound(loc, cuffsound, 30, 1, -2)
 				SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 				log_combat(user, C, "handcuffed")

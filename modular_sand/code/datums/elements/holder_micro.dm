@@ -104,7 +104,7 @@
 		return
 	var/mob/living/L = loc
 	visible_message("<span class='warning'>[src] begins to squirm in [L]'s grasp!</span>")
-	if(!do_after(user, 4 SECONDS, target = src, required_mobility_flags = MOBILITY_RESIST))
+	if(!do_after(user, 4 SECONDS, target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
 		to_chat(loc, "<span class='warning'>[src] stops resisting.</span>")
@@ -129,23 +129,13 @@
 /obj/item/clothing/head/mob_holder/micro/attack_self(mob/living/user)
 	if(!user.CheckActionCooldown())
 		return
-	user.changeNext_move(CLICK_CD_MELEE, flush = TRUE)
+	user.changeNext_move(CLICK_CD_MELEE)
 	var/mob/living/carbon/human/M = held_mob
 	if(istype(M))
-		if(user.a_intent == "harm") //TO:DO, rework all of these interactions to be a lot more in depth
-			visible_message("<span class='danger'>[user] slams their fist down on [M]!</span>", runechat_popup = TRUE, rune_msg = " slams their fist down on [M]!")
+		if(user.combat_mode == TRUE) //TO:DO, rework all of these interactions to be a lot more in depth
+			visible_message("<span class='danger'>[user] slams their fist down on [M]!</span>", rune_msg = " slams their fist down on [M]!")
 			playsound(loc, 'sound/weapons/punch1.ogg', 50, 1)
 			M.adjustBruteLoss(5)
-			return
-		if(user.a_intent == "disarm")
-			visible_message("<span class='danger'>[user] pins [M] down with a finger!</span>", runechat_popup = TRUE, rune_msg = " pins [M] down with a finger!")
-			playsound(loc, 'sound/effects/bodyfall1.ogg', 50, 1)
-			M.adjustStaminaLoss(10)
-			return
-		if(user.a_intent == "grab")
-			visible_message("<span class='danger'>[user] squeezes their fist around [M]!</span>", runechat_popup = TRUE, rune_msg = " squeezes their fist around [M]!")
-			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1)
-			M.adjustOxyLoss(5)
 			return
 		M.help_shake_act(user)
 

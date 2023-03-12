@@ -8,17 +8,14 @@ SUBSYSTEM_DEF(interactions)
 		/mob/dview,
 		/mob/camera, // Although it would be funny to fuck the sentient disease or AI hologram
 		/mob/living/simple_animal/pet,
-		/mob/living/simple_animal/cockroach,
-		/mob/living/simple_animal/babyKiwi,
+		/mob/living/basic/cockroach,
 		/mob/living/simple_animal/butterfly,
 		/mob/living/simple_animal/chick,
 		/mob/living/simple_animal/chicken,
-		/mob/living/simple_animal/cow,
+		/mob/living/basic/cow,
 		/mob/living/simple_animal/crab,
-		/mob/living/simple_animal/kiwi,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/sloth,
-		/mob/living/simple_animal/pickle,
 		/mob/living/simple_animal/hostile/retaliate/goat
 	)
 	VAR_PROTECTED/initialized_blacklist

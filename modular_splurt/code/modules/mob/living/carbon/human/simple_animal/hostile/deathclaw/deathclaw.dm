@@ -17,7 +17,7 @@
 	taunt_chance = 25
 	speed = 0
 	see_in_dark = 8
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab= 4,
+	butcher_results = list(/obj/item/food/meat/slab= 4,
 							/obj/item/stack/sheet/animalhide = 2,
 							/obj/item/stack/sheet/bone = 4)
 	attack_verb_continuous = "claws"

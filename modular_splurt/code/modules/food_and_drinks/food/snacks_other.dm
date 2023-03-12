@@ -1,9 +1,9 @@
-/obj/item/reagent_containers/food/snacks/cheesewedge/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+/obj/item/food/cheesewedge/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(!.) //if we're not being caught
 		splat(hit_atom)
 
-/obj/item/reagent_containers/food/snacks/cheesewedge/proc/splat(atom/hit_atom)
+/obj/item/food/cheesewedge/proc/splat(atom/hit_atom)
 	if(isliving(loc)) //someone caught us!
 		return
 	if(!ishuman(hit_atom))

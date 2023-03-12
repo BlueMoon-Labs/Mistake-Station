@@ -63,7 +63,7 @@
 	see_in_dark = 6
 	maxHealth = 80
 	health = 80
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB
@@ -119,7 +119,7 @@
 	see_in_dark = 100
 	maxHealth = 50
 	health = 50
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -159,7 +159,7 @@
 	see_in_dark = 100
 	maxHealth = 99
 	health = 99
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"

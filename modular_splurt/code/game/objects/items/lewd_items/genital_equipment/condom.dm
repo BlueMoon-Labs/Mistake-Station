@@ -73,7 +73,7 @@
 		if(isliving(C) && isliving(user) && unwrapped == 1)
 			C.visible_message("<span class='warning'>\The <b>[user]</b> is trying to put a condom on \the <b>[C]</b>!</span>",\
 						"<span class='warning'>\The <b>[user]</b> is trying to put a condom on you!</span>")
-		if(!do_mob(user, C, 4 SECONDS))	//if Failed to put the condom on
+		if(!do_after(user, C, 4 SECONDS))	//if Failed to put the condom on
 			return
 		if(!user.transferItemToLoc(src, P)) //check if you can put it in
 			return

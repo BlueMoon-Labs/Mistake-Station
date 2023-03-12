@@ -53,7 +53,7 @@
 	// List any reagents they may be holding in their hands
 	if(genital_owner.available_rosie_palms(TRUE, /obj/item/reagent_containers))
 		for(var/obj/item/reagent_containers/container in genital_owner.held_items)
-			if(container.is_open_container() || istype(container, /obj/item/reagent_containers/food/snacks))
+			if(container.is_open_container() || istype(container, /obj/item/food))
 				for(var/datum/reagent/genital_reagent in container.reagents.reagent_list)
 					if((find_reagent_object_from_type(genital_reagent.type)) && ((genital_reagent.type in allowed_gfluid_paths()) || !use_blacklist))
 						// Add valid reagents to the list

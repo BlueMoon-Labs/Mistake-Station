@@ -27,7 +27,7 @@
 	target.visible_message(span_warning("\The <b>[user]</b> is trying to put a condom on \the <b>[target]</b>!"),\
 						span_warning("\The <b>[user]</b> is trying to put a condom on you!"))
 
-	if(!do_mob(user, target, 4 SECONDS))
+	if(!do_after(user, target, 4 SECONDS))
 		return
 
 	if(!user.transferItemToLoc(src, target_organ))
@@ -61,7 +61,7 @@
 	target.visible_message(span_warning("\The <b>[user]</b> is trying to insert a rod inside \the <b>[target]</b>!"),\
 						span_warning("\The <b>[user]</b> is trying to insert a rod inside you!"))
 
-	if(!do_mob(user, target, 4 SECONDS))
+	if(!do_after(user, target, 4 SECONDS))
 		return
 
 	if(!user.transferItemToLoc(src, target_organ))
@@ -91,7 +91,7 @@
 		target.visible_message(span_userlove("\The <b>[user]</b> is trying to attach a vibrator to \the <b>[target]</b>!"),\
 						span_warning("\The <b>[user]</b> is trying to attach a vibrator to you!"))
 
-	if(!do_mob(user, target, 5 SECONDS))
+	if(!do_after(user, target, 5 SECONDS))
 		return
 
 	if(!user.transferItemToLoc(src, target_organ))
@@ -118,7 +118,7 @@
 	target.visible_message(span_warning("\The <b>[user]</b> is trying to insert an egg inside \the <b>[target]</b>!"),\
 					span_warning("\The <b>[user]</b> is trying to insert an egg inside you!"))
 
-	if(!do_mob(user, target, 5 SECONDS))
+	if(!do_after(user, target, 5 SECONDS))
 		return
 
 	if(!user.transferItemToLoc(src, target_organ))

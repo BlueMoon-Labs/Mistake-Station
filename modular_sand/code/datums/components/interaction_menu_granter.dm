@@ -305,7 +305,7 @@
 				if(GEN_REMOVE_EQUIPMENT)
 					var/obj/item/selected_item = input(user, "Pick an item to remove", "Removing item") as null|anything in genital.contents
 					if(selected_item)
-						if(!do_mob(user, actual_target, 5 SECONDS))
+						if(!do_after(user, actual_target, 5 SECONDS))
 							return FALSE
 						if(!user.put_in_hands(selected_item))
 							user.transferItemToLoc(get_turf(user))

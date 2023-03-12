@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/food/snacks/donut/semen
+/obj/item/food/donut/semen
 	name = "\"cream\" donut"
 	desc = "That cream looks a little runny..."
 	icon = 'modular_splurt/icons/obj/food/donut.dmi'

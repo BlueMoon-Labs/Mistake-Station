@@ -68,7 +68,7 @@ Code:
 	if(picked_organ)
 		C.visible_message(span_warning("<b>\The [user]</b> is trying to attach [src] to <b>\The [T]</b>!"),\
 						span_warning("<b>\The [user]</b> is trying to put [src] on you!"))
-		if(!do_mob(user, C, 5 SECONDS))//warn them and have a delay of 5 seconds to apply.
+		if(!do_after(user, C, 5 SECONDS))//warn them and have a delay of 5 seconds to apply.
 			return
 
 		if(style == "long" && !(picked_organ.type == /obj/item/organ/genital/vagina)) //long vibrators dont fit on anything but vaginas, but small ones fit everywhere

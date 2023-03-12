@@ -20,7 +20,7 @@
 	target.visible_message(span_warning("\The <b>[user]</b> is trying to insert a [src] inside \the <b>[target]</b>!"),\
 					span_warning("\The <b>[user]</b> is trying to insert a [src] inside you!"))
 
-	if(!do_mob(user, target, 5 SECONDS))
+	if(!do_after(user, target, 5 SECONDS))
 		return
 
 	if(!user.transferItemToLoc(src, target_organ))

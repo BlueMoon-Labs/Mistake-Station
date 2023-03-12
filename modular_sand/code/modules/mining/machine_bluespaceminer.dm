@@ -62,6 +62,8 @@
 	// Apply config multiplier here to not interfere with bluespace material check
 	multiplier *= BLUESPACE_MINER_BONUS_MULT
 
+	return ..()
+
 /obj/machinery/mineral/bluespace_miner/Destroy()
 	materials = null
 	return ..()

@@ -31,7 +31,7 @@
 				else
 					to_chat(user, "<span class='notice'>You begin to write on your [BP:name].</span>")
 
-				if(do_mob(user, T, 4 SECONDS))
+				if(do_after(user, T, 4 SECONDS))
 					if((length(BP:writtentext))+(length(writting)) < 100) //100 character limmit to stop spamming.
 						BP:writtentext += html_encode(writting) //you can add to text, not remove it.
 					else

@@ -36,7 +36,7 @@
 		return
 
 	user.visible_message("<span class='notice'>[user] begins scanning [M] with [src].</span>", "<span class='notice'>You begin scanning [M] with [src].</span>")
-	if(do_mob(user, M, 15 SECONDS))
+	if(do_after(user, M, 15 SECONDS))
 		// Teleport!
 		playsound(get_turf(M.loc), 'sound/magic/blink.ogg', 50, 1)
 		M.visible_message("<span class='notice'>[M] vanishes from sight!</span>", \

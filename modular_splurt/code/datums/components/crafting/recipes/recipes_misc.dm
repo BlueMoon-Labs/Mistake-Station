@@ -28,9 +28,9 @@
 /datum/crafting_recipe/mixedbouquet
 	name = "Mixed bouquet"
 	result = /obj/item/bouquet
-	reqs = list(/obj/item/reagent_containers/food/snacks/grown/poppy/lily =2,
+	reqs = list(/obj/item/food/grown/poppy/lily =2,
 				/obj/item/grown/sunflower = 2,
-				/obj/item/reagent_containers/food/snacks/grown/poppy/geranium = 2)
+				/obj/item/food/grown/poppy/geranium = 2)
 	category = CAT_MISCELLANEOUS
 	subcategory = CAT_MISCELLANEOUS
 
@@ -44,7 +44,7 @@
 /datum/crafting_recipe/poppybouquet
 	name = "Poppy bouquet"
 	result = /obj/item/bouquet/poppy
-	reqs = list (/obj/item/reagent_containers/food/snacks/grown/poppy = 6)
+	reqs = list (/obj/item/food/grown/poppy = 6)
 	category = CAT_MISCELLANEOUS
 	subcategory = CAT_MISCELLANEOUS
 

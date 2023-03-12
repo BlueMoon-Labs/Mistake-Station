@@ -62,7 +62,7 @@
 		self_message = "<span class='lewd'><b>\The [remover]</b> gently takes your [name] and starts sliding the [selected] out of it</span>",
 		ignored_mobs = owner.get_unconsenting()
 		)
-		if(!do_mob(remover, owner, 4 SECONDS))
+		if(!do_after(remover, owner, 4 SECONDS))
 			return
 		owner.visible_message(message = "<span class='lewd'><b>\The [remover]</b> slides the [selected] out of [owner]'s [name]!</span>",
 		self_message = "<span class='lewd'>You feel [remover]'s warm hand slide the [selected] out of your [name]</span></span>",

@@ -63,17 +63,17 @@
 /datum/gear/head/poppy
 	name = "Poppy"
 	cost = 2
-	path = /obj/item/reagent_containers/food/snacks/grown/poppy
+	path = /obj/item/food/grown/poppy
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
 /datum/gear/head/lily
 	name = "Lily"
 	cost = 2
-	path = /obj/item/reagent_containers/food/snacks/grown/poppy/lily
+	path = /obj/item/food/grown/poppy/lily
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
 /datum/gear/head/geranium
 	name = "Geranium"
 	cost = 2
-	path = /obj/item/reagent_containers/food/snacks/grown/poppy/geranium
+	path = /obj/item/food/grown/poppy/geranium
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION

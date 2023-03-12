@@ -55,7 +55,7 @@
 			to_chat(quirker, span_userdanger("Вы думаете о глупости, сказанной давно, и сгораете от стыда."))
 			dumb_thing = FALSE //only once per life
 			if(prob(1))
-				new/obj/item/reagent_containers/food/snacks/pastatomato(get_turf(quirker)) //now that's what I call spaghetti code
+				new/obj/item/food/pastatomato(get_turf(quirker)) //now that's what I call spaghetti code
 		else
 			to_chat(quirk_holder, span_warning("Вы считаете, что не способны поддержать разговор, и потому отмалчиваетесь."))
 			if(prob(min(25,(0.25*(nearby_people*12.75)*moodmod)))) //Max 25% chance of silence stacks after succesful not talking roll

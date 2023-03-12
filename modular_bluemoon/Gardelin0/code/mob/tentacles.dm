@@ -54,9 +54,9 @@
 	move_force = MOVE_FORCE_DEFAULT
 	move_resist = MOVE_FORCE_VERY_STRONG
 	pull_force = MOVE_FORCE_VERY_STRONG
-	a_intent = INTENT_HARM // Сука.
+	combat_mode = TRUE // Сука.
 
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat)
+	butcher_results = list(/obj/item/food/meat)
 
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -278,7 +278,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/reagent_containers/food/snacks/cube/tentacles
+/obj/item/food/cube/tentacles
 	name = "tentacles cube"
 	desc = "Instant tentacles! Just add water!"
 	tastes = list("pleasure" = 1, "hentai" = 1)
@@ -312,8 +312,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 7
-	STR.can_hold = typecacheof(list(/obj/item/reagent_containers/food/snacks/cube/tentacles))
+	STR.can_hold = typecacheof(list(/obj/item/food/cube/tentacles))
 
 /obj/item/storage/box/tentaclescubes/PopulateContents()
 	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/food/snacks/cube/tentacles(src)
+		new /obj/item/food/cube/tentacles(src)

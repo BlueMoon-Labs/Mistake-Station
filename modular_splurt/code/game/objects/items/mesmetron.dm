@@ -23,7 +23,7 @@
 
 	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
 
-	if(!do_mob(user, H, 12 SECONDS))
+	if(!do_after(user, H, 12 SECONDS))
 		return
 	if(!(user in view(1, loc)))
 		return

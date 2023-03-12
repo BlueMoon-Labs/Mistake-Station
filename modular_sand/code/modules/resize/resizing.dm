@@ -60,37 +60,8 @@
 			return TRUE
 
 		if(COMPARE_SIZES(user, target) >= 2)
-			log_combat(user, target, "stepped on", addition="[user.a_intent] trample")
-			if(user.a_intent == "disarm" && CHECK_MOBILITY(user, MOBILITY_MOVE) && !user.buckled)
-				now_pushing = 0
-				user.forceMove(target.loc)
-				user.sizediffStamLoss(target)
-				user.add_movespeed_modifier(/datum/movespeed_modifier/stomp, TRUE) //Full stop
-				addtimer(CALLBACK(user, /mob/.proc/remove_movespeed_modifier, MOVESPEED_ID_STOMP, TRUE), 3) //0.3 seconds
-				if(iscarbon(user))
-					if(istype(user) && user.dna.features["taur"] == "Naga" || user.dna.features["taur"] == "Tentacle")
-						target.visible_message("<span class='danger'>[src] carefully rolls their tail over [target]!</span>", "<span class='danger'>[src]'s huge tail rolls over you!</span>")
-					else
-						target.visible_message("<span class='danger'>[src] carefully steps on [target]!</span>", "<span class='danger'>[src] steps onto you with force!</span>")
-					return TRUE
-
-			if(user.a_intent == "harm" && CHECK_MOBILITY(user, MOBILITY_MOVE) && !user.buckled)
-				now_pushing = 0
-				user.forceMove(target.loc)
-				user.sizediffStamLoss(target)
-				user.sizediffBruteloss(target)
-				playsound(loc, 'sound/misc/splort.ogg', 50, 1)
-				user.add_movespeed_modifier(/datum/movespeed_modifier/stomp, TRUE)
-				addtimer(CALLBACK(user, /mob/.proc/remove_movespeed_modifier, MOVESPEED_ID_STOMP, TRUE), 10) //1 second
-				//user.Stun(20)
-				if(iscarbon(user))
-					if(istype(user) && (user.dna.features["taur"] == "Naga" || user.dna.features["taur"] == "Tentacle"))
-						target.visible_message("<span class='danger'>[src] mows down [target] under their tail!</span>", "<span class='userdanger'>[src] plows their tail over you mercilessly!</span>")
-					else
-						target.visible_message("<span class='danger'>[src] slams their foot down on [target], crushing them!</span>", "<span class='userdanger'>[src] crushes you under their foot!</span>")
-					return TRUE
-
-			if(user.a_intent == "grab" && CHECK_MOBILITY(user, MOBILITY_MOVE) && !user.buckled)
+			log_combat(user, target, "stepped on", addition="[user.combat_mode] trample")
+			if(user.combat_mode == TRUE && CHECK_MOBILITY(user, MOBILITY_MOVE) && !user.buckled)
 				now_pushing = 0
 				user.forceMove(target.loc)
 				user.sizediffStamLoss(target)

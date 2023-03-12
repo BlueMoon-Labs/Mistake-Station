@@ -229,7 +229,7 @@
 	BEAST.beast_type = beast_type
 	BEAST.gender = action_owner.gender
 	BEAST.based_icon = beast_gender
-	BEAST.eyecolor = "#[action_owner.left_eye_color]"
+	BEAST.eyecolor = "#[action_owner.eye_color_left]"
 	BEAST.update_icon()
 	var/icon/M = new(BEAST.icon)
 	M.SwapColor("#ffffff",BEAST.eyecolor)

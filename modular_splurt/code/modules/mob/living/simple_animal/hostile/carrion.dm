@@ -26,7 +26,7 @@
 	ranged = 1
 	harm_intent_damage = 5
 	obj_damage = 60
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	death_sound = 'sound/voice/ed209_20sec.ogg'
 	deathmessage = "lets out scream and its tentacles shrivel away..."
 	move_to_delay = 4

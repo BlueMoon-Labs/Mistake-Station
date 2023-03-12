@@ -487,7 +487,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 0
 	turns_per_move = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/rawcrab = 8, /obj/item/stack/sheet/bone = 4)
+	butcher_results = list(/obj/item/food/meat/rawcrab = 8, /obj/item/stack/sheet/bone = 4)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -523,7 +523,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	speak_chance = 0
 	turns_per_move = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human = 4)
+	butcher_results = list(/obj/item/food/meat/slab/human = 4)
 	response_help_continuous = "pokes"
 	response_help_simple = "poke"
 	response_disarm_continuous = "shoos away"
@@ -562,7 +562,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
 	speak_chance = 0
 	turns_per_move = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/plant = 4)
+	butcher_results = list(/obj/item/food/meat/slab/human/mutant/plant = 4)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -644,7 +644,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_REPTILE
 	speak_chance = 0
 	turns_per_move = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/lizard = 6)
+	butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 6)
 	response_help_continuous = "pats"
 	response_help_simple = "pat"
 	response_disarm_continuous = "gently pushes aside"

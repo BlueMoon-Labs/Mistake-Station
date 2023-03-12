@@ -74,8 +74,8 @@
 		father_features["skin_tone"] = cardad.skin_tone
 		father_features["hair_color"] = cardad.hair_color
 		father_features["facial_hair_color"] = cardad.facial_hair_color
-		father_features["left_eye_color"] = cardad.left_eye_color
-		father_features["right_eye_color"] = cardad.right_eye_color
+		father_features["eye_color_left"] = cardad.eye_color_left
+		father_features["eye_color_right"] = cardad.eye_color_right
 
 	if(ishuman(_mother))
 		var/mob/living/carbon/human/carmom = _mother
@@ -83,8 +83,8 @@
 		mother_features["skin_tone"] = carmom.skin_tone
 		mother_features["hair_color"] = carmom.hair_color
 		mother_features["facial_hair_color"] = carmom.facial_hair_color
-		mother_features["left_eye_color"] = carmom.left_eye_color
-		mother_features["right_eye_color"] = carmom.right_eye_color
+		mother_features["eye_color_left"] = carmom.eye_color_left
+		mother_features["eye_color_right"] = carmom.eye_color_right
 
 	pregnancy_inflation = carrier?.client?.prefs?.pregnancy_inflation
 
@@ -363,10 +363,10 @@
 		babby.hair_color = final_features["hair_color"]
 	if(final_features["facial_hair_color"])
 		babby.facial_hair_color = final_features["facial_hair_color"]
-	if(final_features["left_eye_color"])
-		babby.left_eye_color = final_features["left_eye_color"]
-	if(final_features["right_eye_color"])
-		babby.right_eye_color = final_features["right_eye_color"]
+	if(final_features["eye_color_left"])
+		babby.eye_color_left = final_features["eye_color_left"]
+	if(final_features["eye_color_right"])
+		babby.eye_color_right = final_features["eye_color_right"]
 
 	babby.hair_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
 	babby.facial_hair_style = "Shaved"

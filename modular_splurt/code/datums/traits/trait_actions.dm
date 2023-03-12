@@ -149,7 +149,7 @@
 	to_chat(action_target, span_warning("[action_owner] stares intensely into your eyes..."))
 
 	// Try to perform action timer
-	if(!do_mob(action_owner, action_target, 5 SECONDS))
+	if(!do_after(action_owner, action_target, 5 SECONDS))
 		// Action timer was interrupted
 		// Warn the user, then return
 		to_chat(action_owner, span_warning("You lose concentration on [action_target], and fail to hypnotize [action_target.ru_na()]!"))
@@ -217,13 +217,13 @@
 /datum/action/innate/hydra
 	name = "Switch head"
 	desc = "Switch between each of the heads on your body."
-	icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "art_summon"
 
 /datum/action/innate/hydrareset
 	name = "Reset speech"
 	desc = "Go back to speaking as a whole."
-	icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "art_summon"
 
 /datum/action/innate/hydrareset/Activate()
@@ -324,7 +324,7 @@
 			bite_target = possible_cocoon_target
 
 	// Or a blood tomato
-	else if(istype(pull_target,/obj/item/reagent_containers/food/snacks/grown/tomato/blood))
+	else if(istype(pull_target,/obj/item/food/grown/tomato/blood))
 		// Warn the user, then return
 		to_chat(action_owner, span_danger("You plunge your fangs into [pull_target]! It's not very nutritious."))
 		return
@@ -892,7 +892,7 @@
 /datum/action/gargoyle/transform
 	name = "Transform"
 	desc = "Transform into a statue, regaining energy in the process. Additionally, you will slowly heal while in statue form."
-	icon = 'icons/mob/actions/actions_changeling.dmi'
+	button_icon = 'icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "ling_camouflage"
 	var/obj/structure/statue/gargoyle/current = null
 
@@ -930,7 +930,7 @@
 /datum/action/gargoyle/check
 	name = "Check"
 	desc = "Check your current energy levels."
-	icon = 'icons/mob/actions/actions_clockcult.dmi'
+	button_icon = 'icons/mob/actions/actions_clockcult.dmi'
 	button_icon_state = "Linked Vanguard"
 
 /datum/action/gargoyle/check/Trigger()
@@ -942,7 +942,7 @@
 /datum/action/gargoyle/pause
 	name = "Preserve"
 	desc = "Become near-motionless, thusly conserving your energy until you move from your current tile. Note, you will lose a chunk of energy when you inevitably move from your current position, so you cannot abuse this!"
-	icon = 'icons/mob/actions/actions_flightsuit.dmi'
+	button_icon = 'icons/mob/actions/actions_flightsuit.dmi'
 	button_icon_state = "flightsuit_lock"
 
 /datum/action/gargoyle/pause/Trigger()

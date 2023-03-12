@@ -5,7 +5,7 @@
 	icon_state = "slutbelt"
 	icon_state = "security"
 
-obj/item/storage/belt/slut/Initialize()
+/obj/item/storage/belt/slut/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 5
@@ -18,7 +18,7 @@ obj/item/storage/belt/slut/Initialize()
 		/obj/item/restraints/handcuffs,
 		/obj/item/assembly/flash/handheld,
 		/obj/item/clothing/glasses,
-		/obj/item/reagent_containers/food/snacks/donut,
+		/obj/item/food/donut,
 		/obj/item/flashlight/seclite,
 		/obj/item/melee/classic_baton/telescopic,
 		/obj/item/radio,

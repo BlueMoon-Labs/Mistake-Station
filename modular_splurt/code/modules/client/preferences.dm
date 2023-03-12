@@ -259,18 +259,18 @@
 				if((EYECOLOR in pref_species.species_traits))
 					if(!use_skintones && !mutant_colors)
 						dat += APPEARANCE_CATEGORY_COLUMN
-					if(left_eye_color != right_eye_color)
+					if(eye_color_left != eye_color_right)
 						split_eye_colors = TRUE
 					dat += "<h3>Heterochromia</h3>"
 					dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=toggle_split_eyes;task=input'>[split_eye_colors ? "Enabled" : "Disabled"]</a>"
 					if(!split_eye_colors)
 						dat += "<h3>Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'><font color='[color_hex2num(left_eye_color) < 200 ? "FFFFFF" : "000000"]'>#[left_eye_color]</font></span> <a href='?_src_=prefs;preference=eyes;task=input'>Change</a>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[eye_color_left];'><font color='[color_hex2num(eye_color_left) < 200 ? "FFFFFF" : "000000"]'>#[eye_color_left]</font></span> <a href='?_src_=prefs;preference=eyes;task=input'>Change</a>"
 					else
 						dat += "<h3>Left Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'><font color='[color_hex2num(left_eye_color) < 200 ? "FFFFFF" : "000000"]'>#[left_eye_color]</font></span> <a href='?_src_=prefs;preference=eye_left;task=input'>Change</a>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[eye_color_left];'><font color='[color_hex2num(eye_color_left) < 200 ? "FFFFFF" : "000000"]'>#[eye_color_left]</font></span> <a href='?_src_=prefs;preference=eye_left;task=input'>Change</a>"
 						dat += "<h3>Right Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[right_eye_color];'><font color='[color_hex2num(right_eye_color) < 200 ? "FFFFFF" : "000000"]'>#[right_eye_color]</font></span> <a href='?_src_=prefs;preference=eye_right;task=input'>Change</a><BR>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[eye_color_right];'><font color='[color_hex2num(eye_color_right) < 200 ? "FFFFFF" : "000000"]'>#[eye_color_right]</font></span> <a href='?_src_=prefs;preference=eye_right;task=input'>Change</a><BR>"
 
 			if(HAIR in pref_species.species_traits)
 

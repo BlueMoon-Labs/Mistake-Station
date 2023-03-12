@@ -258,7 +258,7 @@
 	name = "1k Surplus Crate"
 	desc = "Hello, thank you for taking this random surplus off our hands. We have no idea whats in it just know its worth about 1000 Credits. At least we think so."
 	cost = 1000
-	contains = list(/obj/item/reagent_containers/food/snacks/rationpack,
+	contains = list(/obj/item/food/rationpack,
 					/obj/effect/spawner/lootdrop/stock_parts,
 					/obj/effect/spawner/lootdrop/stock_parts,
 					/obj/effect/spawner/lootdrop/stock_parts,

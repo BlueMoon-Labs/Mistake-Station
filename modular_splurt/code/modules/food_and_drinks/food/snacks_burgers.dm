@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/food/snacks/burger/cumburger
+/obj/item/food/burger/cumburger
 	name = "Cumburger"
 	desc = "A sticky and salty burger."
 	icon = 'modular_splurt/icons/obj/food/burgerbread.dmi'

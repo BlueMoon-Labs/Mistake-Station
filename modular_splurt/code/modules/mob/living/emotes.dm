@@ -230,7 +230,7 @@
 	key_third_person = "speens"
 	message = "speeeeens!"
 	message_mime = "speeeeens silently!"
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)
 	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
 	emote_sound = 'modular_splurt/sound/voice/speen.ogg'
@@ -774,7 +774,7 @@
 	// Message is generated from metacarpus_type below. You shouldn't see this!
 	message = "creates an error in the code." // Hear a slapping sound
 	muzzle_ignore = TRUE // Not a spoken emote
-	restraint_check = TRUE // Uses your hands
+	hands_use_check = TRUE // Uses your hands
 	emote_sound = 'modular_splurt/sound/effects/slap.ogg'
 	// Defines appendage type for generated message
 	var/metacarpus_type = "palm" // Default to hands

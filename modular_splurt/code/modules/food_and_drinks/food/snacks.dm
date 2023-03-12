@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/food/snacks/store/book
+/obj/item/food/store/book
 	name = "book"
 	desc = "Could it be? A LoR reference? And is it... Edible?"
 	icon = 'icons/obj/library.dmi'

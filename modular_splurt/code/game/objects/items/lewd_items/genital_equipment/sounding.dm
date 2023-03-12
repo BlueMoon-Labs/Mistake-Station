@@ -32,7 +32,7 @@
 		if(isliving(C) && isliving(user) && unwrapped == 1)
 			C.visible_message("<span class='warning'><b>\The [user]</b> is trying to insert a rod inside <b>\The [C]</b>!</span>",\
 						"<span class='warning'><b>\The [user]</b> is trying to insert a rod inside you!</span>")
-		if(!do_mob(user, C, 4 SECONDS))
+		if(!do_after(user, C, 4 SECONDS))
 			return
 		if(!user.transferItemToLoc(src, P)) //check if you can put it in
 			return

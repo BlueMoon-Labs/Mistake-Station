@@ -20,7 +20,7 @@
 	id = "egg_snack"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 250)
-	build_path = /obj/item/reagent_containers/food/snacks/egg
+	build_path = /obj/item/food/egg
 	category = list("initial","Food")
 
 /datum/design/sfish
@@ -28,7 +28,7 @@
 	id = "sfish"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/reagent_containers/food/snacks/carpmeat/imitation
+	build_path = /obj/item/food/carpmeat/imitation
 	category = list("initial", "Food")
 
 /datum/design/seaweedz
@@ -36,7 +36,7 @@
 	id = "sea_weed"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/reagent_containers/food/snacks/sea_weed
+	build_path = /obj/item/food/sea_weed
 	category = list("initial", "Food")
 
 /datum/design/ricebag

@@ -50,28 +50,28 @@
 
 /datum/action/innate/elite_attack/axe_slam
 	name = "Axe Slam"
-	icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "axe_slam"
 	chosen_message = "<span class='boldwarning'>You will attempt to slam your axe.</span>"
 	chosen_attack_num = AXE_SLAM
 
 /datum/action/innate/elite_attack/summon_shambler
 	name = "Summon Shambler"
-	icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "summon_shambler"
 	chosen_message = "<span class='boldwarning'>You will attempt to summon a shambling miner.</span>"
 	chosen_attack_num = SUMMON_SHAMBLER
 
 /datum/action/innate/elite_attack/dash
 	name = "Dash"
-	icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "dash"
 	chosen_message = "<span class='boldwarning'>You will attempt to dash near your target.</span>"
 	chosen_attack_num = DASH
 
 /datum/action/innate/elite_attack/axe_throw
 	name = "Axe Throw"
-	icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "axe_throw"
 	chosen_message = "<span class='boldwarning'>You will attempt to throw your axe.</span>"
 	chosen_attack_num = AXE_THROW

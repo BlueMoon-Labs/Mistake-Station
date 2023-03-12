@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(transformation_animation_objects)
-
 /*
  * Creates animation that turns current icon into result appearance from top down.
  *

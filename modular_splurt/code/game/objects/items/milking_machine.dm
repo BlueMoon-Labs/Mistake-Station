@@ -108,7 +108,7 @@
 			span_userlove("You pump your [genital.name] into the machine.")
 		)
 	playsound(src, 'sound/vehicles/carrev.ogg', 30, 1, -1) //we're not changing the sound anywhere, storing the sound in a var is pointless
-	if(!do_mob(user, victim, 3 SECONDS))
+	if(!do_after(user, victim, 3 SECONDS))
 		inuse = FALSE
 		return
 	playsound(src, 'modular_sand/sound/lewd/slaps.ogg', 20, 1, -1)

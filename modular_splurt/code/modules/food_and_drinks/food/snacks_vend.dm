@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/food/snacks/jellybean
+/obj/item/food/jellybean
 	name = "jelly bean"
 	desc = "A rather large sized, colorful bean full of sugar."
 	icon_state = "bean_template"
@@ -40,7 +40,7 @@
 		)
 	var/chosen_color
 
-/obj/item/reagent_containers/food/snacks/jellybean/Initialize(mapload)
+/obj/item/food/jellybean/Initialize(mapload)
 	if(!chosen_color)
 		chosen_color = pick(possible_colors)
 		switch(chosen_color)
@@ -88,10 +88,10 @@
 	icon_state = replacetext(icon_state, "template", chosen_color)
 	filling_color = possible_colors[chosen_color]
 
-/obj/item/reagent_containers/food/snacks/jellybean/lewd
+/obj/item/food/jellybean/lewd
 	desc = "A rather large sized, colorful bean full of sugar... or not...?"
 
-/obj/item/reagent_containers/food/snacks/jellybean/lewd/Initialize(mapload)
+/obj/item/food/jellybean/lewd/Initialize(mapload)
 	if(!prob(50))
 		return ..()
 
@@ -128,13 +128,13 @@
 	icon = 'modular_splurt/icons/obj/food/food.dmi'
 	icon_state = "bowl_beans"
 	icon_type = "jelly bean"
-	spawn_type = /obj/item/reagent_containers/food/snacks/jellybean
+	spawn_type = /obj/item/food/jellybean
 
 /obj/item/storage/fancy/jellybean_bowl/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 10
-	STR.can_hold = typecacheof(list(/obj/item/reagent_containers/food/snacks/jellybean))
+	STR.can_hold = typecacheof(list(/obj/item/food/jellybean))
 	STR.rustle_sound = FALSE
 
 /obj/item/storage/fancy/jellybean_bowl/update_icon_state()
@@ -178,13 +178,13 @@
 	icon = 'modular_splurt/icons/obj/food/food.dmi'
 	icon_state = "bean_bag"
 	icon_type = "jelly bean"
-	spawn_type = /obj/item/reagent_containers/food/snacks/jellybean/lewd
+	spawn_type = /obj/item/food/jellybean/lewd
 
 /obj/item/storage/fancy/jellybean_pack/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 27
-	STR.can_hold = typecacheof(list(/obj/item/reagent_containers/food/snacks/jellybean/lewd))
+	STR.can_hold = typecacheof(list(/obj/item/food/jellybean/lewd))
 	STR.rustle_sound = FALSE
 
 /obj/item/storage/fancy/jellybean_pack/update_icon_state()

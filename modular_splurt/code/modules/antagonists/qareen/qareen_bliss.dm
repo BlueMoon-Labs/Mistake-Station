@@ -10,7 +10,7 @@
 	agent = "Unholy Forces"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CURABLE
-	permeability_mod = 1
+	spreading_modifier = 1
 	severity = DISEASE_SEVERITY_MEDIUM
 	var/bliss_stage_1 = FALSE
 	var/bliss_stage_2 = FALSE

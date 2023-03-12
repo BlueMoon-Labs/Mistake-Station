@@ -30,8 +30,8 @@
 	var/obj/item/organ/eyes/dullahan/new_eyes = new()
 	var/obj/item/organ/eyes/E = H.getorganslot(ORGAN_SLOT_EYES)
 	if(E)
-		new_eyes.left_eye_color = E.left_eye_color
-		new_eyes.right_eye_color = E.right_eye_color
+		new_eyes.eye_color_left = E.eye_color_left
+		new_eyes.eye_color_right = E.eye_color_right
 		E.Remove()
 		qdel(E)
 	new_eyes.Insert(H)

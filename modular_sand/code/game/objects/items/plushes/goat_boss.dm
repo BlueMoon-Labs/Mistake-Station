@@ -81,7 +81,6 @@
 	icon_state = "ascendedkinggoat"
 	throwforce = 10
 	force = 10
-	var/divine = TRUE
 
 /obj/item/toy/plush/goatplushie/angry/kinggoat/ascendedkinggoat/attackby(obj/item/I,mob/living/user,params)
 	if(I.get_sharpness())
@@ -108,7 +107,7 @@
 		new/obj/item/toy/plush/goatplushie/angry/guardgoat(location)
 		new/obj/item/toy/plush/goatplushie/angry/guardgoat(location)
 		new/obj/item/toy/plush/goatplushie/angry/guardgoat(location)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/grown/cabbage))
+	if(istype(I, /obj/item/food/grown/cabbage))
 		user.visible_message("<span class='notice'>[user] watches as [src] takes a bite out of the cabbage!</span>", "<span class='notice'>[src]'s fur starts glowing. It seems they have ascended!</span>")
 		playsound(src, 'sound/items/eatfood.ogg', 50, 1)
 		qdel(I)
