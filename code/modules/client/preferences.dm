@@ -125,6 +125,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/custom_speech_verb = "default" //if your say_mod is to be something other than your races
 	var/custom_tongue = "default" //if your tongue is to be something other than your races
 
+	//SPLURT EDIT - gregnancy
+	/// Does john spaceman's cum actually impregnate people?
+	var/virility = 0
+	/// Can john spaceman get gregnant if all conditions are right? (has a womb and is not on contraceptives)
+	var/fertility = 0
+	/// Does john spaceman look like a gluttonous slob if he pregent?
+	var/pregnancy_inflation = FALSE
+	/// Self explanitory
+	var/pregnancy_breast_growth = FALSE
+
+	var/egg_shell = "chicken"
+	//SPLURT END
+
+	var/fullscreen = TRUE
+
 /datum/preferences/Destroy(force, ...)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)

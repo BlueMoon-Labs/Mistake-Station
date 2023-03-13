@@ -2,7 +2,6 @@
 	name = "Гипнотический Ступор"
 	desc = "Вы склонны к приступам крайнего ступора, который делает вас чрезвычайно внушаемым."
 	value = 0
-	human_only = TRUE
 	gain_text = null // Handled by trauma.
 	lose_text = null
 	medical_record_text = "Пациент имеет не поддающееся лечению заболевание мозга, в результате чего он становится чрезвычайно... внушаемым...."
@@ -73,10 +72,6 @@
 	// Check for female hormonal organ
 	if(quirk_holder.getorganslot(ORGAN_SLOT_WOMB))
 		heat_phrases += "сильную течку"
-
-	// Check for synthetic
-	if(isrobotic(quirk_holder))
-		heat_phrases += "множество ошибок в гормональной программе"
 
 	// Build English list
 	heat_type = english_list(heat_phrases, nothing_text = "переизбыток гормонов")

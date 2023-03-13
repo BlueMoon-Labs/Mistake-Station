@@ -139,10 +139,10 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 
 /obj/item/storage/bag/borgdelivery/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_BULKY
+
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	STR.max_combined_w_class = 5
-	STR.max_items = 1
+	atom_storage.max_total_storage = 1
 	STR.cant_hold = typecacheof(list(/obj/item/disk/nuclear, /obj/item/radio/intercom))
 
 //Tongue stuff

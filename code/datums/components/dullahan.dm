@@ -20,15 +20,15 @@
 	RegisterSignal(H, COMSIG_LIVING_REGENERATE_LIMBS, .proc/unlist_head)
 
 	// make sure the brain can't decay or fall out
-	var/obj/item/organ/brain/B = H.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/brain/B = H.getorganslot(ORGAN_SLOT_BRAIN)
 	if(B)
 		B.zone = "abstract" // it exists in the ethereal plain
 		B.organ_flags = ORGAN_NO_SPOIL | ORGAN_NO_DISMEMBERMENT	| ORGAN_VITAL
 		dullahan_head.B = B
 
 	// the eyes get similar treatment
-	var/obj/item/organ/eyes/dullahan/new_eyes = new()
-	var/obj/item/organ/eyes/E = H.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/dullahan/new_eyes = new()
+	var/obj/item/organ/internal/eyes/E = H.getorganslot(ORGAN_SLOT_EYES)
 	if(E)
 		new_eyes.eye_color_left = E.eye_color_left
 		new_eyes.eye_color_right = E.eye_color_right
@@ -45,7 +45,7 @@
 	new_tongue.Insert(H)
 
 	// uh, eyes!
-	var/obj/item/organ/ears/dullahan_ears = H.getorganslot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/internal/ears/dullahan_ears = H.getorganslot(ORGAN_SLOT_EARS)
 	if(dullahan_ears)
 		dullahan_ears.zone = "abstract"
 
@@ -83,7 +83,7 @@
 	initial_accents = list(/datum/accent/dullahan)
 	organ_flags = ORGAN_NO_SPOIL | ORGAN_NO_DISMEMBERMENT
 
-/obj/item/organ/eyes/dullahan
+/obj/item/organ/internal/eyes/dullahan
 	name = "head vision"
 	desc = "An abstraction."
 	actions_types = list(/datum/action/item_action/organ_action/dullahan)
@@ -98,7 +98,7 @@
 	var/mob/living/carbon/human/owner
 	// this is for keeping track of the overlays because you can't read the actual overlays list as it's a special byond var
 	var/list/overlays_standing
-	var/obj/item/organ/brain/B
+	var/obj/item/organ/internal/brain/B
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/dullahan_head/Destroy()
@@ -165,7 +165,7 @@
 	var/mob/living/carbon/human/H = parent
 	if(!H)
 		return .
-	var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		if(eyes.monochromacy_on) //SPLURT edit
 			H.reset_perspective(H)
@@ -181,11 +181,11 @@
 	// work out what organs to give them based on their species
 	if(ishuman(parent))
 		var/mob/living/carbon/human/H = parent
-		var/obj/item/organ/eyes/new_eyes = new H.dna.species.mutanteyes()
-		var/obj/item/organ/brain/new_brain = new H.dna.species.mutant_brain()
+		var/obj/item/organ/internal/eyes/new_eyes = new H.dna.species.mutanteyes()
+		var/obj/item/organ/internal/brain/new_brain = new H.dna.species.mutant_brain()
 		var/obj/item/organ/internal/tongue/new_tongue = new H.dna.species.mutanttongue()
-		var/obj/item/organ/eyes/old_eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		var/obj/item/organ/brain/old_brain = H.getorganslot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/internal/eyes/old_eyes = H.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/internal/brain/old_brain = H.getorganslot(ORGAN_SLOT_BRAIN)
 		var/obj/item/organ/internal/tongue/old_tongue = H.getorganslot(ORGAN_SLOT_TONGUE)
 
 		H.regenerate_limb(BODY_ZONE_HEAD, TRUE)

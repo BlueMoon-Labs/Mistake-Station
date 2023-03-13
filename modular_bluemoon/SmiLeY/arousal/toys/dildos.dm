@@ -137,7 +137,7 @@
 		playsound(loc, 'sound/weapons/gagging.ogg', 50, 1, -1)
 		user.Stun(150)
 		user.adjustOxyLoss(300)
-		var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/internal/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 		eyes?.applyOrganDamage(10)
 	return MANUAL_SUICIDE
 

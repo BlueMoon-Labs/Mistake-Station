@@ -49,28 +49,28 @@
 
 /datum/action/innate/elite_attack/bloodcharge
 	name = "Blood Charge"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "blood_charge"
 	chosen_message = "<span class='boldwarning'>You will attempt to charge your target.</span>"
 	chosen_attack_num = BLOOD_CHARGE
 
 /datum/action/innate/elite_attack/bloody_trap
 	name = "Bloody Trap"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "bloody_trap"
 	chosen_message = "<span class='boldwarning'>You will attempt to trap your target.</span>"
 	chosen_attack_num = BLOODY_TRAP
 
 /datum/action/innate/elite_attack/meat_shield
 	name = "Meat Shield"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "meat_shield"
 	chosen_message = "<span class='boldwarning'>You will attempt to shield yourself.</span>"
 	chosen_attack_num = MEAT_SHIELD
 
 /datum/action/innate/elite_attack/knockdown
 	name = "Knockdown"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "knockdown"
 	chosen_message = "<span class='boldwarning'>You will knock down every mob around you.</span>"
 	chosen_attack_num = KNOCKDOWN
@@ -254,7 +254,7 @@
 	if(mover == caster.pulledby)
 		return TRUE
 	if(istype(mover, /obj/item/projectile))
-		var/obj/projectile/P = mover
+		var/obj/item/projectile/P = mover
 		if(P.firer == caster)
 			return TRUE
 	if(mover == caster)

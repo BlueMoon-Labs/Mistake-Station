@@ -11,10 +11,13 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = ACID_PROOF
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 	strip_mod = 1.5
 	is_edible = 0
+
+/obj/item/clothing/gloves/cbrn/Initialize()
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/gloves/cbrn/engineer
 	name = "engineer CBRN gloves"
@@ -43,7 +46,7 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/gloves/cbrn
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/cbrnglovesengi
 	name = "Engineering CBRN Gloves"
@@ -53,7 +56,7 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 55, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/gloves/cbrn/engineer
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/cbrn/moppgloves
 	name = "MOPP Gloves"
@@ -63,4 +66,4 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/gloves/cbrn/mopp
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

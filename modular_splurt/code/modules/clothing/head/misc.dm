@@ -1,19 +1,19 @@
 // This icon fixes blue-ish tint on the helmet
 /obj/item/clothing/head/assu_helmet
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/jester
 	unique_reskin = list(
 		"Original" = list(
 			"icon_state" = "jester_hat",
 			"icon" = 'icons/obj/clothing/hats.dmi',
-			"mob_overlay_icon" = null,
+			"worn_icon" = null,
 		),
 		"Stripped" = list(
 			"icon_state" = "striped_jester_hat",
 			"icon" = 'modular_splurt/icons/obj/clothing/head.dmi',
-			"mob_overlay_icon" = 'modular_splurt/icons/mob/clothing/head.dmi',
+			"worn_icon" = 'modular_splurt/icons/mob/clothing/head.dmi',
 		)
 	)
 
@@ -23,9 +23,9 @@
 	icon_state = "bridgeseccap"
 	icon_state = "bridgeseccap"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/head.dmi'
+	worn_icon = 'modular_splurt/icons/mobs/head.dmi'
 	strip_delay = 25
-	dynamic_hair_suffix = ""
+
 	dog_fashion = null
 
 /obj/item/clothing/head/bridgeofficer/beret
@@ -33,7 +33,7 @@
 	desc = "A generic blue beret for the back ground officer"
 	icon_state = "beret_bridgesec"
 	icon_state = "beret_bridgesec"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/press_helmet
 	name = "press helmet"
@@ -41,7 +41,7 @@
 	icon_state = "press_helmet"
 	desc = "A lightweight helmet for reporting on security. You swear up and down it is made of Kevlar and not old cloth and plastic."
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	flags_inv = HIDEHAIR
 
 //CBRN/MOPP helmets
@@ -52,7 +52,7 @@
 	icon_state = "cbrnhood"
 	icon_state = "cbrnhood"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 	w_class = WEIGHT_CLASS_NORMAL
 	gas_transfer_coefficient = 0.5
@@ -63,22 +63,25 @@
 	clothing_flags = THICKMATERIAL
 	flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = ACID_PROOF
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 	is_edible = 0
+
+/obj/item/clothing/head/helmet/cbrn/Initialize()
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/head/helmet/cbrn/mopp
 	name = "MOPP hood"
 	desc = "Mission Oriented Protective Posture. A hood design for harsh combat conditions short of no atmosphere. This one has a helmet towed onto the hood for added protection."
 	icon_state = "mopphood"
 	icon_state = "mopphood"
-	can_flashlight = 1
+
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30,"energy" = 10, "bomb" = 25, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 	is_edible = 0
 
 /obj/item/clothing/head/helmet/cbrn/mopp/advance
 	name = "advance MOPP hood"
 	desc = "Mission Oriented Protective Posture. A hood design for harsh combat conditions short of no atmosphere. This is an advance versoin for ERT units and Central Command Staff."
-	can_flashlight = 1
+
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 40,"energy" = 20, "bomb" = 35, "bio" = 110, "rad" = 110, "fire" = 50, "acid" = 110)
 	clothing_flags = NONE
 	is_edible = 0
@@ -93,7 +96,7 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/head/helmet/cbrn
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/mopphood
 	name = "MOPP Hood"
@@ -103,5 +106,5 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/head/helmet/cbrn/mopp
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 

@@ -4,7 +4,7 @@
 	desc = "If you're reading this, something went wrong."
 	icon = 'modular_sand/icons/mob/clothing/underwear.dmi' //if someone is willing to make proper inventory sprites that'd be very cash money
 	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
-	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	body_parts_covered = GROIN
 	block_priority = BLOCK_PRIORITY_UNDERWEAR
 	slot_flags = ITEM_SLOT_UNDERWEAR

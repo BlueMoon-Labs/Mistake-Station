@@ -34,7 +34,7 @@
 
 /atom/movable/screen/storage/close/Click()
 	var/datum/component/storage/S = master
-	S.close(usr)
+	S.hide_contents(usr)
 	return TRUE
 
 /atom/movable/screen/storage/left

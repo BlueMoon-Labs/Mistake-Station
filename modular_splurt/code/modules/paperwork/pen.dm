@@ -1,4 +1,4 @@
-/obj/item/pen/attack(mob/living/M, mob/user, stealth)
+/obj/item/pen/attack(mob/living/M, mob/living/user, stealth)
 	if(!istype(M))
 		return
 

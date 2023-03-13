@@ -5,12 +5,12 @@
 	icon_state = "latexheels"
 	icon_state = "latexheels"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
 	can_be_tied = FALSE
 	slowdown = 0
 	strip_delay = 120
-	mutantrace_variation = STYLE_DIGITIGRADE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	var/seamless = FALSE
 
 
@@ -54,8 +54,8 @@
 	icon_state = "latexsocks"
 	icon_state = "latexsocks"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 
 //start processing
@@ -76,8 +76,8 @@
 	icon_state = "dominaheels"
 	icon_state = "dominaheels"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/foot/lewd_shoes.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/feet/lewd_shoes_digi.dmi'
 	equip_delay_other = 60
 	strip_delay = 60
 	slowdown = 0

@@ -3,7 +3,7 @@
 	desc = "A simple leather covering. It's better than wearing nothing at least."
 	icon = 'modular_sand/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_sand/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "loincloth"
 	body_parts_covered = GROIN
 	can_adjust = FALSE

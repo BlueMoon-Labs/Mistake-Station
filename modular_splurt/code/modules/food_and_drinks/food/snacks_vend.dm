@@ -132,9 +132,9 @@
 
 /obj/item/storage/fancy/jellybean_bowl/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 10
-	STR.can_hold = typecacheof(list(/obj/item/food/jellybean))
+
+	atom_storage.max_total_storage = 10
+	atom_storage.set_holdable(list(/obj/item/food/jellybean))
 	STR.rustle_sound = FALSE
 
 /obj/item/storage/fancy/jellybean_bowl/update_icon_state()
@@ -182,9 +182,9 @@
 
 /obj/item/storage/fancy/jellybean_pack/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 27
-	STR.can_hold = typecacheof(list(/obj/item/food/jellybean/lewd))
+
+	atom_storage.max_total_storage = 27
+	atom_storage.set_holdable(list(/obj/item/food/jellybean/lewd))
 	STR.rustle_sound = FALSE
 
 /obj/item/storage/fancy/jellybean_pack/update_icon_state()

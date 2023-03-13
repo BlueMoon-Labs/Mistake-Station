@@ -43,7 +43,7 @@
 	desc = "It's full of ransomware."
 	invisibility = 100
 
-/obj/projectile/plasma/rogue
+/obj/item/projectile/plasma/rogue
 	dismemberment = 0
 	damage = 25
 	pixels_per_second = TILES_TO_PIXELS(10)
@@ -173,7 +173,7 @@
 		visible_message("<span class='boldwarning'>[src] raises it's plasma cutter!</span>")
 		sleep(3)
 		var/turf/startloc = get_turf(src)
-		var/obj/projectile/P = new /obj/projectile/plasma/rogue(startloc)
+		var/obj/item/projectile/P = new /obj/item/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		P.preparePixelProjectile(target, startloc)
 		P.firer = src
@@ -190,7 +190,7 @@
 		var/ogangle = Get_Angle(src, target)
 		sleep(7)
 		var/turf/startloc = get_turf(src)
-		var/obj/projectile/P = new /obj/projectile/plasma/rogue(startloc)
+		var/obj/item/projectile/P = new /obj/item/projectile/plasma/rogue(startloc)
 		var/turf/otherangle = (ogangle + 45)
 		var/turf/otherangle2 = (ogangle - 45)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
@@ -198,13 +198,13 @@
 		P.firer = src
 		P.original = target
 		P.fire(ogangle)
-		var/obj/projectile/X = new /obj/projectile/plasma/rogue(startloc)
+		var/obj/item/projectile/X = new /obj/item/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		X.preparePixelProjectile(target, startloc)
 		X.firer = src
 		X.original = target
 		X.fire(otherangle)
-		var/obj/projectile/Y = new /obj/projectile/plasma/rogue(startloc)
+		var/obj/item/projectile/Y = new /obj/item/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		Y.preparePixelProjectile(target, startloc)
 		Y.firer = src

@@ -27,7 +27,6 @@
 	idle_power_usage = 40
 	active_power_usage = 400
 	circuit = /obj/item/circuitboard/machine/cryptominer
-	init_process = FALSE // Don't process upon creation
 	var/mining = FALSE
 	var/miningtime = 6000
 	var/miningpoints = 100
@@ -58,7 +57,7 @@
 
 /obj/machinery/cryptominer/update_icon()
 	. = ..()
-	if(!is_operational())
+	if(!is_operational)
 		icon_state = "off"
 	else if(mining)
 		icon_state = "loop"
@@ -74,7 +73,7 @@
 	STOP_PROCESSING(SSmachines,src)
 	return ..()
 
-/obj/machinery/cryptominer/attackby(obj/item/W, mob/user, params)
+/obj/machinery/cryptominer/attackby(obj/item/W, mob/living/user, params)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, W))
 		return
 	if(default_deconstruction_crowbar(W))
@@ -96,11 +95,12 @@
 		// Define ID card
 		var/obj/item/card/id/CARD = id_card
 
-		// Check if ID card has banking support
+		/*// Check if ID card has banking support 			Не ебу.
 		if(CARD.bank_support != ID_FREE_BANK_ACCOUNT)
 			// Warn in local chat and return
 			say("ERROR: No banking support found on provided ID card.")
 			return
+		*/
 
 		// Check if ID card has a linked account
 		if(!CARD.registered_account)
@@ -234,7 +234,7 @@
 		set_mining(FALSE)
 
 	// Increase heat by heating_power
-	env.set_temperature(env_temp + CRYPTO_HEATING_POWER)
+	env.return_temperature(env_temp + CRYPTO_HEATING_POWER)
 
 	// Update air
 	air_update_turf()
@@ -246,7 +246,7 @@
 
 /obj/machinery/cryptominer/attack_hand(mob/living/user)
 	. = ..()
-	if(!is_operational())
+	if(!is_operational)
 		to_chat(user, span_warning("[src] has to be on to do this!"))
 		balloon_alert(user, "no power!")
 		return FALSE
@@ -295,7 +295,7 @@
 
 /obj/machinery/cryptominer/syndie/update_icon()
 	. = ..()
-	if(!is_operational())
+	if(!is_operational)
 		icon_state = "off_syndie"
 	else if(mining)
 		icon_state = "loop_syndie"
@@ -316,7 +316,7 @@
 
 /obj/machinery/cryptominer/nanotrasen/update_icon()
 	. = ..()
-	if(!is_operational())
+	if(!is_operational)
 		icon_state = "off_nano"
 	else if(mining)
 		icon_state = "loop_nano"

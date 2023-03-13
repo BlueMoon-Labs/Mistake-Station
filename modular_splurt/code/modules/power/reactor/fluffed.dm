@@ -20,4 +20,4 @@ Nowhere else to really put this.
 /obj/machinery/atmospherics/components/trinary/nuclear_reactor/Initialize()
 	. = ..()
 	set_light(3)
-	AddComponent(/datum/component/radioactive, 15000 , src)
+	AddComponent(/datum/component/radioactive_emitter, 15000 , src)

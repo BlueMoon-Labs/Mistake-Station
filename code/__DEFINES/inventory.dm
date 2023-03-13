@@ -312,3 +312,32 @@ GLOBAL_LIST_INIT(security_hardsuit_allowed, typecacheof(list(
 
 //Slots that won't trigger humans' update_genitals() on equip().
 GLOBAL_LIST_INIT(no_genitals_update_slots, list(ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET, ITEM_SLOT_SUITSTORE, ITEM_SLOT_BACKPACK, ITEM_SLOT_LEGCUFFED, ITEM_SLOT_HANDCUFFED, ITEM_SLOT_HANDS, ITEM_SLOT_DEX_STORAGE))
+
+// storage_flags variable on /datum/component/storage
+
+// Storage limits. These can be combined (and usually are combined).
+/// Check max_items and contents.len when trying to insert
+#define STORAGE_LIMIT_MAX_ITEMS				(1<<0)
+/// Check max_combined_w_class.
+#define STORAGE_LIMIT_COMBINED_W_CLASS		(1<<1)
+/// Use the new volume system. Will automatically force rendering to use the new volume/baystation scaling UI so this is kind of incompatible with stuff like stack storage etc etc.
+#define STORAGE_LIMIT_VOLUME				(1<<2)
+/// Use max_w_class
+#define STORAGE_LIMIT_MAX_W_CLASS			(1<<3)
+
+#define STORAGE_FLAGS_LEGACY_DEFAULT		(STORAGE_LIMIT_MAX_ITEMS | STORAGE_LIMIT_COMBINED_W_CLASS | STORAGE_LIMIT_MAX_W_CLASS)
+#define STORAGE_FLAGS_VOLUME_DEFAULT		(STORAGE_LIMIT_VOLUME | STORAGE_LIMIT_MAX_W_CLASS)
+
+// UI defines
+/// Size of volumetric box icon
+#define VOLUMETRIC_STORAGE_BOX_ICON_SIZE 32
+/// Size of EACH left/right border icon for volumetric boxes
+#define VOLUMETRIC_STORAGE_BOX_BORDER_SIZE 1
+/// Minimum pixels an item must have in volumetric scaled storage UI
+#define MINIMUM_PIXELS_PER_ITEM 16
+/// Maximum number of objects that will be allowed to be displayed using the volumetric display system. Arbitrary number to prevent server lockups.
+#define MAXIMUM_VOLUMETRIC_ITEMS 256
+/// How much padding to give between items
+#define VOLUMETRIC_STORAGE_ITEM_PADDING 4
+/// How much padding to give to edges
+#define VOLUMETRIC_STORAGE_EDGE_PADDING 1

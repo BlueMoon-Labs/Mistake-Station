@@ -8,12 +8,12 @@
 	// Copied from bag of holding
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
 
 /obj/item/storage/wallet/bluespace/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 12
+
+	atom_storage.max_total_storage = 12
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/storage/wallet/bluespace/update_icon_state()
 	// Don't update icons

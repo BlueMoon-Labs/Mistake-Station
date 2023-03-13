@@ -7,5 +7,5 @@
 	glorymessagespkabayonet = list("rams into the blood-drunk's stomach with their PKA's bayonet, knocking them and themselves down! To finish the fiend off, they simply stab into their torso like a madman with their bayonet!", "kicks the blood-drunk's knee hard, breaking it! While the fiend is stunned and barely standing, their chop their head off with the PKA's bayonet!")
 	glorythreshold = 50
 
-/obj/projectile/kinetic/miner
+/obj/item/projectile/kinetic/miner
 	color = "#FF0000"

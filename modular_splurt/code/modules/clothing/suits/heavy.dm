@@ -6,8 +6,8 @@
 	icon_state = "cbrnsuitciv"
 	icon_state = "cbrnsuitciv"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.5
@@ -15,13 +15,16 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/doubleoxygen, /obj/item/tank/internals/oxygen, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/geiger_counter)
 	slowdown = 1
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
+	armor_type = /datum/armor/mod_theme_advanced
 	strip_delay = 60
 	equip_delay_other = 60
 	flags_inv = HIDEJUMPSUIT
 	resistance_flags = ACID_PROOF
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+
+/obj/item/clothing/suit/cbrn/Initialize()
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/suit/cbrn/engineering
 	name = "engineering CBRN suit"
@@ -68,13 +71,12 @@
 	icon_state = "moppsuit"
 	allowed = list(/obj/item/flashlight, /obj/item/gun/ballistic/revolver, /obj/item/gun/ballistic/automatic, /obj/item/gun/ballistic/automatic/pistol, /obj/item/gun/energy, /obj/item/gun/ballistic/shotgun,  /obj/item/tank/internals/doubleoxygen, /obj/item/tank/internals/oxygen, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/geiger_counter)
 	slowdown = 0.5
-	armor = list("melee" = 35, "bullet" = 50, "laser" = 30,"energy" = 20, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100) //I can tell I will have to fucking balance this... several times it feels like -Radar
+	armor_type = /datum/armor/mod_theme_advanced
 
 /obj/item/clothing/suit/cbrn/mopp/advance
 	name = "advance MOPP suit"
 	desc = "Mission Oriented Protective Posture. A suit design for harsh combat conditions short of no atmosphere. This is an advance version for Non-ERT Central Command Staff."
 	slowdown = 0 // This is suppose to be advance, hopefully not too OP
-	armor = list("melee" = 40, "bullet" = 60, "laser" = 40,"energy" = 30, "bomb" = 20, "bio" = 110, "rad" = 110, "fire" = 50, "acid" = 110) //Scale with standard MOPP suits as this effects all ERT suits
 	clothing_flags = NONE
 
 /obj/item/clothing/suit/cbrn/mopp/advance/commander
@@ -116,7 +118,7 @@
 	volume = 140
 
 /obj/item/tank/internals/doubleoxygen/populate_gas()
-	air_contents.set_moles(GAS_O2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.gases(GAS_O2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	return
 
 
@@ -134,7 +136,7 @@
 	volume = 140
 
 /obj/item/tank/internals/plasmamandouble/populate_gas()
-	air_contents.set_moles(GAS_PLASMA, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.gases(GAS_PLASMA, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	return
 
 //research nods
@@ -147,7 +149,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 500, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/cbrnsec
 	name = "Security CBRN Suit"
@@ -157,7 +159,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/security
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/cbrn/cbrnengi
 	name = "Engineering CBRN Suit"
@@ -167,7 +169,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/engineering
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/cbrn/cbrnser
 	name = "Service CBRN Suit"
@@ -177,7 +179,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/service
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/cbrn/cbrncargo
 	name = "Cargo CBRN Suit"
@@ -187,7 +189,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/cargo
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/cbrn/cbrnsci
 	name = "Science CBRN Suit"
@@ -197,7 +199,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/science
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/cbrn/cbrnmed
 	name = "Medical CBRN Suit"
@@ -207,7 +209,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 600)
 	build_path = /obj/item/clothing/suit/cbrn/medical
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/moppsuit
 	name = "MOPP Suit"
@@ -217,7 +219,7 @@
 	materials = list(/datum/material/plastic = 600, /datum/material/uranium = 100, /datum/material/iron = 800)
 	build_path = /obj/item/clothing/suit/cbrn/mopp
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/cbrn/oxytank
 	name = "Double Oxygen Tank"
@@ -227,7 +229,7 @@
 	materials = list(/datum/material/iron = 200)
 	build_path = /obj/item/tank/internals/doubleoxygen
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/plasmatank
 	name = "Double Plasma Tank"
@@ -237,7 +239,7 @@
 	materials = list( /datum/material/plasma = 200, /datum/material/iron = 200)
 	build_path = /obj/item/tank/internals/plasmamandouble
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/cbrn
 	id = "cbrn"

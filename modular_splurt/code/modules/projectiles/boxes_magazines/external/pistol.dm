@@ -130,7 +130,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/e45lethal
 	name = "Enforcer magazine (.45 Lethal)"
@@ -140,7 +140,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45/lethal
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/e45taser
 	name = "Enforcer magazine (.45 Taser)"
@@ -150,7 +150,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45/taser
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/e45trac
 	name = "Enforcer magazine (.45 Tracking)"
@@ -160,7 +160,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45/trac
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/hotshot
 	name = "Enforcer magazine (.45 Hotshot)"
@@ -170,7 +170,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45/hotshot
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/hydra
 	name = "Enforcer magazine (.45 Hydra)"
@@ -180,7 +180,7 @@
 	materials = list(/datum/material/iron = 1200)
 	build_path = /obj/item/ammo_box/magazine/e45/hydra
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/e45ion
 	name = "Enforcer magazine (.45 Ion)"
@@ -190,7 +190,7 @@
 	materials = list(/datum/material/iron = 1200, /datum/material/uranium = 50)
 	build_path = /obj/item/ammo_box/magazine/e45/ion
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/e45/e45stun
 	name = "Enforcer magazine (.45 Stun)"
@@ -200,7 +200,7 @@
 	materials = list(/datum/material/iron = 1200, /datum/material/uranium = 50)
 	build_path = /obj/item/ammo_box/magazine/e45/stun
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 
 /datum/design/e45/e45laser
@@ -211,4 +211,4 @@
 	materials = list(/datum/material/iron = 1200, /datum/material/uranium = 50)
 	build_path = /obj/item/ammo_box/magazine/e45/laser
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

@@ -7,7 +7,7 @@
 							/obj/item/nullrod/fedora = 'icons/mob/clothing/head.dmi',\
 							)
 
-/obj/item/organ/eyes/dullahan
+/obj/item/organ/internal/eyes/dullahan
 	tint = 0
 
 /datum/component/neckfire
@@ -29,7 +29,7 @@
 
 	src.color = "#[fire_color]"
 	lit(color)
-	RegisterSignal(parent, COMSIG_MOB_DEATH, .proc/unlit)
+	RegisterSignal(parent, COMSIG_GLOB_MOB_DEATH, .proc/unlit)
 	// RegisterSignal(parent, COMSIG_MOB_LIFE)
 
 /datum/component/neckfire/proc/lit(fire_color)
@@ -58,7 +58,7 @@
 /datum/component/neckfire/Destroy(force=FALSE, silent=FALSE)
 	. = ..()
 	unlit(parent)
-	UnregisterSignal(parent, COMSIG_MOB_DEATH)
+	UnregisterSignal(parent, COMSIG_GLOB_MOB_DEATH)
 
 
 /datum/action/neckfire
@@ -95,7 +95,7 @@
 	RegisterSignal(dullahan_head, COMSIG_MOUSEDROP_ONTO, .proc/on_mouse_drop)
 
 /datum/component/dullahan/proc/add_head_accessory(obj/item/clothing/I, item_path)
-	head_accessory_MA = mutable_appearance(I.mob_overlay_icon || HEAD_ACCESSORIES_PATHS[item_path])
+	head_accessory_MA = mutable_appearance(I.worn_icon || HEAD_ACCESSORIES_PATHS[item_path])
 	head_accessory_MA.icon_state = I.icon_state
 	I.forceMove(dullahan_head)
 
@@ -117,7 +117,7 @@
 
 	if(item_path && !head_accessory)
 		if(istype(I, /obj/item/clothing))
-			var/obj/item/organ/eyes/dullahan/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+			var/obj/item/organ/internal/eyes/dullahan/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 			var/obj/item/clothing/clothing = I
 
 			eyes.flash_protect = clothing.flash_protect
@@ -142,7 +142,7 @@
 		else
 			return
 
-		var/obj/item/organ/eyes/dullahan/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/internal/eyes/dullahan/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 		eyes.flash_protect = 0
 		eyes.tint = 0
 		owner.update_tint()
@@ -150,7 +150,7 @@
 		remove_head_accessory(head_accessory)
 
 /datum/action/item_action/organ_action/dullahan/proc/toggle_monochromacy()
-	var/obj/item/organ/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 
 	if(eyes.monochromacy_on)
 		owner.remove_client_colour(/datum/client_colour/monochrome)
@@ -159,7 +159,7 @@
 
 	eyes.monochromacy_on = !eyes.monochromacy_on
 
-/obj/item/organ/eyes
+/obj/item/organ/internal/eyes
 	var/monochromacy_on = FALSE
 
 /datum/action/item_action/organ_action/dullahan/Grant(mob/M)

@@ -19,8 +19,6 @@
 
 	if(mob?.mind && isliving(mentor))
 		mob?.mind.transfer_to(mentor, TRUE)
-	else
-		mob?.transfer_ckey(mentor)
 
 	add_verb(src, /client/proc/despawn_mentor_mouse)
 	remove_verb(src, /client/proc/spawn_mentor_mouse)

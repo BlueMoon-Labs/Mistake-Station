@@ -1,4 +1,4 @@
 /obj/item/storage/bag/bio/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.can_hold_extra = typecacheof(list(/obj/item/reagent_containers/dropper, /obj/item/slimecross/stabilized))
+
+	atom_storage.set_holdable(list(/obj/item/reagent_containers/dropper, /obj/item/slimecross/stabilized))

@@ -5,7 +5,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/tank/internals/oxygen/empty
 	category = list("initial", "Medical","Tool Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/plasma_tank
 	name = "Plasma Tank"
@@ -14,7 +14,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/tank/internals/plasma/empty
 	category = list("initial", "Medical","Tool Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/emergency_oxygen
 	name = "Emergency Oxygen Tank"
@@ -23,7 +23,7 @@
 	materials = list(/datum/material/iron = 1000)
 	build_path = /obj/item/tank/internals/emergency_oxygen/empty
 	category = list("initial", "Medical","Tool Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/generic_tank
 	name = "Gas Tank"
@@ -32,4 +32,4 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/tank/internals/generic
 	category = list("initial", "Medical","Tool Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_ENGINEERING

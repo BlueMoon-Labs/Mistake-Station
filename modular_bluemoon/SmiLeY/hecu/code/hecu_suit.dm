@@ -31,7 +31,6 @@
 	name = "HECU warbelt"
 	icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecucloth.dmi'
 	worn_icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_digi.dmi'
 	icon_state = "hecu_belt"
 	icon_state = "hecu_belt"
 
@@ -39,7 +38,6 @@
 	name = "Black HECU warbelt"
 	icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecucloth.dmi'
 	worn_icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_digi.dmi'
 	icon_state = "hecu_belt_black"
 	icon_state = "hecu_belt_black"
 
@@ -47,7 +45,6 @@
 	name = "HECU Backpack"
 	icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecucloth.dmi'
 	worn_icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_digi.dmi'
 	icon_state = "hecu_pack"
 	icon_state = "hecu_pack"
 
@@ -55,6 +52,5 @@
 	name = "Black HECU Backpack"
 	icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecucloth.dmi'
 	worn_icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_digi.dmi'
 	icon_state = "hecu_pack_black"
 	icon_state = "hecu_pack_black"

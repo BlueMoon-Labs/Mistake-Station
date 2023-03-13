@@ -4,4 +4,4 @@
 	id = "sex_research"
 	build_path = /obj/item/circuitboard/machine/research_table
 	category = list("Research Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING

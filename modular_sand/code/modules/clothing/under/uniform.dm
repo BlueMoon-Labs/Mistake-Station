@@ -3,7 +3,7 @@
 	desc = "Standart issue Ratvarian uniform."
 	icon = 'modular_sand/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_sand/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "cog"
 	can_adjust = FALSE
 
@@ -12,6 +12,6 @@
 	desc = "Jumpskirt, plated with brass."
 	icon = 'modular_sand/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_sand/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "cog_skirt"
 	can_adjust = FALSE

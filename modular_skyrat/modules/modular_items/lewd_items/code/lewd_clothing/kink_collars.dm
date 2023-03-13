@@ -9,20 +9,20 @@
 
 /datum/storage/pockets/small/kink_collar/New()
 	. = ..()
-	can_hold = typecacheof(list(
+	set_holdable = typecacheof(list(
 	/obj/item/food/cookie,
 	/obj/item/food/cookie/sugar))
 
 /datum/storage/pockets/small/kink_collar/locked/New()
 	. = ..()
-	can_hold = typecacheof(list(
+	set_holdable = typecacheof(list(
 	/obj/item/food/cookie,
 	/obj/item/food/cookie/sugar,
 	/obj/item/key/kink_collar))
 
 /datum/storage/pockets/small/kink_collar/mind_collar/New()
 	. = ..()
-	can_hold = typecacheof(/obj/item/mind_controller)
+	set_holdable = typecacheof(/obj/item/mind_controller)
 
 //Here goes code for normal collar
 

@@ -3,7 +3,7 @@
 	desc = "It's a very robust backpack for guarding command."
 	icon_state = "blueshieldpack"
 	icon = 'modular_splurt/icons/obj/clothing/back.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
 	icon_state = "blueshieldpack"
 
 /obj/item/storage/backpack/satchel/blueshield
@@ -11,7 +11,7 @@
 	desc = "A robust satchel for blueshield related needs."
 	icon_state = "satchel-blueshield"
 	icon = 'modular_splurt/icons/obj/clothing/back.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
 	icon_state = "satchel-blueshield"
 
 /obj/item/storage/backpack/duffelbag/blueshield
@@ -19,5 +19,5 @@
 	desc = "A large duffel bag for holding extra blueshield supplies and ammunition."
 	icon_state = "duffel-blueshield"
 	icon = 'modular_splurt/icons/obj/clothing/back.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/back.dmi'
 	icon_state = "duffel-blueshield"

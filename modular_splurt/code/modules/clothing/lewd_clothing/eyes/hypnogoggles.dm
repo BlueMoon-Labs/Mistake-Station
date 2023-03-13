@@ -4,7 +4,7 @@
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/eyes/lewd_eyes.dmi'
 	icon_state = "hypnogoggles"
 	icon_state = "hypnogoggles"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/eyes/lewd_eyes.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/eyes/lewd_eyes.dmi'
 	lefthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_left.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
 	var/color_changed = FALSE

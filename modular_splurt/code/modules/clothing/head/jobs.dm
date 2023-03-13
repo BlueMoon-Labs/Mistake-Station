@@ -10,7 +10,7 @@
 	icon_state = "policewardencap"
 	icon_state = "policewardencap"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	dog_fashion = null
 
 /obj/item/clothing/head/blueshield/formal
@@ -19,7 +19,7 @@
 	icon_state = "blueshield"
 	icon_state = "blueshield"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/HoS/peacekeeper
 	name = "head of security's peacekeeper cap"
@@ -27,7 +27,7 @@
 	icon_state = "policechiefcap"
 	icon_state = "policechiefcap"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/beret/sec/peacekeeper
 	name = "peacekeeper beret"
@@ -35,7 +35,7 @@
 	icon_state = "policeberet"
 	icon_state = "policeberet"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/helmet/metrocop
 	name = "civil protection helmet"
@@ -43,7 +43,7 @@
 	icon_state = "metrocop_helmet"
 	icon_state = "metrocop_helmet"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	flags_inv = HIDEHAIR | HIDEEYES | HIDEFACE | HIDEFACIALHAIR
 
@@ -65,11 +65,11 @@
 	icon_state = "secmed_helmet"
 	icon_state = "secmed_helmet"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/beret/sec/bitch
 	name = "security's bitch beret"
 	desc = "A softer beret with the word 'BITCH' embroidered on it in pink thread."
 	icon = 'modular_splurt/icons/obj/clothing/hats.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	icon_state = "bitchberet"

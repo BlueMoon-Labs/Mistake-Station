@@ -84,7 +84,7 @@
 /obj/item/gripper/service
 	name = "service gripper"
 	desc = "A simple grasping tool for interacting with food and condiments."
-	can_hold = list(
+	set_holdable = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food,
 		/obj/item/kitchen,

@@ -127,7 +127,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/heart/ipc
+	build_path = /obj/item/organ/internal/heart/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_lungs
@@ -137,7 +137,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/lungs/ipc
+	build_path = /obj/item/organ/internal/lungs/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_liver
@@ -147,7 +147,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/liver/ipc
+	build_path = /obj/item/organ/internal/liver/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_stomach
@@ -157,7 +157,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/stomach/ipc
+	build_path = /obj/item/organ/internal/stomach/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_eyes
@@ -167,7 +167,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/eyes/ipc
+	build_path = /obj/item/organ/internal/eyes/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_ears
@@ -177,7 +177,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/ears/ipc
+	build_path = /obj/item/organ/internal/ears/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_tongue
@@ -187,7 +187,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/tongue/robot/ipc
+	build_path = /obj/item/organ/internal/tongue/robot/ipc
 	category = list("IPC Organs")
 
 /datum/design/ipc_brain
@@ -197,5 +197,5 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300, /datum/material/silver = 500, /datum/material/gold = 400)
-	build_path = /obj/item/organ/brain/ipc
+	build_path = /obj/item/organ/internal/brain/ipc
 	category = list("IPC Organs")

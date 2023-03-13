@@ -36,4 +36,4 @@
 	icon_state = "dragon"
 	icon_living = "dragon"
 	icon_dead = "dragon_dead"
-	var/allowed_projectile_types = list(/obj/projectile/magic/aoe/fireball)
+	var/allowed_projectile_types = list(/obj/item/projectile/magic/aoe/fireball)

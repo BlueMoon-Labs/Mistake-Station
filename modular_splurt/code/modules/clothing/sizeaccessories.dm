@@ -35,7 +35,7 @@
 	name = "normalizer wristband"
 	desc = "An expensive technological wristband cast in SynTech purples with shimmering NanoTrasen golds. It will 'normalize' the size of the user to a specified height for approved work-conditions, as long as it is equipped. There is a small screen buzzing with information."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/hands.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/hands.dmi'
 	icon_state = "wristband"
 	icon_state = "syntechband"
 
@@ -62,7 +62,7 @@
 	name = "normalizer pendant"
 	desc = "A vibrant violet jewel cast in silvery-gold metals, sporting the elegance of NanoTrasen with SynTech prowess. It will 'normalize' the size of the user to a specified height for approved work-conditions, as long as it is equipped. The artificial violet gem inside twinkles ominously."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "pendant"
 	icon_state = "pendant"
 
@@ -97,6 +97,6 @@
 	name = "normalizer collar"
 	desc = "A cute pet collar, technologically designed with vibrant purples and smooth silvers. There is a small gem bordered by gold at the front, reading 'SYNTECH' engraved within the metal. It will 'normalize' the size of the user to a specified height for approved work-conditions, as long as it is equipped. The artificial violet gem inside twinkles ominously."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "collar"
 	icon_state = "collar"

@@ -4,4 +4,4 @@
 	id = "tetris"
 	build_path = /obj/item/circuitboard/computer/arcade/tetris
 	category = list("Research Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING

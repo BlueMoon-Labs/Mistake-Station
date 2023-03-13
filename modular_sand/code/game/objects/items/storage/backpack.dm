@@ -8,10 +8,8 @@
 
 /obj/item/storage/backpack/case/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 25
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 25
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 25
 
 /obj/item/storage/backpack/case/security
 	name = "secure compartment case"

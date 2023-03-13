@@ -15,5 +15,5 @@
 	desc = "A large shell, belonging to probably a very large snail or slug... Wait... It can store things?"
 	icon = 'modular_splurt/icons/obj/storage.dmi'
 	icon_state = "sloog_backpack"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/64_back.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/64_back.dmi'
 	worn_x_dimension = 64

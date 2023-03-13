@@ -1,6 +1,6 @@
 /datum/element/mob_holder
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 	var/worn_state
 	var/alt_worn
 	var/right_hand
@@ -64,23 +64,16 @@
 	user.put_in_hands(holder)
 	return TRUE
 
-/datum/element/mob_holder/proc/drone_worn_icon(mob/living/simple_animal/drone/D, obj/item/clothing/head/mob_holder/holder, mob/user)
-	var/new_state = "[D.visualAppearence]_hat"
-	holder.item_state = new_state
-	holder.icon_state = new_state
-
-
 //The item itself,
 /obj/item/clothing/head/mob_holder
 	name = "bugged mob"
 	desc = "Yell at coderbrush."
 	icon = null
-	mob_overlay_icon = 'icons/mob/animals_held.dmi'
+	worn_icon = 'icons/mob/animals_held.dmi'
 	righthand_file = 'icons/mob/animals_held_rh.dmi'
 	lefthand_file = 'icons/mob/animals_held_lh.dmi'
 	icon_state = ""
 	w_class = WEIGHT_CLASS_BULKY
-	dynamic_hair_suffix = ""
 	var/mob/living/held_mob
 	var/escape_on_find
 
@@ -91,9 +84,9 @@
 		assimilate(target)
 
 	if(alt_worn)
-		mob_overlay_icon = alt_worn
+		worn_icon = alt_worn
 	if(worn_state)
-		item_state = worn_state
+		inhand_icon_state = worn_state
 		icon_state = worn_state
 	if(left_hand)
 		lefthand_file = left_hand
@@ -184,30 +177,6 @@
 		if(ismob(location))
 			return location.loc
 	return location
-
-/obj/item/clothing/head/mob_holder/assume_air_moles(datum/gas_mixture/env, moles)
-	var/atom/location = get_loc_for_air()
-	return location.assume_air_moles(env, moles)
-
-/obj/item/clothing/head/mob_holder/assume_air_ratio(datum/gas_mixture/env, ratio)
-	var/atom/location = get_loc_for_air()
-	return location.assume_air_ratio(env, ratio)
-
-/obj/item/clothing/head/mob_holder/remove_air(amount)
-	var/atom/location = get_loc_for_air()
-	return location.remove_air(amount)
-
-/obj/item/clothing/head/mob_holder/remove_air_ratio(ratio)
-	var/atom/location = get_loc_for_air()
-	return location.remove_air_ratio(ratio)
-
-/obj/item/clothing/head/mob_holder/transfer_air(datum/gas_mixture/taker, amount)
-	var/atom/location = get_loc_for_air()
-	return location.transfer_air(taker, amount)
-
-/obj/item/clothing/head/mob_holder/transfer_air_ratio(datum/gas_mixture/taker, ratio)
-	var/atom/location = get_loc_for_air()
-	return location.transfer_air(taker, ratio)
 
 // escape when found if applicable
 /obj/item/clothing/head/mob_holder/on_found(mob/living/finder)

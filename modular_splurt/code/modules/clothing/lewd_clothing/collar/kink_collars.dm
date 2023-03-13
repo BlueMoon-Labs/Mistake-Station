@@ -30,7 +30,7 @@
 	name = "mind collar"
 	desc = "A tight collar. It has some strange high-tech emitters on the side."
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/neck/lewd_neck.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/neck/lewd_neck.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/neck/lewd_neck.dmi'
 	icon_state = "mindcollar"
 	icon_state = "mindcollar"
 	var/obj/item/mind_controller/remote = null

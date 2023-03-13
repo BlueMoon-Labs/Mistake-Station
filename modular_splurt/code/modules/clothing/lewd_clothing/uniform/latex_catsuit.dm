@@ -4,13 +4,13 @@
 	icon_state = "latex_catsuit_female"
 	icon_state = "latex_catsuit"
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/uniform/lewd_uniform.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-digi.dmi'
 	lefthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_left.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
 	can_adjust = FALSE
 	strip_delay = 80
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
 	var/seamless = FALSE
 
 /obj/item/clothing/under/misc/latex_catsuit/attack_hand(mob/living/carbon/human/user)
@@ -47,17 +47,17 @@
 		T = GLOB.taur_list[C.dna.features["taur"]]
 
 	if(T?.taur_mode && src == C.w_uniform)
-		variation_flag |= src.mutantrace_variation & T.taur_mode || src.mutantrace_variation & T.alt_taur_mode
+		variation_flag |= src.supports_variations_flags & T.taur_mode || src.supports_variations_flags & T.alt_taur_mode
 		switch(variation_flag)
-			if(STYLE_HOOF_TAURIC)
-				mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-hoof.dmi'
-				//anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-hoof.dmi'
-			if(STYLE_SNEK_TAURIC)
-				mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-snake.dmi'
-				//anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-snake.dmi'
-			if(STYLE_PAW_TAURIC)
-				mob_overlay_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-paw.dmi'
-				//anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-paw.dmi'
+			if(STYLE_TAUR_HOOF)
+				worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-hoof.dmi'
+				//worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-hoof.dmi'
+			if(STYLE_TAUR_SNAKE)
+				worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-snake.dmi'
+				//worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-snake.dmi'
+			if(STYLE_TAUR_PAW)
+				worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-paw.dmi'
+				//worn_icon_digi = 'modular_splurt/icons/mob/clothing/lewd_clothing/uniform/lewd_uniform-paw.dmi'
 
 		worn_x_dimension = 64 //To fix the offset
 		worn_y_dimension = 32

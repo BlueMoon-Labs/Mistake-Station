@@ -97,8 +97,8 @@
 
 /obj/item/storage/box/aphrodisiac_pump/Initialize()
 	. = ..()
-	var/datum/component/storage/str = GetComponent(/datum/component/storage)
-	str.max_items = 2
+
+	atom_storage.max_total_storage = 2
 
 /obj/item/storage/box/aphrodisiac_pump/PopulateContents()
 	new /obj/item/implanter(src)

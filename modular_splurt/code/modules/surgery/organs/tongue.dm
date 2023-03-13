@@ -1,2 +1,2 @@
-/obj/item/organ/tongue/robot/ipc
+/obj/item/organ/internal/tongue/robot/ipc
 	name = "IPC positronic voicebox"

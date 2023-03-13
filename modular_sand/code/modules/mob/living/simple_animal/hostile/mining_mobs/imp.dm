@@ -10,7 +10,7 @@
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	move_to_delay = 4
-	projectiletype = /obj/projectile/magic/impfireball
+	projectiletype = /obj/item/projectile/magic/impfireball
 	projectilesound = 'modular_sand/sound/misc/impranged.wav'
 	ranged = 1
 	ranged_message = "shoots a fireball"
@@ -26,7 +26,7 @@
 	melee_damage_upper = 15
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
-	combat_mode = TRUE
+	a_intent = INTENT_HARM
 	speak_emote = list("groans")
 	attack_sound = 'modular_sand/sound/misc/impattacks.wav'
 	aggro_vision_range = 15
@@ -34,7 +34,7 @@
 	gold_core_spawnable = HOSTILE_SPAWN
 	crusher_loot = /obj/item/crusher_trophy/blaster_tubes/impskull
 	loot = list()
-	butcher_results = list(/obj/item/food/meat/slab = 2, /obj/item/stack/sheet/bone = 4, /obj/item/stack/sheet/leather = 2, /obj/item/stack/ore/plasma = 2)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2, /obj/item/stack/sheet/bone = 4, /obj/item/stack/sheet/leather = 2, /obj/item/stack/ore/plasma = 2)
 	robust_searching = FALSE
 	death_sound = 'modular_sand/sound/misc/impdies.wav'
 	glorymessageshand = list("grabs the imp's eyes and rips them out, shoving the bloody imp aside!", "grabs and crushes the imp's skull apart with their bare hands!", "rips the imp's head clean off with their bare hands!")
@@ -58,7 +58,7 @@
 	. = ..()
 	playsound(src, pick('modular_sand/sound/misc/impnearby.wav', 'modular_sand/sound/misc/impnearby.wav'), rand(25, 60), -1)
 
-/obj/projectile/magic/impfireball //bobyot y u no use child of fireball
+/obj/item/projectile/magic/impfireball //bobyot y u no use child of fireball
 	name = "demonic fireball" //because it fucking explodes and deals brute damage even when values are set to -1
 	icon_state = "fireball"
 	damage = 10
@@ -67,7 +67,7 @@
 	armour_penetration = 20
 	var/firestacks = 5
 
-/obj/projectile/magic/impfireball/on_hit(target)
+/obj/item/projectile/magic/impfireball/on_hit(target)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target

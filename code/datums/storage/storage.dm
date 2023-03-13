@@ -27,6 +27,8 @@
 	var/max_specific_storage = WEIGHT_CLASS_NORMAL
 	/// max combined weight classes the storage can hold
 	var/max_total_storage = 14
+	/// Max volume we can hold. Applies to [STORAGE_LIMIT_VOLUME]. Auto scaled on New() if unset.
+	var/max_volume
 
 	/// list of all the mobs currently viewing the contents
 	var/list/is_using = list()
@@ -348,6 +350,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(messages && user && !silent_for_user)
 			to_chat(user, span_warning("\The [to_insert] can't fit into \the [resolve_parent]! Make some space!"))
 		return FALSE
+
+	if(total_weight & STORAGE_LIMIT_VOLUME)
+		var/sum_volume = I.get_w_volume()
+		for(var/obj/item/_I in real_location)
+			sum_volume += _I.get_w_volume()
+		if(sum_volume > get_max_volume())
+			if(!stop_messages)
+				to_chat(M, "<span class='warning'>[I] is too spacious to fit in [host], make some space!</span>")
+			return FALSE
 
 	if(length(can_hold))
 		if(!is_type_in_typecache(to_insert, can_hold))
@@ -1111,3 +1122,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/matrix/old_matrix = resolve_parent.transform
 	animate(resolve_parent, time = 1.5, loop = 0, transform = resolve_parent.transform.Scale(1.07, 0.9))
 	animate(time = 2, transform = old_matrix)
+
+/**
+  * Gets our max volume
+  */
+/datum/component/storage/proc/get_max_volume()
+	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage)

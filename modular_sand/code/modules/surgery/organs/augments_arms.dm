@@ -2,7 +2,7 @@
 //Tools  Arms//
 ///////////////
 
-/obj/item/organ/cyberimp/arm/toolset/advanced
+/obj/item/organ/internal/cyberimp/arm/toolset/advanced
 	name = "advanced integrated toolset implant"
 	desc = "A very advanced version of the regular toolset implant, has alien stuff!"
 	contents = newlist(/obj/item/screwdriver/abductor,
@@ -13,7 +13,7 @@
 					   /obj/item/multitool/abductor,
 					   /obj/item/analyzer/ranged)
 
-/obj/item/organ/cyberimp/arm/toolset/advanced/emag_act()
+/obj/item/organ/internal/cyberimp/arm/toolset/advanced/emag_act()
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return
@@ -22,7 +22,7 @@
 	items_list += new /obj/item/pen/edagger(src)
 	return TRUE
 
-/obj/item/organ/cyberimp/arm/surgery/advanced
+/obj/item/organ/internal/cyberimp/arm/surgery/advanced
 	name = "advanced integrated surgical implant"
 	desc = "A very advanced version of the regular surgical implant, has alien stuff!"
 	contents = newlist(/obj/item/retractor/alien,
@@ -33,7 +33,7 @@
 					   /obj/item/circular_saw/alien,
 					   /obj/item/surgical_drapes)
 
-/obj/item/organ/cyberimp/arm/surgery/emag_act()
+/obj/item/organ/internal/cyberimp/arm/surgery/emag_act()
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return

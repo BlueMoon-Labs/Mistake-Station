@@ -2,11 +2,10 @@
 	name = "authentic plague doctor mask"
 	desc = "An authentic, modernised version of the classic design, with red lenses. This mask will not only filter out toxins but it can also be connected to an air supply."
 	icon = 'modular_splurt/icons/obj/plaguedoc.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	icon_state = "plaguedoctor_red"
 	icon_state = "plaguedoctor_red"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 2,ENERGY = 2, BOMB = 0, BIO = 75, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/retractor/plague
 	name = "plague doctor's retractors"
@@ -73,11 +72,9 @@
 
 /obj/item/storage/backpack/docbag/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 50
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 30
-	STR.max_volume = STORAGE_VOLUME_DUFFLEBAG
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 30
+	atom_storage.max_volume = STORAGE_VOLUME_DUFFLEBAG
 
 /obj/item/storage/backpack/docbag/PopulateContents()
 	return

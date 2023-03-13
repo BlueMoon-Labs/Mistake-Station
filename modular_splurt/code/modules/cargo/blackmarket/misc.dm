@@ -1,5 +1,5 @@
 //Normal
-/datum/blackmarket_item/consumable/radbgone
+/datum/market_item/consumable/radbgone
 	name = "radiation treatment kit"
 	desc = "Used to treat minor toxic blood content and major radiation poisoning."
 	item = /obj/item/storage/firstaid/radbgone
@@ -11,7 +11,7 @@
 
 //Syndi
 
-/datum/blackmarket_item/syndi/misc/tacticalfirstaid
+/datum/market_item/syndi/misc/tacticalfirstaid
 	name = "combat medical kit"
 	desc = "I hope you've got insurance."
 	item = /obj/item/storage/firstaid/tactical
@@ -21,7 +21,7 @@
 	stock_max = 10
 	availability_prob = 55
 
-/datum/blackmarket_item/syndi/misc/imptacticalfirstaid
+/datum/market_item/syndi/misc/imptacticalfirstaid
 	name = "improved combat medical kit"
 	desc = "I hope you've got insurance."
 	item = /obj/item/storage/firstaid/tactical/nukeop
@@ -31,7 +31,7 @@
 	stock_max = 10
 	availability_prob = 35
 
-/datum/blackmarket_item/syndi/misc/advtacticalfirstaid
+/datum/market_item/syndi/misc/advtacticalfirstaid
 	name = "advanced combat medical kit"
 	desc = "I hope you've got insurance."
 	item = /obj/item/storage/firstaid/tactical/slaver

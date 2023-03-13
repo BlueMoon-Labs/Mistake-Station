@@ -4,7 +4,7 @@
 	id = "bbq_sauce"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
-	make_reagents = list(/datum/reagent/consumable/bbqsauce = 5)
+	make_reagent = list(/datum/reagent/consumable/bbqsauce = 5)
 	category = list("initial","Food")
 
 /datum/design/fishketchup
@@ -12,7 +12,7 @@
 	id = "soy_sauce"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
-	make_reagents = list(/datum/reagent/consumable/soysauce = 5)
+	make_reagent = list(/datum/reagent/consumable/soysauce = 5)
 	category = list("initial","Food")
 
 /datum/design/egg_synth

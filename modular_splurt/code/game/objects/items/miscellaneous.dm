@@ -97,7 +97,7 @@
 	desc = "A permit for carrying weapons."
 	icon = 'modular_splurt/icons/obj/permits.dmi'
 	icon_state = "permit"
-	mob_overlay_icon = 'icons/mob/clothing/accessories.dmi'
+	worn_icon = 'icons/mob/clothing/accessories.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FIRE_PROOF
 	var/access = null
@@ -156,7 +156,7 @@
 	desc = "A badge showing the wearer is a member of Security."
 	icon = 'modular_splurt/icons/obj/badge.dmi'
 	icon_state = "security_badge"
-	mob_overlay_icon = 'icons/mob/clothing/accessories.dmi'
+	worn_icon = 'icons/mob/clothing/accessories.dmi'
 	icon_state = "lawerbadge"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FIRE_PROOF
@@ -204,7 +204,7 @@
 	materials = list(/datum/material/iron = 200, /datum/material/gold = 100)
 	build_path = /obj/item/clothing/accessory/badge
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/dep_badge
 	name = "Deputy Badge"
@@ -214,7 +214,7 @@
 	materials = list(/datum/material/iron = 200, /datum/material/silver = 100)
 	build_path = /obj/item/clothing/accessory/badge/deputy
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /obj/item/handmirror/split_personality
 	name = "dissociative mirror"

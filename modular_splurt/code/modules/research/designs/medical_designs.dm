@@ -6,7 +6,7 @@
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/implantcase/slave
 	category = list("Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/implant_gfluid
 	name = "Genital Fluid Implant Case"
@@ -16,7 +16,7 @@
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/implantcase/genital_fluid
 	category = list("Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/implant_hide_backpack
 	name = "Storage Concealment Implant Case"
@@ -26,7 +26,7 @@
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/implantcase/hide_backpack
 	category = list("Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/board/implantradio
 	name = "Radio Implant Case"
@@ -34,7 +34,7 @@
 	id = "impant_radio"
 	build_path = /obj/item/implantcase/radio
 	category = list("Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/nanogel
 	category = list("Misc", "Medical Designs")
@@ -109,7 +109,7 @@
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
 	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
 	category = list("Implants", "Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cyberimp_antidrop
 	category = list("Implants", "Medical Designs")
@@ -140,7 +140,7 @@
 
 /datum/design/cyberimp_power_cord
 	category = list("IPC Organs", "Medical Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
 //Prosthetics
 

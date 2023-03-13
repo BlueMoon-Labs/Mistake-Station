@@ -10,9 +10,8 @@
 /obj/item/storage/bag/security/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = INFINITY
-	STR.max_items = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 5
 	STR.display_numerical_stacking = TRUE
-	STR.can_hold = typecacheof(list(/obj/item/restraints/handcuffs, /obj/item/restraints/handcuffs/cable/zipties, /obj/item/assembly/flash,
+	atom_storage.set_holdable = typecacheof(list(/obj/item/restraints/handcuffs, /obj/item/restraints/handcuffs/cable/zipties, /obj/item/assembly/flash,
 	/obj/item/food/donut, /obj/item/ammo_box/magazine, /obj/item/melee/classic_baton/telescopic, /obj/item/grenade/flashbang, /obj/item/grenade/smokebomb, /obj/item/device/hailer, /obj/item/detective_scanner, /obj/item/reagent_containers/peacehypo, /obj/item/reagent_containers/spray/pepper, /obj/item/holosign_creator/security))

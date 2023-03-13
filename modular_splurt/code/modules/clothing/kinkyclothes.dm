@@ -5,8 +5,8 @@
 	icon_state = "latex"
 	icon_state = "latex"
 	icon = 'modular_splurt/icons/obj/clothing/gloves.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/gloves.dmi'
-	mutantrace_variation = NONE
+	worn_icon = 'modular_splurt/icons/mobs/gloves.dmi'
+	supports_variations_flags = NONE
 
 /obj/item/clothing/gloves/latexsleeves/security
 	name = "security sleeves"
@@ -20,8 +20,8 @@
 	icon_state = "dominatrix"
 	icon_state = "dominatrix"
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/head.dmi'
-	mutantrace_variation = NONE
+	worn_icon = 'modular_splurt/icons/mobs/head.dmi'
+	supports_variations_flags = NONE
 
 /obj/item/clothing/shoes/highheels
 	name = "high heels"
@@ -29,7 +29,7 @@
 	icon_state = "highheels"
 	icon_state = "highheels"
 	icon = 'modular_splurt/icons/obj/clothing/shoes.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/feet.dmi'
+	worn_icon = 'modular_splurt/icons/mobs/feet.dmi'
 
 
 /obj/item/clothing/shoes/highheels/Initialize()
@@ -41,7 +41,7 @@
 	name = "white boa"
 	desc = "Fluffy neck wear to keep you warm, and attract others."
 	icon = 'modular_splurt/icons/obj/clothing/neck.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "stole"
 	icon_state = ""	//no inhands
@@ -61,17 +61,17 @@
 	icon_state = "fluffy"
 	icon_state = "fluffy"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/suits.dmi'
+	worn_icon = 'modular_splurt/icons/mobs/suits.dmi'
 	body_parts_covered = CHEST|LEGS|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	mutantrace_variation = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/under/centcomdress
 	name = "CentCom Dress Uniform"
 	desc = "A stylish yet revealing dress uniform worn in extravagant black and gold, worthy of those who sit around and watch cameras all day in an office."
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	icon_state = "ccdress"
-	mob_overlay_icon = 'modular_splurt/icons/mobs/suits.dmi'
+	worn_icon = 'modular_splurt/icons/mobs/suits.dmi'
 	icon_state = "r_suit"
 	can_adjust = FALSE
 	//We will never know why CC can make their skimpy outfits tough as nails
@@ -80,7 +80,7 @@
 	cold_protection = CHEST|GROIN|ARMS
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor = list("melee" = 60, "bullet" = 80, "laser" = 80, "energy" = 90, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/under/centcomdress/vk
@@ -93,32 +93,32 @@
 	desc = "A tight form fitting pair of overalls."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "raccveralls"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "raccveralls"
 	can_adjust = FALSE
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/officesexy
 	name = "Revealing office uniform"
 	desc = "A sexy office uniform, that has a low cropped front to show off some chest, or bra. And a tall dress that covers the stomach, complete with a set of buttons."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "office_revealing"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "office_revealing"
 	can_adjust = FALSE
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/vaultsuit
 	name = "vault suit"
 	desc = "A tight form fitting Vault-Tec standard issue Vault Jumpsuit! Snazzy!"
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
 	icon_state = "vaultsuit"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "b_suit"
 	icon_state = "b_suit"
 	can_adjust = FALSE
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	mutantrace_variation = STYLE_DIGITIGRADE | STYLE_ALL_TAURIC
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | STYLE_ALL_TAURIC
 	var/firstpickup = TRUE
 	var/pickupsound = TRUE
 
@@ -145,9 +145,9 @@
 	desc = "Tunnel Foxes Rule!"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
 	icon_state = "tunnelfox"
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	icon_state = "tunnelfox"
 	body_parts_covered = CHEST|LEGS|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	togglename = "buttons"
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

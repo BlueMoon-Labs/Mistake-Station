@@ -23,7 +23,7 @@
 	message = "peeps like a bird!"
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = FALSE
-	hands_use_check = FALSE
+	restraint_check = FALSE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 
 /datum/emote/living/peep/run_emote(mob/living/user, params)
@@ -40,7 +40,7 @@
 	message = "peeps twice like a bird!"
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = FALSE
-	hands_use_check = FALSE
+	restraint_check = FALSE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 
 /datum/emote/living/peep2/run_emote(mob/living/user, params)

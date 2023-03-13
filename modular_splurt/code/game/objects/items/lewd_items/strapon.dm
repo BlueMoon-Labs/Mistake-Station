@@ -31,7 +31,7 @@
 	name = "strapon"
 	desc = "A dildo on a strap, to be attached around one's waist."
 	icon = 'modular_splurt/icons/obj/strapon.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/strapon.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/strapon.dmi'
 	icon_state = "strapon_base"
 	var/dildo_color = "#ff54dd"
 	var/dildo_shape = "human"

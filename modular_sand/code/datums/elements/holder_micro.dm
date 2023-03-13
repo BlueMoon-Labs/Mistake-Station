@@ -17,9 +17,7 @@
 		var/mob/living/living = get_atom_on_turf(micro.loc, /mob/living)
 		if(living && (abs(get_size(micro)/get_size(living)) > CONFIG_GET(number/max_pick_ratio)))
 			living.visible_message(span_warning("\The [living] drops [micro] as [micro.ru_who()] grow\s too big to carry."),
-								span_warning("You drop \The [living] as [living.ru_who()] grow\s too big to carry."),
-								target=micro,
-								target_message=span_notice("\The [living] drops you as you grow too big to carry."))
+								span_warning("You drop \The [living] as [living.ru_who()] grow\s too big to carry."))
 			holder.release()
 		else if(!istype(living)) // Somehow a inside a mob_holder and the mob_holder isn't inside any livings? release.
 			holder.release()
@@ -82,9 +80,7 @@
 		return FALSE
 
 	source.visible_message("<span class='warning'>[user] picks up [source]!</span>",
-					"<span class='userdanger'>[user] picks you up!</span>",
-					target = user,
-					target_message = "<span class='notice'>You pick [source] up.</span>")
+					"<span class='userdanger'>[user] picks you up!</span>")
 	source.drop_all_held_items()
 	mob_pickup_micro(source, user)
 	return TRUE
@@ -133,7 +129,7 @@
 	var/mob/living/carbon/human/M = held_mob
 	if(istype(M))
 		if(user.combat_mode == TRUE) //TO:DO, rework all of these interactions to be a lot more in depth
-			visible_message("<span class='danger'>[user] slams their fist down on [M]!</span>", rune_msg = " slams their fist down on [M]!")
+			visible_message("<span class='danger'>[user] slams their fist down on [M]!</span>")
 			playsound(loc, 'sound/weapons/punch1.ogg', 50, 1)
 			M.adjustBruteLoss(5)
 			return

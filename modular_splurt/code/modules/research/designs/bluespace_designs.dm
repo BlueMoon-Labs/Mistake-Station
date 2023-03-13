@@ -6,4 +6,4 @@
 	materials = list(/datum/material/gold = 300, /datum/material/diamond = 100, /datum/material/bluespace = 200)
 	build_path = /obj/item/storage/wallet/bluespace
 	category = list("Bluespace Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

@@ -104,7 +104,7 @@
 	return (..() * physiology.speed_mod)
 */
 
-/mob/living/carbon/wendigo/can_hold_items()
+/mob/living/carbon/wendigo/set_holdable_items()
 	return TRUE
 /mob/living/carbon/wendigo/IsAdvancedToolUser()
 	return TRUE
@@ -125,14 +125,14 @@
 //ORGANS
 //
 /mob/living/carbon/wendigo/create_internal_organs()
-	internal_organs += new /obj/item/organ/eyes/night_vision/wendigo
-	internal_organs += new /obj/item/organ/liver/wendigo
+	internal_organs += new /obj/item/organ/internal/eyes/night_vision/wendigo
+	internal_organs += new /obj/item/organ/internal/liver/wendigo
 
-	internal_organs += new /obj/item/organ/tongue
-	internal_organs += new /obj/item/organ/lungs
-	internal_organs += new /obj/item/organ/heart
-	internal_organs += new /obj/item/organ/stomach
-	internal_organs += new /obj/item/organ/ears
+	internal_organs += new /obj/item/organ/internal/tongue
+	internal_organs += new /obj/item/organ/internal/lungs
+	internal_organs += new /obj/item/organ/internal/heart
+	internal_organs += new /obj/item/organ/internal/stomach
+	internal_organs += new /obj/item/organ/internal/ears
 	..()
 
 /mob/living/carbon/wendigo/movement_delay()

@@ -38,7 +38,7 @@
 	loot_drop = /obj/item/melee/diamondaxe
 	speak_emote = list("yells")
 	del_on_death = TRUE
-	projectiletype = /obj/projectile/kinetic/axe
+	projectiletype = /obj/item/projectile/kinetic/axe
 	attack_action_types = list(/datum/action/innate/elite_attack/axe_slam,
 								/datum/action/innate/elite_attack/summon_shambler,
 								/datum/action/innate/elite_attack/dash,
@@ -50,28 +50,28 @@
 
 /datum/action/innate/elite_attack/axe_slam
 	name = "Axe Slam"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "axe_slam"
 	chosen_message = "<span class='boldwarning'>You will attempt to slam your axe.</span>"
 	chosen_attack_num = AXE_SLAM
 
 /datum/action/innate/elite_attack/summon_shambler
 	name = "Summon Shambler"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "summon_shambler"
 	chosen_message = "<span class='boldwarning'>You will attempt to summon a shambling miner.</span>"
 	chosen_attack_num = SUMMON_SHAMBLER
 
 /datum/action/innate/elite_attack/dash
 	name = "Dash"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "dash"
 	chosen_message = "<span class='boldwarning'>You will attempt to dash near your target.</span>"
 	chosen_attack_num = DASH
 
 /datum/action/innate/elite_attack/axe_throw
 	name = "Axe Throw"
-	button_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
+	icon_icon = 'modular_sand/icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "axe_throw"
 	chosen_message = "<span class='boldwarning'>You will attempt to throw your axe.</span>"
 	chosen_attack_num = AXE_THROW
@@ -219,13 +219,13 @@
 	. = ..()
 	transform *= 0.33
 
-/obj/projectile/kinetic/axe
+/obj/item/projectile/kinetic/axe
 	name = "kinetic axe"
 	damage = 20
 	damage_type = BRUTE
 	color = "#00FFFF"
 
-/obj/projectile/kinetic/axe/prehit_pierce(atom/target)
+/obj/item/projectile/kinetic/axe/prehit_pierce(atom/target)
 	return PROJECTILE_PIERCE_NONE
 
 //loot
@@ -237,8 +237,8 @@
 	icon_state = "diamondaxe"
 	lefthand_file = 'modular_sand/icons/mob/inhands/weapons/axes_lefthand.dmi'
 	righthand_file = 'modular_sand/icons/mob/inhands/weapons/axes_righthand.dmi'
-	icon_state = "diamondaxe"
-	attack_verb_simple = list("slashed", "sliced", "torn", "ripped", "diced", "cut")
+	item_state = "diamondaxe"
+	attack_verb = list("slashed", "sliced", "torn", "ripped", "diced", "cut")
 	w_class = WEIGHT_CLASS_BULKY
 	force = 20
 	throwforce = 18

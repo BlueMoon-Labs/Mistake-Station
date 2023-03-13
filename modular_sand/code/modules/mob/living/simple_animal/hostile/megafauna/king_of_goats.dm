@@ -39,7 +39,7 @@ Difficulty: Insanely Hard
 	response_harm_simple = "assault"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 500
-	combat_mode = TRUE
+	a_intent = INTENT_HARM
 	sentience_type = SENTIENCE_BOSS
 	stat_attack = DEAD
 	wander = FALSE

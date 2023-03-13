@@ -12,4 +12,4 @@
 	reagents_list = list(/datum/reagent/liquid_dark_matter = 10)
 	category = list("Medical Designs")
 	lathe_time_factor = 0.8
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SERVICE
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE

@@ -335,3 +335,8 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define BATON_ATTACK_DONE 2
 /// The baton attack is still going. baton_effect() is called.
 #define BATON_ATTACKING 3
+
+/// This mob is currently actively blocking
+#define COMBAT_FLAG_ACTIVE_BLOCKING			(1<<11)
+/// This mob is currently starting an active block
+#define COMBAT_FLAG_ACTIVE_BLOCK_STARTING	(1<<12)

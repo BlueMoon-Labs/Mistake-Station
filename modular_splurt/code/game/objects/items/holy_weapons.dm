@@ -25,7 +25,7 @@
 	name = "papal mitre"
 	desc = "A traditional headdress, worn by bishops and popes in traditional Christianity"
 	icon = 'modular_splurt/icons/obj/clothing/hats.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/32x48_head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/32x48_head.dmi'
 	icon_state = "mitre"
 	flags_inv = HIDEHAIR | HIDEFACIALHAIR
 
@@ -33,10 +33,10 @@
 	name = "papal robe"
 	desc = "A short cape over a cassock, worn by bishops and popes in traditional Christianity"
 	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mobs/suits.dmi'
+	worn_icon = 'modular_splurt/icons/mobs/suits.dmi'
 	icon_state = "papalrobe"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/storage/box/holy/papal
 	name = "Papal Kit"

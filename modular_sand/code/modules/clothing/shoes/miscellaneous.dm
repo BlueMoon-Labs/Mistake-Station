@@ -5,4 +5,4 @@
 	icon_state = "puttee"
 	icon_state = "puttee"
 	worn_icon = 'modular_sand/icons/mob/clothing/feet.dmi'
-	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/feet_digi.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/feet_digi.dmi'

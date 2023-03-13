@@ -2,7 +2,7 @@
 	name = "security shock collar"
 	desc = "A reinforced security collar. It has two electrodes that press against the neck, for disobedient pets."
 	icon = 'modular_splurt/icons/obj/clothing/neck/cit_neck.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
 	icon_state = "shockseccollar"
 	icon_state = "shockseccollar"
 

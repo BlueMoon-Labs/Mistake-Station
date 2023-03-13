@@ -154,7 +154,7 @@
 	boozepwr = 50
 	color = "#0919be"
 	quality = DRINK_FANTASTIC
-	value = REAGENT_VALUE_AMAZING
+	base_value = REAGENT_VALUE_AMAZING
 	taste_description = "fuzz, warmth and comfort"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
 	glass_icon_state = "mothinchief"
@@ -348,12 +348,12 @@
 /datum/reagent/consumable/ethanol/skullfucker_deluxe/overdose_process(mob/living/M)
 	. = ..()
 	//Do nothing if they're already fwuffy OwO
-	var/obj/item/organ/tongue/T = M.getorganslot(ORGAN_SLOT_TONGUE)
-	if(istype(T, /obj/item/organ/tongue/fluffy))
+	var/obj/item/organ/internal/tongue/T = M.getorganslot(ORGAN_SLOT_TONGUE)
+	if(istype(T, /obj/item/organ/internal/tongue/fluffy))
 		return
 
 	//Replace their tongue with a fwuffy one
-	var/obj/item/organ/tongue/nT = new /obj/item/organ/tongue/fluffy
+	var/obj/item/organ/internal/tongue/nT = new /obj/item/organ/internal/tongue/fluffy
 	T.Remove()
 	nT.Insert(M)
 	T.moveToNullspace()//To valhalla
@@ -369,7 +369,7 @@
 	glass_name = "glass of Ion Storm"
 	glass_desc = "You're not sure how this mixture is stable or even if it's drinkable, but it does remind you of a hot cup of apple cider on a cold winter morning"
 	ph = 6.5
-	value = REAGENT_VALUE_UNCOMMON
+	base_value = REAGENT_VALUE_UNCOMMON
 	boozepwr = 30
 	quality = DRINK_FANTASTIC
 

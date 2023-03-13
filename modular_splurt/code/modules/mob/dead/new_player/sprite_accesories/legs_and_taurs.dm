@@ -2,7 +2,7 @@
 	name = "RadDog Naga (Hyper)"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	icon_state = "chemnaga"
-	taur_mode = STYLE_SNEK_TAURIC
+	taur_mode = STYLE_TAUR_SNAKE
 	hide_legs = USE_SNEK_CLIP_MASK
 	matrixed_sections = MATRIX_ALL
 
@@ -10,14 +10,14 @@
 	name = "RadDog Taur (Hyper)"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	icon_state = "chemlight"
-	taur_mode = STYLE_PAW_TAURIC
+	taur_mode = STYLE_TAUR_PAW
 	matrixed_sections = MATRIX_ALL
 
 /datum/sprite_accessory/taur/shadekin
 	name = "Shadekin Long Tail"
 	icon_state = "shadekinlong"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
-	taur_mode = STYLE_PAW_TAURIC
+	taur_mode = STYLE_TAUR_PAW
 	color_src = MUTCOLORS
 	extra = FALSE
 
@@ -29,7 +29,7 @@
 	name = "Leopard Seal"
 	icon_state = "leopardseal"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
-	taur_mode = STYLE_SNEK_TAURIC
+	taur_mode = STYLE_TAUR_SNAKE
 	hide_legs = USE_SNEK_CLIP_MASK
 	matrixed_sections = MATRIX_ALL
 
@@ -37,7 +37,7 @@
 	name = "Noodle Dragon"
 	icon_state = "noodledragon"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
-	taur_mode = STYLE_PAW_TAURIC
+	taur_mode = STYLE_TAUR_PAW
 	hide_legs = USE_QUADRUPED_CLIP_MASK
 	matrixed_sections = MATRIX_ALL
 
@@ -49,7 +49,7 @@
 	name = "Arachne"
 	icon_state = "spider"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
-	taur_mode = STYLE_PAW_TAURIC //it is what it is
+	taur_mode = STYLE_TAUR_PAW //it is what it is
 	hide_legs = USE_QUADRUPED_CLIP_MASK
 	matrixed_sections = MATRIX_RED_GREEN
 
@@ -57,6 +57,6 @@
 	name = "Sloog"
 	icon_state = "sloog"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
-	taur_mode = STYLE_PAW_TAURIC
+	taur_mode = STYLE_TAUR_PAW
 	hide_legs = USE_QUADRUPED_CLIP_MASK
 	matrixed_sections = MATRIX_RED_GREEN

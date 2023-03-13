@@ -114,7 +114,7 @@
 			if(hud_used.inventory_shown)
 				client.screen += ears
 
-		overlays_standing[EAR_LEFT_LAYER] = ears.build_worn_icon(override_state = ears.icon_state, default_layer = EAR_LEFT_LAYER, default_icon_file = ((ears.mob_overlay_icon) ? ears.mob_overlay_icon : 'icons/mob/ears.dmi'))
+		overlays_standing[EAR_LEFT_LAYER] = ears.build_worn_icon(override_state = ears.icon_state, default_layer = EAR_LEFT_LAYER, default_icon_file = ((ears.worn_icon) ? ears.worn_icon : 'icons/mob/ears.dmi'))
 		var/mutable_appearance/ears_overlay = overlays_standing[EAR_LEFT_LAYER]
 		switch(dir)
 			if(NORTH)
@@ -143,7 +143,7 @@
 			if(hud_used.inventory_shown)
 				client.screen += ears_extra
 
-		overlays_standing[EAR_RIGHT_LAYER] = ears_extra.build_worn_icon(override_state = ears_extra.icon_state, default_layer = EAR_RIGHT_LAYER, default_icon_file = ((ears_extra.mob_overlay_icon) ? ears_extra.mob_overlay_icon : 'icons/mob/ears.dmi'))
+		overlays_standing[EAR_RIGHT_LAYER] = ears_extra.build_worn_icon(override_state = ears_extra.icon_state, default_layer = EAR_RIGHT_LAYER, default_icon_file = ((ears_extra.worn_icon) ? ears_extra.worn_icon : 'icons/mob/ears.dmi'))
 		var/mutable_appearance/ears_overlay = overlays_standing[EAR_RIGHT_LAYER]
 		switch(dir)
 			if(NORTH)
@@ -175,7 +175,7 @@
 		if(!t_state)
 			t_state = belt.icon_state
 
-		overlays_standing[BELT_LAYER] = belt.build_worn_icon(override_state = t_state, default_layer = BELT_LAYER, default_icon_file = ((belt.mob_overlay_icon) ? belt.mob_overlay_icon : 'icons/mob/clothing/belt.dmi'))
+		overlays_standing[BELT_LAYER] = belt.build_worn_icon(override_state = t_state, default_layer = BELT_LAYER, default_icon_file = ((belt.worn_icon) ? belt.worn_icon : 'icons/mob/clothing/belt.dmi'))
 		var/mutable_appearance/belt_overlay = overlays_standing[BELT_LAYER]
 		switch(dir)
 			if(NORTH)

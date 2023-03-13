@@ -2,8 +2,8 @@
 	name = "head of personnel's parade uniform"
 	desc = "A male head of personnel's luxury-wear, for special occasions."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "hop_parade_male"
 	icon_state = "hop_parade_male"
 	can_adjust = FALSE
@@ -20,8 +20,8 @@
 	desc = "A suit of stars and high-V gas. One that screams the cosmos and unfathomable vastness. Earned by only the best of the best."
 	icon_state = "galaxy_blue"
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "b_suit"
 	can_adjust = FALSE
 
@@ -29,8 +29,8 @@
 	name = "\improper Pulsar Gonne"
 	desc = "A suit of stars and high-V gas. One that screams stellar fusion and re-entry burn. Earned by only the best of the best."
 	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "galaxy_red"
 	icon_state = "r_suit"
 	can_adjust = FALSE

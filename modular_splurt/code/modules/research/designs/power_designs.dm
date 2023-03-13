@@ -8,7 +8,7 @@
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/bluespacereactor
 	category = list("Misc","Power Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/vortex_cell
 	build_type = PROTOLATHE

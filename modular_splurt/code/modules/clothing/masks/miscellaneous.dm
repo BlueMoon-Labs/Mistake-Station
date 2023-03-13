@@ -24,30 +24,28 @@
 	icon_state = "gas_cbrn"
 	icon_state = "gas_cbrn"
 	icon = 'modular_splurt/icons/obj/clothing/masks.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
-	gas_transfer_coefficient = 0.5
-	permeability_coefficient = 0.5
+	worn_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
 	resistance_flags = ACID_PROOF
-	rad_flags = RAD_PROTECT_CONTENTS | RAD_NO_CONTAMINATE
-	mutantrace_variation = STYLE_MUZZLE
+	supports_variations_flags = STYLE_MUZZLE
 	visor_flags_inv = 0
 	flavor_adjust = FALSE
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 	is_edible = 0
+
+/obj/item/clothing/mask/gas/cbrn/Initialize()
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/mask/gas/cbrn/mopp
 	name = "MOPP gas mask"
 	desc = "Mission Oriented Protective Posture. A heavy duty gas mask design to be worn in hazardous combat environments. Actually works like a gas mask as well as can be connected to internal air supply."
 	icon_state = "gas_mopp"
 	icon_state = "gas_mopp"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
 
 /obj/item/clothing/mask/gas/cbrn/mopp/advance
 	name = "advance MOPP gas mask"
 	desc = "Mission Oriented Protective Posture. A heavy duty gas mask design to be worn in hazardous combat environments. Actually works like a gas mask as well as can be connected to internal air supply. Used by CentCom Staff and ERT teams."
-	armor = list("melee" = 20, "bullet" = 10, "laser" = 20,"energy" = 20, "bomb" = 20, "bio" = 110, "rad" = 110, "fire" = 50, "acid" = 110)
 
 //broken huds for loot
 
@@ -83,25 +81,7 @@
 	icon_state = "glasses"
 	glass_colour_type = /datum/client_colour/glass_colour/green
 
-/obj/item/clothing/glasses/brokenhud/health/sunglasses
-	name = "broken medical HUDSunglasses"
-	desc = "Sunglasses with a broken medical HUD."
-	icon_state = "sunhudmed"
-	flash_protect = 1
-	glass_colour_type = /datum/client_colour/glass_colour/blue
-
-/obj/effect/spawner/lootdrop/brokenhuds
-	lootcount = 1
-	loot = list(
-				/obj/item/clothing/glasses/brokenhud/health/sunglasses = 16,
-				/obj/item/clothing/glasses/brokenhud/health/night = 16,
-				/obj/item/clothing/glasses/brokenhud/health = 16,
-				/obj/item/clothing/glasses/brokenhud/security/night = 16,
-				/obj/item/clothing/glasses/brokenhud/security/sunglasses = 16,
-				/obj/item/clothing/glasses/brokenhud/security = 16,
-				)
 //research nods
-
 /datum/design/cbrn/cbrnmask
 	name = "CBRN Mask"
 	desc = "A CBRN mask."
@@ -110,7 +90,7 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/mask/gas/cbrn
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/cbrn/moppmask
 	name = "MOPP Mask"
@@ -120,13 +100,13 @@
 	materials = list(/datum/material/plastic = 200, /datum/material/uranium = 50, /datum/material/iron = 200)
 	build_path = /obj/item/clothing/mask/gas/cbrn/mopp
 	category = list("Equipment")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /obj/item/clothing/mask/muzzle/ballgag
 	name = "ball gag"
 	desc = "To stop that awful noise, but lewder."
 	icon = 'modular_splurt/icons/obj/clothing/masks.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
-	anthro_mob_worn_overlay = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/mask.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	icon_state = "ballgag"
-	icon_state = "ballgag"
+	inhand_icon_state = "ballgag"

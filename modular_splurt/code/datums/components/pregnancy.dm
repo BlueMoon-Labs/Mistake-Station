@@ -113,7 +113,7 @@
 	UnregisterSignal(parent, COMSIG_PARENT_EXAMINE)
 
 /datum/component/pregnancy/proc/register_carrier()
-	RegisterSignal(carrier, COMSIG_MOB_DEATH, .proc/fetus_mortus)
+	RegisterSignal(carrier, COMSIG_GLOB_MOB_DEATH, .proc/fetus_mortus)
 	RegisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/handle_life)
 	RegisterSignal(carrier, COMSIG_HEALTH_SCAN, .proc/on_scan)
 	RegisterSignal(carrier, COMSIG_MOB_APPLY_DAMAGE, .proc/handle_damage)
@@ -121,7 +121,7 @@
 		RegisterSignal(carrier, COMSIG_MOB_CLIMAX, .proc/on_climax)
 
 /datum/component/pregnancy/proc/unregister_carrier()
-	UnregisterSignal(carrier, COMSIG_MOB_DEATH)
+	UnregisterSignal(carrier, COMSIG_GLOB_MOB_DEATH)
 	UnregisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE)
 	UnregisterSignal(carrier, COMSIG_HEALTH_SCAN)
 	UnregisterSignal(carrier, COMSIG_MOB_APPLY_DAMAGE)

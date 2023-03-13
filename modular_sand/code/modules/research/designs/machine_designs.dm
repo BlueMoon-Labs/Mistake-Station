@@ -4,7 +4,7 @@
 	id = "telepad"
 	build_path = /obj/item/circuitboard/machine/telesci_pad
 	category = list ("Teleportation Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telesci_console
 	name = "Computer Design (Telepad Control Console Board)"
@@ -12,7 +12,7 @@
 	id = "telesci_console"
 	build_path = /obj/item/circuitboard/computer/telesci_console
 	category = list("Teleportation Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mclunky_electronics
 	name = "Machine Design (McLunky Circuit Board)"
@@ -22,7 +22,7 @@
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 2000)
 	build_path = /obj/item/circuitboard/machine/pacman/mclunky
 	category = list("initial", "Electronics")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/board/autodoc
 	name = "Machine Design (Autodoc)"
@@ -30,7 +30,7 @@
 	id = "autodoc"
 	build_path = /obj/item/circuitboard/machine/autodoc
 	category = list("Medical Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 //Cryptocurrency Miners
 /datum/design/board/cryptominer
@@ -39,7 +39,7 @@
 	id = "cryptominer"
 	build_path = /obj/item/circuitboard/machine/cryptominer
 	category = list("Misc. Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/board/cryptominer/syndie
 	name = "Machine Design (Syndicate Cryptocurrency Miner)"
@@ -47,7 +47,7 @@
 	id = "cryptominersyndie"
 	build_path = /obj/item/circuitboard/machine/cryptominer/syndie
 	category = list("Misc. Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 //BS miner
 /datum/design/board/bluespace_miner
@@ -56,4 +56,4 @@
 	id = "bluespace_miner"
 	build_path = /obj/item/circuitboard/machine/bluespace_miner
 	category = list("Misc. Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING

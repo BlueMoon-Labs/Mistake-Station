@@ -6,7 +6,7 @@
 	name = "trencher helmet"
 	desc = "A No Man's Land-type helmet with purple paint applied."
 	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	mob_overlay_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/head.dmi'
 	icon_state = "goner_helmet"
 	flags_inv = HIDEHAIR
 	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 10, BOMB = 25, BIO = 5, RAD = 5, FIRE = 50, ACID = 50) // Normal helmet's + BIO&RAD
@@ -49,7 +49,7 @@
 	name = "trencher officer cap"
 	desc = "An army officer cap with purple pin."
 	icon_state = "goner_offcap"
-	dynamic_hair_suffix = ""
+
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/goner/officer/fake

@@ -87,8 +87,7 @@
 	taste_description = "coping"
 	color = "#0f0"
 	overdose_threshold = 30
-	gas = GAS_COPIUM
-	value = REAGENT_VALUE_GLORIOUS
+	base_value = REAGENT_VALUE_GLORIOUS
 
 /datum/reagent/drug/copium/on_mob_life(mob/living/carbon/M)
 	. = ..()

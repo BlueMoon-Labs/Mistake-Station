@@ -13,35 +13,35 @@
 	desc = "Encryption key for the Engineering channel."
 	id = "eng_key"
 	build_path = /obj/item/encryptionkey/headset_eng
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/encryption/sci_key
 	name = "Science radio encryption key"
 	desc = "Encryption key for the Science channel."
 	id = "sci_key"
 	build_path = /obj/item/encryptionkey/headset_sci
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/encryption/supply_key
 	name = "Supply radio encryption key"
 	desc = "Encryption key for the Supply channel."
 	id = "supply_key"
 	build_path = /obj/item/encryptionkey/headset_cargo
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/encryption/med_key
 	name = "Medical radio encryption key"
 	desc = "Encryption key for the Medical channel."
 	id = "med_key"
 	build_path = /obj/item/encryptionkey/headset_med
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/encryption/serv_key
 	name = "Service radio encryption key"
 	desc = "Encryption key for the Service channel."
 	id = "serv_key"
 	build_path = /obj/item/encryptionkey/headset_service
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 ///////////////////////////////////
 ////////Telecomm Server////////////
@@ -53,4 +53,4 @@
 	id = "message-server"
 	build_path = /obj/item/circuitboard/machine/telecomms/message_server
 	category = list("Subspace Telecomms")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE

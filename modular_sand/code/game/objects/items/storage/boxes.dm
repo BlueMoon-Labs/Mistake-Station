@@ -1,6 +1,6 @@
 /obj/item/storage/box/rndboards/PopulateContents()
 	. = ..()
-	new /obj/item/circuitboard/machine/mining_equipment_vendor/golem(src)
+	new /obj/item/circuitboard/computer/order_console/mining(src)
 
 /obj/item/storage/box/stockparts/alien
 	name = "box of alien stock parts"

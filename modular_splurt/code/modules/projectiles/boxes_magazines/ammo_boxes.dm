@@ -92,7 +92,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45leath
 	name = "Box of ammo (.45 Lethal)"
@@ -102,7 +102,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45/lethal
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45t
 	name = "Box of ammo (.45 Taser)"
@@ -112,7 +112,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45/taser
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45hydra
 	name = "Box of ammo (.45 Hydra-Shock)"
@@ -122,7 +122,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45/hydra
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45hot
 	name = "Box of ammo (.45 Hotshot)"
@@ -132,7 +132,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45/hotshot
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45trac
 	name = "Box of ammo (.45 Trac)"
@@ -142,7 +142,7 @@
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/ammo_box/c45/trac
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45stun
 	name = "Box of ammo (.45 Stun)"
@@ -152,7 +152,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/uranium = 150)
 	build_path = /obj/item/ammo_box/c45/stun
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45las
 	name = "Box of ammo (.45 Laser)"
@@ -162,7 +162,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/uranium = 150)
 	build_path = /obj/item/ammo_box/c45/laser
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/c45/c45ion
 	name = "Box of ammo (.45 Ion)"
@@ -172,7 +172,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/uranium = 150)
 	build_path = /obj/item/ammo_box/c45/ion
 	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/techweb_node/c45ammo
 	id = "c45_ammo"

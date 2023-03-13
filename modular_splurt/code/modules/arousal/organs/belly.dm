@@ -87,6 +87,7 @@
 				//	icon_state += "_s"
 		else
 			color = "#[owner.dna.features["belly_color"]]"
+	return ..()
 
 /obj/item/organ/genital/belly/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna

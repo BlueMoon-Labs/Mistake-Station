@@ -5,7 +5,7 @@
 	materials = list(/datum/material/glass = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/aiModule/core/full/slut
 	category = list("AI Modules")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/shebang
 	name = "Core Module Design (SHE-B.A.N.G.)"
@@ -14,7 +14,7 @@
 	materials = list(/datum/material/glass = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/aiModule/core/full/shebang
 	category = list("AI Modules")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/milker
 	name = "Core Module Design (MILK)"
@@ -23,7 +23,7 @@
 	materials = list(/datum/material/glass = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/aiModule/core/full/milker
 	category = list("AI Modules")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/vore_pred
 	name = "Core Module Design (V0RACIOUS)"
@@ -32,4 +32,4 @@
 	materials = list(/datum/material/glass = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/aiModule/core/full/vore_pred
 	category = list("AI Modules")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

@@ -222,7 +222,7 @@
 	. = ..()
 	if(.)
 		update()
-		RegisterSignal(owner, COMSIG_MOB_DEATH, .proc/update_appearance_genitals)
+		RegisterSignal(owner, COMSIG_GLOB_MOB_DEATH, .proc/update_appearance_genitals)
 		if(genital_flags & GENITAL_THROUGH_CLOTHES)
 			owner.exposed_genitals += src
 
@@ -235,7 +235,7 @@
 			var/mob/living/carbon/human/H = .
 			H.update_genitals()
 		C.exposed_genitals -= src
-		UnregisterSignal(C, COMSIG_MOB_DEATH)
+		UnregisterSignal(C, COMSIG_GLOB_MOB_DEATH)
 
 //proc to give a player their genitals and stuff when they log in
 /mob/living/carbon/human/proc/give_genitals(clean = FALSE)//clean will remove all pre-existing genitals. proc will then give them any genitals that are enabled in their DNA

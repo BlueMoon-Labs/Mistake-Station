@@ -8,6 +8,3 @@
 	chargerate = 3000 //Recharges slowly.
 	self_recharge = 1
 	rating = 6
-
-/obj/item/stock_parts/cell/vortex/empty
-	start_charged = FALSE

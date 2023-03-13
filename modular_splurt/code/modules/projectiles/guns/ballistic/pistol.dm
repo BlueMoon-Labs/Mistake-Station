@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
-	can_flashlight = 1
+
 	flight_x_offset = 19
 	flight_y_offset = 15
 
@@ -16,7 +16,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
-	can_flashlight = 1
+
 	flight_x_offset = 18
 	flight_y_offset = 14
 	obj_flags = UNIQUE_RENAME
@@ -45,7 +45,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
-	can_flashlight = 1
+
 	flight_x_offset = 18
 	flight_y_offset = 14
 
@@ -61,7 +61,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
-	can_flashlight = 1
+
 	flight_x_offset = 18
 	flight_y_offset = 14
 

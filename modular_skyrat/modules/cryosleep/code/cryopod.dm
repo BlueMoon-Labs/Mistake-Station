@@ -124,7 +124,7 @@ GLOBAL_LIST_EMPTY(ghost_records)
 		playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 
 		I.forceMove(drop_location())
-		if(usr && Adjacent(usr) && usr.can_hold_items())
+		if(usr && Adjacent(usr) && usr.set_holdable_items())
 			usr.put_in_hands(I)
 		stored_packages -= I
 

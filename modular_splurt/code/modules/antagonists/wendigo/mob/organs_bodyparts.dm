@@ -1,9 +1,9 @@
-/obj/item/organ/liver/wendigo
+/obj/item/organ/internal/liver/wendigo
 	name = "rotten liver"
 	desc = "A liver from a wendigo. It looks like a spoiled tomato."
 	decay_factor = 0
 
-/obj/item/organ/liver/wendigo/on_life()
+/obj/item/organ/internal/liver/wendigo/on_life()
 	var/mob/living/carbon/C = owner
 	if(istype(C))
 		damage = initial(maxHealth)
@@ -20,7 +20,7 @@
 			var/mob/living/carbon/wendigo/A = C
 			A.metabolize_hunger()
 
-/obj/item/organ/eyes/night_vision/wendigo
+/obj/item/organ/internal/eyes/night_vision/wendigo
 	sight_flags = SEE_MOBS
 
 /obj/item/bodypart/head/wendigo
