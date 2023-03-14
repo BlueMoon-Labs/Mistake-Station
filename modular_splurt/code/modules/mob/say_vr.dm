@@ -13,7 +13,7 @@
 
 /datum/emote/living/narrate/run_emote(mob/user, params, type_override, intentional)
 	. = TRUE
-	if(jobban_isbanned(user, "emote"))
+	if(is_banned_from(user, "emote"))
 		to_chat(user, "You cannot send narrates (banned).")
 		return FALSE
 	if(user.client && user.client.prefs.muted & MUTE_IC)

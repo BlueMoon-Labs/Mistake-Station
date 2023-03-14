@@ -245,7 +245,7 @@
 	else
 		qdel(src)
 
-/obj/structure/chrono_field/bullet_act(obj/item/projectile/P)
+/obj/structure/chrono_field/bullet_act(obj/projectile/P)
 	if(istype(P, /obj/projectile/energy/chrono_beam))
 		var/obj/projectile/energy/chrono_beam/beam = P
 		var/obj/item/gun/energy/chrono_gun/Pgun = beam.gun

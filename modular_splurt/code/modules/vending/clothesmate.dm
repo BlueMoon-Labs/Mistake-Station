@@ -1,6 +1,5 @@
 /obj/machinery/vending/clothing/Initialize()
 	var/list/extra_products = list(
-		/obj/item/clothing/suit/assu_suit = 16,
 		/obj/item/clothing/head/assu_helmet = 16,
 		/obj/item/clothing/glasses/aviators = 10,
 		/obj/item/clothing/glasses/sunglasses = 10,
@@ -11,7 +10,6 @@
 		/obj/item/clothing/suit/toggle/rp_jacket/white = 3,
 		/obj/item/clothing/under/goner/fake/poly = 10,
 		/obj/item/clothing/suit/goner/fake/poly = 10,
-		/obj/item/clothing/head/helmet/goner/fake/poly = 10,
 		/obj/item/clothing/under/raccveralls = 3,
 		/obj/item/clothing/under/officesexy = 3,
 		/obj/item/clothing/suit/toggle/tunnelfox = 3,
@@ -29,25 +27,7 @@
 	)
 	var/list/extra_premium = list(
 		/obj/item/clothing/under/rank/civilian/lawyer/galaxy_blue = 3,
-		/obj/item/clothing/head/helmet/goner/officer/fake/poly = 10
 	)
-
-	if(SSevents.holidays && SSevents.holidays[CHRISTMAS])
-		extra_products += list(
-			/obj/item/clothing/accessory/sweater/uglyxmas = 3,
-			/obj/item/clothing/under/costume/christmas = 3,
-			/obj/item/clothing/under/costume/christmas/green = 3,
-			/obj/item/clothing/under/costume/christmas/croptop = 3,
-			/obj/item/clothing/under/costume/christmas/croptop/green = 3,
-			/obj/item/clothing/suit/hooded/wintercoat/christmascoatr = 3,
-			/obj/item/clothing/suit/hooded/wintercoat/christmascoatg = 3,
-			/obj/item/clothing/suit/hooded/wintercoat/christmascoatrg = 3,
-			/obj/item/clothing/head/christmashat = 3,
-			/obj/item/clothing/head/christmashatg = 3,
-			/obj/item/clothing/shoes/winterboots/christmasbootsr = 3,
-			/obj/item/clothing/shoes/winterboots/christmasbootsg = 3,
-			/obj/item/clothing/shoes/winterboots/santaboots = 3,
-		)
 
 	LAZYADD(products, extra_products)
 	LAZYADD(contraband, extra_contraband)

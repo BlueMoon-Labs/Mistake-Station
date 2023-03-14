@@ -193,18 +193,6 @@
 	desc = "McDonald's or something."
 	icon_state = "socks_thigh_assblastusa"
 
-/obj/item/clothing/underwear/socks/stir
-	name = "polychromatic stirrups"
-	desc = "A type of close-fitting ladies' pant that tapers at the ankle, similar to leggings, except that the material extends to a band, or strap, that is worn under the arch of the foot to hold the pant leg in place."
-	body_parts_covered = NONE
-	icon_state = "socks_norm-stir"
-	var/polychromic = TRUE
-
-/obj/item/clothing/underwear/socks/stir/Initialize()
-	. = ..()
-	if(polychromic)
-		AddElement(/datum/element/polychromic, list("#ffffff"), 1)
-
 /obj/item/clothing/underwear/socks/stir/knee
 	name = "polychromatic knee-high stirrups"
 	icon_state = "socks_knee-stir"
@@ -212,24 +200,23 @@
 /obj/item/clothing/underwear/socks/stir/knee/rainbow
 	name = "knee-high rainbow stirrups"
 	icon_state = "rainbow_knee-stir"
-	polychromic = FALSE
 
 /obj/item/clothing/underwear/socks/stir/leggings
 	name = "leggings stirrups"
 	body_parts_covered = LEGS | GROIN
 	icon_state = "leggings-stir"
-	polychromic = FALSE
+
 
 /obj/item/clothing/underwear/socks/stir/leggings/pantyhose
 	name = "pantyhose stirrups"
 	icon_state = "pantyhose-stir"
-	polychromic = FALSE
+
 
 /obj/item/clothing/underwear/socks/stir/leggings/pantyhose/ripped
 	name = "ripped pantyhose stirrups"
 	body_parts_covered = NONE
 	icon_state = "pantyhose_ripped-stir"
-	polychromic = FALSE
+
 
 /obj/item/clothing/underwear/socks/stir/thigh
 	name = "polychromatic thigh-high stirrups"
@@ -239,14 +226,14 @@
 /obj/item/clothing/underwear/socks/stir/thigh/striped
 	name = "thigh-high striped stirrups"
 	icon_state = "striped_thigh-stir"
-	polychromic = FALSE
+
 
 /obj/item/clothing/underwear/socks/stir/thigh/gym
 	name = "thigh-high stirrups (black with stripe)"
 	icon_state = "striped_thigh-stir"
-	polychromic = FALSE
+
 
 /obj/item/clothing/underwear/socks/stir/thigh/rainbow
 	name = "thigh-high rainbow stirrups"
 	icon_state = "rainbow_thigh-stir"
-	polychromic = FALSE
+

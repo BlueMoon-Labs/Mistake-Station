@@ -340,3 +340,16 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define COMBAT_FLAG_ACTIVE_BLOCKING			(1<<11)
 /// This mob is currently starting an active block
 #define COMBAT_FLAG_ACTIVE_BLOCK_STARTING	(1<<12)
+
+/// Block priorities. Higher means it's checked sooner.
+// THESE MUST NEVER BE 0! Block code uses ! instead of isnull for the speed boost.
+#define BLOCK_PRIORITY_ACTIVE_BLOCK				200
+#define BLOCK_PRIORITY_HELD_ITEM				100
+#define BLOCK_PRIORITY_WEAR_SUIT				75
+//SKYRAT EDIT
+#define BLOCK_PRIORITY_CLOTHING					50
+#define BLOCK_PRIORITY_UNIFORM					25
+#define BLOCK_PRIORITY_UNDERWEAR				20
+//SKYRAT EDIT END
+
+#define BLOCK_PRIORITY_DEFAULT BLOCK_PRIORITY_HELD_ITEM

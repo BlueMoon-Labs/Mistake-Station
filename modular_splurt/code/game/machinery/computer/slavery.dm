@@ -6,10 +6,9 @@
 	desc = "Used to track and manage collared slaves. The limited range reaches only as far as the hideout perimeter."
 	icon_screen = "explosive"
 	icon_keyboard = "security_key"
-	clockwork = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	req_access = list(ACCESS_SLAVER)
-	light_color = LIGHT_COLOR_RED
+	light_color = LIGHT_COLOR_BLOOD_MAGIC
 	var/obj/item/radio/headset/radio
 	var/last_announcement
 	var/selected_cat
@@ -43,6 +42,7 @@
 	if(!ui)
 		ui = new(user, src, "SlaveConsole", name)
 		ui.open()
+	return ..()
 
 /obj/machinery/computer/slavery/ui_static_data(mob/user)
 	var/list/data = list()
@@ -104,7 +104,7 @@
 		if(pos.z == curr.z) //Distance/Direction calculations for same z-level only
 			slave["coords"] = "[pos.x], [pos.y], [pos.z]"
 			slave["dist"] = max(get_dist(curr, pos), 0) //Distance between the machine and slave turfs
-			slave["degrees"] = round(Get_Angle(curr, pos)) //0-360 degree directional bearing, for more precision.
+			slave["degrees"] = round(set_angle(curr, pos)) //0-360 degree directional bearing, for more precision.
 
 			slave["shock_cooldown"] = C.shock_cooldown
 
@@ -195,7 +195,7 @@
 		if("recruit")
 			var/mob/living/M = collar.loc
 
-			if(QDELETED(M) || jobban_isbanned(M, ROLE_SLAVER) || jobban_isbanned(M, ROLE_SYNDICATE))
+			if(QDELETED(M) || is_banned_from(M, ROLE_SLAVER) || is_banned_from(M, ROLE_SYNDICATE))
 				radioAnnounce("[M.real_name] has failed the background check and cannot join our cause.")
 				collar.nextRecruitChance = INFINITY
 				return
@@ -235,7 +235,7 @@
 			visible_message("<span class='notice'>[collar.loc] vanishes into the droppod.</span>", \
 			"<span class='notice'>You are taken by the droppod.</span>")
 
-			var/area/pod_storage_area = locate(/area/centcom/supplypod/podStorage) in GLOB.sortedAreas
+			var/area/pod_storage_area = locate(/area/centcom/central_command_areas/supplypod/supplypod_temp_holding) in GLOB.sortedAreas
 			var/mob/living/M = collar.loc
 
 			priority_announce("[M.real_name] has been returned to the station for [collar.price] credits.", sender_override = GLOB.slavers_team_name)
@@ -300,7 +300,7 @@
 		return
 	var/drop_location = pick(L)
 
-	var/area/pod_storage_area = locate(/area/centcom/supplypod/podStorage) in GLOB.sortedAreas
+	var/area/pod_storage_area = locate(/area/centcom/central_command_areas/supplypod/supplypod_temp_holding) in GLOB.sortedAreas
 	var/obj/structure/closet/supplypod/centcompod/exportPod = new(pick(get_area_turfs(pod_storage_area)))
 
 	new item(exportPod)

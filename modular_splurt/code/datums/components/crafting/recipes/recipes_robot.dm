@@ -5,6 +5,6 @@
 		/obj/item/healthanalyzer = 1,
 		/obj/item/storage/firstaid = 1,
 		/obj/item/assembly/prox_sensor = 1,
-		/obj/item/bodypart/r_arm/robot = 1,
+		/obj/item/bodypart/arm/right/robot = 1,
 		/obj/item/clothing/head/kitty = 1
 	)

@@ -79,7 +79,7 @@
 				dat += "<center><b>Current Quirks:</b> [all_quirks.len ? all_quirks.Join(", ") : "None"]</center>"
 			dat += "<h2>Identity</h2>"
 			dat += "<table width='100%'><tr><td width='75%' valign='top'>"
-			if(jobban_isbanned(user, "appearance"))
+			if(is_banned_from(user, "appearance"))
 				dat += "<b>You are banned from using custom names and appearances. You can continue to adjust your characters, but you will be randomised once you join the game.</b><br>"
 			dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=name;task=random'>Random Name</A> "
 			dat += "<b>Always Random Name:</b><a style='display:block;width:30px' href='?_src_=prefs;preference=name'>[be_random_name ? "Yes" : "No"]</a><BR>"
@@ -330,8 +330,8 @@
 						var/color_marking_dat = ""
 						var/number_colors = 1
 						var/datum/sprite_accessory/mam_body_markings/S = GLOB.mam_body_markings_list[marking_list[2]]
-						var/matrixed_sections = S.covered_limbs[actual_name]
-						if(S && matrixed_sections)
+						var/color_src = S.covered_limbs[actual_name]
+						if(S && color_src)
 							// if it has nothing initialize it to white
 							if(length(marking_list) == 2)
 								var/first = "#FFFFFF"
@@ -348,7 +348,7 @@
 							var/primary_index = 1
 							var/secondary_index = 2
 							var/tertiary_index = 3
-							switch(matrixed_sections)
+							switch(color_src)
 								if(MATRIX_GREEN)
 									primary_index = 2
 								if(MATRIX_BLUE)
@@ -362,11 +362,11 @@
 							// we know it has one matrixed section at minimum
 							color_marking_dat += "<span style='border: 1px solid #161616; background-color: [marking_list[3][primary_index]];'><font color='[color_hex2num(marking_list[3][primary_index]) < 200 ? "FFFFFF" : "000000"]'>[marking_list[3][primary_index]]</font></span>"
 							// if it has a second section, add it
-							if(matrixed_sections == MATRIX_RED_BLUE || matrixed_sections == MATRIX_GREEN_BLUE || matrixed_sections == MATRIX_RED_GREEN || matrixed_sections == MATRIX_ALL)
+							if(color_src == MATRIX_RED_BLUE || color_src == MATRIX_GREEN_BLUE || color_src == MATRIX_RED_GREEN || color_src == MATRIX_ALL)
 								color_marking_dat += "<span style='border: 1px solid #161616; background-color: [marking_list[3][secondary_index]];'><font color='[color_hex2num(marking_list[3][secondary_index]) < 200 ? "FFFFFF" : "000000"]'>[marking_list[3][secondary_index]]</font></span>"
 								number_colors = 2
 							// if it has a third section, add it
-							if(matrixed_sections == MATRIX_ALL)
+							if(color_src == MATRIX_ALL)
 								color_marking_dat += "<span style='border: 1px solid #161616; background-color: [marking_list[3][tertiary_index]];'><font color='[color_hex2num(marking_list[3][tertiary_index]) < 200 ? "FFFFFF" : "000000"]'>[marking_list[3][tertiary_index]]</font></span>"
 								number_colors = 3
 							color_marking_dat += " <a href='?_src_=prefs;preference=marking_color;marking_index=[marking_index];marking_type=[marking_type];number_colors=[number_colors];task=input'>Change</a><BR>"
@@ -404,12 +404,12 @@
 										if(!features[tertiary_feature])
 											features[tertiary_feature] = features["mcolor3"]
 
-										var/matrixed_sections = accessory.matrixed_sections
-										if(accessory.color_src == MATRIXED && !matrixed_sections)
+										var/color_src = accessory.color_src
+										if(accessory.color_src == MATRIXED && !color_src)
 											message_admins("Sprite Accessory Failure (customization): Accessory [accessory.type] is a matrixed item without any matrixed sections set!")
 											continue
 										else if(accessory.color_src == MATRIXED)
-											switch(matrixed_sections)
+											switch(color_src)
 												if(MATRIX_GREEN) //only composed of a green section
 													primary_feature = secondary_feature //swap primary for secondary, so it properly assigns the second colour, reserved for the green section
 												if(MATRIX_BLUE)
@@ -421,10 +421,10 @@
 													secondary_feature = tertiary_feature //swap secondary for tertiary, as second option is blue, which is linked to the tertiary
 										dat += "<b>Primary Color</b><BR>"
 										dat += "<span style='border:1px solid #161616; background-color: #[features[primary_feature]];'><font color='[color_hex2num(features[primary_feature]) < 200 ? "FFFFFF" : "000000"]'>#[features[primary_feature]]</font></span> <a href='?_src_=prefs;preference=[primary_feature];task=input'>Change</a><BR>"
-										if((accessory.color_src == MATRIXED && (matrixed_sections == MATRIX_RED_BLUE || matrixed_sections == MATRIX_GREEN_BLUE || matrixed_sections == MATRIX_RED_GREEN || matrixed_sections == MATRIX_ALL)) || (accessory.extra && (accessory.extra_color_src == MUTCOLORS || accessory.extra_color_src == MUTCOLORS2 || accessory.extra_color_src == MUTCOLORS3)))
+										if((accessory.color_src == MATRIXED && (color_src == MATRIX_RED_BLUE || color_src == MATRIX_GREEN_BLUE || color_src == MATRIX_RED_GREEN || color_src == MATRIX_ALL)) || (accessory.extra && (accessory.extra_color_src == MUTCOLORS || accessory.extra_color_src == MUTCOLORS2 || accessory.extra_color_src == MUTCOLORS3)))
 											dat += "<b>Secondary Color</b><BR>"
 											dat += "<span style='border:1px solid #161616; background-color: #[features[secondary_feature]];'><font color='[color_hex2num(features[secondary_feature]) < 200 ? "FFFFFF" : "000000"]'>#[features[secondary_feature]]</font></span> <a href='?_src_=prefs;preference=[secondary_feature];task=input'>Change</a><BR>"
-											if((accessory.color_src == MATRIXED && matrixed_sections == MATRIX_ALL) || (accessory.extra2 && (accessory.extra2_color_src == MUTCOLORS || accessory.extra2_color_src == MUTCOLORS2 || accessory.extra2_color_src == MUTCOLORS3)))
+											if((accessory.color_src == MATRIXED && color_src == MATRIX_ALL) || (accessory.extra2 && (accessory.extra2_color_src == MUTCOLORS || accessory.extra2_color_src == MUTCOLORS2 || accessory.extra2_color_src == MUTCOLORS3)))
 												dat += "<b>Tertiary Color</b><BR>"
 												dat += "<span style='border:1px solid #161616; background-color: #[features[tertiary_feature]];'><font color='[color_hex2num(features[tertiary_feature]) < 200 ? "FFFFFF" : "000000"]'>#[features[tertiary_feature]]</font></span> <a href='?_src_=prefs;preference=[tertiary_feature];task=input'>Change</a><BR>"
 
@@ -721,14 +721,14 @@
 
 			dat += "<h2>Special Role Settings</h2>"
 
-			if(jobban_isbanned(user, ROLE_SYNDICATE))
+			if(is_banned_from(user, ROLE_SYNDICATE))
 				dat += "<font color=red><b>You are banned from antagonist roles.</b></font>"
 				src.be_special = list()
 
 			dat += "<b>DISABLE ALL ANTAGONISM</b> <a href='?_src_=prefs;preference=disable_antag'>[(toggles & NO_ANTAG) ? "YES" : "NO"]</a><br>"
 
 			for (var/i in GLOB.special_roles)
-				if(jobban_isbanned(user, i))
+				if(is_banned_from(user, i))
 					dat += "<b>Be [capitalize(i)]:</b> <a href='?_src_=prefs;jobbancheck=[i]'>BANNED</a><br>"
 				else
 					var/days_remaining = null
@@ -1172,15 +1172,15 @@
 							// perform some magic on the color number
 							var/list/marking_list = features[marking_type][index]
 							var/datum/sprite_accessory/mam_body_markings/S = GLOB.mam_body_markings_list[marking_list[2]]
-							var/matrixed_sections = S.covered_limbs[GLOB.bodypart_names[num2text(marking_list[1])]]
+							var/color_src = S.covered_limbs[GLOB.bodypart_names[num2text(marking_list[1])]]
 							if(color_number == 1)
-								switch(matrixed_sections)
+								switch(color_src)
 									if(MATRIX_GREEN)
 										color_number = 2
 									if(MATRIX_BLUE)
 										color_number = 3
 							else if(color_number == 2)
-								switch(matrixed_sections)
+								switch(color_src)
 									if(MATRIX_RED_BLUE)
 										color_number = 3
 									if(MATRIX_GREEN_BLUE)

@@ -114,7 +114,7 @@
 
 /datum/component/pregnancy/proc/register_carrier()
 	RegisterSignal(carrier, COMSIG_GLOB_MOB_DEATH, .proc/fetus_mortus)
-	RegisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/handle_life)
+	RegisterSignal(carrier, COMSIG_LIVING_LIFE, .proc/handle_life)
 	RegisterSignal(carrier, COMSIG_HEALTH_SCAN, .proc/on_scan)
 	RegisterSignal(carrier, COMSIG_MOB_APPLY_DAMAGE, .proc/handle_damage)
 	if(oviposition)
@@ -122,7 +122,7 @@
 
 /datum/component/pregnancy/proc/unregister_carrier()
 	UnregisterSignal(carrier, COMSIG_GLOB_MOB_DEATH)
-	UnregisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE)
+	UnregisterSignal(carrier, COMSIG_LIVING_LIFE)
 	UnregisterSignal(carrier, COMSIG_HEALTH_SCAN)
 	UnregisterSignal(carrier, COMSIG_MOB_APPLY_DAMAGE)
 	UnregisterSignal(carrier, COMSIG_MOB_CLIMAX)
@@ -236,7 +236,7 @@
 	COOLDOWN_START(src, hatch_request_cooldown, 30 SECONDS)
 
 	var/poll_message = "Do you want to play as [mother_name]'s offspring?[egg_name ? " Your name will be [egg_name]" : ""]"
-	var/list/mob/candidates = pollGhostCandidates(poll_message, ROLE_RESPAWN, null, FALSE, 30 SECONDS, POLL_IGNORE_EGG)
+	var/list/mob/candidates = poll_candidates_for_mob(poll_message, ROLE_RESPAWN, null, FALSE, 30 SECONDS, POLL_IGNORE_EGG)
 
 	if(!LAZYLEN(candidates))
 		to_chat(user, span_info("\The [parent] doesn't seems to hatch, try again later?"))

@@ -199,7 +199,7 @@
 		var/iscovered = FALSE
 		for(var/obj/item/bodypart/l_arm/L in C.bodyparts)
 			handcount++
-		for(var/obj/item/bodypart/r_arm/R in C.bodyparts)
+		for(var/obj/item/bodypart/arm/right/R in C.bodyparts)
 			handcount++
 		if(C.get_item_by_slot(ITEM_SLOT_HANDS))
 			var/obj/item/clothing/gloves/G = C.get_item_by_slot(ITEM_SLOT_HANDS)

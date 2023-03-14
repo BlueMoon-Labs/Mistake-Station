@@ -13,7 +13,7 @@
 	throw_speed = 5
 	throw_range = 3
 	///the type of projectile this type of cannonball item turns into.
-	var/obj/item/projectile/projectile_type = /obj/item/projectile/bullet/cannonball
+	var/obj/projectile/projectile_type = /obj/projectile/bullet/cannonball
 
 /obj/item/stack/cannonball/update_icon_state()
 	. = ..()
@@ -28,7 +28,7 @@
 	desc = "An explosive anti-material and counter-battery projectile cannonball. Makes great work out of any wall, for easy entrances."
 	color = "#FF0000"
 	merge_type = /obj/item/stack/cannonball/shellball
-	projectile_type = /obj/item/projectile/bullet/cannonball/explosive
+	projectile_type = /obj/projectile/bullet/cannonball/explosive
 
 /obj/item/stack/cannonball/shellball/seven
 	amount = 7
@@ -43,7 +43,7 @@
 	desc = "A shot filled with two chambers that combine on impact, creating a chemical EMP. What does any of that mean? Who knows. Modern piracy really lost its soul with these newfangled things."
 	max_amount = 4
 	merge_type = /obj/item/stack/cannonball/emp
-	projectile_type = /obj/item/projectile/bullet/cannonball/emp
+	projectile_type = /obj/projectile/bullet/cannonball/emp
 
 /obj/item/stack/cannonball/the_big_one
 	name = "\"The Biggest Ones\""
@@ -52,7 +52,7 @@
 	max_amount = 5
 	icon_state = "biggest_cannonballs"
 	merge_type = /obj/item/stack/cannonball/the_big_one
-	projectile_type = /obj/item/projectile/bullet/cannonball/biggest_one
+	projectile_type = /obj/projectile/bullet/cannonball/biggest_one
 
 /obj/item/stack/cannonball/the_big_one/five
 	amount = 5
@@ -64,7 +64,7 @@
 	max_amount = 4
 	icon_state = "trashballs"
 	merge_type = /obj/item/stack/cannonball/trashball
-	projectile_type = /obj/item/projectile/bullet/cannonball/trashball
+	projectile_type = /obj/projectile/bullet/cannonball/trashball
 
 /obj/item/stack/cannonball/trashball/four
 	amount = 4

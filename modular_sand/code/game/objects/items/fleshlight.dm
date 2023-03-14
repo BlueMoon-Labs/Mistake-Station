@@ -329,7 +329,7 @@
 				if(M.has_hand(REQUIRE_ANY))
 					var/can_interact = FALSE
 					if(user.zone_selected == BODY_ZONE_R_ARM)
-						for(var/obj/item/bodypart/r_arm/R in M.bodyparts)
+						for(var/obj/item/bodypart/arm/right/R in M.bodyparts)
 							can_interact = TRUE
 					else
 						for(var/obj/item/bodypart/l_arm/L in M.bodyparts)

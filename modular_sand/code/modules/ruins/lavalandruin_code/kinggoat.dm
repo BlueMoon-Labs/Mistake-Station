@@ -20,7 +20,6 @@
 	icon_state = "goat"
 	damage = 5
 	damage_type = BRUTE
-	flag = "bullet"
 
 /obj/projectile/goat/on_hit(atom/target)
 	knockdown = 20

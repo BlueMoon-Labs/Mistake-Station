@@ -4,7 +4,7 @@
 	hitsound = null
 	damage = 5
 	damage_type = STAMINA
-	flag = "laser"
+	armor_flag = ENERGY
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 /obj/projectile/sizelaser/shrinkray
@@ -66,7 +66,7 @@
 	select_name = "Shrink"
 
 //Gun
-/obj/item/gun/energy/laser/sizeray
+/obj/item/gun/energy/sizeray
 	name = "size ray"
 	icon_state = "bluetag"
 	desc = "Debug size manipulator. You probably shouldn't have this!"
@@ -77,10 +77,19 @@
 	ammo_x_offset = 2
 	clumsy_check = 1
 
-/obj/item/gun/energy/laser/sizeray/update_overlays()
-	. = ..()
-	var/current_index = current_firemode_index
-	if(current_index == 1)
+/obj/item/gun/energy/sizeray/update_overlays()
+	var/mob/living/carbon/human/user = usr
+	select = !select
+	if(!select)
+		burst_size = 1
+		fire_delay = 0
 		icon_state = "redtag"
+		balloon_alert(user, "switched to red")
 	else
+		burst_size = initial(burst_size)
+		fire_delay = initial(fire_delay)
 		icon_state = "bluetag"
+		balloon_alert(user, "switched to blue")
+	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
+	update_item_action_buttons()
+	return ..()

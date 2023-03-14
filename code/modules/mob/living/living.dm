@@ -1282,6 +1282,10 @@
 /mob/living/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
 
+//used in datum/reagents/reaction() proc
+/mob/living/proc/get_permeability_protection(list/target_zones)
+	return 0
+
 /mob/living/can_hold_items(obj/item/I)
 	return usable_hands && ..()
 

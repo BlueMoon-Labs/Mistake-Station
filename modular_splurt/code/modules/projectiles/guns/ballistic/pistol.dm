@@ -190,7 +190,7 @@
 	reqs = list(/obj/item/gunpart/pistol22frame = 1,
 				/obj/item/gunpart/pistol22barrel = 1,
 				/obj/item/gunpart/pistol22bolt = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -200,7 +200,7 @@
 	result = /obj/item/gun/ballistic/automatic/pistol/m9mmpistol/nomag
 	reqs = list(/obj/item/gunpart/pistol9frame = 1,
 				/obj/item/gunpart/pistol9slide = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

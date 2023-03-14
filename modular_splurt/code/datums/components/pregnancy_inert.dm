@@ -24,11 +24,11 @@
 		register_carrier()
 
 /datum/component/ovipositor/proc/register_carrier()
-	RegisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/handle_life)
+	RegisterSignal(carrier, COMSIG_LIVING_LIFE, .proc/handle_life)
 	RegisterSignal(carrier, COMSIG_MOB_CLIMAX, .proc/on_climax)
 
 /datum/component/ovipositor/proc/unregister_carrier()
-	UnregisterSignal(carrier, COMSIG_LIVING_BIOLOGICAL_LIFE)
+	UnregisterSignal(carrier, COMSIG_LIVING_LIFE)
 	UnregisterSignal(carrier, COMSIG_MOB_CLIMAX)
 
 /datum/component/ovipositor/proc/on_inserted(datum/source)

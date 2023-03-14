@@ -3,7 +3,7 @@
 	desc = "A deprecated combat helmet developed during the early 21th century in Sol-3, with protections rated level III-A. Contains attachment points for AN/PVS night vision goggles."
 	icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecucloth.dmi'
 	worn_icon = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob.dmi'
-	anthro_mob_worn_overlay = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_muzzled.dmi'
+	worn_icon_muzzled = 'modular_bluemoon/SmiLeY/hecu/icons/hecumob_muzzled.dmi'
 	icon_state = "hecu_helm"
 	icon_state = "hecu_helm"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION

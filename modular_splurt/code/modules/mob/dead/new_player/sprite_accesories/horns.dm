@@ -8,7 +8,7 @@
 	icon = 'modular_splurt/icons/mob/mutant_bodyparts.dmi'
 	icon_state = "sylveon_bow"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 //ripped from skyrat
@@ -49,4 +49,4 @@
 	dimension_x = 64
 	center = TRUE
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN

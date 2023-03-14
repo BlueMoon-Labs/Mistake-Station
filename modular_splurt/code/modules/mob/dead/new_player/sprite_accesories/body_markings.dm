@@ -134,7 +134,7 @@
 	icon = 'modular_splurt/icons/mob/neck_fluff.dmi'
 	icon_state = "hyena"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_BLUE
+	color_src = MATRIX_RED_BLUE
 
 /datum/sprite_accessory/insect_fluff/hyena/stripes
 	name = "Hyena (Stripes)"
@@ -145,11 +145,11 @@
 	icon = 'modular_splurt/icons/mob/neck_fluff.dmi'
 	icon_state = "soft"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_BLUE
+	color_src = MATRIX_RED_BLUE
 
 /datum/sprite_accessory/insect_fluff/flat
 	name = "Flat"
 	icon = 'modular_splurt/icons/mob/neck_fluff.dmi'
 	icon_state = "flat"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_BLUE
+	color_src = MATRIX_RED_BLUE

@@ -384,4 +384,4 @@ Icons, maybe?
 	time = 40
 	reqs = list(/obj/item/stack/sheet/metal = 1,
 				/obj/item/stack/sheet/cloth = 3)
-	category = CAT_MISCELLANEOUS*/
+	category = CAT_MISC*/

@@ -4,14 +4,14 @@
 	icon_state = "chemnaga"
 	taur_mode = STYLE_TAUR_SNAKE
 	hide_legs = USE_SNEK_CLIP_MASK
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/chemlight
 	name = "RadDog Taur (Hyper)"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	icon_state = "chemlight"
 	taur_mode = STYLE_TAUR_PAW
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/shadekin
 	name = "Shadekin Long Tail"
@@ -31,7 +31,7 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_SNAKE
 	hide_legs = USE_SNEK_CLIP_MASK
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/noodledragon
 	name = "Noodle Dragon"
@@ -39,7 +39,7 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW
 	hide_legs = USE_QUADRUPED_CLIP_MASK
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/noodledragon/dotted
 	name = "Noodle Dragon (dotted)"
@@ -51,7 +51,7 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW //it is what it is
 	hide_legs = USE_QUADRUPED_CLIP_MASK
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/taur/sloog
 	name = "Sloog"
@@ -59,4 +59,4 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW
 	hide_legs = USE_QUADRUPED_CLIP_MASK
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN

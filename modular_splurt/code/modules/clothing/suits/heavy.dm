@@ -9,8 +9,6 @@
 	worn_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/suit_digi.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-	gas_transfer_coefficient = 0.9
-	permeability_coefficient = 0.5
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/doubleoxygen, /obj/item/tank/internals/oxygen, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/geiger_counter)

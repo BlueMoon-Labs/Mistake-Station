@@ -12,7 +12,7 @@
 	icon_state = "reference"
 
 	bodyparts = list(/obj/item/bodypart/chest/wendigo, /obj/item/bodypart/head/wendigo,
-					/obj/item/bodypart/l_arm/wendigo, /obj/item/bodypart/r_arm/wendigo,
+					/obj/item/bodypart/l_arm/wendigo, /obj/item/bodypart/arm/right/wendigo,
 					/obj/item/bodypart/l_leg/wendigo, /obj/item/bodypart/r_leg/wendigo)
 	var/datum/physiology/physiology
 	var/obj/structure/soul_storage/connected_link

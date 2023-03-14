@@ -10,7 +10,7 @@
 	icon_state = "beetle2"
 	icon = 'modular_splurt/icons/mob/wings.dmi'
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_GREEN_BLUE
+	color_src = MATRIX_GREEN_BLUE
 	upgrade_to = SPECIES_WINGS_INSECT
 
 /datum/sprite_accessory/deco_wings/insect // sarcoph @ hyperstation, march 2022
@@ -66,7 +66,7 @@
 	icon_state = "sylveon_bow"
 	icon = 'modular_splurt/icons/mob/wings.dmi'
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_ALL
+	color_src = MATRIX_ALL
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/deco_wings/harpy
@@ -82,14 +82,14 @@
 	icon_state = "harpytwo"
 	icon = 'modular_splurt/icons/mob/64_wings.dmi'
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_BLUE
+	color_src = MATRIX_RED_BLUE
 
 /datum/sprite_accessory/deco_wings/seal
 	name = "Seal"
 	icon_state = "seal"
 	icon = 'modular_splurt/icons/mob/wings.dmi'
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_BLUE
+	color_src = MATRIX_RED_BLUE
 
 /datum/sprite_accessory/deco_wings/angelmoth
 	name = "Angel Moth"
@@ -134,7 +134,7 @@
 	icon_state = "beetle2"
 	icon = 'modular_splurt/icons/mob/wings.dmi'
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_GREEN_BLUE
+	color_src = MATRIX_GREEN_BLUE
 	upgrade_to = SPECIES_WINGS_INSECT
 
 /datum/sprite_accessory/insect_wings/insect

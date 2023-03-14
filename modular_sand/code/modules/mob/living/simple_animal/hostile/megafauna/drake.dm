@@ -16,7 +16,6 @@
 	light_color = "#FFFF00"
 	light_power = 2
 	faction = list("neutral")
-	smallsprite = new /datum/action/small_sprite/drake/akatosh()
 
 /mob/living/simple_animal/hostile/megafauna/dragon/sand
 	name = "Sand"
@@ -36,4 +35,4 @@
 	icon_state = "dragon"
 	icon_living = "dragon"
 	icon_dead = "dragon_dead"
-	var/allowed_projectile_types = list(/obj/item/projectile/magic/aoe/fireball)
+	var/allowed_projectile_types = list(/obj/projectile/magic/aoe/fireball)

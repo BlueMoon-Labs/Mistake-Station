@@ -94,7 +94,7 @@
 	else
 		animate(src, color = initial(color), time = 3)
 		desc = initial(desc)
-		var/datum/status_effect/crusher_damage/crusher_dmg = has_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+		var/datum/status_effect/crusher_damage/crusher_dmg = has_status_effect(/datum/status_effect/crusher_damage)
 		var/crusher_kill = FALSE
 		if(crusher_dmg && crusher_loot && crusher_dmg.total_damage >= maxHealth * 0.6)
 			spawn_crusher_loot()
@@ -107,7 +107,7 @@
 				grant_achievement(achievement_type, score_achievement_type, crusher_kill, force_grant)
 				SSblackbox.record_feedback("tally", tab, 1, "[initial(name)]")
 		return ..()
-
+/*
 /mob/living/simple_animal/hostile/megafauna/AltClick(mob/living/carbon/slayer)
 	if(!slayer.canUseTopic(src, TRUE))
 		return
@@ -140,7 +140,7 @@
 			slayer.heal_overall_damage(gloryhealth,gloryhealth)
 		else
 			to_chat(slayer, "<span class='danger'>You fail to glory kill [src]!</span>")
-
+*/
 /mob/living/simple_animal/hostile/megafauna/devour(mob/living/L)
 	if(!L)
 		return

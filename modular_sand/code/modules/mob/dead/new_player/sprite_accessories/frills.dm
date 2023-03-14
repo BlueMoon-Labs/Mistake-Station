@@ -3,21 +3,21 @@
 	icon = 'modular_sand/icons/mob/frills.dmi'
 	icon_state = "cobrahood"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/frills/cobrahoodears
 	name = "Cobra Hood (Ears)"
 	icon = 'modular_sand/icons/mob/frills.dmi'
 	icon_state = "cobraears"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/frills/cobraslim
 	name = "Narrow Cobra Hood"
 	icon = 'modular_sand/icons/mob/frills.dmi'
 	icon_state = "cobraslim"
 	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/frills/full
 	name = "Full"

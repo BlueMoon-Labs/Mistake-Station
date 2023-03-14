@@ -49,7 +49,7 @@
 	desc = "A massive, reptilian creature with powerful muscles, razor-sharp claws, and aggression to match. This one seems friendly."
 	deathclaw_mode = "friendly"
 
-/mob/living/simple_animal/hostile/deathclaw/bullet_act(obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/deathclaw/bullet_act(obj/projectile/Proj)
 	if(!Proj)
 		return
 	if(prob(10))

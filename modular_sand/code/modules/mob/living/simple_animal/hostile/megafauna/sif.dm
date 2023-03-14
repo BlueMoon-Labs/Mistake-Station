@@ -59,6 +59,7 @@ Difficulty: Medium
 	friendly_verb_simple = "stare down"
 	icon = 'modular_sand/icons/mob/lavaland/sif.dmi'
 	speak_emote = list("growls")
+	gps_name = "Infinity Signal"
 	armour_penetration = 50
 	melee_damage_lower = 35
 	melee_damage_upper = 35
@@ -73,8 +74,8 @@ Difficulty: Medium
 	loot = list(/obj/structure/closet/crate/necropolis/sif)
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/sif/crusher)
 
-	deathmessage = "falls into the abyss."
-	deathsound = 'modular_sand/sound/sif/death_howl.ogg'
+	death_message = "falls into the abyss."
+	death_sound = 'modular_sand/sound/sif/death_howl.ogg'
 	var/can_special = 1 //Enables sif to do what he does best, spin and charge
 	var/spinIntervals = 0 //Counts how many spins Sif does before setting spinning status to false
 	var/spinning = FALSE //AOE spin special attack status
@@ -91,15 +92,6 @@ Difficulty: Medium
 	glorymessagespkabayonet = list("slides down below Sif, using their bayonet to rip it's stomach open!")
 	var/list/hit_things = list()
 
-/obj/item/gps/internal/sif
-	icon_state = null
-	gpstag = "Infinity Signal"
-	desc = "No, it's not thanos."
-
-/mob/living/simple_animal/hostile/megafauna/sif/Initialize(mapload)
-	. = ..()
-	internal = new /obj/item/gps/internal/sif(src)
-
 //Sword structure, used to summon sif.
 /obj/structure/sword/sif
 	name = "Massive Glowing Sword"
@@ -109,11 +101,6 @@ Difficulty: Medium
 	icon = 'modular_sand/icons/mob/lavaland/sif_sword.dmi'
 	icon_state = "Idle_Sword"
 	layer = HIGH_OBJ_LAYER //Looks better when its over everything... cause its huge
-	var/obj/item/gps/internal/geepm
-
-/obj/structure/sword/sif/Initialize()
-	. = ..()
-	geepm = new /obj/item/gps/internal/sif(src)
 
 //When the sword is touched it will spawn sif.
 /obj/structure/sword/sif/attack_hand(mob/user)
@@ -207,7 +194,7 @@ Difficulty: Medium
 	spin(5,2)// Spin me boi
 
 //Chance to dodge projectiles when angered or enraged
-/mob/living/simple_animal/hostile/megafauna/sif/bullet_act(obj/item/projectile/P)
+/mob/living/simple_animal/hostile/megafauna/sif/bullet_act(obj/projectile/P)
 	var/passed = 0
 
 	if(angered)

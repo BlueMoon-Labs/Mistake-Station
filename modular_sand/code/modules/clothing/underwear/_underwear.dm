@@ -6,12 +6,11 @@
 	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
 	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	body_parts_covered = GROIN
-	block_priority = BLOCK_PRIORITY_UNDERWEAR
 	slot_flags = ITEM_SLOT_UNDERWEAR
 
 	w_class = WEIGHT_CLASS_SMALL
 	var/under_type = /obj/item/clothing/underwear //i don't know what i'm gonna use this for
-	var/fitted = FEMALE_UNIFORM_TOP
+	var/fitted = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/underwear/Move()
 	..()

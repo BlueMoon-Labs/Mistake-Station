@@ -15,6 +15,7 @@
 	friendly_verb_simple = "poke"
 	speak_emote = list("screeches")
 	mob_biotypes = MOB_ROBOTIC
+	gps_name = "Corrupted Signal"
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	speed = 1
@@ -24,7 +25,7 @@
 	del_on_death = 0
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/rogue/crusher)
 	loot = list(/obj/structure/closet/crate/necropolis/rogue)
-	deathmessage = "sparkles and emits corrupted screams in agony, falling defeated on the ground."
+	death_message = "sparkles and emits corrupted screams in agony, falling defeated on the ground."
 	death_sound = 'sound/mecha/critdestr.ogg'
 	anger_modifier = 0
 	footstep_type = FOOTSTEP_MOB_HEAVY
@@ -37,22 +38,12 @@
 	var/min_sparks = 1
 	var/max_sparks = 4
 
-/obj/item/gps/internal/rogueprocess
-	icon_state = null
-	gpstag = "Corrupted Signal"
-	desc = "It's full of ransomware."
-	invisibility = 100
-
-/obj/item/projectile/plasma/rogue
+/obj/projectile/plasma/rogue
 	dismemberment = 0
 	damage = 25
-	pixels_per_second = TILES_TO_PIXELS(10)
+	pixel_speed_multiplier = TILES_TO_PIXELS(10)
 	range = 21
 	color = "#FF0000"
-
-/mob/living/simple_animal/hostile/megafauna/rogueprocess/Initialize(mapload)
-	. = ..()
-	internal = new /obj/item/gps/internal/rogueprocess(src)
 
 /mob/living/simple_animal/hostile/megafauna/rogueprocess/adjustHealth(amount, updating_health, forced)
 	. = ..()
@@ -165,7 +156,7 @@
 		A.ex_act(EXPLODE_HEAVY)
 		DestroySurroundings()
 
-/mob/living/simple_animal/hostile/megafauna/rogueprocess/proc/plasmashot(atom/target)
+/mob/living/simple_animal/hostile/megafauna/rogueprocess/proc/plasmashot(atom/target, set_angle)
 	var/path = get_dist(src, target)
 	if(path > 2)
 		if(!target)
@@ -173,38 +164,36 @@
 		visible_message("<span class='boldwarning'>[src] raises it's plasma cutter!</span>")
 		sleep(3)
 		var/turf/startloc = get_turf(src)
-		var/obj/item/projectile/P = new /obj/item/projectile/plasma/rogue(startloc)
+		var/obj/projectile/P = new /obj/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		P.preparePixelProjectile(target, startloc)
 		P.firer = src
 		P.original = target
-		var/set_angle = Get_Angle(src, target)
 		P.fire(set_angle)
 
-/mob/living/simple_animal/hostile/megafauna/rogueprocess/proc/plasmaburst(atom/target)
+/mob/living/simple_animal/hostile/megafauna/rogueprocess/proc/plasmaburst(atom/target, set_angle)
 	var/list/theline = get_dist(src, target)
 	if(theline > 2)
 		if(!target)
 			return
 		visible_message("<span class='boldwarning'>[src] raises it's tri-shot plasma cutter!</span>")
-		var/ogangle = Get_Angle(src, target)
 		sleep(7)
 		var/turf/startloc = get_turf(src)
-		var/obj/item/projectile/P = new /obj/item/projectile/plasma/rogue(startloc)
-		var/turf/otherangle = (ogangle + 45)
-		var/turf/otherangle2 = (ogangle - 45)
+		var/obj/projectile/P = new /obj/projectile/plasma/rogue(startloc)
+		var/turf/otherangle = (set_angle + 45)
+		var/turf/otherangle2 = (set_angle - 45)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		P.preparePixelProjectile(target, startloc)
 		P.firer = src
 		P.original = target
-		P.fire(ogangle)
-		var/obj/item/projectile/X = new /obj/item/projectile/plasma/rogue(startloc)
+		P.fire(set_angle)
+		var/obj/projectile/X = new /obj/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		X.preparePixelProjectile(target, startloc)
 		X.firer = src
 		X.original = target
 		X.fire(otherangle)
-		var/obj/item/projectile/Y = new /obj/item/projectile/plasma/rogue(startloc)
+		var/obj/projectile/Y = new /obj/projectile/plasma/rogue(startloc)
 		playsound(src, 'sound/weapons/laser.ogg', 100, TRUE)
 		Y.preparePixelProjectile(target, startloc)
 		Y.firer = src

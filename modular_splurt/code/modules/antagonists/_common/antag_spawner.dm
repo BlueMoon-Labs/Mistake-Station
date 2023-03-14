@@ -35,7 +35,7 @@
 	next_attempt_allowed = world.time + 1 MINUTES
 
 	to_chat(user, "<span class='notice'>You activate [src] and wait for confirmation.</span>")
-	var/list/borg_candidates = pollGhostCandidates("Do you want to play as a slaver [lowertext(borg_to_spawn)] cyborg?", ROLE_SLAVER, null, ROLE_SLAVER, 150, POLL_IGNORE_SLAVER)
+	var/list/borg_candidates = poll_candidates_for_mob("Do you want to play as a slaver [lowertext(borg_to_spawn)] cyborg?", ROLE_SLAVER, null, ROLE_SLAVER, 150, POLL_IGNORE_SLAVER)
 	if(LAZYLEN(borg_candidates))
 		if(QDELETED(src) || !check_usability(user))
 			return

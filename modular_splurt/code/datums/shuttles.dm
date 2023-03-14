@@ -1,6 +1,6 @@
 /datum/map_template/shuttle/slaveship
 	port_id = "slaveship"
-	can_be_bought = FALSE
+	who_can_purchase = null
 
 /datum/map_template/shuttle/slaveship/basic
 	suffix = "basic"

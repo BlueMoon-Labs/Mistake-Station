@@ -50,7 +50,7 @@
 	result = /obj/item/gun/ballistic/revolver/r22lr
 	reqs = list(/obj/item/gunpart/revolver22frame = 1,
 				/obj/item/gunpart/revolver22cylinder = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -70,7 +70,7 @@
 	result = /obj/item/gun/ballistic/revolver/r45l
 	reqs = list(/obj/item/gunpart/revolver45frame = 1,
 				/obj/item/gunpart/revolver45cylinder = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

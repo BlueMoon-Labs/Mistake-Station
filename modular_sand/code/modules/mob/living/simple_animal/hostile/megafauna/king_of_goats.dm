@@ -38,8 +38,8 @@ Difficulty: Insanely Hard
 	response_harm_continuous = "assaults"
 	response_harm_simple = "assault"
 	attack_sound = 'sound/weapons/punch1.ogg'
+	gps_name = "Regal Signal"
 	health = 500
-	a_intent = INTENT_HARM
 	sentience_type = SENTIENCE_BOSS
 	stat_attack = DEAD
 	wander = FALSE
@@ -238,6 +238,7 @@ Difficulty: Insanely Hard
 		M.Scale(1.25)
 	transform = M
 	pixel_y = 10
+	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/king/phase2/Life()
 	. = ..()

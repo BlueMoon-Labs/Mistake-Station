@@ -4,4 +4,4 @@
 	time = 70
 	reqs = list(/obj/item/stack/sheet/bone = 2,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 4)
-	category = CAT_PRIMAL
+	category = CAT_FURNITURE

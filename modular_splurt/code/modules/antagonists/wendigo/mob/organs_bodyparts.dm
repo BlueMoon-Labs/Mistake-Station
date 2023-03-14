@@ -39,7 +39,7 @@
 	attack_verb_simple = list("slashed", "clawed", "mauled")
 	animal_origin = WENDIGO_BODYPART
 
-/obj/item/bodypart/r_arm/wendigo
+/obj/item/bodypart/arm/right/wendigo
 	dismemberable = FALSE
 	max_damage = INFINITY
 	attack_verb_simple = list("slashed", "clawed", "mauled")

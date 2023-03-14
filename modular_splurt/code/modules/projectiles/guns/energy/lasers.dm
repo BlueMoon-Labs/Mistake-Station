@@ -32,7 +32,7 @@
 	result = /obj/item/gun/energy/civilian
 	reqs = list(/obj/item/gunpart/civilianlaserframe = 1,
 				/obj/item/gunpart/civilianlaserbarrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -44,7 +44,7 @@
 				/obj/item/stack/cable_coil = 5,
 				/obj/item/stock_parts/capacitor = 4,
 				/obj/item/stock_parts/micro_laser = 1)
-	tools = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

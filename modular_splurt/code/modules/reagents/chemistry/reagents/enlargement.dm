@@ -28,7 +28,6 @@
 	color = "#01ff63"
 	taste_description = "blueberry gum"
 	overdose_threshold = 17
-	can_synth = FALSE
 
 /datum/reagent/fermi/belly_inflator/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
@@ -39,7 +38,6 @@
 			M.visible_message("<span class='warning'>A belly suddenly flies out of [M]!")
 			var/T2 = get_random_station_turf()
 			M.adjustBruteLoss(25)
-			M.DefaultCombatKnockdown(50)
 			M.Stun(50)
 			B.throw_at(T2, 8, 1)
 		M.reagents.del_reagent(type)
@@ -81,7 +79,6 @@
 	taste_description = "Milky strawberries"
 	description = "A medicine used to treat a patient's heavily bloated stomach"
 	metabolization_rate = 0.5
-	can_synth = TRUE
 
 /datum/reagent/fermi/GEsmaller_hypo/on_mob_metabolize(mob/living/M)
 	. = ..()

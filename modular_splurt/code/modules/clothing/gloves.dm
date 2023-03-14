@@ -4,15 +4,14 @@
 	icon_state = "black"
 	icon_state = "blackgloves"
 	siemens_coefficient = 1
-	permeability_coefficient = 0.05
 	strip_delay = 80
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = ACID_PROOF
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
-	strip_mod = 1.5
+	armor_type = /datum/armor/utility_radiation
+	equip_delay_other = 60
 	is_edible = 0
 
 /obj/item/clothing/gloves/cbrn/Initialize()
@@ -28,14 +27,14 @@
 	name = "MOPP gloves"
 	desc = "Mission Oriented Protective Posture. Thick black gloves design for working in hazardous combat environments. Still not shock proof"
 	icon_state = "combat"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 10,"energy" = 10, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 40, "acid" = 100)
+	armor_type = /datum/armor/utility_radiation
 
 /obj/item/clothing/gloves/cbrn/mopp/advance
 	name = "advance MOPP gloves"
 	desc = "Mission Oriented Protective Posture. Thick black gloves design for working in hazardous combat environments. Advance variants for Central Command staff and ERT team. Insulated."
 	icon_state = "combat"
 	siemens_coefficient = 0
-	armor = list("melee" = 15, "bullet" = 0, "laser" = 15,"energy" = 15, "bomb" = 20, "bio" = 110, "rad" = 110, "fire" = 60, "acid" = 110)
+	armor_type = /datum/armor/utility_radiation
 
 // research nods
 /datum/design/cbrn/cbrngloves

@@ -36,7 +36,7 @@
 		playsound(src, fire_sound, 50, TRUE)
 		flick(icon_state+"_fire", src)
 	if(loaded_cannonball)
-		var/obj/item/projectile/fired_projectile = new loaded_cannonball.projectile_type(get_turf(src))
+		var/obj/projectile/fired_projectile = new loaded_cannonball.projectile_type(get_turf(src))
 		if(reagents.has_reagent(/datum/reagent/fuel, charge_size))
 			fired_projectile.damage = max(2, fired_projectile.damage - BAD_FUEL_DAMAGE_TAX)
 		QDEL_NULL(loaded_cannonball)

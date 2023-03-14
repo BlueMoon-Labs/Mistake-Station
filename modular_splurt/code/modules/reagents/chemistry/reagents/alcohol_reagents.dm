@@ -160,7 +160,6 @@
 	glass_icon_state = "mothinchief"
 	glass_name = "Moth in Chief"
 	glass_desc = "A simple yet elegant drink, inspires confidence in even the most pessimistic of men. The mantle rests well upon your shoulders."
-	can_synth = FALSE;
 
 //This drink gives the combined benefits of Stimulants, Regenerative Jelly, and Commander and Chief, and a mood buff similar to Copium; at least to an extent.
 /datum/reagent/consumable/ethanol/commander_and_chief/on_mob_life(mob/living/carbon/M)

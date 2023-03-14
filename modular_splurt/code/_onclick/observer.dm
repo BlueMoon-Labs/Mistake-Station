@@ -28,5 +28,5 @@
 	src.visible_message(\
 		"<span class='danger'>You hear someone slap \The [src]'s ass, but nobody's there...</span>",\
 		"<span class='notice'>Somebody slaps your ass, but nobody is around...</span>",\
-		"You hear a slap.", target=user, target_message="<span class='notice'>You manage to will your ethereal hand to slap \The [src]'s ass.</span>")
+		"You hear a slap.")
 	return

@@ -188,7 +188,7 @@
 	result = /obj/item/gun/ballistic/shotgun/huntingrifle
 	reqs = list(/obj/item/gunpart/rifle308sotck = 1,
 				/obj/item/gunpart/rifle308barrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -198,7 +198,7 @@
 	result = /obj/item/gun/ballistic/shotgun/varmintrifle
 	reqs = list(/obj/item/gunpart/riflevarmintsotck = 1,
 				/obj/item/gunpart/riflevarmintbarrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -208,7 +208,7 @@
 	result = /obj/item/gun/ballistic/revolver/doublebarrel/sawn
 	reqs = list(/obj/item/gunpart/shotgunstock = 1,
 				/obj/item/gunpart/shotgunbarrelsawn = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -218,7 +218,7 @@
 	result = /obj/item/gun/ballistic/revolver/doublebarrel
 	reqs = list(/obj/item/gunpart/shotgunstock = 1,
 				/obj/item/gunpart/shotgunbarrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -228,7 +228,7 @@
 	result = /obj/item/gun/ballistic/shotgun/brush2
 	reqs = list(/obj/item/gunpart/riflebrush2stock = 1,
 				/obj/item/gunpart/riflebrush2barrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -238,7 +238,7 @@
 	result = /obj/item/gun/ballistic/shotgun/hunting
 	reqs = list(/obj/item/gunpart/shotgunhutningstock = 1,
 				/obj/item/gunpart/shotgunhutningbarrel = 1)
-	tools = list(TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON

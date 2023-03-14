@@ -28,7 +28,7 @@
 	obj_damage = 60
 	combat_mode = TRUE
 	death_sound = 'sound/voice/ed209_20sec.ogg'
-	deathmessage = "lets out scream and its tentacles shrivel away..."
+	death_message = "lets out scream and its tentacles shrivel away..."
 	move_to_delay = 4
 	loot = list(/obj/effect/gibspawner/human)
 
