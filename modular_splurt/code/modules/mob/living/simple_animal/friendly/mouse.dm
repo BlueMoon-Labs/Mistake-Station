@@ -73,9 +73,10 @@
 	size_multiplier = 2
 	gold_core_spawnable = HOSTILE_SPAWN
 
-/mob/living/simple_animal/hostile/bigmouse/Initialize()
+/mob/living/simple_animal/hostile/morph/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/ventcrawling, given_tier = VENTCRAWLER_ALWAYS)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	AddElement(/datum/element/content_barfer)
 
 /mob/living/simple_animal/hostile/bigmouse/Initialize()
 	var/matrix/M = matrix()

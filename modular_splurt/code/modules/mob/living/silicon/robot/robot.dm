@@ -8,7 +8,7 @@
 	change_gender()
 
 // Slaver medical borg
-/mob/living/silicon/robot/modules/syndicate/slaver/medical
+/mob/living/silicon/robot/model/syndicate/slaver/medical
 	faction = list(ROLE_SLAVER)
 	req_access = list(ACCESS_SLAVER)
 	icon_state = "synd_medical"
@@ -19,20 +19,20 @@
 						Your defibrillator paddles can revive slavers through their hardsuits, or can be used on harm intent to shock enemies! \
 						Your energy saw functions as a circular saw, but can be activated to deal more damage.</b>"
 
-/mob/living/silicon/robot/modules/syndicate/slaver/medical/Initialize()
+/mob/living/silicon/robot/model/syndicate/slaver/medical/Initialize()
 	. = ..()
 
 	laws = new /datum/ai_laws/slaver_override
 	laws.associate(src)
 
-/mob/living/silicon/robot/modules/slaver
+/mob/living/silicon/robot/model/slaver
 	faction = list(ROLE_SLAVER)
 	req_access = list(ACCESS_SLAVER)
 	emagged = TRUE
 	lawupdate = FALSE
 
 // Slaver generic borg
-/mob/living/silicon/robot/modules/slaver/Initialize()
+/mob/living/silicon/robot/model/slaver/Initialize()
 	. = ..()
 
 	SetEmagged(1)

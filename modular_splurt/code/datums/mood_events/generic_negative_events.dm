@@ -11,7 +11,7 @@
 
 	if(!ishuman(actual_owner))
 		return .
-	if(iscatperson(actual_owner))
+	if(isfelinid(actual_owner))
 		description = span_warning("<b>CHEESE!!! WAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!</b>\n")
 		mood_change = -5
 		timeout = 5 MINUTES

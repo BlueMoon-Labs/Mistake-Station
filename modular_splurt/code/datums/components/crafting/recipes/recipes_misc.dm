@@ -71,7 +71,6 @@
 
 /datum/crafting_recipe/trash_cannon
 	name = "Trash Cannon"
-	always_availible = FALSE
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	result = /obj/structure/cannon/trash
 	reqs = list(
@@ -81,19 +80,16 @@
 		/obj/item/restraints/handcuffs/cable = 1,
 		/obj/item/storage/toolbox = 1,
 	)
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/trashball
 	name = "Trashball"
-	always_availible = FALSE
 	result = /obj/item/stack/cannonball/trashball
 	reqs = list(
 		/obj/item/stack/sheet = 5,
 		/datum/reagent/consumable/space_cola = 10,
 	)
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
+	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/hudsunsecaviators
 	name = "Security HUD Aviators"

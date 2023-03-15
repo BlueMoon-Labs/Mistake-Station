@@ -77,11 +77,3 @@ GLOBAL_LIST_EMPTY(loadout_whitelist_ids)
 	if(!description && path)
 		var/obj/O = path
 		description = initial(O.desc)
-
-//a comprehensive donator check proc is intentionally not implemented due to the fact that we (((might))) have job-whitelists for donator items in the future and I like to stay on the safe side.
-
-//ckey only check
-/datum/gear/proc/donator_ckey_check(key)
-	if(ckeywhitelist && ckeywhitelist.Find(key))
-		return TRUE
-	return IS_CKEY_DONATOR_GROUP(key, donator_group_id)

@@ -192,7 +192,7 @@
 				/obj/item/gunpart/pistol22bolt = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/pistol9assemble
@@ -202,5 +202,5 @@
 				/obj/item/gunpart/pistol9slide = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON

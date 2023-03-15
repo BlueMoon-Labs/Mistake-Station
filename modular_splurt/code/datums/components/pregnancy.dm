@@ -236,7 +236,7 @@
 	COOLDOWN_START(src, hatch_request_cooldown, 30 SECONDS)
 
 	var/poll_message = "Do you want to play as [mother_name]'s offspring?[egg_name ? " Your name will be [egg_name]" : ""]"
-	var/list/mob/candidates = poll_candidates_for_mob(poll_message, ROLE_RESPAWN, null, FALSE, 30 SECONDS, POLL_IGNORE_EGG)
+	var/list/mob/candidates = poll_candidates_for_mob(poll_message, BAN_RESPAWN, null, FALSE, 30 SECONDS, POLL_IGNORE_EGG)
 
 	if(!LAZYLEN(candidates))
 		to_chat(user, span_info("\The [parent] doesn't seems to hatch, try again later?"))
@@ -250,8 +250,6 @@
 	if(ishuman(babby))
 		determine_baby_features(babby)
 		determine_baby_dna(babby)
-
-	player.transfer_ckey(babby, TRUE)
 
 	to_chat(babby, "You are the son (or daughter) of [mother_name ? mother_name : "someone"]!")
 
@@ -368,8 +366,8 @@
 	if(final_features["eye_color_right"])
 		babby.eye_color_right = final_features["eye_color_right"]
 
-	babby.hair_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	babby.facial_hair_style = "Shaved"
+	babby.hairstyle = pick("Bedhead", "Bedhead 2", "Bedhead 3")
+	babby.facial_hairstyle = "Shaved"
 	babby.underwear = "Nude"
 	babby.undershirt = "Nude"
 	babby.socks = "Nude"
@@ -408,7 +406,7 @@
 		if(!oviposition)
 			new /obj/effect/gibspawner/generic(get_turf(carrier))
 		else
-			new /obj/effect/decal/cleanable/egg_smudge(get_turf(carrier))
+			new /obj/effect/decal/cleanable/food/egg_smudge(get_turf(carrier))
 	carrier.Knockdown(200, TRUE, TRUE)
 	carrier.Stun(200, TRUE, TRUE)
 	carrier.adjustStaminaLoss(200)

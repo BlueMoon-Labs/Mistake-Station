@@ -1,6 +1,6 @@
 //For small players and such
 /datum/element/smalltalk
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/smalltalk/Attach(datum/target, force = FALSE)
 	. = ..()
@@ -15,5 +15,5 @@
 
 /datum/element/smalltalk/proc/handle_speech(datum/source, list/speech_args)
 	SIGNAL_HANDLER
-	
+
 	speech_args[SPEECH_SPANS] |= SPAN_SMALL

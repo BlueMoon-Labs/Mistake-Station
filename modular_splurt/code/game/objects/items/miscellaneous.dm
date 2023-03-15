@@ -257,7 +257,7 @@
 /obj/item/choice_beacon/box/plushie/deluxe
 	name = "Deluxe choice box (plushie)"
 	desc =  "Using the power of quantum entanglement, this box contains five times every plush, until the moment it is opened!"
-	var/uses = 5
+	uses = 5
 
 /obj/item/choice_beacon/box/plushie/deluxe/spawn_option(choice, mob/living/M)
 	//I don't wanna recode two different procs just for it to do the same as doing this

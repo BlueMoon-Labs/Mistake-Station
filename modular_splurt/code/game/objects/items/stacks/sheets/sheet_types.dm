@@ -4,13 +4,13 @@
 GLOBAL_LIST_INIT(shadow_wood_recipes, list ( \
 	new /datum/stack_recipe("shadow wood floor tile", /obj/item/stack/tile/wood/shadow, 1, 4, 20), \
 	new /datum/stack_recipe("shadow wood table frame", /obj/structure/table_frame/shadow_wood, 2, time = 10), \
-	new /datum/stack_recipe("shadow wood chair", /obj/structure/chair/wood/shadow, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("shadow wood crate", /obj/structure/closet/crate/wooden/shadow, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new /datum/stack_recipe("shadow wood bed", /obj/structure/bed/shadow, 2, time = 70, one_per_turf = TRUE, on_floor = TRUE),\
-	new /datum/stack_recipe("shadow wood double bed", /obj/structure/bed/double/shadow, 4, time = 140, one_per_turf = TRUE, on_floor = TRUE),\
-	new /datum/stack_recipe("shadow wood barricade", /obj/structure/barricade/wooden/shadow, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("shadow wood dog bed", /obj/structure/bed/dogbed/shadow, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("shadow wood dresser", /obj/structure/dresser/shadow, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("shadow wood chair", /obj/structure/chair/wood/shadow, 3, time = 10, one_per_turf = TRUE), \
+	new /datum/stack_recipe("shadow wood crate", /obj/structure/closet/crate/wooden/shadow, 6, time = 50, one_per_turf = TRUE),\
+	new /datum/stack_recipe("shadow wood bed", /obj/structure/bed/shadow, 2, time = 70, one_per_turf = TRUE),\
+	new /datum/stack_recipe("shadow wood double bed", /obj/structure/bed/double/shadow, 4, time = 140, one_per_turf = TRUE),\
+	new /datum/stack_recipe("shadow wood barricade", /obj/structure/barricade/wooden/shadow, 5, time = 50, one_per_turf = TRUE), \
+	new /datum/stack_recipe("shadow wood dog bed", /obj/structure/bed/dogbed/shadow, 10, time = 10, one_per_turf = TRUE), \
+	new /datum/stack_recipe("shadow wood dresser", /obj/structure/dresser/shadow, 10, time = 15, one_per_turf = TRUE), \
 	))
 
 /obj/item/stack/sheet/mineral/wood/shadow
@@ -36,11 +36,11 @@ GLOBAL_LIST_INIT(shadow_wood_recipes, list ( \
 GLOBAL_LIST_INIT(mush_wood_recipes, list ( \
 	new /datum/stack_recipe("mushroom floor tile", /obj/item/stack/tile/wood/mushroom, 1, 4, 20), \
 	new /datum/stack_recipe("mushroom table frame", /obj/structure/table_frame/mushwood, 2, time = 10), \
-	new /datum/stack_recipe("mushroom chair", /obj/structure/chair/wood/mushroom, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("mushroom barricade", /obj/structure/barricade/wooden/mushroom, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("dog bed", /obj/structure/bed/dogbed/mushroom, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("dresser", /obj/structure/dresser/mushroom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("mushroom crate", /obj/structure/closet/crate/wooden/mushroom, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
+	new /datum/stack_recipe("mushroom chair", /obj/structure/chair/wood/mushroom, 3, time = 10, one_per_turf = TRUE), \
+	new /datum/stack_recipe("mushroom barricade", /obj/structure/barricade/wooden/mushroom, 5, time = 50, one_per_turf = TRUE), \
+	new /datum/stack_recipe("dog bed", /obj/structure/bed/dogbed/mushroom, 10, time = 10, one_per_turf = TRUE), \
+	new /datum/stack_recipe("dresser", /obj/structure/dresser/mushroom, 10, time = 15, one_per_turf = TRUE), \
+	new /datum/stack_recipe("mushroom crate", /obj/structure/closet/crate/wooden/mushroom, 6, time = 50, one_per_turf = TRUE),\
 	))
 
 /obj/item/stack/sheet/mineral/wood/mushroom
@@ -79,15 +79,15 @@ GLOBAL_LIST_INIT(mush_wood_recipes, list ( \
 
 
 GLOBAL_LIST_INIT(micro_bricks_recipes, list( \
-	new /datum/stack_recipe("Road fourway", /obj/structure/micro_brick/road_fourway, 2, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Road threeway", /obj/structure/micro_brick/road_threeway, 2, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Road straight", /obj/structure/micro_brick/road_straight, 2, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Road turn", /obj/structure/micro_brick/Road_turn, 2, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("Road fourway", /obj/structure/micro_brick/road_fourway, 2, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Road threeway", /obj/structure/micro_brick/road_threeway, 2, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Road straight", /obj/structure/micro_brick/road_straight, 2, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Road turn", /obj/structure/micro_brick/Road_turn, 2, time = 2, one_per_turf = TRUE), \
 	null, \
-	new /datum/stack_recipe("Small houses", /obj/structure/micro_brick/small_house, 5, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Small business", /obj/structure/micro_brick/small_business, 5, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Small warehouse", /obj/structure/micro_brick/small_warehouse, 5, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("Small museum", /obj/structure/micro_brick/small_museum, 5, time = 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("Small houses", /obj/structure/micro_brick/small_house, 5, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Small business", /obj/structure/micro_brick/small_business, 5, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Small warehouse", /obj/structure/micro_brick/small_warehouse, 5, time = 2, one_per_turf = TRUE), \
+	new /datum/stack_recipe("Small museum", /obj/structure/micro_brick/small_museum, 5, time = 2, one_per_turf = TRUE), \
 	null, \
 	new /datum/stack_recipe("Small moon", /obj/item/moon, 5, time = 2), \
 	null, \

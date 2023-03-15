@@ -8,8 +8,6 @@
 	cell_type = /obj/item/stock_parts/cell{charge = 700; maxcharge = 700}
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler)
 	weapon_weight = WEAPON_LIGHT
-	inaccuracy_modifier = 0.25
-	can_flashlight = 0
 
 /obj/item/gun/energy/civilian/lethal
 	name = "moddfied civilian energy pistol"
@@ -34,7 +32,7 @@
 				/obj/item/gunpart/civilianlaserbarrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/civilianlaserupgrade
@@ -46,7 +44,7 @@
 				/obj/item/stock_parts/micro_laser = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /obj/item/gun/energy/e_gun/corpus
@@ -62,4 +60,4 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser)
 	weapon_weight = WEAPON_LIGHT
 	slot_flags = ITEM_SLOT_BACK
-	can_flashlight = 0
+

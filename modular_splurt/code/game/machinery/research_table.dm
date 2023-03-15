@@ -11,7 +11,7 @@
 	density = TRUE
 	buckle_lying = TRUE
 	layer = TABLE_LAYER
-	obj_flags = CAN_BE_HIT|SHOVABLE_ONTO
+	obj_flags = CAN_BE_HIT
 	pass_flags = LETPASSTHROW //You can throw objects over this, despite it's density.")
 	circuit = /obj/item/circuitboard/machine/research_table
 	var/self_unbuckle_time = 3 MINUTES
@@ -87,7 +87,7 @@
 /obj/machinery/research_table/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	if(QDELETED(buckled_mob) || QDELETED(user)) //SPLURT edit
 		return
-	if(INTERACTING_WITH(buckled_mob, src))
+	if(DOING_INTERACTION_WITH_TARGET(buckled_mob, src))
 		to_chat(user, "<span class='notice'>You're already trying to unbuckle [buckled_mob == user ? "yourself" : buckled_mob]!")
 		return
 	if(!handle_unbuckling(buckled_mob, user))
@@ -120,6 +120,7 @@
 		tier += part.rating
 		parts++
 	tier /= parts
+	return ..()
 
 /obj/machinery/research_table/proc/on_cum(mob/living/carbon/buckled_mob, obj/item/organ/genital/target_orifice, mob/living/partner)
 	if(!configured)

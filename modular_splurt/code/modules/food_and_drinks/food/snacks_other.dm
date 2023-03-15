@@ -18,7 +18,7 @@
 	H.visible_message("<span class='warning'>[H] is cheesed by [src]!</span>", "<span class='userdanger'>You've been cheesed by [src]!</span>")
 	playsound(H, 'modular_splurt/sound/effects/slap.ogg')
 	if(!H.is_mouth_covered())
-		reagents.trans_to(H, 15, log = "cheesed hit") //Cream pie combat
+		reagents.trans_to(H, 15) //Cream pie combat
 	if(!H.cheesed) // one layer at a time
 		H.add_overlay(cheeseoverlay)
 		H.cheesed = TRUE

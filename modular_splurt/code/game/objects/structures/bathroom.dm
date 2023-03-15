@@ -6,7 +6,7 @@
 
 /obj/structure/urinal/shit/Initialize()
 	. = ..()
-	QDEL_NULL(hiddenitem)
+	QDEL_NULL(hidden_item)
 
 /obj/structure/urinal/shit/examine(mob/user)
 	. = ..()
@@ -20,7 +20,7 @@
 		return ..()
 	var/mob/living/carbon/human/H = user
 	if(istype(I, /obj/item/soap))
-		if(!istype(H.gloves, /obj/item/clothing/gloves/color/latex))
+		if(!istype(H.gloves, /obj/item/clothing/gloves/latex))
 			to_chat(H, "<span class='warning'>No! No fucking way I'm touching this shit without at LEAST latex gloves!</span>")
 			return
 		if(!istype(H.get_inactive_held_item(), /obj/item/storage/bag/trash))

@@ -197,7 +197,7 @@
 		var/handcount = 0
 		var/covered = 0
 		var/iscovered = FALSE
-		for(var/obj/item/bodypart/l_arm/L in C.bodyparts)
+		for(var/obj/item/bodypart/arm/left/L in C.bodyparts)
 			handcount++
 		for(var/obj/item/bodypart/arm/right/R in C.bodyparts)
 			handcount++
@@ -229,9 +229,9 @@
 		var/feetcount = 0
 		var/covered = 0
 		var/iscovered = FALSE
-		for(var/obj/item/bodypart/l_leg/L in C.bodyparts)
+		for(var/obj/item/bodypart/leg/leftL in C.bodyparts)
 			feetcount++
-		for(var/obj/item/bodypart/r_leg/R in C.bodyparts)
+		for(var/obj/item/bodypart/leg/right/R in C.bodyparts)
 			feetcount++
 		if(!C.is_barefoot())
 			covered = TRUE

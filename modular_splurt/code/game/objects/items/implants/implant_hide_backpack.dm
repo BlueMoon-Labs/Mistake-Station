@@ -32,7 +32,7 @@
 /datum/action/item_action/hide_backpack
 	name = "Conceal Backwear"
 	desc = "Toggle a weak psychic signal that conceals the presence of back-equipped gear items."
-	icon = 'modular_splurt/icons/obj/storage.dmi'
+	button_icon = 'modular_splurt/icons/obj/storage.dmi'
 	button_icon_state = "backpack_faded"
 	background_icon_state = "bg_tech"
 
@@ -81,11 +81,11 @@
 	// Set icon state variables
 	if(ability_active)
 		// Half-faded backpack
-		icon = 'modular_splurt/icons/obj/storage.dmi'
+		button_icon = 'modular_splurt/icons/obj/storage.dmi'
 		button_icon_state = "backpack_faded"
 	else
 		// Normal backpack
-		icon = 'icons/obj/storage.dmi'
+		button_icon = 'icons/obj/storage.dmi'
 		button_icon_state = "backpack"
 
 	// Update icon state

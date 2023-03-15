@@ -104,7 +104,7 @@
 		if(pos.z == curr.z) //Distance/Direction calculations for same z-level only
 			slave["coords"] = "[pos.x], [pos.y], [pos.z]"
 			slave["dist"] = max(get_dist(curr, pos), 0) //Distance between the machine and slave turfs
-			slave["degrees"] = round(set_angle(curr, pos)) //0-360 degree directional bearing, for more precision.
+			slave["degrees"] = round(get_angle(curr, pos)) //0-360 degree directional bearing, for more precision.
 
 			slave["shock_cooldown"] = C.shock_cooldown
 

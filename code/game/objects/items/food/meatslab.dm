@@ -155,7 +155,7 @@
 	desc = "Unpleasantly powdery and dry. Kind of pretty, though."
 	slab_color = "#BF896B"
 	tastes = list("dust" = 1, "powder" = 1, "meat" = 2)
-	foodtype = MEAT | RAW
+	foodtypes = MEAT | RAW
 
 /obj/item/food/carpmeat/aquatic
 	name = "fillet"

@@ -37,7 +37,7 @@
 		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>Your eyelids gently shut as you fall into a deep slumber. All you can hear is [user]'s voice as you commit to following all of their suggestions</span>")
 
 		H.SetSleeping(1200)
-		H.drowsyness = max(H.drowsyness, 40)
+		H.adjust_drowsiness = max(H.adjust_drowsiness, 40)
 		subject = H
 		return
 

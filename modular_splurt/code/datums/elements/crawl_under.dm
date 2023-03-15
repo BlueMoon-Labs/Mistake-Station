@@ -4,7 +4,7 @@
 //ATTENTION: only handles the crawling-under action and layers.
 //you need to manually set CanPass() to allow PASSCRAWL for the object you're applying it to.
 /datum/element/crawl_under
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/crawl_under/Attach(datum/target)
 	. = ..()

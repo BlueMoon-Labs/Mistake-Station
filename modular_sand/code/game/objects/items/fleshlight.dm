@@ -332,7 +332,7 @@
 						for(var/obj/item/bodypart/arm/right/R in M.bodyparts)
 							can_interact = TRUE
 					else
-						for(var/obj/item/bodypart/l_arm/L in M.bodyparts)
+						for(var/obj/item/bodypart/arm/left/L in M.bodyparts)
 							can_interact = TRUE
 					if(can_interact)
 						switch(portalunderwear.targetting)
@@ -374,10 +374,10 @@
 				if(M.has_feet(REQUIRE_ANY))
 					var/can_interact = FALSE
 					if(user.zone_selected == BODY_ZONE_R_LEG)
-						for(var/obj/item/bodypart/r_leg/R in M.bodyparts)
+						for(var/obj/item/bodypart/leg/right/R in M.bodyparts)
 							can_interact = TRUE
 					else
-						for(var/obj/item/bodypart/l_leg/L in M.bodyparts)
+						for(var/obj/item/bodypart/leg/leftL in M.bodyparts)
 							can_interact = TRUE
 					if(can_interact)
 						switch(portalunderwear.targetting)

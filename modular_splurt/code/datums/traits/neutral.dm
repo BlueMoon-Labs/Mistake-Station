@@ -70,7 +70,7 @@
 	lose_text = span_notice("Ваша глаза становятся обычными.")
 	medical_record_text = "Длительное воздействие глаз пациента влечет усыпляющий эффект."
 
-/datum/quirk/Hypnotic_gaze/on_spawn()
+/datum/quirk/Hypnotic_gaze/add_unique()
 	var/mob/living/carbon/human/Hypno_eyes = quirk_holder
 	var/datum/action/innate/Hypnotize/spell = new
 	spell.Grant(Hypno_eyes)
@@ -83,7 +83,7 @@
 	gain_text = span_notice("Вы чувствуете себя толстым!")
 	//no lose_text cause why would there be?
 
-/datum/quirk/overweight/on_spawn()
+/datum/quirk/overweight/add_unique()
 	var/mob/living/M = quirk_holder
 	M.nutrition = rand(NUTRITION_LEVEL_FAT + NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_FAT + NUTRITION_LEVEL_START_MAX)
 	M.overeatduration = 100
@@ -151,7 +151,7 @@
 	value = 0
 	gain_text = span_notice("Вы хотите подчиниться кому-нибудь...")
 	lose_text = span_notice("Вы больше не хотите подчиняться...")
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 	var/notice_delay = 0
 	var/mob/living/carbon/human/last_dom
 
@@ -200,7 +200,7 @@
 		return
 
 	//Handle the mood
-	var/datum/component/mood/mood = quirk_holder.GetComponent(/datum/component/mood)
+	var/datum/mood/mood = quirk_holder.GetComponent(/datum/component/mood)
 	if(istype(mood.mood_events[QMOOD_WELL_TRAINED], /datum/mood_event/dominant/good_boy))
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, QMOOD_WELL_TRAINED, /datum/mood_event/dominant/good_boy)
 	else
@@ -240,7 +240,7 @@
 	lose_text = span_danger("Ваш разум становится единым.")
 	medical_record_text = "Пациент имеет несколько голов и личностей, присоединенных к телу."
 
-/datum/quirk/hydra/on_spawn()
+/datum/quirk/hydra/add_unique()
 	var/mob/living/carbon/human/hydra = quirk_holder
 	var/datum/action/innate/hydra/spell = new
 	var/datum/action/innate/hydrareset/resetspell = new
@@ -265,7 +265,7 @@
 	desc = "Вы не упустили возможность приобрести новый жидкостный индуктор от NanoTrasen, как только он был выпущен, и теперь можете заскочить на станцию с изменяемым грудным молочком!"
 	value = 0
 
-/datum/quirk/fluid_infuser/on_spawn()
+/datum/quirk/fluid_infuser/add_unique()
 	. = ..()
 	var/obj/item/implant/genital_fluid/put_in = new
 	put_in.implant(quirk_holder, null, TRUE, TRUE)
@@ -277,9 +277,9 @@
 	// UNUSED: Enable by setting these values to TRUE
 	// The shame is unbearable
 	mood_quirk = FALSE
-	processing_quirk = FALSE
+	quirk_flags = QUIRK_PROCESSES
 
-/datum/quirk/storage_concealment/on_spawn()
+/datum/quirk/storage_concealment/add_unique()
 	. = ..()
 
 	// Create a new augment item
@@ -304,7 +304,7 @@
 	desc = "Ваш голод может быть утолен только молоком. (И семенем, если вы также Суккуб.)"
 	value = 0
 	mob_trait = TRAIT_INCUBUS
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/incubus/add()
 	. = ..()
@@ -328,7 +328,7 @@
 	desc = "Ваш голод может быть утолен только семенем. (И молоком, если вы также Инкуб.)"
 	value = 0
 	mob_trait = TRAIT_SUCCUBUS
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/succubus/add()
 	. = ..()
@@ -355,7 +355,7 @@
 	mob_trait = TRAIT_BLOODFLEDGE
 	gain_text = span_notice("Вы чувствуете жажду крови.")
 	lose_text = span_notice("Вы чувствуете, что жажда крови угасла.")
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/bloodfledge/add()
 	. = ..()
@@ -468,7 +468,7 @@
 	// Remove quirk language
 	quirk_mob.remove_language(/datum/language/vampiric, TRUE, TRUE, LANGUAGE_BLOODSUCKER)
 
-/datum/quirk/bloodfledge/on_spawn()
+/datum/quirk/bloodfledge/add_unique()
 	. = ..()
 
 	// Define quirk mob
@@ -551,7 +551,7 @@
 	name = "Горгулья"
 	desc = "Вы относитесь к какому-то виду горгульи! Вы можете выходить из каменной формы на определенное время, но вам придётся в неё вернуться, чтобы восстановить энергию. С другой стороны, вы лечитесь, будучи в камне!"
 	value = 0
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 	var/energy = 0
 	var/transformed = 0
 	var/cooldown = 0
@@ -633,7 +633,7 @@
 	medical_record_text = "Пациент выражает психологическую потребность оставаться без одежды."
 	value = 0
 	mood_quirk = TRUE
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/nudist/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -643,7 +643,7 @@
 	else
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, QMOOD_NUDIST, /datum/mood_event/nudist_negative)
 
-/datum/quirk/nudist/on_spawn()
+/datum/quirk/nudist/add_unique()
 	. = ..()
 	// Spawn a Rapid Disrobe Implant
 	var/obj/item/implant/disrobe/quirk_implant = new
@@ -659,7 +659,7 @@
 	value = 0
 	mood_quirk = TRUE
 	medical_record_text = "Пациент чувствует себя более безопасно при ношении противогаза."
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/masked_mook/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -669,7 +669,7 @@
 	else
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, QMOOD_MASKED_MOOK, /datum/mood_event/masked_mook_incomplete)
 
-/datum/quirk/masked_mook/on_spawn()
+/datum/quirk/masked_mook/add_unique()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/clothing/mask/gas/cosmetic/gasmask = new(get_turf(quirk_holder)) // Uses a custom gas mask
@@ -733,4 +733,4 @@ proc/asiatish(message)
 		message = replacetextEx(message, "Р", "л")
 		message = replacetextEx(message, "Ы", "и")
 	return message
-	
+

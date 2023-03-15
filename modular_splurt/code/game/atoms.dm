@@ -8,7 +8,7 @@
 	var/log_text = "[key_name(src)] [message] [loc_name(src)]"
 	switch(message_type)
 		if(LOG_VICTIM)
-			log_victim(log_text)
+			log_attack(log_text)
 			return
 
 	. = ..()

@@ -47,7 +47,7 @@
 /datum/action/item_action/disrobe
 	name = "Rapid Disrobe"
 	desc = "Instantly eject all covering clothing from your body."
-	icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
+	button_icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "no_uniform"
 	background_icon_state = "bg_tech"
 

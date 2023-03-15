@@ -36,6 +36,9 @@
 	/// Used to stop processing SSmood
 	var/last_stat = CONSCIOUS
 
+	/// The datum this components belongs to
+	var/datum/parent
+
 /datum/mood/New(mob/living/mob_to_make_moody)
 	if (!istype(mob_to_make_moody))
 		stack_trace("Tried to apply mood to a non-living atom!")

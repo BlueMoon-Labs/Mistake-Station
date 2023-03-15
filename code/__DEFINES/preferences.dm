@@ -19,6 +19,7 @@
 #define ADMIN_IGNORE_CULT_GHOST (1<<22)
 #define SPLIT_ADMIN_TABS (1<<23)
 #define SOUND_BARK		(1<<24)
+#define TG_PLAYER_PANEL	(1<<25) // BLUEMOON - Opt for the old splashscreen player panel
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|MEMBER_PUBLIC|SOUND_PRAYERS|SOUND_BARK)
 

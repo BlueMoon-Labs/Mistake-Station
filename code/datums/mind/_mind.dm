@@ -41,6 +41,8 @@
 	/// Is this mind active?
 	var/active = FALSE
 
+	var/memory
+
 	/// a list of /datum/memories. assoc type of memory = memory datum. only one type of memory will be stored, new ones of the same type overriding the last.
 	var/list/memories = list()
 	/// reference to the memory panel tgui
@@ -196,6 +198,10 @@
 //I cannot trust you fucks to do this properly
 /datum/mind/proc/set_original_character(new_original_character)
 	original_character = WEAKREF(new_original_character)
+
+/datum/mind/proc/store_memory(new_text)
+	if((length_char(memory) + length_char(new_text)) <= MAX_MESSAGE_LEN)
+		memory += "[new_text]<BR>"
 
 /datum/mind/proc/set_death_time()
 	SIGNAL_HANDLER

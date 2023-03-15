@@ -809,7 +809,6 @@
 
 	M.key = key
 
-
 /**
  * Sometimes helps if the user is stuck in another perspective or camera
  */

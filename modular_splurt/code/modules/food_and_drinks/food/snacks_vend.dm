@@ -3,12 +3,12 @@
 	desc = "A rather large sized, colorful bean full of sugar."
 	icon_state = "bean_template"
 	icon = 'modular_splurt/icons/obj/food/food.dmi'
-	bitesize = 4
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
+	bite_consumption = 4
+	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
 	junkiness = 25
 	filling_color = "#D2691E"
 	tastes = list("candy" = 1)
-	foodtype = JUNKFOOD | SUGAR
+	foodtypes = JUNKFOOD | SUGAR
 	var/list/possible_colors = list(
 		"orange" = "#FF7B00",
 		"black" = "#000000",
@@ -96,21 +96,21 @@
 		return ..()
 
 	chosen_color = pick(possible_colors)
-	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	switch(chosen_color)
 		if("white", "jizz", "tutti", "coconut")
 			tastes = list("semen" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = 1, pick(/datum/reagent/consumable/semen, /datum/reagent/consumable/semen/femcum) = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, pick(/datum/reagent/consumable/semen, /datum/reagent/consumable/semen/femcum) = 3)
 		if("black", "metallic", "creamsoda", "tmallow")
 			tastes = list("dogborg balls" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
 		if("orange", "yellow", "carmcorn")
 			tastes = list(pick("piss", "smegma") = 1)
 		if("purple", "blackberry")
-			list_reagents = list(/datum/reagent/consumable/ethanol/lean = 4)
+			food_reagents = list(/datum/reagent/consumable/ethanol/lean = 4)
 		if("green", "margarita", "watermelon")
 			tastes = list(pick("sweat", "armpit", "feet") = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
 		if("red", "raspberry", "scinnamon")
 			list_reagents = list(/datum/reagent/blood = 4)
 		if("capuccino", "turd", "chocop")
@@ -119,7 +119,7 @@
 			list_reagents = list(/datum/reagent/drug/aphrodisiacplus = 4)
 		else
 			tastes = list("musk" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
 	. = ..()
 
 /obj/item/storage/fancy/jellybean_bowl

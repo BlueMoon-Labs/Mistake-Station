@@ -52,7 +52,7 @@
 				/obj/item/gunpart/revolver22cylinder = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /obj/item/gunpart/revolver45frame
@@ -72,6 +72,6 @@
 				/obj/item/gunpart/revolver45cylinder = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 

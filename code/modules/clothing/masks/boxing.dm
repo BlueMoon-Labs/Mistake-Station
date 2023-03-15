@@ -11,6 +11,10 @@
 /obj/item/clothing/mask/balaclava/attack_self(mob/user)
 	adjustmask(user)
 
+/obj/item/clothing/mask/balaclava/breath
+	name = "Breathaclava"
+	clothing_flags = ALLOWINTERNALS
+
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"
 	desc = "Worn by robust fighters, flying high to defeat their foes!"

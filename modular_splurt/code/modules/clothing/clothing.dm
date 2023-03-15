@@ -4,7 +4,7 @@
 
 //Cloth eaters get some nutrients. A Jumpsuit will roughly give back 50 Nutrition. IF eaten fully.
 /obj/item/food/clothing
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 3)
 
 //A call on attemp_forcefeed() without async to properly know if it worked or not. In theory this shouldn't cause any issues as only a small part of the population should ever run this.VS normal eating.
 /obj/item/food/clothing/attack(mob/living/M, mob/living/user, attackchain_flags = NONE, damage_multiplier = 1)

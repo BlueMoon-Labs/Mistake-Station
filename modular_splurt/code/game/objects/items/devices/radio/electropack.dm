@@ -8,7 +8,7 @@
 
 /obj/item/electropack/Topic(href, href_list)
 	var/mob/living/carbon/C = usr
-	if(usr.stat || usr.restrained() || C.back == src)
+	if(usr.stat || C.back == src)
 		return
 
 	if(!usr.canUseTopic(src, BE_CLOSE))
@@ -54,8 +54,7 @@
 	var/nextPriceChange // Last time the price was changed
 	var/nextRansomChange // Last time the ransom was paid / cancelled
 	var/nextRecruitChance = INFINITY // Next time the slave can get the option to join the slavers
-	shockStrength = 400
-	shockCooldown = 20 SECONDS
+	shock_cooldown = 20 SECONDS
 	code = -1
 	frequency = -1
 

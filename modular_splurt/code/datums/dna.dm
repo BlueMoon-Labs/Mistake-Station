@@ -95,11 +95,9 @@
 	if(prob(50))
 		destination.set_species(species.type, FALSE)
 		destination.dna.species.say_mod = species.say_mod
-		destination.dna.custom_species = custom_species
 	else
 		destination.set_species(second_set.species.type, FALSE)
 		destination.dna.species.say_mod = second_set.species.say_mod
-		destination.dna.custom_species = second_set.custom_species
 
 	destination.update_size(get_size(destination), old_size)
 

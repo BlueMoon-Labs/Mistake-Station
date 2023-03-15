@@ -238,3 +238,5 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 
 #define RUSSIAN_SCREAMS list('modular_bluemoon/SmiLeY/sounds/russian/cyka1.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus1.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus2.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus3.ogg',\
 	'modular_bluemoon/SmiLeY/sounds/russian/rus4.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus5.ogg', 'modular_bluemoon/SmiLeY/sounds/russian/rus6.ogg')
+
+#define HIGHSEC list('modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/.ogg', 'modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/2.ogg', 'modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/3.ogg', 'modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/4.ogg', 'modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/5.ogg', 'modular_bluemoon/sound/modular_bluemoon/sound/blue/ambience/6.ogg')

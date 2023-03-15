@@ -190,7 +190,7 @@
 				/obj/item/gunpart/rifle308barrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/riflevarmintassemble
@@ -200,7 +200,7 @@
 				/obj/item/gunpart/riflevarmintbarrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/doublebarrelsawnassemble
@@ -210,7 +210,7 @@
 				/obj/item/gunpart/shotgunbarrelsawn = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/doublebarrelassemble
@@ -220,7 +220,7 @@
 				/obj/item/gunpart/shotgunbarrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/brushgunassemble
@@ -230,7 +230,7 @@
 				/obj/item/gunpart/riflebrush2barrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/huntingshotgunassemble
@@ -240,5 +240,5 @@
 				/obj/item/gunpart/shotgunhutningbarrel = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
-	category = CAT_WEAPONRY
+	category = CAT_WEAPON_RANGED
 	subcategory = CAT_WEAPON

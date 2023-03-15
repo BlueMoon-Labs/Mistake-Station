@@ -21,7 +21,7 @@
 	/// The icon file given to the speech action handed out.
 	var/speech_action_icon = 'icons/mob/actions/actions_slime.dmi'
 	/// The icon state applied to the speech action handed out.
-	var/speech_action_icon_state = "link_speech"
+	var/speech_button_icon_state = "link_speech"
 	/// The icon background for the speech action handed out.
 	var/speech_action_background_icon_state = "bg_alien"
 	/// The master's linking action, which allows them to link people to the network.
@@ -40,7 +40,7 @@
 	signals_which_destroy_us,
 	datum/callback/post_unlink_callback,
 	speech_action_icon = 'icons/mob/actions/actions_slime.dmi',
-	speech_action_icon_state = "link_speech",
+	speech_button_icon_state = "link_speech",
 	speech_action_background_icon_state = "bg_alien",
 	)
 
@@ -60,7 +60,7 @@
 		src.post_unlink_callback = post_unlink_callback
 
 	src.speech_action_icon = speech_action_icon
-	src.speech_action_icon_state = speech_action_icon_state
+	src.speech_button_icon_state = speech_action_icon_state
 	src.speech_action_background_icon_state = speech_action_background_icon_state
 
 	if(ispath(linker_action_path))

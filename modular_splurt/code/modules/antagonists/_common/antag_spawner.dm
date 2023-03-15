@@ -55,9 +55,9 @@
 
 	switch(borg_to_spawn)
 		if("Medical")
-			R = new /mob/living/silicon/robot/modules/syndicate/slaver/medical(T)
+			R = new /mob/living/silicon/robot/model/syndicate/slaver/medical(T)
 		else
-			R = new /mob/living/silicon/robot/modules/slaver(T)
+			R = new /mob/living/silicon/robot/model/slaver(T)
 
 	R.radio = new /obj/item/radio/borg/syndicate(R)
 

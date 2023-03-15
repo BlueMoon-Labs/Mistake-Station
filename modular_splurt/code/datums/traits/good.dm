@@ -2,7 +2,7 @@
 /datum/quirk/photographer
 	desc = "Вы берете с собой камеру и фотоальбом, куда бы вы ни пошли. Также, вы быстрее фотографируете."
 
-/datum/quirk/photographer/on_spawn()
+/datum/quirk/photographer/add_unique()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/storage/photo_album/photo_album = new(get_turf(H))
@@ -176,7 +176,7 @@
 	mob_trait = TRAIT_ARACHNID
 	gain_text = "<span class='notice'>У вас появляется странное ощущение рядом с анусом...</span>"
 	lose_text = "<span class='notice'>Вы чувствуете, что больше не можете вить паутину...</span>"
-	processing_quirk = TRUE
+	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/arachnid/add()
 	. = ..()

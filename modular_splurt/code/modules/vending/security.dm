@@ -47,47 +47,11 @@
 		/obj/item/clothing/gloves/latexsleeves/security = 5,
 		/obj/item/clothing/shoes/jackboots/tall = 5,
 		/obj/item/clothing/under/custom/mw2_russian_para = 5,
-		/obj/item/clothing/under/bm/sigu = 5,
 		/obj/item/clothing/head/beret/sec/bitch = 5
 	)
 	LAZYADD(products, extra_products)
 	LAZYADD(premium, extra_premium)
 	. = ..()
-
-/obj/structure/closet/secure_closet/brigdoc
-	name = "brig physician's locker"
-	req_access = list(ACCESS_BRIGDOC)
-	icon_state = "brigdoc"
-	icon = 'modular_splurt/icons/obj/closet.dmi'
-
-/obj/structure/closet/secure_closet/brigdoc/PopulateContents()
-	..()
-	new /obj/item/clothing/under/rank/brigdoc(src)
-	new /obj/item/clothing/under/rank/brigdoc/skirt(src)
-	new /obj/item/radio/headset/headset_brigdoc(src)
-	new /obj/item/radio/headset/headset_brigdoc/alt(src)
-	new /obj/item/flashlight/seclite(src)
-	new /obj/item/clothing/gloves/color/latex/nitrile(src)
-	new /obj/item/clothing/head/brigdoc(src)
-	new /obj/item/defibrillator(src)
-	new /obj/item/storage/belt/medical(src)
-	new /obj/item/pinpointer/crew(src)
-	new /obj/item/clothing/suit/brigdoc(src)
-	new /obj/item/clothing/suit/brigdoc/labcoat(src)
-
-/obj/structure/closet/secure_closet/blueshield
-	name = "blueshield's locker"
-	req_access = list(ACCESS_BLUESHIELD)
-	icon_state = "bs"
-	icon = 'modular_splurt/icons/obj/closet.dmi'
-
-/obj/structure/closet/secure_closet/blueshield/PopulateContents()
-	..()
-	new /obj/item/clothing/head/helmet/sec/blueshield(src)
-	new /obj/item/radio/headset/headset_blueshield(src)
-	new /obj/item/flashlight/seclite(src)
-	new /obj/item/clothing/mask/gas/sechailer/swat(src)
-	new /obj/item/grenade/flashbang(src)
 
 /obj/structure/closet/secure_closet/bridgesec
 	name = "bridge officer's locker"
@@ -187,28 +151,3 @@
 	new /obj/item/clothing/gloves/cbrn/mopp/advance(src)
 	new /obj/item/clothing/shoes/jackboots/cbrn/mopp/advance (src)
 	new /obj/item/clothing/mask/gas/cbrn/mopp/advance(src)
-
-
-/obj/structure/closet/secure_closet/hosnew //ITS LOCKER CLEAN OUT DAY! -Radar
-	name = "\proper head of security's locker"
-	req_access = list(ACCESS_HOS)
-	icon_state = "hos"
-
-/obj/structure/closet/secure_closet/hosnew/PopulateContents()
-	..()
-	new /obj/item/storage/bag/ammo(src)
-	new /obj/item/cartridge/hos(src)
-	new /obj/item/radio/headset/heads/hos(src)
-	new /obj/item/storage/lockbox/medal/sec(src)
-	new /obj/item/megaphone/sec(src)
-	new /obj/item/holosign_creator/security(src)
-	new /obj/item/storage/lockbox/loyalty(src)
-	new /obj/item/clothing/mask/gas/sechailer/swat(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/shield/riot/tele(src)
-	new /obj/item/storage/belt/security/full(src)
-	new /obj/item/choice_beacon/hosgun(src)
-	new /obj/item/flashlight/seclite(src)
-	new /obj/item/pinpointer/nuke(src)
-	new /obj/item/circuitboard/machine/techfab/department/security(src)
-	new /obj/item/storage/photo_album/HoS(src)

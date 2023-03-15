@@ -11,18 +11,6 @@
 	if(!GLOB.genital_fluids_list)
 		build_genital_fluids_list() //I DON'T KNOW where else to put it, ok??
 
-	//Extra saves for donators
-	max_save_slots = CONFIG_GET(number/base_save_slots)
-	if(istype(C))
-		var/extra_slots = 0
-		if(IS_CKEY_DONATOR_GROUP(C.key, DONATOR_GROUP_TIER_3))
-			extra_slots = 30
-		else if(IS_CKEY_DONATOR_GROUP(C.key, DONATOR_GROUP_TIER_2))
-			extra_slots = 20
-		else if(IS_CKEY_DONATOR_GROUP(C.key, DONATOR_GROUP_TIER_1))
-			extra_slots = 10
-		max_save_slots = max_save_slots + extra_slots
-
 	. = ..()
 
 /datum/preferences/ShowChoices(mob/user)
@@ -278,14 +266,14 @@
 
 				dat += "<h3>Hair Style</h3>"
 
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=hair_style;task=input'>[hair_style]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_hair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hair_style;task=input'>&gt;</a><BR>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
+				dat += "<a href='?_src_=prefs;preference=previous_hairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hairstyle;task=input'>&gt;</a><BR>"
 				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'><font color='[color_hex2num(hair_color) < 200 ? "FFFFFF" : "000000"]'>#[hair_color]</font></span> <a href='?_src_=prefs;preference=hair;task=input'>Change</a><BR>"
 
 				dat += "<h3>Facial Hair Style</h3>"
 
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=facial_hair_style;task=input'>[facial_hair_style]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_facehair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehair_style;task=input'>&gt;</a><BR>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
+				dat += "<a href='?_src_=prefs;preference=previous_facehairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehairstyle;task=input'>&gt;</a><BR>"
 				dat += "<span style='border: 1px solid #161616; background-color: #[facial_hair_color];'><font color='[color_hex2num(facial_hair_color) < 200 ? "FFFFFF" : "000000"]'>#[facial_hair_color]</font></span> <a href='?_src_=prefs;preference=facial;task=input'>Change</a><BR>"
 
 				dat += "<h3>Hair Gradient</h3>"

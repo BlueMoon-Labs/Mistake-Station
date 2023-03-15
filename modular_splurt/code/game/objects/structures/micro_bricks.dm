@@ -5,7 +5,7 @@
 
 /obj/structure/micro_brick/Initialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE)
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/structure/micro_brick/Initialize()
 	. = ..()
@@ -33,7 +33,7 @@
 	return try_crush_microbricks(user)
 
 /obj/structure/micro_brick/proc/try_crush_microbricks(mob/stomper)
-	if(stomper.a_intent != INTENT_HARM)
+	if(stomper.combat_mode != TRUE)
 		return FALSE
 	to_chat(stomper, "You crush the microbrick structure, what a monster!")
 
@@ -117,8 +117,8 @@
 	integrity_failure = 30
 	var/buildstackamount = 5
 
-/obj/item/moon
-	name = "Small moon"
+/obj/item/minimeteor/moon
+	name = "Small Moon"
 	icon_state = "smallmoon"
 	icon = 'modular_splurt/icons/obj/small_world.dmi'
 	desc = "You now have the power of the moon on your side"
@@ -126,4 +126,4 @@
 	throw_speed = 3
 	throw_range = 7
 	force = 0
-	total_mass = TOTAL_MASS_TINY_ITEM
+	w_class = WEIGHT_CLASS_SMALL

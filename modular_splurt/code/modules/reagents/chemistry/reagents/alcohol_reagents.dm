@@ -41,7 +41,7 @@
 	taste_description = "cough syrup and space-pop music"
 	glass_name = "Lean"
 	glass_desc = "I LOVE LEAN!!"
-	glass_icon_state = "lean" // the icon is not in the modular folder because it's literally impossible to get an icon from the modular folder unless it's an actual obj and not a drink. Go **** yourself.
+	icon_state = "lean" // the icon is not in the modular folder because it's literally impossible to get an icon from the modular folder unless it's an actual obj and not a drink. Go **** yourself.
 
 /datum/reagent/consumable/ethanol/lean/on_mob_life(mob/living/carbon/C)
 	var/mob/living/carbon/human/M = C
@@ -71,8 +71,8 @@
 	color = "#D2D7D9"
 	quality = DRINK_VERYGOOD
 	taste_description = "smooth cream"
-	glass_icon_state = "cum_glass"
-	shot_glass_icon_state = "cum_shot"	//I'm funny, I know
+	icon_state = "cum_glass"
+	shot_icon_state = "cum_shot"	//I'm funny, I know
 	glass_name = "Cum in the Hot Tub"
 	glass_desc = "Doesn't really leave it to the imagination, eh?"
 
@@ -90,7 +90,7 @@
 	quality = DRINK_GOOD
 	taste_description = "the sweat of a certain Mauler pilot"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "mech_rider_bottle"
+	icon_state = "mech_rider_bottle"
 	glass_name = "Mech Rider"
 	glass_desc = "Who would even drink this?"
 
@@ -101,7 +101,7 @@
 	quality = DRINK_FANTASTIC
 	taste_description = "cloth dissolved in sulphuric acid."
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "isolationcell"
+	icon_state = "isolationcell"
 	glass_name = "Isolation Cell"
 	glass_desc = "Ice cubes in a padded Cell"
 
@@ -127,7 +127,7 @@
 	quality = DRINK_FANTASTIC
 	taste_description = "ghost peppers, carbonated water and oil. Burns your tongue."
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "chemicalex"
+	icon_state = "chemicalex"
 	glass_name = "Chemical Ex"
 	glass_desc = "Date rape in a glass, a mixture courtesy of the Chief Witchdoctor. The stench of cigar smoke permeates the air wherever it goes."
 
@@ -144,7 +144,7 @@
 	quality = DRINK_FANTASTIC
 	taste_description = "a fruit punch-like blend with a little fruity kick at the back of your throat, with an aftertaste of pineapple."
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "heartofgold"
+	icon_state = "heartofgold"
 	glass_name = "Heart Of Gold"
 	glass_desc = "The Captain's Ambrosia. Something about it just feels divine."
 
@@ -157,7 +157,7 @@
 	base_value = REAGENT_VALUE_AMAZING
 	taste_description = "fuzz, warmth and comfort"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "mothinchief"
+	icon_state = "mothinchief"
 	glass_name = "Moth in Chief"
 	glass_desc = "A simple yet elegant drink, inspires confidence in even the most pessimistic of men. The mantle rests well upon your shoulders."
 
@@ -205,7 +205,7 @@
 	color = "#1a5fa1"
 	quality = DRINK_NICE
 	taste_description = "blue orange"
-	glass_icon_state = "curacao"
+	icon_state = "curacao"
 	glass_name = "glass of curaçao"
 	glass_desc = "It's blue, da ba dee."
 
@@ -216,7 +216,7 @@
 	color = "#d8e8f0"
 	quality = DRINK_NICE
 	taste_description = "a life on the waves"
-	glass_icon_state = "ginvodkaglass"
+	icon_state = "ginvodkaglass"
 	glass_name = "glass of navy rum"
 	glass_desc = "Splice the mainbrace, and God save the King."
 
@@ -227,7 +227,7 @@
 	color = "#1c0000"
 	quality = DRINK_NICE
 	taste_description = "spiced alcohol"
-	glass_icon_state = "bitters"
+	icon_state = "bitters"
 	glass_name = "glass of bitters"
 	glass_desc = "Typically you'd want to mix this with something- but you do you."
 
@@ -238,7 +238,7 @@
 	color = "#1F0001"
 	quality = DRINK_VERYGOOD
 	taste_description = "haughty arrogance"
-	glass_icon_state = "admiralty"
+	icon_state = "admiralty"
 	glass_name = "Admiralty"
 	glass_desc = "Hail to the Admiral, for he brings fair tidings, and rum too."
 
@@ -249,7 +249,7 @@
 	color = "#8c5046"
 	quality = DRINK_GOOD
 	taste_description = "ginger and rum"
-	glass_icon_state = "dark_and_stormy"
+	icon_state = "dark_and_stormy"
 	glass_name = "Dark and Stormy"
 	glass_desc = "Thunder and lightning, very very frightening."
 
@@ -260,7 +260,7 @@
 	color = "#c4b35c"
 	quality = DRINK_VERYGOOD
 	taste_description = "rum and spices"
-	glass_icon_state = "long_john_silver"
+	icon_state = "long_john_silver"
 	glass_name = "Long John Silver"
 	glass_desc = "Named for a famous pirate, who may or may not have been fictional. But hey, why let the truth get in the way of a good yarn?"
 
@@ -271,7 +271,7 @@
 	color = "#003153"
 	quality = DRINK_VERYGOOD
 	taste_description = "companionship"
-	glass_icon_state = "long_haul"
+	icon_state = "long_haul"
 	glass_name = "Long Haul"
 	glass_desc = "A perfect companion for a lonely long haul flight."
 
@@ -282,7 +282,7 @@
 	color = "#b4abd0"
 	quality = DRINK_FANTASTIC
 	taste_description = "salt and spice"
-	glass_icon_state = "salt_and_swell"
+	icon_state = "salt_and_swell"
 	glass_name = "Salt and Swell"
 	glass_desc = "Ah, I do like to be beside the seaside."
 
@@ -293,7 +293,7 @@
 	color = "#b4abd0"
 	quality = DRINK_VERYGOOD
 	taste_description = "spicy sour cheesy yoghurt"
-	glass_icon_state = "tich_toch"
+	icon_state = "tich_toch"
 	glass_name = "Tich Toch"
 	glass_desc = "Oh god."
 
@@ -304,7 +304,7 @@
 	color = "#F4EFE2"
 	quality = DRINK_NICE
 	taste_description = "sour cheesy yoghurt"
-	glass_icon_state = "tiltaellen"
+	icon_state = "tiltaellen"
 	glass_name = "glass of tiltällen"
 	glass_desc = "Eww... it's curdled."
 
@@ -315,7 +315,7 @@
 	color = "#00bfa3"
 	quality = DRINK_VERYGOOD
 	taste_description = "the tropics"
-	glass_icon_state = "tropical_storm"
+	icon_state = "tropical_storm"
 	glass_name = "Tropical Storm"
 	glass_desc = "Less destructive than the real thing."
 
@@ -327,7 +327,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "being violated by a tiny fish with crayons"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "skullfucker"
+	icon_state = "skullfucker"
 	glass_name = "Skullfucker Deluxe"
 	glass_desc = "It has many warning labels, you might want to read them."
 	overdose_threshold = 25
@@ -364,7 +364,7 @@
 	color = "#3fd2ff"
 	taste_description = "a scorching taste of strong alcohol and good brew going down your throat, making you feel warm inside"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	glass_icon_state = "ionstorm"
+	icon_state = "ionstorm"
 	glass_name = "glass of Ion Storm"
 	glass_desc = "You're not sure how this mixture is stable or even if it's drinkable, but it does remind you of a hot cup of apple cider on a cold winter morning"
 	ph = 6.5

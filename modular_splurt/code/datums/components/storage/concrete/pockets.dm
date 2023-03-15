@@ -1,5 +1,4 @@
-/datum/component/storage/concrete/pockets/small/collar/mind_collar/Initialize()
-	. = ..()
+/datum/storage/pockets/small/collar/mind_collar/Initialize()
 	can_hold = typecacheof(list(
 	/obj/item/food/cookie,
 	/obj/item/mind_controller))

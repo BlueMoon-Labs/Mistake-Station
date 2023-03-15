@@ -1,5 +1,3 @@
-/obj/machinery/mineral/equipment_vendor/Initialize(mapload)
-	. = ..()
-	prize_list += list(
-			new /datum/data/mining_equipment("Explorer Stripper Outfit", /obj/item/clothing/under/rank/cargo/miner/lavaland/stripper, 50)
-			)
+/datum/orderable_item/mining/
+	item_path = /obj/item/clothing/under/rank/cargo/miner/lavaland/stripper
+	cost_per_order = 100

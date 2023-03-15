@@ -11,7 +11,7 @@
 /datum/status_effect/pregnancy
 	id = "pregnancy"
 	duration = -1
-	tick = FALSE
+	tick_interval = FALSE
 	alert_type = /atom/movable/screen/alert/status_effect/pregnancy
 
 /atom/movable/screen/alert/status_effect/lactation

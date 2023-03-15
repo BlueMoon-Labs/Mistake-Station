@@ -9,7 +9,7 @@
 	name = "Hypnotize"
 	desc = "Stare deeply into someone's eyes, drawing them into a hypnotic slumber."
 	button_icon_state = "Hypno_eye"
-	icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
+	button_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 	background_icon_state = "bg_alien"
 
 /datum/action/innate/Hypnotize/Activate()
@@ -103,7 +103,7 @@
 
 	// Check for anti-magic
 	// This does not include TRAIT_HOLY
-	if(action_target.anti_magic_check())
+	if(action_target.can_block_magic())
 		// Warn the users, then return
 		to_chat(action_owner, span_warning("You stare deeply into [action_target]'s eyes. They stare back at you as if nothing had happened."))
 		to_chat(action_target, span_notice("[action_owner] stares intensely into your eyes for a moment. You sense nothing out of the ordinary from them."))
@@ -179,7 +179,7 @@
 	action_target.SetSleeping(1200)
 
 	// Set drowsiness
-	action_target.drowsyness = max(action_target.drowsyness, 40)
+	action_target.adjust_drowsiness = max(action_target.adjust_drowsiness, 40)
 
 	// Prompt action owner for response
 	var/input_suggestion = input("What would you like to suggest [action_target] do? Leave blank to release [action_target.ru_na()] instead.", "Hypnotic suggestion", null, null)
@@ -338,7 +338,7 @@
 		return
 
 	// Check for anti-magic
-	if(bite_target.anti_magic_check(FALSE, TRUE, FALSE, 0))
+	if(bite_target.can_block_magic(FALSE, TRUE, FALSE, 0))
 		// Warn the user and target, then return
 		to_chat(bite_target, span_warning("[action_owner] tries to bite you, but stops before touching you!"))
 		to_chat(action_owner, span_warning("[bite_target] is blessed! You stop just in time to avoid catching fire."))
@@ -676,7 +676,7 @@
 /datum/action/cooldown/werewolf
 	name = "Werewolf Ability"
 	desc = "Do something related to werewolves."
-	icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
+	button_icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "Transform"
 	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUN | AB_CHECK_CONSCIOUS | AB_CHECK_ALIVE
 	cooldown_time = 5 SECONDS

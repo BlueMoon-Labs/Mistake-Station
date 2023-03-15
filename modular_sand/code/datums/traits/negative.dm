@@ -7,7 +7,7 @@
 	lose_text = "<span class='notice'>Вы начинаете собирать воедино то, что говорят люди!</span>"
 	medical_record_text = "Пациент демонстрирует неспособность использовать обычные разговорные языки."
 
-/datum/quirk/sheltered/on_spawn()
+/datum/quirk/sheltered/add_unique()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.remove_language(/datum/language/common)
 // You can pick languages for your character, if you don't pick anything, enjoy the rest of the round understanding nothing.

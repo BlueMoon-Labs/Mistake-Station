@@ -56,7 +56,7 @@
 	desc = "A storage case for a Telescopic Baton. Poke them with a stick!"
 
 /obj/item/storage/secure/briefcase/bsbaton/tele/PopulateContents()
-	new /obj/item/melee/classic_baton/telescopic(src)
+	new /obj/item/melee/baton/telescopic(src)
 	new /obj/item/storage/belt/security(src)
 
 /obj/item/storage/secure/briefcase/permits

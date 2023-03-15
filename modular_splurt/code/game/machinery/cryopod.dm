@@ -7,7 +7,7 @@ GLOBAL_VAR_INIT(cryo_next_admin_warning, 0) // The last time we told admins abou
 
 		if(!pod) // No cryopod passed in, we will try to find the standard crew cryo computer instead.
 			var/turf/console_turf = get_turf(console)
-			if((console_turf.z == 2) && (!istype(get_area(console), /area/security/prison))) // If station Z-level and NOT the prison cryo computer. Should get the standard crew cryo computer.
+			if((console_turf.z == 2) && (!istype(get_area(console), /area/station/security/prison))) // If station Z-level and NOT the prison cryo computer. Should get the standard crew cryo computer.
 				return WEAKREF(console)
 		else
 			if(get_area(console) == get_area(pod))

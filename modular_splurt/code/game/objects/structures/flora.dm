@@ -3,8 +3,7 @@
 	desc = "A native lavaland tree, with a remarkable purple color."
 	icon = 'modular_splurt/icons/obj/flora/lavaland.dmi'
 	icon_state = "shadowtree_1"
-	spawned_wood = /obj/item/grown/log/tree/shadow
-	spawned_stump = /obj/structure/flora/stump/shadow
+	product_types = list(/obj/item/grown/log/tree/shadow)
 	var/static/list/icon_states = list("shadowtree_1", "shadowtree_2")
 
 /obj/structure/flora/tree/shadow/Initialize()
@@ -25,8 +24,7 @@
 	desc = "An impressive overgrown mushroom."
 	icon = 'modular_splurt/icons/obj/flora/lavaland.dmi'
 	icon_state = "gmushroom_1"
-	spawned_wood = /obj/item/grown/log/tree/mushroom
-	spawned_stump = /obj/structure/flora/stump/mushroom
+	product_types = list(/obj/item/grown/log/tree/mushroom)
 	var/list/icon_states = list("gmushroom_1", "gmushroom_2")
 
 /obj/structure/flora/tree/mushroom/Initialize()
