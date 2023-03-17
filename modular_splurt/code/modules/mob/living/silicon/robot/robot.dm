@@ -12,7 +12,7 @@
 	faction = list(ROLE_SLAVER)
 	req_access = list(ACCESS_SLAVER)
 	icon_state = "synd_medical"
-	set_module = /obj/item/robot_module/syndicate_medical/slaver
+	set_model = /obj/item/robot_model/syndicate_medical/slaver
 	playstyle_string = "<span class='big bold'>You are a Slaver medical cyborg!</span><br>\
 						<b>You are armed with powerful medical tools to aid you in your mission: help the slavers kidnap crew. \
 						Your hypospray will produce Restorative Nanites, a wonder-drug that will heal most types of bodily damages, including clone and brain damage. It also produces morphine for offense. \
@@ -45,11 +45,3 @@
 /mob/living/silicon/robot/Initialize(mapload)
 	.=..()
 	AddComponent(/datum/component/personal_crafting)
-
-
-/mob/living/silicon/robot/pick_module()
-	.=..()
-	var/datum/hud/R = hud_used
-	var/atom/movable/screen/craft/C = locate() in R.static_inventory
-	C.icon = 'icons/mob/screen_midnight.dmi'
-	C.screen_loc = "CENTER+5:5,SOUTH+1:5"

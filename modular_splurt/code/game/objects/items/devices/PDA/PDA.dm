@@ -1,4 +1,4 @@
-/obj/item/pda/send_message(mob/living/user, list/obj/item/pda/targets, everyone)
+/obj/item/modular_computer/pda/attack_self(mob/living/user, list/obj/item/modular_computer/pda/targets, everyone)
 	// Check for D4C craving
 	if(HAS_TRAIT(user, TRAIT_DUMB_CUM_CRAVE))
 		// Warn user, then return
@@ -6,4 +6,4 @@
 		return
 
 	// Return normally
-	. = ..()
+	..()

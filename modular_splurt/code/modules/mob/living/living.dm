@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/action/sizecode_smallsprite/small_sprite
-
 /// Gender Change
 // Intended only for silicons/robots (incl. pAI) and simple_animal code so far. This proc was made to somewhat ease up duplicated verb code.
 // There's probably better way to do this but I am terrible at it --Nopeman
@@ -49,9 +46,9 @@
 	admin_sleeping = !admin_sleeping
 
 	if(admin_sleeping)
-		SetSleeping(INFINITY, ignore_canstun = TRUE)
+		SetSleeping(INFINITY)
 	else
-		SetSleeping(0, ignore_canstun = TRUE)
+		SetSleeping(0)
 
 	if(client && admin)
 		to_chat(src, "<span class='userdanger'>An admin has [!admin_sleeping ? "un": ""]slept you.</span>")
@@ -64,12 +61,3 @@
 		AddElement(/datum/element/smalltalk)
 	else
 		RemoveElement(/datum/element/smalltalk)
-
-/mob/living/do_resist_grab(moving_resist, forced, silent = FALSE)
-	. = ..()
-	if(iswendigo(pulledby)) //Grip is too strong, nonetheless.
-		to_chat(src, "<span class='danger'>The grip is too strong! I need some time...</span>")
-		if(do_after(src, 200, target=pulledby))
-			to_chat(src, "<span class='danger'>I break free off [pulledby]'s grip!</span>")
-			return TRUE
-

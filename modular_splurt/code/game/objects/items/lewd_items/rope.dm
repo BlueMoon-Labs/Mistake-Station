@@ -385,7 +385,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 		return
 	target.legcuffed = src
 	target.update_equipment_speed_mods()
-	target.update_inv_legcuffed()
+	target.update_appearance()
 
 // Handles differing breakout times and cuffbreak (hands free removes rope faster, wirecutters even better)
 /obj/item/restraints/bondage_rope/proc/prepare_resist(mob/living/carbon/target)

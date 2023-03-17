@@ -1,10 +1,10 @@
-/obj/item/robot_module/cargo
+/*/obj/item/robot_model/cargo										Нам это пока не нужно.
 	added_channels = list(RADIO_CHANNEL_SUPPLY = 1)
 
-/obj/item/robot_module/syndicatejack
+/obj/item/robot_model/syndicatejack
 	added_channels = list(RADIO_CHANNEL_SYNDICATE = 1) // Probably already handled by other code when spawned with pre-set module, but whatever.
 
-/obj/item/robot_module/standard/be_transformed_to(obj/item/robot_module/old_module)
+/obj/item/robot_model/standard/be_transformed_to(obj/item/robot_model/old_module)
 	var/mob/living/silicon/robot/R = loc
 	var/static/list/stand_icons
 	if(!stand_icons)
@@ -76,7 +76,7 @@
 			cyborg_icon_override = 'modular_bluemoon/Gardelin0/icons/mob/robots.dmi'
 	return ..()
 
-/obj/item/robot_module/clown/be_transformed_to(obj/item/robot_module/old_module)
+/obj/item/robot_model/clown/be_transformed_to(obj/item/robot_model/old_module)
 	var/mob/living/silicon/robot/R = loc
 	var/static/list/clown_icons
 	if(!clown_icons)
@@ -133,7 +133,7 @@
 	return ..()
 
 /// Cargo Borgs! ///
-/obj/item/robot_module/cargo
+/obj/item/robot_model/cargo
 	name="Cargo"
 	basic_modules = list(
 		/obj/item/stamp,
@@ -160,7 +160,7 @@
 	moduleselect_alternate_icon = 'modular_splurt/icons/mob/screen_cyborg.dmi'
 	hat_offset = 3
 
-/obj/item/robot_module/cargo/be_transformed_to(obj/item/robot_module/old_module)
+/obj/item/robot_model/cargo/be_transformed_to(obj/item/robot_model/old_module)
 	var/mob/living/silicon/robot/R = loc
 	var/static/list/cargo_icons
 	if(!cargo_icons)
@@ -222,22 +222,23 @@
 			return FALSE
 	return ..()
 /// End Cargo Borg ///
-
-/obj/item/robot_module/Initialize()
+*/
+/obj/item/robot_model/Initialize()
 	basic_modules += /obj/item/milking_machine/pleasuremaw
+	basic_modules += /obj/item/soap/tongue
+	basic_modules += /obj/item/dildo/custom
 	. = ..()
 
-/obj/item/robot_module/syndicate_medical/slaver
+/obj/item/robot_model/syndicate_medical/slaver
 	name = "Slaver Medical Combat"
 
-/obj/item/robot_module/syndicate_medical/slaver/Initialize()
-	var/list/extra_tool_behaviors = list(
-		/obj/item/slaver/gizmo
-	)
-	LAZYADD(basic_modules, extra_tools)
+/obj/item/robot_model/syndicate_medical/slaver/Initialize()
+	basic_modules += /obj/item/slaver/gizmo
+	basic_modules += /obj/item/milking_machine/pleasuremaw
+	basic_modules += /obj/item/soap/tongue
 	. = ..()
-
-/obj/item/robot_module/medical/Initialize()
+/*
+/obj/item/robot_model/medical/Initialize()
 	var/list/extra = list(
 		/obj/item/dogborg/jaws/small,
 		/obj/item/storage/bag/borgdelivery,
@@ -248,7 +249,7 @@
 	LAZYADD(basic_modules, extra)
 	. = ..()
 
-/obj/item/robot_module/peacekeeper/Initialize()
+/obj/item/robot_model/peacekeeper/Initialize()
 	var/list/extra = list(
 		/obj/item/dogborg/jaws/small,
 		/obj/item/storage/bag/borgdelivery,
@@ -258,7 +259,7 @@
 	LAZYADD(basic_modules, extra)
 	. = ..()
 
-/obj/item/robot_module/security/Initialize()
+/obj/item/robot_model/security/Initialize()
 	var/list/extra = list(
 		/obj/item/storage/bag/borgdelivery,
 		/obj/item/dogborg/jaws/big,
@@ -270,7 +271,7 @@
 	LAZYADD(basic_modules, extra)
 	. = ..()
 
-/obj/item/robot_module/butler/Initialize()
+/obj/item/robot_model/butler/Initialize()
 	var/list/extra = list(
 		/obj/item/dogborg/jaws/small,
 		/obj/item/analyzer/nose,
@@ -285,9 +286,9 @@
 	LAZYADD(basic_modules, extra)
 	. = ..()
 
-/obj/item/robot_module/roleplay/Initialize()
+/obj/item/robot_model/roleplay/Initialize()
 	LAZYREMOVE(basic_modules, /obj/item/extinguisher/mini)
-	var/list/extra = list(
+	var/list/extra = list( 																						Это тоже пока не нужно.
 		/obj/item/extinguisher,
 		/obj/item/lightreplacer/cyborg,
 		/obj/item/healthanalyzer/advanced,
@@ -295,3 +296,4 @@
 	)
 	LAZYADD(basic_modules, extra)
 	. = ..()
+*/

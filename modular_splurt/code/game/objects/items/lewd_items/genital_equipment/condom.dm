@@ -9,7 +9,7 @@
 	icon_state 			= "b_condom_wrapped"
 	var/unwrapped		= 0
 	w_class 			= WEIGHT_CLASS_TINY
-	custom_price		= PRICE_CHEAP_AS_FREE // 10 credits
+	custom_price		= PAYCHECK_LOWER * 3 // 75 credits
 
 /obj/item/genital_equipment/condom/Initialize()
 	create_reagents(300, DRAWABLE|NO_REACT)
@@ -100,7 +100,6 @@
 	desc = "Looks like someone had abit of some fun!"
 	worn_icon = 'modular_splurt/icons/obj/clothing/head.dmi'
 	icon_state = "b_condom_out"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 5, "rad" = 0, "fire" = 0, "acid" = 0)
 
 
 /* Handled on lewd interactions

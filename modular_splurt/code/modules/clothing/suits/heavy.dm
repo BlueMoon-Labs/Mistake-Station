@@ -18,7 +18,7 @@
 	equip_delay_other = 60
 	flags_inv = HIDEJUMPSUIT
 	resistance_flags = ACID_PROOF
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /obj/item/clothing/suit/cbrn/Initialize()
 	. = ..()

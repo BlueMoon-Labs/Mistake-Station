@@ -74,6 +74,8 @@
 
 	var/name_override //For temporary visible name changes
 
+	var/custom_species = null
+
 	var/datum/physiology/physiology
 
 	var/list/datum/bioware = list()

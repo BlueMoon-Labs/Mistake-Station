@@ -144,13 +144,6 @@
 		success_statement;\
 	}
 
-/datum/component/field_of_vision/proc/on_fov_view(mob/source, list/atoms)
-	if(!fov.alpha)
-		return
-	for(var/k in atoms)
-		var/atom/A = k
-		FOV_ANGLE_CHECK(source, A, continue, atoms -= A)
-
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
@@ -182,7 +175,6 @@
 	RegisterSignal(parent, COMSIG_MOB_RESET_PERSPECTIVE, PROC_REF(update_mask))
 	RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(mob_logout))
 	RegisterSignal(parent, COMSIG_LIVING_COMBAT_MODE_TOGGLE, PROC_REF(update_visual_shadow_alpha)) //SKYRAT EDIT ADDITION
-	RegisterSignal(parent, COMSIG_MOB_FOV_VIEW, .proc/on_fov_view)
 
 /datum/component/fov_handler/UnregisterFromParent()
 	. = ..()

@@ -28,3 +28,20 @@
 			return //No change needed
 
 	source.vocal_bark = sound(pick(soundpaths))
+
+/* 	Language procs
+*	Unless you are doing something very specific, these are the ones you want to use.
+*/
+
+/// Sets the vocal bark for the atom, using the bark's ID
+/atom/movable/proc/set_bark(id)
+	if(!id)
+		return FALSE
+	var/datum/bark/B = GLOB.bark_list[id]
+	if(!B)
+		return FALSE
+	vocal_bark = sound(initial(B.soundpath))
+	vocal_bark_id = id
+	return vocal_bark
+
+/* End language procs */

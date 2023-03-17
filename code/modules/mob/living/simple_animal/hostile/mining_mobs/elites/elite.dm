@@ -71,7 +71,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	name = "Elite Attack"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = ""
-	background_icon_state = "bg_default"в
+	background_icon_state = "bg_default"
 	overlay_icon_state = "bg_default_border"
 	///The displayed message into chat when this attack is selected
 	var/chosen_message

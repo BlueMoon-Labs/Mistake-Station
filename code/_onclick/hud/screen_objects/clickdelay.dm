@@ -1,3 +1,10 @@
+// Smooth HUD updates, but low priority
+PROCESSING_SUBSYSTEM_DEF(huds)
+	name = "HUD updates"
+	wait = 0.5
+	priority = FIRE_PRIORITY_HUDS
+	stat_tag = "HUDS"
+
 /mob
 	// CLICKDELAY AND RELATED
 	// Generic clickdelay - Hybrid time-since-last-attack and time-to-next-attack system.

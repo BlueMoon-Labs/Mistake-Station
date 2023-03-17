@@ -144,7 +144,7 @@
 	sensor_mode = SENSOR_COORDS
 	sensor_flags = NONE
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /obj/item/clothing/under/rank/brigdoc/skirt
 	name = "brig physician skirt"
@@ -168,7 +168,7 @@
 	sensor_mode = SENSOR_COORDS
 	sensor_flags = NONE
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /obj/item/clothing/under/rank/blueshield/formal
 	name = "blueshield formal outfit"
@@ -222,7 +222,7 @@
 	sensor_mode = SENSOR_COORDS
 	sensor_flags = NONE
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /obj/item/clothing/under/rank/bridgeofficer/skirt
 	name = "bridge officer skirt"

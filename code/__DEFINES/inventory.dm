@@ -313,7 +313,7 @@ GLOBAL_LIST_INIT(security_hardsuit_allowed, typecacheof(list(
 //Slots that won't trigger humans' update_genitals() on equip().
 GLOBAL_LIST_INIT(no_genitals_update_slots, list(ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET, ITEM_SLOT_SUITSTORE, ITEM_SLOT_BACKPACK, ITEM_SLOT_LEGCUFFED, ITEM_SLOT_HANDCUFFED, ITEM_SLOT_HANDS, ITEM_SLOT_DEX_STORAGE))
 
-// storage_flags variable on /datum/component/storage
+// storage_flags variable on /datum/storage/
 
 // Storage limits. These can be combined (and usually are combined).
 /// Check max_items and contents.len when trying to insert

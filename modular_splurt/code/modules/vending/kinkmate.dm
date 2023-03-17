@@ -39,8 +39,8 @@
 				/obj/item/storage/pill_bottle/penis_enlargement = 10,
 				/obj/item/storage/pill_bottle/breast_enlargement = 10,
 				/obj/item/storage/pill_bottle/butt_enlargement = 10,
-				/obj/item/reagent_containers/glass/bottle/crocin = 10,
-				/obj/item/reagent_containers/glass/bottle/camphor = 5,
+				/obj/item/reagent_containers/cup/bottle/crocin = 10,
+				/obj/item/reagent_containers/cup/bottle/camphor = 5,
 				/obj/item/storage/daki = 4,
 				/obj/item/pregnancytest = 10,
 				)
@@ -56,7 +56,7 @@
         )
 	premium = list(
 				/obj/item/clothing/accessory/skullcodpiece/fake = 3,
-				/obj/item/reagent_containers/glass/bottle/hexacrocin = 10,
+				/obj/item/reagent_containers/cup/bottle/hexacrocin = 10,
 				/obj/item/clothing/under/pants/chaps = 5
 				)
 	refill_canister = /obj/item/vending_refill/kink
@@ -91,15 +91,14 @@
 		/obj/item/clothing/neck/syntech = 4,
 		/obj/item/clothing/neck/syntech/choker = 4,
 		/obj/item/clothing/neck/syntech/collar = 4,
-		/obj/item/storage/fancy/jellybean_pack = 5,
 		/obj/item/storage/box/aphrodisiac_pump = 5,
 		/obj/item/storage/box/bulk_condoms = 10,
 		/obj/item/strapon_strap = 5,
 		/obj/item/restraints/bondage_rope = 5,
 		/obj/item/clothing/under/domina = 5,
 		/obj/item/clothing/under/performer = 3,
-		/obj/item/bdsm_whip = 3,
-		/obj/item/bdsm_whip/ridingcrop = 3,
+		/obj/item/clothing/mask/leatherwhip = 3,
+		/obj/item/clothing/mask/leatherwhip/ridingcrop = 3,
 		/obj/item/clothing/suit/chaplainsuit/nun = 5,
 		/obj/item/clothing/head/chaplain/nun_hood = 5,
 		/obj/item/clothing/shoes/highheel_sandals = 3,

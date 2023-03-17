@@ -8,7 +8,6 @@
 	see_in_dark = 12
 	maxHealth = 7
 	health = 7
-	chew_probability = 0
 
 /mob/living/simple_animal/mouse/boommouse/Initialize()
 	. = ..()
@@ -93,7 +92,7 @@
 		faction = list("hostile", "rat")
 	return
 
-/mob/living/simple_animal/hostile/bigmouse/attack_paw(mob/living/carbon/monkey/M)
+/mob/living/simple_animal/hostile/bigmouse/attack_paw(mob/living/carbon/human/species/monkey/M)
 	return attack_hand(M)
 
 /mob/living/simple_animal/hostile/bigmouse/attack_alien(mob/living/carbon/alien/M)

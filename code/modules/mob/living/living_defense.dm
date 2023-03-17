@@ -119,7 +119,7 @@
 		else
 				return 0
 
-/mob/living/proc/set_combat_mode(new_mode, silent = TRUE)
+/mob/living/proc/set_combat_mode(new_mode, silent = TRUE, /mob/living/carbon/user)
 	if(combat_mode == new_mode)
 		return
 	. = combat_mode
@@ -136,12 +136,8 @@
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE
 	//SKYRAT EDIT ADDITION END
 
-	// Я не знаю, чо ета.
-	if(iscarbon(source))
-		var/mob/living/carbon/C = source
-		if(C.voremode)
-			C.disable_vore_mode()
-	// Я не знаю, чо ета.
+	if(user.voremode)
+		user.disable_vore_mode()
 
 	if(silent || !(client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)))
 		return

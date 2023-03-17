@@ -58,30 +58,21 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 	antagpanel_category = "Slaver"
 	job_rank = ROLE_SLAVER
 	antag_moodlet = /datum/mood_event/focused
-	threat = 7
 	show_to_ghosts = TRUE
+	antag_hud_name = "slaver"
 	var/static/datum/team/slavers/slaver_team = new /datum/team/slavers
 	var/slaver_outfit = /datum/outfit/slaver
 	var/send_to_spawnpoint = TRUE //Should the user be moved to default spawnpoint.
 	var/equip_outfit = TRUE
 
-/datum/antagonist/slaver/proc/update_slaver_icons_added(mob/living/M)
-	var/datum/atom_hud/antag/slaverhud = GLOB.huds[ANTAG_HUD_SLAVER]
-	slaverhud.join_hud(M)
-	set_antag_hud(M, "slaver")
-
-/datum/antagonist/slaver/proc/update_slaver_icons_removed(mob/living/M)
-	var/datum/atom_hud/antag/slaverhud = GLOB.huds[ANTAG_HUD_SLAVER]
-	slaverhud.leave_hud(M)
-	set_antag_hud(M, null)
-
 /datum/antagonist/slaver/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	update_slaver_icons_added(M)
+	handle_clown_mutation(M, mob_override ? null : "Your training has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.")
+	add_team_hud(mob_override || owner.current, /datum/antagonist/slaver)
 
 /datum/antagonist/slaver/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	update_slaver_icons_removed(M)
+	handle_clown_mutation(M, removing = FALSE)
 
 /datum/antagonist/slaver/proc/equip_slaver()
 	if(!ishuman(owner.current))
@@ -111,13 +102,13 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 
 	// Can see what players consent to being a victim
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ANTAGTARGET]
-	H.add_hud_to(owner.current)
+	H.show_to(owner.current)
 
 // Lose antag status
 /datum/antagonist/slaver/farewell()
 	// Can no longer see what players consent to being a victim
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ANTAGTARGET]
-	H.remove_hud_from(owner.current)
+	H.hide_from(owner.current)
 
 /datum/antagonist/slaver/get_team()
 	return slaver_team

@@ -14,6 +14,10 @@
 	required_reagents = list(/datum/reagent/toxin/fentanyl = 1, /datum/reagent/consumable/ice = 1, /datum/reagent/consumable/lemon_lime = 1)
 	mix_message = "That thang bleedin' P!"
 
+/datum/chemical_reaction/ethanol/semen
+	results = list(/datum/reagent/consumable/ethanol/semen = 3)
+	required_reagents = list(/datum/reagent/consumable/semen = 1)
+
 /datum/chemical_reaction/cum_in_a_hot_tub
 	results = list(/datum/reagent/consumable/ethanol/cum_in_a_hot_tub = 3)
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 2, /datum/reagent/consumable/ethanol/white_russian = 1, /datum/reagent/consumable/ethanol/irish_cream = 1)

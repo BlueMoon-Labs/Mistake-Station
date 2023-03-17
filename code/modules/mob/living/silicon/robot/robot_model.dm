@@ -53,6 +53,7 @@
 	var/list/ride_offset_y = list("north" = 4, "south" = 4, "east" = 3, "west" = 3)
 	///List of skins the borg can be reskinned to, optional
 	var/list/borg_skins
+	var/sleeper_overlay
 
 /obj/item/robot_model/Initialize(mapload)
 	. = ..()

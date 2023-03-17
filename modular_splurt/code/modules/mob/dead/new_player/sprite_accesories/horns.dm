@@ -3,14 +3,6 @@
 	icon = 'modular_splurt/icons/mob/mutant_bodyparts.dmi'
 	icon_state = "demon"
 
-/datum/sprite_accessory/horns/sylveon
-	name = "Sylveon Bow"
-	icon = 'modular_splurt/icons/mob/mutant_bodyparts.dmi'
-	icon_state = "sylveon_bow"
-	color_src = MATRIXED
-	color_src = MATRIX_ALL
-	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-
 //ripped from skyrat
 /datum/sprite_accessory/horns/broken
 	name = "Broken"

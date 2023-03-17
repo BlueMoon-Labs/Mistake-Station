@@ -12,8 +12,8 @@
 	speak_chance = 0
 	turns_per_move = 2
 	turns_per_move = 3
-	maxHealth = 300
-	health = 300
+	maxHealth = 500
+	health = 500
 	see_in_dark = 7
 	response_help_continuous  = "pets"
 	response_disarm_continuous = "pushes aside"
@@ -31,19 +31,19 @@
 	death_message = "lets out scream and its tentacles shrivel away..."
 	move_to_delay = 4
 	loot = list(/obj/effect/gibspawner/human)
+	footstep_type = FOOTSTEP_MOB_CLAW
 
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 150
 	maxbodytemp = 500
 
-/mob/living/simple_animal/hostile/carrion/Initialize()
+/mob/living/simple_animal/hostile/carrion/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_CLAW)
-	AddElement(/datum/element/ventcrawling, given_tier = VENTCRAWLER_ALWAYS)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/carrion/OpenFire(atom/the_target)
 	var/dist = get_dist(src, the_target)
-	Beam(the_target, "tentacle", time=dist*2, maxdistance=dist, beam_sleep_time = 5)
+	Beam(the_target, icon_state = "tentacle", maxdistance = 7, beam_type=/obj/effect/ebeam/blood, emissive = FALSE)
 	the_target.attack_animal(src)
 
 /mob/living/simple_animal/hostile/carrion/Initialize()

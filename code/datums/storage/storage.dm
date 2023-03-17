@@ -117,6 +117,7 @@
 		return
 
 	RegisterSignals(resolve_parent, list(COMSIG_ATOM_ATTACK_PAW, COMSIG_ATOM_ATTACK_HAND), PROC_REF(on_attack))
+	RegisterSignal(resolve_parent, COMSIG_CONTAINS_STORAGE, PROC_REF(on_check))
 	RegisterSignal(resolve_parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto))
 	RegisterSignal(resolve_parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 
@@ -352,12 +353,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE
 
 	if(total_weight & STORAGE_LIMIT_VOLUME)
-		var/sum_volume = I.get_w_volume()
-		for(var/obj/item/_I in real_location)
+		var/sum_volume = to_insert.get_w_volume()
+		for(var/obj/item/_I in real_location?.resolve())
 			sum_volume += _I.get_w_volume()
 		if(sum_volume > get_max_volume())
-			if(!stop_messages)
-				to_chat(M, "<span class='warning'>[I] is too spacious to fit in [host], make some space!</span>")
+			if(!messages)
+				to_chat(user, "<span class='warning'>[to_insert] is too spacious to fit in [user], make some space!</span>")
 			return FALSE
 
 	if(length(can_hold))
@@ -686,6 +687,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	progress.end_progress()
 	resolve_parent.balloon_alert(user, "picked up")
+
+/datum/storage/proc/on_check()
+	return TRUE
 
 /// Signal handler for whenever we drag the storage somewhere.
 /datum/storage/proc/on_mousedrop_onto(datum/source, atom/over_object, mob/user)
@@ -1126,5 +1130,5 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /**
   * Gets our max volume
   */
-/datum/component/storage/proc/get_max_volume()
-	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage)
+/datum/storage/proc/get_max_volume()
+	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage, max_total_storage)

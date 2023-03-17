@@ -97,40 +97,6 @@
 	crate_name = ".22 ammo"
 	crate_type = /obj/structure/closet/crate/secure/weapon
 
-/datum/supply_pack/misc/varmintrifles
-	name = "Varmint Rifles"
-	desc = "A pack of varmint rifles with 3 spare boxes of ammo."
-	access = ACCESS_QM
-	cost = 17000
-	contains = list(/obj/item/gun/ballistic/shotgun/varmintrifle,
-					/obj/item/gun/ballistic/shotgun/varmintrifle,
-					/obj/item/gun/ballistic/shotgun/varmintrifle,
-					/obj/item/ammo_box/c22lr,
-					/obj/item/ammo_box/c22lr,
-					/obj/item/ammo_box/c22lr)
-	crate_name = "Varmint Rifles"
-	crate_type = /obj/structure/closet/crate/secure/weapon
-
-/datum/supply_pack/misc/huntingrifles
-	name = "Hunting Rifles"
-	desc = "A pack of hunting rifles with 9 stripper clips."
-	access = ACCESS_QM
-	cost = 28000
-	contains = list(/obj/item/gun/ballistic/shotgun/huntingrifle,
-					/obj/item/gun/ballistic/shotgun/huntingrifle,
-					/obj/item/gun/ballistic/shotgun/huntingrifle,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308,
-					/obj/item/ammo_box/a308)
-	crate_name = "Hunting Rifles"
-	crate_type = /obj/structure/closet/crate/secure/weapon
-
 /datum/supply_pack/misc/c308ammo
 	name = ".308 stripper clips"
 	desc = "A pack of 6 stripper clips of .308 ammo."
@@ -197,10 +163,9 @@
 					/obj/item/stack/tile/carpet/royalblue/fifty,
 					/obj/item/stack/tile/carpet/royalblack/fifty,
 					/obj/item/stack/tile/carpet/royalblack/fifty,
-					/obj/item/stack/tile/carpet/blackred/fifty,
-					/obj/item/stack/tile/carpet/blackred/fifty,
-					/obj/item/stack/tile/carpet/monochrome/fifty,
-					/obj/item/stack/tile/carpet/monochrome/fifty)
+					/obj/item/stack/tile/carpet/donk/thirty,
+					/obj/item/stack/tile/carpet/donk/thirty,
+					/obj/item/stack/tile/carpet/neon)
 	crate_name = "exotic carpet crate"
 
 /datum/supply_pack/misc/prospacillin //size changing should be hard to achieve; so enjoy the price tag.
@@ -251,7 +216,7 @@
 					/obj/item/bouquet,
 					/obj/item/bouquet/sunflower,
 					/obj/item/bouquet/poppy,
-					/obj/item/reagent_containers/food/drinks/bottle/champagne)
+					/obj/item/reagent_containers/cup/glass/bottle/champagne)
 	crate_name = "wedding crate"
 
 /datum/supply_pack/misc/random1k
@@ -259,13 +224,13 @@
 	desc = "Hello, thank you for taking this random surplus off our hands. We have no idea whats in it just know its worth about 1000 Credits. At least we think so."
 	cost = 1000
 	contains = list(/obj/item/food/rationpack,
-					/obj/effect/spawner/lootdrop/stock_parts,
-					/obj/effect/spawner/lootdrop/stock_parts,
-					/obj/effect/spawner/lootdrop/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
 					/obj/item/clothing/gloves/color/fyellow,
-					/obj/effect/spawner/lootdrop/stock_parts,
-					/obj/effect/spawner/lootdrop/stock_parts,
-					/obj/effect/spawner/lootdrop/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
+					/obj/effect/spawner/random/engineering/stock_parts,
 					/obj/item/tank/internals/doubleoxygen,
 					/obj/item/tank/internals/plasmamandouble,
 					/obj/item/storage/box/pockerchips,
@@ -275,23 +240,22 @@
 					/obj/item/storage/toolbox/mechanical/old,
 					/obj/item/pda,
 					/obj/item/clothing/gloves/color/yellow,
-					/obj/item/export/bottle/whiskey,
-					/obj/item/export/bottle/wine,
-					/obj/item/export/bottle/applejack,
-					/obj/effect/spawner/lootdrop/three_course_meal,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/maintenance,
-					/obj/effect/spawner/lootdrop/mre,
-					/obj/effect/spawner/lootdrop/low_tools,
-					/obj/effect/spawner/lootdrop/low_tools,
+					/obj/item/reagent_containers/cup/glass/bottle/whiskey,
+					/obj/item/reagent_containers/cup/glass/bottle/wine,
+					/obj/item/reagent_containers/cup/glass/bottle/applejack,
+					/obj/effect/spawner/random/food_or_drink/three_course_meal,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/maintenance/two,
+					/obj/effect/spawner/random/engineering/tool,
+					/obj/effect/spawner/random/engineering/tool,
 					/obj/item/gunpart/pistol22frame,
 					/obj/item/gunpart/pistol22barrel,
 					/obj/item/gunpart/pistol22bolt,
@@ -300,13 +264,10 @@
 					/obj/item/ammo_box/c45/lethal,
 					/obj/item/ammo_box/c45,
 					/obj/item/ammo_box/c22lr,
-					/obj/effect/spawner/lootdrop/bedsheet,
-					/obj/effect/spawner/lootdrop/prison_contraband,
-					/obj/effect/spawner/lootdrop/cig_packs,
-					/obj/effect/spawner/lootdrop/brokenhuds,
-					/obj/effect/spawner/lootdrop/healing_kits,
-					/obj/effect/spawner/lootdrop/breathing_tanks,
-					/obj/effect/spawner/lootdrop/breathing_masks,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/exotic/antag_gear,
+					/obj/effect/spawner/random/exotic/antag_gear,
 					/obj/item/circuitboard/machine/bluespace_miner,
 					/obj/item/stack/sheet/bluespace_crystal
 					)
@@ -314,7 +275,7 @@
 	crate_type = /obj/structure/closet/crate
 
 /datum/supply_pack/misc/random1k/fill(obj/structure/closet/crate/scrate1)
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 15)
 		var/item = pick(contains)
 		new item(scrate1)
 
@@ -336,27 +297,32 @@
 					/obj/item/clothing/suit/space/eva,
 					/obj/item/clothing/head/helmet/space/eva,
 					/obj/item/storage/box/pockerchips,
-					/obj/effect/spawner/lootdrop/coin,
+					/obj/effect/spawner/random/entertainment/coin,
+					/obj/effect/spawner/random/entertainment/coin,
 					/obj/item/storage/belt/military,
 					/obj/item/pickaxe/drill,
 					/obj/item/crowbar/large,
 					/obj/item/stack/ore/diamond/fifty,
 					/obj/item/clothing/gloves/tackler/combat/insulated,
-					/obj/item/export/bottle/rum,
-					/obj/item/export/bottle/gin,
-					/obj/item/export/bottle/champagne,
+					/obj/item/reagent_containers/cup/glass/bottle/rum,
+					/obj/item/reagent_containers/cup/glass/bottle/gin,
+					/obj/item/reagent_containers/cup/glass/bottle/champagne,
 					/obj/item/circuitboard/machine/cryptominer,
 					/obj/item/circuitboard/machine/cryptominer/syndie,
-					/obj/effect/spawner/lootdrop/armory_contraband/metastation,
-					/obj/effect/spawner/lootdrop/mre,
-					/obj/effect/spawner/lootdrop/prison_loot_toilet,
-					/obj/effect/spawner/lootdrop/prison_loot_toilet,
-					/obj/effect/spawner/lootdrop/prison_loot_toilet,
-					/obj/effect/spawner/lootdrop/prison_loot_toilet,
-					/obj/effect/spawner/lootdrop/high_loot_toilet,
-					/obj/effect/spawner/lootdrop/high_loot_toilet,
-					/obj/effect/spawner/lootdrop/high_tools,
-					/obj/effect/spawner/lootdrop/high_tools,
+					/obj/effect/spawner/random/contraband/armory,
+					/obj/effect/spawner/random/contraband/armory,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/permabrig_gear,
+					/obj/effect/spawner/random/contraband/permabrig_gear,
+					/obj/effect/spawner/random/engineering/tool_advanced,
+					/obj/effect/spawner/random/engineering/tool_advanced,
 					/obj/item/gunpart/pistol9frame,
 					/obj/item/gunpart/pistol9slide,
 					/obj/item/gunpart/shotgunhutningbarrel,
@@ -366,192 +332,21 @@
 					/obj/item/ammo_box/c45/hotshot,
 					/obj/item/ammo_box/c45/hydra,
 					/obj/item/ammo_box/c308,
-					/obj/effect/spawner/lootdrop/tool_box,
-					/obj/effect/spawner/lootdrop/prison_contraband,
-					/obj/effect/spawner/lootdrop/cig_packs,
-					/obj/effect/spawner/lootdrop/brokenhuds,
-					/obj/effect/spawner/lootdrop/healing_kits,
-					/obj/effect/spawner/lootdrop/breathing_tanks,
-					/obj/effect/spawner/lootdrop/breathing_masks,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/contraband/prison,
+					/obj/effect/spawner/random/exotic/antag_gear,
+					/obj/effect/spawner/random/exotic/antag_gear,
+					/obj/item/circuitboard/machine/bluespace_miner,
+					/obj/item/circuitboard/machine/bluespace_miner,
 					/obj/item/stack/sheet/bluespace_crystal
 					)
 	crate_name = "surplus crate"
 	crate_type = /obj/structure/closet/crate
 
 /datum/supply_pack/misc/random10k/fill(obj/structure/closet/crate/scrate2)
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 15)
 		var/item = pick(contains)
 		new item(scrate2)
-
-/datum/supply_pack/misc/goner
-	name = "Trencher Outfits"
-	desc = "Contains five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Corporate-made."
-	cost = 2050 // Debatable, probably
-	contraband = TRUE
-	contains = list(
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/head/helmet/goner/officer,
-					/obj/item/clothing/head/helmet/goner,
-					/obj/item/clothing/head/helmet/goner,
-					/obj/item/clothing/head/helmet/goner,
-					/obj/item/clothing/head/helmet/goner,
-					/obj/item/clothing/under/goner,
-					/obj/item/clothing/under/goner,
-					/obj/item/clothing/under/goner,
-					/obj/item/clothing/under/goner,
-					/obj/item/clothing/under/goner,
-					/obj/item/clothing/suit/goner,
-					/obj/item/clothing/suit/goner,
-					/obj/item/clothing/suit/goner,
-					/obj/item/clothing/suit/goner,
-					/obj/item/clothing/suit/goner,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots
-					) // Don't @ me it works
-	crate_name = "trencher outfit crate"
-
-/datum/supply_pack/misc/goner_red
-	name = "Red Trencher Outfits"
-	desc = "Contains an import of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by pesky Reds."
-	cost = 2000
-	contraband = TRUE
-	contains = list(
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/head/helmet/goner/officer/red,
-					/obj/item/clothing/head/helmet/goner/red,
-					/obj/item/clothing/head/helmet/goner/red,
-					/obj/item/clothing/head/helmet/goner/red,
-					/obj/item/clothing/head/helmet/goner/red,
-					/obj/item/clothing/under/goner/red,
-					/obj/item/clothing/under/goner/red,
-					/obj/item/clothing/under/goner/red,
-					/obj/item/clothing/under/goner/red,
-					/obj/item/clothing/under/goner/red,
-					/obj/item/clothing/suit/goner/red,
-					/obj/item/clothing/suit/goner/red,
-					/obj/item/clothing/suit/goner/red,
-					/obj/item/clothing/suit/goner/red,
-					/obj/item/clothing/suit/goner/red,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots
-					)
-	crate_name = "red trencher outfit crate"
-
-/datum/supply_pack/misc/goner_green
-	name = "Green Trencher Outfits"
-	desc = "Contains an import of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by stupid Greens."
-	cost = 1950
-	contraband = TRUE
-	contains = list(
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/head/helmet/goner/officer/green,
-					/obj/item/clothing/head/helmet/goner/green,
-					/obj/item/clothing/head/helmet/goner/green,
-					/obj/item/clothing/head/helmet/goner/green,
-					/obj/item/clothing/head/helmet/goner/green,
-					/obj/item/clothing/under/goner/green,
-					/obj/item/clothing/under/goner/green,
-					/obj/item/clothing/under/goner/green,
-					/obj/item/clothing/under/goner/green,
-					/obj/item/clothing/under/goner/green,
-					/obj/item/clothing/suit/goner/green,
-					/obj/item/clothing/suit/goner/green,
-					/obj/item/clothing/suit/goner/green,
-					/obj/item/clothing/suit/goner/green,
-					/obj/item/clothing/suit/goner/green,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots
-					)
-	crate_name = "green trencher outfit crate"
-
-/datum/supply_pack/misc/goner_blue
-	name = "Blue Trencher Outfits"
-	desc = "Contains an import of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by dirty Blues."
-	cost = 2000
-	contraband = TRUE
-	contains = list(
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/head/helmet/goner/officer/blue,
-					/obj/item/clothing/head/helmet/goner/blue,
-					/obj/item/clothing/head/helmet/goner/blue,
-					/obj/item/clothing/head/helmet/goner/blue,
-					/obj/item/clothing/head/helmet/goner/blue,
-					/obj/item/clothing/under/goner/blue,
-					/obj/item/clothing/under/goner/blue,
-					/obj/item/clothing/under/goner/blue,
-					/obj/item/clothing/under/goner/blue,
-					/obj/item/clothing/under/goner/blue,
-					/obj/item/clothing/suit/goner/blue,
-					/obj/item/clothing/suit/goner/blue,
-					/obj/item/clothing/suit/goner/blue,
-					/obj/item/clothing/suit/goner/blue,
-					/obj/item/clothing/suit/goner/blue,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots
-					)
-	crate_name = "blue trencher outfit crate"
-
-/datum/supply_pack/misc/goner_yellow
-	name = "Yellow Trencher Outfits"
-	desc = "Contains an import of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by cursed Yellows."
-	cost = 2000
-	contraband = TRUE
-	contains = list(
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/mask/gas/goner,
-					/obj/item/clothing/head/helmet/goner/officer/yellow,
-					/obj/item/clothing/head/helmet/goner/yellow,
-					/obj/item/clothing/head/helmet/goner/yellow,
-					/obj/item/clothing/head/helmet/goner/yellow,
-					/obj/item/clothing/head/helmet/goner/yellow,
-					/obj/item/clothing/under/goner/yellow,
-					/obj/item/clothing/under/goner/yellow,
-					/obj/item/clothing/under/goner/yellow,
-					/obj/item/clothing/under/goner/yellow,
-					/obj/item/clothing/under/goner/yellow,
-					/obj/item/clothing/suit/goner/yellow,
-					/obj/item/clothing/suit/goner/yellow,
-					/obj/item/clothing/suit/goner/yellow,
-					/obj/item/clothing/suit/goner/yellow,
-					/obj/item/clothing/suit/goner/yellow,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots,
-					/obj/item/clothing/shoes/jackboots
-					)
-	crate_name = "yellow trencher outfit crate"
 
 /datum/supply_pack/medical/plaguedoc
 	name = "Plague Doctor Supply Crate"
@@ -559,7 +354,7 @@
 	cost = 3500
 	contains = list(/obj/item/clothing/mask/gas/plaguedoctor/red,
 	/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
-	/obj/item/clothing/head/plaguedoctorhat,
+	/obj/item/clothing/head/bio_hood/plague,
 	/obj/item/storage/backpack/docbag/plague,
 	/obj/item/cane/plague
 	)

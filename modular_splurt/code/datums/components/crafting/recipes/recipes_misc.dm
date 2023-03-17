@@ -6,7 +6,7 @@
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stack/rods = 2,
 		/obj/item/stack/sheet/cardboard = 1,
-		/obj/item/reagent_containers/glass/beaker = 2,
+		/obj/item/reagent_containers/cup/beaker = 2,
 		/obj/item/stock_parts/manipulator = 1
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -20,40 +20,9 @@
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stack/rods = 1,
 		/obj/item/stack/sheet/cardboard = 1,
-		/obj/item/reagent_containers/glass/beaker/large = 1,
+		/obj/item/reagent_containers/cup/beaker = 1,
 		/obj/item/stock_parts/manipulator = 1
 	)
-
-//Bouquets
-/datum/crafting_recipe/mixedbouquet
-	name = "Mixed bouquet"
-	result = /obj/item/bouquet
-	reqs = list(/obj/item/food/grown/poppy/lily =2,
-				/obj/item/grown/sunflower = 2,
-				/obj/item/food/grown/poppy/geranium = 2)
-	category = CAT_MISC
-
-
-/datum/crafting_recipe/sunbouquet
-	name = "Sunflower bouquet"
-	result = /obj/item/bouquet/sunflower
-	reqs = list(/obj/item/grown/sunflower = 6)
-	category = CAT_MISC
-
-
-/datum/crafting_recipe/poppybouquet
-	name = "Poppy bouquet"
-	result = /obj/item/bouquet/poppy
-	reqs = list (/obj/item/food/grown/poppy = 6)
-	category = CAT_MISC
-
-
-/datum/crafting_recipe/rosebouquet
-	name = "Rose bouquet"
-	result = /obj/item/bouquet/rose
-	reqs = list(/obj/item/grown/rose = 6)
-	category = CAT_MISC
-
 
 //Manly anvil
 /datum/crafting_recipe/manlyanvil
@@ -62,7 +31,7 @@
 	time = 200
 	reqs = list(/obj/item/clothing/accessory/skullcodpiece = 1,
 	            /obj/item/stack/sheet/mineral/titanium = 25,
-				/obj/item/organ/regenerative_core = 2,
+				/obj/item/organ/internal/monster_core/regenerative_core = 2,
 				/obj/item/stack/sheet/mineral/wood = 10,
 				/datum/reagent/consumable/ethanol/manly_dorf = 50)
 	tool_behaviors = list(TOOL_CROWBAR)
@@ -186,12 +155,12 @@
 
 /datum/crafting_recipe/hudblueaviators
 	name = "Blueshield HUD Aviators"
-	result = /obj/item/clothing/glasses/hud/blueshield/aviators
+	result = /obj/item/clothing/glasses/hud/toggle/blueshield/aviators
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	parts = list(/obj/item/clothing/glasses/hud/blueshield = 1,
+	parts = list(/obj/item/clothing/glasses/hud/toggle/blueshield = 1,
 				/obj/item/clothing/glasses/aviators = 1)
-	reqs = list(/obj/item/clothing/glasses/hud/blueshield = 1,
+	reqs = list(/obj/item/clothing/glasses/hud/toggle/blueshield = 1,
 				/obj/item/clothing/glasses/aviators = 1,
 				/obj/item/stack/cable_coil = 5)
 	category = CAT_CLOTHING
@@ -201,35 +170,35 @@
 	result = /obj/item/clothing/glasses/aviators
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	reqs = list(/obj/item/clothing/glasses/hud/blueshield/aviators = 1)
+	reqs = list(/obj/item/clothing/glasses/hud/toggle/blueshield/aviators = 1)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudblueaviatorsper
 	name = "Prescription Blueshield HUD Aviators"
-	result = /obj/item/clothing/glasses/hud/blueshield/aviators/prescription
+	result = /obj/item/clothing/glasses/hud/toggle/blueshield/aviators/prescription
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	parts = list(/obj/item/clothing/glasses/hud/blueshield/aviators = 1,
+	parts = list(/obj/item/clothing/glasses/hud/toggle/blueshield/aviators = 1,
 				/obj/item/clothing/glasses/regular = 1)
-	reqs = list(/obj/item/clothing/glasses/hud/blueshield/aviators = 1,
+	reqs = list(/obj/item/clothing/glasses/hud/toggle/blueshield/aviators = 1,
 				/obj/item/clothing/glasses/regular = 1)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudblueper
 	name = "Prescription Blueshield HUD"
-	result = /obj/item/clothing/glasses/hud/blueshield/prescription
+	result = /obj/item/clothing/glasses/hud/toggle/blueshield/prescription
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	parts = list(/obj/item/clothing/glasses/hud/blueshield = 1,
+	parts = list(/obj/item/clothing/glasses/hud/toggle/blueshield = 1,
 				/obj/item/clothing/glasses/regular = 1)
-	reqs = list(/obj/item/clothing/glasses/hud/blueshield = 1,
+	reqs = list(/obj/item/clothing/glasses/hud/toggle/blueshield = 1,
 				/obj/item/clothing/glasses/regular = 1)
 	category = CAT_CLOTHING
 
 //to do: put carpentry in it's own crafting tab
 /datum/crafting_recipe/weak_metal
 	name = "Heated Metal"
-	reqs = list(/obj/item/stack/sheet/metal = 5)
+	reqs = list(/obj/item/stack/sheet/iron = 5)
 	tool_behaviors = list(TOOL_WELDER)
 
 	category = CAT_MISC

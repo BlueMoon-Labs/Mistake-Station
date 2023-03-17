@@ -1,7 +1,3 @@
-//Edits of main code
-/datum/reagent/consumable/milk
-	icon_state = "milkglass"
-
 //Own
 /datum/reagent/consumable/wockyslush
 	name = "Wocky Slush"
@@ -9,9 +5,13 @@
 	color = "#7b60c4" // rgb(123, 96, 196)
 	quality = DRINK_VERYGOOD
 	taste_description = "cold rainbows"
+
+/datum/glass_style/drinking_glass/wockyslush
+	required_drink_type = /datum/reagent/consumable/wockyslush
+	name = "Wocky Slush"
+	desc = "That thang bleedin' to the-... ya know I mean?"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "wockyslush"
-	glass_name = "Wocky Slush"
-	glass_desc = "That thang bleedin' to the-... ya know I mean?"
 
 /datum/reagent/consumable/wockyslush/on_mob_life(mob/living/carbon/M)
 	M.emote(pick("twitch","giggle","stare"))
@@ -24,31 +24,20 @@
 	description = "A Summer time drink that can be frozen and eaten or drunk from a glass!"
 	color = "#ffb46e" // rgb(255, 180, 110)
 	taste_description = "ice cream and orange soda"
+
+/datum/glass_style/drinking_glass/orange_creamsicle
+	required_drink_type = /datum/reagent/consumable/orange_creamsicle
+	name = "Orange Creamsicle"
+	desc = "A Summer time drink that can be frozen and eaten or drunk from a glass!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "orangecreamsicle"
-	glass_desc = "A Summer time drink that can be frozen and eaten or Drinked from a glass!"
-	glass_name = "Orange Creamsicle"
 
-
-// ~( Ported from TG )~
-/datum/reagent/consumable/toechtauese_juice
-	name = "Töchtaüse Juice"
-	description = "An unpleasant juice made from töchtaüse berries. Best made into a syrup, unless you enjoy pain."
-	color = "#554862"
-	nutriment_factor = 0
-	taste_description = "fiery itchy pain"
-	icon_state = "toechtauese_syrup"
-	glass_name = "glass of töchtaüse juice"
-	glass_desc = "Raw, unadulterated töchtaüse juice. One swig will fill you with regrets."
-
-/datum/reagent/consumable/toechtauese_syrup
-	name = "Töchtaüse Syrup"
-	description = "A harsh spicy and bitter syrup, made from töchtaüse berries. Useful as an ingredient, both for food and cocktails."
-	color = "#554862"
-	nutriment_factor = 0
-	taste_description = "sugar, spice, and nothing nice"
-	icon_state = "toechtauese_syrup"
-	glass_name = "glass of töchtaüse syrup"
-	glass_desc = "Not for drinking on its own."
+/datum/glass_style/drinking_glass/orange_creamsicle
+	required_drink_type = /datum/reagent/consumable/orange_creamsicle
+	name = "Orange Creamsicle"
+	desc = "A Summer time drink that can be frozen and eaten or Drinked from a glass!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
+	icon_state = "orangecreamsicle"
 
 /datum/reagent/consumable/milkshake_base
 	name = "Milkshake"
@@ -56,9 +45,13 @@
 	color = "#FFFDD0"
 	nutriment_factor = 1
 	taste_description = "thick, creamy, and sweet"
+
+/datum/glass_style/drinking_glass/milkshake_base
+	required_drink_type = /datum/reagent/consumable/milkshake_base
+	name = "Glass of Plain Milkshake"
+	desc = "A glass of plain milkshake, a bit boring, but still good."
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "vanillashake"
-	glass_name = "glass of plain milkshake"
-	glass_desc = "A glass of plain milkshake, a bit boring, but still good."
 
 /datum/reagent/consumable/milkshake_vanilla
 	name = "Vanilla Milkshake"
@@ -66,9 +59,13 @@
 	color = "#FFFDD0"
 	nutriment_factor = 1
 	taste_description = "thick, creamy, and sweet"
+
+/datum/glass_style/drinking_glass/milkshake_vanilla
+	required_drink_type = /datum/reagent/consumable/milkshake_vanilla
+	name = "Glass of Vanilla Milkshake"
+	desc = "A glass of vanilla milkshake, a bit boring, but still good."
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "vanillashake"
-	glass_name = "glass of vanilla milkshake"
-	glass_desc = "A glass of vanilla milkshake, a bit boring, but still good."
 
 /datum/reagent/consumable/milkshake_choc
 	name = "Chocolate Milkshake"
@@ -76,9 +73,13 @@
 	color = "#7B3F00"
 	nutriment_factor = 1
 	taste_description = "sweet, creamy chocolate"
+
+/datum/glass_style/drinking_glass/milkshake_choc
+	required_drink_type = /datum/reagent/consumable/milkshake_choc
+	name = "Glass of Chocolate Milkshake"
+	desc = "A glass of chocolate milkshake, what a treat!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "choccyshake"
-	glass_name = "glass of chocolate milkshake"
-	glass_desc = "A glass of chocolate milkshake, what a treat!"
 
 /datum/reagent/consumable/milkshake_strawberry
 	name = "Strawberry Milkshake"
@@ -86,9 +87,13 @@
 	color = "#F4E1EA"
 	nutriment_factor = 1
 	taste_description = "summer memories"
+
+/datum/glass_style/drinking_glass/milkshake_strawberry
+	required_drink_type = /datum/reagent/consumable/milkshake_strawberry
+	name = "Glass of Strawberry Milkshake"
+	desc = "A glass of sweet, pink Strawberry Shake!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "strawberryshake"
-	glass_name = "glass of strawberry milkshake"
-	glass_desc = "A glass of sweet, pink Strawberry Shake"
 
 /datum/reagent/consumable/milkshake_banana
 	name = "Banana Milkshake"
@@ -96,9 +101,13 @@
 	color = "#FFE135"
 	nutriment_factor = 1
 	taste_description = "funny pranks and clowning around"
+
+/datum/glass_style/drinking_glass/milkshake_banana
+	required_drink_type = /datum/reagent/consumable/milkshake_banana
+	name = "Glass of Banana Milkshake"
+	desc = "A banana milkshake! Honk!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "bananashake"
-	glass_name = "glass of Banana Milkshake"
-	glass_desc = "A banana milkshake! Honk!"
 
 /datum/reagent/consumable/milkshake_berry
 	name = "Wild Berry Milkshake"
@@ -106,10 +115,13 @@
 	color = "#b17179"
 	nutriment_factor = 1
 	taste_description = "warm summer days"
-	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
-	icon_state = "berryshake"
-	glass_name = "glass of Wild Berry Milkshake"
-	glass_desc = "A berry milkshake"
+
+/datum/glass_style/drinking_glass/milkshake_berry
+	required_drink_type = /datum/reagent/consumable/milkshake_berry
+	name = "Glass of Wild Berry Milkshake"
+	desc = "A berry milkshake!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
+	icon_state = "bananashake"
 
 /datum/reagent/consumable/milkshake_cola
 	name = "Cola Milkshake"
@@ -118,9 +130,13 @@
 	nutriment_factor = 1
 	taste_description = "cola and milkshake"
 	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
+
+/datum/glass_style/drinking_glass/milkshake_cola
+	required_drink_type = /datum/reagent/consumable/milkshake_cola
+	name = "Glass of Cola Milkshake"
+	desc = "A cola milkshake, it's like a ticker float!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "colashake"
-	glass_name = "glass of Cola Milkshake"
-	glass_desc = "A cola milkshake, it's like a ticker float!"
 
 /datum/reagent/consumable/milkshake_gibb
 	name = "Dr. Gibb Milkshake"
@@ -128,10 +144,13 @@
 	color = "#5e312b"
 	nutriment_factor = 1
 	taste_description = "cola and milkshake"
-	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
+
+/datum/glass_style/drinking_glass/milkshake_gibb
+	required_drink_type = /datum/reagent/consumable/milkshake_gibb
+	name = "Glass of Gibb Milkshake"
+	desc = "A Dr. Gibb milkshake, it's like a ticker float!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "gibbshake"
-	glass_name = "glass of Gibb Milkshake"
-	glass_desc = "A Dr. Gibb milkshake, it's like a ticker float!"
 
 /datum/reagent/consumable/milkshake_peach
 	name = "Peach Milkshake"
@@ -139,10 +158,13 @@
 	color = "#5e312b"
 	nutriment_factor = 1
 	taste_description = "peaches and cream"
-	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
+
+/datum/glass_style/drinking_glass/milkshake_peach
+	required_drink_type = /datum/reagent/consumable/milkshake_peach
+	name = "Glass of Peace Milkshake"
+	desc = "Peaches and Cream, Peaches and Cream!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "peachshake"
-	glass_name = "glass of Peace Milkshake"
-	glass_desc = "Peaches and Cream, Peaches and Cream!"
 
 /datum/reagent/consumable/milkshake_pineapple
 	name = "Pineapple Milkshake"
@@ -150,10 +172,13 @@
 	color = "#feea63"
 	nutriment_factor = 1
 	taste_description = "citrus and cream"
-	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
+
+/datum/glass_style/drinking_glass/milkshake_pineapple
+	required_drink_type = /datum/reagent/consumable/milkshake_pineapple
+	name = "Glass of Pineapple Milkshake"
+	desc = "A Pineapple milkshake, a bit sweet and a bit sour, but all delicious!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "pineappleshake"
-	glass_name = "glass of Pineapple Milkshake"
-	glass_desc = "A Pineapple milkshake, a bit sweet and a bit sour, but all delicious!"
 
 /datum/reagent/consumable/milkshake_melon
 	name = "Watermelon Milkshake"
@@ -161,7 +186,10 @@
 	color = "#E37383"
 	nutriment_factor = 1
 	taste_description = "warm sun and sweet cream"
-	glass_icon = 'modular_splurt/icons/obj/drinks.dmi'
+
+/datum/glass_style/drinking_glass/milkshake_melon
+	required_drink_type = /datum/reagent/consumable/milkshake_melon
+	name = "Glass of Watermelon Milkshake"
+	desc = "A Watermelon milkshake, it's like summer all over again!"
+	icon = 'modular_splurt/icons/obj/drinks.dmi'
 	icon_state = "melonshake"
-	glass_name = "glass of Watermelon Milkshake"
-	glass_desc = "A Watermelon milkshake, it's like summer all over again!"

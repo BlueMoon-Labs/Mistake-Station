@@ -31,8 +31,8 @@
 	active = FALSE
 
 /obj/item/rtl/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/inserted_metal = W
+	if(istype(W, /obj/item/stack/sheet/iron))
+		var/obj/item/stack/sheet/iron/inserted_metal = W
 
 		if(!loaded)
 			if(!user.transferItemToLoc(W, src))
@@ -73,6 +73,7 @@
 	if(!loaded || !loaded.amount)
 		icon_state += "-empty"
 		icon_state += "-0"
+	return ..()
 
 /obj/item/rtl/proc/is_empty(mob/user)
 	update_icon()

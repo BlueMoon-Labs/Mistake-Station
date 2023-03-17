@@ -1,13 +1,14 @@
 /datum/sprite_accessory/arachnid_legs
+	key = "Arachnid Legs"
+	generic = "Arachnid Legs"
 	icon = 'modular_bluemoon/icons/mob/arachnid_legs.dmi'
-	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	mutant_part_string = "arachnid_legs"
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = 0
 
 /datum/sprite_accessory/arachnid_legs/none
 	name = "None"
 	icon_state = null
-	relevant_layers = null
+	relevent_layers = null
 
 /datum/sprite_accessory/arachnid_legs/plain
 	name = "Plain"
@@ -23,14 +24,14 @@
 
 /datum/sprite_accessory/arachnid_spinneret
 	icon = 'icons/mob/arachnid_spinneret.dmi'
-	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	mutant_part_string = "spinneret"
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	generic = "spinneret"
 	color_src = 0
 
 /datum/sprite_accessory/arachnid_spinneret/none
 	name = "None"
 	icon_state = null
-	relevant_layers = null
+	relevent_layers = null
 
 /datum/sprite_accessory/arachnid_spinneret/plain
 	name = "Plain"
@@ -46,15 +47,15 @@
 
 /datum/sprite_accessory/arachnid_mandibles
 	icon = 'icons/mob/arachnid_mandibles.dmi'
-	relevant_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	mutant_part_string = "mandibles"
+	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	generic = "mandibles"
 	color_src = 0
-	mutable_category = "HEAD"
+	key = "head_acc"
 
 /datum/sprite_accessory/arachnid_mandibles/none
 	name = "None"
 	icon_state = null
-	relevant_layers = null
+	relevent_layers = null
 
 /datum/sprite_accessory/arachnid_mandibles/plain
 	name = "Plain"

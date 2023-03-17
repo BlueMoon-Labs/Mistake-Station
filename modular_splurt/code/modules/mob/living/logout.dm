@@ -18,7 +18,7 @@
 		// Log event and return
 		log_game("[src] ignored auto-cryo by being: Dead.")
 		return
-
+/*
 	// Check for VR mob
 	if(src.GetComponent(/datum/component/virtual_reality))
 		// Log event and return
@@ -31,7 +31,7 @@
 		// Log event and return
 		log_game("[src] ignored auto-cryo by being: In a VR sleeper.")
 		return
-
+*/
 	// Add to SSD list
 	GLOB.ssd_mob_list |= src
 

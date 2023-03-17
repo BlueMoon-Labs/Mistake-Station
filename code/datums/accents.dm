@@ -215,12 +215,3 @@
 
 /datum/accent/span/robot
 	span_flag = SPAN_ROBOT
-
-/datum/accent/dullahan/modify_speech(list/speech_args, datum/source, mob/living/carbon/owner)
-	if(owner)
-		var/datum/component/dullahan/dullahan = owner.GetComponent(/datum/component/dullahan)
-		if(dullahan)
-			if(dullahan.dullahan_head)
-				dullahan.dullahan_head.say(speech_args[SPEECH_MESSAGE])
-	speech_args[SPEECH_MESSAGE] = ""
-	return speech_args

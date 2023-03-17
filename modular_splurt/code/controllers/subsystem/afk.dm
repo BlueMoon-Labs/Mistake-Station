@@ -30,7 +30,8 @@ SUBSYSTEM_DEF(auto_cryo)
 			continue
 
 		// Send to cryo
-		cryoMob(cryo_mob, effects = TRUE)
+		for (var/obj/machinery/cryopod/F as anything in GLOB.cryopod_computers)
+			F.despawn_occupant(cryo_mob)
 
 		// Remove from SSD list
 		GLOB.ssd_mob_list -= cryo_mob

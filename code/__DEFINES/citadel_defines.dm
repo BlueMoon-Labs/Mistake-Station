@@ -6,14 +6,14 @@
 #define CIT_FILTER_STAMINACRIT filter(type="drop_shadow", x=0, y=0, size=-3, color="#04080F")
 
 //organ defines
-#define BUTT_LAYER_INDEX		1
-#define ANUS_LAYER_INDEX		2
-#define VAGINA_LAYER_INDEX		3
-#define TESTICLES_LAYER_INDEX	4
-#define GENITAL_LAYER_INDEX		5
-#define PENIS_LAYER_INDEX		6
-#define BELLY_LAYER_INDEX		7
-#define BREASTS_LAYER_INDEX		8
+#define BUTT_LAYER_INDEX			1
+#define ANUS_LAYER_INDEX			2
+#define VAGINA_LAYER_INDEX			3
+#define TESTICLES_LAYER_INDEX		4
+#define GENITAL_LAYER_INDEX			5
+#define PENIS_LAYER_INDEX			6
+#define BELLY_LAYER_INDEX			7
+#define BREASTS_LAYER_INDEX			8
 
 #define GENITAL_LAYER_INDEX_LENGTH 8 //keep it updated with each new index added, thanks.
 

@@ -42,7 +42,7 @@
 	armour_penetration = 0
 	wound_bonus = 0
 	stamina = 30
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	embedding = null
 
 /obj/item/ammo_casing/g45l
@@ -61,7 +61,7 @@
 	armour_penetration = 0
 	wound_bonus = 0
 	stamina = 35
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	embedding = null
 
 /obj/projectile/bullet/g45l/lethal

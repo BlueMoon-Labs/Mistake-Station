@@ -53,7 +53,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON
 
 /obj/item/gunpart/revolver45frame
 	name = ".45 revolver frame"
@@ -73,5 +72,3 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON
-

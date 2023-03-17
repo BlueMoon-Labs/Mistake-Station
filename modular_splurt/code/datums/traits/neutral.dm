@@ -136,7 +136,7 @@
 		T.fluid_mult = 1 //Base is 1
 		T.fluid_max_volume = 3 //Base is 3
 
-/datum/quirk/cum_plus/on_process()
+/datum/quirk/cum_plus/add_to_holder()
 	var/mob/living/carbon/M = quirk_holder //If you get balls later, then this will still proc
 	if(M.getorganslot("testicles"))
 		var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
@@ -172,7 +172,7 @@
 		return
 	examine_list += span_lewd("Вы чувствуете сильную ауру подчинения от [quirk_holder.ru_na()].")
 
-/datum/quirk/well_trained/on_process()
+/datum/quirk/well_trained/add_to_holder()
 	. = ..()
 	if(!quirk_holder)
 		return
@@ -200,7 +200,7 @@
 		return
 
 	//Handle the mood
-	var/datum/mood/mood = quirk_holder.GetComponent(/datum/component/mood)
+	var/datum/mood/mood = quirk_holder.GetComponent(/datum/mood_event)
 	if(istype(mood.mood_events[QMOOD_WELL_TRAINED], /datum/mood_event/dominant/good_boy))
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, QMOOD_WELL_TRAINED, /datum/mood_event/dominant/good_boy)
 	else
@@ -276,7 +276,6 @@
 
 	// UNUSED: Enable by setting these values to TRUE
 	// The shame is unbearable
-	mood_quirk = FALSE
 	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/storage_concealment/add_unique()
@@ -288,7 +287,7 @@
 	// Apply the augment to the quirk holder
 	put_in.implant(quirk_holder, null, TRUE, TRUE)
 
-/datum/quirk/storage_concealment/on_process()
+/datum/quirk/storage_concealment/add_to_holder()
 	// This trait should only be applied by the augment
 	// Check the quirk holder for the trait
 	if(HAS_TRAIT(quirk_holder, TRAIT_HIDE_BACKPACK))
@@ -309,16 +308,16 @@
 /datum/quirk/incubus/add()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
-	ADD_TRAIT(H,TRAIT_NO_PROCESS_FOOD,ROUNDSTART_TRAIT)
+	ADD_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	ADD_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
 /datum/quirk/incubus/remove()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
-	REMOVE_TRAIT(H,TRAIT_NO_PROCESS_FOOD,ROUNDSTART_TRAIT)
+	REMOVE_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	REMOVE_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
-/datum/quirk/incubus/on_process()
+/datum/quirk/incubus/add_to_holder()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_nutrition(-0.09)//increases their nutrition loss rate to encourage them to gain a partner they can essentially leech off of
@@ -333,20 +332,20 @@
 /datum/quirk/succubus/add()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
-	ADD_TRAIT(H,TRAIT_NO_PROCESS_FOOD,ROUNDSTART_TRAIT)
+	ADD_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	ADD_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
 /datum/quirk/succubus/remove()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
-	REMOVE_TRAIT(H,TRAIT_NO_PROCESS_FOOD,ROUNDSTART_TRAIT)
+	REMOVE_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	REMOVE_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
-/datum/quirk/succubus/on_process()
+/datum/quirk/succubus/add_to_holder()
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_nutrition(-0.09)//increases their nutrition loss rate to encourage them to gain a partner they can essentially leech off of
-
+/*
 /datum/quirk/bloodfledge
 	name = "Отпрыск Кровопийцы"
 	desc = "Вы новообращенный, принадлежащий к древнему роду Кровопийц. Благословению еще предстоит полностью изменить вас, но некоторые вещи уже поменялись. Только кровь утолит голод, а божественная сила обуглит вашу плоть. <b>Это НЕ роль антагониста!</b>"
@@ -365,7 +364,7 @@
 
 	// Add quirk traits
 	ADD_TRAIT(quirk_mob,TRAIT_NOBREATH, ROUNDSTART_TRAIT)
-	ADD_TRAIT(quirk_mob,TRAIT_NO_PROCESS_FOOD, ROUNDSTART_TRAIT)
+	ADD_TRAIT(quirk_mob,TRAIT_NOHUNGER, ROUNDSTART_TRAIT)
 	ADD_TRAIT(quirk_mob,TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
 
 	// Set skin tone, if possible
@@ -381,7 +380,7 @@
 	// Add quirk language
 	quirk_mob.grant_language(/datum/language/vampiric, TRUE, TRUE, LANGUAGE_BLOODSUCKER)
 
-/datum/quirk/bloodfledge/on_process()
+/datum/quirk/bloodfledge/add_to_holder()
 	. = ..()
 
 	// Check if the current area is a coffin
@@ -456,7 +455,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Remove quirk traits
-	REMOVE_TRAIT(quirk_mob, TRAIT_NO_PROCESS_FOOD, ROUNDSTART_TRAIT)
+	REMOVE_TRAIT(quirk_mob, TRAIT_NOHUNGER, ROUNDSTART_TRAIT)
 	REMOVE_TRAIT(quirk_mob, TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
 
 	// Remove quirk ability action datums
@@ -506,6 +505,7 @@
 	// Alert user in chat
 	// This should not post_add, because the ID is added by on_spawn
 	to_chat(quirk_holder, span_boldnotice("There is a bloodfledge's ID card [id_location], linked to your station account. It functions as a spare ID, but lacks job access."))
+*/
 
 /datum/quirk/werewolf //adds the werewolf quirk
 	name = "Оборотень"
@@ -531,7 +531,6 @@
 	old_features["size"] = get_size(quirk_mob)
 	old_features["bark"] = quirk_mob.vocal_bark_id
 	old_features["taur"] = quirk_mob.dna.features["taur"]
-	old_features["eye_type"] = quirk_mob.dna.species.eye_type
 
 /datum/quirk/werewolf/post_add()
 	// Define quirk action
@@ -547,82 +546,6 @@
 	// Revoke quirk action
 	quirk_action.Remove(quirk_holder)
 
-/datum/quirk/gargoyle //Mmmm yes stone time
-	name = "Горгулья"
-	desc = "Вы относитесь к какому-то виду горгульи! Вы можете выходить из каменной формы на определенное время, но вам придётся в неё вернуться, чтобы восстановить энергию. С другой стороны, вы лечитесь, будучи в камне!"
-	value = 0
-	quirk_flags = QUIRK_PROCESSES
-	var/energy = 0
-	var/transformed = 0
-	var/cooldown = 0
-	var/paused = 0
-	var/turf/position
-	var/obj/structure/statue/gargoyle/current = null
-
-/datum/quirk/gargoyle/add()
-	.=..()
-	var/mob/living/carbon/human/H = quirk_holder
-	if (!H)
-		return
-	var/datum/action/gargoyle/transform/T = new
-	var/datum/action/gargoyle/check/C = new
-	var/datum/action/gargoyle/pause/P = new
-	energy = 100
-	cooldown = 30
-	T.Grant(H)
-	C.Grant(H)
-	P.Grant(H)
-
-/datum/quirk/gargoyle/on_process()
-	.=..()
-	var/mob/living/carbon/human/H = quirk_holder
-
-	if (!H)
-		return
-
-	if(paused && H.loc != position)
-		paused = 0
-		energy -= 20
-
-	if(cooldown > 0)
-		cooldown--
-
-	if(!transformed && !paused && energy > 0)
-		energy -= 0.05
-
-	if(transformed)
-		energy = min(energy + 0.3, 100)
-		if (H.getBruteLoss() > 0 || H.getFireLoss() > 0)
-			H.adjustBruteLoss(-0.5, forced = TRUE)
-			H.adjustFireLoss(-0.5, forced = TRUE)
-		else if (H.getOxyLoss() > 0 || H.getToxLoss() > 0)
-			H.adjustToxLoss(-0.3, forced = TRUE)
-			H.adjustOxyLoss(-0.5, forced = TRUE) //oxyloss heals by itself, doesn't need a nerfed heal
-		else if (H.getCloneLoss() > 0)
-			H.adjustCloneLoss(-0.3, forced = TRUE)
-		else if (current && current.obj_integrity < current.max_integrity) //health == maxHealth is true since we checked all damages above
-			current.obj_integrity = min(current.obj_integrity + 0.1, current.max_integrity)
-
-	if(!transformed && energy <= 0)
-		var/datum/action/gargoyle/transform/T = locate() in H.actions
-		if (!T)
-			T = new
-			T.Grant(H)
-		cooldown = 0
-		T?.Trigger()
-
-/datum/quirk/gargoyle/remove()
-	var/mob/living/carbon/human/H = quirk_holder
-	if (!H)
-		return ..()
-	var/datum/action/gargoyle/transform/T = locate() in H.actions
-	var/datum/action/gargoyle/check/C = locate() in H.actions
-	var/datum/action/gargoyle/pause/P = locate() in H.actions
-	T?.Remove(H)
-	C?.Remove(H)
-	P?.Remove(H)
-	. = ..()
-
 /datum/quirk/nudist
 	// Mostly derived from masked_mook.
 	// Spawning with a gear harness is preferable, but failed during testing.
@@ -632,10 +555,10 @@
 	lose_text = span_notice("Вы больше не чувствуете дискомфорта при ношении одежды.")
 	medical_record_text = "Пациент выражает психологическую потребность оставаться без одежды."
 	value = 0
-	mood_quirk = TRUE
+
 	quirk_flags = QUIRK_PROCESSES
 
-/datum/quirk/nudist/on_process()
+/datum/quirk/nudist/add_to_holder()
 	var/mob/living/carbon/human/H = quirk_holder
 	// Checking torso exposure appears to be a robust method.
 	if( ( H.is_chest_exposed() && H.is_groin_exposed() ) )
@@ -657,11 +580,11 @@
 	gain_text = span_danger("Вы начинаете чувствовать себя нехорошо без противогаза.")
 	lose_text = span_notice("У вас больше нет нужды в ношении противогаза.")
 	value = 0
-	mood_quirk = TRUE
+
 	medical_record_text = "Пациент чувствует себя более безопасно при ношении противогаза."
 	quirk_flags = QUIRK_PROCESSES
 
-/datum/quirk/masked_mook/on_process()
+/datum/quirk/masked_mook/add_to_holder()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/clothing/mask/gas/gasmask = H.get_item_by_slot(ITEM_SLOT_MASK)
 	if(istype(gasmask))
@@ -685,7 +608,7 @@
 	lose_text = span_danger("Вспоминаю как проговаривать букву \"Р\".")
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
-proc/kartavo(message)
+/datum/proc/kartavo(message)
 	var/num = rand(1, 3)
 	switch(prob(75) && num)
 		if(1)
@@ -709,7 +632,7 @@ proc/kartavo(message)
 	lose_text = span_danger("Аниме говно.")
 	medical_record_text = "Пациент - азиат."
 
-proc/asiatish(message)
+/datum/proc/asiatish(message)
 	if(prob(75))
 		message = replacetext_char(message, "ра", "ля")
 		message = replacetext_char(message, "ла", "ля")

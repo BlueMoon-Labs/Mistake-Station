@@ -1,12 +1,12 @@
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 
-	flight_x_offset = 19
-	flight_y_offset = 15
+	ammo_x_offset = 19
+	ammo_y_offset = 15
 
 /obj/item/gun/ballistic/automatic/pistol/m1911/update_icon_state()
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
-
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/enforcer
 	name = "\improper Mk. 58 Enforcer (.45)"
@@ -17,8 +17,8 @@
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
 
-	flight_x_offset = 18
-	flight_y_offset = 14
+	ammo_x_offset = 18
+	ammo_y_offset = 14
 	obj_flags = UNIQUE_RENAME
 	unique_reskin = list(
 		"Default" = list("icon_state" = "enforcer_black"),
@@ -33,6 +33,7 @@
 		icon_state = "[unique_reskin[current_skin]["icon_state"]][chambered ? "" : "-e"]"
 	else
 		icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/enforcer/nomag
 	spawnwithmagazine = FALSE
@@ -46,12 +47,12 @@
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
 
-	flight_x_offset = 18
-	flight_y_offset = 14
+	ammo_x_offset = 18
+	ammo_y_offset = 14
 
 /obj/item/gun/ballistic/automatic/pistol/enforcerred/update_icon_state()
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
-
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/enforcergold
 	name = "\improper Gold Mk. 58 Enforcer (.45)"
@@ -62,11 +63,12 @@
 	mag_type = /obj/item/ammo_box/magazine/e45
 	can_suppress = FALSE
 
-	flight_x_offset = 18
-	flight_y_offset = 14
+	ammo_x_offset = 18
+	ammo_y_offset = 14
 
 /obj/item/gun/ballistic/automatic/pistol/enforcergold/update_icon_state()
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/m9mmpistol
 	name = "\improper Cheap 9mm Handgun"
@@ -87,6 +89,7 @@
 		icon_state = "[unique_reskin[current_skin]["icon_state"]][chambered ? "" : "-e"]"
 	else
 		icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/m9mmpistol/nomag
 	spawnwithmagazine = FALSE
@@ -102,7 +105,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/m22pistol/update_icon_state()
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
-
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/deagle
 	name = "\improper Desert Eagle (.50 AE)"
@@ -115,7 +118,6 @@
 	force = 14
 	mag_type = /obj/item/ammo_box/magazine/m357
 	can_suppress = FALSE
-	automatic_burst_overlay = FALSE
 	obj_flags = UNIQUE_RENAME
 	unique_reskin = list(
 		"Default" = list("icon_state" = "deagle"),
@@ -133,6 +135,7 @@
 		icon_state = "[unique_reskin[current_skin]["icon_state"]][chambered ? "" : "-e"]"
 	else
 		icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/deagle2/nomag
 	spawnwithmagazine = FALSE
@@ -193,7 +196,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/pistol9assemble
 	name = "Assemble 9mm Pistol"
@@ -203,4 +205,3 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON

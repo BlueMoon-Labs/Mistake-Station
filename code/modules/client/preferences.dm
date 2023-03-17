@@ -139,6 +139,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//SPLURT END
 
 	var/fullscreen = TRUE
+	var/be_victim = null
 
 /datum/preferences/Destroy(force, ...)
 	QDEL_NULL(character_preview_view)

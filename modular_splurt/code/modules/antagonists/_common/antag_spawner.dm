@@ -61,7 +61,7 @@
 
 	R.radio = new /obj/item/radio/borg/syndicate(R)
 
-	var/brainopsname = C.prefs.real_name
+	var/brainopsname = pick(GLOB.ai_names)
 
 	R.mmi.name = "Man-Machine Interface: [brainopsname]"
 	R.mmi.brain.name = "[brainopsname]'s brain"

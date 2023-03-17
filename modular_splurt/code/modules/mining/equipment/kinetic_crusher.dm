@@ -11,7 +11,6 @@
 	charge_time = 20
 	detonation_damage = 40
 	backstab_bonus = 15
-	brightness_on = 4
 
 /obj/item/kinetic_crusher/rusted/Initialize()
 	. = ..()

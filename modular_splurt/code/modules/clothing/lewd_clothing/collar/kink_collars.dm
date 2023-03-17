@@ -21,10 +21,6 @@
 	src.collar = collar
 	. = ..() //very important to call parent in Initialize
 
-/obj/item/mind_controller/attack_self(mob/user)
-	if (collar)
-		collar.emoting = stripped_input(user, "Change the emotion pattern")
-		collar.emoting_proc()
 //Collar stuff
 /obj/item/clothing/neck/mind_collar
 	name = "mind collar"
@@ -34,7 +30,7 @@
 	icon_state = "mindcollar"
 	icon_state = "mindcollar"
 	var/obj/item/mind_controller/remote = null
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small/collar/mind_collar
+	pocket_storage_component_path = /datum/storage/concrete/pockets/small/collar/mind_collar
 	var/emoting = "Shivers"
 	var/seamless = FALSE
 
@@ -42,11 +38,6 @@
 	. = ..()
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
-
-/obj/item/clothing/neck/mind_collar/proc/emoting_proc()
-	var/mob/living/carbon/human/U = src.loc
-	if(istype(U) && src == U.wear_neck)
-		U.emote("me", 1,"[emoting]", TRUE)
 
 /obj/item/clothing/neck/mind_collar/Destroy()
 	if(remote)

@@ -22,7 +22,7 @@
 
 /mob/living/get_standard_pixel_x_offset()
 	. = ..()
-	if(combat_flags & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
+	if(combat_mode & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
 		if(dir & EAST)
 			. += 4
 		if(dir & WEST)
@@ -30,7 +30,7 @@
 
 /mob/living/get_standard_pixel_y_offset()
 	. = ..()
-	if(combat_flags & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
+	if(combat_mode & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
 		if(dir & NORTH)
 			. += 4
 		if(dir & SOUTH)

@@ -33,7 +33,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/civilianlaserupgrade
 	name = "Moddify civilian energy pistol"
@@ -45,7 +44,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 50
 	category = CAT_WEAPON_RANGED
-	subcategory = CAT_WEAPON
 
 /obj/item/gun/energy/e_gun/corpus
 	name = "Dera"

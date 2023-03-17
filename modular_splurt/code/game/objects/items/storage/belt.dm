@@ -30,7 +30,7 @@
 		/obj/item/dildo,
 		/obj/item/leash,
 		/obj/item/genital_equipment/condom,
-		/obj/item/bdsm_whip,
+		/obj/item/clothing/mask/leatherwhip,
 		/obj/item/clothing/mask/gas/sechailer/slut
 		))
 

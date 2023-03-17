@@ -14,7 +14,7 @@
 		return
 
 	// Check for subraces
-	if(ishumanbasic(carbon_user) || iscatperson(carbon_user) || isinsect(carbon_user) || isjellyperson(carbon_user))
+	if(ishumanbasic(carbon_user) || isfelinid(carbon_user) || isinsect(carbon_user) || isjellyperson(carbon_user))
 		return
 
 	// Define default laugh type
@@ -104,7 +104,7 @@
 	var/emote_dryness = 0
 
 // Check if audio emote can run
-/datum/emote/living/audio/can_run_emote(mob/living/user, status_check)
+/datum/emote/living/audio/can_run_emote(mob/living/user, status_check, intentional = TRUE)
 	. = ..()
 
 	// Check parent return
@@ -224,48 +224,6 @@
 	message_mime = "cackles silently!"
 	emote_sound = 'modular_splurt/sound/voice/cackle_yeen.ogg'
 	emote_cooldown = 1.6 SECONDS
-
-/datum/emote/living/audio/speen
-	key = "speen"
-	key_third_person = "speens"
-	message = "speeeeens!"
-	message_mime = "speeeeens silently!"
-	hands_use_check = TRUE
-	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)
-	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
-	emote_sound = 'modular_splurt/sound/voice/speen.ogg'
-	// No cooldown var required
-
-/datum/emote/living/audio/speen/run_emote(mob/user, params)
-	. = ..()
-
-	// Check parent return
-	if(!.)
-		return
-
-	// Spin user
-	user.spin(20, 1)
-
-	// Check for cyborg
-	// Check for buckled mobs
-	if(iscyborg(user) && user.has_buckled_mobs())
-		// Define cyborg user
-		var/mob/living/silicon/robot/user_cyborg = user
-
-		// Define riding datum
-		var/datum/component/riding/riding_datum = user_cyborg.GetComponent(/datum/component/riding)
-
-		// Check if riding datum exists
-		if(riding_datum)
-			// Iterate over buckled mobs
-			for(var/mob/buckled_mob in user_cyborg.buckled_mobs)
-				// Unbuckle iterated mob
-				riding_datum.force_dismount(buckled_mob)
-
-		// Riding datum does not exist
-		else
-			// Unbuckle all mobs
-			user_cyborg.unbuckle_all_mobs()
 
 /datum/emote/living/audio/chirp
 	key = "chirp"

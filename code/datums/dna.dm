@@ -105,7 +105,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	///Did we take something like mutagen? In that case we cant get our genes scanned to instantly cheese all the powers.
 	var/scrambled = FALSE
 	var/skin_tone_override //because custom skin tones are not found in the skin_tones global list.
-
+	var/custom_species	//siiiiigh I guess this is important
 
 /datum/dna/New(mob/living/new_holder)
 	if(istype(new_holder))

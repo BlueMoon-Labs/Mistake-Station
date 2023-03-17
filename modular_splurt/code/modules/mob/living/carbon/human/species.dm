@@ -1,4 +1,4 @@
-/datum/species/althelp(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
+/datum/species/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user == target && istype(user))
 		if(HAS_TRAIT(user, TRAIT_FLOORED))
 			to_chat(user, "<span class='warning'>You can't seem to force yourself up right now!</span>")
@@ -13,8 +13,8 @@
 	if (H.thirst > 0 && H.stat != DEAD && !HAS_TRAIT(H, TRAIT_NOTHIRST))
 		// THEY ~~HUNGER~~ THIRST
 		var/thirst_rate = THIRST_FACTOR
-		/*
-		var/datum/component/mood/mood = H.GetComponent(/datum/component/mood)
+
+		var/datum/mood/mood = H.GetComponent(/datum/mood)
 		if(mood && mood.sanity > SANITY_DISTURBED)
 			thirst_rate *= max(0.5, 1 - 0.002 * mood.sanity) //0.85 to 0.75
 
@@ -28,17 +28,16 @@
 		else if(H.satiety < 0)
 			H.satiety++
 			if(prob(round(-H.satiety/40)))
-				H.Jitter(5)
+				H.do_jitter_animation(5)
 			thirst_rate = 3 * THIRST_FACTOR
-		*/
+
 		thirst_rate *= H.physiology.thirst_mod
 		H.adjust_thirst(-thirst_rate)
 
-/datum/species/handle_mutations_and_radiation(mob/living/carbon/human/H)
+/datum/controller/subsystem/radiation/irradiate_after_basic_checks(mob/living/carbon/human/H)
 	// Check for rad fiend quirk
 	// Check for radiation resist threshold
-	if(HAS_TRAIT(H, TRAIT_RAD_FIEND) && (H.radiation < RAD_BURN_THRESHOLD))
+	if(HAS_TRAIT(H, TRAIT_RAD_FIEND))
 		// Return without effects
 		return TRUE
-
 	. = ..()

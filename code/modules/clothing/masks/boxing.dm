@@ -13,7 +13,7 @@
 
 /obj/item/clothing/mask/balaclava/breath
 	name = "Breathaclava"
-	clothing_flags = ALLOWINTERNALS
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"

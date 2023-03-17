@@ -4,8 +4,8 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "arcd"
 	icon_state = "oldrcd"
-	custom_price = PRICE_ABOVE_EXPENSIVE
-	custom_premium_price = PRICE_ALMOST_ONE_GRAND
+	custom_price = PAYCHECK_COMMAND * 3
+	custom_premium_price = PAYCHECK_CREW * 6
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
 	has_ammobar = FALSE
 	matter = 200

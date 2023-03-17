@@ -4,7 +4,7 @@
 	circuit = /obj/item/circuitboard/computer/slaver_shuttle
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
-	light_color = LIGHT_COLOR_RED
+	light_color = LIGHT_COLOR_BLOOD_MAGIC
 	shuttleId = "slaver"
 	possible_destinations = "slaver_away;slaver_custom"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF

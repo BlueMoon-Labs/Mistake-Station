@@ -13,24 +13,14 @@
 		/obj/item/clothing/mask/gas/full,
 		/obj/item/clothing/mask/gas/full,
 		/obj/item/clothing/shoes/jackboots,
-		/obj/item/gun/ballistic/shotgun/huntingrifle,
-		/obj/item/gun/ballistic/shotgun/huntingrifle,
+		/obj/item/gun/ballistic/rifle/lionhunter,
+		/obj/item/gun/ballistic/rifle/lionhunter,
 		/obj/item/ammo_box/a308,
 		/obj/item/ammo_box/a308,
 		/obj/item/toy/nuke
 	)
 	crate_name = "Blastwave Costume Crate"
-
-/datum/supply_pack/security/helmets
-	name = "Special Helmet Crate"
-	desc = "Contains three Special Helmet Crate with NVG-device. Requires Security access to open."
-	cost = 24200
-	contains = list(/obj/item/clothing/head/helmet/nvg,
-					/obj/item/clothing/head/helmet/nvg,
-					/obj/item/clothing/head/helmet/nvg,
-					/obj/item/clothing/head/helmet/nvg/hecu)
-	crate_name = "Special Helmet Crate"
-
+/*
 /datum/supply_pack/security/armor
 	name = "Liquidator's Kit"
 	desc = "A freaking Liquidator Kit that makes VERY strange noises..."
@@ -46,3 +36,4 @@
 					/obj/item/staff/broom/liquidator,
 					/obj/item/staff/broom/liquidator)
 	crate_name = "Liquidator's Kit"
+*/

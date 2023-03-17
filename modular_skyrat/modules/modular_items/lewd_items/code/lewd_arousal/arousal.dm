@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/adjust_arousal(arous = 0)
+/*/mob/living/carbon/human/proc/adjust_arousal(arous = 0)
 	if(stat >= DEAD || !client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		return
 
@@ -19,4 +19,4 @@
 			target.update_body()
 
 	arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT)
-
+*/

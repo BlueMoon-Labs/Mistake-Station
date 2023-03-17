@@ -4,7 +4,7 @@
 	icon = 'modular_splurt/icons/obj/pregnancytest.dmi'
 	throwforce= 0
 	icon_state = "ptest"
-	custom_price = PRICE_CHEM_PREMIUM_HIGHER
+	custom_price = PAYCHECK_CREW * 2.5
 	var/results
 	w_class = WEIGHT_CLASS_TINY
 

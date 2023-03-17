@@ -56,6 +56,29 @@
 	return (ignore_next_action || (world.time >= (immediate? next_action_immediate : next_action))) && \
 	(world.time >= ((from_next_action? (immediate? next_action_immediate : next_action) : (immediate? last_action_immediate : last_action)) + max(0, ignore_mod? cooldown : (cooldown * GetActionCooldownMod() + GetActionCooldownAdjust()))))
 
+/obj/item
+	// Standard clickdelay variables
+	/// This item bypasses any click delay mods
+	var/clickdelay_mod_bypass = FALSE
+
+/**
+  * Get estimated time of next attack.
+  */
+/mob/proc/EstimatedNextActionTime()
+	var/attack_speed = unarmed_attack_speed * GetActionCooldownMod() + GetActionCooldownAdjust()
+	var/obj/item/I = get_active_held_item()
+	if(I)
+		attack_speed = I.GetEstimatedAttackSpeed()
+		if(!I.clickdelay_mod_bypass)
+			attack_speed = attack_speed * GetActionCooldownMod() + GetActionCooldownAdjust()
+	return max(next_action, next_action_immediate, max(last_action, last_action_immediate) + attack_speed)
+
+/**
+  * Get estimated time that a user has to not attack for to use us
+  */
+/obj/item/proc/GetEstimatedAttackSpeed()
+	return attack_speed
+
 /**
   * Gets action_cooldown_mod.
   */

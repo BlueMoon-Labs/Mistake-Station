@@ -70,64 +70,17 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 
 /obj/item/analyzer/nose/attack_self(mob/user)
 	user.visible_message("[user] sniffs around the air.", "<span class='warning'>You sniff the air for gas traces.</span>")
-
-	var/turf/location = user.loc
-	if(!istype(location))
+	if(user.stat != CONSCIOUS || !user.can_read(src)) //SKYRAT EDIT: Blind People Can Analyze Again
 		return
-
-	var/datum/gas_mixture/environment = location.return_air()
-
-	var/pressure = environment.return_pressure()
-	var/total_moles = environment.total_moles()
-
-	to_chat(user, "<span class='info'><B>Results:</B></span>")
-	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		to_chat(user, "<span class='info'>Pressure: [round(pressure,0.1)] kPa</span>")
-	else
-		to_chat(user, "<span class='alert'>Pressure: [round(pressure,0.1)] kPa</span>")
-	if(total_moles)
-		var/list/env_gases = environment.get_gases()
-
-		var/o2_concentration = env_gases[/datum/gas/oxygen]/total_moles
-		var/n2_concentration = env_gases[/datum/gas/nitrogen]/total_moles
-		var/co2_concentration = env_gases[/datum/gas/carbon_dioxide]/total_moles
-		var/plasma_concentration = env_gases[/datum/gas/plasma]/total_moles
-		GAS_GARBAGE_COLLECT(environment.get_gases())
-
-		if(abs(n2_concentration - N2STANDARD) < 20)
-			to_chat(user, "<span class='info'>Nitrogen: [round(n2_concentration*100, 0.01)] %</span>")
-		else
-			to_chat(user, "<span class='alert'>Nitrogen: [round(n2_concentration*100, 0.01)] %</span>")
-
-		if(abs(o2_concentration - O2STANDARD) < 2)
-			to_chat(user, "<span class='info'>Oxygen: [round(o2_concentration*100, 0.01)] %</span>")
-		else
-			to_chat(user, "<span class='alert'>Oxygen: [round(o2_concentration*100, 0.01)] %</span>")
-
-		if(co2_concentration > 0.01)
-			to_chat(user, "<span class='alert'>CO2: [round(co2_concentration*100, 0.01)] %</span>")
-		else
-			to_chat(user, "<span class='info'>CO2: [round(co2_concentration*100, 0.01)] %</span>")
-
-		if(plasma_concentration > 0.005)
-			to_chat(user, "<span class='alert'>Plasma: [round(plasma_concentration*100, 0.01)] %</span>")
-		else
-			to_chat(user, "<span class='info'>Plasma: [round(plasma_concentration*100, 0.01)] %</span>")
-
-
-		for(var/id in env_gases)
-			if(id in GLOB.hardcoded_gases)
-				continue
-			var/gas_concentration = env_gases[id]/total_moles
-			to_chat(user, "<span class='alert'>[GLOB.gas_data.names[id]]: [round(gas_concentration*100, 0.01)] %</span>")
-		to_chat(user, "<span class='info'>Temperature: [round(environment.return_temperature()-T0C)] &deg;C</span>")
+	atmos_scan(user=user, target=get_turf(src), silent=FALSE)
+	on_analyze(source=src, target=get_turf(src))
 
 /obj/item/analyzer/nose/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(!proximity)
 		return
 	do_attack_animation(target, null, src)
-	user.visible_message("<span class='notice'>[user] [pick(attack_verb)] \the [target.name] with their nose!</span>")
+	user.visible_message("<span class='notice'>[user] [pick(attack_verb_simple)] \the [target.name] with their nose!</span>")
 
 //Delivery
 /obj/item/storage/bag/borgdelivery
@@ -141,9 +94,8 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 	. = ..()
 
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	STR.max_combined_w_class = 5
 	atom_storage.max_total_storage = 1
-	STR.cant_hold = typecacheof(list(/obj/item/disk/nuclear, /obj/item/radio/intercom))
+	atom_storage.cant_hold = typecacheof(list(/obj/item/disk/nuclear, /obj/item/radio/intercom))
 
 //Tongue stuff
 /obj/item/soap/tongue
@@ -184,11 +136,12 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 
 /obj/item/soap/tongue/afterattack(atom/target, mob/user, proximity)
 	var/mob/living/silicon/robot/R = user
+	var/mob/living/carbon/human/H = target
 	if(!proximity || !check_allowed_items(target))
 		return
 	if(R.client && (target in R.client.screen))
 		to_chat(R, "<span class='warning'>You need to take that [target.name] off before cleaning it!</span>")
-	else if(is_cleanable(target))
+	else if(ismopable(target))
 		R.visible_message("[R] begins to lick off \the [target.name].", "<span class='warning'>You begin to lick off \the [target.name]...</span>")
 		if(do_after(R, src.cleanspeed, target = target))
 			if(!in_range(src, target)) //Proximity is probably old news by now, do a new check.
@@ -245,7 +198,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 				return
 			L.Stun(4) // normal stunbaton is force 7 gimme a break good sir!
 			L.Knockdown(80)
-			L.apply_effect(EFFECT_STUTTER, 4)
+			L.Paralyze(5)
 			L.visible_message("<span class='danger'>[R] has shocked [L] with its tongue!</span>", \
 								"<span class='userdanger'>[R] has shocked you with its tongue!</span>")
 			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
@@ -265,8 +218,8 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 			var/obj/effect/decal/cleanable/C = locate() in target
 			qdel(C)
 			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
-			SEND_SIGNAL(target, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_MEDIUM)
-			target.wash_cream()
+			SEND_SIGNAL(target, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_WASH)
+			H.wash_cream()
 			target.wash_cum()
 	return
 
@@ -291,96 +244,6 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 	. = ..()
 	AddComponent(/datum/component/two_handed)
 
-// Pounce stuff for K-9
-
-/obj/item/dogborg/pounce
-	name = "pounce"
-	icon = 'modular_sand/icons/mob/dogborg.dmi'
-	icon_state = "pounce"
-	desc = "Leap at your target to momentarily stun them."
-	force = 0
-	throwforce = 0
-
-/obj/item/dogborg/pounce/New()
-	..()
-	item_flags |= NOBLUDGEON
-
-/mob/living/silicon/robot
-	var/leaping = 0
-	var/pounce_cooldown = 0
-	var/pounce_cooldown_time = 20 //Buffed to counter balance changes
-	var/pounce_spoolup = 1
-	var/leap_at
-
-#define MAX_K9_LEAP_DIST 4 //because something's definitely borked the pounce functioning from a distance.
-
-/obj/item/dogborg/pounce/afterattack(atom/A, mob/user)
-	var/mob/living/silicon/robot/R = user
-	if(R && !R.pounce_cooldown)
-		R.pounce_cooldown = !R.pounce_cooldown
-		to_chat(R, "<span class ='warning'>Your targeting systems lock on to [A]...</span>")
-		addtimer(CALLBACK(R, /mob/living/silicon/robot.proc/leap_at, A), R.pounce_spoolup)
-		spawn(R.pounce_cooldown_time)
-			R.pounce_cooldown = !R.pounce_cooldown
-	else if(R && R.pounce_cooldown)
-		to_chat(R, "<span class='danger'>Your leg actuators are still recharging!</span>")
-
-/mob/living/silicon/robot/proc/leap_at(atom/A)
-	if(leaping || stat || buckled || lying)
-		return
-
-	if(!has_gravity(src) || !has_gravity(A))
-		to_chat(src,"<span class='danger'>It is unsafe to leap without gravity!</span>")
-		//It's also extremely buggy visually, so it's balance+bugfix
-		return
-
-	if(cell.charge <= 750)
-		to_chat(src,"<span class='danger'>Insufficent reserves for jump actuators!</span>")
-		return
-
-	else
-		leaping = 1
-		weather_immunities += "lava"
-		pixel_y = 10
-		update_icons()
-		throw_at(A, MAX_K9_LEAP_DIST, 1, spin=0, diagonals_first = 1)
-		cell.use(750) //Less than a stunbaton since stunbatons hit everytime.
-		weather_immunities -= "lava"
-
-/mob/living/silicon/robot/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-
-	if(!leaping)
-		return ..()
-
-	if(hit_atom)
-		if(isliving(hit_atom))
-			var/mob/living/L = hit_atom
-			var/list/block_return = list()
-			//if(!L.check_shields(0, "the [name]", src, attack_type = LEAP_ATTACK))
-			if(!(L.mob_run_block(src, 0, "the [name]", ATTACK_TYPE_TACKLE, 0, src, hit_atom, block_return) & BLOCK_SUCCESS))
-				L.visible_message("<span class ='danger'>[src] pounces on [L]!</span>", "<span class ='userdanger'>[src] pounces on you!</span>")
-				L.Knockdown(iscarbon(L) ? 225 : 45) // Temporary. If someone could rework how dogborg pounces work to accomodate for combat changes, that'd be nice.
-				playsound(src, 'sound/weapons/Egloves.ogg', 50, 1)
-				sleep(2)//Runtime prevention (infinite bump() calls on hulks)
-				step_towards(src,L)
-				log_combat(src, L, "borg pounced")
-			else
-				Knockdown(15, 1, 1)
-
-			pounce_cooldown = !pounce_cooldown
-			spawn(pounce_cooldown_time) //3s by default
-				pounce_cooldown = !pounce_cooldown
-		else if(hit_atom.density && !hit_atom.CanPass(src))
-			visible_message("<span class ='danger'>[src] smashes into [hit_atom]!</span>", "<span class ='userdanger'>You smash into [hit_atom]!</span>")
-			playsound(src, 'sound/items/trayhit1.ogg', 50, 1)
-			Knockdown(15, 1, 1)
-
-		if(leaping)
-			leaping = 0
-			pixel_y = initial(pixel_y)
-			update_icons()
-			update_mobility()
-
 //pleasuremaw stuff
 /obj/item/milking_machine/pleasuremaw
 	name = "pleasuremaw"
@@ -394,7 +257,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 
 /obj/item/milking_machine/pleasuremaw/Initialize()
 	. = ..()
-	inserted_item = new /obj/item/reagent_containers/glass/beaker/large(src)
+	inserted_item = new /obj/item/reagent_containers/cup/beaker/meta(src)
 	inserted_item.name = "cyborg stomach"
 	inserted_item.desc = "A cyborg stomach. It seems integrated into [src]'s machinery."
 

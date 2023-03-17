@@ -33,7 +33,7 @@
 	icon_state = "backpack_close"
 
 /atom/movable/screen/storage/close/Click()
-	var/datum/component/storage/S = master
+	var/datum/storage/S = master
 	S.hide_contents(usr)
 	return TRUE
 

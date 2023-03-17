@@ -66,26 +66,6 @@
 	stock_max = 4
 	availability_prob = 25
 
-/datum/market_item/weapon/leveraction
-	name = "lever-action rifle"
-	desc = "While lever-actions have been horribly out of date for hundreds of years now, the reported potential versatility of .38 Special is worth paying attention to."
-	item = /obj/item/gun/ballistic/shotgun/leveraction
-	price_min = 200000
-	price_max = 300000
-	stock_min = 1
-	stock_max = 4
-	availability_prob = 70
-
-/datum/market_item/weapon/brushgun4570
-	name = "brush gun (.45-70 GOVT)"
-	desc = "While lever-actions have been horribly out of date for hundreds of years now, putting a nicely sized hole in a man-sized target with a .45-70 round has stayed relatively timeless."
-	item = /obj/item/gun/ballistic/shotgun/brush
-	price_min = 300000
-	price_max = 400000
-	stock_min = 1
-	stock_max = 4
-	availability_prob = 50
-
 /datum/market_item/weapon/armag
 	name = "5.56 magazine"
 	desc = "5.56 Magazines for the assault rifles"
@@ -163,7 +143,7 @@
 /datum/market_item/syndi/weapon/aps
 	name = "Stechkin APS pistol"
 	desc = "The original Russian version of a widely used Syndicate sidearm. Uses 9mm ammo. Has a threaded barrel for suppressors."
-	item = /obj/item/gun/ballistic/automatic/pistol/APS
+	item = /obj/item/gun/ballistic/automatic/pistol/aps
 	price_min = 250000
 	price_max = 450000
 	stock_min = 1
@@ -173,7 +153,7 @@
 /datum/market_item/syndi/weapon/apsmags
 	name = "Stechkin APS magazine"
 	desc = "15 round 9mm magazines for the APS."
-	item = /obj/item/ammo_box/magazine/pistolm9mm
+	item = /obj/item/ammo_box/magazine/m9mm_aps
 	price_min = 150000
 	price_max = 350000
 	stock_min = 2

@@ -17,7 +17,7 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "metrocop_s"
 	icon_state = "metrocop_s"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /obj/item/clothing/under/rank/security/officer/peacekeeper
 	name = "security peacekeeper jumpsuit"
@@ -27,7 +27,7 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "security_black"
 	icon_state = "security_black"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 /*
  * Head of Security
@@ -41,7 +41,7 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "hos_black"
 	icon_state = "hos_black"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
 
 /*
@@ -56,4 +56,4 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "warden_black"
 	icon_state = "warden_black"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL

@@ -1,3 +1,41 @@
+/obj/item/switchblade/butterfly
+	name = "butterfly knife"
+	icon_state = "butterflyknife"
+	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
+	inhand_icon_state = "knife"
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	desc = "A sharp, concealable, fodling knife. Also known as a Balisong fan knife."
+	flags_1 = CONDUCT_1
+	force = 3
+	throwforce = 5
+	throw_speed = 3
+	throw_range = 6
+	custom_materials = list(/datum/material/iron=1200)
+	hitsound = 'sound/weapons/genhit.ogg'
+	attack_verb_simple = list("stubbed", "poked")
+	resistance_flags = FIRE_PROOF
+
+/obj/item/switchblade/butterfly/attack_self(mob/user)
+	start_extended = !start_extended
+	playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
+	if(start_extended)
+		force = 20
+		w_class = WEIGHT_CLASS_NORMAL
+		throwforce = 23
+		icon_state = "butterflyknife_open"
+		attack_verb_simple = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+		hitsound = 'sound/weapons/bladeslice.ogg'
+		sharpness = SHARP_EDGED
+	else
+		force = 3
+		w_class = WEIGHT_CLASS_SMALL
+		throwforce = 5
+		icon_state = "butterflyknife"
+		attack_verb_simple = list("stubbed", "poked")
+		hitsound = 'sound/weapons/genhit.ogg'
+		sharpness = NONE
+
 /datum/supply_pack/goody/switchblade_single
 	name = "Switch blade Single-Pack"
 	desc = "Contains one sharpened switchblade. Guaranteed to fit snugly inside any Nanotrasen-standard boot."

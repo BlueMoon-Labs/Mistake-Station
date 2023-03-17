@@ -57,13 +57,13 @@
 	category = list("Ammo")
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
-/datum/design/pistolm9mm
+/datum/design/m9mm_aps
 	name = "pistol magazine (9mm)"
 	desc = "A gun magazine."
-	id = "pistolm9mm"
+	id = "m9mm_aps"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 7500)
-	build_path = /obj/item/ammo_box/magazine/pistolm9mm
+	build_path = /obj/item/ammo_box/magazine/m9mm_aps
 	category = list("Ammo")
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
@@ -83,7 +83,7 @@
 	id = "sl357ap"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 30000, /datum/material/titanium = 5000)
-	build_path = /obj/item/ammo_box/a357/ap
+	build_path = /obj/item/ammo_box/a357/match
 	category = list("Ammo")
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 

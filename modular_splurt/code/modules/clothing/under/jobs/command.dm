@@ -6,4 +6,4 @@
 	icon_state = "captainblacksuit"
 	icon_state = "captainblacksuit"
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL

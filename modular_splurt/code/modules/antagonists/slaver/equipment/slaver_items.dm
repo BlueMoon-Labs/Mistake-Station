@@ -109,8 +109,8 @@
 	name = "combat hardsuits"
 
 /obj/item/storage/backpack/duffelbag/syndie/slaver_hardsuits/PopulateContents()
-	new /obj/item/clothing/suit/space/hardsuit/syndi(src)
-	new /obj/item/clothing/suit/space/hardsuit/syndi(src)
+	new /obj/item/mod/control/pre_equipped/nuclear(src)
+	new /obj/item/mod/control/pre_equipped/nuclear(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/disablers
 	name = "disablers"
@@ -155,21 +155,21 @@
 	name = "boxed chemical kit"
 
 /obj/item/storage/box/syndie_kit/sleeper/PopulateContents()
-	new /obj/item/reagent_containers/glass/bottle/mutetoxin(src)
-	new /obj/item/reagent_containers/glass/bottle/mutetoxin(src)
-	new /obj/item/reagent_containers/glass/bottle/mutetoxin(src)
-	new /obj/item/reagent_containers/glass/bottle/chloralhydrate(src)
-	new /obj/item/reagent_containers/glass/bottle/chloralhydrate(src)
-	new /obj/item/reagent_containers/glass/bottle/chloralhydrate(src)
+	new /obj/item/reagent_containers/cup/bottle/mutetoxin(src)
+	new /obj/item/reagent_containers/cup/bottle/mutetoxin(src)
+	new /obj/item/reagent_containers/cup/bottle/mutetoxin(src)
+	new /obj/item/reagent_containers/cup/bottle/chloralhydrate(src)
+	new /obj/item/reagent_containers/cup/bottle/chloralhydrate(src)
+	new /obj/item/reagent_containers/cup/bottle/chloralhydrate(src)
 	new /obj/item/reagent_containers/syringe(src)
 
 /obj/item/storage/box/syndie_kit/x4
 	name = "boxed X4 charges"
 
 /obj/item/storage/box/syndie_kit/x4/PopulateContents()
-	new /obj/item/grenade/plastic/x4(src)
-	new /obj/item/grenade/plastic/x4(src)
-	new /obj/item/grenade/plastic/x4(src)
+	new /obj/item/grenade/c4/x4(src)
+	new /obj/item/grenade/c4/x4(src)
+	new /obj/item/grenade/c4/x4(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/l6saw_shipment
 	name = "L6 saw shipment"
@@ -187,7 +187,7 @@
 	new /obj/item/shield/riot/flash(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/melee/baton/loaded(src)
+	new /obj/item/melee/baton/security/loaded(src)
 	new /obj/item/storage/box/handcuffs(src)
 	new /obj/item/electrostaff(src)
 

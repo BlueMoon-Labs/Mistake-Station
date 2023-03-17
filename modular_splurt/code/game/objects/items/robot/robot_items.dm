@@ -1,6 +1,3 @@
-/// Cargo Borg Items ///
-#define MAX_PAPER_INTEGRATED_CLIPBOARD 10
-
 /obj/item/clipboard/cyborg
 	name = "\improper integrated clipboard"
 	desc = "A clipboard with built-in paper synthesizer"
@@ -79,15 +76,3 @@
 	source = /datum/robot_energy_storage/wrapping_paper
 
 /// End Cargo Borg Items ///
-
-
-/obj/item/gripper/service
-	name = "service gripper"
-	desc = "A simple grasping tool for interacting with food and condiments."
-	set_holdable = list(
-		/obj/item/reagent_containers/glass,
-		/obj/item/reagent_containers/food,
-		/obj/item/kitchen,
-		/obj/item/storage/bag/tray
-		)
-

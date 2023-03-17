@@ -2,7 +2,6 @@
 	name = "slave implant"
 	desc = "Turns criminals into security's new pet."
 	resistance_flags = INDESTRUCTIBLE
-	activated = 0
 
 /obj/item/implant/slave/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>

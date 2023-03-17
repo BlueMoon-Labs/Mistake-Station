@@ -5,14 +5,14 @@
 		/obj/item/clothing/suit/armor/vest/peacekeeper = 5,
 		/obj/item/clothing/suit/armor/vest/metrocop = 2,
 		/obj/item/clothing/head/helmet/metrocop = 2,
-		/obj/item/storage/bag/security = 5,
+		/obj/item/storage/bag/ammo = 5,
 		/obj/item/clothing/head/helmet/blueshirt = 5,
 		/obj/item/clothing/under/rank/security/officer/blueshirt = 5,
 		/obj/item/clothing/suit/armor/vest/blueshirt = 5
 	)
 	var/list/extra_contraband = list(
 		/obj/item/storage/belt/slut = 5,
-		/obj/item/bdsm_whip/ridingcrop = 3,
+		/obj/item/clothing/mask/leatherwhip/ridingcrop = 3,
 		/obj/item/electropack/shockcollar/security = 5,
 		/obj/item/clothing/suit/armor/vest/stripper = 5,
 		/obj/item/clothing/suit/armor/vest/stripper/bikini = 5,

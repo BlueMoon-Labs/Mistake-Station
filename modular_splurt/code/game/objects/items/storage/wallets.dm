@@ -15,6 +15,3 @@
 	atom_storage.max_total_storage = 12
 	AddElement(/datum/element/radiation_protected_clothing)
 
-/obj/item/storage/wallet/bluespace/update_icon_state()
-	// Don't update icons
-	return

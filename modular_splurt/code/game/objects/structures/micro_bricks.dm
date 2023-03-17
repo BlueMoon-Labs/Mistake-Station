@@ -32,7 +32,7 @@
 /obj/structure/micro_brick/proc/handatacc(datum/source, mob/user, list/modifiers)
 	return try_crush_microbricks(user)
 
-/obj/structure/micro_brick/proc/try_crush_microbricks(mob/stomper)
+/obj/structure/micro_brick/proc/try_crush_microbricks(mob/living/stomper)
 	if(stomper.combat_mode != TRUE)
 		return FALSE
 	to_chat(stomper, "You crush the microbrick structure, what a monster!")

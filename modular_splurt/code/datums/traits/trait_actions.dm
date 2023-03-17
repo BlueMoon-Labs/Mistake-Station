@@ -12,7 +12,7 @@
 	button_icon = 'modular_splurt/icons/mob/actions/lewd_actions/lewd_icons.dmi'
 	background_icon_state = "bg_alien"
 
-/datum/action/innate/Hypnotize/Activate()
+/datum/action/innate/Hypnotize/Activate(mob/living/carbon/M)
 	// Define action owner
 	var/mob/living/carbon/human/action_owner = owner
 
@@ -96,7 +96,7 @@
 		return
 
 	// Check if target is blind
-	if(HAS_TRAIT(action_target, TRAIT_BLIND))
+	if(HAS_TRAIT(action_target, BLIND))
 		// Warn the user, then return
 		to_chat(action_owner, span_warning("You stare deeply into [action_target]'s eyes, but see nothing but emptiness."))
 		return
@@ -136,14 +136,14 @@
 		// Warn the user, then return
 		to_chat(action_owner, span_warning("You can't hypnotize [action_target] whilst [action_target.ru_who()] asleep!"))
 		return
-
+/*
 	// Check for combat mode
 	if(SEND_SIGNAL(action_target, COMSIG_COMBAT_MODE_CHECK, COMBAT_MODE_ACTIVE))
 		// Warn the users, then return
 		to_chat(action_owner, span_warning("[action_target] is acting too defensively! You'll need [action_target.ru_na()] to lower [action_target.ru_ego()] guard first!"))
 		to_chat(action_target, span_notice("[action_owner] tries to stare into your eyes, but can't get a read on you."))
 		return
-
+*/
 	// Display chat messages
 	to_chat(action_owner, span_notice("You stare deeply into [action_target]'s eyes..."))
 	to_chat(action_target, span_warning("[action_owner] stares intensely into your eyes..."))
@@ -179,7 +179,7 @@
 	action_target.SetSleeping(1200)
 
 	// Set drowsiness
-	action_target.adjust_drowsiness = max(action_target.adjust_drowsiness, 40)
+	M.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80) = max(M.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80), 40)
 
 	// Prompt action owner for response
 	var/input_suggestion = input("What would you like to suggest [action_target] do? Leave blank to release [action_target.ru_na()] instead.", "Hypnotic suggestion", null, null)
@@ -243,7 +243,7 @@
 //
 // Quirk: Bloodsucker Fledgling / Vampire
 //
-
+/*
 // Basic action preset
 /datum/action/bloodfledge
 	name = "Broken Bloodfledge Ability"
@@ -668,7 +668,7 @@
 
 	// Log the revival and effective policy
 	action_owner.log_message("revived using a vampire quirk ability after being dead for [time_dead] deciseconds. Considered [time_late? "late" : "memory-intact"] revival under configured policy limits.", LOG_GAME)
-
+*/
 //
 // Quirk: Werewolf
 //
@@ -678,7 +678,7 @@
 	desc = "Do something related to werewolves."
 	button_icon = 'modular_splurt/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "Transform"
-	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUN | AB_CHECK_CONSCIOUS | AB_CHECK_ALIVE
+	check_flags = AB_CHECK_IMMOBILE | AB_CHECK_HANDS_BLOCKED | AB_CHECK_CONSCIOUS | AB_CHECK_LYING
 	cooldown_time = 5 SECONDS
 	transparent_when_unavailable = TRUE
 
@@ -697,7 +697,7 @@
 	var/mob/living/carbon/action_owner_carbon = owner
 
 	// Define parent quirk
-	var/datum/quirk/werewolf/quirk_data = locate() in action_owner_carbon.roundstart_quirks
+	var/datum/quirk/werewolf/quirk_data = locate() in action_owner_carbon.quirks
 
 	// Check if data was copied
 	if(!quirk_data)
@@ -746,7 +746,7 @@
 	var/obj/item/organ/genital/vagina/organ_vagina = action_owner.getorganslot(ORGAN_SLOT_VAGINA)
 
 	// Play shake animation
-	action_owner.shake_animation(2)
+	action_owner.do_jitter_animation(2)
 
 	// Transform into wolf form
 	if(!transformed)
@@ -791,7 +791,6 @@
 		action_owner.dna.custom_species = "[custom_species_prefix][werewolf_gender]wulf"
 		action_owner.dna.species.mutant_bodyparts["mam_tail"] = "Otusian"
 		action_owner.dna.species.mutant_bodyparts["legs"] = "Digitigrade"
-		action_owner.Digitigrade_Leg_Swap(FALSE)
 		action_owner.dna.species.mutant_bodyparts["mam_snouts"] = "Sergal"
 		action_owner.dna.features["mam_ears"] = "Jackal"
 		action_owner.dna.features["mam_tail"] = "Otusian"
@@ -837,18 +836,15 @@
 
 		// Revert species trait
 		action_owner.set_bark(old_features["bark"])
-		action_owner.dna.custom_species = old_features["custom_species"]
 		action_owner.dna.features["mam_ears"] = old_features["mam_ears"]
 		action_owner.dna.features["mam_snouts"] = old_features["mam_snouts"]
 		action_owner.dna.features["mam_tail"] = old_features["mam_tail"]
 		action_owner.dna.features["legs"] = old_features["legs"]
 		action_owner.dna.features["insect_fluff"] = old_features["insect_fluff"]
-		action_owner.dna.species.eye_type = old_features["eye_type"]
 		if(old_features["taur"] != "None")
 			action_owner.dna.features["taur"] = old_features["taur"]
 		if(old_features["legs"] == "Plantigrade")
 			action_owner.dna.species.species_traits -= DIGITIGRADE
-			action_owner.Digitigrade_Leg_Swap(TRUE)
 			action_owner.dna.species.mutant_bodyparts["legs"] = old_features["legs"]
 		action_owner.update_body()
 		action_owner.update_body_parts()
@@ -886,86 +882,13 @@
 	return TRUE
 
 //
-// Quirk: Gargoyle
-//
-
-/datum/action/gargoyle/transform
-	name = "Transform"
-	desc = "Transform into a statue, regaining energy in the process. Additionally, you will slowly heal while in statue form."
-	button_icon = 'icons/mob/actions/actions_changeling.dmi'
-	button_icon_state = "ling_camouflage"
-	var/obj/structure/statue/gargoyle/current = null
-
-
-/datum/action/gargoyle/transform/Trigger()
-	.=..()
-	var/mob/living/carbon/human/H = owner
-	var/datum/quirk/gargoyle/T = locate() in H.roundstart_quirks
-	if(!T.cooldown)
-		if(!T.transformed)
-			if(!isturf(H.loc))
-				return 0
-			var/obj/structure/statue/gargoyle/S = new(H.loc, H)
-			S.name = "statue of [H.name]"
-			H.bleedsuppress = 1
-			S.copy_overlays(H)
-			var/newcolor = list(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
-			S.add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
-			current = S
-			T.transformed = 1
-			T.cooldown = 30
-			T.paused = 0
-			S.dir = H.dir
-			return 1
-		else
-			qdel(current)
-			T.transformed = 0
-			T.cooldown = 30
-			T.paused = 0
-			H.visible_message(span_warning("[H]'s skin rapidly softens, returning them to normal!"), span_userdanger("Your skin softens, freeing your movement once more!"))
-	else
-		to_chat(H, span_warning("You have transformed too recently; you cannot yet transform again!"))
-		return 0
-
-/datum/action/gargoyle/check
-	name = "Check"
-	desc = "Check your current energy levels."
-	button_icon = 'icons/mob/actions/actions_clockcult.dmi'
-	button_icon_state = "Linked Vanguard"
-
-/datum/action/gargoyle/check/Trigger()
-	.=..()
-	var/mob/living/carbon/human/H = owner
-	var/datum/quirk/gargoyle/T = locate() in H.roundstart_quirks
-	to_chat(H, span_warning("You have [T.energy]/100 energy remaining!"))
-
-/datum/action/gargoyle/pause
-	name = "Preserve"
-	desc = "Become near-motionless, thusly conserving your energy until you move from your current tile. Note, you will lose a chunk of energy when you inevitably move from your current position, so you cannot abuse this!"
-	button_icon = 'icons/mob/actions/actions_flightsuit.dmi'
-	button_icon_state = "flightsuit_lock"
-
-/datum/action/gargoyle/pause/Trigger()
-	.=..()
-	var/mob/living/carbon/human/H = owner
-	var/datum/quirk/gargoyle/T = locate() in H.roundstart_quirks
-
-	if(!T.paused)
-		T.paused = 1
-		T.position = H.loc
-		to_chat(H, span_warning("You are now conserving your energy; this effect will end the moment you move from your current position!"))
-		return
-	else
-		to_chat(H, span_warning("You are already conserving your energy!"))
-
-//
 // Quirk: Rad Fiend
 //
 
 /datum/action/rad_fiend
 	name = "Broken Rad Action"
 	desc = "Report this to a coder."
-	icon = 'icons/effects/effects.dmi'
+	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "static"
 
 /datum/action/rad_fiend/update_glow

@@ -132,7 +132,7 @@ Code:
 					U.do_jitter_animation()
 				if(3) //high, makes you stun
 					to_chat(U, span_userdanger("You feel overpowering pleasure surge through your [G.name]"))
-					U.Jitter(3)
+					U.do_jitter_animation(3)
 					U.Stun(30)
 					if(prob(50))
 						U.emote("moan")

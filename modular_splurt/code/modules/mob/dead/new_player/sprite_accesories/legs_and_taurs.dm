@@ -3,7 +3,6 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	icon_state = "chemnaga"
 	taur_mode = STYLE_TAUR_SNAKE
-	hide_legs = USE_SNEK_CLIP_MASK
 	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/chemlight
@@ -30,7 +29,6 @@
 	icon_state = "leopardseal"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_SNAKE
-	hide_legs = USE_SNEK_CLIP_MASK
 	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/noodledragon
@@ -38,7 +36,6 @@
 	icon_state = "noodledragon"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW
-	hide_legs = USE_QUADRUPED_CLIP_MASK
 	color_src = MATRIX_ALL
 
 /datum/sprite_accessory/taur/noodledragon/dotted
@@ -50,7 +47,6 @@
 	icon_state = "spider"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW //it is what it is
-	hide_legs = USE_QUADRUPED_CLIP_MASK
 	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/taur/sloog
@@ -58,5 +54,4 @@
 	icon_state = "sloog"
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW
-	hide_legs = USE_QUADRUPED_CLIP_MASK
 	color_src = MATRIX_RED_GREEN

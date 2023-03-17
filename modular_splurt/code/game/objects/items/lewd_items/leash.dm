@@ -382,6 +382,6 @@ Icons, maybe?
 	name = "Leash"
 	result = /obj/item/leash
 	time = 40
-	reqs = list(/obj/item/stack/sheet/metal = 1,
+	reqs = list(/obj/item/stack/sheet/iron = 1,
 				/obj/item/stack/sheet/cloth = 3)
 	category = CAT_MISC*/

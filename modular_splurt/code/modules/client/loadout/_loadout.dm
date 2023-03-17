@@ -4,7 +4,6 @@
 // description defaults to the path initial desc, cost defaults to 1 point but if you think your item requires more points, the framework allows that
 // and lastly, restricted_roles list allows you to let someone spawn with certain items only if the job they spawned with is on the list.
 
-GLOBAL_LIST_EMPTY(loadout_items)
 GLOBAL_LIST_EMPTY(loadout_whitelist_ids)
 
 /proc/load_loadout_config(loadout_config)

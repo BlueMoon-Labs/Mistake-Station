@@ -10,12 +10,10 @@
 /obj/item/food/clothing/attack(mob/living/M, mob/living/user, attackchain_flags = NONE, damage_multiplier = 1)
 	if(user.combat_mode == TRUE)
 		return ..()
-	return attempt_forcefeed(M, user)
-
 
 //As a bonus for having the Cloth Eater trait. You gain extra mood from eatin clothes, but damage them at the same time.
-/obj/item/clothing/attack(mob/M, mob/user, def_zone)
-	if(user.a_intent != INTENT_HARM)
+/obj/item/clothing/attack(mob/M, mob/living/user, def_zone)
+	if(user.combat_mode != TRUE)
 		if(HAS_TRAIT(M,TRAIT_CLOTH_EATER) || isinsect(M))
 			if(is_edible == 0) //This checks if an item can be shredded.
 				to_chat(M, "<span class='warning'>This item is too tough to eat.")

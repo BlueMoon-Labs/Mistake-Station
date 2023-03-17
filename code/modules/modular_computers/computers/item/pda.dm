@@ -28,6 +28,7 @@
 
 	///The item currently inserted into the PDA, starts with a pen.
 	var/obj/item/inserted_item = /obj/item/pen
+	var/owner = null // String name of owner
 
 	///Whether the PDA should have 'pda_programs' apps installed on Initialize.
 	var/has_pda_programs = TRUE

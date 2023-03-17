@@ -24,10 +24,8 @@
 	var/cover_open = FALSE
 	can_suppress = FALSE
 	burst_size = 5
-	burst_shot_delay = 5
 	spread = 10 //You are firing a .50 cal machine gun from a staning position
 	pin = /obj/item/firing_pin
-	automatic_burst_overlay = FALSE
 
 /obj/item/gun/ballistic/automatic/m2a1/restricted //for if Central command wants to have some fun
 	pin = /obj/item/firing_pin/implant/mindshield
@@ -49,6 +47,7 @@
 /obj/item/gun/ballistic/automatic/m2a1/update_icon_state()
 	icon_state = "m2a1[cover_open ? "open" : "closed"][magazine ? CEILING(get_ammo(0)/25, 1)*25 : "-empty"]"
 	icon_state = "m2a1[cover_open ? "openmag" : "closedmag"]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/m2a1/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params)
 	if(cover_open)
@@ -59,10 +58,9 @@
 
 /obj/item/gun/ballistic/automatic/m2a1/on_attack_hand(mob/user, act_intent = user.a_intent, unarmed_attack_flags)
 	if(loc != user)
-		..()
 		return	//let them pick it up
 	if(!cover_open || (cover_open && !magazine))
-		..()
+		return
 	else if(cover_open && magazine)
 		//drop the mag
 		magazine.update_icon()
@@ -95,7 +93,6 @@
 	burst_size = 1
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	automatic_burst_overlay = FALSE
 	var/auto_eject = 1
 	var/auto_eject_sound = 'modular_splurt/sound/weapons/garand_ping.ogg'
 
@@ -134,7 +131,6 @@
 	burst_size = 3
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	automatic_burst_overlay = FALSE
 	spread = 8 //You are shooting a full power catraige from a light automatic rifle, what do you expect?
 
 /obj/item/gun/ballistic/automatic/fal/nomag
@@ -153,7 +149,6 @@
 	burst_size = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BACK
-	automatic_burst_overlay = FALSE
 	spread = 5 //For balacing
 
 /obj/item/gun/ballistic/automatic/smg22/nomag

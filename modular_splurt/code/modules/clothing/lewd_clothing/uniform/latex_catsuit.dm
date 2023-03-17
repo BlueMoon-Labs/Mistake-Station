@@ -10,7 +10,7 @@
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
 	can_adjust = FALSE
 	strip_delay = 80
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_ALL_TAURIC
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 	var/seamless = FALSE
 
 /obj/item/clothing/under/misc/latex_catsuit/attack_hand(mob/living/carbon/human/user)

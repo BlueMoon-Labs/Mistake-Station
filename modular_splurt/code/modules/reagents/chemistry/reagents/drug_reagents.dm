@@ -87,7 +87,10 @@
 	taste_description = "coping"
 	color = "#0f0"
 	overdose_threshold = 30
-	base_value = REAGENT_VALUE_GLORIOUS
+	addiction_types = list(/datum/addiction/hallucinogens = 10)
+
+// Variant of Copium created by genital fluids
+/datum/reagent/drug/copium/gfluid
 
 /datum/reagent/drug/copium/on_mob_life(mob/living/carbon/M)
 	. = ..()
@@ -119,7 +122,7 @@
 	var/temp = holder ? holder.chem_temp : T20C
 	O.atmos_spawn_air("copium=[volume];TEMP=[temp]")
 
-/datum/reagent/drug/reaction_turf(turf/open/T, volume)
+/datum/reagent/drug/expose_turf(turf/open/T, volume)
 	if (istype(T))
 		var/temp = holder ? holder.chem_temp : T20C
 		T.atmos_spawn_air("copium=[volume];TEMP=[temp]")

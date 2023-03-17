@@ -10,7 +10,7 @@
 	gain_text = span_notice("Неожиданно вам захотелось ощутить семя внутри себя!")
 	lose_text = span_notice("Всё равно сперма была не такой уж и вкусной...")
 	medical_record_text = "У пациента навязчивая одержимость семенными жидкостями."
-	mood_quirk = TRUE
+
 	var/timer
 	var/timer_trigger = 15 MINUTES
 

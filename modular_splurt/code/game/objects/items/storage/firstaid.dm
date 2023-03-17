@@ -10,8 +10,8 @@
 	if(empty)
 		return
 
-	new /obj/item/reagent_containers/glass/bottle/vial/small/bellyreduction(src)
-	new /obj/item/reagent_containers/glass/bottle/vial/small/bellyreduction(src)
-	new /obj/item/reagent_containers/glass/bottle/vial/small/bellyreduction(src)
+	new /obj/item/reagent_containers/cup/bottle/vial/small/bellyreduction(src)
+	new /obj/item/reagent_containers/cup/bottle/vial/small/bellyreduction(src)
+	new /obj/item/reagent_containers/cup/bottle/vial/small/bellyreduction(src)
 
 	. = ..()

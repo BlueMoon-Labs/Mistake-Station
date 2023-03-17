@@ -375,7 +375,7 @@
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/zuliecloak
 	body_parts_covered = CHEST|ARMS
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_NECK //it's a cloak. it's cosmetic. so why the hell not? what could possibly go wrong?
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|USE_TAUR_CLIP_MASK|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hooded/cloakhood/zuliecloak
 	name = "NT Special Issue"
@@ -385,7 +385,7 @@
 	icon = 'icons/obj/custom.dmi'
 	worn_icon = 'icons/mob/clothing/custom_w.dmi'
 	flags_inv = HIDEEARS|HIDEHAIR
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|USE_TAUR_CLIP_MASK|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/blackredgold
 	name = "Multicolor Coat"

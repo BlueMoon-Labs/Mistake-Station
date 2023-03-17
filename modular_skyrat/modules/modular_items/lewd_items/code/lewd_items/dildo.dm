@@ -339,7 +339,7 @@
 		user.update_body()
 
 	else if(src == user.anus)
-		user.cut_overlay(user.overlays_standing[ANUS_LAYER])
+		user.cut_overlay(user.overlays_standing[ANUS_LAYER_INDEX])
 
 /obj/item/clothing/sextoy/dildo/double_dildo/dropped(mob/living/carbon/human/user)
 	. = ..()

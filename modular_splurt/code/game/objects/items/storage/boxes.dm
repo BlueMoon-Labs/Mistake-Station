@@ -49,7 +49,7 @@
 	atom_storage.max_total_storage = 10
 
 	// Restrict contents to only condoms
-	atom_storage.set_holdable = typecacheof(list(/obj/item/genital_equipment/condom))
+	atom_storage.can_hold = typecacheof(list(/obj/item/genital_equipment/condom))
 
 /obj/item/storage/box/bulk_condoms/PopulateContents()
 	// Add maximum amount

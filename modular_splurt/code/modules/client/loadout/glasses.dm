@@ -20,17 +20,17 @@
 
 /datum/gear/glasses/blueshield/aviators
 	name = "Blueshield HUD Aviators"
-	path = /obj/item/clothing/glasses/hud/blueshield/aviators
+	path = /obj/item/clothing/glasses/hud/toggle/blueshield/aviators
 	restricted_roles = list("Blueshield")
 
 /datum/gear/glasses/blueshield/prescription
 	name = "Prescription Blueshield HUD"
-	path = /obj/item/clothing/glasses/hud/blueshield/prescription
+	path = /obj/item/clothing/glasses/hud/toggle/blueshield/prescription
 	restricted_roles = list("Blueshield")
 
 /datum/gear/glasses/blueshield/aviators/prescription
 	name = "Prescription Blueshield HUD Aviators"
-	path = /obj/item/clothing/glasses/hud/blueshield/aviators/prescription
+	path = /obj/item/clothing/glasses/hud/toggle/blueshield/aviators/prescription
 	restricted_roles = list("Blueshield")
 
 /datum/gear/glasses/aviators
