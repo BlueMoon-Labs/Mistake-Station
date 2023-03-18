@@ -109,6 +109,13 @@
 	/// A list to keep track of which books a person has read (to prevent people from reading the same book again and again for positive mood events)
 	var/list/book_titles_read
 
+	/// Lazy list for antagonists to set goals they wish to achieve, to be shown at the round-end report.
+	var/list/ambitions
+	var/list/ambition_objectives = list()
+	var/ambition_limit = 6 //Лимит амбиций
+	var/datum/mind/soulOwner //who owns the soul.  Under normal circumstances, this will point to src
+	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
+
 /datum/mind/New(_key)
 	key = _key
 	martial_art = default_martial_art
@@ -209,6 +216,11 @@
 	last_death = world.time
 
 /datum/mind/Topic(href, href_list)
+	//проверяем на амбиции, после чего прерываем выполнение, иначе он залезет в админский антаг-панель
+	var/ambition_func = ambition_topic(href, href_list)
+	if (ambition_func)
+		return
+
 	if(!check_rights(R_ADMIN))
 		return
 

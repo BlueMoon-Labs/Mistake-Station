@@ -1,8 +1,8 @@
 /obj/item/clothing/head/blastwave
 	name = "blastwave helmet"
 	desc = "A plastic helmet with paint applied. Protects as much as cardboard box named 'Bomb Shelter'."
-	icon = 'modular_bluemoon/smiley/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_bluemoon/smiley/icons/mob/clothing/head.dmi'
+	icon = 'modular_bluemoon/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_bluemoon/icons/mob/clothing/head.dmi'
 	icon_state = "blastwave_helmet"
 	icon_state = "blastwave_helmet"
 	flags_inv = HIDEHAIR|HIDEEARS

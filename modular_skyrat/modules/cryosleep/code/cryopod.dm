@@ -11,6 +11,9 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 GLOBAL_LIST_EMPTY(ghost_records)
 
+/// A list of all cryopods that aren't quiet, to be used by the "Send to Cryogenic Storage" VV action.
+GLOBAL_LIST_EMPTY(valid_cryopods)
+
 //Main cryopod console.
 /obj/machinery/computer/cryopod
 	name = "general oversight console"
@@ -164,14 +167,21 @@ GLOBAL_LIST_EMPTY(ghost_records)
 	var/allow_timer_override = FALSE
 	/// Has the occupant been tucked in?
 	var/tucked = FALSE
+	/// if false, plays announcement on cryo
+	var/quiet = FALSE
 
 	/// The rank (job title) of the mob that entered the cryopod, if it was a human. "N/A" by default.
 	var/stored_rank = "N/A"
 	/// Minimum time for someone to be SSD before another player can cryo them.
 	var/ssd_time = 30 MINUTES //Replace with "cryo_min_ssd_time" CONFIG
 
+/obj/machinery/cryopod/quiet
+	quiet = TRUE
+
 /obj/machinery/cryopod/Initialize(mapload)
 	..()
+	if(!quiet)
+		GLOB.valid_cryopods += src
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/LateInitialize()
@@ -180,6 +190,7 @@ GLOBAL_LIST_EMPTY(ghost_records)
 
 // This is not a good situation
 /obj/machinery/cryopod/Destroy()
+	GLOB.valid_cryopods -= src
 	control_computer_weakref = null
 	return ..()
 
@@ -479,6 +490,10 @@ GLOBAL_LIST_EMPTY(ghost_records)
 	if(GLOB.announcement_systems.len)
 		var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
 		announcer.announce(is_teleporter ? "CRYOSTORAGE_TELE" : "CRYOSTORAGE", mob_occupant.real_name, announce_rank, list())
+
+	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
+	if(!quiet)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
 
 	if (pod)
 		pod.visible_message(span_notice("\The [pod] hums and hisses as it [is_teleporter ? "teleports" : "moves"] [mob_occupant.real_name] [is_teleporter ? "to centcom" : "into storage"]."))

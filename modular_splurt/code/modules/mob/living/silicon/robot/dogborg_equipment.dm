@@ -134,9 +134,11 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 				to_chat(user, "<span class='notice'>Your tongue is now [status ? "Energized" : "Normal"].</span>")
 	update_icon()
 
+/atom/proc/wash_cream()
+	return TRUE
+
 /obj/item/soap/tongue/afterattack(atom/target, mob/user, proximity)
 	var/mob/living/silicon/robot/R = user
-	var/mob/living/carbon/human/H = target
 	if(!proximity || !check_allowed_items(target))
 		return
 	if(R.client && (target in R.client.screen))
@@ -219,7 +221,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 			qdel(C)
 			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
 			SEND_SIGNAL(target, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_WASH)
-			H.wash_cream()
+			target.wash_cream()
 			target.wash_cum()
 	return
 

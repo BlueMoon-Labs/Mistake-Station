@@ -16,7 +16,7 @@
 	return dat
 
 
-/obj/item/implant/slave/implant(mob/living/target, mob/user, silent = FALSE)
+/obj/item/implant/slave/implant(mob/living/target, mob/user, silent = FALSE, force = TRUE)
 	if(..())
 		if(!target.mind)
 			return FALSE //Can't be a pet without having a mind!
@@ -38,14 +38,11 @@
 				I.update_icon()
 			return FALSE
 
-		var/datum/antagonist/gang/gang = target.mind.has_antag_datum(/datum/antagonist/gang)
 		var/datum/antagonist/rev/rev = target.mind.has_antag_datum(/datum/antagonist/rev)
 		if(rev)
 			rev.remove_revolutionary(FALSE, user)
-		if(gang)
-			target.mind.remove_antag_datum(/datum/antagonist/gang)
 		if(!silent)
-			if(target.mind in SSticker.mode.cult)
+			if((SEND_SIGNAL(target.mind, COMSIG_PRE_MINDSHIELD_IMPLANT, user) & COMPONENT_MINDSHIELD_RESISTED) || target.mind.unconvertable)
 				to_chat(target, "<span class='warning'>You feel something interfering with your mental conditioning, but you resist it!</span>")
 			else
 				to_chat(target, "<span class='notice'>You feel a sense of peace and security. You are now enslaved!</span>")

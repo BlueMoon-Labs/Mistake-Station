@@ -6,7 +6,7 @@
 	supports_variations_flags = NONE
 	icon_state = "armorstripper"
 	icon_state = "armorstripper"
-	armor = list("melee" = 15, "bullet" = 10, "laser" = 10, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor_type = /datum/armor/armor_hos
 	dog_fashion = null
 
 /obj/item/clothing/suit/armor/vest/stripper/bikini

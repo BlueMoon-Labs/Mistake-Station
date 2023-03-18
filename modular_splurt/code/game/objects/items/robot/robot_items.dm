@@ -2,12 +2,6 @@
 	name = "\improper integrated clipboard"
 	desc = "A clipboard with built-in paper synthesizer"
 	integrated_pen = TRUE
-	/// When was the last time the printer was used?
-	COOLDOWN_DECLARE(printer_cooldown)
-	/// How long is the integrated printer's cooldown?
-	var/printer_cooldown_time = 10 SECONDS
-	/// How much charge is required to print a piece of paper?
-	var/paper_charge_cost = 25
 
 /obj/item/clipboard/cyborg/Initialize()
 	. = ..()

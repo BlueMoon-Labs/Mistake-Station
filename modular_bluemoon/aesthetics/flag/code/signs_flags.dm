@@ -1,7 +1,7 @@
 /obj/structure/sign/flag
 	name = "blank flag"
 	desc = "The flag of nothing. It has nothing on it. Magnificient."
-	icon = 'modular_bluemoon/SmiLeY/aesthetics/flag/icons/flags.dmi'
+	icon = 'modular_bluemoon/aesthetics/flag/icons/flags.dmi'
 	icon_state = "flag_coder"
 	buildable_sign = FALSE
 	custom_materials = null
@@ -128,7 +128,7 @@
 /obj/item/sign/flag
 	name = "folded blank flag"
 	desc = "The folded flag of nothing. It has nothing on it. Beautiful. {CTRL+SHIFT+LMB}"
-	icon = 'modular_bluemoon/SmiLeY/aesthetics/flag/icons/flags.dmi'
+	icon = 'modular_bluemoon/aesthetics/flag/icons/flags.dmi'
 	icon_state = "folded_coder"
 	sign_path = /obj/structure/sign/flag
 	unique_reskin = list(

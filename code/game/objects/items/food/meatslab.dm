@@ -157,7 +157,7 @@
 	tastes = list("dust" = 1, "powder" = 1, "meat" = 2)
 	foodtypes = MEAT | RAW
 
-/obj/item/food/carpmeat/aquatic
+/obj/item/food/fishmeat/carp/aquatic
 	name = "fillet"
 	desc = "A fillet of one of the local water dwelling species."
 

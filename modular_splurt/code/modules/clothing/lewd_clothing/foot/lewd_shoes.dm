@@ -62,7 +62,7 @@
 /obj/item/clothing/shoes/latex_socks/equipped(mob/user, slot)
 	. = ..()
 	var/mob/living/carbon/human/C = user
-	C.update_inv_shoes()
+	C.update_worn_shoes()
 	if(C.hud_used)
 		C.hud_used.hidden_inventory_update()
 

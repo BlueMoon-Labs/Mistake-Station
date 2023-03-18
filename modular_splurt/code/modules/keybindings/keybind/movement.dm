@@ -1,3 +1,10 @@
+/mob
+	//Main Code edits
+	var/combat_cursor_icon = 'modular_splurt/icons/effects/mouse_pointers/combat.dmi'
+	var/is_tilted
+	// Admin player panel for this mob
+	var/datum/player_panel/mob_panel
+
 /mob/Initialize()
 	. = ..()
 	create_player_panel()

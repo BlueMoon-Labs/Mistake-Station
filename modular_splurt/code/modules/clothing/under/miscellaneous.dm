@@ -75,7 +75,6 @@
 	icon_state = "bluedress"
 	icon_state = "bluedress"
 	can_adjust = FALSE
-	fitted = NO_FEMALE_UNIFORM // So it won't delete boobs
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|LEGS
 
@@ -105,7 +104,7 @@
 	icon_state = "secslutskirt"
 	icon_state = "secslutskirt"
 	body_parts_covered = CHEST|GROIN|ARMS
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30, "wound" = 10)
+	armor_type = /datum/armor/security_head_of_security
 	can_adjust = FALSE
 	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	supports_variations_flags = NONE
@@ -130,84 +129,6 @@
 	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/under/rank/brigdoc
-	name = "brig physician outfit"
-	desc = "The uniform of the Brig Physician. Do know harm."
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	icon_state = "brigphys"
-	icon_state = "brigphys"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
-	can_adjust = FALSE
-	strip_delay = 50
-	alt_covers_chest = TRUE
-	sensor_mode = SENSOR_COORDS
-	sensor_flags = NONE
-	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
-
-/obj/item/clothing/under/rank/brigdoc/skirt
-	name = "brig physician skirt"
-	desc = "The uniform of the Brig Physician. Do know harm, with a skirt"
-	icon_state = "brigphysf"
-	icon_state = "brigphysf"
-	body_parts_covered = CHEST|GROIN|ARMS
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/under/rank/blueshield
-	name = "blueshield outfit"
-	desc = "The uniform of the Blueshield. It makes you feel protected"
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	icon_state = "blueshield"
-	icon_state = "blueshield"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
-	can_adjust = FALSE
-	strip_delay = 50
-	alt_covers_chest = TRUE
-	sensor_mode = SENSOR_COORDS
-	sensor_flags = NONE
-	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
-
-/obj/item/clothing/under/rank/blueshield/formal
-	name = "blueshield formal outfit"
-	desc = "The formal uniform of the Blueshield. It makes you feel protected while looking great."
-	icon_state = "blueformal"
-	icon_state = "blueformal"
-
-/obj/item/clothing/under/rank/blueshield/formal/skirt
-	name = "blueshield formal skirt"
-	desc = "The formal uniform of the Blueshield. It makes you feel protected while looking great. A lot better than the stuffy pants."
-	icon_state = "blueshieldskirt"
-	icon_state = "blueshieldskirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-
-/obj/item/clothing/under/rank/blueshield/skirt
-	name = "blueshield skirt"
-	desc = "The uniform of the Blueshield. It makes you feel protected, even with a bit of a breeze."
-	icon_state = "blueshieldf"
-	icon_state = "blueshieldf"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/under/plasmaman/security/blueshield
-	name = "security plasma envirosuit"
-	desc = "A slick black and blue  plasmaman containment suit designed for the Blueshield."
-	icon_state = "bs_envirosuit"
-	icon_state = "bs_envirosuit"
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 30, "wound" = 10)
-
-/obj/item/clothing/head/helmet/space/plasmaman/security/blueshield
-	name = "head of security's plasma envirosuit helmet"
-	desc = "A plasmaman containment helmet designed for the Blueshield, menacing black with blue stripes."
-	icon_state = "bs_envirohelm"
-	icon_state = "bs_envirohelm"
-	icon = 'modular_splurt/icons/obj/clothing/head.dmi'
-	worn_icon = 'modular_splurt/icons/mobs/head.dmi'
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 25, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 60)
-
 /obj/item/clothing/under/rank/bridgeofficer
 	name = "bridge officer outfit"
 	desc = "The uniform of a bridge officer. It makes you feel extremely important, even if you are not."
@@ -215,12 +136,11 @@
 	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "bridgesec"
 	icon_state = "bridgesec"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 5,"energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0, "wound" = 0)
+	armor_type = /datum/armor/clothing_under
 	can_adjust = FALSE
 	strip_delay = 25
 	alt_covers_chest = TRUE
 	sensor_mode = SENSOR_COORDS
-	sensor_flags = NONE
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 
@@ -280,21 +200,12 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
 	icon_state = "goner_uniform"
 	can_adjust = FALSE
-	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, RAD = 5, FIRE = 30, ACID = 30, WOUND = 10) // Security uniform's + BIO&RAD
+	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/goner/fake
 	name = "trencher uniform replica"
 	desc = "A 90% replica of No Man's Land-type uniform."
-	armor = 0
-
-/obj/item/clothing/under/goner/fake/poly
-	name = "polychromic trencher uniform"
-	desc = "An utilitarian uniform with polychromic spots."
-	var/list/poly_colors = list("#E6E6E6")
-
-/obj/item/clothing/under/goner/fake/poly/Initialize()
-	. = ..()
-	AddElement(/datum/element/polychromic, poly_colors, 1)
+	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/goner/red
 	name = "red trencher uniform"
@@ -318,34 +229,3 @@
 
 /obj/item/clothing/under/misc/gear_harness
 	body_parts_covered = NONE
-
-/obj/item/clothing/under/misc/leia_outfit
-	name = "space princess outfit"
-	desc = "Chain for your Master's erotic asphyxiation not included."
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	icon_state = "leia"
-	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/under/misc/leia_outfit/Initialize()
-	. = ..()
-	AddElement(/datum/element/polychromic, list("#C61818", "#D4AF37"), 2)
-
-/obj/item/clothing/under/performer/polychromic
-	name = "polychromic performers one piece"
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	icon_state = "poly_performer"
-
-/obj/item/clothing/under/performer/polychromic/Initialize()
-	. = ..()
-	AddElement(/datum/element/polychromic, list("#ffffff"), 1)
-
-/obj/item/clothing/under/rank/cargo/miner/lavaland/stripper
-	name = "explorer stripper outfit"
-	desc = "This can't be dress code compliant, can it?"
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	icon_state = "explorerstripper"
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

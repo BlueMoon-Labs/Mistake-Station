@@ -16,7 +16,7 @@
 		/obj/item/electropack/shockcollar/security = 5,
 		/obj/item/clothing/suit/armor/vest/stripper = 5,
 		/obj/item/clothing/suit/armor/vest/stripper/bikini = 5,
-		/obj/item/clothing/neck/petcollar/locked/security = 5,
+		/obj/item/clothing/neck/human_petcollar/locked/security = 5,
 		/obj/item/grenade/secbed = 3,
 		/obj/item/dildo/flared/gigantic = 3
 	)

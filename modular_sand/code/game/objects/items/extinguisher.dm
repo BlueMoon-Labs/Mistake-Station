@@ -1,7 +1,3 @@
-/obj/item/extinguisher
-	/// Icon state when inside a tank holder
-	var/tank_holder_icon_state = "holder_extinguisher"
-
 /obj/item/extinguisher/Initialize()
 	. = ..()
 	if(tank_holder_icon_state)

@@ -65,7 +65,7 @@
 		REMOVE_TRAIT(action_owner, TRAIT_HIDE_BACKPACK, TRAIT_GENERIC)
 
 	// Update sprites
-	action_owner.update_inv_back()
+	action_owner.update_worn_back()
 
 // Runs on toggling the ability
 /datum/action/item_action/hide_backpack/Trigger()

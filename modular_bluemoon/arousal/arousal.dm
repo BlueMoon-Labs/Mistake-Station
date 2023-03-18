@@ -195,7 +195,7 @@
 		to_chat(src, "<span class='warning'>Вы не сможете сделать это без соответствующего контейнера.</span>")
 
 /mob/living/carbon/human/proc/available_rosie_palms(silent = FALSE, list/whitelist_typepaths = list(/obj/item/dildo))
-	if(restrained(TRUE)) //TRUE ignores grabs
+	if(handcuffed) //TRUE ignores grabs
 		if(!silent)
 			to_chat(src, "<span class='warning'>Вы не можете сделать это, будучи связанным!</span>")
 		return FALSE

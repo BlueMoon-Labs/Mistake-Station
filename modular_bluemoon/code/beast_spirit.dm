@@ -60,7 +60,7 @@
 /datum/action/innate/beastchange
 	name = "Change Appearance"
 	desc = "Change your feral appearance."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	button_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "change"
 	var/beastskin = ""
 	var/beastsound = 'modular_bluemoon/vagabond/sound/wolf.ogg'
@@ -97,7 +97,7 @@
 /datum/action/innate/beastsex
 	name = "Toggle Aroused"
 	desc = "Switch between horny and not horny."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	button_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "sex"
 
 /datum/action/innate/beastsex/Activate()
@@ -121,7 +121,7 @@
 /datum/action/innate/beastpose
 	name = "Toggle Pose"
 	desc = "Switch between poses."
-	icon_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
+	button_icon = 'modular_bluemoon/vagabond/icons/mob/actions/misc_actions.dmi'
 	button_icon_state = "pose"
 
 /datum/action/innate/beastpose/Activate()
@@ -155,17 +155,17 @@
 	medical_record_text = "У субъекта наблюдалась сильная психологическая нестабильность, которая включает в себя животное поведение и резкое увеличение в габаритах от психоактивности."
 
 /datum/quirk/beastspirit/post_add()
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/beast/B = new
+	var/datum/action/cooldown/spell/targeted/shapeshift/beast/B = new
 	quirk_holder.AddSpell(B)
 	var/datum/action/innate/beastchange/change = new
 	change.Grant(quirk_holder)
 	change.owner = quirk_holder
 
 /datum/quirk/beastspirit/remove()
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/beast/B = locate() in quirk_holder.mob_spell_list
+	var/datum/action/cooldown/spell/targeted/shapeshift/beast/B = locate() in quirk_holder.mob_spell_list
 	quirk_holder.RemoveSpell(B)
 
-/obj/effect/proc_holder/spell/targeted/shapeshift/beast
+/datum/action/cooldown/spell/targeted/shapeshift/beast
 	name = "Beast Form"
 	desc = "Transform in or out of your feral form."
 	invocation_type = "none"
@@ -178,7 +178,7 @@
 	var/beast_type = ""
 	var/beast_sound = 'modular_bluemoon/vagabond/sound/wolf.ogg'
 
-/obj/effect/proc_holder/spell/targeted/shapeshift/beast/Shapeshift(mob/living/caster)
+/datum/action/cooldown/spell/targeted/shapeshift/beast/Shapeshift(mob/living/caster)
 	var/obj/shapeshift_holder/H = locate() in caster
 	if(H)
 		to_chat(caster, "<span class='warning'>You're already shapeshifted!</span>")
@@ -255,13 +255,13 @@
 	mobs_whitelist = null
 	mobs_blacklist = null
 
-/obj/effect/proc_holder/spell/targeted/shapeshift/beast/Restore(mob/living/shape)
+/datum/action/cooldown/spell/targeted/shapeshift/beast/Restore(mob/living/shape)
 	var/toggle_message = ("[shape] shrinks with feral features quickly receding.")
 	shape.visible_message(span_danger(toggle_message))
 	..()
 
 
-/obj/effect/proc_holder/spell/targeted/shapeshift/beast/cast(list/targets, mob/user = usr)
+/datum/action/cooldown/spell/targeted/shapeshift/beast/cast(list/targets, mob/user = usr)
 	if(!(locate(/obj/shapeshift_holder) in targets[1]))
 		if(!ishuman(user))
 			to_chat(user, "<span class='warning'>You need to be humanoid to be able to do this!</span>")

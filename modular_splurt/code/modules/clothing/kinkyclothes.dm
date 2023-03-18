@@ -148,5 +148,13 @@
 	icon_state = "tunnelfox"
 	body_parts_covered = CHEST|LEGS|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	togglename = "buttons"
+	toggle_noun = "buttons"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/rank/cargo/miner/lavaland/stripper
+	name = "explorer stripper outfit"
+	desc = "This can't be dress code compliant, can it?"
+	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
+	icon_state = "explorerstripper"
+	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

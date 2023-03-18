@@ -32,6 +32,7 @@
 	user.visible_message("<span class='suicide'>[user] is falling on [src]! It looks like [user.ru_who()] trying to commit suicide!</span>")
 	return(BRUTELOSS)
 
+#define STATUS_EFFECT_ELECTROSTAFF /datum/status_effect/electrostaff		//slows down victim
 
 /obj/item/electrostaff
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
@@ -47,8 +48,8 @@
 	throw_speed = 1
 	item_flags = NO_MAT_REDEMPTION
 	attack_verb_simple = list("struck", "beaten", "thwacked", "pulped")
-	total_mass = 5		//yeah this is a heavy thing, beating people with it while it's off is not going to do you any favors. (to curb stun-kill rampaging without it being on)
 	attack_speed = CLICK_CD_MELEE
+	block_chance = 30
 	var/obj/item/stock_parts/cell/cell = /obj/item/stock_parts/cell/high
 	var/on = FALSE
 	var/can_block_projectiles = FALSE		//can't block guns
@@ -114,6 +115,7 @@
 	else
 		icon_state = inhand_icon_state = (on? "electrostaff_1" : "electrostaff_0")
 	set_light(7, on? 1 : 0, LIGHT_COLOR_CYAN)
+	return ..()
 
 /obj/item/electrostaff/examine(mob/living/user)
 	. = ..()
@@ -170,9 +172,6 @@
 	if(iscyborg(target))
 		return ..()
 	var/list/return_list = list()
-	if(target.mob_run_block(src, 0, "[user]'s [name]", ATTACK_TYPE_MELEE, 0, user, null, return_list)) //No message; run_block() handles that
-		playsound(target, 'sound/weapons/genhit.ogg', 50, 1)
-		return FALSE
 	if(user.combat_mode != TRUE)
 		if(stun_act(target, user, null, return_list))
 			user.do_attack_animation(target)
@@ -183,6 +182,7 @@
 		user.do_attack_animation(target)
 
 /obj/item/electrostaff/proc/stun_act(mob/living/target, mob/living/user, no_charge_and_force = FALSE, list/block_return = list())
+	var/stunforce = BATON_ATTACKING
 	if(!no_charge_and_force)
 		if(!on)
 			target.visible_message("<span class='warning'>[user] has bapped [target] with [src]. Luckily it was off.</span>", \
@@ -200,18 +200,18 @@
 	target.Paralyze(5)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	if(user)
-		target.set_last_attacker(user)
+		target.lastattacker = user.real_name
+		target.lastattackerckey = user.ckey
+		target.LAssailant = WEAKREF(user)
 		target.visible_message("<span class='danger'>[user] has shocked [target] with [src]!</span>", \
 								"<span class='userdanger'>[user] has shocked you with [src]!</span>")
 		log_combat(user, target, "stunned with an electrostaff")
 	playsound(src, 'sound/weapons/staff.ogg', 50, 1, -1)
 	target.apply_status_effect(stun_status_effect, stun_status_duration)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.forcesay(GLOB.hit_appends)
 	return TRUE
 
 /obj/item/electrostaff/proc/harm_act(mob/living/target, mob/living/user, no_charge_and_force = FALSE, list/block_return = list())
+	var/lethal_force = BATON_ATTACKING
 	if(!no_charge_and_force)
 		if(!on)
 			return FALSE		//standard item attack
@@ -225,7 +225,9 @@
 	target.adjustFireLoss(lethal_force)		//good against ointment spam
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	if(user)
-		target.set_last_attacker(user)
+		target.lastattacker = user.real_name
+		target.lastattackerckey = user.ckey
+		target.LAssailant = WEAKREF(user)
 		target.visible_message("<span class='danger'>[user] has seared [target] with [src]!</span>", \
 								"<span class='userdanger'>[user] has seared you with [src]!</span>")
 		log_combat(user, target, "burned with an electrostaff")

@@ -550,7 +550,7 @@
 	. = ..()
 	amount = base_amount
 
-/obj/item/implant/aphrodisiac_pump/implant()
+/obj/item/implant/aphrodisiac_pump/implant(silent = FALSE, force = TRUE)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 

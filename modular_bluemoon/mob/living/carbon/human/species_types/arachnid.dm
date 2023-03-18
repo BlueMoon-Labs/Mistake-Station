@@ -1,27 +1,91 @@
+/proc/random_unique_arachnid_name(attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.arachnid_first)) + " " + capitalize(pick(GLOB.arachnid_last))
+
+		if(!findname(.))
+			break
+
+/proc/arachnid_name()
+	return "[pick(GLOB.arachnid_first)] [pick(GLOB.arachnid_last)]"
+
+/mob/living/carbon/human/species/arachnid
+	race = /datum/species/arachnid
+
 /datum/species/arachnid
 	name = "Arachnid"
 	id = SPECIES_ARACHNID
-	override_bp_icon = 'modular_bluemoon/icons/mob/arachnid_legs.dmi'
 	say_mod = "chitters"
-	default_color = "00FF00"
-	species_traits = list(LIPS, NOEYES, NO_UNDERWEAR, HAS_FLESH, HAS_BONE)
+	species_traits = list(
+		MUTCOLORS,
+		EYECOLOR,
+		LIPS,
+		HAIR,
+		FACEHAIR,
+	)
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_CAN_USE_FLIGHT_POTION,
+		TRAIT_LITERATE,
+	)
+	examine_limb_id = SPECIES_ARACHNID
+	mutant_bodyparts = list()
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	mutant_bodyparts = list("arachnid_legs" = "Plain", "arachnid_spinneret" = "Plain", "arachnid_mandibles" = "Plain")
-	attack_verb = "claw"
-	attack_sound = 'sound/weapons/slash.ogg'
-	miss_sound = 'sound/weapons/slashmiss.ogg'
-	meat = /obj/item/reagent_containers/food/snacks/meat/slab/spider
+	meat = /obj/item/food/meat/slab/spider
 	liked_food = MEAT | RAW
 	disliked_food = FRUIT | GROSS
 	toxic_food = VEGETABLES | DAIRY
-	mutanteyes = /obj/item/organ/eyes/night_vision/arachnid
-	mutanttongue = /obj/item/organ/tongue/arachnid
-	species_language_holder = /datum/language_holder/arachnid
+	mutanteyes = /obj/item/organ/internal/eyes/night_vision/alien
+	species_language_holder = /datum/language/moffic
 	brutemod = 1.1
 	var/web_cooldown = 200
 	var/web_ready = TRUE
 	var/spinner_rate = 25
-	wings_icons = SPECIES_WINGS_MOTH //Arachnids' phylum is arthropods, which include butterflies. Might as well hit them with moth wings.
+	bodypart_overrides = list(
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mutant,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mutant,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/right/digitigrade,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/left/digitigrade,
+	)
+
+/datum/species/arachnid/randomize_features(mob/living/carbon/human/human_mob)
+	var/main_color
+	var/second_color
+	var/random = rand(1,5)
+	//Choose from a variety of mostly brightish, animal, matching colors
+	switch(random)
+		if(1)
+			main_color = "#FFAA00"
+			second_color = "#FFDD44"
+		if(2)
+			main_color = "#FF8833"
+			second_color = "#FFAA33"
+		if(3)
+			main_color = "#FFCC22"
+			second_color = "#FFDD88"
+		if(4)
+			main_color = "#FF8800"
+			second_color = "#FFFFFF"
+		if(5)
+			main_color = "#999999"
+			second_color = "#EEEEEE"
+	human_mob.dna.features["mcolor"] = main_color
+	human_mob.dna.features["mcolor2"] = second_color
+	human_mob.dna.features["mcolor3"] = second_color
+
+/datum/species/arachnid/prepare_human_for_preview(mob/living/carbon/human/vulp)
+	var/main_color = "#FF8800"
+	var/second_color = "#FFFFFF"
+
+	vulp.dna.features["mcolor"] = main_color
+	vulp.dna.features["mcolor2"] = second_color
+	vulp.dna.features["mcolor3"] = second_color
+	vulp.update_mutant_bodyparts(TRUE)
+	vulp.update_body(TRUE)
+
 
 /datum/species/arachnid/random_name(gender,unique,lastname)
 	if(unique)
@@ -61,14 +125,14 @@
 
 /datum/action/innate/spin_web
 	name = "Spin Web"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_STUN|AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "lay_web"
 
 /datum/action/innate/spin_cocoon
 	name = "Spin Cocoon"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_STUN|AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "wrap_0"
 
 /datum/action/innate/spin_web/Activate()

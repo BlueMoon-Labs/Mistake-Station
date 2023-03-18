@@ -30,6 +30,8 @@
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
+	var/list/mob_spell_list = list() //construct spells and mime spells. Spells that do not transfer from one mob to another and can not be lost in mindswap.
+
 	/// Whether the mob is pixel shifted or not
 	var/is_shifted = FALSE
 

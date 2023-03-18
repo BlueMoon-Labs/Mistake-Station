@@ -1,4 +1,4 @@
-//Manly anvil stuff
+/*//Manly anvil stuff											Потом.
 /obj/structure/anvil/obtainable/dwarfvil
 	name = "manly anvil"
 	desc = "someone reinforced an ordinary anvil with a wooden barrel and stained it with booze. You see a skull embedded in it. Its eye sockets are encrusted with legion cores."
@@ -12,3 +12,4 @@
 		return ..()
 	else
 		to_chat(user, "<span class='warning'>Ugh! This anvil smells of mushroom beer, and the design is weird. It is inconvenient to use it!</span>")
+*/

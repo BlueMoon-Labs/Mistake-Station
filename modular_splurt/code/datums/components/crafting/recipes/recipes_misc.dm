@@ -23,7 +23,7 @@
 		/obj/item/reagent_containers/cup/beaker = 1,
 		/obj/item/stock_parts/manipulator = 1
 	)
-
+/*
 //Manly anvil
 /datum/crafting_recipe/manlyanvil
 	name = "Manly Anvil"
@@ -37,7 +37,7 @@
 	tool_behaviors = list(TOOL_CROWBAR)
 
 	category = CAT_MISC
-
+*/
 /datum/crafting_recipe/trash_cannon
 	name = "Trash Cannon"
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)

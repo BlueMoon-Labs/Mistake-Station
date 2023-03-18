@@ -39,7 +39,6 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/pda
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap = 1)
 
 /datum/outfit/plasmaman/bridgeofficer
 	name = "Bridge Officer Plasmaman"
@@ -73,8 +72,8 @@
 	name = "Bridge Officer"
 	icon_state = "Head of Personnel"
 
-/datum/id_trim/job/nanotrasen_consultant
-	assignment = "Nanotrasen Consultant"
+/datum/id_trim/job/bridge_consultant
+	assignment = "Bridge Officer"
 	trim_state = "trim_centcom"
 	department_color = COLOR_GREEN
 	subdepartment_color = COLOR_GREEN

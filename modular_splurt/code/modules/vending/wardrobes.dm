@@ -1,6 +1,6 @@
 /obj/machinery/vending/wardrobe/bar_wardrobe/Initialize(mapload)
 	var/list/extra_products = list(
-		/obj/item/clothing/neck/petcollar/handmade = 3
+		/obj/item/clothing/neck/human_petcollar/handmade = 3
 	)
 	LAZYADD(products, extra_products)
 	. = ..()
@@ -14,7 +14,7 @@
 
 /obj/machinery/vending/wardrobe/curator_wardrobe/Initialize(mapload)
 	var/list/extra_products = list(
-		/obj/item/clothing/suit/fakearmor/press = 1,
+		/obj/item/clothing/suit/press = 1,
 			/obj/item/clothing/head/press_helmet = 1
 	)
 	LAZYADD(products, extra_products)

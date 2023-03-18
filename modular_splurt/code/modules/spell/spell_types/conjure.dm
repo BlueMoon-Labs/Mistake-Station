@@ -3,7 +3,7 @@
 	desc = "For El Trollage. And maybe a bit of crew's anger too."
 	cooldown_time = 100 SECONDS
 
-	button_icon = 'icons/obj/items_and_weapons.dmi'
+	button_icon = 'icons/obj/weapons/items_and_weapons.dmi'
 	button_icon_state = "soapdeluxe"
 	sound = 'sound/magic/summonitems_generic.ogg'
 
@@ -15,7 +15,7 @@
 	desc = "A clown's weapon of choice.  Use this to summon a fresh pie, just waiting to acquaintain itself with someone's face."
 	invocation_type = "none"
 
-	item_type = /obj/item/reagent_containers/food/snacks/pie/cream
+	item_type = /obj/item/food/pie/cream
 
 	cooldown_time = 15 SECONDS
 	button_icon = 'icons/obj/food/piecake.dmi'

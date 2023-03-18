@@ -18,24 +18,3 @@
 	category = list("Misc", "Medical Designs")
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/design/cyberimp_toolset_advanced
-	name = "Advanced Toolset Arm Implant"
-	desc = "A very advanced version of the regular toolset implant, has alien stuff!"
-	id = "ci-toolset-adv"
-	build_type = PROTOLATHE | MECHFAB
-	materials = list (/datum/material/iron = 7500, /datum/material/glass = 4500, /datum/material/silver = 4500)
-	construction_time = 200
-	build_path = /obj/item/organ/cyberimp/arm/toolset/advanced
-	category = list("Misc", "Medical Designs")
-	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
-
-/datum/design/cyberimp_surgical_advanced
-	name = "Advanced Surgical Arm Implant"
-	desc = "A very advanced version of the regular surgical implant, has alien stuff!"
-	id = "ci-surgery-adv"
-	build_type = PROTOLATHE | MECHFAB
-	materials = list (/datum/material/iron = 7500, /datum/material/glass = 4500, /datum/material/silver = 4500)
-	construction_time = 200
-	build_path = /obj/item/organ/cyberimp/arm/surgery/advanced
-	category = list("Misc", "Medical Designs")
-	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL

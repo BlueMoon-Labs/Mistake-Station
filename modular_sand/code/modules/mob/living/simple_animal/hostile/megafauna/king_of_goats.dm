@@ -82,7 +82,7 @@ Difficulty: Insanely Hard
 	desc = "The King of Kings, God amongst men, and your superior in every way."
 	icon_state = "king_goat2"
 	icon_living = "king_goat2"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4, /obj/item/clothing/head/goatpelt/king = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 4, /obj/item/clothing/head/goatpelt/king = 1)
 	health = 750
 	maxHealth = 750
 	armour_penetration = 50

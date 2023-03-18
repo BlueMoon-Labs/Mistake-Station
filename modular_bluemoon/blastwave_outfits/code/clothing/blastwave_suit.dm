@@ -1,8 +1,8 @@
 /obj/item/clothing/suit/armor/blastwave
 	name = "blastwave trenchcoat"
 	desc = "A generic trenchcoat of the boring wars."
-	icon = 'modular_bluemoon/smiley/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_bluemoon/smiley/icons/mob/clothing/suit.dmi'
+	icon = 'modular_bluemoon/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_bluemoon/icons/mob/clothing/suit.dmi'
 	icon_state = "blastwave_suit"
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS

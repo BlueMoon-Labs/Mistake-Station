@@ -1,9 +1,3 @@
-/datum/gear/neck/boatcloakpoly
-	name = "Polychromatic Boatcloak"
-	path = /obj/item/clothing/neck/cloak/alt/boatcloak/polychromic
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#FCFCFC", "#454F5C", "#CCCEE2")
-
 /datum/gear/neck/boatcloakcomm
 	name = "Command Boatcloak"
 	path = /obj/item/clothing/neck/cloak/alt/boatcloak/command
@@ -13,23 +7,23 @@
 
 /datum/gear/neck/spikedcollar
 	name = "Spiked Pet Collar"
-	path = /obj/item/clothing/neck/petcollar/spike
+	path = /obj/item/clothing/neck/human_petcollar/spike
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
 /datum/gear/neck/holocollar
 	name = "Holo-collar"
-	path = /obj/item/clothing/neck/petcollar/holo
+	path = /obj/item/clothing/neck/human_petcollar/holo
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
 	loadout_initial_colors = list("#33FFFF")
 
 /datum/gear/neck/casinoslave
 	name = "Casino Collar"
-	path = /obj/item/clothing/neck/petcollar/casino
+	path = /obj/item/clothing/neck/human_petcollar/casino
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
 /datum/gear/neck/handmade
 	name = "handmade collar"
-	path = /obj/item/clothing/neck/petcollar/handmade
+	path = /obj/item/clothing/neck/human_petcollar/handmade
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
 /datum/gear/neck/syntech/pendant
@@ -47,8 +41,8 @@
 	path = /obj/item/clothing/neck/syntech/collar
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
 
-/datum/gear/neck/polypetcollar
+/datum/gear/neck/polyhuman_petcollar
 	name = "Collar (poly)"
-	path = /obj/item/clothing/neck/petcollar/poly
+	path = /obj/item/clothing/neck/human_petcollar/poly
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
 	loadout_initial_colors = list("#00bb70", "#FFC600")

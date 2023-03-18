@@ -8,7 +8,6 @@
 	icon_state = "sring" //No use in a unique sprite since it's just one pixel
 	w_class = WEIGHT_CLASS_TINY
 	body_parts_covered = 0
-	transfer_prints = TRUE
 	strip_delay = 40
 	//These are already defined under the parent ring, but I wanna leave em here for reference purposes
 

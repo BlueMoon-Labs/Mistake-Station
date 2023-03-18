@@ -281,6 +281,7 @@
 	collar.emoting = tgui_input_text(user, "Change the emotion pattern.", max_length = MAX_MESSAGE_LEN)
 	collar.emoting_proc()
 
+/*
 //Collar stuff
 /obj/item/clothing/neck/mind_collar
 	name = "mind collar"
@@ -308,3 +309,4 @@
 	remote?.collar = null
 	remote = null
 	. = ..()
+*/

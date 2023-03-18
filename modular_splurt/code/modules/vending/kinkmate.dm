@@ -10,10 +10,10 @@
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/gloves/evening = 5,
-				/obj/item/clothing/neck/petcollar = 5,
-				/obj/item/clothing/neck/petcollar/choker = 5,
-				/obj/item/clothing/neck/petcollar/leather = 5,
-				/obj/item/clothing/neck/necklace/cowbell = 5,
+				/obj/item/clothing/neck/human_petcollar = 5,
+				/obj/item/clothing/neck/human_petcollar/choker = 5,
+				/obj/item/clothing/neck/human_petcollar/leather = 5,
+				/obj/item/clothing/neck/human_petcollar/locked/cow = 5,
 				/obj/item/clothing/neck/stole = 2,
 				/obj/item/clothing/neck/stole/black = 2,
 				/obj/item/restraints/handcuffs/fake/kinky = 5,
@@ -45,7 +45,7 @@
 				/obj/item/pregnancytest = 10,
 				)
 	contraband = list(
-				/obj/item/clothing/neck/petcollar/locked = 2,
+				/obj/item/clothing/neck/human_petcollar/locked = 2,
 				/obj/item/key/collar = 2,
 				/obj/item/clothing/head/kitty = 3,
 				/obj/item/clothing/head/rabbitears = 3,
@@ -81,9 +81,9 @@
 		/obj/item/leash = 3,
 		/obj/item/milking_machine = 5,
 		/obj/item/milking_machine/penis = 5,
-		/obj/item/clothing/neck/petcollar/spike = 5,
-		/obj/item/clothing/neck/petcollar/holo = 5,
-		/obj/item/clothing/neck/petcollar/casino = 5,
+		/obj/item/clothing/neck/human_petcollar/spike = 5,
+		/obj/item/clothing/neck/human_petcollar/holo = 5,
+		/obj/item/clothing/neck/human_petcollar/casino = 5,
 		/obj/item/clothing/gloves/latexsleeves = 3,
 		/obj/item/genital_equipment/sounding = 4,
 		/obj/item/clothing/accessory/ring/syntech = 4,
@@ -102,8 +102,7 @@
 		/obj/item/clothing/suit/chaplainsuit/nun = 5,
 		/obj/item/clothing/head/chaplain/nun_hood = 5,
 		/obj/item/clothing/shoes/highheel_sandals = 3,
-		/obj/item/clothing/shoes/invisiboots = 10, // Added here to go with the Gear Harness
-		/obj/item/clothing/neck/petcollar/poly = 5
+		/obj/item/clothing/shoes/invisiboots = 10 // Added here to go with the Gear Harness
 	)
 	var/list/extra_contraband = list(
 		//Lewd-Clothes
@@ -113,7 +112,7 @@
 		/obj/item/key/latex = 5,
 		/obj/item/clothing/head/dominatrixcap = 3,
 		/obj/item/mesmetron = 3,
-		/obj/item/clothing/neck/petcollar/locked/holo = 2,
+		/obj/item/clothing/neck/human_petcollar/locked/holo = 2,
 		/obj/item/storage/box/aphrodisiac_pump/plus = 3,
 		/obj/item/storage/box/medipens/lewd = 2
 	)

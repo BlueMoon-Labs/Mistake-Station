@@ -116,8 +116,8 @@
 	volume = 140
 
 /obj/item/tank/internals/doubleoxygen/populate_gas()
-	air_contents.gases(GAS_O2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
-	return
+	air_contents.assert_gas(/datum/gas/oxygen)
+	air_contents.gases[/datum/gas/oxygen][MOLES] = (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
 
 
 /obj/item/tank/internals/plasmamandouble
@@ -134,8 +134,8 @@
 	volume = 140
 
 /obj/item/tank/internals/plasmamandouble/populate_gas()
-	air_contents.gases(GAS_PLASMA, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
-	return
+	air_contents.assert_gas(/datum/gas/plasma)
+	air_contents.gases[/datum/gas/plasma][MOLES] = (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
 
 //research nods
 

@@ -54,8 +54,7 @@
 	results = list(/datum/reagent/consumable/ethanol/chemical_ex = 5)
 	required_reagents = list(
 		/datum/reagent/drug/aphrodisiacplus = 1,
-		/datum/reagent/medicine/morphine = 2,
-		/datum/reagent/fermi/enthrall = 2
+		/datum/reagent/medicine/morphine = 2
 	)
 
 /datum/chemical_reaction/heart_of_gold
@@ -70,7 +69,7 @@
 	results = list(/datum/reagent/consumable/ethanol/moth_in_chief = 4)
 	required_reagents = list(
 		/datum/reagent/consumable/ethanol/commander_and_chief = 1,
-		/datum/reagent/mutationtoxin/insect = 1,
+		/datum/reagent/mutationtoxin/moth = 1,
 		/datum/reagent/drug/copium = 1,
 		/datum/reagent/medicine/stimulants = 1
 	)
@@ -113,7 +112,7 @@
 	results = list(/datum/reagent/consumable/milkshake_strawberry = 2)
 	required_reagents = list(
 		/datum/reagent/consumable/milkshake_base = 1,
-		/datum/reagent/consumable/strawberryjuice = 1
+		/datum/reagent/consumable/berryjuice = 1
 	)
 
 /datum/chemical_reaction/milkshake_banana

@@ -15,22 +15,5 @@
 	worn_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|ARMS
-	togglename = "buttons"
+	toggle_noun = "buttons"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/suit/toggle/armor/hop/hop_formal
-	name = "\improper Head of Personnel's parade jacket"
-	desc = "For when an armoured vest isn't fashionable enough."
-	icon_state = "hopformal"
-	icon_state = "hopformal"
-	icon = 'modular_splurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/suit.dmi'
-	worn_icon_digi = 'modular_splurt/icons/mob/clothing/suit.dmi'
-	body_parts_covered = CHEST|ARMS
-	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 10)
-	togglename = "buttons"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/suit/toggle/armor/hop/hop_formal/Initialize()
-	. = ..()
-	allowed = GLOB.security_wintercoat_allowed

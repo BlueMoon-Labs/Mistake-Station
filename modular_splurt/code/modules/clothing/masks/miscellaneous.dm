@@ -28,9 +28,7 @@
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/mask_muzzle.dmi'
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
 	resistance_flags = ACID_PROOF
-	supports_variations_flags = STYLE_MUZZLE
 	visor_flags_inv = 0
-	flavor_adjust = FALSE
 	is_edible = 0
 
 /obj/item/clothing/mask/gas/cbrn/Initialize()

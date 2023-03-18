@@ -28,15 +28,7 @@
 	id = "sfish"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/food/carpmeat/imitation
-	category = list("initial", "Food")
-
-/datum/design/seaweedz
-	name = "Biomass Sea Weed"
-	id = "sea_weed"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/food/sea_weed
+	build_path = /obj/item/food/fishmeat/carp/imitation
 	category = list("initial", "Food")
 
 /datum/design/ricebag
@@ -44,7 +36,7 @@
 	id = "Ricebox"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/reagent_containers/food/condiment/rice
+	build_path = /obj/item/reagent_containers/condiment/rice
 	category = list("initial", "Food")
 
 /datum/design/flour_sack
@@ -52,7 +44,7 @@
 	id = "flour_sack"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/reagent_containers/food/condiment/flour
+	build_path = /obj/item/reagent_containers/condiment/flour
 	category = list("initial","Food")
 
 /datum/design/sugarbag
@@ -60,5 +52,5 @@
 	id = "Sugarbox"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1000)
-	build_path = /obj/item/reagent_containers/food/condiment/sugar
+	build_path = /obj/item/reagent_containers/condiment/sugar
 	category = list("initial", "Food")

@@ -122,8 +122,8 @@
 /obj/item/clothing/suit/hooded/corpus/s //sec
 	name = "Enforcer Voidsuit"
 	desc = "Deluxe issue armored voidsuit. Let the middle class bask in your grofit!"
-	icon_state = "corpuss"
-	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 10)
+	icon_state = "c)orpuss"
+	armor_type = /datum/armor/suit_armor
 	hoodtype = /obj/item/clothing/head/hooded/corpus/s //Enjoy this nice red outfit Nanotrasen! There is NO NEED for a pink one! xoxo -VivI Fanteriso
 
 /obj/item/clothing/suit/hooded/corpus/s/Initialize(mapload)
@@ -134,6 +134,7 @@
 	name = "Commander Voidsuit"
 	desc = "Premium issue correctional worker attire. Grease the gears of production."
 	icon_state = "corpusc"
+	armor_type = /datum/armor/suit_armor
 	hoodtype = /obj/item/clothing/head/hooded/corpus/c
 
 /obj/item/clothing/head/hooded/corpus
@@ -145,6 +146,7 @@
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACIALHAIR|HIDEFACE|HIDEMASK|HIDESNOUT|HIDENECK //hide your ugly face with this one simple trick!
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	armor_type = /datum/armor/suit_armor
 
 /obj/item/clothing/head/hooded/corpus/s //sec
 	icon_state = "corpuss"
@@ -173,7 +175,6 @@
 	hoodtype = /obj/item/clothing/head/hooded/pyramidhead
 	body_parts_covered = CHEST|GROIN|LEGS
 	supports_variations_flags = NONE
-	no_t = TRUE
 
 /obj/item/clothing/head/hooded/pyramidhead
 	name = "Pyramid Head"
@@ -195,7 +196,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
-	armor = list(MELEE = 25, BULLET = 10, LASER = 25, ENERGY = 10, BOMB = 5, BIO = 5, RAD = 5, FIRE = 5, ACID = 45) // Det's armor value + 5 BOMB&BIO&RAD&FIRE
+	armor_type = /datum/armor/suit_armor
 
 /obj/item/clothing/suit/goner/Initialize(mapload)
 	. = ..()
@@ -204,17 +205,6 @@
 /obj/item/clothing/suit/goner/fake
 	name = "trencher coat replica"
 	desc = "A 90% replica of No Man's Land-type coat."
-	armor = 0
-
-/obj/item/clothing/suit/goner/fake/poly
-	name = "polychromic trencher coat"
-	desc = "A generic, drab olive trench coat with polychromic spots."
-	var/list/poly_colors = list("#E6E6E6", "#D6D6D6", "#D6D6D6")
-
-/obj/item/clothing/suit/goner/fake/poly/Initialize()
-	. = ..()
-	AddElement(/datum/element/polychromic, poly_colors, 3)
-
 /obj/item/clothing/suit/goner/fake/poly/classic
 	name = "classic trencher coat"
 	icon_state = "goner_suit_classic"
@@ -244,7 +234,7 @@
 	name = "Strange Voidsuit"
 	desc = "An odd Voidsuit that looks strangely familiar. Has the name 'John' stenciled on it. The shielding module is also intact!"
 	icon_state = "corpus_jp"
-	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 0, RAD = 50, FIRE = 50, ACID = 50, WOUND = 50)
+	armor_type = /datum/armor/suit_armor
 	hoodtype = /obj/item/clothing/head/hooded/corpus/jp
 
 /obj/item/clothing/head/hooded/corpus/jp //sec

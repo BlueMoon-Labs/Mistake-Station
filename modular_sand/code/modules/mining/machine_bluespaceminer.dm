@@ -68,9 +68,9 @@
 	materials = null
 	return ..()
 
-/obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/M)
+/obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/M, obj/item/multitool/tool)
 	. = ..()
-	if(!M.buffer || !istype(M.buffer, /obj/machinery/ore_silo))
+	if(!QDELETED(tool.buffer) && istype(tool.buffer, /obj/machinery/ore_silo))
 		to_chat(user, span_warning("You need to multitool the ore silo first."))
 		balloon_alert(user, "invalid buffer!")
 		return TRUE

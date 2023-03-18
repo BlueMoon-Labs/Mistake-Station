@@ -30,7 +30,6 @@
 	icon_state = "mindcollar"
 	icon_state = "mindcollar"
 	var/obj/item/mind_controller/remote = null
-	pocket_storage_component_path = /datum/storage/concrete/pockets/small/collar/mind_collar
 	var/emoting = "Shivers"
 	var/seamless = FALSE
 

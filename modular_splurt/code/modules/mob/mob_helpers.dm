@@ -21,7 +21,7 @@
 	if(HAS_TRAIT(src, TRAIT_HEADPAT_SLUT))
 		. += span_info("Вы понимаете, что [t_He] ценит физическую привязанность больше, чем обычно.")
 
-/mob/can_read(obj/O)
+/mob/can_read(obj/O, reading_check_flags = READING_CHECK_LITERACY)
 	// Check for D4C craving
 	if(HAS_TRAIT(src, TRAIT_DUMB_CUM_CRAVE))
 		// Warn user, then return

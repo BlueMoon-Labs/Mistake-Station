@@ -6,30 +6,14 @@ PROCESSING_SUBSYSTEM_DEF(huds)
 	stat_tag = "HUDS"
 
 /mob
-	// CLICKDELAY AND RELATED
-	// Generic clickdelay - Hybrid time-since-last-attack and time-to-next-attack system.
-	// next_action is a hard cooldown, as Click()s will not pass unless it is passed.
-	// last_action is not a hard cooldown and different items can check for different delays.
-	/// Generic clickdelay variable. Marks down the last world.time we did something that should cause or impact generic clickdelay. This should be directly set or set using [DelayNextAction()]. This should only be checked using [CheckActionCooldown()].
-	var/last_action = 0
 	/**
 	  * The difference between the above and this is this is set immediately before even the pre-attack begins to ensure clickdelay is respected.
 	  * Then, it is flushed or discarded using [FlushLastAttack()] or [DiscardLastAttack()] respectively.
 	  */
 
 	var/last_action_immediate = 0
-	/// Generic clickdelay variable. Next world.time we should be able to do something that respects generic clickdelay. This should be set using [DelayNextAction()] This should only be checked using [CheckActionCooldown()].
-	var/next_action = 0
-	/// Ditto
-	var/next_action_immediate = 0
 	/// Default clickdelay for an UnarmedAttack() that successfully passes. Respects action_cooldown_mod.
 	var/unarmed_attack_speed = CLICK_CD_MELEE
-	/// Simple modification variable multiplied to next action modifier on adjust and on checking time since last action using [CheckActionCooldown()].
-	/// This should only be manually modified using multipliers.
-	var/action_cooldown_mod = 1
-	/// Simple modification variable added to amount on adjust and on checking time since last action using [CheckActionCooldown()].
-	/// This should only be manually modified via addition.
-	var/action_cooldown_adjust = 0
 
 	// Resisting - While resisting will give generic clickdelay, it is also on its own resist delay system. However, resisting does not check generic movedelay.
 	// Resist cooldown should only be set at the start of a resist chain - whether this is clicking an alert button, pressing or hotkeying the resist button, or moving to resist out of a locker.
@@ -42,12 +26,6 @@ PROCESSING_SUBSYSTEM_DEF(huds)
 	var/resist_cooldown = CLICK_CD_RESIST
 	/// Minimum world time for another resist. This should only be checked using [CheckResistCooldown()].
 	var/next_resist = 0
-	/// Simple modification variable multiplied to next action modifier on adjust and on checking time since last action using [CheckActionCooldown()].
-	/// This should only be manually modified using multipliers.
-	var/action_cooldown_mod = 1
-	/// Simple modification variable added to amount on adjust and on checking time since last action using [CheckActionCooldown()].
-	/// This should only be manually modified via addition.
-	var/action_cooldown_adjust = 0
 
 /atom/movable/screen/action_bar
 

@@ -100,17 +100,6 @@
 /datum/design/cyberimp_security_hud
 	category = list("Implants", "Medical Designs")
 
-/datum/design/cyberimp_diagnostic_hud
-	name = "Diagnostic HUD Implant"
-	desc = "These cybernetic eyes will display a diagnostic HUD over everything you see. Wiggle eyes to control."
-	id = "ci-diaghud"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 50
-	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 500, /datum/material/gold = 500)
-	build_path = /obj/item/organ/cyberimp/eyes/hud/diagnostic
-	category = list("Implants", "Medical Designs")
-	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
-
 /datum/design/cyberimp_antidrop
 	category = list("Implants", "Medical Designs")
 

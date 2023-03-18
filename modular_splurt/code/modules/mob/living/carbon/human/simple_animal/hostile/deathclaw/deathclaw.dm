@@ -1,3 +1,52 @@
+/// For [BLOCK_SHOULD_PARTIAL_MITIGATE]. Percentage mitigation.
+#define BLOCK_RETURN_MITIGATION_PERCENT							"partial_mitigation"
+
+/**
+  * Proc that throws the mob at the target after the windup.
+  */
+/mob/living/simple_animal/hostile/proc/handle_charge_target(var/atom/target)
+	charge_state = TRUE
+	throw_at(target, charge_distance, 1, src, FALSE, TRUE, callback = CALLBACK(src, .proc/charge_end))
+	COOLDOWN_START(src, charge_cooldown, charge_frequency)
+	return TRUE
+
+/**
+  * Proc that handles a charge attack after it's concluded.
+  */
+/mob/living/simple_animal/hostile/proc/charge_end()
+	charge_state = FALSE
+
+/**
+  * Proc that handles the charge impact of the charging mob.
+  */
+/mob/living/simple_animal/hostile/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(!charge_state)
+		return ..()
+
+	if(hit_atom)
+		if(isliving(hit_atom))
+			var/mob/living/L = hit_atom
+			var/blocked = FALSE
+			if(ishuman(hit_atom))
+				var/mob/living/carbon/human/H = hit_atom
+				var/list/return_list = list()
+				if(!blocked)
+					blocked = return_list[BLOCK_RETURN_MITIGATION_PERCENT]
+			if(!blocked)
+				L.visible_message("<span class='danger'>[src] charges on [L]!</span>", "<span class='userdanger'>[src] charges into you!</span>")
+				L.Knockdown(knockdown_time)
+			else
+				Stun((knockdown_time * 2), 1, 1)
+			charge_end()
+		else if(hit_atom.density && !hit_atom.CanPass(src))
+			visible_message("<span class='danger'>[src] smashes into [hit_atom]!</span>")
+			Stun((knockdown_time * 2), 1, 1)
+
+		if(charge_state)
+			charge_state = FALSE
+			update_icons()
+			handle_automated_movement()
+
 /mob/living/simple_animal/hostile/deathclaw
 	name = "deathclaw"
 	desc = "A massive, reptilian creature with powerful muscles, razor-sharp claws, and aggression to match."
@@ -97,7 +146,7 @@
 	var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src)
 	animate(D, alpha = 0, color = "#FF0000", transform = matrix()*2, time = 1)
 	sleep(3)
-	throw_at(T, get_dist(src, T), 1, src, 0, callback = CALLBACK(src, .proc/charge_end))
+	throw_at(T, get_dist(src, T), 1, src, 0, callback = CALLBACK(src, PROC_REF(charge_end)))
 
 /mob/living/simple_animal/hostile/deathclaw/charge_end(list/effects_to_destroy)
 	charging = FALSE

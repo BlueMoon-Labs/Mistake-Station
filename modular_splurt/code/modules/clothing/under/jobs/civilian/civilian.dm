@@ -13,7 +13,7 @@
 	desc = "A female head of personnel's luxury-wear, for special occasions."
 	icon_state = "hop_parade_female"
 	icon_state = "hop_parade_female"
-	fitted = FEMALE_UNIFORM_TOP
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/civilian/lawyer/galaxy_blue
 	name = "\improper De Void of Soul"
