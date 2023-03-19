@@ -43,7 +43,7 @@
 
 /mob/living/simple_animal/hostile/carrion/OpenFire(atom/the_target)
 	var/dist = get_dist(src, the_target)
-	Beam(the_target, icon_state = "tentacle", maxdistance = 7, beam_type=/obj/effect/ebeam/blood, emissive = FALSE)
+	Beam(the_target, icon_state = "tentacle", maxdistance = dist, beam_type=/obj/effect/ebeam/blood, emissive = FALSE)
 	the_target.attack_animal(src)
 
 /mob/living/simple_animal/hostile/carrion/Initialize()

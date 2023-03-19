@@ -68,7 +68,7 @@
 	action_owner.update_worn_back()
 
 // Runs on toggling the ability
-/datum/action/item_action/hide_backpack/Trigger()
+/datum/action/item_action/hide_backpack/Trigger(trigger_flags)
 	// Set owner
 	var/mob/living/carbon/human/action_owner = owner
 
@@ -85,7 +85,7 @@
 		button_icon_state = "backpack_faded"
 	else
 		// Normal backpack
-		button_icon = 'icons/obj/storage.dmi'
+		button_icon = 'icons/obj/storage/backpack.dmi'
 		button_icon_state = "backpack"
 
 	// Update icon state

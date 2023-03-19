@@ -9,7 +9,7 @@
 	var/small = FALSE
 	//var/image/small_icon
 
-/datum/action/sizecode_smallsprite/Trigger()
+/datum/action/sizecode_smallsprite/Trigger(trigger_flags)
 	. = ..()
 	if(!owner)
 		return

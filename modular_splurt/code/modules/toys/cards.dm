@@ -8,7 +8,7 @@
 	decksize = 108
 
 //Populate the deck.
-/obj/item/toy/cards/deck/unum/populate_deck()
+/obj/item/toy/cards/deck/unum/Initialize()
 	for(var/colour in list("Red","Yellow","Green","Blue"))
 		initial_cards += "[colour] 0" //Uno, i mean, cough cough, Unum decks have only one colour of each 0, weird huh?
 		for(var/k in 0 to 1) //two of each colour of number
@@ -20,3 +20,4 @@
 	for(var/k in 0 to 3) //4 wilds and draw 4s
 		initial_cards += "Wildcard"
 		initial_cards += "Draw 4"
+	return ..()

@@ -136,7 +136,7 @@
 		T.fluid_mult = 1 //Base is 1
 		T.fluid_max_volume = 3 //Base is 3
 
-/datum/quirk/cum_plus/add_to_holder()
+/datum/quirk/cum_plus/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	var/mob/living/carbon/M = quirk_holder //If you get balls later, then this will still proc
 	if(M.getorganslot("testicles"))
 		var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
@@ -172,7 +172,7 @@
 		return
 	examine_list += span_lewd("Вы чувствуете сильную ауру подчинения от [quirk_holder.ru_na()].")
 
-/datum/quirk/well_trained/add_to_holder()
+/datum/quirk/well_trained/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	. = ..()
 	if(!quirk_holder)
 		return
@@ -287,7 +287,7 @@
 	// Apply the augment to the quirk holder
 	put_in.implant(quirk_holder, null, TRUE, TRUE)
 
-/datum/quirk/storage_concealment/add_to_holder()
+/datum/quirk/storage_concealment/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	// This trait should only be applied by the augment
 	// Check the quirk holder for the trait
 	if(HAS_TRAIT(quirk_holder, TRAIT_HIDE_BACKPACK))
@@ -317,7 +317,7 @@
 	REMOVE_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	REMOVE_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
-/datum/quirk/incubus/add_to_holder()
+/datum/quirk/incubus/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_nutrition(-0.09)//increases their nutrition loss rate to encourage them to gain a partner they can essentially leech off of
@@ -341,7 +341,7 @@
 	REMOVE_TRAIT(H,TRAIT_NOHUNGER,ROUNDSTART_TRAIT)
 	REMOVE_TRAIT(H,TRAIT_NOTHIRST,ROUNDSTART_TRAIT)
 
-/datum/quirk/succubus/add_to_holder()
+/datum/quirk/succubus/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_nutrition(-0.09)//increases their nutrition loss rate to encourage them to gain a partner they can essentially leech off of
@@ -380,7 +380,7 @@
 	// Add quirk language
 	quirk_mob.grant_language(/datum/language/vampiric, TRUE, TRUE, LANGUAGE_BLOODSUCKER)
 
-/datum/quirk/bloodfledge/add_to_holder()
+/datum/quirk/bloodfledge/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	. = ..()
 
 	// Check if the current area is a coffin
@@ -558,7 +558,7 @@
 
 	quirk_flags = QUIRK_PROCESSES
 
-/datum/quirk/nudist/add_to_holder()
+/datum/quirk/nudist/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	var/mob/living/carbon/human/H = quirk_holder
 	// Checking torso exposure appears to be a robust method.
 	if( ( H.is_chest_exposed() && H.is_groin_exposed() ) )
@@ -584,7 +584,7 @@
 	medical_record_text = "Пациент чувствует себя более безопасно при ношении противогаза."
 	quirk_flags = QUIRK_PROCESSES
 
-/datum/quirk/masked_mook/add_to_holder()
+/datum/quirk/masked_mook/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/clothing/mask/gas/gasmask = H.get_item_by_slot(ITEM_SLOT_MASK)
 	if(istype(gasmask))

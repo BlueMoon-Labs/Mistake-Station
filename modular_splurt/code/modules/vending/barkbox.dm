@@ -1,3 +1,20 @@
+/*
+/obj/item/clothing/suit/petharness
+	name = "Pet Harness"
+	desc = "For your pet! Or not! Has a little clip on the back."
+	icon_state = "petharness"
+	item_state = "petharness"
+	body_parts_covered = NONE
+	mutantrace_variation = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	allowed = /obj/item/toy/fluff
+
+/obj/item/clothing/suit/petharness/mesh
+	name = "Mesh Pet Harness"
+	desc = "For your pet! Or not! Has some mesh to cover up your more sensitive bits and a little clip on the back."
+	icon_state = "petharness_mesh"
+	item_state = "petharness_mesh"
+	body_parts_covered = CHEST
+*/
 /obj/item/food/cookie/dogtreat
 	name = "Dog Treat"
 	desc = "It's a scooby-snack. Right?"
@@ -43,25 +60,27 @@
 	products = list(
 				/obj/item/storage/fancy/treat_box = 8,
 				/obj/item/clothing/neck/petcollar = 5,
-				/obj/item/clothing/neck/human_petcollar/ribbon = 5,
 				/obj/item/clothing/neck/human_petcollar/leather = 5,
-				/obj/item/clothing/suit/petharness = 4,
-				/obj/item/clothing/suit/petharness/mesh = 4,
+				//obj/item/clothing/suit/petharness = 4,
+				//obj/item/clothing/suit/petharness/mesh = 4,
 				/obj/item/toy/tennis = 4,
 				/obj/item/toy/tennis/rainbow = 2,
-				/obj/item/toy/fluff/bone_poly = 4,
-				/obj/item/toy/fluff/frisbee_poly = 4
+				/obj/item/toy/tennis/red = 4,
+				/obj/item/toy/tennis/yellow = 4,
+				/obj/item/toy/tennis/green = 4,
+				/obj/item/toy/tennis/cyan = 4,
+				/obj/item/toy/tennis/blue = 4,
+				/obj/item/toy/tennis/purple = 4
 				)
 	contraband = list(
 				/obj/item/clothing/neck/human_petcollar/locked = 2,
-				/obj/item/clothing/neck/human_petcollar/locked/ribbon = 2,
+				//obj/item/clothing/neck/human_petcollar/locked/ribbon = 2,
 				/obj/item/clothing/neck/human_petcollar/locked/leather = 2,
 				/obj/item/key/collar = 2,
 				/obj/item/dildo/knotted = 3
 				)
 	premium = list(
-				/obj/item/toy/tennis/rainbow/izzy = 1,
-				/obj/item/toy/fluff/bone_poly/squeak = 1
+				/obj/item/toy/tennis/rainbow/izzy = 1
 				)
 	refill_canister = /obj/item/vending_refill/barkbox
 	default_price = PAYCHECK_CREW * 0.7 //Default of 35.

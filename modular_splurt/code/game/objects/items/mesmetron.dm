@@ -37,7 +37,7 @@
 		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>Your eyelids gently shut as you fall into a deep slumber. All you can hear is [user]'s voice as you commit to following all of their suggestions</span>")
 
 		H.SetSleeping(1200)
-		H.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80) = max(H.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80), 40)
+		H.set_timed_status_effect(100 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 		subject = H
 		return
 

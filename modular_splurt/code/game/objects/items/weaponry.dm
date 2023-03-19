@@ -34,6 +34,21 @@
 
 #define STATUS_EFFECT_ELECTROSTAFF /datum/status_effect/electrostaff		//slows down victim
 
+/datum/status_effect/electrostaff
+	id = "electrostaff"
+	alert_type = null
+	status_type = STATUS_EFFECT_REPLACE
+
+/datum/status_effect/electrostaff/on_creation(mob/living/new_owner, set_duration)
+	if(isnum(set_duration))
+		duration = set_duration
+	. = ..()
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/electrostaff)
+
+/datum/status_effect/electrostaff/on_remove()
+	. = ..()
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/electrostaff)
+
 /obj/item/electrostaff
 	icon = 'modular_splurt/icons/obj/items_and_weapons.dmi'
 	icon_state = "electrostaff"

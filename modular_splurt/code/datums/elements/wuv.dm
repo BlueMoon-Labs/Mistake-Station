@@ -34,17 +34,15 @@
 	. = ..()
 	UnregisterSignal(source, COMSIG_MOB_ATTACK_HAND)
 
-/datum/element/wuv/proc/on_attack_hand(datum/source, mob/user, act_intent)
+/datum/element/wuv/proc/on_attack_hand(datum/source, mob/user)
 	var/mob/living/L = source
 
 	if(L.stat == DEAD)
 		return
-	//we want to delay the effect to be displayed after the mob is petted, not before.
-	switch(act_intent)
-		if(L.combat_mode == TRUE)
-			addtimer(CALLBACK(src, .proc/kick_the_dog, source, user), 1)
-		if(L.combat_mode == FALSE)
-			addtimer(CALLBACK(src, .proc/pet_the_dog, source, user), 1)
+	if(L.combat_mode == TRUE)
+		addtimer(CALLBACK(src, .proc/kick_the_dog, source, user), 1 SECONDS)
+	else if(L.combat_mode == FALSE)
+		addtimer(CALLBACK(src, .proc/pet_the_dog, source, user), 1 SECONDS)
 
 /datum/element/wuv/proc/pet_the_dog(mob/target, mob/user)
 	if(QDELETED(target) || QDELETED(user) || target.stat != CONSCIOUS)

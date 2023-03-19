@@ -7,7 +7,7 @@
 	mix_message = "the reaction gives off a mist of milk."
 	required_temp = 600
 
-/datum/chemical_reaction/fermi/breast_enlarger/FermiFinish(datum/reagents/holder, atom/my_atom)
+/datum/chemical_reaction/fermi/breast_enlarger/reaction_finish(datum/reagents/holder, atom/my_atom)
 	var/datum/reagent/fermi/breast_enlarger/BE = locate(/datum/reagent/fermi/breast_enlarger) in my_atom.reagents.reagent_list
 	if(!BE)
 		return
@@ -17,7 +17,7 @@
 		holder.add_reagent(/datum/reagent/fermi/BEsmaller, cached_volume)
 
 
-/datum/chemical_reaction/fermi/breast_enlarger/FermiExplode(datum/reagents, var/atom/my_atom, volume, temp, pH)
+/datum/chemical_reaction/fermi/breast_enlarger/default_explode(datum/reagents, var/atom/my_atom, volume, temp, pH)
 	var/obj/item/organ/genital/breasts/B = new /obj/item/organ/genital/breasts(get_turf(my_atom))
 	my_atom.visible_message("<span class='warning'>The reaction suddenly condenses, creating a pair of breasts!</b></span>")
 	var/datum/reagent/fermi/breast_enlarger/BE = locate(/datum/reagent/fermi/breast_enlarger) in my_atom.reagents.reagent_list
@@ -30,14 +30,14 @@
 	mix_message = "the reaction gives off a spicy mist."
 	required_temp = 600
 
-/datum/chemical_reaction/fermi/penis_enlarger/FermiExplode(datum/reagents, var/atom/my_atom, volume, temp, pH)
+/datum/chemical_reaction/fermi/penis_enlarger/default_explode(datum/reagents, var/atom/my_atom, volume, temp, pH)
 	var/obj/item/organ/genital/penis/P = new /obj/item/organ/genital/penis(get_turf(my_atom))
 	my_atom.visible_message("<span class='warning'>The reaction suddenly condenses, creating a penis!</b></span>")
 	var/datum/reagent/fermi/penis_enlarger/PE = locate(/datum/reagent/fermi/penis_enlarger) in my_atom.reagents.reagent_list
 	P.length = ((PE.volume * PE.purity) / 10)//half as effective.
 	my_atom.reagents.clear_reagents()
 
-/datum/chemical_reaction/fermi/penis_enlarger/FermiFinish(datum/reagents/holder, atom/my_atom)
+/datum/chemical_reaction/fermi/penis_enlarger/reaction_finish(datum/reagents/holder, atom/my_atom)
 	var/datum/reagent/fermi/penis_enlarger/PE = locate(/datum/reagent/fermi/penis_enlarger) in my_atom.reagents.reagent_list
 	if(!PE)
 		return

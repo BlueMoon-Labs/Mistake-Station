@@ -159,7 +159,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 		if(buckle_mob(M))
 			user.visible_message(span_warning("[user] вешает [M != user ? "[M]" : "себя"]!"),\
 				span_userdanger("[M != user ? "[user] вешает меня" : "Вешаю себя"]!"))
-			playsound(user.loc, 'modular_bluemoon/sounds/noosed.ogg', 50, 1, -1)
+			playsound(user.loc, 'modular_bluemoon/sound/noosed.ogg', 50, 1, -1)
 			log_combat(user, M, "hanged", src)
 			M.noosed = TRUE
 			return TRUE
@@ -198,7 +198,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 						span_suicide("Взгляд [buckled_mob] направлен в пустоту."))
 				if(prob(5))
 					buckled_mob.visible_message(pick(flavor_text))
-				playsound(buckled_mob.loc, 'modular_bluemoon/sounds/noose_idle.ogg', 30, 1, -3)
+				playsound(buckled_mob.loc, 'modular_bluemoon/sound/noose_idle.ogg', 30, 1, -3)
 
 /mob/living/carbon/human
 	var/noosed = FALSE

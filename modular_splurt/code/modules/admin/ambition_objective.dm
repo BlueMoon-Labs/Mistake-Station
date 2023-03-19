@@ -1,3 +1,72 @@
+GLOBAL_LIST_INIT(command_positions, list(
+	JOB_CAPTAIN,
+	JOB_HEAD_OF_PERSONNEL,
+	JOB_HEAD_OF_SECURITY,
+	JOB_CHIEF_ENGINEER,
+	JOB_RESEARCH_DIRECTOR,
+	JOB_CHIEF_MEDICAL_OFFICER))
+
+GLOBAL_LIST_INIT(engineering_positions, list(
+	JOB_CHIEF_ENGINEER,
+	JOB_STATION_ENGINEER,
+	JOB_ATMOSPHERIC_TECHNICIAN))
+
+GLOBAL_LIST_INIT(medical_positions, list(
+	JOB_CHIEF_MEDICAL_OFFICER,
+	JOB_MEDICAL_DOCTOR,
+	JOB_PARAMEDIC,
+	JOB_VIROLOGIST,
+	JOB_CHEMIST,
+	JOB_PSYCHOLOGIST,
+	JOB_SECURITY_MEDIC))
+
+GLOBAL_LIST_INIT(science_positions, list(
+	JOB_RESEARCH_DIRECTOR,
+	JOB_SCIENTIST,
+	JOB_GENETICIST,
+	JOB_ROBOTICIST))
+
+GLOBAL_LIST_INIT(supply_positions, list(
+	JOB_QUARTERMASTER,
+	JOB_CARGO_TECHNICIAN,
+	JOB_SHAFT_MINER))
+
+GLOBAL_LIST_INIT(service_positions, list(
+	JOB_HEAD_OF_PERSONNEL,
+	JOB_BARTENDER,
+	JOB_BOTANIST,
+	JOB_COOK,
+	JOB_JANITOR,
+	JOB_CURATOR,
+	JOB_PSYCHOLOGIST,
+	JOB_LAWYER,
+	JOB_CHAPLAIN,
+	JOB_CLOWN,
+	JOB_MIME,
+	JOB_ASSISTANT))
+
+//we really need to split service into civillian positions officially, until then this is my solution
+GLOBAL_LIST_INIT(service_food_positions, list(
+	JOB_BARTENDER,
+	JOB_BOTANIST,
+	JOB_COOK,
+))
+
+GLOBAL_LIST_INIT(security_positions, list(
+	JOB_HEAD_OF_SECURITY,
+	JOB_WARDEN,
+	JOB_DETECTIVE,
+	JOB_SECURITY_OFFICER,
+	JOB_SECURITY_MEDIC))
+
+GLOBAL_LIST_INIT(scum_positions, list(
+	JOB_PRISONER))
+
+GLOBAL_LIST_INIT(nonhuman_positions, list(
+	JOB_AI,
+	JOB_CYBORG,
+	ROLE_PAI))
+
 /datum/ambition_objective
 	var/datum/mind/owner = null			//владелец амбиции
 	var/completed = 0					//завершение амбиции для конца раунда
@@ -86,12 +155,10 @@
 		return pick_list_weighted("ambitions/science.json", job)
 
 	if(owner.assigned_role in GLOB.supply_positions)
-		if(owner.assigned_role == JOB_HUNTER)
-			return pick_list_weighted("ambitions/supply.json", "Common")
 		return pick_list_weighted("ambitions/supply.json", job)
 
 	if(owner.assigned_role in (GLOB.security_positions))
-		if(owner.assigned_role == JOB_FIELD_MEDIC && (prob(chance_other_departament_ambition)))	//шанс что бригмедик возьмёт амбицию мед. отдела.
+		if(owner.assigned_role == JOB_SECURITY_MEDIC && (prob(chance_other_departament_ambition)))	//шанс что бригмедик возьмёт амбицию мед. отдела.
 			job = pick(GLOB.medical_positions)
 			return pick_list_weighted("ambitions/medical.json", job)
 		return pick_list_weighted("ambitions/security.json", job)

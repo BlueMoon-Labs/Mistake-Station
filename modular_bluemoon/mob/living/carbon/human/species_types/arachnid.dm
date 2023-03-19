@@ -104,7 +104,7 @@
 		H.adjustToxLoss(3)
 		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM)
 
-/datum/species/arachnid/check_weakness(obj/item/weapon, mob/living/attacker)
+/datum/species/arachnid/check_species_weakness(obj/item/weapon, mob/living/attacker)
 	if(istype(weapon, /obj/item/melee/flyswatter))
 		return 9 //flyswatters deal 10x damage to arachnids
 	return 0
@@ -186,7 +186,7 @@
 	var/nutrition_threshold = NUTRITION_LEVEL_FED
 	if (H.nutrition >= nutrition_threshold)
 		to_chat(H, "<span class='warning'>You pull out a strand from your spinneret, ready to wrap a target. <BR>\
-		 (Press ALT+CLICK on the target to start wrapping.)</span>")
+		(Press ALT+CLICK on the target to start wrapping.)</span>")
 		H.adjust_nutrition(E.spinner_rate * -0.5)
 		addtimer(VARSET_CALLBACK(E, web_ready, TRUE), E.web_cooldown)
 		RegisterSignal(H, list(COMSIG_MOB_ALTCLICKON), .proc/cocoonAtom)

@@ -242,7 +242,7 @@
 		to_chat(user, span_info("\The [parent] doesn't seems to hatch, try again later?"))
 		return
 
-	var/mob/player = pick(candidates)
+	//var/mob/player = pick(candidates)
 
 	playsound(parent, 'sound/effects/splat.ogg', 70, TRUE)
 	var/mob/living/babby = new baby_type(get_turf(parent))
@@ -250,6 +250,9 @@
 	if(ishuman(babby))
 		determine_baby_features(babby)
 		determine_baby_dna(babby)
+
+	//if(ckey)
+	//	player.ckey = ckey(babby, TRUE)
 
 	to_chat(babby, "You are the son (or daughter) of [mother_name ? mother_name : "someone"]!")
 

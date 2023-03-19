@@ -7,4 +7,3 @@
 	foodtypes = GROSS
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	food_reagents = list(/datum/reagent/consumable/sodiumchloride = 1)

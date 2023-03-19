@@ -196,7 +196,7 @@
 	taste_description = "fuzz, warmth and comfort"
 
 /datum/glass_style/drinking_glass/moth_in_chief
-	required_drink_type = /datum/reagent/consumable/ethanol/heart_of_gold
+	required_drink_type = /datum/reagent/consumable/ethanol/moth_in_chief
 	name = "Moth in Chief"
 	desc = "A simple yet elegant drink, inspires confidence in even the most pessimistic of men. The mantle rests well upon your shoulders."
 	icon = 'modular_splurt/icons/obj/drinks.dmi'

@@ -92,7 +92,7 @@
 			if(target.get_lust() < 5)
 				target.set_lust(5)
 		if(target.combat_mode == FALSE)
-			if(target.restrained())
+			if(target.incapacitated())
 				user.visible_message(
 					pick("<span class='lewd'>\The <b>[target]</b> игриво извивается в попытке снять физические ограничения.</span>",
 						"<span class='lewd'>\The <b>[target]</b> хихикает, вырываясь из рук <b>[user]</b>.</span>",

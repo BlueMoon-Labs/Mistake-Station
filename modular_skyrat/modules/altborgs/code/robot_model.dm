@@ -219,7 +219,7 @@
 		"Alina" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "alina-med", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE), sleeper_overlay = "valemedsleeper"),
 		"Drake" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "drakemed", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE), sleeper_overlay = "drakemedsleeper"),
 		"Haydee" = list(SKIN_ICON = 'modular_splurt/icons/mob/robots.dmi', SKIN_ICON_STATE = "haydeemedical", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)), // SPLURT Addon (Hyper Port)
-		"Fembot" = list(SKIN_ICON = 'modular_bluemoon/Gardelin0/icons/mob/robots.dmi', SKIN_ICON_STATE = "fembot-medic", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)), //Gardelin0 Addon
+		"Fembot" = list(SKIN_ICON = 'modular_bluemoon/icons/mob/robots.dmi', SKIN_ICON_STATE = "fembot-medic", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)), //Gardelin0 Addon
 		"Borgi" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "borgi-medi", SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE), sleeper_overlay = "borgi-medi-sleeper")
 	)
 

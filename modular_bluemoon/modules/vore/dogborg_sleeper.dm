@@ -14,8 +14,6 @@
 	var/medical_scanner = TRUE
 	var/cleaning_cycles = 20
 	var/patient_laststat = null
-	var/list/injection_chems = list(/datum/reagent/medicine/antitoxin, /datum/reagent/medicine/epinephrine,
-								/datum/reagent/medicine/salbutamol, /datum/reagent/medicine/bicaridine, /datum/reagent/medicine/kelotane)
 	var/eject_port = "ingestion"
 	var/escape_in_progress = FALSE
 	var/message_cooldown
@@ -48,6 +46,14 @@
 		/obj/item/grenade,
 		/obj/item/storage
 		))
+	var/list/injection_chems = list(/datum/reagent/medicine/c2/aiuri,\
+									/datum/reagent/medicine/c2/convermol,\
+									/datum/reagent/medicine/epinephrine,\
+									/datum/reagent/medicine/c2/libital,\
+									/datum/reagent/medicine/c2/multiver,\
+									/datum/reagent/medicine/salglu_solution,\
+									/datum/reagent/medicine/spaceacillin,\
+									/datum/reagent/medicine/lidocaine)
 
 // Bags are prohibited from this due to the potential explotation of objects, same with brought
 

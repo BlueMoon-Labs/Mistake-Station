@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(slaver_gear, subtypesof(/datum/slaver_gear))
 /datum/slaver_gear/codespeak
 	name = "Codespeak Manual"
 	description = "A handy book that teaches the user how to speak in code. Useful to stop eavesdropping! This one has unlimited uses."
-	build_path = /obj/item/codespeak_manual/unlimited
+	build_path = /obj/item/language_manual/codespeak_manual/unlimited
 	category = "Slaving"
 	cost = 1250
 
@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(slaver_gear, subtypesof(/datum/slaver_gear))
 /datum/slaver_gear/medic
 	name = "Medic Kit"
 	description = "Advanced medical supplies for field medics."
-	build_path = /obj/item/storage/firstaid/tactical/slaver
+	build_path = /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle
 	category = "Advanced"
 	cost = 3500
 
@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(slaver_gear, subtypesof(/datum/slaver_gear))
 /datum/slaver_gear/xray
 	name = "X-Ray Implant"
 	description = "An implant that lets you see through solid walls."
-	build_path = /obj/item/autosurgeon/xray_eyes
+	build_path = /obj/item/organ/internal/eyes/robotic/xray
 	category = "Implants"
 	cost = 10000
 
@@ -263,7 +263,7 @@ GLOBAL_LIST_INIT(slaver_gear, subtypesof(/datum/slaver_gear))
 /datum/slaver_gear/mech_missiles_ammo
 	name = "BRM-6 Missile Rack Ammo"
 	description = "Missiles for the BRM-6 missile rack x 6."
-	build_path = /obj/item/mecha_ammo/missiles_br
+	build_path = /obj/item/mecha_ammo/missiles_pep
 	category = "Mech"
 	cost = 500
 

@@ -367,6 +367,10 @@
 /mob/proc/incapacitated(flags)
 	return
 
+/// Checks for slots that are currently obscured by other garments.
+/mob/proc/check_obscured_slots()
+	return
+
 /**
  * This proc is called whenever someone clicks an inventory ui slot.
  *
@@ -391,10 +395,6 @@
 			I.attack_hand(src)
 
 	return FALSE
-
-/// Checks for slots that are currently obscured by other garments.
-/mob/proc/check_obscured_slots()
-	return
 
 /**
  * Try to equip an item to a slot on the mob

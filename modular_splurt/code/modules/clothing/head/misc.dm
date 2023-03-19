@@ -7,7 +7,7 @@
 	unique_reskin = list(
 		"Original" = list(
 			"icon_state" = "jester_hat",
-			"icon" = 'icons/obj/clothing/hats.dmi',
+			"icon" = 'icons/obj/clothing/head/costume.dmi',
 			"worn_icon" = null,
 		),
 		"Stripped" = list(

@@ -153,7 +153,7 @@
 		L.visible_message("<span class='warning'>[held_mob] escapes from [L]!</span>", "<span class='warning'>[held_mob] escapes your grip!</span>")
 	release()
 
-/obj/item/clothing/head/mob_holder/mob_can_equip(M, equipper, slot, disable_warning, bypass_equip_delay_self)
+/obj/item/clothing/head/mob_holder/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE)
 	if(M == held_mob || !ishuman(M)) //monkeys holding monkeys holding monkeys...
 		return FALSE
 	return ..()

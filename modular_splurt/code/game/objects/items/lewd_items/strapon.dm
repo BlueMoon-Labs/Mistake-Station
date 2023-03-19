@@ -107,7 +107,7 @@
 		var/mob/living/carbon/C = user
 		to_chat(C, "<span class='userlove'>You're now ready to bone someone!</span>")
 
-/obj/item/clothing/underwear/briefs/strapon/mob_can_equip(M, equipper, slot, disable_warning, bypass_equip_delay_self)
+/obj/item/clothing/underwear/briefs/strapon/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE)
 	if(!..())
 		return FALSE
 

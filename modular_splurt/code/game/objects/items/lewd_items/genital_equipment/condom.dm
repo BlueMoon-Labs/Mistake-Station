@@ -27,7 +27,7 @@
 			icon_state = "b_condom_inflated_huge"
 	..()
 
-/obj/item/genital_equipment/condom/on_reagent_change()
+/obj/item/genital_equipment/condom/proc/on_reagent_change()
 	update_icon()
 
 /obj/item/genital_equipment/condom/attack_self(mob/user) //Unwrap The Condom in hands

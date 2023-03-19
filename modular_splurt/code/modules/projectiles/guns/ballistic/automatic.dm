@@ -56,7 +56,7 @@
 		. = ..()
 		update_icon()
 
-/obj/item/gun/ballistic/automatic/m2a1/on_attack_hand(mob/user, unarmed_attack_flags)
+/obj/item/gun/ballistic/automatic/m2a1/eject_magazine(mob/user, unarmed_attack_flags)
 	if(loc != user)
 		return	//let them pick it up
 	if(!cover_open || (cover_open && !magazine))
@@ -86,7 +86,7 @@
 	icon = 'modular_splurt/icons/obj/guns/projectile.dmi'
 	icon_state = "m1garand"
 	icon_state = "moistnugget"
-	fire_sound = 'sound/weapons/smg/shot.ogg'
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/garand
 	fire_delay = 8

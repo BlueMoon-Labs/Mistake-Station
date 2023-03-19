@@ -35,7 +35,6 @@
 	name = "navigate verb destination"
 	icon = 'modular_splurt/icons/effects/landmarks_static.dmi'
 	icon_state = "navigate"
-	var/location
 
 /obj/effect/landmark/navigate_destination/Initialize(mapload)
 	. = ..()

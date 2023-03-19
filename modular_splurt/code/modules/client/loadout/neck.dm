@@ -40,9 +40,3 @@
 	name = "Normalizer Collar"
 	path = /obj/item/clothing/neck/syntech/collar
 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
-
-/datum/gear/neck/polyhuman_petcollar
-	name = "Collar (poly)"
-	path = /obj/item/clothing/neck/human_petcollar/poly
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#00bb70", "#FFC600")

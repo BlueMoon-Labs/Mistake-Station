@@ -22,10 +22,10 @@
 	shuttleId = "slaver"
 	lock_override = CAMERA_LOCK_STATION
 	shuttlePortId = "slaver_custom"
-	jumpto_ports = list("slaver_custom" = 1)
+	//jumpto_ports = list("slaver_custom" = 1)
 	view_range = 5.5
 	x_offset = -7
 	y_offset = -1
-	space_turfs_only = FALSE
+	//space_turfs_only = FALSE
 	whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/closed/mineral)
 	see_hidden = TRUE

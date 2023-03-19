@@ -27,6 +27,18 @@
 	impact_type = /obj/effect/projectile/impact/laser/wavemotion
 	hitscan = TRUE
 
+/obj/effect/projectile/tracer/laser/wavemotion
+	name = "particle trail"
+	icon_state = "tracer_wavemotion"
+
+/obj/effect/projectile/muzzle/laser/wavemotion
+	name = "particle backblast"
+	icon_state = "muzzle_wavemotion"
+
+/obj/effect/projectile/impact/laser/wavemotion
+	name = "particle impact"
+	icon_state = "impact_wavemotion"
+
 /obj/projectile/beam/lasertag/dispersal
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue

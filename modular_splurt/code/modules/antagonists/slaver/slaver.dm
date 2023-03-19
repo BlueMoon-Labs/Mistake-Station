@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 	if(istype(H))
 		H.set_antag_target_indicator() // Hide consent of this player, they are an antag and can't be a target
 
-/datum/antagonist/slaver/on_gain()
+/datum/antagonist/slaver/on_gain(mob/living/carbon/C)
 	forge_objectives()
 	. = ..()
 	if(equip_outfit)
@@ -102,18 +102,18 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 
 	// Can see what players consent to being a victim
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ANTAGTARGET]
-	H.show_to(owner.current)
+	H.show_to(C)
 
 // Lose antag status
-/datum/antagonist/slaver/farewell()
+/datum/antagonist/slaver/farewell(mob/living/carbon/C)
 	// Can no longer see what players consent to being a victim
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_ANTAGTARGET]
-	H.hide_from(owner.current)
+	H.hide_from(C)
 
 /datum/antagonist/slaver/get_team()
 	return slaver_team
 
-/datum/antagonist/slaver/proc/forge_objectives()
+/datum/antagonist/slaver/forge_objectives()
 	objectives |= slaver_team.objectives
 
 /datum/antagonist/slaver/proc/move_to_spawnpoint()

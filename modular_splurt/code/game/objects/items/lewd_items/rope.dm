@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 								"<span class='userdanger'>[user] is trying to strengthen the rope on [C]!</span>")
 			process_knot(C, user)
 
-/obj/item/restraints/bondage_rope/attack_obj(obj/O, mob/user)
+/obj/item/restraints/bondage_rope/attack_atom(obj/O, mob/user)
 	if(rope_state != ROPE_STATE_DECIDING_OBJECT)
 		to_chat(user, "<span class='notice'>You need to attach the rope to somebody first.</span>")
 		return

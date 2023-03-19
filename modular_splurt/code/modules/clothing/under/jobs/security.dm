@@ -9,16 +9,6 @@
  * Security
  */
 
-/obj/item/clothing/under/rank/security/officer/metrocop
-	name = "civil protection jumpsuit"
-	desc = "Pick up that can."
-	icon = 'modular_splurt/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_splurt/icons/mob/clothing/uniform_digi.dmi'
-	icon_state = "metrocop_s"
-	icon_state = "metrocop_s"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
-
 /obj/item/clothing/under/rank/security/officer/peacekeeper
 	name = "security peacekeeper jumpsuit"
 	desc = "Keeping the peace, one baton at a time."

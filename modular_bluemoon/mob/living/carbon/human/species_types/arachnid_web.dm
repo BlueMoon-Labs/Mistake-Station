@@ -28,18 +28,19 @@
 	if(exposed_temperature > 300)
 		take_damage(5, BURN, 0, 0)
 
-/obj/structure/arachnid/CanPass(atom/movable/mover, turf/target)
+/obj/structure/arachnid/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if(isarachnid(mover))
 
+	if(isarachnid(mover))
 		return TRUE
+
 	else if(isliving(mover))
 		if(isarachnid(mover.pulledby))
-
 			return TRUE
+
 		if(prob(20))
 			to_chat(mover, "<span class='danger'>You get stuck in \the [src] for a moment.</span>")
-			return FALSE
+			return TRUE
 
 /obj/structure/arachnid/cocoon
 	name = "cocoon"

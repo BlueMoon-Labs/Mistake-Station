@@ -179,7 +179,7 @@
 	action_target.SetSleeping(1200)
 
 	// Set drowsiness
-	M.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80) = max(M.set_timed_status_effect(40, (/datum/status_effect/drowsiness), 80), 40)
+	M.set_timed_status_effect(100 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 	// Prompt action owner for response
 	var/input_suggestion = input("What would you like to suggest [action_target] do? Leave blank to release [action_target.ru_na()] instead.", "Hypnotic suggestion", null, null)
@@ -261,7 +261,7 @@
 	button_icon_state = "power_feed"
 	var/drain_cooldown = 0
 
-/datum/action/bloodfledge/bite/Trigger()
+/datum/action/bloodfledge/bite/Trigger(trigger_flags)
 	. = ..()
 
 	// Check for carbon owner
@@ -568,7 +568,7 @@
 	desc = "Expend all of your remaining energy to escape death."
 	button_icon_state = "power_strength"
 
-/datum/action/bloodfledge/revive/Trigger()
+/datum/action/bloodfledge/revive/Trigger(trigger_flags)
 	. = ..()
 
 	// Define mob
@@ -722,7 +722,7 @@
 		if(NEUTER)
 			werewolf_gender = "Þing"
 
-/datum/action/cooldown/werewolf/transform/Trigger()
+/datum/action/cooldown/werewolf/transform/Trigger(trigger_flags)
 	. = ..()
 
 	// Check if unavailable
@@ -920,7 +920,7 @@
 	// Remove glow
 	action_mob.remove_filter("rad_fiend_glow")
 
-/datum/action/rad_fiend/update_glow/Trigger()
+/datum/action/rad_fiend/update_glow/Trigger(trigger_flags)
 	. = ..()
 
 	// Define user mob

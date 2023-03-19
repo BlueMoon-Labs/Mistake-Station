@@ -62,8 +62,8 @@
 /obj/item/toy/beach_ball/attack_self(mob/user)
 	var/list/options_list = list()
 	if(vibrator)
-		options_list += list("Eject" = image(icon = 'icons/radials/taperecorder.dmi', icon_state = "eject", dir = EAST))
-		options_list += list("Play" = image(icon = 'icons/radials/taperecorder.dmi', icon_state = "play", dir = WEST))
+		options_list += list("Eject" = image(icon = 'icons/hud/radial_taperecorder.dmi', icon_state = "eject", dir = EAST))
+		options_list += list("Play" = image(icon = 'icons/hud/radial_taperecorder.dmi', icon_state = "play", dir = WEST))
 	if(options_list)
 		var/selection = show_radial_menu(user, src, options_list, radius = 38, require_near = TRUE, tooltips = TRUE)
 		if(!selection)
@@ -95,7 +95,7 @@
 	if(vibrator && enabled)
 		throwforce = 60
 
-/obj/item/toy/beach_ball/syndicate/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback)
+/obj/item/toy/beach_ball/syndicate/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, quickstart = TRUE)
 	if(ishuman(thrower))
 		throwforce = 0
 	. = ..()

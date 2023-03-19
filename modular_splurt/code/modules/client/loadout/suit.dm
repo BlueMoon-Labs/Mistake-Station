@@ -10,9 +10,9 @@
 	restricted_roles = list("Chief Engineer","Research Director","Scientist", "Roboticist","Atmospheric Technician","Station Engineer", "Chaplain")
 
 // Suggestion #183
-/datum/gear/suit/dracula
-	name = "dracula coat"
-	path = /obj/item/clothing/suit/dracula
+///datum/gear/suit/dracula
+//	name = "dracula coat"
+//	path = /obj/item/clothing/suit/dracula
 
 // Suggestion #3279
 /datum/gear/suit/apron

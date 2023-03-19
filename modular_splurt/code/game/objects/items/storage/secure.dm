@@ -54,6 +54,9 @@
 		return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "stunsword")
 	return ..()
 
+/obj/item/proc/get_worn_belt_overlay(icon_file)
+	return
+
 /obj/item/melee/baton/stunsword/get_worn_belt_overlay(icon_file)
 	return mutable_appearance(icon_file, "-stunsword")
 

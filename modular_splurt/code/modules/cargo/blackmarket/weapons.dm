@@ -352,7 +352,7 @@
 /datum/market_item/syndi/weapon/bulldog
 	name = "bulldog shotgun"
 	desc = "A semi-auto, mag-fed shotgun for combat in narrow corridors, nicknamed 'Bulldog' by boarding parties. Compatible only with specialized 8-round drum magazines."
-	item = /obj/item/gun/ballistic/automatic/shotgun/bulldog/unrestricted
+	item = /obj/item/gun/ballistic/shotgun/bulldog/unrestricted
 	price_min = 10500000
 	price_max = 11500000
 	stock_min = 1

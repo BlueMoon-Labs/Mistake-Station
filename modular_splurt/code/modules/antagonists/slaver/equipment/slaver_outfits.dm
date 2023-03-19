@@ -8,7 +8,7 @@
 	ears = /obj/item/radio/headset/syndicate/slaver
 	id = /obj/item/card/id/syndicate/slaver
 	backpack_contents = list(/obj/item/storage/box/survival,\
-		/obj/item/kitchen/knife/combat/survival)
+		/obj/item/knife/combat/survival)
 
 /datum/outfit/slaver/leader
 	name = "Slave Master"

@@ -28,7 +28,6 @@
 			var/mob/living/L = hit_atom
 			var/blocked = FALSE
 			if(ishuman(hit_atom))
-				var/mob/living/carbon/human/H = hit_atom
 				var/list/return_list = list()
 				if(!blocked)
 					blocked = return_list[BLOCK_RETURN_MITIGATION_PERCENT]

@@ -12,7 +12,7 @@
 	lefthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_left.dmi'
 	righthand_file = 'modular_splurt/icons/mob/inhands/lewd_items/lewd_inhand_right.dmi'
 	icon_state = "mindcontroller"
-	icon_state = "mindcontroller"
+	inhand_icon_state = "mindcontroller"
 	var/obj/item/clothing/neck/mind_collar/collar = null
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -21,6 +21,10 @@
 	src.collar = collar
 	. = ..() //very important to call parent in Initialize
 
+/obj/item/mind_controller/attack_self(mob/user)
+	if (collar)
+		collar.emoting = stripped_input(user, "Change the emotion pattern")
+		collar.emoting_proc()
 //Collar stuff
 /obj/item/clothing/neck/mind_collar
 	name = "mind collar"
@@ -28,15 +32,21 @@
 	icon = 'modular_splurt/icons/obj/clothing/lewd_clothes/neck/lewd_neck.dmi'
 	worn_icon = 'modular_splurt/icons/mob/clothing/lewd_clothing/neck/lewd_neck.dmi'
 	icon_state = "mindcollar"
-	icon_state = "mindcollar"
+	worn_icon_state = "mindcollar"
 	var/obj/item/mind_controller/remote = null
 	var/emoting = "Shivers"
 	var/seamless = FALSE
 
 /obj/item/clothing/neck/mind_collar/Initialize()
 	. = ..()
+	create_storage(type = /datum/storage/pockets/small/kink_collar/mind_collar)
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
+
+/obj/item/clothing/neck/mind_collar/proc/emoting_proc()
+	var/mob/living/carbon/human/U = src.loc
+	if(istype(U) && src == U.wear_neck)
+		U.emote("me", 1,"[emoting]", TRUE)
 
 /obj/item/clothing/neck/mind_collar/Destroy()
 	if(remote)

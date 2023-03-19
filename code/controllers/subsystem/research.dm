@@ -69,6 +69,13 @@ SUBSYSTEM_DEF(research)
 	/// Lookup list for scipaper partners.
 	var/list/scientific_partners = list()
 
+	//SKYRAT CHANGE
+	//PROBLEM COMPUTER CHARGES
+	var/problem_computer_max_charges = 5
+	var/problem_computer_charges = 5
+	var/problem_computer_charge_time = 90 SECONDS
+	var/problem_computer_next_charge_time = 0
+
 /datum/controller/subsystem/research/Initialize()
 	point_types = TECHWEB_POINT_TYPE_LIST_ASSOCIATIVE_NAMES
 	initialize_all_techweb_designs()
@@ -99,6 +106,10 @@ SUBSYSTEM_DEF(research)
 			techweb_list.add_point_list(bitcoins)
 
 		techweb_list.last_income = world.time
+		// Bluemoon change. Handles Problem Computer charges here
+		if(problem_computer_charges < problem_computer_max_charges && world.time >= problem_computer_next_charge_time)
+			problem_computer_next_charge_time = world.time + problem_computer_charge_time
+			problem_computer_charges += 1
 
 /datum/controller/subsystem/research/proc/autosort_categories()
 	for(var/i in techweb_nodes)

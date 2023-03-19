@@ -281,7 +281,7 @@
 ////////////
 
 /obj/item/clothing/accessory/armband
-	name = "red armband"
+	name = "Red Armband"
 	desc = "A fancy red armband!"
 	icon_state = "redband"
 	attachment_slot = null

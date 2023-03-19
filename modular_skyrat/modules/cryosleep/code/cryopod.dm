@@ -43,6 +43,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/storage_type = "crewmembers"
 	var/storage_name = "Cryogenic/Teleporter Oversight Control"
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/computer/cryopod/deconstruct()
 	. = ..()
@@ -139,7 +140,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "Suited for Cyborgs and Humanoids, the pod is a safe place for personnel affected by the Space Sleep Disorder to get some rest."
-	icon = 'icons/obj/cryogenic2.dmi'
+	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod-open"
 	density = TRUE
 	anchored = TRUE
@@ -161,8 +162,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	///Weakref to our controller
 	var/datum/weakref/control_computer_weakref
 	COOLDOWN_DECLARE(last_no_computer_message)
-	///Weakref to our controller
-	var/datum/weakref/control_computer_weakref
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
 	var/allow_timer_override = FALSE
 	/// Has the occupant been tucked in?
@@ -422,9 +421,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 
 /obj/machinery/computer/cryopod/contents_explosion()
 	return
-
-/obj/machinery/computer/cryopod/contents_explosion()
-	return			//don't blow everyone's shit up.
 
 /// The box
 /obj/item/storage/box/blue/cryostorage_items

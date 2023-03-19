@@ -1,3 +1,98 @@
+//		STYLE_NO_ANTHRO_ICON — CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+//		STYLE_DIGITIGRADE —
+//		mutantrace_variation — supports_variations_flags
+
+/obj/item/clothing/under/pants/chaps
+	name = "Black Chaps"
+	body_parts_covered = LEGS
+	desc = "Yeehaw"
+	icon_state = "chaps"
+
+/obj/item/clothing/gloves/evening/black
+	name = "midnight gloves"
+	desc = "Thin, pretty gloves intended for use in sexy feminine attire. A tag on the hem claims they pair great with black stockings."
+	icon_state = "eveningblack"
+	worn_icon_state = "eveningblack"
+
+/obj/item/clothing/accessory/talisman/fake
+	name = "bone talisman"
+	desc = "A hunter's talisman, some say the old gods smile on those who wear it."
+	icon_state = "talisman"
+	armor_type = 0
+
+/obj/item/clothing/accessory/skullcodpiece/fake
+	name = "false codpiece"
+	desc = "A plastic ornament, intended to protect the important things in life. It's not very good at it."
+	icon_state = "skull"
+	above_suit = TRUE
+	armor_type = 0
+
+/obj/item/clothing/under/misc/durathread/skirt
+	name = "durathread jumpskirt"
+	desc = "A jumpsuit made from durathread, its resilient fibres provide some protection to the wearer. Being a short skirt, it naturally doesn't protect the legs."
+	icon_state = "duraskirt"
+	worn_icon_state = "duraskirt"
+	can_adjust = FALSE
+	body_parts_covered = CHEST|GROIN|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/misc/keyholesweater
+	name = "keyhole sweater"
+	desc = "What is the point of this, anyway?"
+	icon_state = "keyholesweater"
+	worn_icon_state = "keyholesweater"
+	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/misc/stripper
+	name = "pink stripper outfit"
+	icon_state = "stripper_p"
+	worn_icon_state = "stripper_p"
+	body_parts_covered = CHEST|GROIN
+	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/misc/stripper/green
+	name = "green stripper outfit"
+	icon_state = "stripper_g"
+	worn_icon_state = "stripper_g"
+
+/obj/item/clothing/under/misc/stripper/mankini
+	name = "pink mankini"
+	icon_state = "mankini"
+	worn_icon_state = "mankini"
+
+/obj/item/restraints/handcuffs/fake/kinky
+	name = "kinky handcuffs"
+	desc = "Fake handcuffs meant for erotic roleplay."
+	icon_state = "handcuffgag"
+	inhand_icon_state = "kinkycuff"
+
+/obj/item/autosurgeon/penis
+	desc = "A single use autosurgeon that contains a penis. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/genital/penis
+
+/obj/item/autosurgeon/testicles
+	desc = "A single use autosurgeon that contains a set of testicles. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/genital/testicles
+
+/obj/item/autosurgeon/vagina
+	desc = "A single use autosurgeon that contains a vagina. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/genital/vagina
+
+/obj/item/autosurgeon/breasts
+	desc = "A single use autosurgeon that contains a set of breasts. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/genital/breasts
+
+/obj/item/autosurgeon/womb
+	desc = "A single use autosurgeon that contains a womb. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/genital/womb
+
 /obj/machinery/vending/kink
 	name = "KinkMate"
 	desc = "A vending machine for all your unmentionable desires."
@@ -6,7 +101,8 @@
 	vend_reply = "Have fun, you shameless pervert!"
 	products = list(
 				/obj/item/genital_equipment/condom = 10,
-				/obj/item/clothing/head/maid = 5,
+				/obj/item/clothing/head/costume/maid = 5,
+				/obj/item/clothing/head/costume/maidheadband = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/gloves/evening = 5,
@@ -22,7 +118,7 @@
 				/obj/item/clothing/shoes/highheels = 3,
 				/obj/item/clothing/under/misc/stripper = 3,
 				/obj/item/clothing/under/misc/stripper/green = 3,
-				/obj/item/clothing/under/dress/corset = 3,
+				/obj/item/clothing/underwear/shirt/corset = 3,
 				/obj/item/clothing/under/latex/half = 3,
 				//redundent /obj/item/clothing/under/latex = 3,
 				/obj/item/clothing/under/misc/gear_harness = 10,
@@ -30,10 +126,6 @@
 				/obj/item/electropack/shockcollar = 3,
 				/obj/item/assembly/signaler = 3,
 				/obj/item/assembly/timer = 3,
-				/obj/item/clothing/under/shorts/polychromic/pantsu = 3,
-				/obj/item/clothing/under/misc/poly_bottomless = 3,
-				/obj/item/clothing/under/misc/poly_tanktop = 3,
-				/obj/item/clothing/under/misc/poly_tanktop/female = 3,
 				/obj/item/autosurgeon/penis = 3,
 				/obj/item/autosurgeon/testicles = 3,
 				/obj/item/storage/pill_bottle/penis_enlargement = 10,
@@ -47,8 +139,8 @@
 	contraband = list(
 				/obj/item/clothing/neck/human_petcollar/locked = 2,
 				/obj/item/key/collar = 2,
-				/obj/item/clothing/head/kitty = 3,
-				/obj/item/clothing/head/rabbitears = 3,
+				/obj/item/clothing/head/costume/kitty = 3,
+				/obj/item/clothing/head/costume/rabbitears = 3,
 				/obj/item/clothing/under/misc/keyholesweater = 2,
 				/obj/item/clothing/under/misc/stripper/mankini = 2,
 				/obj/item/clothing/under/costume/jabroni = 2,

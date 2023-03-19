@@ -44,6 +44,12 @@
 	// Notice to the user that this shouldn't be used outside of kink related purpose.
 	to_chat(user, span_warning("This item is not an alternative to brain washing and is ONLY intended for kink related purposes. Abuse will result in OOC punishment"))
 
+//create radial menu
+/obj/item/clothing/glasses/hypno/proc/populate_hypnogoggles_designs()
+	hypnogoggles_designs = list(
+		"pink" = image (icon = src.icon, icon_state = "hypnogoggles_pink"),
+		"teal" = image(icon = src.icon, icon_state = "hypnogoggles_teal"))
+
 //to update model lol
 /obj/item/clothing/glasses/hypno/Initialize()
 	. = ..()
@@ -63,6 +69,14 @@
 		color_changed = TRUE
 	else
 		return
+
+//to check if we can change kinkphones's model
+/obj/item/clothing/glasses/hypno/proc/check_menu(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated())
+		return FALSE
+	return TRUE
 
 /obj/item/clothing/glasses/hypno/Initialize()
 	. = ..()

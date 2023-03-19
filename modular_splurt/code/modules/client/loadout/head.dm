@@ -29,35 +29,35 @@
 	restricted_roles = list("Warden","Detective","Security Officer","Head of Security", "Brig Physician", "Blueshield")
 
 // Polychrome GWTB
-/datum/gear/head/gonerhelm
-	name = "polychromic trencher helmet"
-	cost = 2
-	path = /obj/item/clothing/head/helmet/goner/fake/poly
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#D9D9D9")
-
-/datum/gear/head/goneroffcap
-	name = "polychromic trencher officer cap"
-	cost = 2
-	path = /obj/item/clothing/head/helmet/goner/officer/fake/poly
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#F2F2F2")
-
-//Adds bowler hats
-/datum/gear/head/bowler
-	name = "Bowler-hat"
-	cost = 1
-	path = /obj/item/clothing/head/bowler
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
-
-//Adds medical beret
-/datum/gear/head/medberet
-	name = "Medical officer's beret"
-	cost = 1
-	path = /obj/item/clothing/head/beret/med
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
-	restricted_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Virologist", "Paramedic", "Geneticist", "Brig Physician")
-	subcategory = LOADOUT_SUBCATEGORY_HEAD_JOBS
+///datum/gear/head/gonerhelm
+//	name = "polychromic trencher helmet"
+//	cost = 2
+//	path = /obj/item/clothing/head/helmet/goner/fake/poly
+//	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
+//	loadout_initial_colors = list("#D9D9D9")
+//
+///datum/gear/head/goneroffcap
+//	name = "polychromic trencher officer cap"
+//	cost = 2
+//	path = /obj/item/clothing/head/helmet/goner/officer/fake/poly
+//	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
+//	loadout_initial_colors = list("#F2F2F2")
+//
+////Adds bowler hats
+///datum/gear/head/bowler
+//	name = "Bowler-hat"
+//	cost = 1
+//	path = /obj/item/clothing/head/bowler
+//	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+//
+////Adds medical beret
+///datum/gear/head/medberet
+//	name = "Medical officer's beret"
+//	cost = 1
+//	path = /obj/item/clothing/head/beret/med
+//	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+//	restricted_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Virologist", "Paramedic", "Geneticist", "Brig Physician")
+//	subcategory = LOADOUT_SUBCATEGORY_HEAD_JOBS
 
 //Adds the three basic flowers that can be pinned into the hair
 /datum/gear/head/poppy
