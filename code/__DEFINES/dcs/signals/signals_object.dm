@@ -11,6 +11,8 @@
 #define COMSIG_OBJ_HIDE "obj_hide"
 /// from /obj/item/toy/crayon/spraycan/afterattack: (color_is_dark)
 #define COMSIG_OBJ_PAINTED "obj_painted"
+//from base of /obj/obj_break(): (damage_flag)
+#define COMSIG_OBJ_BREAK		"obj_break"
 
 // /obj/machinery signals
 

@@ -29924,6 +29924,10 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood,
 /area/station/service/library)
+"kJT" = (
+/obj/structure/sign/flag/nri,
+/turf/closed/wall/r_wall,
+/area/station/ai_monitored/security/armory)
 "kKd" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -94685,7 +94689,7 @@ rTw
 aeq
 aeq
 anl
-aeq
+kJT
 ffV
 jVy
 wsX

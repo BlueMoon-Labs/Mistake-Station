@@ -36,6 +36,9 @@
 	/// Used to stop processing SSmood
 	var/last_stat = CONSCIOUS
 
+	/// The datum this components belongs to
+	var/datum/parent
+
 /datum/mood/New(mob/living/mob_to_make_moody)
 	if (!istype(mob_to_make_moody))
 		stack_trace("Tried to apply mood to a non-living atom!")
@@ -46,6 +49,9 @@
 
 	mob_parent = mob_to_make_moody
 
+	RegisterSignal(mob_to_make_moody, COMSIG_ADD_MOOD_EVENT, .proc/add_mood_event)
+	RegisterSignal(mob_to_make_moody, COMSIG_CLEAR_MOOD_EVENT, .proc/clear_mood_event)
+	RegisterSignal(mob_to_make_moody, COMSIG_MODIFY_SANITY, .proc/update_mood)
 	RegisterSignal(mob_to_make_moody, COMSIG_MOB_HUD_CREATED, PROC_REF(modify_hud))
 	RegisterSignal(mob_to_make_moody, COMSIG_ENTER_AREA, PROC_REF(check_area_mood))
 	RegisterSignal(mob_to_make_moody, COMSIG_LIVING_REVIVE, PROC_REF(on_revive))

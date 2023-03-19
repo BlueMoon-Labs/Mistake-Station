@@ -159,24 +159,6 @@
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE, ignore_walls = FALSE)
 
-/*
-*	COLOUR CHANGING
-*/
-
-GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
-		"Cyan"		= "#00f9ff", //cyan
-		"Green"		= "#49ff00", //green
-		"Pink"		= "#ff4adc", //pink
-		"Yellow"	= "#fdff00", //yellow
-		"Blue"		= "#00d2ff", //blue
-		"Lime"		= "#89ff00", //lime
-		"Black"		= "#101010", //black
-		"Red"		= "#ff0000", //red
-		"Orange"	= "#ff9a00", //orange
-		"Purple"	= "#e300ff", //purple
-		"White"		= "#c0c0c0", //white
-		))
-
 /obj/item/clothing/sextoy/dildo/custom_dildo
 	name = "custom dildo"
 	desc = "A dildo that can be customized to your specification."
@@ -357,7 +339,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 		user.update_body()
 
 	else if(src == user.anus)
-		user.cut_overlay(user.overlays_standing[ANUS_LAYER])
+		user.cut_overlay(user.overlays_standing[ANUS_LAYER_INDEX])
 
 /obj/item/clothing/sextoy/dildo/double_dildo/dropped(mob/living/carbon/human/user)
 	. = ..()

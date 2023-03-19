@@ -72,6 +72,9 @@
 #define ROLE_DEATHSQUAD "Deathsquad"
 #define ROLE_LAVALAND "Lavaland"
 
+#define ROLE_SLAVER					"slaver"
+#define ROLE_SLAVER_LEADER			"slave master"
+
 #define ROLE_POSITRONIC_BRAIN "Positronic Brain"
 #define ROLE_FREE_GOLEM "Free Golem"
 #define ROLE_SERVANT_GOLEM "Servant Golem"
@@ -160,6 +163,9 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
 	//SKYRAT EDIT END
+	//BLUEMOON EDIT START
+	ROLE_SLAVER = 0,
+	//BLUEMOON EDIT END
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,

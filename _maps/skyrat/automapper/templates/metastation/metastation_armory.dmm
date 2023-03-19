@@ -22,9 +22,9 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "g" = (
-/obj/effect/turf_decal/bot_blue,
 /obj/structure/closet/secure_closet/smartgun,
 /obj/machinery/firealarm/directional/east,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "h" = (
@@ -59,7 +59,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/darkblue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -86,7 +86,7 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted,
+/obj/effect/turf_decal/tile/red/real_red/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "r" = (
@@ -104,7 +104,7 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/obj/effect/turf_decal/tile/blue/half/contrasted{
+/obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
@@ -114,12 +114,12 @@
 /area/template_noop)
 "t" = (
 /obj/structure/rack,
-/obj/effect/turf_decal/tile/blue/half/contrasted{
+/obj/item/melee/hammer,
+/obj/item/melee/hammer,
+/obj/item/melee/hammer,
+/obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
-/obj/item/melee/hammer,
-/obj/item/melee/hammer,
-/obj/item/melee/hammer,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "u" = (
@@ -152,7 +152,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/ai_monitored/security/armory)
 "D" = (
-/obj/effect/turf_decal/trimline/darkblue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -180,7 +180,7 @@
 	c_tag = "Armory - Internal"
 	},
 /obj/machinery/light/directional/west,
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted,
+/obj/effect/turf_decal/tile/red/real_red/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "G" = (
@@ -238,7 +238,7 @@
 	assistance_requestable = 1;
 	supplies_requestable = 1
 	},
-/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/effect/turf_decal/tile/red/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "K" = (
@@ -296,14 +296,14 @@
 	pixel_y = -2
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/effect/turf_decal/tile/red/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "Q" = (
-/obj/effect/turf_decal/trimline/darkblue/filled/corner,
-/obj/effect/turf_decal/trimline/darkblue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
+/obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "R" = (

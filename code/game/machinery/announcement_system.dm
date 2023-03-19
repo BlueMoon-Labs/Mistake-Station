@@ -17,10 +17,12 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	circuit = /obj/item/circuitboard/machine/announcement_system
 
 	var/obj/item/radio/headset/radio
-	var/arrival = "%PERSON has signed up as %RANK"
+	var/arrival = "%PERSON прибывает на станцию как %RANK"
 	var/arrivalToggle = 1
-	var/newhead = "%PERSON, %RANK, is the department head."
+	var/newhead = "%PERSON, %RANK, глава отдела."
 	var/newheadToggle = 1
+	var/cryostorage = "%PERSON, %RANK, уходит в криосон." // this shouldnt be changed
+	var/cryostorage_tele = "%PERSON, %RANK, был(-а) телепортирован(-а) на Аванпост Центрального Командования."   // you saying it hat man.
 
 	var/greenlight = "Light_Green"
 	var/pinklight = "Light_Pink"
@@ -85,6 +87,10 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 		message = CompileText(arrival, user, rank)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
+	else if(message_type == "CRYOSTORAGE")
+		message = CompileText(cryostorage, user, rank)
+	else if(message_type == "CRYOSTORAGE_TELE")
+		message = CompileText(cryostorage_tele, user, rank)
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "The arrivals shuttle has been damaged. Docking for repairs..."
 

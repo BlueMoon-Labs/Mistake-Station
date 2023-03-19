@@ -208,6 +208,16 @@
 	for(var/i in 1 to 7)
 		new /obj/item/restraints/handcuffs/alien(src)
 
+/obj/item/storage/box/lethalslugs
+	name = "box of rubber shots"
+	desc = "A box full of rubber shots, designed for riot shotguns."
+	icon_state = "rubbershot_box"
+	illustration = null
+
+/obj/item/storage/box/rubbershot/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun(src)
+
 /obj/item/storage/box/rubbershot
 	name = "box of rubber shots"
 	desc = "A box full of rubber shots, designed for riot shotguns."

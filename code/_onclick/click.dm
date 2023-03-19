@@ -3,6 +3,19 @@
 	~Sayu
 */
 
+/mob
+	/// Ditto
+	var/next_action_immediate = 0
+	/// Generic clickdelay variable. Next world.time we should be able to do something that respects generic clickdelay. This should be set using [DelayNextAction()] This should only be checked using [CheckActionCooldown()].
+	var/next_action = 0
+	/// Generic clickdelay variable. Marks down the last world.time we did something that should cause or impact generic clickdelay. This should be directly set or set using [DelayNextAction()]. This should only be checked using [CheckActionCooldown()].
+	var/last_action = 0
+	/// This should only be manually modified using multipliers.
+	var/action_cooldown_mod = 1
+	/// Simple modification variable added to amount on adjust and on checking time since last action using [CheckActionCooldown()].
+	/// This should only be manually modified via addition.
+	var/action_cooldown_adjust = 0
+
 // 1 decisecond click delay (above and beyond mob/next_move)
 //This is mainly modified by click code, to modify click delays elsewhere, use next_move and changeNext_move()
 /mob/var/next_click = 0
@@ -27,6 +40,56 @@
 		mod *= effect.nextmove_modifier()
 		adj += effect.nextmove_adjust()
 	next_move = world.time + ((num + adj)*mod)
+
+/**
+  * Checks if we can do another action.
+  * Returns TRUE if we can and FALSE if we cannot.
+  *
+  * @params
+  * * cooldown - Time required since last action. Defaults to 0.5
+  * * from_next_action - Defaults to FALSE. Should we check from the tail end of next_action instead of last_action?
+  * * ignore_mod - Defaults to FALSE. Ignore all adjusts and multipliers. Do not use this unless you know what you are doing and have a good reason.
+  * * ignore_next_action - Defaults to FALSE. Ignore next_action and only care about cooldown param and everything else. Generally unused.
+  * * immediate - Defaults to FALSE. Checks last action using immediate, used on the head end of an attack. This is to prevent colliding attacks in case of sleep. Not that you should sleep() in an attack but.. y'know.
+  */
+/mob/proc/CheckActionCooldown(cooldown = 0.5, from_next_action = FALSE, ignore_mod = FALSE, ignore_next_action = FALSE, immediate = FALSE)
+	return (ignore_next_action || (world.time >= (immediate? next_action_immediate : next_action))) && \
+	(world.time >= ((from_next_action? (immediate? next_action_immediate : next_action) : (immediate? last_action_immediate : last_action)) + max(0, ignore_mod? cooldown : (cooldown * GetActionCooldownMod() + GetActionCooldownAdjust()))))
+
+/obj/item
+	// Standard clickdelay variables
+	/// This item bypasses any click delay mods
+	var/clickdelay_mod_bypass = FALSE
+
+/**
+  * Get estimated time of next attack.
+  */
+/mob/proc/EstimatedNextActionTime()
+	var/attack_speed = unarmed_attack_speed * GetActionCooldownMod() + GetActionCooldownAdjust()
+	var/obj/item/I = get_active_held_item()
+	if(I)
+		attack_speed = I.GetEstimatedAttackSpeed()
+		if(!I.clickdelay_mod_bypass)
+			attack_speed = attack_speed * GetActionCooldownMod() + GetActionCooldownAdjust()
+	return max(next_action, next_action_immediate, max(last_action, last_action_immediate) + attack_speed)
+
+/**
+  * Get estimated time that a user has to not attack for to use us
+  */
+/obj/item/proc/GetEstimatedAttackSpeed()
+	return attack_speed
+
+/**
+  * Gets action_cooldown_mod.
+  */
+/mob/proc/GetActionCooldownMod()
+	return action_cooldown_mod
+
+/**
+  * Gets action_cooldown_adjust
+  */
+/mob/proc/GetActionCooldownAdjust()
+	return action_cooldown_adjust
 
 /**
  * Before anything else, defer these calls to a per-mobtype handler.  This allows us to

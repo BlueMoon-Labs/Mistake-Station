@@ -5,6 +5,9 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "blastwave_helmet"
 	flags_inv = HIDEHAIR
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Default (Purple)" = list(

@@ -221,3 +221,5 @@
 	// Multiple imaginary friends!
 	/// Contains the owner and all imaginary friend mobs if they exist, otherwise null
 	var/list/imaginary_group = null
+
+	var/datum/action/sizecode_smallsprite/small_sprite

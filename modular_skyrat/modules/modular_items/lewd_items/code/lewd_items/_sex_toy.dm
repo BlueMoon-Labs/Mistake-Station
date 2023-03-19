@@ -18,7 +18,7 @@
 		return
 
 	var/mob/living/carbon/human/holder = loc
-	holder.update_inv_lewd()
+	holder.clear_lewd_datum()
 	holder.fan_hud_set_fandom()
 
 /// A check to confirm if you can open the toy's color/design radial menu

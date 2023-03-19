@@ -40,6 +40,9 @@
 			return pick(H.selected_scream.male_screamsounds)
 		else
 			return pick(H.selected_scream.female_screamsounds)
+	if(iscarbon(user))							// Блюмун.
+		var/mob/living/carbon/c = user			// Рашен енд не только.
+		c.reindex_screams()						// Скримс.
 
 /datum/emote/living/scream/can_run_emote(mob/living/user, status_check, intentional)
 	if(iscyborg(user))

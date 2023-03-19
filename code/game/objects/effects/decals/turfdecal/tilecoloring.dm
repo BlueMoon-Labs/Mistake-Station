@@ -234,7 +234,7 @@
 
 /obj/effect/turf_decal/tile/red
 	name = "red corner"
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#DE3A3A" //Я РУССКИЙ.
 
 /obj/effect/turf_decal/tile/red/opposingcorners
 	icon_state = "tile_opposing_corners"
@@ -646,7 +646,7 @@
 /// Red trimlines
 
 /obj/effect/turf_decal/trimline/red
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#DE3A3A" //Я РУССКИЙ.
 
 /obj/effect/turf_decal/trimline/red/line
 	icon_state = "trimline"
