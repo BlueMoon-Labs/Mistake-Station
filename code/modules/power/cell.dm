@@ -32,6 +32,8 @@
 	var/corrupted = FALSE
 	///how much power is given every tick in a recharger
 	var/chargerate = 100
+	//does it self recharge, over time, or not?
+	var/self_recharge = 0
 	///If true, the cell will state it's maximum charge in it's description
 	var/ratingdesc = TRUE
 	///If it's a grown that acts as a battery, add a wire overlay to it.
@@ -65,6 +67,12 @@
 		COMSIG_ITEM_MAGICALLY_CHARGED = PROC_REF(on_magic_charge),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/stock_parts/cell/process()
+	if(self_recharge)
+		give(chargerate * 0.25)
+	else
+		return PROCESS_KILL
 
 /**
  * Signal proc for [COMSIG_ITEM_MAGICALLY_CHARGED]

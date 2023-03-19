@@ -6,7 +6,7 @@
 	rotate_on_lying = FALSE
 	base_pixel_x = -16 //All of the xeno sprites are 64x64, and we want them to be level with the tile they are on, much like oversized quirk users
 	/// Holds the ability for making an alien's sprite smaller to only themselves
-	var/datum/action/small_sprite/skyrat_xeno/small_sprite
+	//var/datum/action/small_sprite/skyrat_xeno/small_sprite
 	/// Holds the ability for quick resting without using the ic panel, and without editing xeno huds
 	var/datum/action/cooldown/alien/skyrat/sleepytime/rest_button
 	mob_size = MOB_SIZE_LARGE

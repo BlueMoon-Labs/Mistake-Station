@@ -41,6 +41,8 @@
 	/// Is this mind active?
 	var/active = FALSE
 
+	var/memory
+
 	/// a list of /datum/memories. assoc type of memory = memory datum. only one type of memory will be stored, new ones of the same type overriding the last.
 	var/list/memories = list()
 	/// reference to the memory panel tgui
@@ -105,6 +107,13 @@
 	var/list/failed_special_equipment
 	/// A list to keep track of which books a person has read (to prevent people from reading the same book again and again for positive mood events)
 	var/list/book_titles_read
+
+	/// Lazy list for antagonists to set goals they wish to achieve, to be shown at the round-end report.
+	var/list/ambitions
+	var/list/ambition_objectives = list()
+	var/ambition_limit = 6 //Лимит амбиций
+	var/datum/mind/soulOwner //who owns the soul.  Under normal circumstances, this will point to src
+	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
 
 /datum/mind/New(_key)
 	key = _key
@@ -196,12 +205,21 @@
 /datum/mind/proc/set_original_character(new_original_character)
 	original_character = WEAKREF(new_original_character)
 
+/datum/mind/proc/store_memory(new_text)
+	if((length_char(memory) + length_char(new_text)) <= MAX_MESSAGE_LEN)
+		memory += "[new_text]<BR>"
+
 /datum/mind/proc/set_death_time()
 	SIGNAL_HANDLER
 
 	last_death = world.time
 
 /datum/mind/Topic(href, href_list)
+	//проверяем на амбиции, после чего прерываем выполнение, иначе он залезет в админский антаг-панель
+	var/ambition_func = ambition_topic(href, href_list)
+	if (ambition_func)
+		return
+
 	if(!check_rights(R_ADMIN))
 		return
 

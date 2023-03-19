@@ -71,16 +71,16 @@
 /datum/augment_item/limb/r_arm
 	slot = AUGMENT_SLOT_R_ARM
 
-/datum/augment_item/limb/r_arm/prosthetic
+/datum/augment_item/limb/arm/right/prosthetic
 	name = "Prosthetic right arm"
 	path = /obj/item/bodypart/arm/right/robot/surplus
 	cost = -1
 
-/datum/augment_item/limb/r_arm/cyborg
+/datum/augment_item/limb/arm/right/cyborg
 	name = "Cyborg right arm"
 	path = /obj/item/bodypart/arm/right/robot/weak
 
-/datum/augment_item/limb/r_arm/plasmaman
+/datum/augment_item/limb/arm/right/plasmaman
 	name = "Plasmaman right arm"
 	path = /obj/item/bodypart/arm/right/plasmaman
 	uses_robotic_styles = FALSE

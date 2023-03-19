@@ -401,15 +401,15 @@
 /datum/equilibrium/proc/reactant_purity(datum/chemical_reaction/C)
 	var/list/cached_reagents = holder.reagent_list
 	var/i = 0
-	var/cached_purity
+	var/creation_purity
 	for(var/datum/reagent/reagent as anything in holder.reagent_list)
 		if (reagent in cached_reagents)
-			cached_purity += reagent.purity
+			creation_purity += reagent.purity
 			i++
 	if(!i)//I've never seen it get here with 0, but in case - it gets here when it blows up from overheat
 		stack_trace("No reactants found mid reaction for [C.type]. Beaker: [holder.my_atom]")
 		return 0 //we exploded and cleared reagents - but lets not kill the process
-	return cached_purity/i
+	return creation_purity/i
 
 ///Panic stop a reaction - cleanup should be handled by the next timestep
 /datum/equilibrium/proc/force_clear_reactive_agents()

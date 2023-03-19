@@ -428,11 +428,16 @@
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
 #define OFFSET_ACCESSORY "accessory" // Skyrat edit - addition
+#define OFFSET_UNDERWEAR "underwear"
+#define	OFFSET_SOCKS "socks"
+#define OFFSET_SHIRT "shirt"
+#define OFFSET_WRISTS "wrist" // Bluemoon Edit.
 
 //MINOR TWEAKS/MISC
 //#define AGE_MIN 17	//youngest a character can be //ORIGINAL
 #define AGE_MIN	18	//youngest a character can be //SKYRAT EDIT CHANGE - age
-#define AGE_MAX 85 //oldest a character can be
+#define AGE_MAX 120 //oldest a character can be
+#define AGE_MAX_INPUT 120 // oldest a character's age can be manually set
 #define AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
@@ -443,6 +448,7 @@
 #define DOOR_CRUSH_DAMAGE 15 //the amount of damage that airlocks deal when they crush you
 
 #define HUNGER_FACTOR 0.05 //factor at which mob nutrition decreases
+#define THIRST_FACTOR			 0.06	// factor at which mob thirst increases
 #define ETHEREAL_CHARGE_FACTOR 0.8 //factor at which ethereal's charge decreases per second
 /// How much nutrition eating clothes as moth gives and drains
 #define CLOTHING_NUTRITION_GAIN 15
@@ -649,37 +655,37 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 39 // SKYRAT EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 33
+#define TOTAL_LAYERS 41 // SKYRAT EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 33
 
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 39 // SKYRAT EDIT CHANGE - ORIGINAL: 33
+#define MUTATIONS_LAYER 41 // SKYRAT EDIT CHANGE - ORIGINAL: 33
+#define GENITALS_BEHIND_LAYER	40		//Some genitalia needs to be behind everything, such as with taurs (Taurs use body_behind_layer
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 38 // SKYRAT EDIT CHANGE - ORIGINAL: 32
+#define BODY_BEHIND_LAYER 39 // SKYRAT EDIT CHANGE - ORIGINAL: 32
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 37 // SKYRAT EDIT CHANGE - ORIGINAL: 31
+#define BODYPARTS_LOW_LAYER 38 // SKYRAT EDIT CHANGE - ORIGINAL: 31
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 36 // SKYRAT EDIT CHANGE - ORIGINAL: 30
+#define BODYPARTS_LAYER 37 // SKYRAT EDIT CHANGE - ORIGINAL: 30
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 35 // SKYRAT EDIT CHANGE - ORIGINAL: 29
+#define BODY_ADJ_LAYER 36 // SKYRAT EDIT CHANGE - ORIGINAL: 29
+#define GENITALS_FRONT_LAYER	35		//Draws some genitalia above clothes and the TAUR body if need be.
 /// Underwear, undershirts, socks, eyes, lips(makeup)
-#define BODY_LAYER 34 // SKYRAT EDIT CHANGE - ORIGINAL: 28
+#define BODY_LAYER				34			// Возвращаю нижнее бельё, ибо портальные фонарики - это круто.
+#define UNDERWEAR_LAYER			33			// Возвращаю нижнее бельё, ибо портальные фонарики - это круто.
+#define SOCKS_LAYER				32			// Возвращаю нижнее бельё, ибо портальные фонарики - это круто.
+#define SHIRT_LAYER				31			// Возвращаю нижнее бельё, ибо портальные фонарики - это круто.
+#define GENITALS_EXPOSED_LAYER	30			// Возвращаю нижнее бельё, ибо портальные фонарики - это круто.
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 33 // SKYRAT EDIT CHANGE - ORIGINAL: 27
+#define FRONT_MUTATIONS_LAYER 29 // SKYRAT EDIT CHANGE - ORIGINAL: 27
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 32 // SKYRAT EDIT CHANGE - ORIGINAL: 26
+#define DAMAGE_LAYER 28 // SKYRAT EDIT CHANGE - ORIGINAL: 26
 // SKYRAT EDIT ADDITION BEGIN.
 /// This layer is used for things that shouldn't be over clothes, but should be over mutations
-#define BODY_FRONT_UNDER_CLOTHES 31
+#define BODY_FRONT_UNDER_CLOTHES 27
 // SKYRAT EDIT ADDITION END
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 30 // SKYRAT EDIT CHANGE - ORIGINAL: 25
-// SKYRAT EDIT ADDITION BEGIN - cursed layers under clothing
-#define ANUS_LAYER 29
-#define VAGINA_LAYER 28
-#define PENIS_LAYER 27
-#define NIPPLES_LAYER 26
+#define UNIFORM_LAYER 26 // SKYRAT EDIT CHANGE - ORIGINAL: 25
 #define BANDAGE_LAYER 25
-//SKYRAT EDIT ADDITION END
 /// ID card layer
 #define ID_LAYER 24
 /// ID card layer (might be deprecated)

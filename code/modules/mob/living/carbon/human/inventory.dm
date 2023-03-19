@@ -185,6 +185,10 @@
 				return
 			s_store = I
 			update_suit_storage()
+		if(ITEM_SLOT_ACCESSORY)
+			var/obj/item/clothing/under/attach_target = w_uniform
+			attach_target.attach_accessory(I, src, TRUE)
+			// updates handled by attach_accessory
 
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))
@@ -220,12 +224,12 @@
 		if(!QDELETED(src)) //no need to update we're getting deleted anyway
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_worn_undersuit()
-
+/*
 			// SKYRAT EDIT ADDITION START - ERP Overlays
 			if(I.flags_inv & HIDESEXTOY)
 				update_inv_lewd()
 			// SKYRAT EDIT ADDITION END
-
+*/
 			update_worn_oversuit()
 	else if(I == w_uniform)
 		if(invdrop)

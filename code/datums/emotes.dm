@@ -64,6 +64,7 @@
 	/// Are silicons explicitely allowed to use this emote?
 	var/silicon_allowed = FALSE
 	//SKYRAT EDIT ADDITION END
+	var/static/list/emote_list = list()
 
 /datum/emote/New()
 	switch(mob_type_allowed_typecache)

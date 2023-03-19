@@ -333,7 +333,7 @@ ALLOW_HOLIDAYS
 TICKLAG 0.5
 
 ##Can also be set as per-second value, the following value is identical to the above.
-#FPS 20
+FPS 40
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON

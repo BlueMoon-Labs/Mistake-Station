@@ -106,6 +106,43 @@
 	parent_client.screen -= blocker_mask
 	parent_client.screen -= visual_shadow
 
+/**
+  * Byond doc is not entirely correct on the integrated arctan() proc.
+  * When both x and y are negative, the output is also negative, cycling clockwise instead of counter-clockwise.
+  * That's also why I am extensively using the SIMPLIFY_DEGREES macro here.
+  *
+  * Overall this is the main macro that calculates wheter a target is within the shadow cone angle or not.
+  */
+#define FOV_ANGLE_CHECK(mob, target, zero_x_y_statement, success_statement) \
+	var/turf/T1 = get_turf(target);\
+	var/turf/T2 = get_turf(mob);\
+	if(!T1 || !T2){\
+		zero_x_y_statement\
+	}\
+	var/_x = (T1.x - T2.x);\
+	var/_y = (T1.y - T2.y);\
+	if(ISINRANGE(_x, -1, 1) && ISINRANGE(_y, -1, 1)){\
+		zero_x_y_statement\
+	}\
+	var/dir = (mob.dir & (EAST|WEST)) || mob.dir;\
+	var/_degree = -angle;\
+	var/_half = shadow_angle/2;\
+	switch(dir){\
+		if(EAST){\
+			_degree += 180;\
+		}\
+		if(NORTH){\
+			_degree += 270;\
+		}\
+		if(SOUTH){\
+			_degree += 90;\
+		}\
+	}\
+	var/_min = SIMPLIFY_DEGREES(_degree - _half);\
+	var/_max = SIMPLIFY_DEGREES(_degree + _half);\
+	if((_min > _max) ? !ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _max, _min) : ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _min, _max)){\
+		success_statement;\
+	}
 
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
@@ -143,6 +180,8 @@
 	. = ..()
 	UnregisterSignal(parent, list(COMSIG_MOB_RESET_PERSPECTIVE, COMSIG_ATOM_DIR_CHANGE, COMSIG_LIVING_DEATH, COMSIG_LIVING_REVIVE, COMSIG_MOB_LOGOUT))
 	UnregisterSignal(parent, COMSIG_LIVING_COMBAT_MODE_TOGGLE) //SKYRAT EDIT ADDITION
+
+#undef FOV_ANGLE_CHECK
 
 //SKYRAT EDIT ADDITION BEGIN
 /// When toggling combat mode, we update the alpha of the shadow mask

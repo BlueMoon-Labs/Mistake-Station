@@ -30,6 +30,13 @@
 /datum/sprite_accessory/horns/angler
 	default_color = DEFAULT_SECONDARY
 
+/datum/sprite_accessory/horns/sylveon
+	name = "Sylveon Bow"
+	icon = 'modular_splurt/icons/mob/mutant_bodyparts.dmi'
+	icon_state = "sylveon_bow"
+	color_src = MATRIXED
+	color_src = MATRIX_ALL
+
 /datum/sprite_accessory/horns/ram
 	name = "Ram"
 	icon_state = "ram"

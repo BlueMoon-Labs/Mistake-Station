@@ -138,6 +138,10 @@
 	/// Station alert datum for showing alerts UI
 	var/datum/station_alert/alert_control
 
+	var/sleeper_g
+	var/sleeper_r
+	var/sleeper_nv
+
 // Defining specific kinds of robots
 ///This is the subtype that gets created by robot suits. It's needed so that those kind of borgs don't have a useless cell in them
 /mob/living/silicon/robot/nocell

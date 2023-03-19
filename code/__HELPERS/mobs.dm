@@ -173,6 +173,8 @@
 		if(!findname(.))
 			break
 
+#define SKINTONE2HEX(skin_tone) GLOB.skin_tones[skin_tone] || skin_tone
+
 /proc/random_skin_tone()
 	return pick(GLOB.skin_tones)
 
