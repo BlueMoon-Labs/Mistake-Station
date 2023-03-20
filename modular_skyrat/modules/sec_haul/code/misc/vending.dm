@@ -52,7 +52,7 @@
 	name = "\improper Corporative Security Outfitting Station"
 	desc = "A vending machine stocked with \"Corporative Security\" package, including standardized uniforms and general equipment."
 	//icon = 'modular_skyrat/modules/sec_haul/icons/vending/vending.dmi'		Нахуй.
-	icon_state = "secdrobe"//													Блядь.
+	icon_state = "secdrobe"											//			Блядь.
 	product_ads = "Beat perps in style!;The stains wash right out!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	vend_reply = "Good luck, Peacekeeper!"
 	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 5,

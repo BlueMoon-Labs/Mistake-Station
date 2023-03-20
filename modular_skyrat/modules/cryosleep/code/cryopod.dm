@@ -21,6 +21,8 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
 	icon_keyboard = null
+	icon_screen = null
+	use_power = FALSE
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE
@@ -223,6 +225,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			if(mob_occupant.mind)
 				stored_rank = mob_occupant.mind.assigned_role.title
 
+		var/mob/living/carbon/human/human_occupant = occupant
+		if(human_occupant && human_occupant.mind)
+			human_occupant.save_individual_persistence()
+
 		COOLDOWN_START(src, despawn_world_time, time_till_despawn)
 
 /obj/machinery/cryopod/open_machine()
@@ -254,7 +260,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(!control_computer_weakref)
 			control_computer_weakref = cryo_find_control_computer(src, urgent = TRUE)
 
-		despawn_occupant()
+		cryoMob()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
@@ -318,6 +324,93 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(istype(item, possible_item.targetitem))
 			return TRUE
 	return FALSE
+
+/// This function can not be undone; do not call this unless you are sure.
+/// Handles despawning the player.
+/obj/machinery/cryopod/proc/despawn_occupant()
+	var/mob/living/mob_occupant = occupant
+
+	SSjob.FreeRole(stored_rank)
+
+	if(mob_occupant.mind)
+		// Handle tater cleanup.
+		if(LAZYLEN(mob_occupant.mind.objectives))
+			mob_occupant.mind.objectives.Cut()
+			mob_occupant.mind.special_role = null
+		if(mob_occupant.mind.holy_role == HOLY_ROLE_HIGHPRIEST)
+			reset_religion() // Reset religion to its default state so the new chaplain becomes high priest and can change the sect, armor, weapon type, etc
+
+	// Delete them from datacore and ghost records.
+	var/announce_rank = null
+
+	for(var/list/record in GLOB.ghost_records)
+		if(record["name"] == stored_name)
+			announce_rank = record["rank"]
+			GLOB.ghost_records.Remove(list(record))
+			break
+
+	if(!announce_rank) // No need to loop over all of those if we already found it beforehand.
+		for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
+			if(possible_target_record.name == stored_name && (stored_rank == "N/A" || possible_target_record.trim == stored_rank))
+				announce_rank = possible_target_record.rank
+				qdel(possible_target_record)
+				break
+
+	var/obj/machinery/computer/cryopod/control_computer = control_computer_weakref?.resolve()
+	if(!control_computer)
+		control_computer_weakref = null
+	else
+		control_computer.frozen_crew += list(list("name" = stored_name, "job" = stored_rank))
+
+	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
+	if(!quiet)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
+
+	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
+
+	for(var/obj/item/item_content as anything in mob_occupant)
+		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
+			continue
+		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+			continue
+		if(control_computer)
+			if(istype(item_content, /obj/item/modular_computer))
+				var/obj/item/modular_computer/computer = item_content
+				for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
+					message_app.invisible = TRUE
+			mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
+			item_content.dropped(mob_occupant)
+			control_computer.frozen_item += item_content
+		else
+			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
+
+	GLOB.joined_player_list -= stored_ckey
+
+	handle_objectives()
+	mob_occupant.ghostize()
+	QDEL_NULL(occupant)
+	open_machine()
+	name = initial(name)
+
+// It's time to kill GLOB
+/obj/machinery/cryopod/proc/reset_religion()
+
+ // set the altar references to the old religious_sect to null
+	for(var/obj/structure/altar_of_gods/altar in GLOB.chaplain_altars)
+		altar.GetComponent(/datum/component/religious_tool).easy_access_sect = null
+		altar.sect_to_altar = null
+
+	QDEL_NULL(GLOB.religious_sect) // queue for removal but also set it to null, in case a new chaplain joins before it can be deleted
+
+	// set the rest of the global vars to null for the new chaplain
+	GLOB.religion = null
+	GLOB.deity = null
+	GLOB.bible_name = null
+	GLOB.bible_icon_state = null
+	GLOB.bible_inhand_icon_state = null
+	GLOB.holy_armor_type = null
+	GLOB.holy_weapon_type = null
+	GLOB.holy_successor = TRUE // We need to do this so new priests can get a new null rod
 
 /obj/machinery/cryopod/MouseDrop_T(mob/living/target, mob/user)
 	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !ismob(target) || isanimal(target) || !istype(user.loc, /turf) || target.buckled)
@@ -427,10 +520,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	w_class = WEIGHT_CLASS_HUGE
 	var/real_name = "fire coderbus"
 	occupant
-
-// This function can not be undone; do not call this unless you are sure
-/obj/machinery/cryopod/proc/despawn_occupant()
-	cryoMob(occupant, control_computer_weakref, src, tele, initial(name))
 
 /obj/machinery/cryopod/proc/cryoMob(mob/living/mob_occupant, datum/weakref/control_computer_weakref, obj/machinery/cryopod/pod, is_teleporter, initial_name, effects = FALSE)
 	var/list/crew_member = list()

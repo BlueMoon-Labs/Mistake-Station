@@ -17,7 +17,7 @@
 /obj/item/clothing/head/hats/flakhelm/Initialize(mapload)
 	. = ..()
 
-	create_storage(type = /datum/storage/pockets/tiny/spacenam)
+	create_storage(storage_type = /datum/storage/pockets/tiny/spacenam)
 
 /datum/storage/pockets/tiny/spacenam
 	attack_hand_interact = TRUE		//So you can actually see what you stuff in there

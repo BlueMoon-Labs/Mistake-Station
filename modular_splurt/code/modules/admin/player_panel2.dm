@@ -506,7 +506,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 		if ("cryo")
 			for (var/obj/machinery/cryopod/F as anything in GLOB.cryopod_computers)
-				F.despawn_occupant()
+				F.cryoMob()
 
 		if ("force_say")
 			targetMob.say(params["to_say"], forced="admin")

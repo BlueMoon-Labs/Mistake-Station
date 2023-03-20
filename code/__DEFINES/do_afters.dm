@@ -5,6 +5,7 @@
 #define DOAFTER_SOURCE_CLIMBING_LADDER "doafter_climbingladder"
 #define DOAFTER_SOURCE_SPIDER "doafter_spider"
 #define DOAFTER_SOURCE_HEAL_TOUCH "doafter_heal_touch"
+#define DOAFTER_SOURCE_PLANTING_DEVICE "doafter_planting_device"
 
 /////////// ATTACKCHAIN_FLAGS ////////////
 // melee_attack_chain(), attackby(), pre_attack(), afterattack(), and tool_act(), attack() and **anything that is called by ClickOn()** return values.

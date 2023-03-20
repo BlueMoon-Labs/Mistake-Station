@@ -61,6 +61,9 @@
 	return TRUE
 
 /obj/item/clothing/gloves/attackby(obj/item/tool, mob/user, params)
+	. = ..()
+	if(.)
+		return
 	if(tool.tool_behaviour != TOOL_WIRECUTTER && !tool.get_sharpness())
 		return
 	if (!can_cut_with(tool))
@@ -72,3 +75,4 @@
 	balloon_alert(user, "cut fingertips off")
 	qdel(src)
 	user.put_in_hands(new cut_type)
+	return TRUE
