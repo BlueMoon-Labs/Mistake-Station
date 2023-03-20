@@ -20,7 +20,6 @@
 /obj/machinery/vending/wardrobe/sec_wardrobe/Initialize()
 	var/list/extra_products = list(
 		/obj/item/clothing/head/hats/sec/peacekeeper/cap = 5,
-		/obj/item/clothing/head/beret/sec/peacekeeper = 5,
 		/obj/item/clothing/mask/balaclava/breath = 5,
 		/obj/item/clothing/under/rank/security/officer/peacekeeper = 5,
 		/obj/item/clothing/head/helmet/metrocop = 3,
