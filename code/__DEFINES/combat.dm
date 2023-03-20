@@ -191,6 +191,10 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define TRIGGER_GUARD_ALLOW_ALL -1
 #define TRIGGER_GUARD_NONE 0
 #define TRIGGER_GUARD_NORMAL 1
+//E-gun self-recharge values
+#define EGUN_NO_SELFCHARGE 0
+#define EGUN_SELFCHARGE 1
+#define EGUN_SELFCHARGE_BORG 2
 //Gun bolt types
 ///Gun has a bolt, it stays closed while not cycling. The gun must be racked to have a bullet chambered when a mag is inserted.
 ///  Example: c20, shotguns, m90
@@ -327,3 +331,21 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define BATON_ATTACK_DONE 2
 /// The baton attack is still going. baton_effect() is called.
 #define BATON_ATTACKING 3
+
+/// This mob is currently actively blocking
+#define COMBAT_FLAG_ACTIVE_BLOCKING			(1<<11)
+/// This mob is currently starting an active block
+#define COMBAT_FLAG_ACTIVE_BLOCK_STARTING	(1<<12)
+
+/// Block priorities. Higher means it's checked sooner.
+// THESE MUST NEVER BE 0! Block code uses ! instead of isnull for the speed boost.
+#define BLOCK_PRIORITY_ACTIVE_BLOCK				200
+#define BLOCK_PRIORITY_HELD_ITEM				100
+#define BLOCK_PRIORITY_WEAR_SUIT				75
+//SKYRAT EDIT
+#define BLOCK_PRIORITY_CLOTHING					50
+#define BLOCK_PRIORITY_UNIFORM					25
+#define BLOCK_PRIORITY_UNDERWEAR				20
+//SKYRAT EDIT END
+
+#define BLOCK_PRIORITY_DEFAULT BLOCK_PRIORITY_HELD_ITEM

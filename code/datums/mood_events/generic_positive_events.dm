@@ -365,3 +365,60 @@
 	special_screen_obj = "birthday"
 	special_screen_replace = FALSE
 
+//Cursed stuff below.
+
+/datum/mood_event/orgasm
+	description = "<span class='userlove'>I came!</span>\n" //funny meme haha
+	mood_change = 3
+	timeout = 100 SECONDS
+
+/datum/mood_event/fedpred
+	description = "<span class='nicegreen'>I've devoured someone!</span>\n"
+	mood_change = 3
+
+/datum/mood_event/fedprey
+	description = "<span class='nicegreen'>It feels quite cozy in here.</span>\n"
+	mood_change = 3
+
+/datum/mood_event/hope_lavaland
+	description = "<span class='nicegreen'>What a peculiar emblem. It makes me feel hopeful for my future.</span>\n"
+	mood_change = 5
+
+/datum/mood_event/artok
+	description = "<span class='nicegreen'>It's nice to see people are making art around here.</span>\n"
+	mood_change = 2
+	timeout = 2 MINUTES
+
+/datum/mood_event/artgood
+	description = "<span class='nicegreen'>What a thought-provoking piece of art. I'll remember that for a while.</span>\n"
+	mood_change = 3
+	timeout = 3 MINUTES
+
+/datum/mood_event/artgreat
+	description = "<span class='nicegreen'>That work of art was so great it made me believe in the goodness of humanity. Says a lot in a place like this.</span>\n"
+	mood_change = 4
+	timeout = 4 MINUTES
+
+/datum/mood_event/cleared_stomach
+	description = "<span class='nicegreen'>Feels nice to get that out of the way!</span>\n"
+	mood_change = 3
+
+/datum/mood_event/high_five
+	description = "<span class='nicegreen'>I love getting high fives!</span>\n"
+	mood_change = 2
+	timeout = 45 SECONDS
+
+/datum/mood_event/high_ten
+	description = "<span class='nicegreen'>AMAZING! A HIGH-TEN!</span>\n"
+	mood_change = 3
+	timeout = 45 SECONDS
+
+/datum/mood_event/down_low
+	description = "<span class='nicegreen'>HA! What a rube, they never stood a chance...</span>\n"
+	mood_change = 4
+	timeout = 1.5 MINUTES
+
+/datum/mood_event/sacrifice_good
+	description = "<span class='nicegreen'>The gods are pleased with this offering!</span>\n"
+	mood_change = 5
+	timeout = 3 MINUTES

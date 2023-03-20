@@ -8,6 +8,15 @@
 	var/claimed = FALSE
 	var/high_priority = FALSE
 
+// Displayed on bounty UI screen.
+/datum/bounty/proc/completion_string()
+	return ""
+
+// When randomly generating the bounty list, duplicate bounties must be avoided.
+// This proc is used to determine if two bounties are duplicates, or incompatible in general.
+/datum/bounty/proc/compatible_with(other_bounty)
+	return TRUE
+
 /datum/bounty/proc/can_claim()
 	return !claimed
 

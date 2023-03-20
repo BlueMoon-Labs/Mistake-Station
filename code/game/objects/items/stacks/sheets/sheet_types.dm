@@ -488,10 +488,11 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	amount = 5
 
 GLOBAL_LIST_INIT(durathread_recipes, list ( \
-	new/datum/stack_recipe("durathread jumpsuit", /obj/item/clothing/under/misc/durathread, 4, time = 4 SECONDS, category = CAT_CLOTHING),
-	new/datum/stack_recipe("durathread beret", /obj/item/clothing/head/beret/durathread, 2, time = 4 SECONDS, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("durathread beanie", /obj/item/clothing/head/beanie/durathread, 2, time = 4 SECONDS, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("durathread bandana", /obj/item/clothing/mask/bandana/durathread, 1, time = 2.5 SECONDS, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Durathread Jumpsuit", /obj/item/clothing/under/misc/durathread, 4, time = 4 SECONDS, category = CAT_CLOTHING),
+	new/datum/stack_recipe("Durathread Beret", /obj/item/clothing/head/beret/durathread, 2, time = 4 SECONDS, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Durathread Beanie", /obj/item/clothing/head/beanie/durathread, 2, time = 4 SECONDS, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Durathread Bandana", /obj/item/clothing/mask/bandana/durathread, 1, time = 2.5 SECONDS, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Durathread Skirt",/obj/item/clothing/under/misc/durathread/skirt, 4, time = 4 SECONDS, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/durathread

@@ -1,4 +1,4 @@
-//max channel is 1024. Only go lower from here, because byond tends to pick the first available channel to play sounds on
+//max channel is 1024. Only go lower from here, because byond tends to pick the first available channel to play sound on
 #define CHANNEL_LOBBYMUSIC 1024
 #define CHANNEL_ADMIN 1023
 #define CHANNEL_VOX 1022
@@ -23,10 +23,15 @@
 #define CHANNEL_PCV 1009
 //SKYRAT EDIT CHANGE END
 
+//CIT CHANNELS - TRY NOT TO REGRESS
+#define CHANNEL_PRED 1009
+#define CHANNEL_DIGEST 1008
+#define CHANNEL_PREYLOOP 1007
+
 ///Default range of a sound.
 #define SOUND_RANGE 17
 #define MEDIUM_RANGE_SOUND_EXTRARANGE -5
-///default extra range for sounds considered to be quieter
+///default extra range for sound considered to be quieter
 #define SHORT_RANGE_SOUND_EXTRARANGE -9
 ///The range deducted from sound range for things that are considered silent / sneaky
 #define SILENCED_SOUND_EXTRARANGE -11
@@ -34,6 +39,10 @@
 #define SOUND_DEFAULT_FALLOFF_DISTANCE 1 //For a normal sound this would be 1 tile of no falloff
 ///The default exponent of sound falloff
 #define SOUND_FALLOFF_EXPONENT 6
+/// Default distance multiplier for sound
+#define SOUND_DEFAULT_DISTANCE_MULTIPLIER 2.5
+/// Default range at which sound distance multiplier applies
+#define SOUND_DEFAULT_MULTIPLIER_EFFECT_RANGE 7
 
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
@@ -233,3 +242,8 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_CRUNCHY_BUSH_WHACK "crunchy_bush_whack"
 #define SFX_TREE_CHOP "tree_chop"
 #define SFX_ROCK_TAP "rock_tap"
+
+#define RUSSIAN_SCREAMS list('modular_bluemoon/sound/russian/cyka1.ogg', 'modular_bluemoon/sound/russian/rus1.ogg', 'modular_bluemoon/sound/russian/rus2.ogg', 'modular_bluemoon/sound/russian/rus3.ogg',\
+	'modular_bluemoon/sound/russian/rus4.ogg', 'modular_bluemoon/sound/russian/rus5.ogg', 'modular_bluemoon/sound/russian/rus6.ogg')
+
+#define HIGHSEC list('modular_bluemoon/sound/ambience/blue/ambidanger1.ogg', 'modular_bluemoon/sound/ambience/blue/ambidanger2.ogg', 'modular_bluemoon/sound/ambience/blue/ambidanger3.ogg', 'modular_bluemoon/sound/ambience/blue/ambidanger4.ogg', 'modular_bluemoon/sound/ambience/blue/ambidanger5.ogg', 'modular_bluemoon/sound/ambience/blue/ambidanger6.ogg')

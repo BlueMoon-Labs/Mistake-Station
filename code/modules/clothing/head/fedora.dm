@@ -35,3 +35,28 @@
 	name = "carpskin fedora"
 	icon_state = "fedora_carpskin"
 	inhand_icon_state = null
+
+/obj/item/clothing/head/sheriff_hat
+	name = "Sheriff Hat"
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon_state = "sheriff_hat"
+	worn_icon_state = "sheriff_hat"
+	inhand_icon_state = "fedora"
+	desc = "A really cool hat if you're a mobster. A really lame hat if you're not."
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "sheriff_hat",
+			RESKIN_WORN_ICON_STATE = "sheriff_hat"
+		),
+		"Brown Variant" = list(
+			RESKIN_ICON_STATE = "sheriff_hat_alt",
+			RESKIN_WORN_ICON_STATE = "sheriff_hat_alt"
+		),
+	)
+
+/obj/item/clothing/head/fedora/Initialize(mapload)
+	. = ..()
+
+	create_storage(storage_type = /datum/storage/pockets/small/fedora)

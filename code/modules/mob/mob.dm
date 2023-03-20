@@ -293,13 +293,6 @@
 
 		M.show_message(msg, msg_type, blind_message, MSG_AUDIBLE)
 
-
-///Adds the functionality to self_message.
-/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ")  // SKYRAT EDIT ADDITION - Better emotes
-	. = ..()
-	if(self_message)
-		show_message(self_message, MSG_VISUAL, blind_message, MSG_AUDIBLE)
-
 /**
  * Show a message to all mobs in earshot of this atom
  *
@@ -374,25 +367,32 @@
 /mob/proc/incapacitated(flags)
 	return
 
+/// Checks for slots that are currently obscured by other garments.
+/mob/proc/check_obscured_slots()
+	return
+
 /**
  * This proc is called whenever someone clicks an inventory ui slot.
  *
  * Mostly tries to put the item into the slot if possible, or call attack hand
  * on the item in the slot if the users active hand is empty
  */
-/mob/proc/attack_ui(slot, params)
+/mob/proc/attack_ui(slot)
 	var/obj/item/W = get_active_held_item()
 
 	if(istype(W))
-		if(equip_to_slot_if_possible(W, slot,0,0,0))
+		if(equip_to_slot_if_possible(W, slot, FALSE, FALSE, FALSE, FALSE, TRUE))
+			W.apply_outline()
 			return TRUE
 
 	if(!W)
 		// Activate the item
 		var/obj/item/I = get_item_by_slot(slot)
 		if(istype(I))
-			var/list/modifiers = params2list(params)
-			I.attack_hand(src, modifiers)
+			if(slot in check_obscured_slots())
+				to_chat(src, "<span class='warning'>You are unable to unequip that while wearing other garments over it!</span>")
+				return FALSE
+			I.attack_hand(src)
 
 	return FALSE
 
@@ -525,6 +525,11 @@
 	/// Signal sent after the eye has been successfully updated, with the client existing.
 	SEND_SIGNAL(src, COMSIG_MOB_RESET_PERSPECTIVE)
 	return TRUE
+
+//view() but with a signal, to allow blacklisting some of the otherwise visible atoms.
+/mob/proc/fov_view(dist = world.view)
+	. = view(dist, src)
+	SEND_SIGNAL(src, COMSIG_MOB_FOV_VIEW, .)
 
 /**
  * Examine a mob
@@ -809,7 +814,6 @@
 		return
 
 	M.key = key
-
 
 /**
  * Sometimes helps if the user is stuck in another perspective or camera
@@ -1255,7 +1259,15 @@
 **/
 /mob/proc/has_light_nearby(light_amount = LIGHTING_TILE_IS_DARK)
 	var/turf/mob_location = get_turf(src)
-	return mob_location.get_lumcount() > light_amount
+	var/area/mob_area = get_area(src)
+
+	if(mob_location.get_lumcount() > light_amount)
+		return TRUE
+	else if(!mob_area.static_lighting)
+		return TRUE
+
+	return FALSE
+
 
 
 /// Can this mob read

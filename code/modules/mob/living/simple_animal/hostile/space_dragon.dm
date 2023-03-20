@@ -73,8 +73,6 @@
 	var/using_special = FALSE
 	/// Determines whether or not Space Dragon is currently tearing through a wall.
 	var/tearing_wall = FALSE
-	/// The ability to make your sprite smaller
-	var/datum/action/small_sprite/space_dragon/small_sprite
 	/// The color of the space dragon.
 	var/chosen_color
 	/// Minimum devastation damage dealt coefficient based on max health

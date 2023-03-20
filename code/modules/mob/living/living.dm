@@ -13,6 +13,29 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
 
+/mob/living/proc/get_standard_pixel_x_offset(lying = 0)
+	return initial(pixel_x)
+
+/mob/living/proc/get_standard_pixel_y_offset(lying = 0)
+	return initial(pixel_y)
+
+
+/mob/living/get_standard_pixel_x_offset()
+	. = ..()
+	if(combat_mode & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
+		if(dir & EAST)
+			. += 4
+		if(dir & WEST)
+			. -= 4
+
+/mob/living/get_standard_pixel_y_offset()
+	. = ..()
+	if(combat_mode & (COMBAT_FLAG_ACTIVE_BLOCK_STARTING | COMBAT_FLAG_ACTIVE_BLOCKING))
+		if(dir & NORTH)
+			. += 4
+		if(dir & SOUTH)
+			. -= 4
+
 /mob/living/prepare_huds()
 	..()
 	prepare_data_huds()
@@ -1258,6 +1281,10 @@
 
 /mob/living/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
+
+//used in datum/reagents/reaction() proc
+/mob/living/proc/get_permeability_protection(list/target_zones)
+	return 0
 
 /mob/living/can_hold_items(obj/item/I)
 	return usable_hands && ..()

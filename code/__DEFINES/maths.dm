@@ -248,3 +248,9 @@
 
 /// The number of cells in a taxicab circle (rasterized diamond) of radius X.
 #define DIAMOND_AREA(X) (1 + 2*(X)*((X)+1))
+
+/// Gives the number of pixels in an orthogonal line of tiles.
+#define TILES_TO_PIXELS(tiles)			(tiles * PIXELS)
+
+/// world.icon_size
+#define PIXELS 32

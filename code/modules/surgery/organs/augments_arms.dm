@@ -344,7 +344,7 @@
 	slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
 	actions_types = list()
-	
+
 	///The amount of damage dealt by the empowered attack.
 	var/punch_damage = 13
 	///IF true, the throw attack will not smash people into walls
@@ -356,7 +356,7 @@
 	///Maximum throw power of the attack
 	var/throw_power_max = 4
 	///How long will the implant malfunction if it is EMP'd
-	var/emp_base_duration = 9 SECONDS 
+	var/emp_base_duration = 9 SECONDS
 
 /obj/item/organ/internal/cyberimp/arm/muscle/Insert(mob/living/carbon/reciever, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
@@ -425,7 +425,7 @@
 		living_target.throw_at(throw_target, attack_throw_range, rand(throw_power_min,throw_power_max), source, gentle = non_harmful_throw)
 
 	living_target.visible_message(
-		span_danger("[source] [picked_hit_type]ed [living_target]!"), 
+		span_danger("[source] [picked_hit_type]ed [living_target]!"),
 		span_userdanger("You're [picked_hit_type]ed by [source]!"),
 		span_hear("You hear a sickening sound of flesh hitting flesh!"),
 		COMBAT_MESSAGE_RANGE,

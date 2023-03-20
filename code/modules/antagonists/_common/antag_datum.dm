@@ -50,6 +50,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/show_to_ghosts = FALSE
 	/// The typepath for the outfit to show in the preview for the preferences menu.
 	var/preview_outfit
+	/// Lazy list for antagonists to request the admins objectives.
+	var/list/requested_objective_changes
 
 	//ANTAG UI
 
@@ -521,3 +523,33 @@ GLOBAL_LIST_EMPTY(antagonists)
 /// Used to create objectives for the antagonist.
 /datum/antagonist/proc/forge_objectives()
 	return
+
+///Clears change requests from deleted objectives to avoid broken references.
+/datum/antagonist/proc/clean_request_from_del_objective(datum/objective/source, force)
+	var/objective_reference = REF(source)
+	for(var/uid in requested_objective_changes)
+		var/list/change_request = requested_objective_changes[uid]
+		if(change_request["target"] != objective_reference)
+			continue
+		LAZYREMOVE(requested_objective_changes, uid)
+
+
+/datum/antagonist/proc/add_objective_change(uid, list/additions)
+	LAZYADD(requested_objective_changes, uid)
+	var/datum/objective/request_target = additions["target"]
+	if(!ispath(request_target))
+		request_target = locate(request_target) in objectives
+		if(istype(request_target))
+			RegisterSignal(request_target, COMSIG_PARENT_QDELETING, .proc/clean_request_from_del_objective)
+	requested_objective_changes[uid] = additions
+
+
+/datum/antagonist/proc/remove_objective_change(uid)
+	if(!LAZYACCESS(requested_objective_changes, uid))
+		return
+	var/datum/objective/request_target = requested_objective_changes[uid]["target"]
+	if(!ispath(request_target))
+		request_target = locate(request_target) in objectives
+		if(istype(request_target))
+			UnregisterSignal(request_target, COMSIG_PARENT_QDELETING)
+	LAZYREMOVE(requested_objective_changes, uid)

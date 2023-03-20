@@ -278,7 +278,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock_note_placer{
 	note_name = "breach notice";
-	note_info = "Due to recent hull damage suffered to this section of the station, the maintenance hall has been deemed unsafe for crew travel and has been blocked off until further notice for station repairs."
+	default_raw_text = "Due to recent hull damage suffered to this section of the station, the maintenance hall has been deemed unsafe for crew travel and has been blocked off until further notice for station repairs."
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/duct,

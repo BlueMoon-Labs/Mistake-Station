@@ -27,6 +27,8 @@
 	var/max_specific_storage = WEIGHT_CLASS_NORMAL
 	/// max combined weight classes the storage can hold
 	var/max_total_storage = 14
+	/// Max volume we can hold. Applies to [STORAGE_LIMIT_VOLUME]. Auto scaled on New() if unset.
+	var/max_volume
 
 	/// list of all the mobs currently viewing the contents
 	var/list/is_using = list()
@@ -117,6 +119,7 @@
 		return
 
 	RegisterSignals(resolve_parent, list(COMSIG_ATOM_ATTACK_PAW, COMSIG_ATOM_ATTACK_HAND), PROC_REF(on_attack))
+	RegisterSignal(resolve_parent, COMSIG_CONTAINS_STORAGE, PROC_REF(on_check))
 	RegisterSignal(resolve_parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto))
 	RegisterSignal(resolve_parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 
@@ -350,6 +353,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(messages && user && !silent_for_user)
 			to_chat(user, span_warning("\The [to_insert] can't fit into \the [resolve_parent]! Make some space!"))
 		return FALSE
+
+	if(total_weight & STORAGE_LIMIT_VOLUME)
+		var/sum_volume = to_insert.get_w_volume()
+		for(var/obj/item/_I in real_location?.resolve())
+			sum_volume += _I.get_w_volume()
+		if(sum_volume > get_max_volume())
+			if(!messages)
+				to_chat(user, "<span class='warning'>[to_insert] is too spacious to fit in [user], make some space!</span>")
+			return FALSE
 
 	if(length(can_hold))
 		if(!is_type_in_typecache(to_insert, can_hold))
@@ -697,6 +709,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(length(pick_up | current_contents) == length(current_contents))
 		return
 	resolve_parent.balloon_alert(user, "picked up")
+
+/datum/storage/proc/on_check()
+	return TRUE
 
 /// Signal handler for whenever we drag the storage somewhere.
 /datum/storage/proc/on_mousedrop_onto(datum/source, atom/over_object, mob/user)
@@ -1142,3 +1157,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/matrix/old_matrix = resolve_parent.transform
 	animate(resolve_parent, time = 1.5, loop = 0, transform = resolve_parent.transform.Scale(1.07, 0.9))
 	animate(time = 2, transform = old_matrix)
+
+/**
+  * Gets our max volume
+  */
+/datum/storage/proc/get_max_volume()
+	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage, max_total_storage)

@@ -16,6 +16,7 @@
 	greyscale_config = /datum/greyscale_config/beanie
 	greyscale_config_worn = /datum/greyscale_config/beanie_worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	flags_inv =  HIDEEARS // Блюмуновское захотелось.
 
 /obj/item/clothing/head/beanie/black
 	name = "black beanie"
