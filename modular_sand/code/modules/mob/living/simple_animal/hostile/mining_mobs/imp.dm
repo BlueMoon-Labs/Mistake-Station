@@ -58,7 +58,6 @@
 	icon_state = "fireball"
 	damage = 10
 	damage_type = BURN
-	nodamage = 0
 	armour_penetration = 20
 	var/firestacks = 5
 

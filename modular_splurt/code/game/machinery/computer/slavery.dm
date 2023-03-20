@@ -162,7 +162,7 @@
 
 			var/input = stripped_input(user, "Please choose a message to announce to the station crew.", "What?")
 
-			if(!input || !user.canUseTopic(src, !issilicon(usr)))
+			if(!input || !user.can_perform_action(src, !issilicon(usr)))
 				return
 			if(!(user.can_speak())) //No more cheating, mime/random mute guy!
 				to_chat(user, "<span class='warning'>You find yourself unable to speak.</span>")

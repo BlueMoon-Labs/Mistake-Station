@@ -103,7 +103,7 @@
 		return ..()
 /*
 /mob/living/simple_animal/hostile/megafauna/AltClick(mob/living/carbon/slayer)
-	if(!slayer.canUseTopic(src, TRUE))
+	if(!slayer.can_perform_action(src, TRUE))
 		return
 	if(glorykill)
 		if(ranged)

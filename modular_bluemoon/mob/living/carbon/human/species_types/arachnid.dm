@@ -36,7 +36,7 @@
 	liked_food = MEAT | RAW
 	disliked_food = FRUIT | GROSS
 	toxic_food = VEGETABLES | DAIRY
-	mutanteyes = /obj/item/organ/internal/eyes/night_vision/alien
+	mutanteyes = /obj/item/organ/internal/eyes/night_vision/maintenance_adapted
 	species_language_holder = /datum/language/moffic
 	brutemod = 1.1
 	var/web_cooldown = 200

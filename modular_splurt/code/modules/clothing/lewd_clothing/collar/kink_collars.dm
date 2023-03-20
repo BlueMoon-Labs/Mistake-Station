@@ -39,7 +39,7 @@
 
 /obj/item/clothing/neck/mind_collar/Initialize()
 	. = ..()
-	create_storage(type = /datum/storage/pockets/small/kink_collar/mind_collar)
+	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/mind_collar)
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
 

@@ -4,7 +4,6 @@
 	icon = 'modular_splurt/icons/obj/clothing/glasses.dmi'
 	icon_state = "aviator"
 	worn_icon = 'modular_splurt/icons/mobs/eyes.dmi'
-	darkness_view = 1
 	flash_protect = 1
 	tint = 1
 	glass_colour_type = /datum/client_colour/glass_colour/gray

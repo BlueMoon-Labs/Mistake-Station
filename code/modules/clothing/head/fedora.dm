@@ -59,4 +59,4 @@
 /obj/item/clothing/head/fedora/Initialize(mapload)
 	. = ..()
 
-	create_storage(type = /datum/storage/pockets/small/fedora)
+	create_storage(storage_type = /datum/storage/pockets/small/fedora)

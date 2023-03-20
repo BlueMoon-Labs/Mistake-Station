@@ -1,3 +1,7 @@
+/datum/mind
+	/// Mime's vow of silence
+	var/miming = FALSE
+
 //Main code edits
 /datum/emote/living/audio_emote/laugh/run_emote(mob/user, params)
 	. = ..()

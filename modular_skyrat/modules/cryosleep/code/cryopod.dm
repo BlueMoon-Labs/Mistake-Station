@@ -33,10 +33,14 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/mode = null
 
 	// Used for logging people entering cryosleep and important items they are carrying.
-	var/list/frozen_crew = list()
 	var/list/stored_packages = list()
 	/// Does this console store items? if NOT, will dump all items when the user cryo's instead
 	var/allow_items = TRUE
+
+	/// Used for logging people entering cryosleep and important items they are carrying.
+	var/list/frozen_crew = list()
+	/// The items currently stored in the cryopod control panel.
+	var/list/frozen_item = list()
 
 	/// This is what the announcement system uses to make announcements. Make sure to set a radio that has the channel you want to broadcast on.
 	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/pai

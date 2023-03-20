@@ -193,8 +193,6 @@
 	name = "Magus"
 	icon_state = "magus"
 	icon = 'modular_splurt/icons/mob/mam_snouts.dmi'
-	extra = TRUE
-	extra_color_src = MATRIXED
 	color_src = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/snouts/mam_snouts/duck

@@ -40,21 +40,3 @@
 	name = "F.I.S.T.R. Machine"
 	desc = "Fully Integrated Sexual Tension Relief Machine"
 //end redds code
-
-/obj/item/pneumatic_cannon/dildo
-	color = "#FFC0CB"
-	name = "pneumatic cannon"
-	desc = "A pneumatic cannon with a picture of a bus printed on the side that resembles an A-shape."
-	automatic = TRUE
-	selfcharge = TRUE
-	gasPerThrow = 0
-	checktank = FALSE
-	fire_mode = PCANNON_FIFO
-	throw_amount = 1
-	maxWeightClass = 60
-	var/static/list/dildo_typecache = typecacheof(/obj/item/dildo)
-	charge_type = /obj/item/dildo
-
-/obj/item/pneumatic_cannon/dildo/Initialize(mapload)
-	. = ..()
-	allowed_typecache = dildo_typecache

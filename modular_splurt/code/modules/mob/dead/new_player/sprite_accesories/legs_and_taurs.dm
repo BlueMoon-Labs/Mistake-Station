@@ -18,7 +18,6 @@
 	icon = 'modular_splurt/icons/mob/mam_taur.dmi'
 	taur_mode = STYLE_TAUR_PAW
 	color_src = MUTCOLORS
-	extra = FALSE
 
 /datum/sprite_accessory/taur/shadekin/long
 	name = "Shadekin Big Tail"

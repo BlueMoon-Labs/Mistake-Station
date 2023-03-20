@@ -65,7 +65,6 @@
 		marker.name = "kinetic [marker.name]"
 		marker.icon_state = "ka_tracer"
 		marker.damage = bonus_value
-		marker.nodamage = FALSE
 		deadly_shot = FALSE
 
 /obj/item/crusher_trophy/blaster_tubes/mask/on_mark_application(mob/living/target, datum/status_effect/crusher_mark/mark, had_mark)
@@ -111,7 +110,6 @@
 		marker.name = "fiery [marker.name]"
 		marker.icon_state = "fireball"
 		marker.damage = bonus_value
-		marker.nodamage = FALSE
 		playsound(user.loc, 'modular_sand/sound/misc/impranged.wav', 50, 0)
 
 //traitor crusher

@@ -408,7 +408,7 @@ GLOBAL_LIST_INIT(bondage_rope_slowdowns, list(
 // Handles changing between different rope targets
 /obj/item/restraints/bondage_rope/AltClick(mob/living/user)
 	. = ..()
-	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!istype(user) || !user.can_perform_action(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	customize_rope(user)
 	return TRUE
