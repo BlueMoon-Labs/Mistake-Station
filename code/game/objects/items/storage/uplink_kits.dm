@@ -628,6 +628,7 @@
 	new /obj/item/pinata/syndie(src)
 	new /obj/item/storage/belt/grenade(src)
 	new /obj/item/storage/belt/military/snack(src)
+
 /obj/item/storage/box/syndie_kit/revolver
 	name = "Gun Box"
 
