@@ -68,6 +68,8 @@
 	icon_state = "flag_nri"
 	item_flag = /obj/item/sign/flag/nri
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nri, 32)
+
 /// Please, for the love of God, use this in Black Mesa ONLY. NOWHERE ELSE. It's the only reason it was allowed in the game.
 /obj/structure/sign/flag/usa
 	name = "flag of the United States of America"
@@ -75,27 +77,15 @@
 	icon_state = "flag_usa"
 	item_flag = /obj/item/sign/flag/usa
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
+
 /obj/structure/sign/flag/syndicate
 	name = "flag of the Syndicate"
 	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
 	icon_state = "flag_syndi"
 	item_flag = /obj/item/sign/flag/syndicate
 
-/obj/structure/sign/flag/syndicate/directional/north //Pixel offsets get overwritten on New()
-	dir = SOUTH
-	pixel_y = 32
-
-/obj/structure/sign/flag/syndicate/directional/south
-	dir = NORTH
-	pixel_y = -32
-
-/obj/structure/sign/flag/syndicate/directional/east
-	dir = WEST
-	pixel_x = 32
-
-/obj/structure/sign/flag/syndicate/directional/west
-	dir = EAST
-	pixel_x = -32
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 
 /obj/structure/sign/flag/rus
 	name = "флаг Старой Российской Федерации"
