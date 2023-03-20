@@ -260,7 +260,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(!control_computer_weakref)
 			control_computer_weakref = cryo_find_control_computer(src, urgent = TRUE)
 
-		despawn_occupant()
+		cryoMob()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
@@ -520,10 +520,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	w_class = WEIGHT_CLASS_HUGE
 	var/real_name = "fire coderbus"
 	occupant
-
-// This function can not be undone; do not call this unless you are sure
-/obj/machinery/cryopod/proc/despawn_occupant()
-	cryoMob(occupant, control_computer_weakref, src, tele, initial(name))
 
 /obj/machinery/cryopod/proc/cryoMob(mob/living/mob_occupant, datum/weakref/control_computer_weakref, obj/machinery/cryopod/pod, is_teleporter, initial_name, effects = FALSE)
 	var/list/crew_member = list()
