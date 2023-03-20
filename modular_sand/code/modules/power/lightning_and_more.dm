@@ -28,13 +28,23 @@
 	icon = 'modular_sand/icons/obj/lighting.dmi'
 
 /obj/machinery/light
-	bulb_colour = "#bbe3ff"
+	bulb_colour = "#defcff"
+	light_power = 1
 
 /obj/machinery/light/small
-	bulb_colour = "#bbe3ff"
+	bulb_colour = "#defcff"
 	icon = 'modular_sand/icons/obj/lighting.dmi'
 	overlay_icon = 'modular_sand/icons/obj/lighting_overlay.dmi'
 
 /obj/machinery/power/floodlight
 	icon = 'modular_sand/icons/obj/lighting.dmi'
 	light_power = 2
+
+/obj/item/radio
+	icon = 'icons/obj/intercom.dmi'
+
+/obj/item/radio/intercom
+	icon = 'icons/obj/intercom.dmi'
+
+/obj/item/wallframe/intercom
+	icon = 'icons/obj/intercom.dmi'

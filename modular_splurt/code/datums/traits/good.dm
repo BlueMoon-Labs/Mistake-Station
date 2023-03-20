@@ -125,7 +125,7 @@
 		to_chat(quirk_holder, span_notice("\The [user] пытается посмотреть на вас, но тут же отворачивается с красным лицом..."))
 		TIMER_COOLDOWN_START(user, COOLDOWN_DOMINANT_EXAMINE, 5 SECONDS)
 	sub.dir = turn(get_dir(sub, quirk_holder), pick(-90, 90))
-	sub.emote("blush")
+	INVOKE_ASYNC(sub, TYPE_PROC_REF(/mob/living/carbon/human, emote), "blush")
 
 /datum/quirk/dominant_aura/proc/handle_snap(datum/source, list/emote_args)
 	SIGNAL_HANDLER
@@ -147,19 +147,19 @@
 		switch(E?.key)
 			if("snap")
 				sub.dir = get_dir(sub, quirk_holder)
-				sub.emote(pick("blush", "pant"))
+				INVOKE_ASYNC(sub, TYPE_PROC_REF(/mob/living/carbon/human, emote), pick("blush", "pant"))
 				sub.visible_message(span_notice("\The <b>[sub]</b> застенчиво поворачивается и начинает покорное наблюдение за \the <b>[quirk_holder]</b>. Какая молодчинка!"),
 									span_lewd("Ты покорно смотришь на \the [quirk_holder] и с трудом отводишь свой взгляд!"))
 			if("snap2")
 				sub.dir = get_dir(sub, quirk_holder)
 				sub.KnockToFloor()
-				sub.emote(pick("blush", "pant"))
+				INVOKE_ASYNC(sub, TYPE_PROC_REF(/mob/living/carbon/human, emote), pick("blush", "pant"))
 				sub.visible_message(span_lewd("\The <b>[sub]</b> бросается на колени и преклоняет свою голову в однозначном желании выполнить поручение <b>[quirk_holder]</b>."),
 									span_lewd("Ты бросаешься на свои колени и преклоняешь голову перед <b>[quirk_holder]</b>, будто бы какое-то животное!"))
 			if("snap3")
 				sub.KnockToFloor()
 				step(sub, get_dir(sub, quirk_holder))
-				sub.emote(pick("blush", "pant"))
+				INVOKE_ASYNC(sub, TYPE_PROC_REF(/mob/living/carbon/human, emote), pick("blush", "pant"))
 				sub.do_jitter_animation(30) //You're being moved anyways
 				sub.visible_message(span_lewd("\The <b>[sub]</b> бросается на четвереньки к \the <b>[quirk_holder]</b> и приближается на своих коленях в готовности выполнять любые команды."),
 									span_lewd("Ты бросаешься на четвереньки и приближаешься на своих коленях к \the <b>[quirk_holder]</b> в готовности выполнять любые приказы! [good_x] в своём репертуаре."))

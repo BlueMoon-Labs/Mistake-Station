@@ -295,7 +295,7 @@
 			to_chat(carrier, span_warning("Something presses hard against your anus! It's probably your egg!"))
 		else
 			to_chat(carrier, span_warning("You REALLY need to get this egg out!"))
-		carrier.emote("scream")
+		INVOKE_ASYNC(carrier, TYPE_PROC_REF(/mob/living, emote), "scream")
 		carrier.adjustStaminaLoss(15)
 
 	lay_eg(get_turf(carrier))

@@ -8,7 +8,6 @@
 		/obj/item/clothing/suit/toggle/rp_jacket/purple = 3,
 		/obj/item/clothing/suit/toggle/rp_jacket/red = 3,
 		/obj/item/clothing/suit/toggle/rp_jacket/white = 3,
-		/obj/item/clothing/suit/goner/fake/poly = 10,
 		/obj/item/clothing/under/raccveralls = 3,
 		/obj/item/clothing/under/officesexy = 3,
 		/obj/item/clothing/suit/toggle/tunnelfox = 3,
@@ -16,11 +15,11 @@
 		/obj/item/clothing/under/bluedress = 3,
 		/obj/item/clothing/accessory/shortcrop = 3,
 		/obj/item/clothing/accessory/longcrop = 3,
-		/obj/item/clothing/accessory/formalcrop = 3
+		/obj/item/clothing/accessory/formalcrop = 3,
+		/obj/item/clothing/under/pentatop = 3
 	)
 	var/list/extra_contraband = list(
-		/obj/item/clothing/under/rank/civilian/lawyer/galaxy_red = 3,
-		/obj/item/clothing/mask/gas/goner/basic = 10
+		/obj/item/clothing/under/rank/civilian/lawyer/galaxy_red = 3
 	)
 	var/list/extra_premium = list(
 		/obj/item/clothing/under/rank/civilian/lawyer/galaxy_blue = 3,

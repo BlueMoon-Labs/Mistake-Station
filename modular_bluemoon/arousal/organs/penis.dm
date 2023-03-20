@@ -67,7 +67,7 @@
 
 /obj/item/organ/genital/penis/update_appearance()
 	. = ..()
-	var/datum/sprite_accessory/S = GLOB.cock_shapes_list[shape]
+	var/datum/sprite_accessory/genital/S = GLOB.cock_shapes_list[shape]
 	var/icon_shape = S ? S.icon_state : "human"
 	icon_state = "penis_[icon_shape]_[size]"
 	var/lowershape = lowertext(shape)

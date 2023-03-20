@@ -1,43 +1,32 @@
 /obj/machinery/vending/security/Initialize()
 	var/list/extra_products = list(
 		/obj/item/ammo_box/magazine/e45/taser = 10,
-		/obj/item/device/hailer = 10,
-		/obj/item/clothing/suit/armor/vest/peacekeeper = 5,
-		/obj/item/storage/bag/ammo = 5,
-		/obj/item/clothing/head/helmet/blueshirt = 5,
-		/obj/item/clothing/under/rank/security/officer/blueshirt = 5,
-		/obj/item/clothing/suit/armor/vest/blueshirt = 5
+
 	)
 	var/list/extra_contraband = list(
 		/obj/item/storage/belt/slut = 5,
-		/obj/item/clothing/mask/leatherwhip/ridingcrop = 3,
-		/obj/item/electropack/shockcollar/security = 5,
 		/obj/item/clothing/suit/armor/vest/stripper = 5,
 		/obj/item/clothing/suit/armor/vest/stripper/bikini = 5,
+		/obj/item/clothing/mask/leatherwhip/ridingcrop = 3,
+		/obj/item/electropack/shockcollar/security = 5,
 		/obj/item/clothing/neck/human_petcollar/locked/security = 5,
 		/obj/item/grenade/secbed = 3,
 		/obj/item/dildo/flared/gigantic = 3
 	)
 	LAZYADD(products, extra_products)
 	LAZYADD(contraband, extra_contraband)
-
-	var/list/rem_premium = list(
-		/obj/item/clothing/head/helmet/blueshirt,
-		/obj/item/clothing/under/rank/security/officer/blueshirt,
-		/obj/item/clothing/suit/armor/vest/blueshirt
-	)
-	LAZYREMOVE(premium, rem_premium)
 	. = ..()
 
 /obj/machinery/vending/wardrobe/sec_wardrobe/Initialize()
 	var/list/extra_products = list(
-		/obj/item/clothing/head/beret/sec/peacekeeper/cap = 5,
+		/obj/item/clothing/head/hats/sec/peacekeeper/cap = 5,
 		/obj/item/clothing/head/beret/sec/peacekeeper = 5,
 		/obj/item/clothing/mask/balaclava/breath = 5,
-		/obj/item/clothing/under/rank/security/officer/peacekeeper =5,
-		/obj/item/clothing/suit/armor/vest/metrocop = 3,
+		/obj/item/clothing/under/rank/security/officer/peacekeeper = 5,
 		/obj/item/clothing/head/helmet/metrocop = 3,
+		/obj/item/clothing/suit/armor/vest/metrocop = 3,
 		/obj/item/clothing/under/rank/security/officer/metrocop = 3,
+		/obj/item/clothing/head/hats/sec/bitch = 5,
 		/obj/item/clothing/under/rank/security/skirt/slut = 5,
 		/obj/item/clothing/under/rank/security/skirt/slut/pink = 5,
 		/obj/item/clothing/under/rank/security/stripper = 5,
@@ -46,8 +35,7 @@
 	var/list/extra_premium = list(
 		/obj/item/clothing/gloves/latexsleeves/security = 5,
 		/obj/item/clothing/shoes/jackboots/tall = 5,
-		/obj/item/clothing/under/custom/mw2_russian_para = 5,
-		/obj/item/clothing/head/beret/sec/bitch = 5
+		/obj/item/clothing/under/custom/mw2_russian_para = 5
 	)
 	LAZYADD(products, extra_products)
 	LAZYADD(premium, extra_premium)

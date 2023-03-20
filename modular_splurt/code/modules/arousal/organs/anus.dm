@@ -22,7 +22,7 @@
 /obj/item/organ/genital/anus/update_appearance(updates)
 	var/u_His = owner?.ru_ego() || "their"
 
-	var/datum/sprite_accessory/anus/S = GLOB.anus_shapes_list[shape]
+	var/datum/sprite_accessory/genital/anus/S = GLOB.anus_shapes_list[shape]
 	var/lowershape = lowertext(S?.icon_state || DEF_ANUS_SHAPE)
 
 	desc = "Вы наблюдаете [u_His] сплюснутый [lowershape] анус между [u_His] ягодицами"

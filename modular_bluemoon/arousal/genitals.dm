@@ -1,3 +1,186 @@
+/datum/sprite_accessory/genital
+	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
+	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
+	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
+	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
+	var/taur_dimension_y = 32
+	var/taur_dimension_x = 32
+
+
+//DICKS,COCKS,PENISES,WHATEVER YOU WANT TO CALL THEM
+/datum/sprite_accessory/genital/penis
+	icon = 'icons/obj/genitals/penis_onmob.dmi'
+	name = "penis"			//the preview name of the accessory
+	color_src = "cock_color"
+	alt_aroused = TRUE
+	feat_taur = "cock_taur"
+
+/datum/sprite_accessory/genital/penis/human
+	icon_state = "human"
+	name = "человеческий"
+
+/datum/sprite_accessory/genital/penis/knotted
+	icon_state = "knotted"
+	name = "узловатый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/flared
+	icon_state = "flared"
+	name = "утолщённый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/barbknot
+	icon_state = "barbknot"
+	name = "колючий узловатый"
+
+/datum/sprite_accessory/genital/penis/tapered
+	icon_state = "tapered"
+	name = "конусоподобный"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/tentacle
+	icon_state = "tentacle"
+	name = "тентяклевидный"
+
+/datum/sprite_accessory/genital/penis/hemi
+	icon_state = "hemi"
+	name = "двойной"
+
+/datum/sprite_accessory/genital/penis/hemiknot
+	icon_state = "hemiknot"
+	name = "двойной узловатый"
+
+//Testicles
+/datum/sprite_accessory/genital/testicles
+	icon = 'icons/obj/genitals/testicles_onmob.dmi'
+	icon_state = "testicle"
+	name = "яйца"		//the preview name of the accessory
+	color_src = "balls_color"
+
+/datum/sprite_accessory/genital/testicles/single
+	icon_state = "single"
+	name = "одинарные" //Single as "single pair", for clarity.
+
+/datum/sprite_accessory/genital/testicles/hidden
+	icon_state = "hidden"
+	name = "скрытые" //not sure why these were missing, but I'm pretty certain people might want these.
+
+//Vaginas
+/datum/sprite_accessory/genital/vagina
+	icon = 'icons/obj/genitals/vagina_onmob.dmi'
+	name = "вагина"
+	color_src = "vag_color"
+	alt_aroused = TRUE
+
+/datum/sprite_accessory/genital/vagina/human
+	icon_state = "human"
+	name = "человеческая"
+
+/datum/sprite_accessory/genital/vagina/tentacles
+	icon_state = "tentacle"
+	name = "тентяклевидная"
+
+/datum/sprite_accessory/genital/vagina/dentata
+	icon_state = "dentata"
+	name = "зубастая"
+
+/datum/sprite_accessory/genital/vagina/hairy
+	icon_state = "hairy"
+	name = "волосатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/spade
+	icon_state = "spade"
+	name = "лопатковидная"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/furred
+	icon_state = "furred"
+	name = "мохнатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/gaping
+	icon_state = "gaping"
+	name = "приоткрытая"
+
+//BREASTS BE HERE
+/datum/sprite_accessory/genital/breasts
+	icon = 'icons/obj/genitals/breasts_onmob.dmi'
+	name = "breasts"
+	color_src = "breasts_color"
+
+/datum/sprite_accessory/genital/breasts/pair
+	icon_state = "pair"
+	name = "Pair"
+
+/datum/sprite_accessory/genital/breasts/quad
+	icon_state = "quad"
+	name = "Quad"
+
+/datum/sprite_accessory/genital/breasts/sextuple
+	icon_state = "sextuple"
+	name = "Sextuple"
+
+//BUTT BE HERE
+/datum/sprite_accessory/genital/butt
+	icon = 'icons/obj/genitals/butt_onmob.dmi'
+	icon_state = "butt"
+	name = "butt"
+	color_src = "butt_color"
+
+//there literally shouldn't be any other ass types besides one because that'd be weird, this is just here to keep things consistent for the genital system.
+/datum/sprite_accessory/genital/butt/pair
+	icon_state = "pair"
+	name = "Pair"
+
+//Butt (main code edit)
+/datum/sprite_accessory/genital/butt
+	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
+
+//Vaginas
+/datum/sprite_accessory/genital/vagina/cloaca
+	name = "клоака"
+	icon_state = "cloaca"
+
+//Testicles
+/datum/sprite_accessory/genital/testicles/sheath
+	icon_state = "sheath"
+	name = "оболонковые"
+
+//Penises
+/datum/sprite_accessory/genital/penis/thick
+	icon_state = "thick"
+	name = "толстый"
+
+//Bellies
+/datum/sprite_accessory/genital/belly
+	icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
+	icon_state = "belly"
+	name = "belly"
+	color_src = "belly_color"
+
+//there literally shouldn't be any other ass types besides one because that'd be weird, this is just here to keep things consistent for the genital system.
+/datum/sprite_accessory/genital/belly/pair
+	icon_state = "pair"
+	name = "Pair"
+
+/datum/sprite_accessory/genital/anus
+	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
+	icon_state = "anus"
+	name = "anus"
+	color_src = "anus_color"
+
+/datum/sprite_accessory/genital/anus/donut
+	icon_state = DEF_ANUS_SHAPE
+	name = DEF_ANUS_SHAPE
+
+/datum/sprite_accessory/genital/anus/squished
+	icon_state = "squished"
+	name = "сплющенный"
+
 /obj/item/organ/genital
 	color = "#fcccb3"
 	w_class = WEIGHT_CLASS_SMALL
@@ -309,7 +492,7 @@
 		for(var/A in genitals_to_add)
 			if(istype(A, /obj/item/clothing/underwear/briefs/strapon))
 				var/obj/item/clothing/underwear/briefs/strapon/strapon = A
-				var/datum/sprite_accessory/S = GLOB.cock_shapes_list[GLOB.dildo_shape_to_cock_shape[strapon.dildo_shape]]
+				var/datum/sprite_accessory/genital/S = GLOB.cock_shapes_list[GLOB.dildo_shape_to_cock_shape[strapon.dildo_shape]]
 				var/mutable_appearance/genital_overlay = mutable_appearance(S.icon, layer = -layer)
 				genital_overlay.color = strapon.dildo_color
 				genital_overlay.icon_state = "[ORGAN_SLOT_PENIS]_[S.icon_state]_[strapon.dildo_size]_[1]_[layertext]"
@@ -324,7 +507,7 @@
 				continue
 
 			var/obj/item/organ/genital/G = A
-			var/datum/sprite_accessory/S
+			var/datum/sprite_accessory/genital/S
 			var/size = G.size
 			switch(G.type)
 				if(/obj/item/organ/genital/penis)

@@ -1,3 +1,5 @@
+#define INIT_ORDER_CRYO -8
+
 // Define config entries for cryo
 #define SUBSYSTEM_CRYO_CAN_RUN CONFIG_GET(flag/autocryo_enabled)
 #define SUBSYSTEM_CRYO_TIME CONFIG_GET(number/autocryo_time_trigger)
@@ -5,13 +7,14 @@
 SUBSYSTEM_DEF(auto_cryo)
 	name = "Automated Cryogenics"
 	flags = SS_BACKGROUND
+	wait = 6 SECONDS
+	init_order = INIT_ORDER_CRYO
+	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME
 
 /datum/controller/subsystem/auto_cryo/Initialize()
 	// Check config before running
 	if(!SUBSYSTEM_CRYO_CAN_RUN)
 		can_fire = FALSE
-
-	return ..()
 
 /datum/controller/subsystem/auto_cryo/fire()
 	// Check for any targets
