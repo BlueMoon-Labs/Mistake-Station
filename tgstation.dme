@@ -6762,8 +6762,6 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\sentinel.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
-<<<<<<< Updated upstream
-=======
 #include "modular_citadel\code\datums\components\souldeath.dm"
 #include "modular_citadel\code\game\objects\effects\temporary_visuals\souldeath.dm"
 #include "modular_citadel\code\modules\client\preferences_savefile.dm"
@@ -7453,5 +7451,4 @@
 #include "modular_bluemoon\movespeed\modifiers\misc.dm"
 #include "modular_bluemoon\movespeed\modifiers\mobs.dm"
 #include "modular_bluemoon\movespeed\modifiers\status_effects.dm"
->>>>>>> Stashed changes
 // END_INCLUDE
