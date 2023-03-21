@@ -351,6 +351,7 @@
 
 //Standard helmet (w/ visor)
 /obj/item/clothing/head/helmet/sec
+	name = "Peacekeeper Helmet"
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "security_helmet"
@@ -423,17 +424,21 @@
 	acid = 50
 
 /obj/item/clothing/head/security_cap
-	name = "security cap"
+	name = "Security Cap"
 	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "security_cap_black"
+	icon_state = "secsoft"
 	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_security_cap
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "secsoft",
+			RESKIN_WORN_ICON_STATE = "secsoft"
+		),
 		"Black Variant" = list(
 			RESKIN_ICON_STATE = "security_cap_black",
 			RESKIN_WORN_ICON_STATE = "security_cap_black"

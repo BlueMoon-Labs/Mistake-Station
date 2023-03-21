@@ -94,11 +94,13 @@ SUBSYSTEM_DEF(jukeboxes)
 	return FALSE
 
 /datum/controller/subsystem/jukeboxes/Initialize()
-	var/list/tracks = flist("config/jukebox_music/sounds/")
+	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
 	for(var/S in tracks)
 		var/datum/track/T = new()
 		T.song_path = file("config/jukebox_music/sounds/[S]")
 		var/list/L = splittext(S,"+")
+		if(L.len != 4)
+			continue
 		T.song_name = L[1]
 		T.song_length = text2num(L[2])
 		T.song_beat = text2num(L[3])
@@ -106,7 +108,7 @@ SUBSYSTEM_DEF(jukeboxes)
 		songs |= T
 	for(var/i in CHANNEL_JUKEBOX_START to CHANNEL_JUKEBOX)
 		freejukeboxchannels |= i
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/jukeboxes/fire()
 	if(!activejukeboxes.len)

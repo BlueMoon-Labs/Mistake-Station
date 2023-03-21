@@ -133,6 +133,10 @@
 			set_combat_indicator(TRUE)
 		else
 			set_combat_indicator(FALSE)
+	if(!ishuman(src)) //I dislike this typecheck. It probably should be removed once that spoiled apple is componentized too.
+		var/mob/living/carbon/C = src
+		if(C.voremode)
+			C.disable_vore_mode()
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE
 
 	if(silent || !(client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)))

@@ -29,7 +29,6 @@
 
 /obj/machinery/light
 	bulb_colour = "#defcff"
-	light_power = 1
 
 /obj/machinery/light/small
 	bulb_colour = "#defcff"

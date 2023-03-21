@@ -8,7 +8,7 @@
 
 /// Signifies that this proc is used to handle signals.
 /// Every proc you pass to RegisterSignal must have this.
-#define SIGNAL_HANDLER SHOULD_NOT_SLEEP(TRUE)					//ИСПРАВИТЬ В ОБЯЗАТЕЛЬНОМ ПОРЯДКЕ КАК МОЖНО БЫСТРЕЕ - /datum/component/pregnancy/proc/handle_life(seconds) | /datum/quirk/dominant_aura/proc/on_examine_holder(atom/source, mob/user, list/examine_list) | /datum/quirk/dominant_aura/proc/handle_snap(datum/source, list/emote_args)
+#define SIGNAL_HANDLER SHOULD_NOT_SLEEP(TRUE)
 
 /// A wrapper for _AddElement that allows us to pretend we're using normal named arguments
 #define AddElement(arguments...) _AddElement(list(##arguments))

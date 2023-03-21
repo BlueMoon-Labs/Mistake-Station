@@ -68,9 +68,6 @@
 	// Can be EMOTE_AUDIBLE, EMOTE_VISIBLE, EMOTE_BOTH, or EMOTE_OMNI
 	emote_type = EMOTE_AUDIBLE
 
-	// Placeholder variables
-	// These should NOT appear in-game
-	message = "makes an indescribable noise"
 	var/emote_sound = 'sound/arcade/Boom.ogg'
 
 	// Default time before using another audio emote
@@ -142,27 +139,7 @@
  	// Set coodown
 	user.nextsoundemote = world.time + emote_cooldown
 
-/datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
-	// Set message with pronouns
-	message = "puts [user.p_their()] hands on [user.p_their()] head and falls to the ground, [user.p_they()] surrender[user.p_s()]!"
-
-	// Return normally
-	. = ..()
-
-// SPLURT emotes
-/datum/emote/living/tilt
-	key = "tilt"
-	key_third_person = "tilts"
-	message = "tilts their head."
-	emote_type = EMOTE_VISIBLE
-
-/datum/emote/living/squint
-	key = "squint"
-	key_third_person = "squints"
-	message = "squints their eyes." // i dumb
-	emote_type = EMOTE_VISIBLE
-
-/datum/emote/living/fart
+/datum/emote/living/custom/fart
 	key = "fart"
 	key_third_person = "farts"
 	message = "farts out shitcode."
@@ -220,14 +197,6 @@
 	if(.)
 		playsound(user, pick(GLOB.brap_noises), 50, 1, -1)
 		TIMER_COOLDOWN_START(user, COOLDOWN_EMOTE_FART, 3 SECONDS)
-
-/datum/emote/living/cackle
-	key = "cackle"
-	key_third_person = "cackles"
-	message = "cackles hysterically!"
-	message_mime = "cackles silently!"
-	emote_sound = 'modular_splurt/sound/voice/cackle_yeen.ogg'
-	emote_cooldown = 1.6 SECONDS
 
 /datum/emote/living/chirp
 	key = "chirp"

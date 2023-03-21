@@ -1,5 +1,5 @@
 // This is synced up to the poster placing animation.
-#define PLACE_SPEED 37
+#define PLACE_SPEED 30
 #define ABOVE_SIGN_PLANE 3.5
 
 // The poster item
@@ -7,7 +7,7 @@
 /obj/item/poster
 	name = "poorly coded poster"
 	desc = "You probably shouldn't be holding this."
-	icon = 'icons/obj/poster.dmi'
+	icon = 'icons/obj/poster_old.dmi'
 	force = 0
 	resistance_flags = FLAMMABLE
 
