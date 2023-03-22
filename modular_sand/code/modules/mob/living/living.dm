@@ -12,7 +12,7 @@
 		if(new_size == cur_size)
 			return FALSE
 		H.dna.features["body_size"] = new_size
-		H.dna.update_body_size(cur_size)
+		H.dna.update_body_size()
 	else
 		if(new_size == cur_size)
 			return FALSE

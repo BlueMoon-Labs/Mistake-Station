@@ -55,7 +55,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	///Body markings of the DNA's owner. This is for storing their original state for re-creating the character. They'll get changed on species mutation
 	var/list/list/body_markings = list()
 	///Current body size, used for proper re-sizing and keeping track of that
-	var/current_body_size = BODY_SIZE_NORMAL
+	var/old_size = BODY_SIZE_NORMAL
 
 /datum/dna/proc/initialize_dna(newblood_type, skip_index = FALSE)
 	if(newblood_type)
@@ -172,7 +172,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					var/list/marking_list = GLOB.body_markings_per_limb[zone]
 					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
 
-/datum/dna/proc/update_body_size(old_size)
+/datum/dna/proc/update_body_size()
 	if(!holder || features["body_size"] == old_size)
 		return
 	//new size detected

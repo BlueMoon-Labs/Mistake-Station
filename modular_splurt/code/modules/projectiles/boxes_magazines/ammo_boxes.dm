@@ -186,12 +186,9 @@
 	id = "advc45_ammo"
 	display_name = "Advance .45 Ammunition"
 	description = "Make .45 ammo your bitch and make it do crazy shit."
-	prereq_ids = list("weaponry", "c45_ammo", "ballistic_weapons")
-	design_ids = list("e45_ion", "e45_stun", "e45_laser","e45_hot", "c45hot","c45las", "c45ion","c45stun")
+	prereq_ids = list("weaponry", "c45_ammo")
+	design_ids = list("e45_ion", "e45_stun", "e45_laser", "e45_hot", "c45hot", "c45las", "c45ion", "c45stun")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4500)
-
-/datum/design/c45
-	name = "Ammo Box (.45 Rubber)"
 
 /datum/design/c45lethal
 	name = "Ammo Box (.45 Lethal)"

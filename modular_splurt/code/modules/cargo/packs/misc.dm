@@ -220,9 +220,9 @@
 	crate_name = "wedding crate"
 
 /datum/supply_pack/misc/random1k
-	name = "1k Surplus Crate"
+	name = "10k Surplus Crate"
 	desc = "Hello, thank you for taking this random surplus off our hands. We have no idea whats in it just know its worth about 1000 Credits. At least we think so."
-	cost = 1000
+	cost = 10000
 	contains = list(/obj/item/food/rationpack,
 					/obj/effect/spawner/random/engineering/stock_parts,
 					/obj/effect/spawner/random/engineering/stock_parts,
@@ -256,6 +256,8 @@
 					/obj/effect/spawner/random/maintenance/two,
 					/obj/effect/spawner/random/engineering/tool,
 					/obj/effect/spawner/random/engineering/tool,
+					/obj/effect/spawner/random/contraband/armory,
+					/obj/effect/spawner/random/contraband/armory,
 					/obj/item/gunpart/pistol22frame,
 					/obj/item/gunpart/pistol22barrel,
 					/obj/item/gunpart/pistol22bolt,
@@ -283,19 +285,16 @@
 	amount = 50
 
 /datum/supply_pack/misc/random10k
-	name = "10k Surplus Crate"
+	name = "100k Surplus Crate"
 	desc = "Hello, thank you for taking this random surplus off our hands. We have no idea whats in it just know its worth about 10000 Credits. At least we think so."
-	cost = 10000
+	cost = 100009
 	contains = list(/obj/item/stack/sheet/bluespace_crystal,
 					/obj/item/stock_parts/capacitor/adv,
 					/obj/item/stock_parts/scanning_module/adv,
 					/obj/item/stock_parts/manipulator/nano,
 					/obj/item/stock_parts/micro_laser/high,
 					/obj/item/stock_parts/matter_bin/adv,
-					/obj/item/stock_parts/cell/super,
-					/obj/item/clothing/gloves/combat,
-					/obj/item/clothing/suit/space/eva,
-					/obj/item/clothing/head/helmet/space/eva,
+					/obj/item/stock_parts/cell/hyper,
 					/obj/item/storage/box/pockerchips,
 					/obj/effect/spawner/random/entertainment/coin,
 					/obj/effect/spawner/random/entertainment/coin,
@@ -304,11 +303,14 @@
 					/obj/item/crowbar/large,
 					/obj/item/stack/ore/diamond/fifty,
 					/obj/item/clothing/gloves/tackler/combat/insulated,
+					/obj/item/clothing/gloves/combat,
 					/obj/item/reagent_containers/cup/glass/bottle/rum,
 					/obj/item/reagent_containers/cup/glass/bottle/gin,
 					/obj/item/reagent_containers/cup/glass/bottle/champagne,
 					/obj/item/circuitboard/machine/cryptominer,
 					/obj/item/circuitboard/machine/cryptominer/syndie,
+					/obj/effect/spawner/random/contraband/armory,
+					/obj/effect/spawner/random/contraband/armory,
 					/obj/effect/spawner/random/contraband/armory,
 					/obj/effect/spawner/random/contraband/armory,
 					/obj/effect/spawner/random/contraband/prison,

@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(interactions)
 /datum/controller/subsystem/interactions/Initialize(timeofday)
 	prepare_interactions()
 	prepare_blacklisted_mobs()
-	return ..()
+	return SS_INIT_SUCCESS
 
 /// Makes the interactions, they're also a global list because having it as a list and just hanging around there is stupid
 /datum/controller/subsystem/interactions/proc/prepare_interactions()

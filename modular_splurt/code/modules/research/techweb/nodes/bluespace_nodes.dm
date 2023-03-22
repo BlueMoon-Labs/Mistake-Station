@@ -1,4 +1,3 @@
-//Jessie Added this
 /datum/techweb_node/bluespace_power_reactor
 	id = "bluespace_power_reactor"
 	display_name = "Bluespace Power Reactor Technology"

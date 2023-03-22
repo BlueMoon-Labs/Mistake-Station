@@ -1,13 +1,11 @@
 /datum/dna
 	var/last_capped_size //For some reason this feels dirty... I suppose it should go somewhere else
 
-/datum/dna/update_body_size(old_size)
+/datum/dna/update_body_size()
 	if(!holder || features["body_size"] == old_size)
 		return ..()
 
 	holder.remove_movespeed_modifier(/datum/movespeed_modifier/small_stride) //Remove our own modifier
-
-	. = ..()
 
 	//Handle the small icon
 	if(!holder.small_sprite)
@@ -56,6 +54,8 @@
 	var/healthchange = healthmod_new - healthmod_old //Get ready to apply the new value, and subtract the old one. (Negative values become positive)
 	holder.maxHealth += healthchange
 	holder.health += healthchange
+
+	. = ..()
 
 #define TRANSFER_RANDOMIZED(destination, source1, source2) \
 	if(prob(50)) { \

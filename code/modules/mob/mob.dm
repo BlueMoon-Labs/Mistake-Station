@@ -1189,19 +1189,18 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
-	if(client.mouse_pointer_icon != initial(client.mouse_pointer_icon))//only send changes to the client if theyre needed
-		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
-	else if(pull_cursor_icon && client.keys_held["Ctrl"])
+	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	if(pull_cursor_icon && client.keys_held["Ctrl"])
 		client.mouse_pointer_icon = pull_cursor_icon
-	else if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
-		client.mouse_pointer_icon = examine_cursor_icon
 	else if(throw_cursor_icon && throw_mode != 0)
 		client.mouse_pointer_icon = throw_cursor_icon
+	else if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
+		client.mouse_pointer_icon = examine_cursor_icon
 	else if(istype(loc, /obj/vehicle/sealed))
 		var/obj/vehicle/sealed/E = loc
 		if(E.mouse_pointer)
 			client.mouse_pointer_icon = E.mouse_pointer
-	else if	(client.mouse_override_icon)
+	if(client.mouse_override_icon)
 		client.mouse_pointer_icon = client.mouse_override_icon
 
 /**
