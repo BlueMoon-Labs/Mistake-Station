@@ -62,6 +62,12 @@
 		GLOB.surgeries_list += new path()
 	sort_list(GLOB.surgeries_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
+	for(var/path in subtypesof(/datum/bark))
+		var/datum/bark/B = new path()
+		GLOB.bark_list[B.id] = path
+		if(B.allow_random)
+			GLOB.bark_random_list[B.id] = path
+
 	// Hair Gradients - Initialise all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 	for(var/path in subtypesof(/datum/sprite_accessory/gradient))
 		var/datum/sprite_accessory/gradient/gradient = new path()

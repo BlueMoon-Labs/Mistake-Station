@@ -1,6 +1,6 @@
 /// Define to mimic a span macro but for the purple font that vote specifically uses.
 
-/*
+
 
 #define vote_font(text) ("<font color='purple'>" + text + "</font>")
 
@@ -372,4 +372,3 @@ SUBSYSTEM_DEF(vote)
 	return ..()
 
 #undef vote_font
-*/

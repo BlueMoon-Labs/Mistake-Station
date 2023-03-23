@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(vote)
 	wait = 10 SECONDS
 
 	flags = SS_KEEP_TIMING | SS_NO_INIT
-	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT | SS_SHOW_IN_MC_TAB
+	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	var/list/datum/poll/possible_polls = list()
 	var/datum/poll/active_poll
@@ -27,19 +27,19 @@ SUBSYSTEM_DEF(vote)
 		active_poll.check_winners()
 		stop_vote()
 
-/datum/controller/subsystem/vote/tgui_interact(mob/user, datum/tgui/ui)
+/datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Vote", "Панель голосования")
 		ui.open()
 
-/datum/controller/subsystem/vote/tgui_state(mob/user)
-	return global.always_state
+/datum/controller/subsystem/vote/ui_state(mob/user)
+	return GLOB.always_state
 
-/datum/controller/subsystem/vote/tgui_data(mob/user)
+/datum/controller/subsystem/vote/ui_data(mob/user)
 	var/list/data = ..()
 
-	var/is_admin = user.client.holder?.rights & R_ADMIN
+	var/is_admin = user.client.holder?.check_rights_for & R_ADMIN
 	data["isAdmin"] = is_admin
 
 	data["polls"] = list()
@@ -84,7 +84,7 @@ SUBSYSTEM_DEF(vote)
 
 	return data
 
-/datum/controller/subsystem/vote/tgui_act(action, list/params, datum/tgui/ui, datum/tgui_state/state)
+/datum/controller/subsystem/vote/ui_act(action, list/params, datum/tgui/ui, datum/tgui_state/state)
 	if(..())
 		return
 
@@ -131,14 +131,14 @@ SUBSYSTEM_DEF(vote)
 	active_poll = poll
 	vote_start_time = world.time
 
-	for(var/client/C in clients)
-		tgui_interact(C.mob)
+	for(var/list/clients = GLOB.clients)
+		ui_interact(C.mob)
 
 	var/text = "[poll.initiator] начал голосование \"[poll.name]\"."
 	log_vote(text)
 	to_chat(world, "<span class='vote'><b>[text]</b><br>Введите <b>vote</b> или нажмите <a href='byond://winset?command=vote'>здесь</a>, чтобы проголосовать. <br>У вас есть [get_vote_time()] [pluralize_russian(get_vote_time(), "секунда", "секунды", "секунд")], чтобы проголосовать.</span>")
-	for(var/mob/M in player_list)
-		M.playsound_local(null, 'sound/misc/notice1.ogg', VOL_EFFECTS_MASTER, vary = FALSE, frequency = null, ignore_environment = TRUE)
+	for(var/mob/M in GLOB.player_list)
+		M.playsound(null, 'sound/misc/notice1.ogg', VOL_EFFECTS_MASTER, vary = FALSE, frequency = null, ignore_environment = TRUE)
 
 	return TRUE
 
@@ -165,4 +165,4 @@ SUBSYSTEM_DEF(vote)
 	set category = "OOC"
 	set name = "Vote"
 
-	SSvote.tgui_interact(src)
+	SSvote.ui_interact(src)

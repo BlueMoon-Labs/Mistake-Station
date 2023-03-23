@@ -110,6 +110,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/see_rc_emotes = TRUE
 
 	//Sandstorm CHANGES BEGIN
+	var/gender = MALE					//gender of character (well duh)
 	var/erppref = "Ask"
 	var/nonconpref = "Ask"
 	var/vorepref = "Ask"
@@ -125,6 +126,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/custom_speech_verb = "default" //if your say_mod is to be something other than your races
 	var/custom_tongue = "default" //if your tongue is to be something other than your races
 
+	// Vocal bark prefs
+	var/bark_id = "mutedc3"
+	var/bark_speed = 4
+	var/bark_pitch = 1
+	var/bark_variance = 0.2
+	COOLDOWN_DECLARE(bark_previewing)
+
 	//SPLURT EDIT - gregnancy
 	/// Does john spaceman's cum actually impregnate people?
 	var/virility = 0
@@ -134,7 +142,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/pregnancy_inflation = FALSE
 	/// Self explanitory
 	var/pregnancy_breast_growth = FALSE
-
 	var/egg_shell = "chicken"
 	//SPLURT END
 

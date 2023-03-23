@@ -11,6 +11,8 @@
 	var/list/maplist
 	var/datum/map_config/defaultmap
 
+	var/vote_period = 600				// length of voting period (deciseconds, default 1 minute)
+
 	var/list/modes // allowed modes
 	var/list/gamemode_cache
 	var/list/votable_modes // votable modes

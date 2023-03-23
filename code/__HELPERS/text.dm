@@ -1193,3 +1193,18 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/sanitize_css_class_name(name)
 	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")
 	return replacetext(name, regex, "")
+
+/proc/pluralize_russian(n, one, two, five)
+	if(!five)
+		five = two
+	n = abs(n) % 100
+	if(5 <= n && n <= 20)
+		return five
+	n %= 10
+	switch(n)
+		if(1)
+			return one
+		if(2 to 4)
+			return two
+		else
+			return five

@@ -126,6 +126,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	if(!ishuman(holder))
 		CRASH("Non-human mobs shouldn't have DNA")
 	if(blocknumber <= DNA_MANDATORY_COLOR_BLOCKS)
+		var/mob/living/carbon/human/H = holder
 		switch(blocknumber)
 			if(DNA_MUTANT_COLOR_BLOCK)
 				set_uni_feature_block(blocknumber, sanitize_hexcolor(features["mcolor"], include_crunch = FALSE))
@@ -137,6 +138,14 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 				set_uni_feature_block(blocknumber, sanitize_hexcolor(features["ethcolor"], include_crunch = FALSE))
 			if(DNA_SKIN_COLOR_BLOCK)
 				set_uni_feature_block(blocknumber, sanitize_hexcolor(features["skin_color"], include_crunch = FALSE))
+			if(DNA_BARK_SOUND_BLOCK)
+				set_uni_feature_block(blocknumber, construct_block(GLOB.bark_list.Find(H.vocal_bark_id), GLOB.bark_list.len))
+			if(DNA_BARK_SPEED_BLOCK)
+				set_uni_feature_block(blocknumber, construct_block(H.vocal_speed * 4, 16))
+			if(DNA_BARK_PITCH_BLOCK)
+				set_uni_feature_block(blocknumber, construct_block(H.vocal_pitch * 30, 48))
+			if(DNA_BARK_VARIANCE_BLOCK)
+				set_uni_feature_block(blocknumber, construct_block(H.vocal_pitch_range * 48, 48))
 	else if(blocknumber <= DNA_MANDATORY_COLOR_BLOCKS+(GLOB.genetic_accessories.len*DNA_BLOCKS_PER_FEATURE))
 		var/block_index = blocknumber - DNA_MANDATORY_COLOR_BLOCKS
 		var/block_zero_index = block_index-1
@@ -173,7 +182,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
 
 /datum/dna/proc/update_body_size()
-	if(!holder || features["body_size"] == old_size)
+	if(!holder || species.body_size_restricted || old_size == features["body_size"])
 		return
 	//new size detected
 	holder.resize = features["body_size"] / old_size
@@ -190,7 +199,6 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 			if(old_size < penalty_threshold && features["body_size"] >= penalty_threshold)
 				C.maxHealth  += 10 //give the maxhealth back
 				holder.remove_movespeed_modifier(/datum/movespeed_modifier/small_stride) //remove the slowdown
-
 
 /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE)
 	if(QDELETED(src))
@@ -304,3 +312,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 			update_body_parts(update_limb_data = TRUE)
 		if(mutations_overlay_update)
 			update_mutations_overlay()
+		set_bark(GLOB.bark_list[deconstruct_block(get_uni_identity_block(structure, DNA_BARK_SOUND_BLOCK), GLOB.bark_list.len)])
+		vocal_speed = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_SPEED_BLOCK), 16) / 4)
+		vocal_pitch = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_PITCH_BLOCK), 48) / 30)
+		vocal_pitch_range = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_VARIANCE_BLOCK), 48) / 48)

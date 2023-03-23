@@ -307,6 +307,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	job_preferences = SANITIZE_LIST(job_preferences)
 	all_quirks = SANITIZE_LIST(all_quirks)
 
+	gender = sanitize_gender(gender, TRUE, TRUE)
+
+	bark_id = sanitize_inlist(bark_id, GLOB.bark_list, pick(GLOB.bark_random_list))
+	var/datum/bark/bark_path = GLOB.bark_list[bark_id]
+	bark_speed = sanitize_num_clamp(bark_speed, initial(bark_path.minspeed), initial(bark_path.maxspeed), initial(bark_speed))
+	bark_pitch = sanitize_num_clamp(bark_pitch, initial(bark_path.minpitch), initial(bark_path.maxpitch), BARK_PITCH_RAND(gender))
+	bark_variance = sanitize_num_clamp(bark_variance, initial(bark_path.minvariance), initial(bark_path.maxvariance), BARK_VARIANCE_RAND)
+
 	//Validate job prefs
 	for(var/j in job_preferences)
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)

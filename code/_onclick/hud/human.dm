@@ -23,6 +23,30 @@
 
 	targetmob.hud_used.hidden_inventory_update(usr)
 
+// Sandstorm edit
+/atom/movable/screen/human/toggle/extra
+	name = "toggle extra"
+	icon_state = "toggle_extra"
+
+/atom/movable/screen/human/toggle/extra/Click()
+
+	var/mob/targetmob = usr
+
+	if(isobserver(usr))
+		if(ishuman(usr.client.eye) && (usr.client.eye != usr))
+			var/mob/M = usr.client.eye
+			targetmob = M
+
+	if(usr.hud_used.extra_shown && targetmob.hud_used)
+		usr.hud_used.extra_shown = FALSE
+		usr.client.screen -= targetmob.hud_used.extra_inventory
+	else
+		usr.hud_used.extra_shown = TRUE
+		usr.client.screen += targetmob.hud_used.extra_inventory
+
+	targetmob.hud_used.extra_inventory_update(usr)
+//
+
 /atom/movable/screen/human/equip
 	name = "equip"
 	icon_state = "act_equip"

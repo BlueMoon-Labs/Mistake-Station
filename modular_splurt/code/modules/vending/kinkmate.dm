@@ -1,6 +1,6 @@
 //		STYLE_NO_ANTHRO_ICON — CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-//		STYLE_DIGITIGRADE —
-//		mutantrace_variation — supports_variations_flags
+//		STYLE_DIGITIGRADE — CLOTHING_DIGITIGRADE_VARIATION
+//		supports_variations_flags — supports_variations_flags
 
 /obj/item/clothing/under/pants/chaps
 	name = "Black Chaps"

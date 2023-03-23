@@ -5,7 +5,7 @@
 	icon_state = "petharness"
 	item_state = "petharness"
 	body_parts_covered = NONE
-	mutantrace_variation = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	allowed = /obj/item/toy/fluff
 
 /obj/item/clothing/suit/petharness/mesh

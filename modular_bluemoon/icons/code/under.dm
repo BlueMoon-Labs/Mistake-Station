@@ -2,7 +2,7 @@
 	icon = 'modular_bluemoon/icons/obj/clothing/uniforms.dmi'
 	mob_overlay_icon = 'modular_bluemoon/icons/mob/clothing/uniforms.dmi'
 	anthro_mob_worn_overlay = 'modular_bluemoon/icons/mob/clothing/uniforms_digi.dmi'
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK
 
 /obj/item/clothing/under/bm/sigu
 	name = "SIGU"
@@ -18,7 +18,7 @@
 	icon_state = "caprevskirt"
 	item_state = "caprevskirt"
 	body_parts_covered = CHEST|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 30, ACID = 30, WOUND = 10)
 
 /obj/item/clothing/under/bm/regaloutfit
@@ -27,7 +27,7 @@
 	icon_state = "regal"
 	item_state = "regal"
 	body_parts_covered = CHEST|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 30, ACID = 30, WOUND = 10)
 
 /obj/item/clothing/under/bm/gothrevskirt
@@ -36,7 +36,7 @@
 	icon_state = "gothrevskirt"
 	item_state = "gothrevskirt"
 	body_parts_covered = CHEST|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
 
 /obj/item/clothing/under/bm/angelrevskirt
 	name = "Angelic Vulgar Dress"
@@ -44,7 +44,7 @@
 	icon_state = "angelrevskirt"
 	item_state = "angelrevskirt"
 	body_parts_covered = CHEST|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
 
 /obj/item/clothing/under/bm/blackrevdress
 	name = "Black Revealing Dress"
@@ -52,7 +52,7 @@
 	icon_state = "blackrevdress"
 	item_state = "blackrevdress"
 	body_parts_covered = CHEST|GROIN|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
 
 /obj/item/clothing/under/bm/whiterevdress
 	name = "White Revealing Dress"
@@ -60,4 +60,4 @@
 	icon_state = "whiterevdress"
 	item_state = "whiterevdress"
 	body_parts_covered = CHEST|GROIN|ARMS
-	mutantrace_variation = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON
+	supports_variations_flags = STYLE_DIGITIGRADE|USE_TAUR_CLIP_MASK|STYLE_NO_ANTHRO_ICON

@@ -24,16 +24,16 @@
 
 /datum/poll/restart/get_force_blocking_reason()
 	. = ..()
-	if(!world.has_round_started())
+	if(!SSticker.HasRoundStarted())
 		return "Раунд ещё не началася"
-	if(world.has_round_finished())
+	if(SSticker.IsRoundInProgress())
 		return "Раунд закончен"
 
 /datum/poll/restart/get_blocking_reason()
 	. = ..()
 	if(.)
 		return
-	if(world.has_round_finished())
+	if(SSticker.IsRoundInProgress())
 		return "Раунд закончен"
 	for(var/client/C as anything in admins)
 		if((C.holder.rights & R_ADMIN) && !C.holder.fakekey && !C.is_afk())
@@ -90,9 +90,9 @@
 	. = ..()
 	if(.)
 		return
-	if(!world.has_round_started())
+	if(!SSticker.HasRoundStarted())
 		return "Раунд ещё не начался"
-	if(world.has_round_finished())
+	if(SSticker.IsRoundInProgress())
 		return "Раунд закончен"
 
 /datum/poll/crew_transfer/get_blocking_reason()
@@ -125,7 +125,6 @@
 		SSshuttle.shuttlealert(1)
 		SSshuttle.incall()
 		SSshuttle.announce_crew_called.play()
-
 
 /*********************
 	GameMode
@@ -225,7 +224,7 @@
 
 /datum/poll/nextmap/get_force_blocking_reason()
 	. = ..()
-	if(!world.has_round_finished())
+	if(!SSticker.IsRoundInProgress())
 		return "Доступно только по окончанию раунда"
 	if(!config.maplist.len)
 		return "Отсутствует конфиг карт"
