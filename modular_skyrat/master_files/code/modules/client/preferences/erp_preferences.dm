@@ -104,7 +104,7 @@
 	savefile_key = "butt_shrinkage_pref"
 
 /datum/preference/toggle/erp/belly_enlargement
-	savefile_key = "belly_shrinkage_pref"
+	savefile_key = "belly_enlargement"
 
 /datum/preference/toggle/erp/genitalia_removal
 	savefile_key = "genitalia_removal_pref"

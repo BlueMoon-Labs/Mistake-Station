@@ -701,7 +701,7 @@
 	end_day = 3
 
 /datum/holiday/islamic/ramadan/getStationPrefix()
-	return pick("Haram","Halaal","Jihad","Muslim", "Al", "Mohammad", "Rashidun", "Umayyad", "Abbasid", "Abdul", "Fatimid", "Ayyubid", "Almohad", "Abu")
+	return pick("Харам","Халаль","Джихад","Муслим", "Ай", "Мухамед", "Рашидан", "Умаяд", "Аббассид", "Абдуль", "Фатимид", "Айбудд", "Альмохад", "Абу")
 
 /datum/holiday/islamic/ramadan/end
 	name = "End of Ramadan"

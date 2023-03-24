@@ -139,7 +139,7 @@ export const auto_wag: FeatureToggle = {
   component: CheckboxInput,
 };
 
-export const belly_anlargement: FeatureToggle = {
+export const belly_enlargement: FeatureToggle = {
   name: 'Увеличение Живота',
   category: 'ERP',
   description:

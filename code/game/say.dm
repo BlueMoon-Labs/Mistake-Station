@@ -79,6 +79,19 @@ GLOBAL_LIST_INIT(freqtospan, list(
 /atom/movable/proc/can_speak(allow_mimes = FALSE)
 	return TRUE
 
+/atom/movable/proc/bark(list/hearers, distance, volume, pitch, queue_time)
+	if(queue_time && vocal_current_bark != queue_time)
+		return
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_BARK, hearers, distance, volume, pitch))
+		return //bark interception. this probably counts as some flavor of BDSM
+	if(!vocal_bark)
+		if(!vocal_bark_id || !set_bark(vocal_bark_id)) //just-in-time bark generation
+			return
+	volume = min(volume, 100)
+	var/turf/T = get_turf(src)
+	for(var/mob/M in hearers)
+		M.playsound_local(T, vol = volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BARK_SOUND_FALLOFF_EXPONENT(distance), S = vocal_bark, distance_multiplier = 1)
+
 /atom/movable/proc/send_speech(message, range = 7, atom/movable/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode, forced = FALSE)
 	var/rendered = compose_message(src, message_language, message, , spans, message_mode, source)
 	var/list/hearers = get_hearers_in_view(range, source)
