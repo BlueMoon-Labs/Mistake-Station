@@ -46,7 +46,7 @@
 			return
 
 		// Check target pref for aphrodisiacs
-		if(C.client?.prefs.cit_toggles & NO_APHRO)
+		if(C.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))
 			// Return without triggering
 			return
 

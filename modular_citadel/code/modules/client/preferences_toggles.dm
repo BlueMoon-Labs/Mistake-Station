@@ -21,7 +21,7 @@
 //	usr.client.prefs.cit_toggles ^= DIGESTION_NOISES
 //	usr.client.prefs.save_preferences()
 //	usr.stop_sound_channel(CHANNEL_DIGEST)
-//	to_chat(usr, "You will [(usr.client.prefs.cit_toggles & DIGESTION_NOISES) ? "now" : "no longer"] hear digestion noises.")
+//	to_chat(usr, "You will [(usr.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds)) ? "now" : "no longer"] hear digestion noises.")
 //
 ///datum/verbs/menu/Settings/Sound/toggledigestionnoise/Get_checked(client/C)
 //	return C.prefs.cit_toggles & DIGESTION_NOISES

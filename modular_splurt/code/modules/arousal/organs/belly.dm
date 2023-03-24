@@ -106,8 +106,8 @@
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
 /obj/item/organ/genital/belly/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen, cum_hole)
-	if(!(owner.client?.prefs.cit_toggles & BELLY_INFLATION))
-		if(owner.has_anus(REQUIRE_EXPOSED) && (cum_hole == CUM_TARGET_ANUS) && (owner.client?.prefs.cit_toggles & BUTT_ENLARGEMENT))
+	if(!(owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement)))
+		if(owner.has_anus(REQUIRE_EXPOSED) && (cum_hole == CUM_TARGET_ANUS) && (owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 			var/obj/item/organ/genital/butt/ass = owner.getorganslot(ORGAN_SLOT_BUTT)
 			if(!ass)
 				ass = new
@@ -133,7 +133,7 @@
 		if(size > round(previous))
 			owner.visible_message("<span class='lewd'>\The Животик <b>[owner]</b> становится совсем выпуклым и раздувается от наполнения [pick("сладкой", "желанной")] '[lowertext(source_gen.get_fluid_name())]'!</span>", ignored_mobs = owner.get_unconsenting())
 			fluid_id = source_gen.get_fluid_id()
-		if((growth_amount >= 3 || size >= 3) && (owner.client?.prefs.cit_toggles & BUTT_ENLARGEMENT))
+		if((growth_amount >= 3 || size >= 3) && (owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 			var/obj/item/organ/genital/butt/ass = owner.getorganslot(ORGAN_SLOT_BUTT)
 			if(!ass)
 				ass = new

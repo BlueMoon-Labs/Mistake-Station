@@ -52,7 +52,7 @@
 
 	var/mob/living/carbon/human/H = M
 	//If they've opted out, ignore and return early.
-	if(!(H.client?.prefs.cit_toggles & BREAST_ENLARGEMENT))
+	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)))
 		return..()
 	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
 	//otherwise proceed as normal
@@ -76,7 +76,7 @@
 	return ..()
 
 /datum/reagent/fermi/breast_enlarger/overdose_process(mob/living/carbon/human/M) //Turns you into a female if male and ODing, doesn't touch nonbinary and object genders.
-	if(!(M.client?.prefs.cit_toggles & FORCED_FEM))
+	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_shrinkage)))
 		return ..()
 
 	var/obj/item/organ/genital/penis/P = M.getorganslot(ORGAN_SLOT_PENIS)
@@ -113,7 +113,7 @@
 
 /datum/reagent/fermi/BEsmaller/on_mob_life(mob/living/carbon/M)
 	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
-	if(!(M.client?.prefs.cit_toggles & BREAST_ENLARGEMENT) || !B)
+	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) || !B)
 		return ..()
 	B.modify_size(-0.05)
 	return ..()
@@ -188,7 +188,7 @@
 	if(!ishuman(M))
 		return ..()
 	var/mob/living/carbon/human/H = M
-	if(!(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT))
+	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return ..()
 
 	var/obj/item/organ/genital/testicles/T = H.getorganslot(ORGAN_SLOT_TESTICLES) //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
@@ -218,7 +218,7 @@
 	if(!istype(M))
 		return ..()
 	// let's not kill them if they didn't consent.
-	if(!(M.client?.prefs.cit_toggles & FORCED_MASC))
+	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return..()
 
 	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
@@ -253,7 +253,7 @@
 		return ..()
 	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/genital/penis/P = H.getorganslot(ORGAN_SLOT_PENIS)
-	if(!(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT) || !P)
+	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)) || !P)
 		return..()
 
 	P.modify_size(-0.1)
@@ -322,7 +322,7 @@
 	if(!ishuman(M))
 		return ..()
 	var/mob/living/carbon/human/H = M
-	if(!(H.client?.prefs.cit_toggles & BUTT_ENLARGEMENT))
+	if(!(H.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 		return ..()
 	var/obj/item/organ/genital/butt/B = M.getorganslot(ORGAN_SLOT_BUTT)
 	if(!B) //If they don't have a butt. Give them one!

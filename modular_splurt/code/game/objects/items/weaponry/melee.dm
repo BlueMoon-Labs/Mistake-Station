@@ -13,7 +13,7 @@
 /obj/item/melee/proc/do_eblya(mob/living/target, mob/living/user)
 	var/message = ""
 	var/lust_amt = 0
-	if(ishuman(target) && (target?.client?.prefs?.toggles & VERB_CONSENT))
+	if(ishuman(target) && !user.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
 			switch(hole)
 				if(CUM_TARGET_VAGINA)

@@ -43,7 +43,7 @@
 
 /mob/living/carbon/human/proc/adjust_arousal(strength, cause = "manual toggle", aphro = FALSE,maso = FALSE) // returns all genitals that were adjust
 	var/list/obj/item/organ/genital/genit_list = list()
-	if(!client?.prefs.arousable || (aphro && (client?.prefs.cit_toggles & NO_APHRO)) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
+	if(!client?.prefs.arousable || (aphro && (client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
 		return // no adjusting made here
 	var/enabling = strength > 0
 	for(var/obj/item/organ/genital/G in internal_organs)

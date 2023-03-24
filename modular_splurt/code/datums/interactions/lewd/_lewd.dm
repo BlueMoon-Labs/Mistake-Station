@@ -86,7 +86,7 @@
 							target_gen = partner.getorganslot(ORGAN_SLOT_BREASTS)
 						else
 							message = "кончает на грудь и шею <b>[partner]</b>."
-							if((partner.client?.prefs.cit_toggles & BREAST_ENLARGEMENT) && c_partner)
+							if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
 								target_gen = new /obj/item/organ/genital/breasts
 								target_gen.Insert(c_partner)
 						if(target_gen)
@@ -111,7 +111,7 @@
 						else
 							message = "кончает на тело <b>[partner]</b>."
 						if(c_partner)
-							if(partner.client?.prefs.cit_toggles & BELLY_INFLATION)
+							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 								var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
@@ -123,13 +123,13 @@
 
 					if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 						if(c_partner)
-							if(partner.client?.prefs.cit_toggles & BELLY_INFLATION)
+							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 								var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
 									gut.Insert(partner)
 								gut.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS), target_orifice)
-							else if((partner.client?.prefs.cit_toggles & BUTT_ENLARGEMENT) && target_orifice == CUM_TARGET_ANUS)
+							else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
 								var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
 								if(!ass)
 									ass = new
@@ -149,7 +149,7 @@
 								target_gen = partner.getorganslot(ORGAN_SLOT_BREASTS)
 							else
 								message = "кончает на грудь и шею <b>[partner]</b>."
-								if((partner.client?.prefs.cit_toggles & BREAST_ENLARGEMENT) && c_partner)
+								if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
 									target_gen = new /obj/item/organ/genital/breasts
 									target_gen.Insert(partner)
 
@@ -175,13 +175,13 @@
 							else
 								message = "кончает на тело <b>[partner]</b>."
 							if(c_partner)
-								if(partner.client?.prefs.cit_toggles & BELLY_INFLATION)
+								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 									var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
-								else if((partner.client?.prefs.cit_toggles & BUTT_ENLARGEMENT) && target_orifice == CUM_TARGET_ANUS)
+								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
 									var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new
@@ -190,13 +190,13 @@
 
 						if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 							if(c_partner)
-								if(partner.client?.prefs.cit_toggles & BELLY_INFLATION)
+								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 									var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
-								else if((partner.client?.prefs.cit_toggles & BUTT_ENLARGEMENT) && target_orifice == CUM_TARGET_ANUS)
+								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
 									var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new

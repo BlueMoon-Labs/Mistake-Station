@@ -9,7 +9,7 @@
 	color = "#FFADFF"//PINK, rgb(255, 173, 255)
 
 /datum/reagent/drug/aphrodisiac/on_mob_life(mob/living/M)
-	if(M && M.client?.prefs.arousable && !(M.client?.prefs.cit_toggles & NO_APHRO))
+	if(M && M.client?.prefs.arousable && (M.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		if((prob(min(current_cycle/2,5))))
 			M.emote(pick("moan","blush"))
 		if(prob(min(current_cycle/4,10)))
@@ -33,7 +33,7 @@
 	overdose_threshold = 20
 
 /datum/reagent/drug/aphrodisiacplus/on_mob_life(mob/living/M)
-	if(M && M.client?.prefs.arousable && !(M.client?.prefs.cit_toggles & NO_APHRO))
+	if(M && M.client?.prefs.arousable && (M.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		if(prob(10))
 			if(prob(current_cycle))
 				M.say(pick("Ох-мхх...", "Ахх-р...", "Амрфпф...", "Мрр-ах..."))
@@ -56,8 +56,8 @@
 	..()
 
 /datum/reagent/drug/aphrodisiacplus/overdose_process(mob/living/M)
-	if(M && M.client?.prefs.arousable && !(M.client?.prefs.cit_toggles & NO_APHRO) && prob(33))
-		if(prob(5) && ishuman(M) && M.has_dna() && (M.client?.prefs.cit_toggles & BIMBOFICATION))
+	if(M && M.client?.prefs.arousable && (M.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro) && prob(33)))
+		if(prob(5) && ishuman(M) && M.has_dna() && (M.client?.prefs?.read_preference(/datum/preference/toggle/erp/bimbofication)))
 			if(!HAS_TRAIT(M,TRAIT_PERMABONER))
 				to_chat(M, "<span class='userlove'>Ваше либидо сходит с ума!</span>")
 				M.log_message("Made perma-horny by hexacrocin.",LOG_EMOTE)
@@ -125,7 +125,7 @@
 		return
 
 	// Check pref for aphro
-	if(M.client?.prefs.cit_toggles & NO_APHRO)
+	if(M.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))
 		// Log interaction and return
 		M.log_message("overdosed on [src], but ignored it due to aphrodisiac preference.", LOG_EMOTE)
 		return

@@ -5,7 +5,7 @@
 	fluid_rate += ((length - initial(length))/10)*(owner ? get_size(owner) : 1)
 
 /obj/item/organ/genital/penis/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen)
-	if(!(owner.client?.prefs.cit_toggles & PENIS_ENLARGEMENT))
+	if(!(owner.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return
 
 	var/datum/reagents/fluid_source = source_gen.climaxable(partner)

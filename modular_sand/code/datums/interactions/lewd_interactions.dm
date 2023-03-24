@@ -281,7 +281,7 @@
 				return FALSE
 
 	if(require_ooc_consent)
-		if((!user.ckey) || (user.client && user.client.prefs.toggles & VERB_CONSENT))
+		if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 			return TRUE
 		if(action_check)
 			return FALSE
@@ -500,7 +500,7 @@
 				return FALSE
 
 	if(require_ooc_consent)
-		if((!target.ckey) || (target.client && target.client.prefs.toggles & VERB_CONSENT))
+		if((!target.ckey) || !user.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 			return TRUE
 	return FALSE
 

@@ -9,7 +9,7 @@
 // I'm putting this here because honestly i'm too lazy to find the thing i need
 /mob/living/proc/do_ass_slap(mob/dead/observer/user)
 	var/mob/living/carbon/human/H = src
-	if(src.client?.prefs.cit_toggles & NO_ASS_SLAP)
+	if(src.client?.prefs.read_preference(/datum/preference/toggle/erp/ass_slap))
 		to_chat(user, "Your ethereal hand phases through \The [src].")
 		return
 	playsound(src.loc, 'sound/weapons/slap.ogg', 50, 1, -1)

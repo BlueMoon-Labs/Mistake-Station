@@ -225,3 +225,27 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+
+/datum/preference/toggle/erp/trash_forcefeed
+	savefile_key = "trash_forcefeed"
+
+/datum/preference/toggle/erp/auto_wag
+	savefile_key = "auto_wag"
+
+/datum/preference/toggle/erp/belly_anlargement
+	savefile_key = "belly_anlargement"
+
+/datum/preference/toggle/erp/butt_enlargement
+	savefile_key = "butt_enlargement"
+
+/datum/preference/toggle/erp/ass_slap
+	savefile_key = "ass_slap"
+
+/datum/preference/choiced/erp_yesnoask/unholy_pref
+	savefile_key = "unholy_pref"
+
+/datum/preference/choiced/erp_yesnoask/nonconpref
+	savefile_key = "nonconpref"
+
+/datum/preference/choiced/erp_yesnoask/extreme_pref
+	savefile_key = "extreme_pref"

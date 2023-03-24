@@ -17,7 +17,7 @@
 	fluid_rate += ((cached_size - breast_values[initial(size)])/10)*(owner ? get_size(owner) : 1)
 
 /obj/item/organ/genital/breasts/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen)
-	if(!(owner.client?.prefs.cit_toggles & BREAST_ENLARGEMENT))
+	if(!(owner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)))
 		return
 
 	var/datum/reagents/fluid_source = source_gen.climaxable(partner)

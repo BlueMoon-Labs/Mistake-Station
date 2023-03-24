@@ -102,7 +102,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!target.client || !(target.client.prefs.cit_toggles & MEDIHOUND_SLEEPER) || !hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 		voracious = FALSE
 
 	user.visible_message("<span class='warning'>[hound.name] is carefully inserting [target.name] into their [src.name].</span>", "<span class='notice'>You start placing [target] into your [src.name]...</span>")
@@ -145,7 +145,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!user.client || !(user.client.prefs.cit_toggles & MEDIHOUND_SLEEPER) || !hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+	if(!user.client || !(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 		voracious = FALSE
 
 	if(prob(escape_chance) && !escape_pending)
@@ -166,11 +166,11 @@
 	var/voracious = hound ? TRUE : FALSE
 	var/list/targets = target && hound ? list(target) : contents
 	if(hound)
-		if(!hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+		if(!hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 			voracious = FALSE
 		else
 			for(var/mob/M in targets)
-				if(!M.client || !(M.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+				if(!M.client || !(M.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 					voracious = FALSE
 	if(length(targets))
 		if(hound)
@@ -296,7 +296,7 @@
 				patient_laststat = patient.stat
 			prociconupdate = TRUE
 
-		if(!patient.client || !(patient.client.prefs.cit_toggles & MEDIHOUND_SLEEPER) || !hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+		if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 			hound.sleeper_nv = TRUE
 		else
 			hound.sleeper_nv = FALSE
@@ -322,7 +322,7 @@
 				patient_laststat = patient.stat
 
 			if(hound.model.sleeper_overlay == "msleeper")
-				if(!patient.client || !(patient.client.prefs.cit_toggles & MEDIHOUND_SLEEPER) || !hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+				if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 					hound.sleeper_nv = TRUE
 			else
 				hound.sleeper_nv = FALSE
@@ -378,7 +378,7 @@
 						var/turf/source = get_turf(hound)
 						LAZYCLEARLIST(hearing_mobs)
 						for(var/mob/H in get_hearers_in_view(3, source))
-							if(!H.client || !(H.client.prefs.cit_toggles & DIGESTION_NOISES))
+							if(!H.client || !(H.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds)))
 								continue
 							LAZYADD(hearing_mobs, H)
 						last_hearcheck = world.time
@@ -428,7 +428,7 @@
 			var/turf/source = get_turf(hound)
 			LAZYCLEARLIST(hearing_mobs)
 			for(var/mob/H in get_hearers_in_view(3, source))
-				if(!H.client || !(H.client.prefs.cit_toggles & DIGESTION_NOISES))
+				if(!H.client || !(H.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds)))
 					continue
 				LAZYADD(hearing_mobs, H)
 			last_hearcheck = world.time
@@ -501,7 +501,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!target.client || !(target.client.prefs.cit_toggles & MEDIHOUND_SLEEPER) || !hound.client || !(hound.client.prefs.cit_toggles & MEDIHOUND_SLEEPER))
+	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
 		voracious = FALSE
 
 	user.visible_message("<span class='warning'>[hound.name] is ingesting [target] into their [src.name].</span>", "<span class='notice'>You start ingesting [target] into your [src.name]...</span>")

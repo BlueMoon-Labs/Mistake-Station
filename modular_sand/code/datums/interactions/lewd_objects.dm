@@ -7,7 +7,7 @@
 	user.changeNext_move(CLICK_CD_RANGE)
 	var/message = ""
 	var/lust_amt = 0
-	if(ishuman(M) && (M?.client?.prefs?.toggles & VERB_CONSENT))
+	if(ishuman(M) && !user.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		switch(user.zone_selected)
 			if(BODY_ZONE_PRECISE_GROIN)
 				switch(hole)

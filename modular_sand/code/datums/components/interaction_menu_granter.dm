@@ -203,7 +203,7 @@
 		.["vore_pref"] = 			pref_to_num(prefs.vorepref)
 		.["extreme_pref"] = 		pref_to_num(prefs.extremepref)
 		.["extreme_harm"] = 		pref_to_num(prefs.extremeharm)
-		.["unholy_pref"] =		pref_to_num(prefs.unholypref)
+		.["unholy_pref"] =			pref_to_num(prefs.unholypref)
 
 	//Getting preferences
 		.["verb_consent"] = 		!!CHECK_BITFIELD(prefs.toggles, VERB_CONSENT)

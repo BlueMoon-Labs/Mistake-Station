@@ -110,7 +110,7 @@
 		return
 
 	// Check client pref for hypno
-	if(action_target.client?.prefs.cit_toggles & NEVER_HYPNO)
+	if(!action_target.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		// Warn the users, then return
 		to_chat(action_owner, span_warning("You sense that [action_target] would rather not be hypnotized, and decide to respect their wishes."))
 		to_chat(action_target, span_notice("[action_owner] stares into your eyes with a strange conviction, but turns away after a moment."))

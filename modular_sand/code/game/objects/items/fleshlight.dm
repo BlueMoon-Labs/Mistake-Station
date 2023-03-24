@@ -53,7 +53,7 @@
 	var/possessive_verb = user.ru_ego()
 	var/message = ""
 	var/lust_amt = 0
-	if(ishuman(M) && (M?.client?.prefs?.toggles & VERB_CONSENT))
+	if(ishuman(M) && !user.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		switch(user.zone_selected)
 			if(BODY_ZONE_PRECISE_GROIN)
 				if(M.has_penis(REQUIRE_EXPOSED) || M.has_strapon(REQUIRE_EXPOSED))
@@ -138,7 +138,7 @@
 			LAZYADD(penis_names, "none")
 			LAZYADD(penis_names, "none")
 
-	if(ishuman(M) && (M?.client?.prefs?.toggles & VERB_CONSENT) && useable) // I promise all those checks are worth it!
+	if(ishuman(M) && !user.client?.prefs?.read_preference(/datum/preference/toggle/erp) && useable) // I promise all those checks are worth it!
 		switch(user.zone_selected)
 			if(BODY_ZONE_PRECISE_GROIN)
 				switch(targetting)
@@ -418,7 +418,7 @@
 	if(!useable)
 		to_chat(user, "<span class='notice'>Похоже, что устройство вышло из строя или на стороне партнёра что-то не так.</span>")
 	if(user_message)
-		if(portal_target && (portal_target?.client?.prefs.toggles & VERB_CONSENT || !portal_target.ckey))
+		if(portal_target && !user.client?.prefs?.read_preference(/datum/preference/toggle/erp || !portal_target.ckey))
 			user.visible_message("<span class='lewd'>[user] [user_message].</span>")
 			if(M.can_penetrating_genital_cum() && M.handle_post_sex(user_lust_amt, target, portal_target))
 				switch(target)

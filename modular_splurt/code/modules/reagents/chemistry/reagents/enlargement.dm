@@ -1,12 +1,12 @@
 //Main code edits
 /datum/reagent/fermi/breast_enlarger/overdose_process(mob/living/carbon/M)
-	if(M.client?.prefs.cit_toggles & BREAST_ENLARGEMENT)
+	if(M.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement))
 		var/obj/item/organ/genital/breasts/tity = M.getorganslot(ORGAN_SLOT_BREASTS)
 		tity?.fluid_id = tity?.original_fluid_id
 	. = ..()
 
 /datum/reagent/fermi/penis_enlarger/overdose_process(mob/living/carbon/human/M)
-	if(M.client?.prefs.cit_toggles & PENIS_ENLARGEMENT)
+	if(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement))
 		var/obj/item/organ/genital/penis/pp = M.getorganslot(ORGAN_SLOT_PENIS)
 		var/obj/item/organ/genital/testicles/balls = M.getorganslot(ORGAN_SLOT_TESTICLES)
 		pp?.fluid_id = pp?.original_fluid_id
@@ -14,7 +14,7 @@
 	. = ..()
 
 /datum/reagent/fermi/butt_enlarger/overdose_process(mob/living/M)
-	if(M.client?.prefs.cit_toggles & BUTT_ENLARGEMENT)
+	if(M.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement))
 		var/obj/item/organ/genital/butt/ass = M.getorganslot(ORGAN_SLOT_BUTT)
 		ass?.fluid_id = ass?.original_fluid_id
 	. = ..()
@@ -51,7 +51,7 @@
 	if(!ishuman(M))
 		return ..()
 	var/mob/living/carbon/human/H = M
-	if(!(H.client?.prefs.cit_toggles & BELLY_INFLATION))
+	if(!(H.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement)))
 		return ..()
 	var/obj/item/organ/genital/belly/B = M.getorganslot(ORGAN_SLOT_BELLY)
 	if(!B)
@@ -102,7 +102,7 @@
 	return ..()
 
 /datum/reagent/fermi/butt_enlarger/overdose_process(mob/living/M)
-	if(M.client?.prefs.cit_toggles & BELLY_INFLATION)
+	if(M.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 		var/obj/item/organ/genital/belly/gut = M.getorganslot(ORGAN_SLOT_BELLY)
 		gut?.fluid_id = gut?.original_fluid_id
 	. = ..()

@@ -6,6 +6,11 @@
 	var/t_him = p_them()
 	var/t_has = p_have()
 	var/t_is = p_are()
+	var/t_on 	= ru_who(TRUE)
+	var/t_ego 	= ru_ego()
+	//var/t_na 	= ru_na()
+	//var/t_a 	= ru_a()
+
 	var/obscure_name
 	var/obscure_examine
 
@@ -146,7 +151,28 @@
 	var/list/status_examines = get_status_effect_examinations()
 	if (length(status_examines))
 		. += status_examines
-
+	//Approximate character height based on current sprite scale
+	var/dispSize = round(12*get_size(src)) // gets the character's sprite size percent and converts it to the nearest half foot
+	if(dispSize % 2) // returns 1 or 0. 1 meaning the height is not exact and the code below will execute, 0 meaning the height is exact and the else will trigger.
+		dispSize = dispSize - 1 //makes it even
+		dispSize = dispSize / 2 //rounds it out
+		. += "[t_on], кажется, чуть выше или около [dispSize] футов в высоту."
+	else
+		dispSize = dispSize / 2
+		. += "[t_on], кажется, около [dispSize] футов в высоту."
+	//CIT CHANGES START HERE - adds genital details to examine text
+	if(LAZYLEN(internal_organs) && (!user.client?.prefs?.read_preference(/datum/preference/toggle/erp)))
+		for(var/obj/item/organ/genital/dicc in internal_organs)
+			if(istype(dicc) && dicc.is_exposed())
+				. += "[dicc.desc]"
+				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.genital_flags & GENITAL_FUID_PRODUCTION) || ((dicc?.linked_organ?.genital_flags & GENITAL_FUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))
+					var/datum/reagent/cummies = find_reagent_object_from_type(dicc?.get_fluid_id())
+					. += "Вы чувствуете, как от [t_ego] тела пахнет <b>'<span style='color:[cummies.color]';>[cummies.name]</span>'</b>..."
+	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref))
+		var/cursed_stuff = attempt_vr(src,"examine_bellies",args) //vore Code
+		if(cursed_stuff)
+			. += cursed_stuff
+	//END OF CIT CHANGES
 	var/appears_dead = FALSE
 	var/just_sleeping = FALSE
 

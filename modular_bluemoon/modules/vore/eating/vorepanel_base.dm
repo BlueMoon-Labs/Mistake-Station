@@ -186,8 +186,8 @@
 		"feeding" = (host.vore_flags & FEEDING),
 		"absorbable" = (host.vore_flags & ABSORBABLE),
 		"allowmobvore" = (host.vore_flags & MOBVORE),
-		"vore_sounds" = (host.client.prefs.cit_toggles & EATING_NOISES),
-		"digestion_sounds" = (host.client.prefs.cit_toggles & DIGESTION_NOISES),
+		"vore_sounds" = (host.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds)),
+		"digestion_sounds" = (host.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds)),
 		"lickable" = (host.vore_flags & LICKABLE),
 		"smellable" = (host.vore_flags & SMELLABLE),
 	)
@@ -337,11 +337,11 @@
 			unsaved_changes = TRUE
 			return TRUE
 		if("toggle_vore_sounds")
-			(host.client.prefs.cit_toggles ^= EATING_NOISES)
+			(host.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds))
 			unsaved_changes = TRUE
 			return TRUE
 		if("toggle_digestion_sounds")
-			(host.client.prefs.cit_toggles ^= DIGESTION_NOISES)
+			(host.client?.prefs?.read_preference(/datum/preference/toggle/weird_sounds))
 			unsaved_changes = TRUE
 			return TRUE
 		if("toggle_lickable")
