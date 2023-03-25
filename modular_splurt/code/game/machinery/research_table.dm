@@ -137,7 +137,7 @@
 		return
 	users[buckled_mob.name] += 1
 	var/points_awarded = 0
-	for(var/obj/item/organ/genital/genital in buckled_mob.internal_organs)
+	for(var/obj/item/organ/genital/genital in buckled_mob.organs)
 		if(istype(genital, /obj/item/organ/genital/breasts))
 			var/obj/item/organ/genital/breasts/breasts = genital
 			points_awarded += breasts.fluid_rate + breasts.breast_values[breasts.size] // Breasts use letters instead of numbers!

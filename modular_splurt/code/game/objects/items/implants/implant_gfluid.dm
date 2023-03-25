@@ -39,7 +39,7 @@
 	var/mob/living/carbon/human/genital_owner = imp_in
 
 	// List their genitals if they have any at all
-	for(var/obj/item/organ/genital/genital_checked in genital_owner.internal_organs)
+	for(var/obj/item/organ/genital/genital_checked in genital_owner.organs)
 		if(istype(genital_checked) && (genital_checked.genital_flags & GENITAL_FUID_PRODUCTION))
 			// Add genitals to the list
 			LAZYADD(genitals_list, genital_checked)

@@ -46,7 +46,7 @@
 	if(!client?.prefs.arousable || (aphro && (client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
 		return // no adjusting made here
 	var/enabling = strength > 0
-	for(var/obj/item/organ/genital/G in internal_organs)
+	for(var/obj/item/organ/genital/G in organs)
 		if(G.genital_flags & GENITAL_CAN_AROUSE && !G.aroused_state && prob(abs(strength)*G.sensitivity * arousal_rate))
 			G.set_aroused_state(enabling,cause)
 			G.update_appearance()
@@ -140,7 +140,7 @@
 	var/list/genitals_list
 	var/list/worn_stuff = get_equipped_items()
 
-	for(var/obj/item/organ/genital/G in internal_organs)
+	for(var/obj/item/organ/genital/G in organs)
 		if((G.genital_flags & CAN_CLIMAX_WITH) && G.is_exposed(worn_stuff)) //filter out what you can't masturbate with
 			LAZYADD(genitals_list, G)
 	if(LAZYLEN(genitals_list))
@@ -228,7 +228,7 @@
 		return
 	if(forced_climax) //Something forced us to cum, this is not a masturbation thing and does not progress to the other checks
 		log_message("was forced to climax by [cause]",LOG_EMOTE)
-		for(var/obj/item/organ/genital/G in internal_organs)
+		for(var/obj/item/organ/genital/G in organs)
 			if(!(G.genital_flags & CAN_CLIMAX_WITH)) //Skip things like wombs and testicles
 				continue
 			var/mob/living/partner

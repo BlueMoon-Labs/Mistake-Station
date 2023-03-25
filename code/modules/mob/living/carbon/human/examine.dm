@@ -161,8 +161,8 @@
 		dispSize = dispSize / 2
 		. += "[t_on], кажется, около [dispSize] футов в высоту."
 	//CIT CHANGES START HERE - adds genital details to examine text
-	if(LAZYLEN(internal_organs) && (!user.client?.prefs?.read_preference(/datum/preference/toggle/erp)))
-		for(var/obj/item/organ/genital/dicc in internal_organs)
+	if(LAZYLEN(organs) && (!user.client?.prefs?.read_preference(/datum/preference/toggle/erp)))
+		for(var/obj/item/organ/genital/dicc in organs)
 			if(istype(dicc) && dicc.is_exposed())
 				. += "[dicc.desc]"
 				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.genital_flags & GENITAL_FUID_PRODUCTION) || ((dicc?.linked_organ?.genital_flags & GENITAL_FUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))

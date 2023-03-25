@@ -304,7 +304,7 @@
 		return
 
 	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/G in internal_organs)
+	for(var/obj/item/organ/genital/G in organs)
 		if(!(G.genital_flags & GENITAL_INTERNAL))
 			genital_list += G
 	if(!genital_list.len) //There is nothing to expose
@@ -312,9 +312,9 @@
 	//Full list of exposable genitals created
 	var/obj/item/organ/genital/picked_organ
 	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in (getorganslot(ORGAN_SLOT_ANUS) ? genital_list : genital_list + list("anus"))
-	if(picked_organ && (picked_organ in internal_organs))
+	if(picked_organ && (picked_organ in organs))
 		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in GLOB.genitals_visibility_toggles
-		if(picked_visibility && picked_organ && (picked_organ in internal_organs))
+		if(picked_visibility && picked_organ && (picked_organ in organs))
 			picked_organ.toggle_visibility(picked_visibility)
 
 	if(picked_organ == "anus" && !getorganslot(ORGAN_SLOT_ANUS))
@@ -339,7 +339,7 @@
 	set name = "Toggle genital arousal"
 	set desc = "Allows you to toggle which genitals are showing signs of arousal."
 	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/G in internal_organs)
+	for(var/obj/item/organ/genital/G in organs)
 		if(G.genital_flags & GENITAL_CAN_AROUSE)
 			genital_list += G
 	if(!genital_list.len) //There's nothing that can show arousal
@@ -423,7 +423,7 @@
 //proc to give a player their genitals and stuff when they log in
 /mob/living/carbon/human/proc/give_genitals(clean = FALSE)//clean will remove all pre-existing genitals. proc will then give them any genitals that are enabled in their DNA
 	if(clean)
-		for(var/obj/item/organ/genital/G in internal_organs)
+		for(var/obj/item/organ/genital/G in organs)
 			qdel(G)
 	if (NOGENITALS in dna.species.species_traits)
 		return
@@ -466,7 +466,7 @@
 	for(var/L in relevant_layers) //Less hardcode
 		remove_overlay(layers_num[L])
 	remove_overlay(GENITALS_EXPOSED_LAYER)
-	if(!LAZYLEN(internal_organs) || ((NOGENITALS in dna.species.species_traits) && !genital_override) || HAS_TRAIT(src, TRAIT_HUSK))
+	if(!LAZYLEN(organs) || ((NOGENITALS in dna.species.species_traits) && !genital_override) || HAS_TRAIT(src, TRAIT_HUSK))
 		return
 
 	//start scanning for genitals
@@ -474,7 +474,7 @@
 	var/list/gen_index[GENITAL_LAYER_INDEX_LENGTH]
 	var/list/genitals_to_add
 	var/list/fully_exposed
-	for(var/obj/item/organ/genital/G in internal_organs)
+	for(var/obj/item/organ/genital/G in organs)
 		if(G.is_exposed()) //Checks appropriate clothing slot and if it's through_clothes
 			LAZYADD(gen_index[G.layer_index], G)
 	if(has_strapon(REQUIRE_EXPOSED))
@@ -588,7 +588,7 @@
 	if(!client.prefs.arousable)
 		return FALSE
 
-	var/organCheck = locate(/obj/item/organ/genital) in internal_organs
+	var/organCheck = locate(/obj/item/organ/genital) in organs
 	var/breastCheck = getorganslot(ORGAN_SLOT_BREASTS)
 	var/willyCheck = getorganslot(ORGAN_SLOT_PENIS)
 	var/buttCheck = getorganslot(ORGAN_SLOT_BUTT)

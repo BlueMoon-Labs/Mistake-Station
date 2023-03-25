@@ -23,7 +23,7 @@
 
 	//Bigger bits
 	var/mob/living/carbon/C = holder
-	for(var/obj/item/organ/genital/cocc in C.internal_organs)
+	for(var/obj/item/organ/genital/cocc in C.organs)
 		if(istype(cocc))
 			cocc.update()
 
