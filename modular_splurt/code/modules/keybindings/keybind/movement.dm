@@ -156,7 +156,7 @@
 /datum/keybinding/mob/tilt_right/down(client/user)
 	var/mob/M = user.mob
 	M.tilt_right()
-	return TRUE
+	return ..()
 
 /datum/keybinding/mob/tilt_left
 	hotkey_keys = list("AltCtrlWest", "AltCtrlA")
@@ -168,7 +168,7 @@
 /datum/keybinding/mob/tilt_left/down(client/user)
 	var/mob/M = user.mob
 	M.tilt_left()
-	return TRUE
+	return ..()
 
 /datum/keybinding/mob/pixel_shift/shift_north
 	hotkey_keys = list("CtrlShiftW", "CtrlShiftNorth")
@@ -178,7 +178,7 @@
 /datum/keybinding/mob/pixel_shift/shift_north/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(NORTH)
-	return TRUE
+	return ..()
 
 /datum/keybinding/mob/pixel_shift/shift_east
 	hotkey_keys = list("CtrlShiftD", "CtrlShiftEast")
@@ -188,7 +188,7 @@
 /datum/keybinding/mob/pixel_shift/shift_east/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(EAST)
-	return TRUE
+	return ..()
 
 /datum/keybinding/mob/pixel_shift/shift_south
 	hotkey_keys = list("CtrlShiftS", "CtrlShiftSouth")
@@ -198,7 +198,7 @@
 /datum/keybinding/mob/pixel_shift/shift_south/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(SOUTH)
-	return TRUE
+	return ..()
 
 /datum/keybinding/mob/pixel_shift/shift_west
 	hotkey_keys = list("CtrlShiftA", "CtrlShiftWest")
@@ -208,4 +208,4 @@
 /datum/keybinding/mob/pixel_shift/shift_west/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(WEST)
-	return TRUE
+	return ..()

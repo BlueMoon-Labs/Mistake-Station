@@ -5007,6 +5007,10 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/hallway/primary/port)
+"bNT" = (
+/obj/effect/landmark/start/bridgeofficer,
+/turf/open/floor/mineral/plastitanium,
+/area/station/command/bridge)
 "bNU" = (
 /obj/effect/spawner/random/maintenance,
 /obj/structure/closet/crate/internals,
@@ -28039,6 +28043,7 @@
 /obj/machinery/light/directional/north,
 /obj/machinery/status_display/ai/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/vending/wardrobe/bridgeofficer_wardrobe,
 /turf/open/floor/mineral/plastitanium,
 /area/station/command/bridge)
 "kaf" = (
@@ -28669,11 +28674,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/station/science/ordnance/office)
 "kms" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus,
-/turf/open/floor/carpet/black,
-/area/station/command/heads_quarters/hos)
+/obj/structure/closet/secure_closet/bridgesec,
+/turf/open/floor/mineral/plastitanium,
+/area/station/command/bridge)
 "kmN" = (
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
@@ -61495,6 +61498,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/start/bridgeofficer,
 /turf/open/floor/mineral/plastitanium,
 /area/station/command/bridge)
 "vKT" = (
@@ -95775,7 +95779,7 @@ nEC
 nEC
 pJY
 duI
-nEC
+bNT
 oLD
 klI
 lPZ
@@ -96805,7 +96809,7 @@ duI
 duI
 wtX
 ppB
-nEC
+kms
 gmH
 ebx
 vQe
@@ -101379,7 +101383,7 @@ aaa
 rrt
 aaa
 rrg
-kms
+lfu
 lfu
 ilR
 kcg

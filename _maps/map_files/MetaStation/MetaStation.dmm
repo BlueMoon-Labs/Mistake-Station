@@ -8317,6 +8317,10 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
+"ddC" = (
+/obj/machinery/vending/wardrobe/bridgeofficer_wardrobe,
+/turf/open/floor/carpet,
+/area/station/command/bridge)
 "ddK" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -28144,6 +28148,7 @@
 /obj/machinery/light/directional/north,
 /obj/machinery/status_display/ai/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/closet/secure_closet/bridgesec,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "kaf" = (
@@ -47890,6 +47895,10 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
+"qXt" = (
+/obj/effect/landmark/start/bridgeofficer,
+/turf/open/floor/iron/dark,
+/area/station/command/bridge)
 "qXw" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -61787,6 +61796,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/start/bridgeofficer,
 /turf/open/floor/carpet,
 /area/station/command/bridge)
 "vKT" = (
@@ -96016,7 +96026,7 @@ gGy
 nEC
 pJY
 duI
-gGy
+qXt
 oLD
 klI
 lPZ
@@ -97046,7 +97056,7 @@ duI
 duI
 wtX
 ppB
-nEC
+ddC
 gmH
 ebx
 vQe

@@ -3,7 +3,7 @@
 	var/miming = FALSE
 
 //Main code edits
-/datum/emote/living/audio_emote/laugh/run_emote(mob/user, params)
+/datum/emote/living/audio_emote/laugh/run_emote(mob/user, params, type_override)
 	. = ..()
 
 	// Check parent return
@@ -120,7 +120,7 @@
 	return TRUE
 
 // Run audio emote
-/datum/emote/living/run_emote(mob/user, params)
+/datum/emote/living/run_emote(mob/user, params, type_override)
 	. = ..()
 
 	// Check parent return
@@ -284,7 +284,7 @@
 	emote_sound = 'modular_splurt/sound/voice/bababooey/bababooey.ogg'
 	emote_cooldown = 0.9 SECONDS
 
-/datum/emote/living/bababooey/run_emote(mob/user, params)
+/datum/emote/living/bababooey/run_emote(mob/user, params, type_override)
 	// Check if user is muzzled
 	if(user.is_muzzled())
 		// Set muzzled sound
@@ -314,7 +314,7 @@
 	emote_sound = 'modular_splurt/sound/voice/bababooey/fafafooey.ogg'
 	emote_cooldown = 0.7 SECONDS
 
-/datum/emote/living/fafafooey/run_emote(mob/user, params)
+/datum/emote/living/fafafooey/run_emote(mob/user, params, type_override)
 	// Check if user is muzzled
 	if(user.is_muzzled())
 		// Set muzzled sound
@@ -336,7 +336,7 @@
 	emote_sound = 'modular_splurt/sound/voice/bababooey/fafafoggy.ogg'
 	emote_cooldown = 0.9 SECONDS
 
-/datum/emote/living/fafafoggy/run_emote(mob/user, params)
+/datum/emote/living/fafafoggy/run_emote(mob/user, params, type_override)
 	// Check if user is muzzled
 	if(user.is_muzzled())
 		// Set muzzled sound
@@ -547,7 +547,7 @@
 	emote_sound = 'modular_splurt/sound/voice/cry_king.ogg'
 	emote_cooldown = 1.6 SECONDS // Uses longest sound's time
 
-/datum/emote/living/cry2/run_emote(mob/user, params)
+/datum/emote/living/cry2/run_emote(mob/user, params, type_override)
 	// Set random emote sound
 	emote_sound = pick('modular_splurt/sound/voice/cry_king.ogg', 'modular_splurt/sound/voice/cry_king2.ogg')
 
@@ -624,7 +624,7 @@
 	emote_sound = 'modular_splurt/sound/voice/aauugghh1.ogg'
 	emote_cooldown = 2.1 SECONDS
 
-/datum/emote/living/snore/snore2/run_emote(mob/user, params)
+/datum/emote/living/snore/snore2/run_emote(mob/user, params, type_override)
 	var/datum/dna/D = user.has_dna()
 	var/say_mod = (D ? D.species.say_mod : "says")
 	var/list/aaauughh = list(
@@ -692,7 +692,7 @@
 	emote_sound = 'modular_splurt/sound/voice/missouri.ogg'
 	emote_cooldown = 3.4 SECONDS
 
-/datum/emote/living/missouri/run_emote(mob/user, params)
+/datum/emote/living/missouri/run_emote(mob/user, params, type_override)
 	// Set message pronouns
 	message = "appears to believe [user.p_theyre()] in Missouri."
 
@@ -711,7 +711,7 @@
 	var/metacarpus_type = "palm" // Default to hands
 	emote_cooldown = 0.25 SECONDS
 
-/datum/emote/living/facemetacarpus/run_emote(mob/user, params)
+/datum/emote/living/facemetacarpus/run_emote(mob/user, param, type_override)
 	// Randomly pick a message using metacarpus_type for hand
 	message = pick(list(
 			"places [usr.p_their()] [metacarpus_type] across [usr.p_their()] face.",
@@ -745,7 +745,7 @@
 	emote_sound = 'modular_splurt/sound/voice/barks/poyo.ogg'
 	// No cooldown var required
 
-/datum/emote/living/poyo/run_emote(mob/user, params)
+/datum/emote/living/poyo/run_emote(mob/user, params, type_override)
 	var/datum/dna/D = user.has_dna()
 	var/say_mod = (D ? D.species.say_mod : "says")
 	message = replacetextEx(message, "%SAYS", say_mod)

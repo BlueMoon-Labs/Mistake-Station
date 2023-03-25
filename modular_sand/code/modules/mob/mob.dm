@@ -7,10 +7,6 @@
 	qdel(GetComponent(/datum/component/interaction_menu_granter))
 	. = ..()
 
-/mob/Initialize(mapload)
-	. = ..()
-	register_context()
-
 /mob/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	if(user.GetComponent(/datum/component/interaction_menu_granter))
