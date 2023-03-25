@@ -547,7 +547,7 @@
 		return
 
 	var/list/genital_list = list()
-	for(var/obj/item/organ/external/genital/genital in internal_organs)
+	for(var/obj/item/organ/external/genital/genital in organs)
 		if(!genital.aroused == AROUSAL_CANT)
 			genital_list += genital
 	if(!genital_list.len) //There is nothing to expose
@@ -555,14 +555,14 @@
 	//Full list of exposable genitals created
 	var/obj/item/organ/external/genital/picked_organ
 	picked_organ = input(src, "Choose which genitalia to change arousal", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in internal_organs))
+	if(picked_organ && (picked_organ in organs))
 		var/list/gen_arous_trans = list(
 			"Not aroused" = AROUSAL_NONE,
 			"Partly aroused" = AROUSAL_PARTIAL,
 			"Very aroused" = AROUSAL_FULL,
 		)
 		var/picked_arousal = input(src, "Choose arousal", "Toggle Arousal") as null|anything in gen_arous_trans
-		if(picked_arousal && picked_organ && (picked_organ in internal_organs))
+		if(picked_arousal && picked_organ && (picked_organ in organs))
 			picked_organ.aroused = gen_arous_trans[picked_arousal]
 			picked_organ.update_sprite_suffix()
 			update_body()
