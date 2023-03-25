@@ -206,7 +206,8 @@
 		/obj/item/mesmetron = 3,
 		/obj/item/clothing/neck/human_petcollar/locked/holo = 2,
 		/obj/item/storage/box/aphrodisiac_pump/plus = 3,
-		/obj/item/storage/box/medipens/lewd = 2
+		/obj/item/storage/box/medipens/lewd = 2,
+		/datum/reagent/drug/labebium = 1
 	)
 	var/list/extra_premium = list(
 		/obj/item/clothing/mask/muzzle/ballgag = 3
