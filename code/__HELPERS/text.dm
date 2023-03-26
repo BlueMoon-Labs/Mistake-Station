@@ -239,7 +239,7 @@
 						return
 					continue
 				last_char_group = SYMBOLS_DETECTED //for now, we'll treat all non-ascii characters like symbols even though most are letters
-			
+
 			else
 				continue
 		t_out += char
@@ -876,8 +876,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
  * * capitalise - Whether the number it returns should be capitalised or not, e.g. "Eighty-Eight" vs. "eighty-eight".
  */
 /proc/int_to_words(number, carried_string, capitalise = FALSE)
-	var/static/list/tens = list("", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
-	var/static/list/ones = list("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen")
+	var/static/list/tens = list("", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто")
+	var/static/list/ones = list("один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать")
 	number = round(number)
 
 	if(number > 999)
