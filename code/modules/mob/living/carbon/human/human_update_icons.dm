@@ -328,7 +328,7 @@ There are several things that need to be remembered:
 
 	if(ears_extra)
 		var/obj/item/worn_item = ears_extra
-		update_hud_ears(worn_item)
+		update_hud_ears_extra(worn_item)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS)
 			return
@@ -952,31 +952,31 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/update_hud_ears_extra(obj/item/worn_item)
 	worn_item.screen_loc = ui_ears_extra
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
 /mob/living/carbon/human/proc/update_hud_wrists(obj/item/worn_item)
 	worn_item.screen_loc = ui_wrists
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
 /mob/living/carbon/human/proc/update_hud_boxers(obj/item/worn_item)
 	worn_item.screen_loc = ui_boxers
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
 /mob/living/carbon/human/proc/update_hud_socks(obj/item/worn_item)
 	worn_item.screen_loc = ui_socks
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
 /mob/living/carbon/human/proc/update_hud_shirt(obj/item/worn_item)
 	worn_item.screen_loc = ui_shirt
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
