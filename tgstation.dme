@@ -7131,8 +7131,6 @@
 #include "modular_splurt\code\controllers\configuration\entries\splurt_general.dm"
 #include "modular_splurt\code\controllers\configuration\entries\splurt_maps.dm"
 #include "modular_splurt\code\controllers\subsystem\afk.dm"
-#include "modular_splurt\code\controllers\subsystem\redbot.dm"
-#include "modular_splurt\code\controllers\subsystem\processing\station.dm"
 #include "modular_splurt\code\datums\ai_laws.dm"
 #include "modular_splurt\code\datums\bark.dm"
 #include "modular_splurt\code\datums\dna.dm"
