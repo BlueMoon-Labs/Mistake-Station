@@ -189,6 +189,18 @@
 				number_of_alphanumeric++
 				last_char_group = LETTERS_DETECTED
 
+			// А  .. Я
+			if(1040 to 1071)            //Uppercase Letters
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			// а  .. я
+			if(1072 to 1103)            //Lowercase Letters
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+					char = uppertext(char)
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
 			// 0  .. 9
 			if(48 to 57) //Numbers
 				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
@@ -227,7 +239,7 @@
 						return
 					continue
 				last_char_group = SYMBOLS_DETECTED //for now, we'll treat all non-ascii characters like symbols even though most are letters
-
+			
 			else
 				continue
 		t_out += char
