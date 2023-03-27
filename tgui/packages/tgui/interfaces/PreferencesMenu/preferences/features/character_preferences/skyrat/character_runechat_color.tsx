@@ -1,6 +1,6 @@
-import { FeatureChoiced, FeatureDropdownInput } from '../../base';
+import { FeatureColorInput, Feature } from '../../base';
 
-export const character_runechat_color: FeatureChoiced = {
+export const character_runechat_color: Feature<string> = {
   name: 'Character Runechat Color',
-  component: FeatureDropdownInput,
+  component: FeatureColorInput,
 };

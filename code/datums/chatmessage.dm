@@ -126,7 +126,7 @@
 		var/mob/M = target
 		if(GLOB.runechat_color_names[target.name])
 			target.chat_color = GLOB.runechat_color_names[target.name]
-		else if (ismob(target) && M.client?.prefs?.enable_personal_chat_color && M.name == M.real_name)
+		else if (ismob(target) && M.name == M.real_name)
 			var/per_color = M.client.prefs.personal_chat_color
 			GLOB.runechat_color_names[target.name] = per_color
 			target.chat_color = per_color
@@ -328,19 +328,25 @@
 	x = (x + m) * 255
 	c = (c + m) * 255
 	m *= 255
+	//Skyrat changes begin
+	var/final_val
 	switch(h_int)
 		if(0)
-			return "#[num2hex(c, 2)][num2hex(x, 2)][num2hex(m, 2)]"
+			final_val = "#[num2hex(c, 2)][num2hex(x, 2)][num2hex(m, 2)]"
 		if(1)
-			return "#[num2hex(x, 2)][num2hex(c, 2)][num2hex(m, 2)]"
+			final_val = "#[num2hex(x, 2)][num2hex(c, 2)][num2hex(m, 2)]"
 		if(2)
-			return "#[num2hex(m, 2)][num2hex(c, 2)][num2hex(x, 2)]"
+			final_val = "#[num2hex(m, 2)][num2hex(c, 2)][num2hex(x, 2)]"
 		if(3)
-			return "#[num2hex(m, 2)][num2hex(x, 2)][num2hex(c, 2)]"
+			final_val = "#[num2hex(m, 2)][num2hex(x, 2)][num2hex(c, 2)]"
 		if(4)
-			return "#[num2hex(x, 2)][num2hex(m, 2)][num2hex(c, 2)]"
+			final_val = "#[num2hex(x, 2)][num2hex(m, 2)][num2hex(c, 2)]"
 		if(5)
-			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
+			final_val = "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
+
+	GLOB.runechat_color_names[name] = final_val
+	return final_val
+	//End of skyrat changes
 
 #undef CHAT_MESSAGE_SPAWN_TIME
 #undef CHAT_MESSAGE_LIFESPAN
