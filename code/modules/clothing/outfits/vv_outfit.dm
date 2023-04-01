@@ -97,10 +97,10 @@
 
 	//Copy equipment
 	var/list/result = list()
-	var/list/slots_to_check = list(ITEM_SLOT_ICLOTHING,ITEM_SLOT_UNDERWEAR,ITEM_SLOT_SHIRT,ITEM_SLOT_SOCKS,ITEM_SLOT_BACK,ITEM_SLOT_OCLOTHING,ITEM_SLOT_BELT,ITEM_SLOT_GLOVES,ITEM_SLOT_WRISTS,ITEM_SLOT_FEET,ITEM_SLOT_HEAD,ITEM_SLOT_MASK,ITEM_SLOT_NECK,ITEM_SLOT_EARS_LEFT,ITEM_SLOT_EARS_RIGHT,ITEM_SLOT_EYES,ITEM_SLOT_ID,ITEM_SLOT_SUITSTORE,ITEM_SLOT_LPOCKET,ITEM_SLOT_RPOCKET, ITEM_SLOT_WRISTS) //BlueMoon edit
-	for(var/s in slots_to_check)
-		var/obj/item/I = get_item_by_slot(s)
-		var/vedits = collect_vv(I)
+	var/list/slots_to_check = list(ITEM_SLOT_ICLOTHING,ITEM_SLOT_BACK,ITEM_SLOT_OCLOTHING,ITEM_SLOT_BELT,ITEM_SLOT_GLOVES,ITEM_SLOT_FEET,ITEM_SLOT_HEAD,ITEM_SLOT_MASK,ITEM_SLOT_NECK,ITEM_SLOT_EARS,ITEM_SLOT_EYES,ITEM_SLOT_ID,ITEM_SLOT_SUITSTORE,ITEM_SLOT_LPOCKET,ITEM_SLOT_RPOCKET)
+	for(var/slot in slots_to_check)
+		var/obj/item/item = get_item_by_slot(slot)
+		var/vedits = collect_vv(item)
 		if(vedits)
 			result["[slot]"] = vedits
 		if(istype(item))

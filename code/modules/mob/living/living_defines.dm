@@ -225,4 +225,5 @@
 
 	/// What our current gravity state is. Used to avoid duplicate animates and such
 	var/gravity_state = null
+
 	var/datum/action/sizecode_smallsprite/small_sprite
