@@ -194,7 +194,6 @@
 	default_color = "#FFCCCC"
 	relevent_layers = list(BODY_FRONT_LAYER)
 	genetic = TRUE
-	var/alt_aroused = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
 	icon_state = "none"

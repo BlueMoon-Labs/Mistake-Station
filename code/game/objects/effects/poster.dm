@@ -14,7 +14,7 @@
 /obj/item/poster
 	name = "poorly coded poster"
 	desc = "You probably shouldn't be holding this."
-	icon = 'icons/obj/poster.dmi'
+	icon = 'icons/obj/poster_old.dmi'
 	force = 0
 	resistance_flags = FLAMMABLE
 	var/poster_type

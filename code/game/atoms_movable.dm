@@ -101,6 +101,15 @@
 	/// Will not automatically apply to the turf below you, you need to apply /datum/element/block_explosives in conjunction with this
 	var/explosion_block = 0
 
+	// Text-to-bark sounds
+	var/sound/vocal_bark
+	var/vocal_bark_id
+	var/vocal_pitch = 1
+	var/vocal_pitch_range = 0.2 //Actual pitch is (pitch - (vocal_pitch_range*0.5)) to (pitch + (vocal_pitch_range*0.5))
+	var/vocal_volume = 70 //Baseline. This gets modified by yelling and other factors
+	var/vocal_speed = 4 //Lower values are faster, higher values are slower
+	var/vocal_current_bark //When barks are queued, this gets passed to the bark proc. If vocal_current_bark doesn't match the args passed to the bark proc (if passed at all), then the bark simply doesn't play. Basic curtailing of spam~
+
 /mutable_appearance/emissive_blocker
 
 /mutable_appearance/emissive_blocker/New()
@@ -435,6 +444,10 @@
 			. = TRUE
 		if(NAMEOF(src, glide_size))
 			set_glide_size(var_value)
+			. = TRUE
+		if(NAMEOF(src, vocal_bark))
+			if(isfile(var_value))
+				vocal_bark = sound(var_value) //bark() expects vocal_bark to already be a sound datum, for performance reasons. adminbus QoL!
 			. = TRUE
 
 	if(!isnull(.))
@@ -851,6 +864,7 @@
  */
 /atom/movable/Uncrossed(atom/movable/uncrossed_atom)
 	SHOULD_NOT_OVERRIDE(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSSED, uncrossed_atom)
 	CRASH("/atom/movable/Uncrossed() was called")
 
 /atom/movable/Bump(atom/bumped_atom)

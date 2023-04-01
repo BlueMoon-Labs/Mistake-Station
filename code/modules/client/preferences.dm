@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 30 //SKYRAT EDIT - ORIGINAL 3
+	var/max_save_slots = 10 //Bluemoon Edit - Original 30 //SKYRAT EDIT - ORIGINAL 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -59,6 +59,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/action_buttons_screen_locs = list()
 
+	//bad stuff
+	var/vore_flags = 0
+	var/list/belly_prefs = list()
+	var/vore_taste = "nothing in particular"
+	var/vore_smell = null
+	var/toggleeatingnoise = TRUE
+	var/toggledigestionnoise = TRUE
+	var/hound_sleeper = TRUE
+	var/cit_toggles = TOGGLES_CITADEL
+
 	///Someone thought we were nice! We get a little heart in OOC until we join the server past the below time (we can keep it until the end of the round otherwise)
 	var/hearted
 	///If we have a hearted commendations, we honor it every time the player loads preferences until this time has been passed
@@ -87,6 +97,56 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	/// If set to TRUE, will update character_profiles on the next ui_data tick.
 	var/tainted_character_profiles = FALSE
+
+	var/arousable = TRUE
+
+	///Runechat preference. If true, certain messages will be displayed on the map, not ust on the chat area. Boolean.
+	var/chat_on_map = TRUE
+	///Limit preference on the size of the message. Requires chat_on_map to have effect.
+	var/max_chat_length = CHAT_MESSAGE_MAX_LENGTH
+	///Whether non-mob messages will be displayed, such as machine vendor announcements. Requires chat_on_map to have effect. Boolean.
+	var/see_chat_non_mob = TRUE
+	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
+	var/see_rc_emotes = TRUE
+
+	//Sandstorm CHANGES BEGIN
+	var/gender = MALE					//gender of character (well duh)
+	var/erppref = "Ask"
+	var/nonconpref = "Ask"
+	var/vorepref = "Ask"
+	var/extremepref = "No" //This is for extreme shit, maybe even literal shit, better to keep it on no by default
+	var/extremeharm = "No" //If "extreme content" is enabled, this option serves as a toggle for the related interactions to cause damage or not
+	var/see_chat_emotes = TRUE
+	var/enable_personal_chat_color = FALSE
+	var/personal_chat_color = "#ffffff"
+	var/list/alt_titles_preferences = list()
+	var/lust_tolerance = 100
+	var/sexual_potency = 15
+	var/inquisitive_ghost = 1
+	var/custom_speech_verb = "default" //if your say_mod is to be something other than your races
+	var/custom_tongue = "default" //if your tongue is to be something other than your races
+
+	// Vocal bark prefs
+	var/bark_id = "mutedc3"
+	var/bark_speed = 4
+	var/bark_pitch = 1
+	var/bark_variance = 0.2
+	COOLDOWN_DECLARE(bark_previewing)
+
+	//SPLURT EDIT - gregnancy
+	/// Does john spaceman's cum actually impregnate people?
+	var/virility = 0
+	/// Can john spaceman get gregnant if all conditions are right? (has a womb and is not on contraceptives)
+	var/fertility = 0
+	/// Does john spaceman look like a gluttonous slob if he pregent?
+	var/pregnancy_inflation = FALSE
+	/// Self explanitory
+	var/pregnancy_breast_growth = FALSE
+	var/egg_shell = "chicken"
+	//SPLURT END
+
+	var/fullscreen = TRUE
+	var/be_victim = null
 
 /datum/preferences/Destroy(force, ...)
 	QDEL_NULL(character_preview_view)

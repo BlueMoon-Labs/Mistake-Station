@@ -51,6 +51,13 @@ There are several things that need to be remembered:
 
 	if(!..())
 		update_worn_undersuit()
+		// BlueMoon edit
+		update_inv_w_underwear()
+		update_inv_w_socks()
+		update_inv_w_shirt()
+		update_inv_ears_extra()
+		update_inv_wrists()
+		//
 		update_worn_id()
 		update_worn_glasses()
 		update_worn_gloves()
@@ -256,9 +263,8 @@ There are several things that need to be remembered:
 		overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
-
 /mob/living/carbon/human/update_inv_ears()
-	remove_overlay(EARS_LAYER)
+	remove_overlay(EAR_LEFT_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //decapitated
 		return
@@ -285,13 +291,226 @@ There are several things that need to be remembered:
 				mutant_override = TRUE
 		// SKYRAT EDIT END
 
-		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EAR_LEFT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
 		if(!mutant_override && (OFFSET_EARS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
-		overlays_standing[EARS_LAYER] = ears_overlay
-	apply_overlay(EARS_LAYER)
+		overlays_standing[EAR_LEFT_LAYER] = ears_overlay
+	apply_overlay(EAR_LEFT_LAYER)
+
+/mob/living/carbon/human/update_inv_ears_extra()
+	remove_overlay(EAR_RIGHT_LAYER)
+
+	if(!get_bodypart(BODY_ZONE_HEAD)) //decapitated
+		return
+
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS) + 1]
+		inv.update_icon()
+
+	if(ears_extra)
+		var/obj/item/worn_item = ears_extra
+		update_hud_ears_extra(worn_item)
+
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS)
+			return
+
+		var/icon_file = 'icons/mob/clothing/ears.dmi'
+
+		// SKYRAT EDIT ADDITION
+		var/mutant_override = FALSE
+		if(dna.species.bodytype & BODYTYPE_CUSTOM)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_EARS, ears_extra)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				mutant_override = TRUE
+		// SKYRAT EDIT END
+
+		var/mutable_appearance/ears_overlay = ears_extra.build_worn_icon(default_layer = EAR_RIGHT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+
+		if(!mutant_override && (OFFSET_EARS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
+			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
+			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
+		overlays_standing[EAR_RIGHT_LAYER] = ears_overlay
+	apply_overlay(EAR_RIGHT_LAYER)
+
+// BlueMoon edit
+/mob/living/carbon/human/update_inv_wrists()
+	remove_overlay(WRISTS_LAYER)
+
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1]
+		inv.update_icon()
+
+	//Bloody hands begin
+	var/mutable_appearance/bloody_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", -WRISTS_LAYER)
+	cut_overlay(bloody_overlay)
+	if(!wrists && blood_in_hands && (num_hands > 0))
+		bloody_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", -WRISTS_LAYER)
+		if(num_hands < 2)
+			if(has_left_hand(FALSE))
+				bloody_overlay.icon_state = "bloodyhands_left"
+			else if(has_right_hand(FALSE))
+				bloody_overlay.icon_state = "bloodyhands_right"
+
+		add_overlay(bloody_overlay)
+	//Bloody hands end
+
+		overlays_standing[WRISTS_LAYER] = bloody_overlay
+
+	if(wrists)
+		var/obj/item/worn_item = wrists
+		update_hud_wrists(worn_item)
+
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_WRISTS)
+			return
+
+		var/icon_file = 'modular_sand/icons/mob/clothing/wrists.dmi'
+
+		// SKYRAT EDIT ADDITION
+		var/mutant_override = FALSE
+		if(dna.species.bodytype & BODYTYPE_CUSTOM)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_WRISTS, wrists)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				mutant_override = TRUE
+		// SKYRAT EDIT END
+
+		var/mutable_appearance/wrists_overlay = wrists.build_worn_icon(default_layer = WRISTS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+
+		if(!mutant_override && (OFFSET_WRISTS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
+			wrists_overlay.pixel_x += dna.species.offset_features[OFFSET_WRISTS][1]
+			wrists_overlay.pixel_y += dna.species.offset_features[OFFSET_WRISTS][2]
+		overlays_standing[WRISTS_LAYER] = wrists_overlay
+
+	apply_overlay(WRISTS_LAYER)
+//
+
+// BlueMoon edit
+/mob/living/carbon/human/update_inv_w_underwear()
+	remove_overlay(UNDERWEAR_LAYER)
+
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_UNDERWEAR) + 1]
+		inv.update_icon()
+
+	if(w_underwear)
+		var/obj/item/worn_item = w_underwear
+		update_hud_shoes(worn_item)
+
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_UNDERWEAR)
+			return
+
+		var/icon_file = 'modular_sand/icons/mob/clothing/underwear.dmi'
+
+		// SKYRAT EDIT ADDITION START
+		var/mutant_override = FALSE
+
+		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
+				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
+				mutant_override = TRUE // SKYRAT EDIT ADDITION
+		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_UNDERWEAR, underwear)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				mutant_override = TRUE
+
+		var/mutable_appearance/underwear_overlay = w_underwear.build_worn_icon(default_layer = UNDERWEAR_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+
+		if(!mutant_override && (OFFSET_UNDERWEAR in dna.species.offset_features)) // SKYRAT EDIT CHANGE
+			underwear_overlay.pixel_x += dna.species.offset_features[OFFSET_UNDERWEAR][1]
+			underwear_overlay.pixel_y += dna.species.offset_features[OFFSET_UNDERWEAR][2]
+		overlays_standing[UNDERWEAR_LAYER] = underwear_overlay
+
+	apply_overlay(UNDERWEAR_LAYER)
+
+	update_body_parts()
+
+/mob/living/carbon/human/update_inv_w_socks()
+	remove_overlay(SOCKS_LAYER)
+
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SOCKS) + 1]
+		inv.update_icon()
+
+	if(w_socks)
+		var/obj/item/worn_item = w_socks
+		update_hud_shoes(worn_item)
+
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SOCKS)
+			return
+
+		var/icon_file = 'modular_sand/icons/mob/clothing/underwear.dmi'
+
+		// SKYRAT EDIT ADDITION START
+		var/mutant_override = FALSE
+
+		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
+				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
+				mutant_override = TRUE // SKYRAT EDIT ADDITION
+		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_SOCKS, w_socks)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				mutant_override = TRUE
+
+		var/mutable_appearance/socks_overlay = w_socks.build_worn_icon(default_layer = SOCKS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+
+		if(!mutant_override && (OFFSET_SOCKS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
+			socks_overlay.pixel_x += dna.species.offset_features[OFFSET_SOCKS][1]
+			socks_overlay.pixel_y += dna.species.offset_features[OFFSET_SOCKS][2]
+		overlays_standing[SOCKS_LAYER] = socks_overlay
+
+	apply_overlay(SOCKS_LAYER)
+
+	update_body_parts()
+
+/mob/living/carbon/human/update_inv_w_shirt()
+	remove_overlay(SHIRT_LAYER)
+
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHIRT) + 1]
+		inv.update_icon()
+
+	if(w_shirt)
+		var/obj/item/worn_item = w_shirt
+		update_hud_shoes(worn_item)
+
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SHIRT)
+			return
+
+		var/icon_file = 'modular_sand/icons/mob/clothing/underwear.dmi'
+
+		// SKYRAT EDIT ADDITION START
+		var/mutant_override = FALSE
+
+		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
+				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
+				mutant_override = TRUE // SKYRAT EDIT ADDITION
+		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_SHIRT, w_shirt)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				mutant_override = TRUE
+
+		var/mutable_appearance/shirt_overlay = w_shirt.build_worn_icon(default_layer = SHIRT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+
+		if(!mutant_override && (OFFSET_SHIRT in dna.species.offset_features)) // SKYRAT EDIT CHANGE
+			shirt_overlay.pixel_x += dna.species.offset_features[OFFSET_SHIRT][1]
+			shirt_overlay.pixel_y += dna.species.offset_features[OFFSET_SHIRT][2]
+		overlays_standing[SHIRT_LAYER] = shirt_overlay
+
+	apply_overlay(SHIRT_LAYER)
+
+	update_body_parts()
+//
 
 /mob/living/carbon/human/update_worn_neck()
 	remove_overlay(NECK_LAYER)
@@ -702,9 +921,45 @@ There are several things that need to be remembered:
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
+/mob/living/carbon/human/proc/update_hud_extra(obj/item/worn_item)
+	worn_item.screen_loc = ui_inventory_extra
+	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
 /mob/living/carbon/human/proc/update_hud_ears(obj/item/worn_item)
 	worn_item.screen_loc = ui_ears
 	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/proc/update_hud_ears_extra(obj/item/worn_item)
+	worn_item.screen_loc = ui_ears_extra
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/proc/update_hud_wrists(obj/item/worn_item)
+	worn_item.screen_loc = ui_wrists
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/proc/update_hud_boxers(obj/item/worn_item)
+	worn_item.screen_loc = ui_boxers
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/proc/update_hud_socks(obj/item/worn_item)
+	worn_item.screen_loc = ui_socks
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/proc/update_hud_shirt(obj/item/worn_item)
+	worn_item.screen_loc = ui_shirt
+	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 

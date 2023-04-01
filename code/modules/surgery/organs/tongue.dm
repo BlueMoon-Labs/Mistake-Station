@@ -7,6 +7,7 @@
 	slot = ORGAN_SLOT_TONGUE
 	attack_verb_continuous = list("licks", "slobbers", "slaps", "frenches", "tongues")
 	attack_verb_simple = list("lick", "slobber", "slap", "french", "tongue")
+	var/list/initial_accents //the ones the tongue starts with, not what it currently has // Пизда.
 	/**
 	 * A cached list of paths of all the languages this tongue is capable of speaking
 	 *
@@ -506,3 +507,10 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 
 	icon = 'icons/obj/hydroponics/seeds.dmi'
 	icon_state = "mycelium-angel"
+
+/obj/item/organ/internal/tongue/fluffy
+	name = "fluffy tongue"
+	desc = "OwO what's this?"
+	icon_state = "tonguefluffy"
+	taste_sensitivity = 10 // extra sensitive and inquisitive uwu
+	initial_accents = list(/datum/accent/fluffy)

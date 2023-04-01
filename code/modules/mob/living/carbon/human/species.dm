@@ -26,10 +26,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///A bitfield of "bodytypes", updated by /datum/obj/item/bodypart/proc/synchronize_bodytypes()
 	var/bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC
 	///Clothing offsets. If a species has a different body than other species, you can offset clothing so they look less weird.
-	var/list/offset_features = list(
+	var/list/offset_features = list( //BlueMoon
 		OFFSET_UNIFORM = list(0,0),
+		OFFSET_UNDERWEAR = list(0,0), //BlueMoon
+		OFFSET_SOCKS = list(0,0), //BlueMoon
+		OFFSET_SHIRT = list(0,0), //BlueMoon
 		OFFSET_ID = list(0,0),
 		OFFSET_GLOVES = list(0,0),
+		OFFSET_WRISTS = list(0,0), //BlueMoon
 		OFFSET_GLASSES = list(0,0),
 		OFFSET_EARS = list(0,0),
 		OFFSET_SHOES = list(0,0),
@@ -128,6 +132,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/siemens_coeff = 1
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
 	var/fixed_mut_color = ""
+	var/whitelisted = 0 		//Is this species restricted to certain players?
+	var/whitelist = list() 		//List the ckeys that can use this species, if it's whitelisted.: list("John Doe", "poopface666", "SeeALiggerPullTheTrigger") Spaces & capitalization can be included or ignored entirely for each key as it checks for both.
 	///Special mutation that can be found in the genepool exclusively in this species. Dont leave empty or changing species will be a headache
 	var/inert_mutation = /datum/mutation/human/dwarfism
 	///Used to set the mob's death_sound upon species change
@@ -961,6 +967,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.num_hands < 2)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//BlueMoon edit
+		if(ITEM_SLOT_WRISTS)
+			if(H.wrists)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_WRISTS) )
+				return FALSE
+			if(H.num_hands < 2)
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
@@ -991,10 +1007,42 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(ITEM_SLOT_EARS)
+		if(ITEM_SLOT_EARS_LEFT) //BlueMoon edit
+			if(H.ears)
+				return FALSE
+			if(!(I.slot_flags & ITEM_SLOT_EARS))
+				return FALSE
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//BlueMoon edit
+		if(ITEM_SLOT_EARS_RIGHT)
+			if(H.ears_extra)
+				return FALSE
+			if(!(I.slot_flags & ITEM_SLOT_EARS))
+				return FALSE
+			if(!H.get_bodypart(BODY_ZONE_HEAD))
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_UNDERWEAR)
+			if(H.w_underwear)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_UNDERWEAR) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_SOCKS)
+			if(H.w_socks)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_SOCKS) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_SHIRT)
+			if(H.w_shirt)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_SHIRT) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//
 		if(ITEM_SLOT_ICLOTHING)
 			var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
 			if(chest && (chest.bodytype & BODYTYPE_MONKEY))
@@ -1070,6 +1118,39 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.back && H.back.atom_storage?.can_insert(I, H, messages = TRUE))
 				return TRUE
 			return FALSE
+		if(ITEM_SLOT_ACCESSORY)
+			if(istype(I, /obj/item/clothing/accessory/ring))
+				if(istype(H.gloves))
+					var/obj/item/clothing/gloves/attaching_target = H.gloves
+					if(length(attaching_target.attached_accessories) > attaching_target.max_accessories)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is at maximum capacity!"
+						return FALSE
+					if(attaching_target.dummy_thick)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] are too bulky and cannot have accessories attached to it!"
+						return FALSE
+					else
+						return TRUE
+				else if(disable_warning)
+					disable_warning[1] = "\The [H.w_uniform] cannot have any attachments."
+				return FALSE
+			else
+				if(istype(H.w_uniform, /obj/item/clothing/under))
+					var/obj/item/clothing/under/attaching_target = H.w_uniform
+					if(length(attaching_target.attached_accessories) > attaching_target.max_accessories)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is at maximum capacity!"
+						return FALSE
+					if(attaching_target.dummy_thick)
+						if(disable_warning)
+							disable_warning[1] = "\The [attaching_target] is too bulky and cannot have accessories attached to it!"
+						return FALSE
+					else
+						return TRUE
+				else if(disable_warning)
+					disable_warning[1] = "\The [H.w_uniform] cannot have any attachments."
+				return FALSE
 
 	return FALSE //Unsupported slot
 

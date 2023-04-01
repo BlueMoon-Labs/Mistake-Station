@@ -322,3 +322,9 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define ANTAG_GROUP_SYNDICATE "Syndicate"
 #define ANTAG_GROUP_WIZARDS "Wizard Federation"
 #define ANTAG_GROUP_XENOS "Xenomorph Infestation"
+
+//Objectives-Ambitions Panel
+#define REQUEST_NEW_OBJECTIVE "new_objective"
+#define REQUEST_DEL_OBJECTIVE "del_objective"
+#define REQUEST_WIN_OBJECTIVE "win_objective"
+#define REQUEST_LOSE_OBJECTIVE "lose_objective"

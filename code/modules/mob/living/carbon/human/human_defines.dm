@@ -62,9 +62,19 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 
+	//skyrat slots
+	var/obj/item/w_underwear = null
+	var/obj/item/w_socks = null
+	var/obj/item/w_shirt = null
+	var/obj/item/ears_extra = null
+	var/obj/item/wrists = null
+	//
+
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
 	var/name_override //For temporary visible name changes
+
+	var/custom_species = null
 
 	var/datum/physiology/physiology
 
@@ -93,3 +103,6 @@
 
 	/// Height of the mob
 	VAR_PROTECTED/mob_height = HUMAN_HEIGHT_MEDIUM
+
+	var/genital_override = FALSE //Force genitals on things incase of chems
+	var/creamed = FALSE //to use with creampie overlays

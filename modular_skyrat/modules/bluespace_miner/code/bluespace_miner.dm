@@ -1,3 +1,4 @@
+/*
 /obj/machinery/bluespace_miner
 	name = "bluespace miner"
 	desc = "Through the power of bluespace, it is capable of producing materials."
@@ -155,7 +156,7 @@
 	crate_name = "Bluespace Miner Circuitboard Crate"
 	crate_type = /obj/structure/closet/crate
 
-/* if we were going to go research based
+if we were going to go research based
 /datum/design/board/bluespace_miner
 	name = "Machine Design (Bluespace Miner)"
 	desc = "Allows for the construction of circuit boards used to build a bluespace miner."

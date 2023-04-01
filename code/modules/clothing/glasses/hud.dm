@@ -277,3 +277,85 @@
 	desc = "These sunglasses are special, and let you view potential criminals."
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
+
+// Blueshield HUDs
+
+/obj/item/clothing/glasses/hud/toggle/blueshield
+	name = "blueshield HUD glasses"
+	desc = "A HUD with multiple functions."
+	actions_types = list(/datum/action/item_action/switch_hud)
+	icon_state = "sunhudmed"
+	icon = 'icons/obj/clothing/glasses.dmi'
+	worn_icon = 'icons/mob/clothing/eyes.dmi'
+	flash_protect = 1
+
+/obj/item/clothing/glasses/hud/toggle/blueshield/attack_self(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/wearer = user
+	if (wearer.glasses != src)
+		return
+
+	if (hud_type)
+		var/datum/atom_hud/H = GLOB.huds[hud_type]
+		H.hide_from(user)
+
+	if (hud_type == DATA_HUD_MEDICAL_ADVANCED)
+		hud_type = null
+		icon_state = "sun"
+	else if (hud_type == DATA_HUD_SECURITY_ADVANCED)
+		hud_type = DATA_HUD_MEDICAL_ADVANCED
+		icon_state = "sunhudmed"
+	else
+		hud_type = DATA_HUD_SECURITY_ADVANCED
+		icon_state = "sunhudsec"
+
+	if (hud_type)
+		var/datum/atom_hud/H = GLOB.huds[hud_type]
+		H.show_to(user)
+
+/obj/item/clothing/glasses/hud/toggle/blueshield/aviators
+	name = "blueshield HUD Aviators"
+	desc = "A HUD with multiple functions. More stylish."
+	actions_types = list(/datum/action/item_action/switch_hud)
+	icon = 'modular_splurt/icons/obj/clothing/glasses.dmi'
+	icon_state = "aviator_med"
+	worn_icon = 'modular_splurt/icons/mobs/eyes.dmi'
+	flash_protect = 1
+
+/obj/item/clothing/glasses/hud/toggle/blueshield/aviators/attack_self(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/wearer = user
+	if (wearer.glasses != src)
+		return
+
+	if (hud_type)
+		var/datum/atom_hud/H = GLOB.huds[hud_type]
+		H.hide_from(user)
+
+	if (hud_type == DATA_HUD_MEDICAL_ADVANCED)
+		hud_type = null
+		icon_state = "aviator"
+	else if (hud_type == DATA_HUD_SECURITY_ADVANCED)
+		hud_type = DATA_HUD_MEDICAL_ADVANCED
+		icon_state = "aviator_med"
+		glass_colour_type = /datum/client_colour/glass_colour/blue
+	else
+		hud_type = DATA_HUD_SECURITY_ADVANCED
+		icon_state = "aviator_sec"
+		glass_colour_type = /datum/client_colour/glass_colour/red
+
+	if (hud_type)
+		var/datum/atom_hud/H = GLOB.huds[hud_type]
+		H.show_to(user)
+
+/obj/item/clothing/glasses/hud/toggle/blueshield/aviators/prescription
+	name = "prescription blueshield HUD Aviators"
+	desc = "A HUD with multiple functions. More stylish. Equipped with prescription lenses."
+	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
+
+/obj/item/clothing/glasses/hud/toggle/blueshield/prescription
+	name = "prescription blueshield HUD"
+	desc = "A HUD with multiple functions. Equipped with prescription lenses."
+	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)

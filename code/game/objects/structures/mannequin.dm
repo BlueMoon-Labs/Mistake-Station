@@ -113,8 +113,11 @@
 			if(ITEM_SLOT_EYES)
 				default_layer = GLASSES_LAYER
 				default_icon = 'icons/mob/clothing/eyes.dmi'
-			if(ITEM_SLOT_EARS)
-				default_layer = EARS_LAYER
+			if(ITEM_SLOT_EARS_LEFT)
+				default_layer = EAR_LEFT_LAYER
+				default_icon = 'icons/mob/clothing/ears.dmi'
+			if(ITEM_SLOT_EARS_RIGHT)
+				default_layer = EAR_RIGHT_LAYER
 				default_icon = 'icons/mob/clothing/ears.dmi'
 			if(ITEM_SLOT_MASK)
 				default_layer = FACEMASK_LAYER

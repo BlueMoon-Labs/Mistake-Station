@@ -191,6 +191,7 @@
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
 
+#define FIRE_PRIORITY_VORE 5
 #define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_IDLE_NPC 10
 #define FIRE_PRIORITY_SERVER_MAINT 10
@@ -212,6 +213,8 @@
 #define FIRE_PRIORITY_REAGENTS 26
 #define FIRE_PRIORITY_SPACEDRIFT 30
 #define FIRE_PRIOTITY_SMOOTHING 35
+#define FIRE_PRIORITY_HUDS		40
+#define FIRE_PRIORITY_NETWORKS 40
 #define FIRE_PRIORITY_OBJ 40
 #define FIRE_PRIORITY_ACID 40
 #define FIRE_PRIOTITY_BURNING 40

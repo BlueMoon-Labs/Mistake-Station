@@ -461,7 +461,7 @@
 /area/ruin/space/has_grav/skyrat/interdynefob/security/prison)
 "by" = (
 /obj/machinery/vending/security{
-	desc = "An Armadyne peacekeeper equipment vendor. Makes you wonder why there's no Gorlex Equipment Vendor yet.";
+	desc = "An Corporative Security equipment vendor. Makes you wonder why there's no Gorlex Equipment Vendor yet.";
 	name = "\improper Stolen Armadyne Equipment Vendor"
 	},
 /turf/open/floor/mineral/plastitanium,

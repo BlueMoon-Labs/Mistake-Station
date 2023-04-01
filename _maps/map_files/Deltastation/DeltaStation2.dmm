@@ -14923,6 +14923,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/interrogation)
 "dEA" = (
+/obj/effect/landmark/start/bridgeofficer,
 /turf/open/floor/carpet,
 /area/station/command/meeting_room/council)
 "dEC" = (
@@ -23008,6 +23009,7 @@
 /area/station/security/checkpoint/medical/medsci)
 "fFW" = (
 /obj/machinery/light_switch/directional/north,
+/obj/structure/closet/secure_closet/bridgesec,
 /turf/open/floor/wood,
 /area/station/command/meeting_room/council)
 "fFY" = (
@@ -65430,8 +65432,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/command/heads_quarters/hop)
 "qoo" = (
-/obj/structure/table/wood,
-/obj/item/pai_card,
+/obj/machinery/vending/wardrobe/bridgeofficer_wardrobe,
 /turf/open/floor/wood,
 /area/station/command/meeting_room/council)
 "qoA" = (
@@ -66011,6 +66012,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/effect/landmark/start/bridgeofficer,
 /turf/open/floor/carpet,
 /area/station/command/meeting_room/council)
 "qxj" = (
@@ -91967,6 +91969,7 @@
 /obj/structure/cable,
 /obj/structure/table/wood,
 /obj/item/folder/yellow,
+/obj/item/pai_card,
 /turf/open/floor/carpet,
 /area/station/command/meeting_room/council)
 "wSK" = (

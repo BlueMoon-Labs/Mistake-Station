@@ -87,7 +87,6 @@
 	downsprite = "ushankared"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-
 /obj/item/clothing/head/costume/ushanka/sec/blue
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'

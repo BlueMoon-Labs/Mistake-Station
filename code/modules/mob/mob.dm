@@ -304,13 +304,6 @@
 
 		M.show_message(msg, msg_type, blind_message, MSG_AUDIBLE)
 
-
-///Adds the functionality to self_message.
-/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ")  // SKYRAT EDIT ADDITION - Better emotes
-	. = ..()
-	if(self_message)
-		show_message(self_message, MSG_VISUAL, blind_message, MSG_AUDIBLE)
-
 /**
  * Show a message to all mobs in earshot of this atom
  *
@@ -397,25 +390,32 @@
 /mob/proc/incapacitated(flags)
 	return
 
+/// Checks for slots that are currently obscured by other garments.
+/mob/proc/check_obscured_slots()
+	return
+
 /**
  * This proc is called whenever someone clicks an inventory ui slot.
  *
  * Mostly tries to put the item into the slot if possible, or call attack hand
  * on the item in the slot if the users active hand is empty
  */
-/mob/proc/attack_ui(slot, params)
+/mob/proc/attack_ui(slot)
 	var/obj/item/W = get_active_held_item()
 
 	if(istype(W))
-		if(equip_to_slot_if_possible(W, slot,0,0,0))
+		if(equip_to_slot_if_possible(W, slot, FALSE, FALSE, FALSE, FALSE, TRUE))
+			W.apply_outline()
 			return TRUE
 
 	if(!W)
 		// Activate the item
 		var/obj/item/I = get_item_by_slot(slot)
 		if(istype(I))
-			var/list/modifiers = params2list(params)
-			I.attack_hand(src, modifiers)
+			if(slot in check_obscured_slots())
+				to_chat(src, "<span class='warning'>You are unable to unequip that while wearing other garments over it!</span>")
+				return FALSE
+			I.attack_hand(src)
 
 	return FALSE
 
@@ -483,9 +483,14 @@
 		slot_priority = list( \
 			ITEM_SLOT_BACK, ITEM_SLOT_ID,\
 			ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING,\
+			ITEM_SLOT_UNDERWEAR,\
+			ITEM_SLOT_SOCKS,\
+			ITEM_SLOT_SHIRT,\
 			ITEM_SLOT_MASK, ITEM_SLOT_HEAD, ITEM_SLOT_NECK,\
 			ITEM_SLOT_FEET, ITEM_SLOT_GLOVES,\
 			ITEM_SLOT_EARS, ITEM_SLOT_EYES,\
+			ITEM_SLOT_WRISTS,\
+			ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT,\
 			ITEM_SLOT_BELT, ITEM_SLOT_SUITSTORE,\
 			ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET,\
 			ITEM_SLOT_DEX_STORAGE\
@@ -548,6 +553,11 @@
 	/// Signal sent after the eye has been successfully updated, with the client existing.
 	SEND_SIGNAL(src, COMSIG_MOB_RESET_PERSPECTIVE)
 	return TRUE
+
+//view() but with a signal, to allow blacklisting some of the otherwise visible atoms.
+/mob/proc/fov_view(dist = world.view)
+	. = view(dist, src)
+	SEND_SIGNAL(src, COMSIG_MOB_FOV_VIEW, .)
 
 /**
  * Examine a mob
@@ -832,7 +842,6 @@
 		return
 
 	M.key = key
-
 
 /**
  * Sometimes helps if the user is stuck in another perspective or camera
@@ -1208,11 +1217,14 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
-	if(client.mouse_pointer_icon != initial(client.mouse_pointer_icon))//only send changes to the client if theyre needed
-		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
-	if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
+	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	if(pull_cursor_icon && client.keys_held["Ctrl"])
+		client.mouse_pointer_icon = pull_cursor_icon
+	else if(throw_cursor_icon && throw_mode != 0)
+		client.mouse_pointer_icon = throw_cursor_icon
+	else if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
 		client.mouse_pointer_icon = examine_cursor_icon
-	if(istype(loc, /obj/vehicle/sealed))
+	else if(istype(loc, /obj/vehicle/sealed))
 		var/obj/vehicle/sealed/E = loc
 		if(E.mouse_pointer)
 			client.mouse_pointer_icon = E.mouse_pointer

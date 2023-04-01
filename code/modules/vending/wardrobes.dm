@@ -548,6 +548,7 @@
 		/obj/item/clothing/suit/jacket/det_suit/dark = 1,
 		/obj/item/clothing/suit/jacket/det_suit/noir = 1,
 		/obj/item/clothing/head/fedora = 2,
+		/obj/item/clothing/head/sheriff_hat = 2, // Мне захотелось это добавить.
 		/obj/item/clothing/gloves/color/black = 2,
 		/obj/item/clothing/gloves/latex = 2,
 		/obj/item/clothing/under/rank/security/detective/disco = 1,

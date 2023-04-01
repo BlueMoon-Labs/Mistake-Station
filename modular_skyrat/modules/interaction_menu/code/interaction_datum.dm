@@ -4,8 +4,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 /datum/interaction
 	/// The name to be displayed in the interaction menu for this interaction
 	var/name = "broken interaction"
-	/// The description of the interacton.
-	var/description = "broken"
+//	/// The description of the interacton.
+//	var/description = "broken"
 	/// If it can be done at a distance.
 	var/distance_allowed = FALSE
 	/// A list of possible messages displayed loaded by the JSON.

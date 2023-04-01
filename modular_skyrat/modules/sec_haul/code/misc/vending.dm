@@ -1,6 +1,6 @@
 /obj/machinery/vending/security
-	name = "\improper Armadyne Peacekeeper Equipment Vendor"
-	desc = "An Armadyne peacekeeper equipment vendor."
+	name = "\improper Corporative Security Equipment Vendor"
+	desc = "An Corporative Security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon = 'modular_skyrat/modules/sec_haul/icons/vending/vending.dmi'
 	icon_state = "sec"
@@ -49,11 +49,10 @@
 	icon_state = "refill_sec"
 
 /obj/machinery/vending/wardrobe/sec_wardrobe
-	name = "\improper Peacekeeper Outfitting Station"
-	desc = "A vending machine stocked with Lopland's \"Peacekeeper\" security package, including standardized uniforms and general equipment."
-	icon = 'modular_skyrat/modules/sec_haul/icons/vending/vending.dmi'
-	light_mask = "sec-light-mask"
-	icon_state = "peace"
+	name = "\improper Corporative Security Outfitting Station"
+	desc = "A vending machine stocked with \"Corporative Security\" package, including standardized uniforms and general equipment."
+	//icon = 'modular_skyrat/modules/sec_haul/icons/vending/vending.dmi'		Нахуй.
+	icon_state = "secdrobe"											//			Блядь.
 	product_ads = "Beat perps in style!;The stains wash right out!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	vend_reply = "Good luck, Peacekeeper!"
 	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 5,
@@ -64,15 +63,17 @@
 					/obj/item/storage/backpack/security = 5,
 					/obj/item/storage/backpack/satchel/sec = 5,
 					/obj/item/storage/backpack/duffelbag/sec = 5,
-					/obj/item/clothing/under/rank/security/officer = 10,
+					/obj/item/clothing/under/rank/security/officer = 5,
 					/obj/item/clothing/under/rank/security/peacekeeper/tactical = 4,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol/cadet = 3,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol = 3,
-					/obj/item/clothing/shoes/jackboots/sec = 10,
-					/obj/item/clothing/head/security_garrison = 10,
-					/obj/item/clothing/head/security_cap = 10,
+					/obj/item/clothing/shoes/jackboots/sec = 5,
+					/obj/item/clothing/head/beret/sec = 5,
+					/obj/item/clothing/head/security_garrison = 5,
+					/obj/item/clothing/head/security_cap = 5,
 					/obj/item/clothing/head/beret/sec/peacekeeper = 5,
-					/obj/item/clothing/head/costume/ushanka/sec/blue = 10,
+					/obj/item/clothing/head/costume/ushanka/sec = 5,
+					/obj/item/clothing/head/costume/ushanka/sec/blue = 5,
 					/obj/item/clothing/head/hats/sec/peacekeeper/sol = 5,
 					/obj/item/clothing/head/hats/sec/peacekeeper/sol/traffic = 5,
 					/obj/item/clothing/gloves/color/black/security = 10,
@@ -85,7 +86,7 @@
 	light_color = COLOR_MODERATE_BLUE
 
 /obj/item/vending_refill/wardrobe/peacekeeper_wardrobe
-	machine_name = "Peacekeeper outfitting station"
+	machine_name = "Corporative Security Outfitting Station"
 
 //List for the old one, for when its mapped in; curates it nicely, adds /redsec to the items, and also prevents some conflicts with the above vendor
 /obj/machinery/vending/wardrobe/sec_wardrobe/red

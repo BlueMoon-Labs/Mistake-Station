@@ -1,3 +1,4 @@
+/*
 /obj/item/clothing/glasses/hypno
 	name = "hypnotic goggles"
 	desc = "Woaa-a-ah... This is lewd."
@@ -148,3 +149,4 @@
 		return
 
 	hearing_args[HEARING_RAW_MESSAGE] = target_phrase.Replace(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("$1"))
+*/

@@ -14,10 +14,14 @@
 #define DEADMIN_POSITION_HEAD (1<<17)
 #define DEADMIN_POSITION_SECURITY (1<<18)
 #define DEADMIN_POSITION_SILICON (1<<19)
-#define ADMIN_IGNORE_CULT_GHOST (1<<21)
+#define VERB_CONSENT (1<<20) // Sandstorm - ERP Mechanic Addition
+#define LEWD_VERB_SOUNDS (1<<21) // Sandstorm - ERP Mechanic Addition
+#define ADMIN_IGNORE_CULT_GHOST (1<<22)
 #define SPLIT_ADMIN_TABS (1<<23)
+#define SOUND_BARK		(1<<24)
+#define TG_PLAYER_PANEL	(1<<25) // BLUEMOON - Opt for the old splashscreen player panel
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP|MEMBER_PUBLIC|SOUND_PRAYERS)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP|MEMBER_PUBLIC|SOUND_PRAYERS|SOUND_BARK)
 
 // Legacy chat toggles.
 // !!! DO NOT ADD ANY NEW ONES HERE !!!

@@ -1296,6 +1296,7 @@
  * - Volume_modifier: What is the reagent volume multiplied by when exposed? Note that this is called on the volume of EVERY reagent in the base body, so factor in your Maximum_Volume if necessary!
  * - Show_message: Whether to display anything to mobs when they are exposed.
  */
+
 /datum/reagents/proc/expose(atom/A, methods = TOUCH, volume_modifier = 1, show_message = 1)
 	if(isnull(A))
 		return null
@@ -2049,6 +2050,33 @@
 		if("update_ui")
 			return TRUE
 
+/datum/reagents/proc/reaction(atom/A, method = TOUCH, volume_modifier = 1, show_message = 1, from_gas = 0)
+	var/react_type
+	if(isliving(A))
+		react_type = "LIVING"
+		if(method == INGEST)
+			var/mob/living/L = A
+			L.taste(src)
+	else if(isturf(A))
+		react_type = "TURF"
+	else if(isobj(A))
+		react_type = "OBJ"
+	else
+		return
+	var/list/cached_reagents = reagent_list
+	for(var/reagent in cached_reagents)
+		var/datum/reagent/R = reagent
+		switch(react_type)
+			if("LIVING")
+				var/touch_protection = 0
+				if(method == VAPOR)
+					var/mob/living/L = A
+					touch_protection = L.get_permeability_protection()
+				R.expose_mob(A, method, R.volume * volume_modifier, show_message, touch_protection)
+			if("TURF")
+				R.expose_turf(A, R.volume * volume_modifier, show_message, from_gas)
+			if("OBJ")
+				R.expose_obj(A, R.volume * volume_modifier, show_message)
 
 ///////////////////////////////////////////////////////////////////////////////////
 

@@ -36,6 +36,39 @@
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
 
+//(reskinnable Makarov)
+/obj/item/gun/ballistic/automatic/pistol/modular
+	name = "modular pistol"
+	desc = "A small, easily concealable 10mm handgun. Has a threaded barrel for suppressors."
+	icon = 'modular_citadel/icons/obj/guns/cit_guns.dmi'
+	icon_state = "cde"
+	can_unsuppress = TRUE
+	obj_flags = UNIQUE_RENAME
+	unique_reskin = list(
+		"Default" = list("icon_state" = "cde"),
+		"N-99" = list("icon_state" = "n99"),
+		"Stealth" = list("icon_state" = "stealthpistol"),
+		"HKVP-78" = list("icon_state" = "vp78"),
+		"Luger" = list("icon_state" = "p08b"),
+		"Mk.58" = list("icon_state" = "secguncomp"),
+		"PX4 Storm" = list("icon_state" = "px4")
+	)
+
+/obj/item/gun/ballistic/automatic/pistol/modular/update_icon_state()
+	if(current_skin)
+		icon_state = "[unique_reskin[current_skin]["icon_state"]][chambered ? "" : "-e"][suppressed ? "-suppressed" : ""]"
+	else
+		icon_state = "[initial(icon_state)][chambered ? "" : "-e"][suppressed ? "-suppressed" : ""]"
+	return ..()
+
+/obj/item/gun/ballistic/automatic/pistol/modular/update_overlays()
+	. = ..()
+	if(magazine && suppressed)
+		. += "[unique_reskin[current_skin]["icon_state"]]-magazine-sup"	//Yes, this means the default iconstate can't have a magazine overlay
+	else if (magazine)
+		. += "[unique_reskin[current_skin]["icon_state"]]-magazine"
+	return ..()
+
 /obj/item/gun/ballistic/automatic/pistol/clandestine
 	name = "\improper Ansem pistol"
 	desc = "The spiritual successor of the Makarov, or maybe someone just dropped their gun in a bucket of paint. The gun is chambered in 10mm."

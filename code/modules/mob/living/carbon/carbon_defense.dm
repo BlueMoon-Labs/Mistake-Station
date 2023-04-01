@@ -291,6 +291,9 @@
 	//SKYRAT EDIT ADDITION BEGIN - EMOTES
 	if(zone_selected == BODY_ZONE_PRECISE_GROIN && target.dir == src.dir)
 		if(HAS_TRAIT(target, TRAIT_PERSONALSPACE) && (target.stat != UNCONSCIOUS) && (!target.handcuffed)) //You need to be conscious and uncuffed to use Personal Space
+			if(target.client?.prefs.read_preference(/datum/preference/toggle/erp/ass_slap))
+				to_chat(src,"A force stays your hand, preventing you from slapping \the [target]'s ass!")
+				return FALSE
 			if(target.combat_mode && (!HAS_TRAIT(target, TRAIT_PACIFISM))) //Being pacified prevents violent counters
 				var/obj/item/bodypart/affecting = src.get_bodypart(BODY_ZONE_HEAD)
 				if(affecting?.receive_damage(PERSONAL_SPACE_DAMAGE))
@@ -501,6 +504,38 @@
 		helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
 	//SKYRAT EDIT ADDITION END
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
+		//BLUEMOON EDIT - Headpat traits
+		if(helper.has_quirk(/datum/quirk/dominant_aura) && src.has_quirk(/datum/quirk/well_trained))
+			if(src.has_quirk(/datum/quirk/headpat_hater))
+				src.remove_quirk(/datum/quirk/headpat_hater)
+			if(!src.has_quirk(/datum/quirk/headpat_slut))
+				src.add_quirk(/datum/quirk/headpat_slut)
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "dom_trained", /datum/mood_event/dominant/good_boy)
+		if(HAS_TRAIT(src, TRAIT_DISTANT)) //No mood buff since you're not really liking it.
+			helper.visible_message("<span class='warning'><b>[src]</b> резко осматривается на <b>[helper]</b>, когда [ru_ego()] гладят по голове! Кажется, [ru_who()] раздражен[ru_a()]...</span>", \
+				"<span class='warning'>Вы гладите <b>[src]</b> по голове, чтобы [ru_who()] почувствовал[ru_a()] себя лучше! Кажется, [ru_who()] глаза презрительно смещаются в вашу сторону...</span>")
+			src.add_lust(-5) //Why are you touching me?
+			if(prob(5))
+				helper.visible_message("<span class='warning'><b>[src]</b> быстро выкручивает руку <b>[helper]</b>!</span>", \
+					"<span class='boldwarning'>Твоя рука выкручивается в хватке <b>[src]</b>! Может, тебе следовало понять тот явственный намек...</span>")
+				playsound(get_turf(helper), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				helper.emote("scream")
+				helper.dropItemToGround(helper.get_active_held_item())
+				var/hand = pick(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND)
+				helper.apply_damage(50, STAMINA, hand)
+				helper.apply_damage(5, BRUTE, hand)
+				helper.Knockdown(60)//STOP TOUCHING ME! For those spam head pat individuals
+		else
+			if(HAS_TRAIT(src, TRAIT_HEADPAT_SLUT))
+				helper.visible_message("<span class='notice'><b>[helper]</b> похлопывает <b>[src]</b> по голове, чтобы [ru_who()] почувствовал[ru_a()] себя лучше! Он[ru_a()] выглядит невероятно довольно!</span>", \
+							"<span class='notice'>Ты гладишь <b>[src]</b> по голове, чтобы [ru_who()] почувствовал себя лучше! Кажется, он[ru_a()] принимает эту ласку слишком близко к сердцу...</span>")
+				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "lewd_headpat", /datum/mood_event/lewd_headpat)
+				src.handle_post_sex(5, null, null) //Headpats are hot af
+			else
+				helper.visible_message("<span class='notice'><b>[helper]</b> похлопывает <b>[src]</b> по голове, чтобы [ru_who()] почувствовал[ru_a()] себя лучше!</span>", \
+							"<span class='notice'>Ты гладишь <b>[src]</b> по голове, чтобы [ru_who()] почувствовал себя лучше!</span>")
+				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "headpat", /datum/mood_event/headpat)
+		//BLUEMOON EDIT END
 		//SKYRAT EDIT ADDITION BEGIN - OVERSIZED HEADPATS
 		if(HAS_TRAIT(src, TRAIT_OVERSIZED) && !HAS_TRAIT(helper, TRAIT_OVERSIZED))
 			visible_message(span_warning("[helper] tries to pat [src] on the head, but can't reach!"))
@@ -514,8 +549,8 @@
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
 			to_chat(helper, span_warning("[src] looks visibly upset as you pat [p_them()] on the head."))
 		//SKYRAT EDIT ADDITION BEGIN - EMOTES
-		if(HAS_TRAIT(src, TRAIT_EXCITABLE))
-			var/obj/item/organ/external/tail/src_tail = get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		if(HAS_TRAIT(src, TRAIT_EXCITABLE) && (src.client?.prefs.read_preference(/datum/preference/toggle/erp/auto_wag)))
+			var/obj/item/organ/external/tail/src_tail = getorganslot(ORGAN_SLOT_EXTERNAL_TAIL)
 			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
 				emote("wag")
 		//SKYRAT EDIT ADDITION END

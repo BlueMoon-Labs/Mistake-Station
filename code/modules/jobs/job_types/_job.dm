@@ -374,6 +374,14 @@
 		if(equipped_client)
 			pda.update_pda_prefs(equipped_client)
 
+	var/ambition_text
+
+	if(equipped.mind)
+		equipped.mind.assigned_role = equipped.mind.assigned_role.title
+		ambition_text = equipped.mind.assign_random_ambition()
+
+	if(ambition_text)
+		to_chat(equipped, span_info(ambition_text))
 
 /datum/outfit/job/get_chameleon_disguise_info()
 	var/list/types = ..()

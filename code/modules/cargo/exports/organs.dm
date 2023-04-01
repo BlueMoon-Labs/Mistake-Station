@@ -31,7 +31,7 @@
 	unit_name = "humanoid stomach"
 	export_types = list(/obj/item/organ/internal/stomach)
 
-/datum/export/organ/tongue
+/datum/export/organ/internal/tongue
 	cost = CARGO_CRATE_VALUE * 0.1
 	unit_name = "humanoid tounge"
 	export_types = list(/obj/item/organ/internal/tongue)

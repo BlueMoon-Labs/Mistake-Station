@@ -642,6 +642,38 @@
 	new /obj/item/storage/belt/grenade(src)
 	new /obj/item/storage/belt/military/snack(src)
 
+/obj/item/storage/box/syndie_kit/revolver
+	name = "Gun Box"
+
+/obj/item/storage/box/syndie_kit/revolver/PopulateContents()
+	new /obj/item/gun/ballistic/revolver/syndicate(src)
+	new /obj/item/ammo_box/a357(src)
+	new /obj/item/ammo_box/a357(src)
+
+/obj/item/storage/box/syndie_kit/pistol
+	name = "Gun Box"
+
+/obj/item/storage/box/syndie_kit/pistol/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pistol(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+
+/obj/item/storage/briefcase/modularbundle
+	desc = "Its label reads \"genuine hardened Captain leather\", but suspiciously has no other tags or branding."
+	force = 6
+
+/obj/item/storage/briefcase/modularbundle/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pistol/modular(src)
+	new /obj/item/suppressor(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/clothing/under/suit/black(src)
+	new /obj/item/clothing/accessory/waistcoat(src)
+	new /obj/item/clothing/under/syndicate/sniper(src)
+
 #undef KIT_RECON
 #undef KIT_BLOODY_SPAI
 #undef KIT_STEALTHY

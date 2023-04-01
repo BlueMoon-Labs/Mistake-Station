@@ -52,6 +52,7 @@
 /// if they have a gun permit
 #define PERMIT_HUD "26"
 // SKYRAT EDIT ADDITION END
+#define ANTAGTARGET_HUD "27" // Which players consent via their game settings to be a target for antagonists
 
 //by default everything in the hud_list of an atom is an image
 //a value in hud_list with one of these will change that behavior
@@ -75,6 +76,9 @@
 #define NOTIFY_JUMP "jump"
 #define NOTIFY_ATTACK "attack"
 #define NOTIFY_ORBIT "orbit"
+
+// Which players consent via their game settings to be a target for antagonists
+#define DATA_HUD_ANTAGTARGET	30
 
 /// cooldown for being shown the images for any particular data hud
 #define ADD_HUD_TO_COOLDOWN 20

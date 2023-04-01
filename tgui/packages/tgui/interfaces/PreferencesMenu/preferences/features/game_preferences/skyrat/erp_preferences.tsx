@@ -123,3 +123,62 @@ export const new_genitalia_growth_pref: FeatureToggle = {
     'If checked, allows drugs to grow new genitalia on your character.',
   component: CheckboxInput,
 };
+
+export const trash_forcefeed: FeatureToggle = {
+  name: 'Принудительное Скармливание Мусора',
+  category: 'ERP',
+  description: 'Если включено, то вас можно кормить мусором',
+  component: CheckboxInput,
+};
+
+export const auto_wag: FeatureToggle = {
+  name: 'Автоматическое Виляние Хвостом',
+  category: 'ERP',
+  description:
+    'Если включено, то ваш хвост автоматически будет вилять, когда вас гладят',
+  component: CheckboxInput,
+};
+
+export const belly_enlargement: FeatureToggle = {
+  name: 'Увеличение Живота',
+  category: 'ERP',
+  description:
+    'Если включено, то ваш живот будет становиться больше каким бы то ни было образом.',
+  component: CheckboxInput,
+};
+
+export const butt_enlargement: FeatureToggle = {
+  name: 'Увеличение Задницы',
+  category: 'ERP',
+  description:
+    'Если включено, то ваша задница будет становиться больше каким бы то ни было образом.',
+  component: CheckboxInput,
+};
+
+export const ass_slap: FeatureToggle = {
+  name: 'Разрешение Шлепать По Заднице',
+  category: 'ERP',
+  description: 'Если включено, то вас можно будет шлёпать по задние',
+  component: CheckboxInput,
+};
+
+export const unholy_pref: FeatureChoiced = {
+  name: 'Особые ERP возможности',
+  category: 'ERP',
+  description: 'Если включено, то вас можно будет обоссать, ворить и кусать',
+  component: FeatureDropdownInput,
+};
+
+export const nonconpref: FeatureChoiced = {
+  name: 'Изнасилование',
+  category: 'ERP',
+  description: 'Если включено, то вас можно насиловать',
+  component: FeatureDropdownInput,
+};
+
+export const extreme_pref: FeatureChoiced = {
+  name: 'Экстремальный Контент',
+  category: 'ERP',
+  description: 'Если включено, то вас можно экстремально поиметь',
+  component: FeatureDropdownInput,
+};

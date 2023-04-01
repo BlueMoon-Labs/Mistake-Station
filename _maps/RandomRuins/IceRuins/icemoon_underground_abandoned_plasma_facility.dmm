@@ -2234,7 +2234,7 @@
 	name = "Sickbay"
 	},
 /obj/effect/mapping_helpers/airlock_note_placer{
-	note_info = "DO NOT ENTER!!!"
+	default_raw_text = "DO NOT ENTER!!!"
 	},
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/turf_decal/tile/green/full,

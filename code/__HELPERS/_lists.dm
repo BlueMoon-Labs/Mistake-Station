@@ -1122,3 +1122,7 @@
 	if("x" in coords)
 		return locate(coords["x"], coords["y"], coords["z"])
 	return locate(coords[1], coords[2], coords[3])
+
+//any value in a list
+/proc/sortList(list/L, cmp=/proc/cmp_text_asc)
+	return sortTim(L.Copy(), cmp)

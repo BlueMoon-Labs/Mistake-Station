@@ -167,6 +167,8 @@
 			add_objective(new /datum/objective/destroy, needs_target = TRUE)
 		else if(prob(30))
 			add_objective(new /datum/objective/maroon, needs_target = TRUE)
+		else if(prob(30))
+			add_objective(new /datum/objective/rescue_prisoner, needs_target = TRUE)
 		else
 			add_objective(new /datum/objective/assassinate, needs_target = TRUE)
 	else

@@ -25,6 +25,7 @@
 
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
+	atom_storage.max_volume = STORAGE_VOLUME_BACKPACK
 	create_storage(max_slots = 21, max_total_storage = 21)
 	AddElement(/datum/element/attack_equip)
 

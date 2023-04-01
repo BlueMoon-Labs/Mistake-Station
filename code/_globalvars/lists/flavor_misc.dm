@@ -31,7 +31,43 @@ GLOBAL_LIST_EMPTY(animated_spines_list)
 
 	//Mutant Human bits
 GLOBAL_LIST_EMPTY(tails_list)
-GLOBAL_LIST_EMPTY(tails_list_human) //Only exists for preference choices. Use "tails_list" otherwise.
+GLOBAL_LIST_EMPTY(
+
+//a way to index the right bodypart list given the type of bodypart
+GLOBAL_LIST_INIT(mutant_reference_list, list(
+	"tail_lizard" = GLOB.tails_list_lizard,
+	"waggingtail_lizard" = GLOB.animated_tails_list_lizard,
+	"tail_human" = GLOB.tails_list_human,
+	"waggingtail_human" = GLOB.animated_tails_list_human,
+	"spines" = GLOB.spines_list,
+	"waggingspines" = GLOB.animated_spines_list,
+	"snout" = GLOB.snouts_list,
+	"frills" = GLOB.frills_list,
+	"horns" = GLOB.horns_list,
+	"ears" = GLOB.ears_list,
+	"wings" = GLOB.wings_list,
+	"wingsopen" = GLOB.wings_open_list,
+	"deco_wings" = GLOB.deco_wings_list,
+	"legs" = GLOB.legs_list,
+	"insect_wings" = GLOB.insect_wings_list,
+	"insect_fluff" = GLOB.insect_fluffs_list,
+	"insect_markings" = GLOB.insect_markings_list,
+	"arachnid_legs" = GLOB.arachnid_legs_list,
+	"arachnid_spinneret" = GLOB.arachnid_spinneret_list,
+	"arachnid_mandibles" = GLOB.arachnid_mandibles_list,
+	"caps" = GLOB.caps_list,
+	"ipc_screen" = GLOB.ipc_screens_list,
+	"ipc_antenna" = GLOB.ipc_antennas_list,
+	"mam_tail" = GLOB.mam_tails_list,
+	"mam_waggingtail" = GLOB.mam_tails_animated_list,
+	"mam_body_markings" = GLOB.mam_body_markings_list,
+	"mam_ears" = GLOB.mam_ears_list,
+	"mam_snouts" = GLOB.mam_snouts_list,
+	"taur" = GLOB.taur_list,
+	"xenodorsal" = GLOB.xeno_dorsal_list,
+	"xenohead" = GLOB.xeno_head_list,
+	"xenotail" = GLOB.xeno_tail_list))
+) //Only exists for preference choices. Use "tails_list" otherwise.
 GLOBAL_LIST_EMPTY(tails_list_lizard) //See above!
 GLOBAL_LIST_EMPTY(ears_list)
 GLOBAL_LIST_EMPTY(wings_list)
@@ -356,3 +392,7 @@ GLOBAL_LIST_INIT(status_display_state_pictures, list(
 	"blank",
 	"shuttle",
 ))
+
+	//Bark bits
+GLOBAL_LIST_EMPTY(bark_list)
+GLOBAL_LIST_EMPTY(bark_random_list)

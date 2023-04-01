@@ -20,6 +20,12 @@
 	var/cut_type = null
 	/// Used for handling bloody gloves leaving behind bloodstains on objects. Will be decremented whenever a bloodstain is left behind, and be incremented when the gloves become bloody.
 	var/transfer_blood = 0
+	//SANDSTORM EDIT - Removed the old attached accessory system. We use a list of accessories instead.
+	var/max_accessories = 3
+	var/list/obj/item/clothing/accessory/attached_accessories = list()
+	var/list/mutable_appearance/accessory_overlays = list()
+	var/dummy_thick = FALSE // is able to hold accessories on its item
+	//SANDSTORM EDIT END
 
 /obj/item/clothing/gloves/wash(clean_types)
 	. = ..()

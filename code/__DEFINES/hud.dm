@@ -77,6 +77,7 @@
 #define ui_building "EAST-4:22,SOUTH:21"
 #define ui_language_menu "EAST-4:6,SOUTH:21"
 #define ui_navigate_menu "EAST-4:22,SOUTH:5"
+#define ui_voremode	"EAST-5:20,SOUTH:5" //Пиздец.
 
 //Upper-middle right (alerts)
 #define ui_alert1 "EAST-1:28,CENTER+5:27"
@@ -105,9 +106,9 @@
 #define ui_iclothing "WEST:6,SOUTH+1:7"
 #define ui_oclothing "WEST+1:8,SOUTH+1:7"
 #define ui_gloves "WEST+2:10,SOUTH+1:7"
-#define ui_glasses "WEST:6,SOUTH+3:11"
+#define ui_glasses "WEST+2:10,SOUTH+2:9" //Bluemoon edit //#define ui_glasses "WEST:6,SOUTH+3:11"
 #define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_ears "WEST+2:10,SOUTH+2:9"
+#define ui_ears "WEST+2:10,SOUTH+3:11" //Bluemoon edit //#define ui_ears "WEST+2:10,SOUTH+2:9"
 #define ui_neck "WEST:6,SOUTH+2:9"
 #define ui_head "WEST+1:8,SOUTH+3:11"
 
@@ -225,3 +226,12 @@
 
 /// The filter name for the hover outline
 #define HOVER_OUTLINE_FILTER "hover_outline"
+
+//Bluemoon slots
+#define ui_inventory_extra "WEST:6,SOUTH+3:11"
+#define ui_boxers "WEST:6,SOUTH+4:13"
+#define ui_socks "WEST:6,SOUTH+5:15"
+#define ui_shirt "WEST:6,SOUTH+6:17"
+#define ui_ears_extra "WEST+2:10,SOUTH+4:13"
+#define ui_wrists "WEST+1:8,SOUTH+4:13"
+//

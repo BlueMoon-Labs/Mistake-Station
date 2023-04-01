@@ -124,7 +124,7 @@
 
 /obj/machinery/chem_recipe_debug/proc/relay_ended_reaction()
 	if(reagents.reagent_list)
-		var/cached_purity
+		var/creation_purity
 		say("Reaction completed for [cached_reactions[index]] final temperature = [reagents.chem_temp], ph = [reagents.ph], time taken = [react_time]s.")
 		var/datum/chemical_reaction/reaction = cached_reactions[index]
 		for(var/reagent_type in reaction.results)
@@ -149,11 +149,11 @@
 				minorImpurity++
 			if(reagent.volume < reaction.results[reagent_type])
 				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [span_warning("[reagent.volume]u")] purity of [reagent.purity] index:[index]\n"
-			cached_purity = reagent.purity
+			creation_purity = reagent.purity
 		if(beaker_spawn && reagents.total_volume)
 			var/obj/item/reagent_containers/cup/beaker/bluespace/beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(loc)
 			reagents.trans_to(beaker)
-			beaker.name = "[cached_reactions[index]] purity: [cached_purity]"
+			beaker.name = "[cached_reactions[index]] purity: [creation_purity]"
 		reagents.clear_reagents()
 		reagents.chem_temp = 300
 		index++

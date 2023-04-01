@@ -45,6 +45,11 @@
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
+	var/list/mob_spell_list = list() //construct spells and mime spells. Spells that do not transfer from one mob to another and can not be lost in mindswap.
+
+	/// Whether the mob is pixel shifted or not
+	var/is_shifted = FALSE
+
 	/// List of movement speed modifiers applying to this mob
 	var/list/movespeed_modification //Lazy list, see mob_movespeed.dm
 	/// List of movement speed modifiers ignored by this mob. List -> List (id) -> List (sources)
@@ -109,6 +114,9 @@
 
 	/// Default body temperature
 	var/bodytemperature = BODYTEMP_NORMAL //310.15K / 98.6F
+	var/drowsyness = 0//Carbon
+	var/dizziness = 0//Carbon
+	var/jitteriness = 0//Carbon
 	/// Our body temperatue as of the last process, prevents pointless work when handling alerts
 	var/old_bodytemperature = 0
 
@@ -229,3 +237,9 @@
 	var/active_thinking_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing
 	var/thinking_IC = FALSE
+
+	///how much gravity is slowing us down
+	var/gravity_slowdown = 0
+
+	//whether or not they voluntarily ghosted.
+	var/voluntary_ghosted = FALSE

@@ -156,7 +156,7 @@ LOG_MANIFEST
 #LOG_JOB_DEBUG
 
 ## log all world.Topic() calls
-# LOG_WORLD_TOPIC
+LOG_WORLD_TOPIC
 
 ## enables use of the proc twitterize() that lets you take a large list of strings and turn it into a JSON file of tweet sized strings.
 ## As an example of how this could be """useful""" look towards Poly (https://twitter.com/Poly_the_Parrot)
@@ -166,7 +166,7 @@ LOG_MANIFEST
 LOG_PICTURES
 
 ## log mecha actions
-# LOG_MECHA
+LOG_MECHA
 
 ## log virus and actions
 LOG_VIRUS
@@ -344,7 +344,7 @@ ALLOW_HOLIDAYS
 TICKLAG 0.5
 
 ##Can also be set as per-second value, the following value is identical to the above.
-#FPS 20
+FPS 40
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON

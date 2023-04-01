@@ -92,6 +92,19 @@
 	///30 seconds by default, so there's no major changes to AI behaviour, beyond actually bailing if stuck forever
 	var/lose_patience_timeout = 300
 
+	///When a target is found, will the mob attempt to charge at it's target?
+	var/charger = FALSE
+	///Tracks if the target is actively charging.
+	var/charge_state = FALSE
+	///In a charge, how many tiles will the charger travel?
+	var/charge_distance = 3
+	///How often can the charging mob actually charge? Effects the cooldown between charges.
+	var/charge_frequency = 6 SECONDS
+	///If the mob is charging, how long will it stun it's target on success, and itself on failure?
+	var/knockdown_time = 3 SECONDS
+	///Declares a cooldown for potential charges right off the bat.
+	COOLDOWN_DECLARE(charge_cooldown)
+
 /mob/living/simple_animal/hostile/Initialize(mapload)
 	. = ..()
 	wanted_objects = typecacheof(wanted_objects)

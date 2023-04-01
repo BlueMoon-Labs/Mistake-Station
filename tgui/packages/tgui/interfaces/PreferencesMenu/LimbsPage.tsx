@@ -246,7 +246,7 @@ export const LimbsPage = (props, context) => {
             }}>
             <Section title="Quirk Points Balance" />
           </Box>
-
+            
           <Box
             backgroundColor="#eee"
             bold

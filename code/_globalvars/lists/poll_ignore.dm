@@ -27,6 +27,8 @@
 #define POLL_IGNORE_MONKEY_HELMET "mind_magnified_monkey"
 #define POLL_IGNORE_LAVALAND_ELITE "lavaland_elite"
 #define POLL_IGNORE_SHUTTLE_DENIZENS "shuttle_denizens"
+#define POLL_IGNORE_SLAVER "slaver"
+#define POLL_IGNORE_EGG "egg"
 
 //Skyrat Edit Start: Cortical Borer
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
@@ -57,6 +59,8 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_MONKEY_HELMET = "Mind magnified monkey",
 	POLL_IGNORE_LAVALAND_ELITE = "Lavaland elite",
 	POLL_IGNORE_SHUTTLE_DENIZENS = "Shuttle denizens",
+	POLL_IGNORE_SLAVER = "Slaver",
+	POLL_IGNORE_EGG = "Pregnancy Eggs"
 ))
 //Skyrat Edit Stop: Cortical Borer
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())

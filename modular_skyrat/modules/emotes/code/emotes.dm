@@ -340,13 +340,13 @@
 	vary = TRUE
 	sound = 'modular_skyrat/modules/emotes/sound/voice/bawk.ogg'
 
-/datum/emote/living/caw
-	key = "caw"
-	key_third_person = "caws"
-	message = "caws!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = 'modular_skyrat/modules/emotes/sound/voice/caw.ogg'
+///datum/emote/living/caw
+//	key = "caw"
+//	key_third_person = "caws"
+//	message = "caws!"
+//	emote_type = EMOTE_AUDIBLE
+//	vary = TRUE
+//	sound = 'modular_skyrat/modules/emotes/sound/voice/caw.ogg'
 
 /datum/emote/living/caw2
 	key = "caw2"

@@ -163,6 +163,10 @@
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 	return !QDELETED(cell) ? (cell.charge >= shot.e_cost) : FALSE
 
+/obj/item/gun/energy/proc/post_set_firemode(recharge_newshot = TRUE)
+	if(recharge_newshot)
+		recharge_newshot(TRUE)
+
 /obj/item/gun/energy/recharge_newshot(no_cyborg_drain)
 	if (!ammo_type || !cell)
 		return

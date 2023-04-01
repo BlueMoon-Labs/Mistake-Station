@@ -10,7 +10,7 @@
 	///This controls the maximum amount of sorters that can be spawned by one lister item.
 	var/max_sorters = 4
 	///This controls the maximum amount of items that can be added to the sorting list.
-	var/max_items = 5
+	var/max_total_storage = 5
 	/// This is used for the improved sorter, so that it can use the improved sorter type instead of the normal sorter type.
 	var/conveyor_type = /obj/effect/decal/conveyor_sorter
 
@@ -22,7 +22,7 @@
 /obj/item/conveyor_sorter/examine(mob/user)
 	. = ..()
 	. += span_notice("Use it to place down a conveyor sorter, up to a limit of <b>[max_sorters]</b>.")
-	. += span_notice("This sorter can sort up to <b>[max_items]</b> Items.")
+	. += span_notice("This sorter can sort up to <b>[max_total_storage]</b> Items.")
 	. += span_notice("Use Alt-Click to reset the sorting list.")
 	. += span_notice("Attack things to attempt to add to the sorting list.")
 
@@ -47,8 +47,8 @@
 	if(is_type_in_list(target, current_sort))
 		to_chat(user, span_warning("[target] is already in [src]'s sorting list!"))
 		return
-	if(length(current_sort) >= max_items)
-		to_chat(user, span_warning("[src] already has [max_items] things within the sorting list!"))
+	if(length(current_sort) >= max_total_storage)
+		to_chat(user, span_warning("[src] already has [max_total_storage] things within the sorting list!"))
 		return
 	current_sort += target.type
 	to_chat(user, span_notice("[target] has been added to [src]'s sorting list."))
@@ -165,7 +165,7 @@
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
 	icon_state = "lister_improved"
 	max_sorters = 8
-	max_items = 10
+	max_total_storage = 10
 	conveyor_type = /obj/effect/decal/conveyor_sorter/improved
 
 /obj/effect/decal/conveyor_sorter/improved

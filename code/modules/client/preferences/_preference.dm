@@ -108,7 +108,8 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	/// If the selected species has this in its /datum/species/var/external_organs,
 	/// will show the feature as selectable.
 	var/relevant_external_organ = null
-
+	var/personal_chat_color = "#ffffff"
+	var/custom_speech_verb = "default" //if your say_mod is to be something other than your races
 /// Called on the saved input when retrieving.
 /// Also called by the value sent from the user through UI. Do not trust it.
 /// Input is the value inside the savefile, output is to tell other code

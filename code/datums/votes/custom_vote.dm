@@ -1,4 +1,4 @@
-/// The max amount of options someone can have in a custom vote.
+// The max amount of options someone can have in a custom vote.
 #define MAX_CUSTOM_VOTE_OPTIONS 10
 
 /datum/vote/custom_vote/single

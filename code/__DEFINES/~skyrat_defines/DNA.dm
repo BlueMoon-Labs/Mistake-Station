@@ -65,8 +65,8 @@
 #define MAXIMUM_MARKINGS_PER_LIMB 3
 
 #define BODY_SIZE_NORMAL 1.00
-#define BODY_SIZE_MAX 1.5
-#define BODY_SIZE_MIN 0.8
+#define BODY_SIZE_MAX 2.0
+#define BODY_SIZE_MIN 0.2
 
 //In inches
 #define PENIS_MAX_GIRTH 15
@@ -88,23 +88,55 @@
 	"ethcolor" = "#FFCCCC",\
 	"skin_color" = "#FFEEDD",\
 	"flavor_text" = "",\
-	"breasts_size" = 1,\
-	"breasts_lactation" = FALSE,\
-	"penis_size" = 13,\
-	"penis_girth" = 9,\
-	"penis_taur_mode" = TRUE,\
-	"penis_sheath" = SHEATH_NONE,\
-	"balls_size" = 1,\
 	"body_size" = BODY_SIZE_NORMAL,\
-	"custom_species" = null,\
-	"penis_uses_skintones" = TRUE,\
-	"penis_uses_skincolor" = TRUE,\
-	"testicles_uses_skintones" = TRUE,\
-	"testicles_uses_skincolor" = TRUE,\
-	"vagina_uses_skintones" = TRUE,\
-	"vagina_uses_skincolor" = TRUE,\
-	"breasts_uses_skintones" = TRUE,\
-	"breasts_uses_skincolor" = TRUE,\
+	"penis_taur_mode" = TRUE,\
+	"genitals_use_skintone" = FALSE,\
+	"has_cock" = FALSE,\
+	"cock_shape" = DEF_COCK_SHAPE,\
+	"cock_length" = COCK_SIZE_DEF,\
+	"cock_diameter_ratio" = COCK_DIAMETER_RATIO_DEF,\
+	"cock_color" = "ffffff",\
+	"cock_taur" = FALSE,\
+	"has_balls" = FALSE,\
+	"balls_color" = "ffffff",\
+	"balls_shape" = DEF_BALLS_SHAPE,\
+	"balls_size" = BALLS_SIZE_DEF,\
+	"balls_cum_rate" = CUM_RATE,\
+	"balls_cum_mult" = CUM_RATE_MULT,\
+	"balls_efficiency" = CUM_EFFICIENCY,\
+	"has_breasts" = FALSE,\
+	"breasts_color" = "ffffff",\
+	"breasts_size" = BREASTS_SIZE_DEF,\
+	"breasts_shape" = DEF_BREASTS_SHAPE,\
+	"breasts_producing" = FALSE,\
+	"has_vag" = FALSE,\
+	"vag_shape" = DEF_VAGINA_SHAPE,\
+	"vag_color" = "ffffff",\
+	"has_womb" = FALSE,\
+	"has_butt" = FALSE,\
+	"butt_color" = "ffffff",\
+	"butt_size" = BUTT_SIZE_DEF,\
+	"belly_size" = BELLY_SIZE_DEF,\
+	"has_belly" = FALSE,\
+	"belly_color" = "ffffff",\
+	"has_anus" = FALSE,\
+	"anus_color" = "ffffff",\
+	"anus_shape" = DEF_ANUS_SHAPE,\
+	"balls_visibility"   = GEN_VISIBLE_NO_UNDIES,\
+	"breasts_visibility"= GEN_VISIBLE_NO_UNDIES,\
+	"cock_visibility" = GEN_VISIBLE_NO_UNDIES,\
+	"vag_visibility"   = GEN_VISIBLE_NO_UNDIES,\
+	"butt_visibility"  = GEN_VISIBLE_NO_UNDIES,\
+	"belly_visibility" = GEN_VISIBLE_NO_UNDIES,\
+	"anus_visibility" = GEN_VISIBLE_NO_UNDIES,\
+	"cock_stuffing" = FALSE,\
+	"balls_stuffing" = FALSE,\
+	"vag_stuffing" = FALSE,\
+	"breasts_stuffing" = FALSE,\
+	"butt_stuffing" = FALSE,\
+	"anus_stuffing" = FALSE,\
+	"belly_stuffing" = FALSE,\
+	"inert_eggs" = FALSE,\
 )
 
 #define AROUSAL_CANT 0
@@ -132,6 +164,7 @@
 #define SPECIES_GHOUL "ghoul"
 #define SPECIES_TESHARI "teshari"
 #define SPECIES_HEMOPHAGE "hemophage"
+#define SPECIES_ARACHNID "arachnid"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"

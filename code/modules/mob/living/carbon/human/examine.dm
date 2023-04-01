@@ -6,6 +6,11 @@
 	var/t_him = p_them()
 	var/t_has = p_have()
 	var/t_is = p_are()
+	var/t_on 	= ru_who(TRUE)
+	var/t_ego 	= ru_ego()
+	//var/t_na 	= ru_na()
+	var/t_a 	= ru_a()
+
 	var/obscure_name
 	var/obscure_examine
 
@@ -62,6 +67,21 @@
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	*/ //SKYRAT EDIT END
+
+	//Underwear
+	var/shirt_hidden = undershirt_hidden()
+	var/undies_hidden = underwear_hidden()
+	var/socks_hidden = socks_hidden()
+	if(w_underwear && !undies_hidden)
+		. += "[t_on] одет[t_a] в [w_underwear.get_examine_string(user)]."
+	if(w_socks && !socks_hidden)
+		. += "[t_on] одет[t_a] в [w_socks.get_examine_string(user)]."
+	if(w_shirt && !shirt_hidden)
+		. += "[t_on] одет[t_a] в [w_shirt.get_examine_string(user)]."
+	//Wrist slot because you're epic
+	if(wrists && !(ITEM_SLOT_WRISTS in obscured))
+		. += "[t_on] одет[t_a] в [wrists.get_examine_string(user)]."
+	//End of skyrat changes
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
@@ -131,8 +151,13 @@
 			. += "<span class='warning'><B>[t_His] eyes are bloodshot!</B></span>"
 
 	//ears
-	if(ears && !(obscured & ITEM_SLOT_EARS) && !(ears.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.get_examine_string(user)] on [t_his] ears."
+	if(ears && !(ITEM_SLOT_EARS_LEFT in obscured))
+		. += "На ушах у н[t_ego] [ears.get_examine_string(user)]."
+	if(ears_extra && !(ITEM_SLOT_EARS_RIGHT in obscured))
+		. += "На ушах у н[t_ego] [ears_extra.get_examine_string(user)]."
+	//wearing two ear items makes you look like an idiot
+	if((istype(ears, /obj/item/radio/headset) && !(ITEM_SLOT_EARS_LEFT in obscured)) && (istype(ears_extra, /obj/item/radio/headset) && !(ITEM_SLOT_EARS_RIGHT in obscured)))
+		. += "<span class='warning'>[t_He] looks quite tacky wearing both \an [ears.name] and \an [ears_extra.name] on [t_his] head.</span>"
 
 	//ID
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))
@@ -146,7 +171,28 @@
 	var/list/status_examines = get_status_effect_examinations()
 	if (length(status_examines))
 		. += status_examines
-
+	//Approximate character height based on current sprite scale
+	var/dispSize = round(12*get_size(src)) // gets the character's sprite size percent and converts it to the nearest half foot
+	if(dispSize % 2) // returns 1 or 0. 1 meaning the height is not exact and the code below will execute, 0 meaning the height is exact and the else will trigger.
+		dispSize = dispSize - 1 //makes it even
+		dispSize = dispSize / 2 //rounds it out
+		. += "[t_on], кажется, чуть выше или около [dispSize] футов в высоту."
+	else
+		dispSize = dispSize / 2
+		. += "[t_on], кажется, около [dispSize] футов в высоту."
+	//CIT CHANGES START HERE - adds genital details to examine text
+	if(LAZYLEN(organs) && (!user.client?.prefs?.read_preference(/datum/preference/toggle/erp)))
+		for(var/obj/item/organ/genital/dicc in organs)
+			if(istype(dicc) && dicc.is_exposed())
+				. += "[dicc.desc]"
+				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.genital_flags & GENITAL_FUID_PRODUCTION) || ((dicc?.linked_organ?.genital_flags & GENITAL_FUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))
+					var/datum/reagent/cummies = find_reagent_object_from_type(dicc?.get_fluid_id())
+					. += "Вы чувствуете, как от [t_ego] тела пахнет <b>'<span style='color:[cummies.color]';>[cummies.name]</span>'</b>..."
+	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref))
+		var/cursed_stuff = attempt_vr(src,"examine_bellies",args) //vore Code
+		if(cursed_stuff)
+			. += cursed_stuff
+	//END OF CIT CHANGES
 	var/appears_dead = FALSE
 	var/just_sleeping = FALSE
 

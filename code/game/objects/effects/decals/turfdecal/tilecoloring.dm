@@ -92,7 +92,7 @@ TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/yellow)
 
 /obj/effect/turf_decal/tile/red
 	name = "red corner"
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#DE3A3A" //Я РУССКИЙ.
 
 TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/red)
 
@@ -237,7 +237,7 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/white)
 
 /// Red trimlines
 /obj/effect/turf_decal/trimline/red
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#DE3A3A" //Я РУССКИЙ.
 
 TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/red)
 

@@ -97,6 +97,14 @@
 	  */
 	var/list/chameleon_extras
 
+	//BlueMoon edit
+	var/underwear = null
+	var/socks = null
+	var/shirt = null
+	var/ears_extra = null
+	var/wrists = null
+	//
+
 	/**
 	  * Any implants the mob should start implanted with
 	  *
@@ -187,7 +195,7 @@
 	if(neck)
 		EQUIP_OUTFIT_ITEM(neck, ITEM_SLOT_NECK)
 	if(ears)
-		EQUIP_OUTFIT_ITEM(ears, ITEM_SLOT_EARS)
+		EQUIP_OUTFIT_ITEM(ears, ITEM_SLOT_EARS_LEFT) //BlueMoon edit
 	if(glasses)
 		EQUIP_OUTFIT_ITEM(glasses, ITEM_SLOT_EYES)
 	if(back)
@@ -249,7 +257,7 @@
 				var/obj/item/tank/internals/internals = H.is_holding_item_of_type(/obj/item/tank/internals)
 				if(internals)
 					H.open_internals(internals)
-			else 
+			else
 				H.open_internals(H.get_item_by_slot(internals_slot))
 		if(implants)
 			for(var/implant_type in implants)
@@ -306,6 +314,18 @@
 		H.shoes.add_fingerprint(H, ignoregloves = TRUE)
 	if(H.gloves)
 		H.gloves.add_fingerprint(H, ignoregloves = TRUE)
+	//BlueMoon edit
+	if(H.wrists)
+		H.wrists.add_fingerprint(H, ignoregloves = TRUE)
+	if(H.w_socks)
+		H.w_socks.add_fingerprint(H, ignoregloves = TRUE)
+	if(H.w_underwear)
+		H.w_underwear.add_fingerprint(H, ignoregloves = TRUE)
+	if(H.w_shirt)
+		H.w_shirt.add_fingerprint(H, ignoregloves = TRUE)
+	if(H.ears_extra)
+		H.ears_extra.add_fingerprint(H, ignoregloves = TRUE)
+	//
 	if(H.ears)
 		H.ears.add_fingerprint(H, ignoregloves = TRUE)
 	if(H.glasses)
@@ -360,7 +380,7 @@
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
-	var/list/types = list(uniform, suit, back, belt, gloves, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
+	var/list/types = list(uniform, underwear, socks, shirt, ears_extra, suit, back, belt, gloves, wrists, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand) //BlueMoon edit
 	types += chameleon_extras
 	types += skillchips
 	list_clear_nulls(types)

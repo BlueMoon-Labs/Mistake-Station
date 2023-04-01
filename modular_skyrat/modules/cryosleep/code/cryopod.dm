@@ -15,21 +15,27 @@ GLOBAL_LIST_EMPTY(ghost_records)
 GLOBAL_LIST_EMPTY(valid_cryopods)
 
 //Main cryopod console.
-
 /obj/machinery/computer/cryopod
-	name = "cryogenic oversight console"
-	desc = "An interface between crew and the cryogenic storage oversight systems."
+	name = "general oversight console"
+	desc = "An interface between crew and the cryogenic storage/teleporter storage oversight systems."
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
 	icon_keyboard = null
 	icon_screen = null
 	use_power = FALSE
+	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE
 	req_one_access = list(ACCESS_COMMAND, ACCESS_ARMORY) // Heads of staff or the warden can go here to claim recover items from their department that people went were cryodormed with.
 	verb_say = "coldly states"
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
+	var/mode = null
+
+	// Used for logging people entering cryosleep and important items they are carrying.
+	var/list/stored_packages = list()
+	/// Does this console store items? if NOT, will dump all items when the user cryo's instead
+	var/allow_items = TRUE
 
 	/// Used for logging people entering cryosleep and important items they are carrying.
 	var/list/frozen_crew = list()
@@ -40,17 +46,23 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/pai
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
+	var/storage_type = "crewmembers"
+	var/storage_name = "Cryogenic/Teleporter Oversight Control"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
+
+/obj/machinery/computer/cryopod/deconstruct()
+	. = ..()
+	for(var/i in stored_packages)
+		var/obj/O = i
+		O.forceMove(drop_location())
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
 	GLOB.cryopod_computers += src
-	radio = new radio(src)
 
 /obj/machinery/computer/cryopod/Destroy()
 	GLOB.cryopod_computers -= src
-	QDEL_NULL(radio)
 	return ..()
 
 /obj/machinery/computer/cryopod/update_icon_state()
@@ -61,7 +73,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	return ..()
 
 /obj/machinery/computer/cryopod/ui_interact(mob/user, datum/tgui/ui)
-	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
@@ -71,64 +82,65 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(!ui)
 		ui = new(user, src, "CryopodConsole", name)
 		ui.open()
+	return ..()
 
 /obj/machinery/computer/cryopod/ui_data(mob/user)
 	var/list/data = list()
 	data["frozen_crew"] = frozen_crew
+	var/list/item_meta = list()
 
-	/// The list of references to the stored items.
-	var/list/item_ref_list = list()
-	/// The associative list of the reference to an item and its name.
-	var/list/item_ref_name = list()
-
-	for(var/obj/item/item in frozen_item)
-		var/ref = REF(item)
-		item_ref_list += ref
-		item_ref_name[ref] = item.name
-
-	data["item_ref_list"] = item_ref_list
-	data["item_ref_name"] = item_ref_name
-
-	// Check Access for item dropping.
-	var/item_retrieval_allowed = allowed(user)
-	data["item_retrieval_allowed"] = item_retrieval_allowed
+	for(var/obj/item/storage/box/blue/cryostorage_items/O as anything in stored_packages)
+		item_meta += list(list("name" = O.real_name, "ref" = REF(O))) // i am truely livid about byond lists
+	data["item_meta"] = item_meta
 
 	var/obj/item/card/id/id_card
+	var/datum/bank_account/current_user
 	if(isliving(user))
 		var/mob/living/person = user
 		id_card = person.get_idcard()
-	if(id_card?.registered_name)
-		data["account_name"] = id_card.registered_name
+	if(id_card?.registered_account)
+		current_user = id_card.registered_account
+	if(current_user)
+		data["account_name"] = current_user.account_holder // i do not know why but this uses budget?
 
 	return data
 
-/obj/machinery/computer/cryopod/ui_act(action, list/params)
-	. = ..()
-	if(.)
+/obj/machinery/computer/cryopod/ui_act(action, params)
+	if(..())
 		return
-	switch(action)
-		if("item_get")
-			// This is using references, kinda clever, not gonna lie. Good work Zephyr
-			var/item_get = params["item_get"]
-			var/obj/item/item = locate(item_get)
-			if(item in frozen_item)
-				item.forceMove(drop_location())
-				frozen_item.Remove(item_get, item)
-				visible_message("[src] dispenses \the [item].")
-				message_admins("[item] was retrieved from cryostorage at [ADMIN_COORDJMP(src)]")
-			else
-				CRASH("Invalid REF# for ui_act. Not inside internal list!")
-			return TRUE
 
-		else
-			CRASH("Illegal action for ui_act: '[action]'")
+	if(action == "item")
+		if(!allowed(usr) && !(obj_flags & EMAGGED))
+			to_chat(usr, "<span class='warning'>Access Denied.</span>")
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
+			return
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank)
-	switch(message_type)
-		if("CRYO_JOIN")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
-		if("CRYO_LEAVE")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+		if(!allow_items)
+			return
+
+		if(stored_packages.len == 0)
+			to_chat(usr, "<span class='notice'>There is nothing to recover from storage.</span>")
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
+			return
+
+		var/obj/I = locate(params["item"])
+		playsound(src, "terminal_type", 25, 0)
+
+		if(!I)
+			return
+
+		if(!(I in stored_packages))
+			to_chat(usr, "<span class='notice'>\The [I] is no longer in storage.</span>")
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
+			return
+
+		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>")
+		playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
+
+		I.forceMove(drop_location())
+		if(usr && Adjacent(usr) && usr.can_hold_items())
+			usr.put_in_hands(I)
+		stored_packages -= I
 
 // Cryopods themselves.
 /obj/machinery/cryopod
@@ -136,41 +148,37 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	desc = "Suited for Cyborgs and Humanoids, the pod is a safe place for personnel affected by the Space Sleep Disorder to get some rest."
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod-open"
-	base_icon_state = "cryopod"
-	use_power = FALSE
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
+	var/tele = FALSE
 
-	var/open_icon_state = "cryopod-open"
 	var/on_store_message = "has entered long-term storage."
 	var/on_store_name = "Cryogenic Oversight"
-	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
-	var/allow_timer_override = FALSE
-	/// Minimum time for someone to be SSD before another player can cryo them.
-	var/ssd_time = 30 MINUTES //Replace with "cryo_min_ssd_time" CONFIG
+	/// The name of the mob that entered the cryopod.
+	var/stored_name = null
+	/// What was the ckey of the client that entered the cryopod?
+	var/stored_ckey = null
+	var/open_icon_state = "cryopod-open"
 
-	/// Time until despawn when a mob enters a cryopod. You cannot other people in pods unless they're catatonic.
+	/// Time until despawn when a mob enters a cryopod. You can cryo other people in pods.
 	var/time_till_despawn = 30 SECONDS
 	/// Cooldown for when it's now safe to try an despawn the player.
 	COOLDOWN_DECLARE(despawn_world_time)
-
 	///Weakref to our controller
 	var/datum/weakref/control_computer_weakref
 	COOLDOWN_DECLARE(last_no_computer_message)
+	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
+	var/allow_timer_override = FALSE
+	/// Has the occupant been tucked in?
+	var/tucked = FALSE
 	/// if false, plays announcement on cryo
 	var/quiet = FALSE
 
-	/// Has the occupant been tucked in?
-	var/tucked = FALSE
-
-	/// What was the ckey of the client that entered the cryopod?
-	var/stored_ckey = null
-	/// The name of the mob that entered the cryopod.
-	var/stored_name = null
 	/// The rank (job title) of the mob that entered the cryopod, if it was a human. "N/A" by default.
 	var/stored_rank = "N/A"
-
+	/// Minimum time for someone to be SSD before another player can cryo them.
+	var/ssd_time = 30 MINUTES //Replace with "cryo_min_ssd_time" CONFIG
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
@@ -183,7 +191,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/cryopod/LateInitialize()
 	update_icon()
-	find_control_computer()
+	control_computer_weakref = cryo_find_control_computer(src)
 
 // This is not a good situation
 /obj/machinery/cryopod/Destroy()
@@ -256,9 +264,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	if(!mob_occupant.client && COOLDOWN_FINISHED(src, despawn_world_time))
 		if(!control_computer_weakref)
-			find_control_computer(urgent = TRUE)
+			control_computer_weakref = cryo_find_control_computer(src, urgent = TRUE)
 
-		despawn_occupant()
+		cryoMob()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
@@ -570,40 +578,191 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
 
-/obj/machinery/cryopod/attackby(obj/item/weapon, mob/living/carbon/human/user, params)
-	. = ..()
-	if(istype(weapon, /obj/item/bedsheet))
-		if(!occupant || !istype(occupant, /mob/living))
-			return
-		if(tucked)
-			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
-			return
-		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
-		qdel(weapon)
-		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
-		tucked = TRUE
+#undef AHELP_FIRST_MESSAGE
 
-/obj/machinery/cryopod/update_icon_state()
-	icon_state = state_open ? open_icon_state : base_icon_state
-	return ..()
+/obj/item/circuitboard/cryopodcontrol
+	name = "Circuit board (Cryogenic Oversight Console)"
+	build_path = /obj/machinery/computer/cryopod
 
-/// Special wall mounted cryopod for the prison, making it easier to autospawn.
-/obj/machinery/cryopod/prison
-	icon_state = "prisonpod"
-	base_icon_state = "prisonpod"
-	open_icon_state = "prisonpod"
-	density = FALSE
+/obj/machinery/computer/cryopod/contents_explosion()
+	return
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
+/// The box
+/obj/item/storage/box/blue/cryostorage_items
+	w_class = WEIGHT_CLASS_HUGE
+	var/real_name = "fire coderbus"
+	occupant
 
-/obj/machinery/cryopod/prison/set_density(new_value)
-	// Simple way to make it always non-dense.
-	return ..(FALSE)
+/obj/machinery/cryopod/proc/cryoMob(mob/living/mob_occupant, datum/weakref/control_computer_weakref, obj/machinery/cryopod/pod, is_teleporter, initial_name, effects = FALSE)
+	var/list/crew_member = list()
 
 /obj/machinery/cryopod/prison/close_machine(atom/movable/target, density_to_set = TRUE)
 	. = ..()
 	// Flick the pod for a second when user enters
 	flick("prisonpod-open", src)
+	// No computer passed in, use admin-cryo instead
+	if (!control_computer_weakref)
+		control_computer_weakref = cryo_find_control_computer(urgent = TRUE)
+
+		if (effects)
+			// Fancy effect for admin-cryo
+			playsound(get_turf(mob_occupant.loc), 'sound/magic/Repulse.ogg', 100, 1)
+			var/datum/effect_system/spark_spread/quantum/sparks = new
+			sparks.set_up(10, 1, mob_occupant)
+			sparks.attach(mob_occupant.loc)
+			sparks.start()
+
+	crew_member["name"] = mob_occupant.real_name
+
+	if(mob_occupant.mind)
+		// Handle job slot/tater cleanup.
+		var/job = mob_occupant.mind.assigned_role
+		crew_member["job"] = job
+		SSjob.FreeRole(job)
+		// if(LAZYLEN(mob_occupant.mind.objectives))
+		// 	mob_occupant.mind.objectives.Cut()
+		mob_occupant.mind.special_role = null
+	else
+		crew_member["job"] = "N/A"
+
+	// Delete them from datacore and ghost records.
+	var/announce_rank = null
+
+	for(var/list/record in GLOB.ghost_records)
+		if(record["name"] == stored_name)
+			announce_rank = record["rank"]
+			GLOB.ghost_records.Remove(list(record))
+			break
+
+	if(!announce_rank) // No need to loop over all of those if we already found it beforehand.
+		for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
+			if(possible_target_record.name == stored_name && (stored_rank == "N/A" || possible_target_record.trim == stored_rank))
+				announce_rank = possible_target_record.rank
+				qdel(possible_target_record)
+				break
+
+	var/obj/machinery/computer/cryopod/control_computer = control_computer_weakref?.resolve()
+	if(!control_computer)
+		control_computer_weakref = null
+	else
+		control_computer.frozen_crew += list(crew_member)
+
+	// Make an announcement and log the person entering storage.
+	if(GLOB.announcement_systems.len)
+		var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
+		announcer.announce(is_teleporter ? "CRYOSTORAGE_TELE" : "CRYOSTORAGE", mob_occupant.real_name, announce_rank, list())
+
+	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
+	if(!quiet)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
+
+	if (pod)
+		pod.visible_message(span_notice("\The [pod] hums and hisses as it [is_teleporter ? "teleports" : "moves"] [mob_occupant.real_name] [is_teleporter ? "to centcom" : "into storage"]."))
+		if(is_teleporter)
+			do_sparks(2, TRUE, pod) // Oh yeah plasmafire time.
+			playsound(pod, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff_exponent = 5)
+
+	/* ============================= */
+	var/list/obj/item/storing = list()
+	var/list/obj/item/destroying = list()
+	var/list/obj/item/destroy_later = list()
+	var/drop_to_ground = !istype(control_computer, /obj/machinery/computer/cryopod) || !control_computer.allow_items
+	var/mind_identity = mob_occupant.mind?.name
+	var/occupant_identity = mob_occupant.real_name
+
+	if(iscyborg(mob_occupant))
+		var/mob/living/silicon/robot/R = mob_occupant
+		if(R.mmi?.brain)
+			destroy_later += R.mmi
+			destroy_later += R.mmi.brain
+		for(var/i in R.model)
+			if(!isitem(i))
+				destroying += i
+				continue
+			var/obj/item/I = i
+			// let's be honest we only care about the trash bag don't beat around the bush
+			if(SEND_SIGNAL(I, COMSIG_CONTAINS_STORAGE))
+				storing += I.contents
+				for(var/atom/movable/AM in I.contents)
+					if(pod)
+						AM.forceMove(pod)
+			R.model.remove_module(I, TRUE)
+	else
+		var/list/gear = list()
+		if(iscarbon(mob_occupant))		// sorry simp-le-mobs deserve no mercy
+			var/mob/living/carbon/C = mob_occupant
+			gear = C.get_all_gear()
+
+		for(var/obj/item/item_content as anything in gear)
+			if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
+				destroying += item_content
+				continue
+			if(item_content.item_flags & (DROPDEL | ABSTRACT))
+				destroying += item_content
+				continue
+
+			// destroying stays in mob for a bit
+			if(pod)
+				item_content.forceMove(pod)
+
+			// WEE WOO SNOWFLAKE TIME
+			if(istype(item_content, /obj/item/pda))
+				var/obj/item/modular_computer/pda/P = item_content
+				if((P.owner == mind_identity) || (P.owner == occupant_identity))
+					destroying += P
+				else
+					storing += P
+			else if(istype(item_content, /obj/item/card/id))
+				var/obj/item/card/id/idcard = item_content
+				if((idcard.registered_name == mind_identity) || (idcard.registered_name == occupant_identity))
+					destroying += idcard
+				else
+					storing += idcard
+			else
+				storing += item_content
+
+	// get rid of mobs
+	if (pod)
+		for(var/mob/living/L in mob_occupant.get_all_contents() - mob_occupant)
+			L.forceMove(pod.drop_location())
+
+	if(storing.len)
+		var/obj/item/storage/box/blue/cryostorage_items/O = new /obj/item/storage/box/blue/cryostorage_items
+		O.name = "[is_teleporter ? "early leave" : "cryogenic"] retrieval package: [mob_occupant.real_name]"
+		O.real_name = mob_occupant.real_name
+		for(var/i in storing)
+			var/obj/item/I = i
+			I.forceMove(O)
+		O.forceMove(drop_to_ground ? control_computer.drop_location() : control_computer)
+		if((control_computer == control_computer) && !drop_to_ground)
+			control_computer.stored_packages += O
+	/* ============================= */
+
+	// Ghost and delete the mob.
+	// they already did ghost verb
+	var/mob/dead/observer/G = mob_occupant.get_ghost(TRUE)
+	if(G)
+		G.voluntary_ghosted = TRUE
+	// they did not ghost verb
+	else
+		mob_occupant.ghostize(FALSE)
+
+	QDEL_LIST(destroying)
+	handle_objectives()
+	mob_occupant.ghostize()
+	QDEL_NULL(mob_occupant)
+	QDEL_LIST(destroy_later)
+
+	if (pod)
+		pod.open_machine()
+		pod.name = initial_name
+
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank)
+	switch(message_type)
+		if("CRYO_JOIN")
+			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+		if("CRYO_LEAVE")
+			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
 
 // Wake-up notifications
 
@@ -637,4 +796,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
 	computer_area = /area/ruin/syndicate_lava_base/dormitories
 
-#undef AHELP_FIRST_MESSAGE
+/// Special wall mounted cryopod for the prison, making it easier to autospawn.
+/obj/machinery/cryopod/prison
+	icon_state = "prisonpod"
+	base_icon_state = "prisonpod"
+	open_icon_state = "prisonpod"
+	density = FALSE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
+
+/obj/machinery/cryopod/prison/set_density(new_value)
+	// Simple way to make it always non-dense.
+	return ..(FALSE)
+
+/obj/machinery/cryopod/prison/close_machine(atom/movable/target)
+	. = ..()
+	// Flick the pod for a second when user enters
+	flick("prisonpod-open", src)

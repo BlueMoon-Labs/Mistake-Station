@@ -1,3 +1,4 @@
+/*
 /mob/living/carbon/human/verb/climax_verb()
 	set name = "Climax"
 	set category = "IC"
@@ -11,7 +12,7 @@
 				climax(TRUE)
 	else
 		to_chat(src, span_warning("You can't cum right now!"))
-
+*/
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
 	if(CONFIG_GET(flag/disable_erp_preferences))

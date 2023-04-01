@@ -1,9 +1,8 @@
-
-/**
- * # Vote Singleton
- *
- * A singleton datum that represents a type of vote for the voting subsystem.
- */
+//
+// # Vote Singleton
+//
+// A singleton datum that represents a type of vote for the voting subsystem.
+//
 /datum/vote
 	/// The name of the vote.
 	var/name

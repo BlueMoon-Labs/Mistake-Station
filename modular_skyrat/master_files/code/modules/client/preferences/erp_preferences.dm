@@ -90,18 +90,24 @@
 
 /datum/preference/toggle/erp/breast_enlargement
 	savefile_key = "breast_enlargement_pref"
-	
+
 /datum/preference/toggle/erp/breast_shrinkage
 	savefile_key = "breast_shrinkage_pref"
 
 /datum/preference/toggle/erp/penis_enlargement
 	savefile_key = "penis_enlargement_pref"
-	
+
 /datum/preference/toggle/erp/penis_shrinkage
 	savefile_key = "penis_shrinkage_pref"
 
+/datum/preference/toggle/erp/butt_enlargement
+	savefile_key = "butt_shrinkage_pref"
+
+/datum/preference/toggle/erp/belly_enlargement
+	savefile_key = "belly_enlargement"
+
 /datum/preference/toggle/erp/genitalia_removal
-	savefile_key = "genitalia_removal_pref"	
+	savefile_key = "genitalia_removal_pref"
 
 /datum/preference/toggle/erp/gender_change
 	savefile_key = "gender_change_pref"
@@ -264,3 +270,38 @@
 
 /datum/preference/choiced/erp_sexuality/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+/datum/preference/toggle/erp/trash_forcefeed
+	savefile_key = "trash_forcefeed"
+
+/datum/preference/toggle/erp/auto_wag
+	savefile_key = "auto_wag"
+
+/datum/preference/toggle/erp/belly_anlargement
+	savefile_key = "belly_anlargement"
+
+/datum/preference/toggle/erp/butt_enlargement
+	savefile_key = "butt_enlargement"
+
+/datum/preference/toggle/erp/ass_slap
+	savefile_key = "ass_slap"
+
+/datum/preference/choiced/erp_yesnoask
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_identifier = PREFERENCE_PLAYER
+	savefile_key = "nonconpref"
+
+/datum/preference/choiced/erp_yesnoask/init_possible_values()
+	return list("Yes", "Ask", "No")
+
+/datum/preference/choiced/erp_yesnoask/create_default_value()
+	return "Ask"
+
+/datum/preference/choiced/erp_yesnoask/unholy_pref
+	savefile_key = "unholy_pref"
+
+/datum/preference/choiced/erp_yesnoask/nonconpref
+	savefile_key = "nonconpref"
+
+/datum/preference/choiced/erp_yesnoask/extreme_pref
+	savefile_key = "extreme_pref"

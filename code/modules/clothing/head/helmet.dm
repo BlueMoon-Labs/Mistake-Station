@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet
-	name = "helmet"
+	name = "Helmet"
 	desc = "Standard Security gear. Protects the head from impacts."
 	icon = 'icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
@@ -13,7 +13,7 @@
 	strip_delay = 60
 	clothing_flags = SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
 	flags_cover = HEADCOVERSEYES
-	flags_inv = HIDEHAIR
+	flags_inv = HIDEHAIR | HIDEEARS
 
 	dog_fashion = /datum/dog_fashion/head/helmet
 

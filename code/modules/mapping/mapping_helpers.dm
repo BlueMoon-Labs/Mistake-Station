@@ -707,7 +707,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	name = "Airlock Note Placer"
 	late = TRUE
 	icon_state = "airlocknoteplacer"
-	var/note_info //for writing out custom notes without creating an extra paper subtype
+	var/default_raw_text //for writing out custom notes without creating an extra paper subtype
 	var/note_name //custom note name
 	var/note_path //if you already have something wrote up in a paper subtype, put the path here
 
@@ -724,18 +724,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 			found_airlock.update_appearance()
 			qdel(src)
 			return
-		if(note_info)
+		if(default_raw_text)
 			var/obj/item/paper/paper = new /obj/item/paper(src)
 			if(note_name)
 				paper.name = note_name
-			paper.add_raw_text("[note_info]")
+			paper.add_raw_text("[default_raw_text]")
 			paper.update_appearance()
 			found_airlock.note = paper
 			paper.forceMove(found_airlock)
 			found_airlock.update_appearance()
 			qdel(src)
 			return
-		log_mapping("[src] at [x],[y] had no note_path or note_info, cannot place paper note.")
+		log_mapping("[src] at [x],[y] had no note_path or default_raw_text, cannot place paper note.")
 		qdel(src)
 		return
 	log_mapping("[src] at [x],[y] could not find an airlock on current turf, cannot place paper note.")

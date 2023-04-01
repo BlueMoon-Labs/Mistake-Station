@@ -377,7 +377,7 @@
 	drop_all_held_items()
 
 
-/mob/living/carbon/proc/check_obscured_slots(transparent_protection)
+/mob/living/carbon/check_obscured_slots(transparent_protection)
 	var/obscured = NONE
 	var/hidden_slots = NONE
 

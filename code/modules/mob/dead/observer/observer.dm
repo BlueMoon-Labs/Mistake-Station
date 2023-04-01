@@ -604,7 +604,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		bootime = world.time + 600
 	//Maybe in the future we can add more <i>spooky</i> code here!
 
-
 /mob/dead/observer/verb/toggle_ghostsee()
 	set name = "Toggle Ghost Vision"
 	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts"

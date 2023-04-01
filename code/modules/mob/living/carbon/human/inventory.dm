@@ -7,18 +7,34 @@
 			return belt
 		if(ITEM_SLOT_ID)
 			return wear_id
-		if(ITEM_SLOT_EARS)
+		if(ITEM_SLOT_EARS_LEFT) // BlueMoon edit
 			return ears
+		// BlueMoon edit
+		if(ITEM_SLOT_EARS_RIGHT)
+			return ears_extra
+		//
 		if(ITEM_SLOT_EYES)
 			return glasses
 		if(ITEM_SLOT_GLOVES)
 			return gloves
+		// BlueMoon edit
+		if(ITEM_SLOT_WRISTS)
+			return wrists
+		//
 		if(ITEM_SLOT_FEET)
 			return shoes
 		if(ITEM_SLOT_OCLOTHING)
 			return wear_suit
 		if(ITEM_SLOT_ICLOTHING)
 			return w_uniform
+		// BlueMoon edit
+		if(ITEM_SLOT_UNDERWEAR)
+			return w_underwear
+		if(ITEM_SLOT_SOCKS)
+			return w_socks
+		if(ITEM_SLOT_SHIRT)
+			return w_shirt
+		//
 		if(ITEM_SLOT_LPOCKET)
 			return l_store
 		if(ITEM_SLOT_RPOCKET)
@@ -77,12 +93,16 @@
 		legcuffed,
 		wear_suit,
 		gloves,
+		wrists, //BlueMoon edit
 		shoes,
 		belt,
 		wear_id,
 		l_store,
 		r_store,
-		w_uniform
+		w_uniform,
+		w_underwear, //BlueMoon edit
+		w_socks, //BlueMoon edit
+		w_shirt //BlueMoon edit
 		)
 
 /mob/living/carbon/human/proc/get_head_slots()
@@ -91,7 +111,8 @@
 		wear_mask,
 		wear_neck,
 		glasses,
-		ears,
+		ears, //BlueMoon edit
+		ears_extra, //BlueMoon edit
 		)
 
 /mob/living/carbon/human/proc/get_storage_slots()
@@ -155,11 +176,14 @@
 			wear_id = I
 			sec_hud_set_ID()
 			update_worn_id()
-		if(ITEM_SLOT_EARS)
-			if(ears)
-				return
+		// BlueMoon edit
+		if(ITEM_SLOT_EARS_LEFT)
 			ears = I
 			update_inv_ears()
+		if(ITEM_SLOT_EARS_RIGHT)
+			ears_extra = I
+			update_inv_ears_extra()
+		//
 		if(ITEM_SLOT_EYES)
 			if(glasses)
 				return
@@ -183,6 +207,13 @@
 				update_mob_action_buttons()
 			//SKYRAT EDIT ADDITION END
 			update_worn_gloves()
+		// BlueMoon edit
+		if(ITEM_SLOT_WRISTS)
+			if(wrists)
+				return
+			wrists = I
+			update_inv_wrists()
+		//
 		if(ITEM_SLOT_FEET)
 			if(shoes)
 				return
@@ -207,6 +238,17 @@
 			w_uniform = I
 			update_suit_sensors()
 			update_worn_undersuit()
+		// BlueMoon edit
+		if(ITEM_SLOT_UNDERWEAR)
+			w_underwear = I
+			update_inv_w_underwear()
+		if(ITEM_SLOT_SOCKS)
+			w_socks = I
+			update_inv_w_socks()
+		if(ITEM_SLOT_SHIRT)
+			w_shirt = I
+			update_inv_w_shirt()
+		//
 		if(ITEM_SLOT_LPOCKET)
 			l_store = I
 			update_pockets()
@@ -218,6 +260,10 @@
 				return
 			s_store = I
 			update_suit_storage()
+		if(ITEM_SLOT_ACCESSORY)
+			var/obj/item/clothing/under/attach_target = w_uniform
+			attach_target.attach_accessory(I, src, TRUE)
+			// updates handled by attach_accessory
 
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))
@@ -253,12 +299,12 @@
 		if(!QDELETED(src)) //no need to update we're getting deleted anyway
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_worn_undersuit()
-
+/*
 			// SKYRAT EDIT ADDITION START - ERP Overlays
 			if(I.flags_inv & HIDESEXTOY)
 				update_inv_lewd()
 			// SKYRAT EDIT ADDITION END
-
+*/
 			update_worn_oversuit()
 	else if(I == w_uniform)
 		if(invdrop)
@@ -274,6 +320,24 @@
 		update_suit_sensors()
 		if(!QDELETED(src))
 			update_worn_undersuit()
+	//BlueMoon edit
+	else if(I == w_underwear)
+		w_underwear = null
+		if(!QDELETED(src))
+			update_inv_w_underwear()
+	else if(I == w_socks)
+		w_socks = null
+		if(!QDELETED(src))
+			update_inv_w_socks()
+	else if(I == w_shirt)
+		w_shirt = null
+		if(!QDELETED(src))
+			update_inv_w_shirt()
+	else if(I == wrists)
+		wrists = null
+		if(!QDELETED(src))
+			update_inv_wrists()
+	//
 	else if(I == gloves)
 		//SKYRAT EDIT ADDITION - ERP UPDATE
 		if(gloves.breakouttime) //when unequipping a straightjacket

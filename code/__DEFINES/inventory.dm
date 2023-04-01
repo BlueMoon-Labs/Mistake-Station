@@ -29,7 +29,7 @@
 /// Glasses slot
 #define ITEM_SLOT_EYES (1<<3)
 /// Ear slot (radios, earmuffs)
-#define ITEM_SLOT_EARS (1<<4)
+#define ITEM_SLOT_EARS_LEFT (1<<4)
 /// Mask slot
 #define ITEM_SLOT_MASK (1<<5)
 /// Head slot (helmets, hats, etc.)
@@ -56,19 +56,38 @@
 #define ITEM_SLOT_LPOCKET (1<<16)
 /// Right Pocket slot
 #define ITEM_SLOT_RPOCKET (1<<17)
+// -- Sandstorm edit --
+/// Underwear slot
+#define ITEM_SLOT_UNDERWEAR (1<<18)
+/// Socks slot
+#define ITEM_SLOT_SOCKS (1<<19)
+/// Shirt slot
+#define ITEM_SLOT_SHIRT (1<<20)
+/// Right ear slot
+#define ITEM_SLOT_EARS_RIGHT (1<<21)
+/// Wrist slot
+#define ITEM_SLOT_WRISTS (1<<22)
+// -- End edit --
 /// Handcuff slot
-#define ITEM_SLOT_HANDCUFFED (1<<18)
+#define ITEM_SLOT_HANDCUFFED (1<<23)
 /// Legcuff slot (bolas, beartraps)
-#define ITEM_SLOT_LEGCUFFED (1<<19)
+#define ITEM_SLOT_LEGCUFFED (1<<24)
+/// To attach to a jumpsuit
+#define ITEM_SLOT_ACCESSORY (1<<25)
 
 /// Total amount of slots
-#define SLOTS_AMT 20 // Keep this up to date!
+#define SLOTS_AMT 26 // Keep this up to date!
+
+//EARS HELPER
+#define ITEM_SLOT_EARS (ITEM_SLOT_EARS_LEFT|ITEM_SLOT_EARS_RIGHT)
 
 //SLOT GROUP HELPERS
 #define ITEM_SLOT_POCKETS (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET)
+
 /// Slots that are physically on you
 #define ITEM_SLOT_ON_BODY (ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_EYES | ITEM_SLOT_EARS | \
-	ITEM_SLOT_MASK | ITEM_SLOT_HEAD | ITEM_SLOT_FEET | ITEM_SLOT_ID | ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_NECK )
+	ITEM_SLOT_MASK | ITEM_SLOT_HEAD | ITEM_SLOT_FEET | ITEM_SLOT_ID | ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_NECK | \
+	ITEM_SLOT_UNDERWEAR | ITEM_SLOT_SOCKS | ITEM_SLOT_SHIRT | ITEM_SLOT_SHIRT | ITEM_SLOT_EARS_RIGHT | ITEM_SLOT_WRISTS )
 
 //Bit flags for the flags_inv variable, which determine when a piece of clothing hides another. IE a helmet hiding glasses.
 //Make sure to update check_obscured_slots() if you add more.
@@ -89,7 +108,6 @@
 #define HIDESNOUT (1<<12)
 ///hides mutant/moth wings, does not apply to functional wings
 #define HIDEMUTWINGS (1<<13)
-
 //SKYRAT EDIT ADDITION: CUSTOM EAR TOGGLE FOR ANTHRO/ETC EAR SHOWING -
 /// Manually set this on items you want anthro ears to show on!
 #define SHOWSPRITEEARS (1<<14)
@@ -100,6 +118,10 @@
 /// Does this sprite hide devious devices?
 #define HIDESEXTOY (1<<17)
 //SKYRAT EDIT ADDITION END
+//hides the jumpsuit accessory.
+#define HIDEACCESSORY	(1<<18)
+#define HIDEWRISTS		(1<<19) //hides wrists
+#define HIDEUNDERWEAR	(1<<20) //hides underwear, socks and shirt
 
 //bitflags for clothing coverage - also used for limbs
 #define HEAD (1<<0)
@@ -257,3 +279,66 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 #define LOCATION_HEAD "on your head"
 /// String for items placed in the neck slot.
 #define LOCATION_NECK "around your neck"
+
+//digitigrade legs settings.
+#define NOT_DIGITIGRADE				0
+#define FULL_DIGITIGRADE			1
+#define SQUISHED_DIGITIGRADE		2
+
+//Allowed equipment lists for security vests and hardsuits.
+
+GLOBAL_LIST_INIT(advanced_hardsuit_allowed, typecacheof(list(
+	/obj/item/ammo_box,
+	/obj/item/ammo_casing,
+	/obj/item/flashlight,
+	/obj/item/gun,
+	/obj/item/melee/baton,
+	/obj/item/reagent_containers/spray/pepper,
+	/obj/item/restraints/handcuffs,
+	/obj/item/tank/internals)))
+
+GLOBAL_LIST_INIT(security_hardsuit_allowed, typecacheof(list(
+	/obj/item/ammo_box,
+	/obj/item/ammo_casing,
+	/obj/item/flashlight,
+	/obj/item/gun/ballistic,
+	/obj/item/gun/energy,
+	/obj/item/melee/baton,
+	/obj/item/reagent_containers/spray/pepper,
+	/obj/item/restraints/handcuffs,
+	/obj/item/tank/internals)))
+
+//Internals checker
+#define GET_INTERNAL_SLOTS(C) list(C.head, C.wear_mask)
+
+//Slots that won't trigger humans' update_genitals() on equip().
+GLOBAL_LIST_INIT(no_genitals_update_slots, list(ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET, ITEM_SLOT_SUITSTORE, ITEM_SLOT_BACKPACK, ITEM_SLOT_LEGCUFFED, ITEM_SLOT_HANDCUFFED, ITEM_SLOT_HANDS, ITEM_SLOT_DEX_STORAGE))
+
+// storage_flags variable on /datum/storage/
+
+// Storage limits. These can be combined (and usually are combined).
+/// Check max_items and contents.len when trying to insert
+#define STORAGE_LIMIT_MAX_ITEMS				(1<<0)
+/// Check max_combined_w_class.
+#define STORAGE_LIMIT_COMBINED_W_CLASS		(1<<1)
+/// Use the new volume system. Will automatically force rendering to use the new volume/baystation scaling UI so this is kind of incompatible with stuff like stack storage etc etc.
+#define STORAGE_LIMIT_VOLUME				(1<<2)
+/// Use max_w_class
+#define STORAGE_LIMIT_MAX_W_CLASS			(1<<3)
+
+#define STORAGE_FLAGS_LEGACY_DEFAULT		(STORAGE_LIMIT_MAX_ITEMS | STORAGE_LIMIT_COMBINED_W_CLASS | STORAGE_LIMIT_MAX_W_CLASS)
+#define STORAGE_FLAGS_VOLUME_DEFAULT		(STORAGE_LIMIT_VOLUME | STORAGE_LIMIT_MAX_W_CLASS)
+
+// UI defines
+/// Size of volumetric box icon
+#define VOLUMETRIC_STORAGE_BOX_ICON_SIZE 32
+/// Size of EACH left/right border icon for volumetric boxes
+#define VOLUMETRIC_STORAGE_BOX_BORDER_SIZE 1
+/// Minimum pixels an item must have in volumetric scaled storage UI
+#define MINIMUM_PIXELS_PER_ITEM 16
+/// Maximum number of objects that will be allowed to be displayed using the volumetric display system. Arbitrary number to prevent server lockups.
+#define MAXIMUM_VOLUMETRIC_ITEMS 256
+/// How much padding to give between items
+#define VOLUMETRIC_STORAGE_ITEM_PADDING 4
+/// How much padding to give to edges
+#define VOLUMETRIC_STORAGE_EDGE_PADDING 1

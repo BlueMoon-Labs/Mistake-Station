@@ -243,7 +243,7 @@
 SIDING_SUBTYPE_HELPER(/obj/effect/turf_decal/siding/white)
 
 /obj/effect/turf_decal/siding/red
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#DE3A3A" //Я РУССКИЙ.
 
 SIDING_SUBTYPE_HELPER(/obj/effect/turf_decal/siding/red)
 

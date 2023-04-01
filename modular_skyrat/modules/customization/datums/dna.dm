@@ -55,7 +55,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	///Body markings of the DNA's owner. This is for storing their original state for re-creating the character. They'll get changed on species mutation
 	var/list/list/body_markings = list()
 	///Current body size, used for proper re-sizing and keeping track of that
-	var/current_body_size = BODY_SIZE_NORMAL
+	var/old_size = BODY_SIZE_NORMAL
 
 /datum/dna/proc/initialize_dna(newblood_type, skip_index = FALSE)
 	if(newblood_type)
@@ -173,18 +173,23 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
 
 /datum/dna/proc/update_body_size()
-	if(!holder || species.body_size_restricted || current_body_size == features["body_size"])
+	if(!holder || species.body_size_restricted || old_size == features["body_size"])
 		return
-	var/change_multiplier = features["body_size"] / current_body_size
-	//We update the translation to make sure our character doesn't go out of the southern bounds of the tile
-	var/translate = ((change_multiplier-1) * 32)/2
-	holder.transform = holder.transform.Scale(change_multiplier)
-	// Splits the updated translation into X and Y based on the user's rotation.
-	var/translate_x = translate * ( holder.transform.b / features["body_size"] )
-	var/translate_y = translate * ( holder.transform.e / features["body_size"] )
-	holder.transform = holder.transform.Translate(translate_x, translate_y)
+	//new size detected
+	holder.resize = features["body_size"] / old_size
 	holder.maptext_height = 32 * features["body_size"] // Adjust runechat height
-	current_body_size = features["body_size"]
+	holder.update_transform()
+	if(iscarbon(holder))
+		var/mob/living/carbon/C = holder
+		var/penalty_threshold = CONFIG_GET(number/threshold_body_size_penalty)
+		if(features["body_size"] < penalty_threshold && old_size >= penalty_threshold)
+			C.maxHealth -= 10 //reduce the maxhealth
+			var/slowdown = (1 - round(features["body_size"] / penalty_threshold, 0.1)) * CONFIG_GET(number/body_size_slowdown_multiplier)
+			holder.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/small_stride, TRUE, slowdown)
+		else
+			if(old_size < penalty_threshold && features["body_size"] >= penalty_threshold)
+				C.maxHealth  += 10 //give the maxhealth back
+				holder.remove_movespeed_modifier(/datum/movespeed_modifier/small_stride) //remove the slowdown
 
 /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE)
 	if(QDELETED(src))
@@ -298,3 +303,7 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 			update_body_parts(update_limb_data = TRUE)
 		if(mutations_overlay_update)
 			update_mutations_overlay()
+		set_bark(GLOB.bark_list[deconstruct_block(get_uni_identity_block(structure, DNA_BARK_SOUND_BLOCK), GLOB.bark_list.len)])
+		vocal_speed = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_SPEED_BLOCK), 16) / 4)
+		vocal_pitch = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_PITCH_BLOCK), 48) / 30)
+		vocal_pitch_range = (deconstruct_block(get_uni_identity_block(structure, DNA_BARK_VARIANCE_BLOCK), 48) / 48)

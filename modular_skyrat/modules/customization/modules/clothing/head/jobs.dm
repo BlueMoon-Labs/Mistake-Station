@@ -12,7 +12,6 @@
 	name = "syndicate beret"
 	desc = "A black beret with thick armor padding inside. Stylish and robust."
 	greyscale_colors = "#3F3C40#DB2929"
-
 /obj/item/clothing/head/beret/sec/navywarden
 	name = "warden's beret"
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
@@ -22,7 +21,6 @@
 	greyscale_colors = "#3C485A#FF0000#00AEEF"
 	armor_type = /datum/armor/sec_navywarden
 	strip_delay = 60
-
 /datum/armor/sec_navywarden
 	melee = 40
 	bullet = 30
@@ -32,7 +30,6 @@
 	fire = 30
 	acid = 50
 	wound = 6
-
 /obj/item/clothing/head/beret/sec/navyofficer
 	desc = "A special beret with the security insignia emblazoned on it. For officers with class."
 	icon_state = "beret_badge_bolt"

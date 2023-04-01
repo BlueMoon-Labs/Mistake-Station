@@ -85,6 +85,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/w_class = WEIGHT_CLASS_NORMAL
 	///This is used to determine on which slots an item can fit.
 	var/slot_flags = 0
+	var/current_equipped_slot
 	pass_flags = PASSTABLE
 	pressure_resistance = 4
 	/// This var exists as a weird proxy "owner" ref
@@ -173,7 +174,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/tool_behaviour = NONE
 	///How fast does the tool work
 	var/toolspeed = 1
-
+	//Special multitools
+	var/obj/machinery/buffer // simple machine buffer for device linkage
 	var/block_chance = 0
 	var/hit_reaction_chance = 0 //If you want to have something unrelated to blocking/armour piercing etc. Maybe not needed, but trying to think ahead/allow more freedom
 	///In tiles, how far this weapon can reach; 1 for adjacent, which is default
@@ -208,6 +210,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/canMouseDown = FALSE
 
+	//BLUEMOON CHANGE
+	var/hide_underwear_examine = FALSE
+	//and no, i'm not taking self-equip delays, period.
+
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
 	var/offensive_notes
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
@@ -216,6 +222,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// Does this use the advanced reskinning setup?
 	var/uses_advanced_reskins = FALSE
 	// SKYRAT EDIT ADDITION END
+
+	/// Volume override for the item, otherwise automatically calculated from w_class.
+	var/w_volume
+
+	var/list/alternate_screams = list() //REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 
 /obj/item/Initialize(mapload)
 
@@ -538,6 +549,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 	if(anchored)
 		return
+	if(loc == user && current_equipped_slot && current_equipped_slot != ITEM_SLOT_HANDS)
+		if(current_equipped_slot in user.check_obscured_slots())
+			to_chat(user, "<span class='warning'>You are unable to unequip that while wearing other garments over it!</span>")
+			return FALSE
 
 	. = TRUE
 
@@ -603,6 +618,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 	if(anchored)
 		return
+	if(loc == user && current_equipped_slot && current_equipped_slot != ITEM_SLOT_HANDS)
+		if(current_equipped_slot in user.check_obscured_slots())
+			to_chat(user, "<span class='warning'>You are unable to unequip that while wearing other garments over it!</span>")
+			return FALSE
 
 	. = TRUE
 
@@ -716,6 +735,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	visual_equipped(user, slot, initial)
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
 	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
+	current_equipped_slot = slot
 
 	// Give out actions our item has to people who equip it.
 	for(var/datum/action/action as anything in actions)
@@ -879,6 +899,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		owner.update_worn_oversuit()
 	if(flags & ITEM_SLOT_ICLOTHING)
 		owner.update_worn_undersuit()
+	//BlueMoon edit
+	if(flags & ITEM_SLOT_UNDERWEAR)
+		owner.update_inv_w_underwear()
+	if(flags & ITEM_SLOT_SOCKS)
+		owner.update_inv_w_socks()
+	if(flags & ITEM_SLOT_SHIRT)
+		owner.update_inv_w_shirt()
+	if(flags & ITEM_SLOT_EARS)
+		owner.update_inv_ears_extra()
+	if(flags & ITEM_SLOT_WRISTS)
+		owner.update_inv_wrists()
+	//
 	if(flags & ITEM_SLOT_GLOVES)
 		owner.update_worn_gloves()
 	if(flags & ITEM_SLOT_EYES)
@@ -1646,3 +1678,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/update_atom_colour()
 	. = ..()
 	update_slot_icon()
+
+/// Get an item's volume that it uses when being stored.
+/obj/item/proc/get_w_volume()
+	// if w_volume is 0 you fucked up anyways lol
+	return w_volume || AUTO_SCALE_VOLUME(w_class)

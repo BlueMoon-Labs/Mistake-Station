@@ -445,3 +445,15 @@
 	desc = "A medical spray bottle.This one contains hercuri, a medicine used to negate the effects of dangerous high-temperature environments. Careful not to freeze the patient!"
 	icon_state = "sprayer_large"
 	list_reagents = list(/datum/reagent/medicine/c2/hercuri = 100)
+
+/obj/item/reagent_containers/spray/bluespace
+	name = "bluespace spray bottle"
+	desc = "A bluespace spray bottle, do not give it to the clown."
+	volume = 250
+	amount_per_transfer_from_this = 2
+	spray_range = 4
+	stream_range = 2
+	icon = 'modular_sand/icons/obj/janitor.dmi'
+	icon_state = "cleaneradv"
+	inhand_icon_state = "cleaneradv"
+	custom_materials = list(/datum/material/glass = 2250, /datum/material/plasma = 2250, /datum/material/diamond = 185, /datum/material/bluespace = 185)

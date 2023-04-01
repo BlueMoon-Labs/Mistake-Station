@@ -501,40 +501,40 @@
 	return 0
 
 
-/mob/living/carbon/human/verb/toggle_genitals()
-	set category = "IC"
-	set name = "Expose/Hide genitals"
-	set desc = "Allows you to toggle which genitals should show through clothes or not."
-
-	if(stat != CONSCIOUS)
-		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
-		return
-
-	var/list/genital_list = list()
-	for(var/obj/item/organ/external/genital/genital in organs)
-		if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
-			genital_list += genital
-	if(!genital_list.len) //There is nothing to expose
-		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
-												"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
-												"Always show" = GENITAL_ALWAYS_SHOW
-												)
-		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in gen_vis_trans
-		if(picked_visibility && picked_organ && (picked_organ in organs))
-			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
-			update_body()
-	return
+///mob/living/carbon/human/verb/toggle_genitals()
+//	set category = "IC"
+//	set name = "Expose/Hide genitals"
+//	set desc = "Allows you to toggle which genitals should show through clothes or not."
+//
+//	if(stat != CONSCIOUS)
+//		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
+//		return
+//
+//	var/list/genital_list = list()
+//	for(var/obj/item/organ/external/genital/G in external_organs)
+//		if(!G.visibility_preference == GENITAL_SKIP_VISIBILITY)
+//			genital_list += G
+//	if(!genital_list.len) //There is nothing to expose
+//		return
+//	//Full list of exposable genitals created
+//	var/obj/item/organ/external/genital/picked_organ
+//	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
+//	if(picked_organ && (picked_organ in external_organs))
+//		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
+//												"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+//												"Always show" = GENITAL_ALWAYS_SHOW
+//												)
+//		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in gen_vis_trans
+//		if(picked_visibility && picked_organ && (picked_organ in external_organs))
+//			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
+//			update_body()
+//	return
 
 //Removing ERP IC verb depending on config
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
 	if(CONFIG_GET(flag/disable_erp_preferences))
-		verbs -= /mob/living/carbon/human/verb/toggle_genitals
+//		verbs -= /mob/living/carbon/human/verb/toggle_genitals
 		verbs -= /mob/living/carbon/human/verb/toggle_arousal
 
 /mob/living/carbon/human/verb/toggle_arousal()

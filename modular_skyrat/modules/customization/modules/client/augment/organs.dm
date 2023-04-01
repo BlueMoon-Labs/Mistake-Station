@@ -75,21 +75,21 @@
 	cost = 1
 
 //TONGUES
-/datum/augment_item/organ/tongue
+/datum/augment_item/organ/internal/tongue
 	slot = AUGMENT_SLOT_TONGUE
 
-/datum/augment_item/organ/tongue/normal
+/datum/augment_item/organ/internal/tongue/normal
 	name = "Organic tongue"
 	path = /obj/item/organ/internal/tongue/human
 
-/datum/augment_item/organ/tongue/robo
+/datum/augment_item/organ/internal/tongue/robo
 	name = "Robotic voicebox"
 	path = /obj/item/organ/internal/tongue/robot
 
-/datum/augment_item/organ/tongue/cybernetic
+/datum/augment_item/organ/internal/tongue/cybernetic
 	name = "Cybernetic tongue"
 	path = /obj/item/organ/internal/tongue/cybernetic
 
-/datum/augment_item/organ/tongue/forked
+/datum/augment_item/organ/internal/tongue/forked
 	name = "Forked tongue"
 	path = /obj/item/organ/internal/tongue/lizard

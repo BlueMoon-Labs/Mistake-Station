@@ -1,113 +1,187 @@
-import { sortBy } from 'common/collections';
+import { filter, sortBy } from 'common/collections';
+import { createSearch } from 'common/string';
 import { flow } from 'common/fp';
-import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from '../components';
+import { useBackend, useLocalState, useSharedState } from '../backend';
+import { Box, Button, Input, Section, Knob, LabeledControls, LabeledList, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
 
 export const Jukebox = (props, context) => {
   const { act, data } = useBackend(context);
-  const { active, track_selected, track_length, track_beat, volume } = data;
+  const {
+    active,
+    track_selected,
+    track_length,
+    volume,
+    is_emagged,
+    cost_for_play,
+    has_access,
+  } = data;
+  const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
+  const searchFilter = createSearch(searchText, (entry) => entry.name);
   const songs = flow([sortBy((song) => song.name)])(data.songs || []);
+  const queued_tracks = data.queued_tracks || [];
+  const [tab, setTab] = useSharedState(context, 'tab', 1);
+  const visibleSongs = flow([
+    filter(searchFilter),
+    sortBy((entry) => entry.name),
+  ])(songs);
+
   return (
-    <Window width={370} height={313}>
-      <Window.Content>
+    <Window width={420} height={480}>
+      <Window.Content overflowY="scroll">
         <Section
-          title="Song Player"
+          fluid
+          title="Настройки"
           buttons={
             <Button
               icon={active ? 'pause' : 'play'}
-              content={active ? 'Stop' : 'Play'}
+              content={active ? 'Стоп' : 'Играть'}
               selected={active}
+              disabled={!has_access}
               onClick={() => act('toggle')}
             />
           }>
+          <Stack>
+            <Stack.Item>
+              <LabeledList>
+                <LabeledList.Item label="Текущий трек">
+                  {track_selected ? track_selected : 'Трек не выбран'}
+                </LabeledList.Item>
+                <LabeledList.Item label="Продолжительность">
+                  {track_selected ? track_length : 'Трек не выбран'}
+                </LabeledList.Item>
+              </LabeledList>
+            </Stack.Item>
+            <Stack.Item>
+              <LabeledControls justify="center">
+                <LabeledControls.Item
+                  position="relative"
+                  label="Громкость"
+                  right="4px">
+                  <Box position="relative">
+                    <Knob
+                      size={2.4}
+                      color={volume > 140 ? 'red' : 'green'}
+                      value={volume}
+                      unit="%"
+                      minValue={0}
+                      maxValue={is_emagged ? 210 : 100}
+                      step={1}
+                      stepPixelSize={1}
+                      disabled={!has_access}
+                      onDrag={(e, value) =>
+                        act('set_volume', {
+                          volume: value,
+                        })
+                      }
+                    />
+                    <Button
+                      fluid
+                      position="absolute"
+                      top="67px"
+                      right="66px"
+                      color="transparent"
+                      icon="fast-backward"
+                      disabled={!has_access}
+                      onClick={() =>
+                        act('set_volume', {
+                          volume: 'min',
+                        })
+                      }
+                    />
+                    <Button
+                      fluid
+                      position="absolute"
+                      top="67px"
+                      right="-14px"
+                      color="transparent"
+                      icon="fast-forward"
+                      disabled={!has_access}
+                      onClick={() =>
+                        act('set_volume', {
+                          volume: 'max',
+                        })
+                      }
+                    />
+                    <Button
+                      fluid
+                      position="absolute"
+                      top="67px"
+                      right="84px"
+                      color="transparent"
+                      icon="undo"
+                      disabled={!has_access}
+                      onClick={() =>
+                        act('set_volume', {
+                          volume: 'reset',
+                        })
+                      }
+                    />
+                  </Box>
+                </LabeledControls.Item>
+              </LabeledControls>
+            </Stack.Item>
+          </Stack>
           <LabeledList>
-            <LabeledList.Item label="Track Selected">
-              <Dropdown
-                overflow-y="scroll"
-                width="240px"
-                options={songs.map((song) => song.name)}
-                disabled={active}
-                selected={track_selected || 'Select a Track'}
-                onSelected={(value) =>
-                  act('select_track', {
-                    track: value,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Track Length">
-              {track_selected ? track_length : 'No Track Selected'}
-            </LabeledList.Item>
-            <LabeledList.Item label="Track Beat">
-              {track_selected ? track_beat : 'No Track Selected'}
-              {track_beat === 1 ? ' beat' : ' beats'}
+            <LabeledList.Item label="Цена добавления в очередь">
+              {has_access ? 'Бесплатно' : cost_for_play + ' CR'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Machine Settings">
-          <LabeledControls justify="center">
-            <LabeledControls.Item label="Volume">
-              <Box position="relative">
-                <Knob
-                  size={3.2}
-                  color={volume >= 25 ? 'red' : 'green'}
-                  value={volume}
-                  unit="%"
-                  minValue={0}
-                  maxValue={50}
-                  step={1}
-                  stepPixelSize={1}
-                  disabled={active}
-                  onDrag={(e, value) =>
-                    act('set_volume', {
-                      volume: value,
-                    })
-                  }
-                />
-                <Button
+
+        <Tabs>
+          <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
+            Треки
+          </Tabs.Tab>
+          <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
+            Очередь
+          </Tabs.Tab>
+        </Tabs>
+        {tab === 1 && (
+          <Section fluid vertical>
+            <Stack>
+              <Stack.Item grow>
+                <Input
                   fluid
-                  position="absolute"
-                  top="-2px"
-                  right="-22px"
-                  color="transparent"
-                  icon="fast-backward"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'min',
-                    })
-                  }
+                  autoFocus
+                  placeholder="Найти треки..."
+                  onInput={(e, value) => setSearchText(value)}
                 />
-                <Button
-                  fluid
-                  position="absolute"
-                  top="16px"
-                  right="-22px"
-                  color="transparent"
-                  icon="fast-forward"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'max',
-                    })
-                  }
-                />
-                <Button
-                  fluid
-                  position="absolute"
-                  top="34px"
-                  right="-22px"
-                  color="transparent"
-                  icon="undo"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'reset',
-                    })
-                  }
-                />
-              </Box>
-            </LabeledControls.Item>
-          </LabeledControls>
-        </Section>
+              </Stack.Item>
+            </Stack>
+
+            <Section fluid>
+              <Tabs vertical style={{ 'pointer-events': 'none' }}>
+                {visibleSongs.map((song) => (
+                  <Tabs.Tab key={song.name}>
+                    <Stack>
+                      <Stack.Item grow>{song.name}</Stack.Item>
+                      <Stack.Item>
+                        <Button
+                          icon="play"
+                          content="Queue"
+                          style={{ 'pointer-events': 'auto' }}
+                          onClick={() => {
+                            act('add_to_queue', { track: song.name });
+                          }}
+                        />
+                      </Stack.Item>
+                    </Stack>
+                  </Tabs.Tab>
+                ))}
+              </Tabs>
+            </Section>
+          </Section>
+        )}
+        {tab === 2 && (
+          <Section fluid>
+            <Tabs vertical style={{ 'pointer-events': 'none' }}>
+              {queued_tracks.map((song) => (
+                <Tabs.Tab key={song.name}>{song.name}</Tabs.Tab>
+              ))}
+            </Tabs>
+          </Section>
+        )}
       </Window.Content>
     </Window>
   );

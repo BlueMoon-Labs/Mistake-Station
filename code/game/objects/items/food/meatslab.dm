@@ -139,6 +139,28 @@
 	foodtypes = RAW | MEAT | TOXIC | GORE
 	venue_value = FOOD_MEAT_MUTANT
 
+/obj/item/food/meat/slab/human/mutant/avian
+	desc = "Tastes like chicken, that's because it is!"
+	icon_state = "birdmeat"
+	slab_color = "#BF896B"
+	tastes = list("chicken" = 1)
+
+/obj/item/food/meat/slab/human/mutant/mammal
+	desc = "Tastes sweet... reminds you vaguely of chicken."
+	slab_color = "#6B8E23"
+	tastes = list("brains" = 1, "meat" = 1)
+
+/obj/item/food/meat/slab/human/mutant/insect
+	icon_state = "mothmeat"
+	desc = "Unpleasantly powdery and dry. Kind of pretty, though."
+	slab_color = "#BF896B"
+	tastes = list("dust" = 1, "powder" = 1, "meat" = 2)
+	foodtypes = MEAT | RAW
+
+/obj/item/food/fishmeat/carp/aquatic
+	name = "fillet"
+	desc = "A fillet of one of the local water dwelling species."
+
 ////////////////////////////////////// OTHER MEATS ////////////////////////////////////////////////////////
 
 /obj/item/food/meat/slab/synthmeat

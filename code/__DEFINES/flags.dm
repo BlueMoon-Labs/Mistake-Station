@@ -301,3 +301,63 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define EMOTE_VISIBLE (1<<1)
 /// Is it an emote that should be shown regardless of blindness/deafness
 #define EMOTE_IMPORTANT (1<<2)
+
+//for convenience
+#define ENABLE_BITFIELD(variable, flag) (variable |= (flag))
+#define DISABLE_BITFIELD(variable, flag) (variable &= ~(flag))
+#define CHECK_BITFIELD(variable, flag) (variable & (flag))
+#define TOGGLE_BITFIELD(variable, flag) (variable ^= (flag))
+#define COPY_SPECIFIC_BITFIELDS(a,b,flags)\
+	do{\
+		var/_old = a & ~(flags);\
+		var/_cleaned = b & (flags);\
+		a = _old | _cleaned;\
+	} while(0);
+#define CHECK_MULTIPLE_BITFIELDS(flagvar, flags) (((flagvar) & (flags)) == (flags))
+
+
+//FLAGS BITMASK
+///This flag is what recursive_hear_check() uses to determine wether to add an item to the hearer list or not.
+#define HEAR_1						(1<<3)
+///Projectiles will use default chance-based ricochet handling on things with this.
+#define DEFAULT_RICOCHET_1			(1<<4)
+///Atom queued to SSoverlay.
+#define OVERLAY_QUEUED_1			(1<<8)
+///Prevents mobs from getting chainshocked by teslas and the supermatter.
+#define SHOCKED_1 					(1<<13)
+/// Early returns mob.face_atom()
+#define BLOCK_FACE_ATOM_1			(1<<17)
+#define KEEP_ON_ARENA_1 (1<<22)
+
+
+//turf-only flags
+#define NOJAUNT_1 (1<<0)
+#define UNUSED_RESERVATION_TURF_1 (1<<1)
+/// Blocks lava rivers being generated on the turf
+#define NO_LAVA_GEN_1 (1<<6)
+/// Blocks ruins spawning on the turf
+#define NO_RUINS_1 (1<<10)
+/// Should this tile be cleaned up and reinserted into an excited group?
+#define EXCITED_CLEANUP_1 (1 << 13)
+
+#define NO_ALERTS (1<<12)
+
+#define PASSCRAWL		(1<<9) //SPLURT edit
+
+///Applied if you're crawling around on the ground/resting.
+#define CRAWLING			(1<<5)
+
+//Fire and Acid stuff, for resistance_flags
+#define GOLIATH_RESISTANCE (1<<8) //CIT CHANGE
+#define GOLIATH_WEAKNESS (1<<9) //CIT CHANGE
+
+// radiation
+#define RAD_PROTECT_CONTENTS (1<<0)
+#define RAD_NO_CONTAMINATE (1<<1)
+
+//Mob mobility var flags
+/// any flag
+#define CHECK_MOBILITY(target, flags) CHECK_BITFIELD(target.mobility_flags, flags)
+#define CHECK_ALL_MOBILITY(target, flags) CHECK_MULTIPLE_BITFIELDS(target.mobility_flags, flags)
+
+#define MOBILITY_FLAGS_ANY_INTERACTION (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_UI | MOBILITY_STORAGE)

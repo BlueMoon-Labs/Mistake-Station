@@ -3,6 +3,18 @@
 	desc = "All engineering related spawners go here"
 	icon_state = "toolbox"
 
+/obj/effect/spawner/random/engineering/stock_parts
+	name = "random stock parts spawner"
+	spawn_loot_count = 3
+	loot = list(
+				/obj/item/stock_parts/capacitor/adv,
+				/obj/item/stock_parts/scanning_module/adv,
+				/obj/item/stock_parts/manipulator/nano,
+				/obj/item/stock_parts/micro_laser/high,
+				/obj/item/stock_parts/matter_bin/adv,
+				/obj/item/stock_parts/cell/upgraded/plus
+				)
+
 /obj/effect/spawner/random/engineering/tool
 	name = "Tool spawner"
 	icon_state = "wrench"
