@@ -118,11 +118,11 @@
 /datum/accent/abductor/modify_speech(list/speech_args, datum/source)
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/mob/living/carbon/user = source
-	var/obj/item/organ/internal/tongue/abductor/A = user.getorgan(/obj/item/organ/internal/tongue/abductor)
+	var/obj/item/organ/internal/tongue/abductor/A = user.get_organ_slot(/obj/item/organ/internal/tongue/abductor)
 	var/rendered = "<span class='abductor'><b>[user.name]:</b> [message]</span>"
 	user.log_talk(message, LOG_SAY, tag="abductor")
 	for(var/mob/living/carbon/C in GLOB.alive_mob_list)
-		var/obj/item/organ/internal/tongue/abductor/T = C.getorgan(/obj/item/organ/internal/tongue/abductor)
+		var/obj/item/organ/internal/tongue/abductor/T = C.get_organ_slot(/obj/item/organ/internal/tongue/abductor)
 		if(!T || T.mothership != A.mothership)
 			continue
 		to_chat(C, rendered)

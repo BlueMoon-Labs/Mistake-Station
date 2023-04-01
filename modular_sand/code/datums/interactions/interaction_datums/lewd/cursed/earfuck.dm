@@ -37,7 +37,7 @@
 					C.adjustBruteLoss(rand(6,12))
 	else
 		message = "с силой загоняет свой орган внутрь ушной раковины \the <b>[partner]</b> и громко вздыхает."
-		user.set_is_fucking(partner, CUM_TARGET_EARS, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_EARS, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/champ1.ogg',
 												'modular_sand/sound/interactions/champ2.ogg'), 50, 1, -1)

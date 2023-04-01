@@ -92,9 +92,9 @@
 		else
 			switch(fucktarget)
 				if("vagina")
-					genital = partner.getorganslot(ORGAN_SLOT_VAGINA)
+					genital = partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 				if("penis")
-					genital = partner.getorganslot(ORGAN_SLOT_PENIS)
+					genital = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 		user.set_is_fucking(partner, CUM_TARGET_MOUTH, genital)
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/oral1.ogg',
@@ -134,13 +134,13 @@
 			)
 	else if(user.is_fucking(partner, CUM_TARGET_MOUTH))
 		message = "проникает глубже в рот \the <b>[partner]</b> и углубляется вниз по самому горлу."
-		var/check = user.getorganslot(ORGAN_SLOT_PENIS)
+		var/check = user.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(check)
 			genital = check
 		user.set_is_fucking(partner, CUM_TARGET_THROAT, genital)
 	else
 		message = "загоняет свои гениталии глубоко в рот \the <b>[partner]</b> и углубляется вниз по самому горлу."
-		var/check = user.getorganslot(ORGAN_SLOT_PENIS)
+		var/check = user.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(check)
 			genital = check
 		user.set_is_fucking(partner, CUM_TARGET_THROAT, genital)

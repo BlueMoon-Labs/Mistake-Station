@@ -202,8 +202,8 @@
 		COOLDOWN_START(src, stage_time, PREGNANCY_STAGE_DURATION)
 
 /datum/component/pregnancy/proc/inflate_organs(mob/living/carbon/human/gregnant)
-	//var/obj/item/organ/genital/belly/belly = gregnant.getorganslot(ORGAN_SLOT_BELLY)
-	var/obj/item/organ/genital/breasts/boob = gregnant.getorganslot(ORGAN_SLOT_BREASTS)
+	//var/obj/item/organ/genital/belly/belly = gregnant.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
 
 	if(added_size < 4)
 		added_size += 1
@@ -394,7 +394,7 @@
 
 /datum/component/pregnancy/proc/human_pragency_start(mob/living/carbon/human/gregnant)
 	if(pregnancy_breast_growth)
-		var/obj/item/organ/genital/breasts/boob = gregnant.getorganslot(ORGAN_SLOT_BREASTS)
+		var/obj/item/organ/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
 		if(!boob)
 			boob = gregnant.give_genital(/obj/item/organ/genital/breasts)
 	return TRUE

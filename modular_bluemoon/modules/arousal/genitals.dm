@@ -313,13 +313,13 @@
 		return
 	//Full list of exposable genitals created
 	var/obj/item/organ/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in (getorganslot(ORGAN_SLOT_ANUS) ? genital_list : genital_list + list("anus"))
+	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in (get_organ_slot(ORGAN_SLOT_ANUS) ? genital_list : genital_list + list("anus"))
 	if(picked_organ && (picked_organ in organs))
 		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in GLOB.genitals_visibility_toggles
 		if(picked_visibility && picked_organ && (picked_organ in organs))
 			picked_organ.toggle_visibility(picked_visibility)
 
-	if(picked_organ == "anus" && !getorganslot(ORGAN_SLOT_ANUS))
+	if(picked_organ == "anus" && !get_organ_slot(ORGAN_SLOT_ANUS))
 		var/picked_visibility = tgui_input_list(src, "Chose visibility setting", "Expose/Hide genitals", GLOB.genitals_visibility_toggles - list(GEN_VISIBLE_NO_CLOTHES))
 		anus_toggle_visibility(picked_visibility)
 	return
@@ -388,7 +388,7 @@
 	if(owner)
 		if(linked_organ)
 			return FALSE
-		linked_organ = owner.getorganslot(linked_organ_slot)
+		linked_organ = owner.get_organ_slot(linked_organ_slot)
 		if(linked_organ)
 			linked_organ.linked_organ = src
 			linked_organ.upon_link()
@@ -447,7 +447,7 @@
 		give_genital(/obj/item/organ/genital/anus)
 
 /mob/living/carbon/human/proc/give_genital(obj/item/organ/genital/G)
-	if(!dna || (NOGENITALS in dna.species.species_traits) || getorganslot(initial(G.slot)))
+	if(!dna || (NOGENITALS in dna.species.species_traits) || get_organ_slot(initial(G.slot)))
 		return FALSE
 	G = new G(null, FALSE)
 	G.get_features(src)
@@ -591,12 +591,12 @@
 		return FALSE
 
 	var/organCheck = locate(/obj/item/organ/genital) in organs
-	var/breastCheck = getorganslot(ORGAN_SLOT_BREASTS)
-	var/willyCheck = getorganslot(ORGAN_SLOT_PENIS)
-	var/buttCheck = getorganslot(ORGAN_SLOT_BUTT)
-	var/ballCheck = getorganslot(ORGAN_SLOT_TESTICLES)
-	var/bellyCheck = getorganslot(ORGAN_SLOT_BELLY)
-	var/anusCheck = getorganslot(ORGAN_SLOT_ANUS)
+	var/breastCheck = get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/willyCheck = get_organ_slot(ORGAN_SLOT_PENIS)
+	var/buttCheck = get_organ_slot(ORGAN_SLOT_BUTT)
+	var/ballCheck = get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/bellyCheck = get_organ_slot(ORGAN_SLOT_BELLY)
+	var/anusCheck = get_organ_slot(ORGAN_SLOT_ANUS)
 
 	if(organCheck == FALSE)
 		if(ishuman(src) && dna.species.use_skintones)

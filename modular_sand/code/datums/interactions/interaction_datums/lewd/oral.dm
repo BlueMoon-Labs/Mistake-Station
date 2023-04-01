@@ -103,9 +103,9 @@
 		else
 			switch(fucktarget)
 				if("vagina")
-					genital = partner.getorganslot(ORGAN_SLOT_VAGINA)
+					genital = partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 				if("penis")
-					genital = partner.getorganslot(ORGAN_SLOT_PENIS)
+					genital = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 		partner.set_is_fucking(user, CUM_TARGET_MOUTH, genital)
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bj1.ogg',

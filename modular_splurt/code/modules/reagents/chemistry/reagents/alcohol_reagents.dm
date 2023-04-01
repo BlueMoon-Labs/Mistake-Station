@@ -269,7 +269,7 @@
 /datum/reagent/consumable/ethanol/skullfucker_deluxe/overdose_process(mob/living/M)
 	. = ..()
 	//Do nothing if they're already fwuffy OwO
-	var/obj/item/organ/internal/tongue/T = M.getorganslot(ORGAN_SLOT_TONGUE)
+	var/obj/item/organ/internal/tongue/T = M.get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(istype(T, /obj/item/organ/internal/tongue/fluffy))
 		return
 

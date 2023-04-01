@@ -5,7 +5,7 @@
 /mob/living/proc/receive_climax(mob/living/partner, obj/item/organ/genital/receiver, obj/item/organ/genital/source, spill, forced)
 	//gregnancy...
 	if(!spill && istype(source, /obj/item/organ/genital/penis) && \
-		istype(receiver, /obj/item/organ/genital/vagina) && getorganslot(ORGAN_SLOT_WOMB))
+		istype(receiver, /obj/item/organ/genital/vagina) && get_organ_slot(ORGAN_SLOT_WOMB))
 		var/obj/item/organ/genital/penis/peenus = source
 		if(!(locate(/obj/item/genital_equipment/condom) in peenus.contents))
 			impregnate(partner)
@@ -20,7 +20,7 @@
 	var/obj/item/organ/container = W
 
 	if(!container)
-		container = getorganslot(ORGAN_SLOT_WOMB)
+		container = get_organ_slot(ORGAN_SLOT_WOMB)
 	if(!container)
 		return
 

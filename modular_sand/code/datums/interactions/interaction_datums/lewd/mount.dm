@@ -15,7 +15,7 @@
 			"с силой загоняет [genital_name] <b>[partner]</b> в свою собственную киску и довольно облизывается.")]"
 	else
 		message = "резко всовывает [genital_name] <b>[partner]</b> в своё влагалище и удовлетворённо выдыхает."
-		partner.set_is_fucking(user, CUM_TARGET_VAGINA, partner.getorganslot(ORGAN_SLOT_PENIS))
+		partner.set_is_fucking(user, CUM_TARGET_VAGINA, partner.get_organ_slot(ORGAN_SLOT_PENIS))
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
 						'modular_sand/sound/interactions/bang2.ogg',
 						'modular_sand/sound/interactions/bang3.ogg'), 70, 1, -1)
@@ -41,7 +41,7 @@
 			"с силой загоняет [genital_name] <b>[partner]</b> в своё анальное колечко и довольно облизывается.")]"
 	else
 		message = "резко всовывает [genital_name] <b>[partner]</b> в своё анальное кольцо и удовлетворённо выдыхает."
-		partner.set_is_fucking(user, CUM_TARGET_ANUS, partner.getorganslot(ORGAN_SLOT_PENIS))
+		partner.set_is_fucking(user, CUM_TARGET_ANUS, partner.get_organ_slot(ORGAN_SLOT_PENIS))
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
 						'modular_sand/sound/interactions/bang2.ogg',
 						'modular_sand/sound/interactions/bang3.ogg'), 70, 1, -1)
@@ -147,9 +147,9 @@
 		else
 			switch(fucktarget)
 				if("vagina")
-					genital = partner.getorganslot(ORGAN_SLOT_VAGINA)
+					genital = partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 				if("penis")
-					genital = partner.getorganslot(ORGAN_SLOT_PENIS)
+					genital = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 		user.set_is_fucking(partner, THIGH_SMOTHERING, genital)
 
 	var/file = pick('modular_sand/sound/interactions/bj10.ogg',

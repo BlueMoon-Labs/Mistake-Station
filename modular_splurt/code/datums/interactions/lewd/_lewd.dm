@@ -2,7 +2,7 @@
 	var/has_belly = FALSE
 
 /mob/living/has_anus(visibility = REQUIRE_ANY)
-	if(getorganslot(ORGAN_SLOT_ANUS))
+	if(get_organ_slot(ORGAN_SLOT_ANUS))
 		return has_genital(ORGAN_SLOT_ANUS, visibility)
 	. = ..()
 
@@ -41,7 +41,7 @@
 	if(has_belly && !istype(C))
 		return TRUE
 	if(istype(C))
-		var/obj/item/organ/genital/peepee = C.getorganslot(ORGAN_SLOT_BELLY)
+		var/obj/item/organ/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BELLY)
 		if(peepee)
 			switch(nintendo)
 				if(REQUIRE_ANY)
@@ -83,20 +83,20 @@
 						cumin = TRUE
 						if(partner.has_breasts())
 							message = "кончает в сосок <b>[partner]</b>!."
-							target_gen = partner.getorganslot(ORGAN_SLOT_BREASTS)
+							target_gen = partner.get_organ_slot(ORGAN_SLOT_BREASTS)
 						else
 							message = "кончает на грудь и шею <b>[partner]</b>."
 							if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
 								target_gen = new /obj/item/organ/genital/breasts
 								target_gen.Insert(c_partner)
 						if(target_gen)
-							target_gen.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS))
+							target_gen.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS))
 					if(CUM_TARGET_URETHRA)
 						cumin = TRUE
 						message = "кончает в уретру <b>[partner]</b>!"
 						if(c_partner)
-							target_gen = partner.getorganslot(ORGAN_SLOT_PENIS)
-							target_gen.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS))
+							target_gen = partner.get_organ_slot(ORGAN_SLOT_PENIS)
+							target_gen.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS))
 					if(CUM_TARGET_THIGHS)
 						if(partner.has_legs() >= 2)
 							message = "кончает между бёдрами <b>[partner]</b>!"
@@ -107,16 +107,16 @@
 						if(partner.has_belly(REQUIRE_EXPOSED))
 							message = "кончает в декольте <b>[partner]</b>, [pick(list("создавая там липкую лужу", "жидкость забавно фонтанирует наружу"))]."
 							if(c_partner)
-								target_gen = c_partner.getorganslot(ORGAN_SLOT_BELLY)
+								target_gen = c_partner.get_organ_slot(ORGAN_SLOT_BELLY)
 						else
 							message = "кончает на тело <b>[partner]</b>."
 						if(c_partner)
 							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-								var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
+								var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
 									gut.Insert(partner)
-								gut.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS), target_orifice)
+								gut.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS), target_orifice)
 
 					if(CUM_TARGET_ARMPIT)
 						message = "кончает в подмышку <b>[partner]</b>"
@@ -124,17 +124,17 @@
 					if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 						if(c_partner)
 							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-								var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
+								var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
 									gut.Insert(partner)
-								gut.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS), target_orifice)
+								gut.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS), target_orifice)
 							else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-								var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
+								var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 								if(!ass)
 									ass = new
 									ass.Insert(partner)
-								ass.climax_modify_size(src, getorganslot(ORGAN_SLOT_PENIS))
+								ass.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS))
 
 		else
 			switch(last_genital.type)
@@ -146,7 +146,7 @@
 							cumin = TRUE
 							if(partner.has_breasts())
 								message = "кончает в сосок <b>[partner]</b>!."
-								target_gen = partner.getorganslot(ORGAN_SLOT_BREASTS)
+								target_gen = partner.get_organ_slot(ORGAN_SLOT_BREASTS)
 							else
 								message = "кончает на грудь и шею <b>[partner]</b>."
 								if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
@@ -159,7 +159,7 @@
 							cumin = TRUE
 							message = "кончает в уретру <b>[partner]</b>!"
 							if(c_partner)
-								target_gen = partner.getorganslot(ORGAN_SLOT_PENIS)
+								target_gen = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 								target_gen.climax_modify_size(src, last_genital)
 						if(CUM_TARGET_THIGHS)
 							if(partner.has_legs() >= 2)
@@ -171,18 +171,18 @@
 							if(partner.has_belly(REQUIRE_EXPOSED))
 								message = "кончает в пупок <b>[partner]</b>, [pick(list("создавая там липкую лужу", "жидкость забавно фонтанирует наружу"))]."
 								if(c_partner)
-									target_gen = c_partner.getorganslot(ORGAN_SLOT_BELLY)
+									target_gen = c_partner.get_organ_slot(ORGAN_SLOT_BELLY)
 							else
 								message = "кончает на тело <b>[partner]</b>."
 							if(c_partner)
 								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-									var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
+									var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
 								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-									var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
+									var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new
 										ass.Insert(partner)
@@ -191,13 +191,13 @@
 						if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 							if(c_partner)
 								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-									var/obj/item/organ/genital/belly/gut = partner.getorganslot(ORGAN_SLOT_BELLY)
+									var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
 								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-									var/obj/item/organ/genital/butt/ass = partner.getorganslot(ORGAN_SLOT_BUTT)
+									var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new
 										ass.Insert(partner)
@@ -351,9 +351,9 @@
 				var/mob/living/carbon/human/pardner = user
 				switch(fucktarget)
 					if("vagina")
-						peepee = pardner.getorganslot(ORGAN_SLOT_VAGINA)
+						peepee = pardner.get_organ_slot(ORGAN_SLOT_VAGINA)
 					if("penis")
-						peepee = pardner.getorganslot(ORGAN_SLOT_PENIS)
+						peepee = pardner.get_organ_slot(ORGAN_SLOT_PENIS)
 		user.set_is_fucking(src, CUM_TARGET_MOUTH, peepee)
 
 	playlewdinteractionsound(get_turf(src), pick('modular_sand/sound/interactions/bj1.ogg',
@@ -384,7 +384,7 @@
 			"хватает свой член сиськами, проталкивая его между ними.")]"
 	else
 		message = "хватает свой член сиськами, проталкивая его между ними."
-		set_is_fucking(user, CUM_TARGET_BREASTS, getorganslot(ORGAN_SLOT_PENIS) ? getorganslot(ORGAN_SLOT_PENIS) : null)
+		set_is_fucking(user, CUM_TARGET_BREASTS, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/bang1.ogg',
 						'modular_sand/sound/interactions/bang2.ogg',
@@ -435,7 +435,7 @@
 			"держится за плечи <b>[partner]</b> и с усилием потирается пенисом о живот партнёра.")]"
 	else
 		message = "приподнимает свой [genital_name] и вводит его в ожидающий пупок \the <b>[partner]</b>."
-		set_is_fucking(partner, CUM_TARGET_BELLY, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(partner, CUM_TARGET_BELLY, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/champ1.ogg',
 						'modular_sand/sound/interactions/champ2.ogg'), 50, 1, -1)
@@ -528,7 +528,7 @@
 			lines = list(
 				" делает дыру, разрывая одежду \the <b>[target]</b> так, чтобы подмышка была видна. \The <b>[target]</b> может внезапно почувствовать тепло пульсирующего члена, скользящеко по влажной и потной подмышке!"
 			)
-		set_is_fucking(target, CUM_TARGET_ARMPIT, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_ARMPIT, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b>[pick(lines)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -561,7 +561,7 @@
 			lines = list(
 				"мягко проделывает дырку в ткани на задне стороне подмышки, погружая в объятия весь стержень!"
 			)
-		target.set_is_fucking(src, CUM_TARGET_ARMPIT, target.getorganslot(ORGAN_SLOT_PENIS))
+		target.set_is_fucking(src, CUM_TARGET_ARMPIT, target.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -589,7 +589,7 @@
 			"обволакивает твердый стержень <b>[target]</b> своими сиськами, плотно и с хлюпаньем сжимая его",
 			"ползволяет своим дыням упасть прямо на жирный член <b>[target]</b>, удерживая его в декольте"
 		)
-		target.set_is_fucking(src, CUM_TARGET_BREASTS, getorganslot(ORGAN_SLOT_PENIS))
+		target.set_is_fucking(src, CUM_TARGET_BREASTS, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -619,7 +619,7 @@
 			"испрользует свой язык, чтобы поместить яйца <b>[target]</b> внутрь рта, внюхиваясь в этот запах.",
 			"охотно дозволяет шарам <b>[target]</b> упасть в ротовую полость, похотливо обсасывая эти сферы."
 		)
-		target.set_is_fucking(src, NUTS_TO_FACE, getorganslot(ORGAN_SLOT_PENIS))
+		target.set_is_fucking(src, NUTS_TO_FACE, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -653,7 +653,7 @@
 			"проводит своим концом члена по органу <b>[target]</b>, только для того, чтобы ввести свой орган прямо до упора внутрь.",
 			"завставляет жирный член <b>[target]</b> растянуться и пульсировать, как только прибор находит свой путь глубже."
 		)
-		set_is_fucking(target, CUM_TARGET_URETHRA, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_URETHRA, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -688,7 +688,7 @@
 		)
 
 	if(!is_fucking(target, CUM_TARGET_NIPPLE))
-		set_is_fucking(target, CUM_TARGET_NIPPLE, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_NIPPLE, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]!</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -718,7 +718,7 @@
 			"подставляет свой член к ногам <b>[target]</b>, вонзая во весь его размер в объятия бёдер",
 			"целует междуножье <b>[target]</b> своим кончиком, прямо перед тем как протиснуться между бёдер всем членом"
 		)
-		set_is_fucking(target, CUM_TARGET_THIGHS, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_THIGHS, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]!</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -749,7 +749,7 @@
 			"проводит кончиком члена <b>[target]</b> по упругим бедрам, перед тем как позволить стержню вломиться меж ними.",
 			"загоняет член <b>[target]</b> прямо в крепкий захват своих ляжек, глубоко и непристойно сжимая его."
 		)
-		target.set_is_fucking(src, CUM_TARGET_THIGHS, target.getorganslot(ORGAN_SLOT_PENIS))
+		target.set_is_fucking(src, CUM_TARGET_THIGHS, target.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(lines)]!</span>"
 	visible_message(message, ignored_mobs = get_unconsenting())
@@ -802,7 +802,7 @@
 	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
 		genital_name = target.get_penetrating_genital_name()
 	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/genital/vagina/genital = target.getorganslot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
 		genital_name = genital.name
 	*/
 
@@ -827,7 +827,7 @@
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE))
 	playlewdinteractionsound(loc, pick(GLOB.brap_noises), 50, 1, -1, ignored_mobs = get_unconsenting(unholy = TRUE))
 	if(!target.is_fucking(src, CUM_TARGET_ANUS))
-		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.getorganslot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.getorganslot(ORGAN_SLOT_VAGINA) : null)
+		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 		target.set_is_fucking(src, CUM_TARGET_ANUS, genital)
 	if(!target.has_strapon(REQUIRE_EXPOSED))
 		target.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, src)
@@ -865,7 +865,7 @@
 			"может почувствовать зловоние, когда проникает в маленькую дыру <b>[target]</b>, получая длинный и теплый заряд.",
 			"хватает основание члена и прижимает кончик прямо к аналу <b>[target]</b>, действуя как клапан, выпускающий невозможное количество чистого зловония.",
 			"проталкивет свой член глубоко в жопу \the <b>[target]</b>, заставляя вырваться наружу легкий поток газа.")
-		set_is_fucking(target, CUM_TARGET_ANUS, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_ANUS, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(hell)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE))
@@ -942,7 +942,7 @@
 	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
 		genital_name = target.get_penetrating_genital_name()
 	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/genital/vagina/genital = target.getorganslot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
 		genital_name = genital.name
 	*/
 
@@ -962,7 +962,7 @@
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE))
 	playlewdinteractionsound(loc, pick(GLOB.brap_noises), 50, 1, -1, ignored_mobs = get_unconsenting(unholy = TRUE))
 	if(!target.is_fucking(src, CUM_TARGET_ANUS))
-		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.getorganslot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.getorganslot(ORGAN_SLOT_VAGINA) : null)
+		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 		target.set_is_fucking(src, CUM_TARGET_ANUS, genital)
 	if(!target.has_strapon(REQUIRE_EXPOSED))
 		target.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, src)
@@ -994,7 +994,7 @@
 			"чувствует вонь, пока член отрабатывает свое в навозной дырке, наслаждаясь влажным и противным ощущением.",
 			"хватает основание дергающегося члена и прижимает кончик к анусу <b>[target]</b>, немедленно проталкивая его внутрь жирного и влажного входа.",
 			"вталкивает член глубоко внутрь жопы <b>[target]</b>, заставляя высвободиться огромное количество кашицы, приветствуя этот стержень.")
-		set_is_fucking(target, CUM_TARGET_ANUS, getorganslot(ORGAN_SLOT_PENIS))
+		set_is_fucking(target, CUM_TARGET_ANUS, get_organ_slot(ORGAN_SLOT_PENIS))
 
 	message = "<span class='lewd'>\The <b>[src]</b> [pick(hell)]</span>"
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE), ignored_mobs = get_unconsenting(unholy = TRUE))
@@ -1052,7 +1052,7 @@
 
 /mob/living/carbon/proc/piss_mouth(mob/living/target)
 	var/message
-	var/pee_pee = (has_penis(REQUIRE_EXPOSED) ? getorganslot(ORGAN_SLOT_PENIS) : (has_vagina(REQUIRE_EXPOSED) ? getorganslot(ORGAN_SLOT_VAGINA) : null))
+	var/pee_pee = (has_penis(REQUIRE_EXPOSED) ? get_organ_slot(ORGAN_SLOT_PENIS) : (has_vagina(REQUIRE_EXPOSED) ? get_organ_slot(ORGAN_SLOT_VAGINA) : null))
 	//var/u_His = ru_ego()
 	//var/t_Him = target.ru_na()
 	var/list/hell = list(

@@ -86,7 +86,7 @@
 		to_chat(user, span_notice("You can't use \the [src] while it's off."))
 		return
 
-	var/obj/item/organ/genital/genital = victim.getorganslot(target_organ)
+	var/obj/item/organ/genital/genital = victim.get_organ_slot(target_organ)
 	if(!genital)
 		return
 	if(inuse) //existance comparison is enough for booleans

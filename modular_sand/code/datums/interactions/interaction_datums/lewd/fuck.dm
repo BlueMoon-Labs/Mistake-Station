@@ -20,7 +20,7 @@
 			"с силой загоняет свои гениталии в вагину <b>[partner]</b> и шлёпается своими яйцами.")]"
 	else
 		message = "вводит свой [genital_name] в лоно <b>[partner]</b>."
-		user.set_is_fucking(partner, CUM_TARGET_VAGINA, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_VAGINA, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/champ1.ogg',
 						'modular_sand/sound/interactions/champ2.ogg'), 50, 1, -1)
@@ -51,7 +51,7 @@
 			"грубо трахает \the <b>[partner]</b> в задницу с громким чавкающим звуком.",
 			"хватается за волосы \the <b>[partner]</b> и начинает тянуть к самому основанию своего органа.",
 			"сильно вращает своими бёдрами и погружается внутрь сфинктера \the <b>[partner]</b>.")]"
-		user.set_is_fucking(partner, CUM_TARGET_ANUS, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_ANUS, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
 						'modular_sand/sound/interactions/bang2.ogg',
@@ -81,7 +81,7 @@
 			"с силой загоняет свои гениталии между сиськами <b>[partner]</b> и шлёпается своими яйцами о грудь.")]"
 	else
 		message = "игриво толкает <b>[partner]</b>, крепко хватается за грудь и сжимает ими свой [genital_name]."
-		user.set_is_fucking(partner, CUM_TARGET_BREASTS, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_BREASTS, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
@@ -114,7 +114,7 @@
 		message = "[pick("позиционирует свой [genital_name] на ботинок <b>[partner]</b> и начинает потираться.",
 			"выставляет свой [genital_name] на ботинки ботинок <b>[partner]</b> и начинает тот стимулировать.",
 			"держит свой [genital_name] своими руками и наконец-то начинает тереться о ботинок <b>[partner]</b>.")]"
-		user.set_is_fucking(partner, CUM_TARGET_FEET, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_FEET, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
 						'modular_sand/sound/interactions/foot_dry3.ogg',
@@ -143,7 +143,7 @@
 		message = "[pick("позиционирует свой [genital_name] на [shoes ? shoes : pick("ботинок", "ботинки")] <b>[partner]</b> и начинает потираться.",
 			"выставляет свой [genital_name] на ботинки [shoes ? shoes : pick("ботинок", "ботинки")] <b>[partner]</b> и начинает тот стимулировать.",
 			"держит свой [genital_name] своими руками и наконец-то начинает тереться о [shoes ? shoes : pick("ботинок", "ботинки")] <b>[partner]</b>.")]"
-		user.set_is_fucking(partner, CUM_TARGET_FEET, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, CUM_TARGET_FEET, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
 						'modular_sand/sound/interactions/foot_dry3.ogg',
@@ -177,7 +177,7 @@
 		message = "[pick("с силой держится за ножку своего партнёра и активно трётся своей вагиной о ботинок <b>[partner]</b>.",
 			"замедляет свои движения на ботинке <b>[partner]</b>, засекает влагу на обуви и ехидно усмехается.",
 			"выставляет вагину на ботинок <b>[partner]</b> и начинает ту стимулировать. Как же радуется!")]"
-		user.set_is_fucking(partner, CUM_TARGET_FEET, user.getorganslot(ORGAN_SLOT_VAGINA))
+		user.set_is_fucking(partner, CUM_TARGET_FEET, user.get_organ_slot(ORGAN_SLOT_VAGINA))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
 						'modular_sand/sound/interactions/foot_dry3.ogg',

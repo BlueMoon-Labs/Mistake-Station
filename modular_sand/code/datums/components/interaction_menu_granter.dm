@@ -146,7 +146,7 @@
 			genital_entry["arousal_state"] = genital.aroused_state
 			genital_entry["always_accessible"] = genital.always_accessible
 			genitals += list(genital_entry)
-		if(!get_genitals.getorganslot(ORGAN_SLOT_ANUS)) //SPLURT Edit
+		if(!get_genitals.get_organ_slot(ORGAN_SLOT_ANUS)) //SPLURT Edit
 			var/simulated_ass = list()
 			simulated_ass["name"] = "Anus"
 			simulated_ass["key"] = "anus"
@@ -279,7 +279,7 @@
 					human.update_genitals()
 				return
 			if("set_accessibility" in params)
-				if(!self.getorganslot(ORGAN_SLOT_ANUS) && params["genital"] == "anus")
+				if(!self.get_organ_slot(ORGAN_SLOT_ANUS) && params["genital"] == "anus")
 					self.toggle_anus_always_accessible()
 					return TRUE
 				var/obj/item/organ/genital/genital = locate(params["genital"], self.organs)

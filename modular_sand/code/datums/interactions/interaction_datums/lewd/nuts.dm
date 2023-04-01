@@ -22,7 +22,7 @@
 		message = pick(list(
 			"втискивает свой палец сбоку в челюсти <b>[partner]</b> и с лёгкостью её разжимает, после чего использует вторую свою руку, чтобы засунуть свои семенники внутрь!",
 			"встает так, чтобы пах находился в нескольких сантиметрах от лица <b>[partner]</b>, затем толкает свои бедра вперед и начинает тереться своими яйцами об лицо <b>[partner]</b>."))
-		user.set_is_fucking(partner, NUTS_TO_FACE, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(partner, NUTS_TO_FACE, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
 						'modular_sand/sound/interactions/oral1.ogg',

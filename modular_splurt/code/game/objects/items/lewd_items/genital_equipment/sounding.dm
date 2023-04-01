@@ -24,7 +24,7 @@
 	if(unwrapped == 0 )
 		to_chat(user, "<span class='notice'>You must remove the rod from the package first!</span>")
 		return
-	var/obj/item/organ/genital/penis/P = C.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/penis/P = C.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(C.has_penis(REQUIRE_EXPOSED) && (P?.genital_flags & HAS_EQUIPMENT))
 		if(P.equipment[GENITAL_EQUIPMENT_SOUNDING])
 			to_chat(user, "<span class='notice'><b>\The [C]</b> already has a rod inside!</span>")
@@ -55,7 +55,7 @@
 
 /mob/living/carbon/human/proc/removesounding()
 
-	var/obj/item/organ/genital/penis/P = getorganslot("penis")
+	var/obj/item/organ/genital/penis/P = get_organ_slot("penis")
 	if(P.equipment[GENITAL_EQUIPMENT_SOUNDING])
 		P.equipment.Remove(GENITAL_EQUIPMENT_SOUNDING)
 		new /obj/item/genital_equipment/sounding/used_sounding(loc)
@@ -69,7 +69,7 @@
 
 /mob/living/carbon/human/proc/soundingclimax()
 
-	var/obj/item/organ/genital/penis/P = src.getorganslot("penis")
+	var/obj/item/organ/genital/penis/P = src.get_organ_slot("penis")
 	if(P.sounding)
 		new /obj/item/genital_equipment/sounding/used_sounding(usr.loc)
 		P.sounding = 0

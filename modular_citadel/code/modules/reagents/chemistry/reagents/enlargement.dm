@@ -43,7 +43,7 @@
 		M.reagents.del_reagent(type)
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_BREASTS) && H.emergent_genital_call())
+	if(!H.get_organ_slot(ORGAN_SLOT_BREASTS) && H.emergent_genital_call())
 		H.genital_override = TRUE
 
 /datum/reagent/fermi/breast_enlarger/on_mob_life(mob/living/carbon/M) //Increases breast size
@@ -54,7 +54,7 @@
 	//If they've opted out, ignore and return early.
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)))
 		return..()
-	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	//otherwise proceed as normal
 	if(!B) //If they don't have breasts, give them breasts.
 
@@ -79,10 +79,10 @@
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_shrinkage)))
 		return ..()
 
-	var/obj/item/organ/genital/penis/P = M.getorganslot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/genital/testicles/T = M.getorganslot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/genital/vagina/V = M.getorganslot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/W = M.getorganslot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 
 	if(M.gender == MALE)
 		M.set_gender(FEMALE)
@@ -112,7 +112,7 @@
 	chemical_flags = NONE
 
 /datum/reagent/fermi/BEsmaller/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) || !B)
 		return ..()
 	B.modify_size(-0.05)
@@ -132,13 +132,13 @@
 	if(!ishuman(M))
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_VAGINA) && H.dna.features["has_vag"])
+	if(!H.get_organ_slot(ORGAN_SLOT_VAGINA) && H.dna.features["has_vag"])
 		H.give_genital(/obj/item/organ/genital/vagina)
-	if(!H.getorganslot(ORGAN_SLOT_WOMB) && H.dna.features["has_womb"])
+	if(!H.get_organ_slot(ORGAN_SLOT_WOMB) && H.dna.features["has_womb"])
 		H.give_genital(/obj/item/organ/genital/womb)
 
 /datum/reagent/fermi/BEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!B)
 		return..()
 	var/optimal_size = B.breast_values[M.dna.features["breasts_size"]]
@@ -181,7 +181,7 @@
 		M.reagents.del_reagent(type)
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_PENIS) && H.emergent_genital_call())
+	if(!H.get_organ_slot(ORGAN_SLOT_PENIS) && H.emergent_genital_call())
 		H.genital_override = TRUE
 
 /datum/reagent/fermi/penis_enlarger/on_mob_life(mob/living/carbon/M) //Increases penis size, 5u = +1 inch.
@@ -191,8 +191,8 @@
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return ..()
 
-	var/obj/item/organ/genital/testicles/T = H.getorganslot(ORGAN_SLOT_TESTICLES) //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
-	var/obj/item/organ/genital/penis/P = H.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/testicles/T = H.get_organ_slot(ORGAN_SLOT_TESTICLES) //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
+	var/obj/item/organ/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
 	//otherwise proceed as normal
 
 	if(!T)//Hyper change// Adds testicles if there are none.
@@ -221,10 +221,10 @@
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return..()
 
-	var/obj/item/organ/genital/breasts/B = M.getorganslot(ORGAN_SLOT_BREASTS)
-	var/obj/item/organ/genital/testicles/T = M.getorganslot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/genital/vagina/V = M.getorganslot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/W = M.getorganslot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 
 	if(M.gender == FEMALE)
 		M.set_gender(MALE)
@@ -252,7 +252,7 @@
 	if(!ishuman(M))
 		return ..()
 	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/genital/penis/P = H.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)) || !P)
 		return..()
 
@@ -272,13 +272,13 @@
 	if(!ishuman(M))
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_PENIS) && H.dna.features["has_cock"])
+	if(!H.get_organ_slot(ORGAN_SLOT_PENIS) && H.dna.features["has_cock"])
 		H.give_genital(/obj/item/organ/genital/penis)
-	if(!H.getorganslot(ORGAN_SLOT_TESTICLES) && H.dna.features["has_balls"])
+	if(!H.get_organ_slot(ORGAN_SLOT_TESTICLES) && H.dna.features["has_balls"])
 		H.give_genital(/obj/item/organ/genital/testicles)
 
 /datum/reagent/fermi/PEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/penis/P = M.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!P)
 		return ..()
 	var/optimal_size = M.dna.features["cock_length"]
@@ -315,7 +315,7 @@
 		M.reagents.del_reagent(type)
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_BUTT) && H.emergent_genital_call())
+	if(!H.get_organ_slot(ORGAN_SLOT_BUTT) && H.emergent_genital_call())
 		H.genital_override = TRUE
 
 /datum/reagent/fermi/butt_enlarger/on_mob_life(mob/living/carbon/M) //Increases butt size
@@ -324,7 +324,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!(H.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 		return ..()
-	var/obj/item/organ/genital/butt/B = M.getorganslot(ORGAN_SLOT_BUTT)
+	var/obj/item/organ/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
 	if(!B) //If they don't have a butt. Give them one!
 		var/obj/item/organ/genital/butt/nB = new
 		nB.Insert(M)
@@ -357,11 +357,11 @@
 	if(!ishuman(M))
 		return
 	var/mob/living/carbon/human/H = M
-	if(!H.getorganslot(ORGAN_SLOT_BUTT) && H.dna.features["has_butt"])
+	if(!H.get_organ_slot(ORGAN_SLOT_BUTT) && H.dna.features["has_butt"])
 		H.give_genital(/obj/item/organ/genital/butt)
 
 /datum/reagent/fermi/AEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/butt/B = M.getorganslot(ORGAN_SLOT_BUTT)
+	var/obj/item/organ/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
 	if(!B)
 		return ..()
 	var/optimal_size = M.dna.features["butt_size"]

@@ -76,7 +76,7 @@
 /obj/item/clothing/shoes/jackboots/cbrn/mopp/advance
 	name = "advance MOPP boots"
 	desc = "Mission Oriented Protective Posture. Thick black boots design for working in hazardous combat environments. Used by CentCom Officer and ERT staff."
-	clothing_flags = NOSLIP
+	clothing_flags = NO_SLIP_WHEN_WALKING
 
 //research nods
 /datum/design/cbrn/cbrnboots

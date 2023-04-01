@@ -4,7 +4,7 @@
 /mob/proc/adjustEarDamage()
 
 /mob/living/carbon/adjustEarDamage(ddmg, ddeaf)
-	var/obj/item/organ/internal/ears/ears = getorgan(ORGAN_SLOT_EARS)
+	var/obj/item/organ/internal/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
 	if(ears)
 		ears.adjustEarDamage(ddmg, ddeaf)
 

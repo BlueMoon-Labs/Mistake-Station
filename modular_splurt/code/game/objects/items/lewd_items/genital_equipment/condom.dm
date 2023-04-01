@@ -65,7 +65,7 @@
 	if(unwrapped == 0 )
 		to_chat(user, "<span class='notice'>You must remove the condom from the package first!</span>")
 		return
-	var/obj/item/organ/genital/penis/P = C.getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/penis/P = C.get_organ_slot(ORGAN_SLOT_PENIS)
 	if((C.has_penis(REQUIRE_EXPOSED) && (P?.genital_flags & HAS_EQUIPMENT)) || (C.has_strapon(REQUIRE_EXPOSED)))
 		if(P.equipment[GENITAL_EQUIPEMENT_CONDOM])
 			to_chat(user, "<span class='notice'>\The [C] already has condom on!</span>")
@@ -105,7 +105,7 @@
 /* Handled on lewd interactions
 /mob/living/carbon/human/proc/removecondom()
 
-	var/obj/item/organ/genital/penis/P = getorganslot("penis")
+	var/obj/item/organ/genital/penis/P = get_organ_slot("penis")
 	if(P.condom)
 		new /obj/item/clothing/head/condom(usr.loc)
 		P.condom = FALSE
@@ -144,7 +144,7 @@
 */
 
 /mob/living/carbon/human/proc/condomclimax()
-	var/obj/item/organ/genital/penis/P = getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/penis/P = get_organ_slot(ORGAN_SLOT_PENIS)
 	var/obj/item/genital_equipment/condom/condo = locate(/obj/item/genital_equipment/condom) in P.contents
 	return condo
 

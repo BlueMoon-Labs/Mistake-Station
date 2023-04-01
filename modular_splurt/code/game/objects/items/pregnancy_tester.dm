@@ -42,7 +42,7 @@
 		to_chat(user, span_warning("This tester is already used!"))
 		return
 
-	var/obj/item/organ/container = target.getorganslot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/container = target.get_organ_slot(ORGAN_SLOT_WOMB)
 
 	results = "negative"
 

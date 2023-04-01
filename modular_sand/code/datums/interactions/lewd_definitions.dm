@@ -92,7 +92,7 @@
 /mob/living/proc/has_genital(slot, visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/genital/genital = C.getorganslot(slot)
+		var/obj/item/organ/genital/genital = C.get_organ_slot(slot)
 		if(genital)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -261,7 +261,7 @@
 /mob/living/proc/has_ears(visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/peepee = C.getorganslot(ORGAN_SLOT_EARS)
+		var/obj/item/organ/peepee = C.get_organ_slot(ORGAN_SLOT_EARS)
 		if(peepee)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -283,7 +283,7 @@
 /mob/living/proc/has_earsockets(visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/peepee = C.getorganslot(ORGAN_SLOT_EARS)
+		var/obj/item/organ/peepee = C.get_organ_slot(ORGAN_SLOT_EARS)
 		if(!peepee)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -305,7 +305,7 @@
 /mob/living/proc/has_eyes(visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/peepee = C.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/peepee = C.get_organ_slot(ORGAN_SLOT_EYES)
 		if(peepee)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -327,7 +327,7 @@
 /mob/living/proc/has_eyesockets(visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/peepee = C.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/peepee = C.get_organ_slot(ORGAN_SLOT_EYES)
 		if(!peepee)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -351,7 +351,7 @@
 	if(has_butt && !istype(C))
 		return TRUE
 	if(istype(C))
-		var/obj/item/organ/genital/peepee = C.getorganslot(ORGAN_SLOT_BUTT)
+		var/obj/item/organ/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BUTT)
 		if(peepee)
 			switch(nintendo)
 				if(REQUIRE_ANY)
@@ -460,7 +460,7 @@
 					if(CUM_TARGET_VAGINA)
 						if(partner.has_vagina(REQUIRE_EXPOSED))
 							if(partner_carbon_check)
-								target_gen = c_partner.getorganslot(ORGAN_SLOT_VAGINA)
+								target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 							message = "cums in \the <b>[partner]</b>'s pussy."
 							cumin = TRUE
 						else
@@ -624,7 +624,7 @@
 						if(CUM_TARGET_VAGINA)
 							if(partner.has_vagina(REQUIRE_EXPOSED))
 								if(partner_carbon_check)
-									target_gen = c_partner.getorganslot(ORGAN_SLOT_VAGINA)
+									target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 								message = "cums in \the <b>[partner]</b>'s pussy."
 								cumin = TRUE
 							else

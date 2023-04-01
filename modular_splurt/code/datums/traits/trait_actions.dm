@@ -741,9 +741,9 @@
 		return
 
 	// Define citadel organs
-	var/obj/item/organ/genital/penis/organ_penis = action_owner.getorganslot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/genital/breasts/organ_breasts = action_owner.getorganslot(ORGAN_SLOT_BREASTS)
-	var/obj/item/organ/genital/vagina/organ_vagina = action_owner.getorganslot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/genital/penis/organ_penis = action_owner.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/breasts/organ_breasts = action_owner.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/vagina/organ_vagina = action_owner.get_organ_slot(ORGAN_SLOT_VAGINA)
 
 	// Play shake animation
 	action_owner.do_jitter_animation(2)

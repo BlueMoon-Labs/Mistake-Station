@@ -70,7 +70,7 @@
 		heat_phrases += "сильный стояк"
 
 	// Check for female hormonal organ
-	if(quirk_holder.getorganslot(ORGAN_SLOT_WOMB))
+	if(quirk_holder.get_organ_slot(ORGAN_SLOT_WOMB))
 		heat_phrases += "сильную течку"
 
 	// Build English list

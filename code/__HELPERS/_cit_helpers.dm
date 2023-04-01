@@ -110,29 +110,29 @@ GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 
 /*pretty much everything got moved to modular_skyrat (interactions)
 /mob/living/carbon/has_penis() // Skyrat Change
-	var/obj/item/organ/genital/G = getorganslot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/G = get_organ_slot(ORGAN_SLOT_PENIS)
 	if(G && istype(G, /obj/item/organ/genital/penis))
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/proc/has_balls() // Skyrat Change
-	var/obj/item/organ/genital/G = getorganslot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/genital/G = get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(G && istype(G, /obj/item/organ/genital/testicles))
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/has_vagina() // Skyrat Change
-	if(getorganslot(ORGAN_SLOT_VAGINA))
+	if(get_organ_slot(ORGAN_SLOT_VAGINA))
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/has_breasts() // Skyrat Change
-	if(getorganslot(ORGAN_SLOT_BREASTS))
+	if(get_organ_slot(ORGAN_SLOT_BREASTS))
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/proc/has_butt()
-	if(getorganslot(ORGAN_SLOT_BUTT))
+	if(get_organ_slot(ORGAN_SLOT_BUTT))
 		return TRUE
 	return FALSE
 */

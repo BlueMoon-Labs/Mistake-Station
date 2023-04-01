@@ -594,10 +594,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	occupant
 
 /obj/machinery/cryopod/proc/cryoMob(mob/living/mob_occupant, datum/weakref/control_computer_weakref, obj/machinery/cryopod/pod, is_teleporter, initial_name, effects = FALSE)
-	var/list/crew_member = list()
+	despawn_occupant()
 
-/obj/machinery/cryopod/prison/close_machine(atom/movable/target, density_to_set = TRUE)
+/obj/machinery/cryopod/prison/close_machine(atom/movable/target, density_to_set = TRUE, mob/living/mob_occupant, datum/weakref/control_computer_weakref, obj/machinery/cryopod/pod, is_teleporter, initial_name, effects = FALSE)
 	. = ..()
+	var/list/crew_member = list()
 	// Flick the pod for a second when user enters
 	flick("prisonpod-open", src)
 	// No computer passed in, use admin-cryo instead
@@ -809,7 +810,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	// Simple way to make it always non-dense.
 	return ..(FALSE)
 
-/obj/machinery/cryopod/prison/close_machine(atom/movable/target)
+/obj/machinery/cryopod/prison/close_machine(atom/movable/target, density_to_set = FALSE)
 	. = ..()
 	// Flick the pod for a second when user enters
 	flick("prisonpod-open", src)

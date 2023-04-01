@@ -26,14 +26,14 @@
 	if(receiver)
 		switch(receiver.slot) //Feel free to add more options for other receiving genitals if you desire
 			if(ORGAN_SLOT_VAGINA)
-				var/obj/item/organ/genital/womb/W = h_self.getorganslot(ORGAN_SLOT_WOMB)
+				var/obj/item/organ/genital/womb/W = h_self.get_organ_slot(ORGAN_SLOT_WOMB)
 				if(W && h_partner && !spill && !HAS_TRAIT(h_self, TRAIT_INFERTILE) && istype(source_gen, /obj/item/organ/genital/penis))
 					var/obj/item/organ/genital/penis/Sp = source_gen
 					if(prob(30 + clamp((70*(rand() + (h_self.sexual_potency + h_partner.sexual_potency)/200)), 0, 70)) && !W.impregnated && !Sp.equipment[GENITAL_EQUIPEMENT_CONDOM] && (Sp.linked_organ.fluid_id == /datum/reagent/consumable/semen))
 						W.impregnated = TRUE
 						log_game("Debug: [h_self] has been impregnated by [h_partner]")
 						to_chat(src, "<span class='userlove'>You feel your hormones change, and a motherly instinct take over.</span>")
-						var/obj/item/organ/genital/breasts/B = h_self.getorganslot(ORGAN_SLOT_BREASTS)
+						var/obj/item/organ/genital/breasts/B = h_self.get_organ_slot(ORGAN_SLOT_BREASTS)
 						if(B)
 							B.fluid_rate *= 2
 */

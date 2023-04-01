@@ -48,7 +48,7 @@
 
 /datum/interaction/lewd/self_nipsuck/display_interaction(mob/living/user, mob/living/target)
 	var/message
-	var/obj/item/organ/genital/breasts/milkers = user.getorganslot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
 	var/milktype = milkers?.fluid_id
 	var/modifier
 	var/list/lines

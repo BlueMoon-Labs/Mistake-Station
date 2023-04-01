@@ -122,8 +122,8 @@
 
 /datum/quirk/cum_plus/add()
 	var/mob/living/carbon/M = quirk_holder
-	if(M.getorganslot("testicles"))
-		var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
+	if(M.get_organ_slot("testicles"))
+		var/obj/item/organ/genital/testicles/T = M.get_organ_slot("testicles")
 		T.fluid_mult = 1.5 //Base is 1
 		T.fluid_max_volume = 5
 
@@ -131,15 +131,15 @@
 	var/mob/living/carbon/M = quirk_holder
 	if(!M)
 		return
-	if(quirk_holder.getorganslot("testicles"))
-		var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
+	if(quirk_holder.get_organ_slot("testicles"))
+		var/obj/item/organ/genital/testicles/T = M.get_organ_slot("testicles")
 		T.fluid_mult = 1 //Base is 1
 		T.fluid_max_volume = 3 //Base is 3
 
 /datum/quirk/cum_plus/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
 	var/mob/living/carbon/M = quirk_holder //If you get balls later, then this will still proc
-	if(M.getorganslot("testicles"))
-		var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
+	if(M.get_organ_slot("testicles"))
+		var/obj/item/organ/genital/testicles/T = M.get_organ_slot("testicles")
 		if(T.fluid_max_volume <= 5 || T.fluid_mult <= 0.2) //INVALID EXPRESSION?
 			T.fluid_mult = 1.5 //Base is 0.133
 			T.fluid_max_volume = 5

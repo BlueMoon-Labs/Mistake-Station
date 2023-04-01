@@ -127,7 +127,7 @@
 	var/penis_names = list()
 	for(var/mob/living/carbon/human/person in list(M, portal_target))
 		if(person.has_penis())
-			var/obj/item/organ/genital/penis/person_penis = person.getorganslot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/person_penis = person.get_organ_slot(ORGAN_SLOT_PENIS)
 			LAZYADD(penis_names, "[person_penis.length]-см [lowertext(person_penis.shape)]")
 			LAZYADD(penis_names, "пенис")
 		else if(person.has_strapon())
@@ -533,12 +533,12 @@
 	var/obj/item/organ/genital/G
 
 	if(portalunderwear.targetting == CUM_TARGET_VAGINA)
-		G = H.getorganslot(ORGAN_SLOT_VAGINA)
+		G = H.get_organ_slot(ORGAN_SLOT_VAGINA)
 		if(!G)
 			useable = FALSE
 			return
 	else if(portalunderwear.targetting == CUM_TARGET_PENIS || portalunderwear.targetting == CUM_TARGET_URETHRA)
-		G = H.getorganslot(ORGAN_SLOT_PENIS)
+		G = H.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(!G)
 			useable = FALSE
 			return

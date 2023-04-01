@@ -22,7 +22,7 @@
 		message = "[pick("хватается за свой член и начинает его наяривать.",
 			"активно теребит свой орган не без помощи своих ладоней.",
 			"с усердием вздрачивает свой пенис.")]"
-		user.set_is_fucking(user, CUM_TARGET_HAND, user.getorganslot(ORGAN_SLOT_PENIS))
+		user.set_is_fucking(user, CUM_TARGET_HAND, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
 						'modular_sand/sound/interactions/bang2.ogg',

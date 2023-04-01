@@ -39,7 +39,7 @@
 	else if(storedorgan)
 		. += "<span class='notice'>[src] is prepared to insert [storedorgan].</span>"
 
-/obj/machinery/autodoc/close_machine(mob/user)
+/obj/machinery/autodoc/close_machine(mob/user, density_to_set = FALSE)
 	..()
 	playsound(src, 'sound/machines/click.ogg', 50)
 	if(occupant)
@@ -79,7 +79,7 @@
 		sleep(surgerytime)
 		if(!processing)
 			return
-		var/obj/item/organ/currentorgan = C.getorganslot(storedorgan.slot)
+		var/obj/item/organ/currentorgan = C.get_organ_slot(storedorgan.slot)
 		if(currentorgan)
 			currentorgan.Remove(C)
 			currentorgan.forceMove(get_turf(src))
@@ -90,7 +90,7 @@
 	processing = FALSE
 	open_machine()
 
-/obj/machinery/autodoc/open_machine(mob/user)
+/obj/machinery/autodoc/open_machine(mob/user, density_to_set = FALSE)
 	if(processing)
 		occupant.visible_message("<span class='notice'>[user] cancels [src]'s procedure.", "<span class='notice'>[src] stops inserting the organ into your body.</span>")
 		processing = FALSE
