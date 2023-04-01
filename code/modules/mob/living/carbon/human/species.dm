@@ -26,10 +26,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///A bitfield of "bodytypes", updated by /datum/obj/item/bodypart/proc/synchronize_bodytypes()
 	var/bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC
 	///Clothing offsets. If a species has a different body than other species, you can offset clothing so they look less weird.
-	var/list/offset_features = list(
+	var/list/offset_features = list( //BlueMoon
 		OFFSET_UNIFORM = list(0,0),
+		OFFSET_UNDERWEAR = list(0,0), //BlueMoon
+		OFFSET_SOCKS = list(0,0), //BlueMoon
+		OFFSET_SHIRT = list(0,0), //BlueMoon
 		OFFSET_ID = list(0,0),
 		OFFSET_GLOVES = list(0,0),
+		OFFSET_WRISTS = list(0,0), //BlueMoon
 		OFFSET_GLASSES = list(0,0),
 		OFFSET_EARS = list(0,0),
 		OFFSET_SHOES = list(0,0),
@@ -901,6 +905,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.num_hands < 2)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//BlueMoon edit
+		if(ITEM_SLOT_WRISTS)
+			if(H.wrists)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_WRISTS) )
+				return FALSE
+			if(H.num_hands < 2)
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
@@ -931,10 +945,42 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(ITEM_SLOT_EARS)
+		if(ITEM_SLOT_EARS_LEFT) //BlueMoon edit
+			if(H.ears)
+				return FALSE
+			if(!(I.slot_flags & ITEM_SLOT_EARS))
+				return FALSE
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//BlueMoon edit
+		if(ITEM_SLOT_EARS_RIGHT)
+			if(H.ears_extra)
+				return FALSE
+			if(!(I.slot_flags & ITEM_SLOT_EARS))
+				return FALSE
+			if(!H.get_bodypart(BODY_ZONE_HEAD))
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_UNDERWEAR)
+			if(H.w_underwear)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_UNDERWEAR) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_SOCKS)
+			if(H.w_socks)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_SOCKS) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_SHIRT)
+			if(H.w_shirt)
+				return FALSE
+			if( !(I.slot_flags & ITEM_SLOT_SHIRT) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//
 		if(ITEM_SLOT_ICLOTHING)
 			var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
 			if(chest && (chest.bodytype & BODYTYPE_MONKEY))

@@ -47,6 +47,20 @@
 /mob/proc/update_worn_undersuit()
 	return
 
+//BlueMoon edit
+/mob/proc/update_inv_w_underwear()
+	return
+
+/mob/proc/update_inv_w_socks()
+	return
+
+/mob/proc/update_inv_w_shirt()
+	return
+
+/mob/proc/update_inv_wrists()
+	return
+//
+
 ///Updates the belt overlay & HUD element.
 /mob/proc/update_worn_belt()
 	return
@@ -88,4 +102,7 @@
 
 ///Updates the handcuff overlay & HUD element.
 /mob/proc/update_inv_ears()
+	return
+
+/mob/proc/update_inv_ears_extra()
 	return

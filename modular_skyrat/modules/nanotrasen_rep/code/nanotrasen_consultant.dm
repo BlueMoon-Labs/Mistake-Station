@@ -85,7 +85,7 @@
 
 /obj/item/radio/headset/heads/nanotrasen_consultant/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT)) //BlueMoon edit
 
 /obj/effect/landmark/start/nanotrasen_consultant
 	name = "Nanotrasen Consultant"

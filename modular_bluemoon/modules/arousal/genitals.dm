@@ -245,6 +245,7 @@
 /obj/item/organ/genital/proc/is_exposed()
 	if(!owner || genital_flags & (GENITAL_INTERNAL|GENITAL_HIDDEN))
 		return FALSE
+
 	/* skyrat edit
 	if(genital_flags & GENITAL_UNDIES_HIDDEN && ishuman(owner))
 		var/mob/living/carbon/human/H = owner
@@ -254,6 +255,7 @@
 			if(zone == BODY_ZONE_CHEST ? (T?.covers_chest || B?.covers_chest) : (T?.covers_groin || B?.covers_groin))
 				return FALSE
 	*/
+
 	if(genital_flags & GENITAL_THROUGH_CLOTHES)
 		return TRUE
 

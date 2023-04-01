@@ -51,7 +51,7 @@ There are several things that need to be remembered:
 
 	if(!..())
 		update_worn_undersuit()
-		// Sandstorm edit
+		// BlueMoon edit
 		update_inv_w_underwear()
 		update_inv_w_socks()
 		update_inv_w_shirt()
@@ -263,23 +263,6 @@ There are several things that need to be remembered:
 		overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
-//Bluemoon edit
-/mob/proc/update_inv_w_underwear()
-	return
-
-/mob/proc/update_inv_w_socks()
-	return
-
-/mob/proc/update_inv_w_shirt()
-	return
-
-/mob/proc/update_inv_wrists()
-	return
-
-/mob/proc/update_inv_ears_extra()
-	return
-//
-
 /mob/living/carbon/human/update_inv_ears()
 	remove_overlay(EAR_LEFT_LAYER)
 
@@ -352,7 +335,7 @@ There are several things that need to be remembered:
 		overlays_standing[EAR_RIGHT_LAYER] = ears_overlay
 	apply_overlay(EAR_RIGHT_LAYER)
 
-// Sandstorm edit
+// BlueMoon edit
 /mob/living/carbon/human/update_inv_wrists()
 	remove_overlay(WRISTS_LAYER)
 
@@ -404,7 +387,7 @@ There are several things that need to be remembered:
 	apply_overlay(WRISTS_LAYER)
 //
 
-// Sandstorm edit
+// BlueMoon edit
 /mob/living/carbon/human/update_inv_w_underwear()
 	remove_overlay(UNDERWEAR_LAYER)
 

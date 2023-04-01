@@ -24,7 +24,7 @@
 	if(!damage_type)
 		return 0
 	var/protection = 100
-	var/list/covering_clothing = list(head, wear_mask, wear_suit, w_uniform, back, gloves, shoes, belt, s_store, glasses, ears, wear_id, wear_neck) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/covering_clothing = list(head, wear_mask, wear_suit, w_uniform, w_underwear, w_socks, w_shirt, back, gloves, wrists, shoes, belt, s_store, glasses, ears, ears_extra, wear_id, wear_neck) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor) //BlueMoon edit
 	for(var/obj/item/clothing/clothing_item in covering_clothing)
 		if(clothing_item.body_parts_covered & def_zone.body_part)
 			protection *= (100 - min(clothing_item.get_armor_rating(damage_type), 100)) * 0.01

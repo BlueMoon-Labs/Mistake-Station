@@ -9,7 +9,7 @@
 	var/t_on 	= ru_who(TRUE)
 	var/t_ego 	= ru_ego()
 	//var/t_na 	= ru_na()
-	//var/t_a 	= ru_a()
+	var/t_a 	= ru_a()
 
 	var/obscure_name
 	var/obscure_examine
@@ -67,6 +67,21 @@
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	*/ //SKYRAT EDIT END
+
+	//Underwear
+	var/shirt_hidden = undershirt_hidden()
+	var/undies_hidden = underwear_hidden()
+	var/socks_hidden = socks_hidden()
+	if(w_underwear && !undies_hidden)
+		. += "[t_on] одет[t_a] в [w_underwear.get_examine_string(user)]."
+	if(w_socks && !socks_hidden)
+		. += "[t_on] одет[t_a] в [w_socks.get_examine_string(user)]."
+	if(w_shirt && !shirt_hidden)
+		. += "[t_on] одет[t_a] в [w_shirt.get_examine_string(user)]."
+	//Wrist slot because you're epic
+	if(wrists && !(ITEM_SLOT_WRISTS in obscured))
+		. += "[t_on] одет[t_a] в [wrists.get_examine_string(user)]."
+	//End of skyrat changes
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
@@ -136,8 +151,13 @@
 			. += "<span class='warning'><B>[t_His] eyes are bloodshot!</B></span>"
 
 	//ears
-	if(ears && !(obscured & ITEM_SLOT_EARS) && !(ears.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.get_examine_string(user)] on [t_his] ears."
+	if(ears && !(ITEM_SLOT_EARS_LEFT in obscured))
+		. += "На ушах у н[t_ego] [ears.get_examine_string(user)]."
+	if(ears_extra && !(ITEM_SLOT_EARS_RIGHT in obscured))
+		. += "На ушах у н[t_ego] [ears_extra.get_examine_string(user)]."
+	//wearing two ear items makes you look like an idiot
+	if((istype(ears, /obj/item/radio/headset) && !(ITEM_SLOT_EARS_LEFT in obscured)) && (istype(ears_extra, /obj/item/radio/headset) && !(ITEM_SLOT_EARS_RIGHT in obscured)))
+		. += "<span class='warning'>[t_He] looks quite tacky wearing both \an [ears.name] and \an [ears_extra.name] on [t_his] head.</span>"
 
 	//ID
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))

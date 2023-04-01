@@ -72,7 +72,7 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	AddElement(/datum/element/earhealing)
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT)) //BlueMoon edit
 	update_icon_state()
 	update_icon()
 	if(!length(kinkphones_designs))

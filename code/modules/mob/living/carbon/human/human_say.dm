@@ -9,7 +9,7 @@
 			message = tongueless_upper.Replace(message, pick("AA","OO","'"))
 	return ..()
 
-/mob/living/carbon/human/say_mod(input, list/message_mods = list())
+/mob/living/carbon/human/say_mod(input, list/message_mods = list(), atom/target)
 	var/obj/item/organ/internal/tongue/tongue = getorganslot(ORGAN_SLOT_TONGUE)
 	if(!tongue)
 		if(HAS_TRAIT(src, TRAIT_SIGN_LANG))
@@ -70,15 +70,28 @@
 	if(message_mods[MODE_HEADSET])
 		if(ears)
 			ears.talk_into(src, message, , spans, language, message_mods)
+		//BlueMoon edit
+		else if (ears_extra)
+			ears_extra.talk_into(src, message, spans, language, message_mods)
+		//
 		return ITALICS | REDUCE_RANGE
 	else if(message_mods[RADIO_EXTENSION] == MODE_DEPARTMENT)
 		if(ears)
 			ears.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods)
+		//BlueMoon edit
+		else if (ears_extra)
+			ears_extra.talk_into(src, message, spans, language, message_mods)
+		//
 		return ITALICS | REDUCE_RANGE
 	else if(GLOB.radiochannels[message_mods[RADIO_EXTENSION]])
 		if(ears)
 			ears.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods)
 			return ITALICS | REDUCE_RANGE
+		//BlueMoon edit
+		else if (ears_extra)
+			ears_extra.talk_into(src, message, spans, language, message_mods)
+			return ITALICS | REDUCE_RANGE
+		//
 
 	return FALSE
 

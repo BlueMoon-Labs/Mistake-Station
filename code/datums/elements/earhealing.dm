@@ -17,7 +17,7 @@
 /datum/element/earhealing/proc/on_equip(datum/source, mob/living/carbon/user, slot)
 	SIGNAL_HANDLER
 
-	if((slot & ITEM_SLOT_EARS) && istype(user))
+	if(((slot == ITEM_SLOT_EARS_LEFT) || (slot == ITEM_SLOT_EARS_RIGHT)) && istype(user)) //BlueMoon edit
 		START_PROCESSING(SSdcs, src)
 		user_by_item[source] = user
 	else

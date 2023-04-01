@@ -427,7 +427,7 @@
 #define OFFSET_BACK "back"
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
-#define OFFSET_ACCESSORY "accessory" // Skyrat edit - addition
+#define OFFSET_ACCESSORY "accessory" // Bluemoon edit - addition
 #define OFFSET_UNDERWEAR "underwear"
 #define	OFFSET_SOCKS "socks"
 #define OFFSET_SHIRT "shirt"

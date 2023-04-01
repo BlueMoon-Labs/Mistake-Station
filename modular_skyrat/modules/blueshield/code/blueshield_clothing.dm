@@ -30,7 +30,7 @@
 
 /obj/item/radio/headset/headset_bs/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT)) //BlueMoon edit
 
 
 /obj/item/clothing/head/helmet/space/plasmaman/blueshield

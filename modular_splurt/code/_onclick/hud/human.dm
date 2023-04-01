@@ -1,13 +1,13 @@
 
 /proc/tg_ui_icon_to_cit_ui(ui_style)
 	switch(ui_style)
-		if('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/plasmafire.dmi')
+		if('icons/hud/screen_plasmafire.dmi')
 			return 'modular_citadel/icons/ui/screen_plasmafire.dmi'
-		if('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/slimecore.dmi')
+		if('icons/hud/screen_slimecore.dmi')
 			return 'modular_citadel/icons/ui/screen_slimecore.dmi'
-		if('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/operative.dmi')
+		if('icons/hud/screen_operative.dmi')
 			return 'modular_citadel/icons/ui/screen_operative.dmi'
-		if('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/clockwork.dmi')
+		if('icons/hud/screen_clockwork.dmi')
 			return 'modular_citadel/icons/ui/screen_clockwork.dmi'
 		if('modular_sand/icons/mob/screen_liteweb.dmi')
 			return 'modular_sand/icons/mob/screen_liteweb.dmi'

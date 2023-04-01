@@ -667,7 +667,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 
 /obj/item/radio/headset/abductor/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT)) //BlueMoon edit
 	make_syndie()
 
 // Stops humans from disassembling abductor headsets.

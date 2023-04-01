@@ -210,6 +210,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/canMouseDown = FALSE
 
+	//BLUEMOON CHANGE
+	var/hide_underwear_examine = FALSE
+	//and no, i'm not taking self-equip delays, period.
+
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
 	var/offensive_notes
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
@@ -895,6 +899,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		owner.update_worn_oversuit()
 	if(flags & ITEM_SLOT_ICLOTHING)
 		owner.update_worn_undersuit()
+	//BlueMoon edit
+	if(flags & ITEM_SLOT_UNDERWEAR)
+		owner.update_inv_w_underwear()
+	if(flags & ITEM_SLOT_SOCKS)
+		owner.update_inv_w_socks()
+	if(flags & ITEM_SLOT_SHIRT)
+		owner.update_inv_w_shirt()
+	if(flags & ITEM_SLOT_EARS)
+		owner.update_inv_ears_extra()
+	if(flags & ITEM_SLOT_WRISTS)
+		owner.update_inv_wrists()
+	//
 	if(flags & ITEM_SLOT_GLOVES)
 		owner.update_worn_gloves()
 	if(flags & ITEM_SLOT_EYES)

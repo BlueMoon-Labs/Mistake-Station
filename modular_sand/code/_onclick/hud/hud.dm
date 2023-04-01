@@ -11,20 +11,17 @@
 
 // Used for getting icons for extra inventory slots
 GLOBAL_LIST_INIT(modular_ui_styles, list(
-	"icons/hud/screen_midnight.dmi" = "modular_sand/icons/mob/screen_midnight.dmi",
-	"icons/hud/screen_retro.dmi" = "modular_sand/icons/mob/screen_retro.dmi",
-	"icons/hud/screen_plasmafire.dmi" = "modular_sand/icons/mob/screen_plasmafire.dmi",
-	"icons/hud/screen_slimecore.dmi" = "modular_sand/icons/mob/screen_slimecore.dmi",
-	"icons/hud/screen_operative.dmi" = "modular_sand/icons/mob/screen_operative.dmi",
-	"icons/hud/screen_clockwork.dmi" = "modular_sand/icons/mob/screen_clockwork.dmi",
-	"modular_sand/icons/mob/screen_liteweb.dmi" = "modular_sand/icons/mob/screen_liteweb.dmi"
+	"Midnight" = "modular_sand/icons/mob/screen_midnight.dmi",
+	"Retro" = "modular_sand/icons/mob/screen_retro.dmi",
+	"Plasmafire" = "modular_sand/icons/mob/screen_plasmafire.dmi",
+	"Slimecore" = "modular_sand/icons/mob/screen_slimecore.dmi",
+	"Operative" = "modular_sand/icons/mob/screen_operative.dmi",
+	"Clockwork" = "modular_sand/icons/mob/screen_clockwork.dmi",
+	"Liteweb" = "modular_sand/icons/mob/screen_liteweb.dmi"
 ))
 
 // Same as above
 /proc/ui_style_modular(ui_style)
-	if(isfile(ui_style))
-		return GLOB.modular_ui_styles[ui_style] || GLOB.modular_ui_styles[GLOB.modular_ui_styles[1]]
-	else
 		return GLOB.modular_ui_styles[ui_style] || GLOB.modular_ui_styles[GLOB.modular_ui_styles[1]]
 
 // Called after updating extra inventory
