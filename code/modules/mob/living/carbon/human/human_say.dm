@@ -9,8 +9,8 @@
 			message = tongueless_upper.Replace(message, pick("AA","OO","'"))
 	return ..()
 
-/mob/living/carbon/human/say_mod(input, list/message_mods = list(), atom/target)
-	var/obj/item/organ/internal/tongue/tongue = getorganslot(ORGAN_SLOT_TONGUE)
+/mob/living/carbon/human/say_mod(input, list/message_mods = list())
+	var/obj/item/organ/internal/tongue/tongue = get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(!tongue)
 		if(HAS_TRAIT(src, TRAIT_SIGN_LANG))
 			verb_say = "signs"

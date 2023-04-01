@@ -189,7 +189,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 		RegisterSignal(living_mob, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 
 	// Brains are optional for lings.
-	var/obj/item/organ/internal/brain/our_ling_brain = living_mob.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/brain/our_ling_brain = living_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(our_ling_brain)
 		our_ling_brain.organ_flags &= ~ORGAN_VITAL
 		our_ling_brain.decoy_override = TRUE
@@ -243,7 +243,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	if(!iscarbon(owner.current))
 		return
 	var/mob/living/carbon/carbon_owner = owner.current
-	var/obj/item/organ/internal/brain/not_ling_brain = carbon_owner.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/brain/not_ling_brain = carbon_owner.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(not_ling_brain && (not_ling_brain.decoy_override != initial(not_ling_brain.decoy_override)))
 		not_ling_brain.organ_flags |= ORGAN_VITAL
 		not_ling_brain.decoy_override = FALSE
@@ -1165,3 +1165,5 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	head = /obj/item/clothing/head/helmet/space/changeling
 	suit = /obj/item/clothing/suit/space/changeling
 	l_hand = /obj/item/melee/arm_blade
+
+#undef FORMAT_CHEM_CHARGES_TEXT

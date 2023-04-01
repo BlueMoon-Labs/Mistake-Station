@@ -244,11 +244,7 @@
 			spotlights+=L
 			continue
 		if(t.x > cen.x && t.y == cen.y)
-			var/obj/item/flashlight/spotlight/L = new /obj/item/flashlight/spotlight(t)
-			L.light_color = LIGHT_COLOR_YELLOW
-			L.light_power = 30-(get_dist(src,L)*8)
-			L.base_light_range = 1+get_dist(src, L)
-			spotlights+=L
+			spotlights += new /obj/item/flashlight/spotlight(t, 1 + get_dist(src, t), 30 - (get_dist(src, t) * 8), LIGHT_COLOR_BRIGHT_YELLOW)
 			continue
 		if(t.x < cen.x && t.y == cen.y)
 			var/obj/item/flashlight/spotlight/L = new /obj/item/flashlight/spotlight(t)

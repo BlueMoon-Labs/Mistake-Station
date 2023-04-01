@@ -70,9 +70,6 @@
 	///Cursor icon used when holding shift over things
 	var/examine_cursor_icon = 'icons/effects/mouse_pointers/examine_pointer.dmi'
 
-	///Whether this mob has or is in the middle of committing suicide.
-	var/suiciding = FALSE
-
 	/// Whether a mob is alive or dead. TODO: Move this to living - Nodrak (2019, still here)
 	var/stat = CONSCIOUS
 
@@ -244,4 +241,5 @@
 	///how much gravity is slowing us down
 	var/gravity_slowdown = 0
 
-	var/voluntary_ghosted = FALSE		//whether or not they voluntarily ghosted.
+	//whether or not they voluntarily ghosted.
+	var/voluntary_ghosted = FALSE

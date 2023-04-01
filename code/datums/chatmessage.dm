@@ -12,8 +12,6 @@
 #define CHAT_MESSAGE_APPROX_LHEIGHT 11
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_WIDTH 96
-/// Max length of chat message in characters
-#define CHAT_MESSAGE_MAX_LENGTH 110
 /// The dimensions of the chat message icons
 #define CHAT_MESSAGE_ICON_SIZE 9
 
@@ -348,13 +346,18 @@
 	return final_val
 	//End of skyrat changes
 
-#undef CHAT_MESSAGE_SPAWN_TIME
-#undef CHAT_MESSAGE_LIFESPAN
+
+#undef CHAT_LAYER_MAX_Z
+#undef CHAT_LAYER_Z_STEP
+#undef CHAT_MESSAGE_APPROX_LHEIGHT
 #undef CHAT_MESSAGE_EOL_FADE
 #undef CHAT_MESSAGE_EXP_DECAY
 #undef CHAT_MESSAGE_HEIGHT_DECAY
-#undef CHAT_MESSAGE_APPROX_LHEIGHT
-#undef CHAT_MESSAGE_WIDTH
-#undef CHAT_LAYER_Z_STEP
-#undef CHAT_LAYER_MAX_Z
 #undef CHAT_MESSAGE_ICON_SIZE
+#undef CHAT_MESSAGE_LIFESPAN
+#undef CHAT_MESSAGE_SPAWN_TIME
+#undef CHAT_MESSAGE_WIDTH
+#undef CM_COLOR_LUM_MAX
+#undef CM_COLOR_LUM_MIN
+#undef CM_COLOR_SAT_MAX
+#undef CM_COLOR_SAT_MIN
