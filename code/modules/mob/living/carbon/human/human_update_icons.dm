@@ -270,14 +270,14 @@ There are several things that need to be remembered:
 		return
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS) + 1]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS_LEFT) + 1]
 		inv.update_icon()
 
 	if(ears)
 		var/obj/item/worn_item = ears
 		update_hud_ears(worn_item)
 
-		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS)
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS_LEFT)
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
@@ -306,14 +306,14 @@ There are several things that need to be remembered:
 		return
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS) + 1]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS_RIGHT) + 1]
 		inv.update_icon()
 
 	if(ears_extra)
 		var/obj/item/worn_item = ears_extra
 		update_hud_ears_extra(worn_item)
 
-		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS)
+		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS_RIGHT)
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'

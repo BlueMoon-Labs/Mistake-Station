@@ -224,7 +224,7 @@
 
 /obj/item/ore_sensor/equipped(mob/user, slot, initial)
 	. = ..()
-	if(slot & ITEM_SLOT_EARS)
+	if(slot & ITEM_SLOT_EARS_LEFT & ITEM_SLOT_EARS_RIGHT)
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj, src)

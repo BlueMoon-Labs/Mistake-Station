@@ -1,15 +1,15 @@
 
 /proc/tg_ui_icon_to_cit_ui(ui_style)
 	switch(ui_style)
-		if('icons/hud/screen_plasmafire.dmi')
+		if("Plasmafire")
 			return 'modular_citadel/icons/ui/screen_plasmafire.dmi'
-		if('icons/hud/screen_slimecore.dmi')
+		if("Slimecore")
 			return 'modular_citadel/icons/ui/screen_slimecore.dmi'
-		if('icons/hud/screen_operative.dmi')
+		if("Operative")
 			return 'modular_citadel/icons/ui/screen_operative.dmi'
-		if('icons/hud/screen_clockwork.dmi')
+		if("Clockwork")
 			return 'modular_citadel/icons/ui/screen_clockwork.dmi'
-		if('modular_sand/icons/mob/screen_liteweb.dmi')
+		if("Liteweb")
 			return 'modular_sand/icons/mob/screen_liteweb.dmi'
 		else
 			return 'modular_citadel/icons/ui/screen_midnight.dmi'

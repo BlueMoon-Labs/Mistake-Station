@@ -123,8 +123,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/lust_tolerance = 100
 	var/sexual_potency = 15
 	var/inquisitive_ghost = 1
-	var/custom_speech_verb = "default" //if your say_mod is to be something other than your races
-	var/custom_tongue = "default" //if your tongue is to be something other than your races
 
 	// Vocal bark prefs
 	var/bark_id = "mutedc3"

@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Clockwork" = 'icons/hud/screen_clockwork.dmi',
 	"Glass" = 'icons/hud/screen_glass.dmi',
 	"Trasen-Knox" = 'icons/hud/screen_trasenknox.dmi',
-	"Liteweb" = "modular_sand/icons/mob/screen_liteweb.dmi"
+	"Liteweb" = 'modular_sand/icons/mob/screen_liteweb.dmi'
 ))
 
 //SKYRAT EDIT - ADDITION - ERP ICONS FIX

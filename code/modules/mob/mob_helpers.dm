@@ -436,7 +436,9 @@
 			return /obj/item/storage/belt
 		if(ITEM_SLOT_ID)
 			return /obj/item/card/id/advanced
-		if(ITEM_SLOT_EARS)
+		if(ITEM_SLOT_EARS_LEFT)
+			return /obj/item/clothing/ears
+		if(ITEM_SLOT_EARS_RIGHT)
 			return /obj/item/clothing/ears
 		if(ITEM_SLOT_EYES)
 			return /obj/item/clothing/glasses

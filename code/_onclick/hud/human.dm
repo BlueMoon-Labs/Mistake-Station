@@ -35,7 +35,7 @@
 
 // Bluemoon edit
 /atom/movable/screen/human/toggle/extra
-	name = "toggle extra"
+	name = "Toggle Extra"
 	icon_state = "toggle_extra"
 
 /atom/movable/screen/human/toggle/extra/Click()
@@ -273,7 +273,7 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "right ear"
-	inv_box.icon = ui_style_modular(ui_style)
+	inv_box.icon = ui_style
 	inv_box.icon_state = "ears_extra"
 	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_ears_extra
@@ -293,14 +293,14 @@
 
 	// Bluemoon edit
 	using = new /atom/movable/screen/human/toggle/extra()
-	using.icon = ui_style_modular(ui_style)
+	using.icon = ui_style
 	using.screen_loc = ui_inventory_extra
 	using.hud = src
 	toggleable_inventory += using
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "underwear"
-	inv_box.icon = ui_style_modular(ui_style)
+	inv_box.icon = ui_style
 	inv_box.icon_state = "underwear"
 	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_boxers
@@ -310,7 +310,7 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "socks"
-	inv_box.icon = ui_style_modular(ui_style)
+	inv_box.icon = ui_style
 	inv_box.icon_state = "socks"
 	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_socks
@@ -320,7 +320,7 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "shirt"
-	inv_box.icon = ui_style_modular(ui_style)
+	inv_box.icon = ui_style
 	inv_box.icon_state = "shirt"
 	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_shirt
@@ -330,7 +330,7 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "wrists"
-	inv_box.icon = ui_style_modular(ui_style)
+	inv_box.icon = ui_style
 	inv_box.icon_state = "wrists"
 	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_wrists
@@ -420,7 +420,7 @@
 	infodisplay += ammo_counter
 	//SKYRAT EDIT END
 
-	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
+	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory + extra_inventory))
 		if(inv.slot_id)
 			inv.hud = src
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
@@ -435,7 +435,7 @@
 	if(!istype(H) || !H.dna.species)
 		return
 	var/datum/species/S = H.dna.species
-	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
+	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory + extra_inventory))
 		if(inv.slot_id)
 			if(S.no_equip_flags & inv.slot_id)
 				inv.alpha = 128

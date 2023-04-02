@@ -99,7 +99,7 @@
 
 	//Override headset here
 	if(headset_override)
-		var/obj/item/headset_slot = H.get_item_by_slot(ITEM_SLOT_EARS)
+		var/obj/item/headset_slot = H.get_item_by_slot(ITEM_SLOT_EARS_LEFT)
 		if(headset_slot)
 			qdel(headset_slot)
 		var/obj/item/new_headset = new headset_override()
