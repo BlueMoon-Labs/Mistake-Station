@@ -53,6 +53,11 @@
 	icon_state = "hemiknot"
 	name = "двойной узловатый"
 
+//Penises
+/datum/sprite_accessory/genital/penis/thick
+	icon_state = "thick"
+	name = "толстый"
+
 //Testicles
 /datum/sprite_accessory/genital/testicles
 	icon = 'icons/obj/genitals/testicles_onmob.dmi'
@@ -149,11 +154,6 @@
 /datum/sprite_accessory/genital/testicles/sheath
 	icon_state = "sheath"
 	name = "оболонковые"
-
-//Penises
-/datum/sprite_accessory/genital/penis/thick
-	icon_state = "thick"
-	name = "толстый"
 
 //Bellies
 /datum/sprite_accessory/genital/belly

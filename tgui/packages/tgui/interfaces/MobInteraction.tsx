@@ -601,7 +601,7 @@ const ContentPreferencesTab = (props, context) => {
         <Button
           fluid
           mb={0.3}
-          content="Allow lewd verbs"
+          content="Allow Lewd Verbs"
           icon={verb_consent ? "toggle-on" : "toggle-off"}
           selected={verb_consent}
           onClick={() => act('pref', {

@@ -397,7 +397,7 @@ There are several things that need to be remembered:
 
 	if(w_underwear)
 		var/obj/item/worn_item = w_underwear
-		update_hud_shoes(worn_item)
+		update_hud_underwear(worn_item)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_UNDERWEAR)
 			return
@@ -438,7 +438,7 @@ There are several things that need to be remembered:
 
 	if(w_socks)
 		var/obj/item/worn_item = w_socks
-		update_hud_shoes(worn_item)
+		update_hud_socks(worn_item)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SOCKS)
 			return
@@ -479,7 +479,7 @@ There are several things that need to be remembered:
 
 	if(w_shirt)
 		var/obj/item/worn_item = w_shirt
-		update_hud_shoes(worn_item)
+		update_hud_shirt(worn_item)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SHIRT)
 			return
@@ -945,7 +945,7 @@ There are several things that need to be remembered:
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
-/mob/living/carbon/human/proc/update_hud_boxers(obj/item/worn_item)
+/mob/living/carbon/human/proc/update_hud_underwear(obj/item/worn_item)
 	worn_item.screen_loc = ui_boxers
 	if((client && hud_used) && (hud_used.hud_shown && hud_used.extra_shown))
 		client.screen += worn_item

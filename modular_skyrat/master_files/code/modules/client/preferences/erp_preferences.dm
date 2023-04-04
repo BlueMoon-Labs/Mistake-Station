@@ -101,10 +101,16 @@
 	savefile_key = "penis_shrinkage_pref"
 
 /datum/preference/toggle/erp/butt_enlargement
+	savefile_key = "butt_enlargement"
+
+/datum/preference/toggle/erp/butt_shrinkage
 	savefile_key = "butt_shrinkage_pref"
 
 /datum/preference/toggle/erp/belly_enlargement
 	savefile_key = "belly_enlargement"
+
+/datum/preference/toggle/erp/belly_shrinkage
+	savefile_key = "belly_shrinkage"
 
 /datum/preference/toggle/erp/genitalia_removal
 	savefile_key = "genitalia_removal_pref"
@@ -276,12 +282,6 @@
 
 /datum/preference/toggle/erp/auto_wag
 	savefile_key = "auto_wag"
-
-/datum/preference/toggle/erp/belly_anlargement
-	savefile_key = "belly_anlargement"
-
-/datum/preference/toggle/erp/butt_enlargement
-	savefile_key = "butt_enlargement"
 
 /datum/preference/toggle/erp/ass_slap
 	savefile_key = "ass_slap"

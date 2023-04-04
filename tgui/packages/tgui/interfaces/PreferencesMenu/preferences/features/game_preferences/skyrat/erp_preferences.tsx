@@ -104,7 +104,7 @@ export const erp_sexuality_pref: FeatureChoiced = {
   name: 'Sexuality Preference',
   category: 'ERP',
   description:
-    'Determines what sexual content you see, limited use. None will show all content.',
+    'Определяет, какой сексуальный контент вы предпочитаете. "Нет" показывает все содержимое.',
   component: FeatureDropdownInput,
 };
 
@@ -112,7 +112,7 @@ export const genitalia_removal_pref: FeatureToggle = {
   name: 'ERP Genitalia Removal',
   category: 'ERP',
   description:
-    'If checked, allows drugs to remove existing genitalia on your character.',
+    'Если флажок установлен, позволяет наркотикам удалять существующие гениталии вашего персонажа.',
   component: CheckboxInput,
 };
 
@@ -120,14 +120,14 @@ export const new_genitalia_growth_pref: FeatureToggle = {
   name: 'ERP New Genitalia Growth',
   category: 'ERP',
   description:
-    'If checked, allows drugs to grow new genitalia on your character.',
+    'Если флажок установлен, позволяет наркотикам вырастить новые гениталии на вашем персонаже.',
   component: CheckboxInput,
 };
 
 export const trash_forcefeed: FeatureToggle = {
   name: 'Принудительное Скармливание Мусора',
   category: 'ERP',
-  description: 'Если включено, то вас можно кормить мусором',
+  description: 'Если включено, то вас можно кормить мусором.',
   component: CheckboxInput,
 };
 
@@ -135,12 +135,20 @@ export const auto_wag: FeatureToggle = {
   name: 'Автоматическое Виляние Хвостом',
   category: 'ERP',
   description:
-    'Если включено, то ваш хвост автоматически будет вилять, когда вас гладят',
+    'Если включено, то ваш хвост автоматически будет вилять, когда вас гладят.',
   component: CheckboxInput,
 };
 
 export const belly_enlargement: FeatureToggle = {
-  name: 'Увеличение Живота',
+  name: 'Живот: Увеличение',
+  category: 'ERP',
+  description:
+    'Если включено, то ваш живот будет становиться больше каким бы то ни было образом.',
+  component: CheckboxInput,
+};
+
+export const belly_shrinkage: FeatureToggle = {
+  name: 'Живот: Уменьшение',
   category: 'ERP',
   description:
     'Если включено, то ваш живот будет становиться больше каким бы то ни было образом.',
@@ -148,7 +156,15 @@ export const belly_enlargement: FeatureToggle = {
 };
 
 export const butt_enlargement: FeatureToggle = {
-  name: 'Увеличение Задницы',
+  name: 'Задница: Увеличение',
+  category: 'ERP',
+  description:
+    'Если включено, то ваша задница будет становиться больше каким бы то ни было образом.',
+  component: CheckboxInput,
+};
+
+export const butt_shrinkage: FeatureToggle = {
+  name: 'Задница: Уменьшение',
   category: 'ERP',
   description:
     'Если включено, то ваша задница будет становиться больше каким бы то ни было образом.',
