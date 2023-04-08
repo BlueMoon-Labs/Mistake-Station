@@ -1,311 +1,308 @@
-/datum/gear/shirt
+/datum/loadout_item/shirt
 	name = "Shirt"
 	category = LOADOUT_CATEGORY_GENERAL_UNDER
-	subcategory = LOADOUT_SUBCATEGORY_SHIRT
-	slot = ITEM_SLOT_SHIRT
-	path = /obj/item/clothing/underwear/shirt
-	cost = 0
+	item_path = /obj/item/clothing/underwear/shirt
 
-/datum/gear/shirt/alien
+/datum/loadout_item/shirt/alien
 	name = "Postal Dude Shirt"
-	path = /obj/item/clothing/underwear/shirt/alien
+	item_path = /obj/item/clothing/underwear/shirt/alien
 
-/datum/gear/shirt/band
+/datum/loadout_item/shirt/band
 	name = "Band Shirt"
-	path = /obj/item/clothing/underwear/shirt/band
+	item_path = /obj/item/clothing/underwear/shirt/band
 
-/datum/gear/shirt/bee
+/datum/loadout_item/shirt/bee
 	name = "Bee Shirt"
-	path = /obj/item/clothing/underwear/shirt/bee
+	item_path = /obj/item/clothing/underwear/shirt/bee
 
-/datum/gear/shirt/bluejersey
+/datum/loadout_item/shirt/bluejersey
 	name = "Blue Jersey Shirt"
-	path = /obj/item/clothing/underwear/shirt/bluejersey
+	item_path = /obj/item/clothing/underwear/shirt/bluejersey
 
-/datum/gear/shirt/bowlingcyan
+/datum/loadout_item/shirt/bowlingcyan
 	name = "Cyan Bowling Shirt"
-	path = /obj/item/clothing/underwear/shirt/bowling/cyan
+	item_path = /obj/item/clothing/underwear/shirt/bowling/cyan
 
-/datum/gear/shirt/bowlinggrey
+/datum/loadout_item/shirt/bowlinggrey
 	name = "Grey Bowling Shirt"
-	path = /obj/item/clothing/underwear/shirt/bowling/grey
+	item_path = /obj/item/clothing/underwear/shirt/bowling/grey
 
-/datum/gear/shirt/bowlingpink
+/datum/loadout_item/shirt/bowlingpink
 	name = "Pink Bowling Shirt"
-	path = /obj/item/clothing/underwear/shirt/bowling/pink
+	item_path = /obj/item/clothing/underwear/shirt/bowling/pink
 
-/datum/gear/shirt/bowlingred
+/datum/loadout_item/shirt/bowlingred
 	name = "Red Bowling Shirt"
-	path = /obj/item/clothing/underwear/shirt/bowling
+	item_path = /obj/item/clothing/underwear/shirt/bowling
 
-/datum/gear/shirt/bra
+/datum/loadout_item/shirt/bra
 	name = "Bra"
-	path = /obj/item/clothing/underwear/shirt/bra
+	item_path = /obj/item/clothing/underwear/shirt/bra
 
-/datum/gear/shirt/bra/alt
+/datum/loadout_item/shirt/bra/alt
 	name = "Bra (alt)"
-	path = /obj/item/clothing/underwear/shirt/bra/alt
+	item_path = /obj/item/clothing/underwear/shirt/bra/alt
 
-/datum/gear/shirt/bra/babydoll
+/datum/loadout_item/shirt/bra/babydoll
 	name = "Babydoll Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/babydoll
+	item_path = /obj/item/clothing/underwear/shirt/bra/babydoll
 
-/datum/gear/shirt/bra/beekini
+/datum/loadout_item/shirt/bra/beekini
 	name = "Beekini Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/beekini
+	item_path = /obj/item/clothing/underwear/shirt/bra/beekini
 
-/datum/gear/shirt/bra/bikini
+/datum/loadout_item/shirt/bra/bikini
 	name = "Bikini Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/bikini
+	item_path = /obj/item/clothing/underwear/shirt/bra/bikini
 
-/datum/gear/shirt/bra/bikini/black
+/datum/loadout_item/shirt/bra/bikini/black
 	name = "Bikini Bra (Black)"
-	path = /obj/item/clothing/underwear/shirt/bra/bikini/black
+	item_path = /obj/item/clothing/underwear/shirt/bra/bikini/black
 
-/datum/gear/shirt/bra/bikini/blue
+/datum/loadout_item/shirt/bra/bikini/blue
 	name = "Bikini Bra (Blue)"
-	path = /obj/item/clothing/underwear/shirt/bra/bikini/blue
+	item_path = /obj/item/clothing/underwear/shirt/bra/bikini/blue
 
-/datum/gear/shirt/bra/commie
+/datum/loadout_item/shirt/bra/commie
 	name = "Commie Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/commie
+	item_path = /obj/item/clothing/underwear/shirt/bra/commie
 
-/datum/gear/shirt/bra/fishnet
+/datum/loadout_item/shirt/bra/fishnet
 	name = "Fishnet Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/fishnet
+	item_path = /obj/item/clothing/underwear/shirt/bra/fishnet
 
-/datum/gear/shirt/bra/fishnet/sleeves
+/datum/loadout_item/shirt/bra/fishnet/sleeves
 	name = "Sleeved Fishnet Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/fishnet/sleeves
+	item_path = /obj/item/clothing/underwear/shirt/bra/fishnet/sleeves
 
-/datum/gear/shirt/bra/fishnet/sleeves/gloves
+/datum/loadout_item/shirt/bra/fishnet/sleeves/gloves
 	name = "Sleeved & Gloved Fishnet Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/fishnet/sleeves/gloves
+	item_path = /obj/item/clothing/underwear/shirt/bra/fishnet/sleeves/gloves
 
-/datum/gear/shirt/bra/halterneck
+/datum/loadout_item/shirt/bra/halterneck
 	name = "Halterneck Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/halterneck
+	item_path = /obj/item/clothing/underwear/shirt/bra/halterneck
 
-/datum/gear/shirt/bra/kinky
+/datum/loadout_item/shirt/bra/kinky
 	name = "Kinky Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/kinky
+	item_path = /obj/item/clothing/underwear/shirt/bra/kinky
 
-/datum/gear/shirt/bra/neko
+/datum/loadout_item/shirt/bra/neko
 	name = "Neko Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/neko
+	item_path = /obj/item/clothing/underwear/shirt/bra/neko
 
-/datum/gear/shirt/bra/sports
+/datum/loadout_item/shirt/bra/sports
 	name = "Sports Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/sports
+	item_path = /obj/item/clothing/underwear/shirt/bra/sports
 
-/datum/gear/shirt/bra/sports/alt
+/datum/loadout_item/shirt/bra/sports/alt
 	name = "Sports Bra (alt)"
-	path = /obj/item/clothing/underwear/shirt/bra/sports/alt
+	item_path = /obj/item/clothing/underwear/shirt/bra/sports/alt
 
-/datum/gear/shirt/bra/strapless
+/datum/loadout_item/shirt/bra/strapless
 	name = "Strapless Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/strapless
+	item_path = /obj/item/clothing/underwear/shirt/bra/strapless
 
-/datum/gear/shirt/bra/strapless/alt
+/datum/loadout_item/shirt/bra/strapless/alt
 	name = "Strapless Bra (alt)"
-	path = /obj/item/clothing/underwear/shirt/bra/strapless/alt
+	item_path = /obj/item/clothing/underwear/shirt/bra/strapless/alt
 
-/datum/gear/shirt/bra/striped
+/datum/loadout_item/shirt/bra/striped
 	name = "Striped Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/striped
+	item_path = /obj/item/clothing/underwear/shirt/bra/striped
 
-/datum/gear/shirt/bra/swimming
+/datum/loadout_item/shirt/bra/swimming
 	name = "Swimming Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/swimming
+	item_path = /obj/item/clothing/underwear/shirt/bra/swimming
 
-/datum/gear/shirt/bra/swimming/alt
+/datum/loadout_item/shirt/bra/swimming/alt
 	name = "Swimming Bra (alt)"
-	path = /obj/item/clothing/underwear/shirt/bra/swimming/alt
+	item_path = /obj/item/clothing/underwear/shirt/bra/swimming/alt
 
-/datum/gear/shirt/bra/thin
+/datum/loadout_item/shirt/bra/thin
 	name = "Thin Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/thin
+	item_path = /obj/item/clothing/underwear/shirt/bra/thin
 
-/datum/gear/shirt/bra/tubetop
+/datum/loadout_item/shirt/bra/tubetop
 	name = "Tubetop Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/tubetop
+	item_path = /obj/item/clothing/underwear/shirt/bra/tubetop
 
-/datum/gear/shirt/bra/uk
+/datum/loadout_item/shirt/bra/uk
 	name = "UK Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/uk
+	item_path = /obj/item/clothing/underwear/shirt/bra/uk
 
-/datum/gear/shirt/bra/usa
+/datum/loadout_item/shirt/bra/usa
 	name = "USA Bra"
-	path = /obj/item/clothing/underwear/shirt/bra/usa
+	item_path = /obj/item/clothing/underwear/shirt/bra/usa
 
-/datum/gear/shirt/clown
+/datum/loadout_item/shirt/clown
 	name = "Clown Shirt"
-	path = /obj/item/clothing/underwear/shirt/clown
+	item_path = /obj/item/clothing/underwear/shirt/clown
 
-/datum/gear/shirt/commie
+/datum/loadout_item/shirt/commie
 	name = "Commie Shirt"
-	path = /obj/item/clothing/underwear/shirt/commie
+	item_path = /obj/item/clothing/underwear/shirt/commie
 
-/datum/gear/shirt/corset
+/datum/loadout_item/shirt/corset
 	name = "Corset"
-	path = /obj/item/clothing/underwear/shirt/corset
+	item_path = /obj/item/clothing/underwear/shirt/corset
 
-/datum/gear/shirt/cowboy
+/datum/loadout_item/shirt/cowboy
 	name = "Black Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy
+	item_path = /obj/item/clothing/underwear/shirt/cowboy
 
-/datum/gear/shirt/cowboy/navy
+/datum/loadout_item/shirt/cowboy/navy
 	name = "Navy Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/navy
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/navy
 
-/datum/gear/shirt/cowboy/red
+/datum/loadout_item/shirt/cowboy/red
 	name = "Red Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/red
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/red
 
-/datum/gear/shirt/cowboy/short
+/datum/loadout_item/shirt/cowboy/short
 	name = "Black Shortsleeved Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/short
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/short
 
-/datum/gear/shirt/cowboy/short/navy
+/datum/loadout_item/shirt/cowboy/short/navy
 	name = "Navy Shortsleeved Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/short/navy
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/short/navy
 
-/datum/gear/shirt/cowboy/short/red
+/datum/loadout_item/shirt/cowboy/short/red
 	name = "Red Shortsleeved Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/short/red
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/short/red
 
-/datum/gear/shirt/cowboy/short/white
+/datum/loadout_item/shirt/cowboy/short/white
 	name = "White Shortsleeved Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/short/white
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/short/white
 
-/datum/gear/shirt/cowboy/white
+/datum/loadout_item/shirt/cowboy/white
 	name = "White Cowboy Shirt"
-	path = /obj/item/clothing/underwear/shirt/cowboy/white
+	item_path = /obj/item/clothing/underwear/shirt/cowboy/white
 
-/datum/gear/shirt/ian
+/datum/loadout_item/shirt/ian
 	name = "Ian Shirt"
-	path = /obj/item/clothing/underwear/shirt/ian
+	item_path = /obj/item/clothing/underwear/shirt/ian
 
-/datum/gear/shirt/ilovent
+/datum/loadout_item/shirt/ilovent
 	name = "I Love NT Shirt"
-	path = /obj/item/clothing/underwear/shirt/ilovent
+	item_path = /obj/item/clothing/underwear/shirt/ilovent
 
-/datum/gear/shirt/long
+/datum/loadout_item/shirt/long
 	name = "Longsleeved Shirt"
-	path = /obj/item/clothing/underwear/shirt/long
+	item_path = /obj/item/clothing/underwear/shirt/long
 
-/datum/gear/shirt/long/striped
+/datum/loadout_item/shirt/long/striped
 	name = "Striped Longsleeved Shirt"
-	path = /obj/item/clothing/underwear/shirt/long/striped
+	item_path = /obj/item/clothing/underwear/shirt/long/striped
 
-/datum/gear/shirt/long/striped/blue
+/datum/loadout_item/shirt/long/striped/blue
 	name = "Blue Striped Longsleeved Shirt"
-	path = /obj/item/clothing/underwear/shirt/long/striped/blue
+	item_path = /obj/item/clothing/underwear/shirt/long/striped/blue
 
-/datum/gear/shirt/lover
+/datum/loadout_item/shirt/lover
 	name = "Lover Shirt"
-	path = /obj/item/clothing/underwear/shirt/lover
+	item_path = /obj/item/clothing/underwear/shirt/lover
 
-/datum/gear/shirt/matroska
+/datum/loadout_item/shirt/matroska
 	name = "Matroska Shirt"
-	path = /obj/item/clothing/underwear/shirt/matroska
+	item_path = /obj/item/clothing/underwear/shirt/matroska
 
-/datum/gear/shirt/meat
+/datum/loadout_item/shirt/meat
 	name = "Meat Shirt"
-	path = /obj/item/clothing/underwear/shirt/meat
+	item_path = /obj/item/clothing/underwear/shirt/meat
 
-/datum/gear/shirt/peace
+/datum/loadout_item/shirt/peace
 	name = "Peace Shirt"
-	path = /obj/item/clothing/underwear/shirt/peace
+	item_path = /obj/item/clothing/underwear/shirt/peace
 
-/datum/gear/shirt/pogoman
+/datum/loadout_item/shirt/pogoman
 	name = "Pogoman Shirt"
-	path = /obj/item/clothing/underwear/shirt/pogoman
+	item_path = /obj/item/clothing/underwear/shirt/pogoman
 
-/datum/gear/shirt/polo
+/datum/loadout_item/shirt/polo
 	name = "Polo Shirt"
-	path = /obj/item/clothing/underwear/shirt/polo
+	item_path = /obj/item/clothing/underwear/shirt/polo
 
-/datum/gear/shirt/question
+/datum/loadout_item/shirt/question
 	name = "Question Mark Shirt"
-	path = /obj/item/clothing/underwear/shirt/question
+	item_path = /obj/item/clothing/underwear/shirt/question
 
-/datum/gear/shirt/redjersey
+/datum/loadout_item/shirt/redjersey
 	name = "Red Jersey Shirt"
-	path = /obj/item/clothing/underwear/shirt/redjersey
+	item_path = /obj/item/clothing/underwear/shirt/redjersey
 
-/datum/gear/shirt/shortsleeve
+/datum/loadout_item/shirt/shortsleeve
 	name = "Shortsleeved Shirt"
-	path = /obj/item/clothing/underwear/shirt/shortsleeve
+	item_path = /obj/item/clothing/underwear/shirt/shortsleeve
 
-/datum/gear/shirt/skull
+/datum/loadout_item/shirt/skull
 	name = "Skull Shirt"
-	path = /obj/item/clothing/underwear/shirt/skull
+	item_path = /obj/item/clothing/underwear/shirt/skull
 
-/datum/gear/shirt/sportblue
+/datum/loadout_item/shirt/sportblue
 	name = "Blue Sport Shirt"
-	path = /obj/item/clothing/underwear/shirt/sportblue
+	item_path = /obj/item/clothing/underwear/shirt/sportblue
 
-/datum/gear/shirt/sportgreen
+/datum/loadout_item/shirt/sportgreen
 	name = "Green Sport Shirt"
-	path = /obj/item/clothing/underwear/shirt/sportgreen
+	item_path = /obj/item/clothing/underwear/shirt/sportgreen
 
-/datum/gear/shirt/sportred
+/datum/loadout_item/shirt/sportred
 	name = "Red Sport Shirt"
-	path = /obj/item/clothing/underwear/shirt/sportred
+	item_path = /obj/item/clothing/underwear/shirt/sportred
 
-/datum/gear/shirt/ss13
+/datum/loadout_item/shirt/ss13
 	name = "SS13 Shirt"
-	path = /obj/item/clothing/underwear/shirt/ss13
+	item_path = /obj/item/clothing/underwear/shirt/ss13
 
-/datum/gear/shirt/striped
+/datum/loadout_item/shirt/striped
 	name = "Striped Shirt"
-	path = /obj/item/clothing/underwear/shirt/striped
+	item_path = /obj/item/clothing/underwear/shirt/striped
 
-/datum/gear/shirt/tanktop
+/datum/loadout_item/shirt/tanktop
 	name = "Tanktop Shirt"
-	path = /obj/item/clothing/underwear/shirt/tanktop
+	item_path = /obj/item/clothing/underwear/shirt/tanktop
 
-/datum/gear/shirt/tanktop/alt
+/datum/loadout_item/shirt/tanktop/alt
 	name = "Tanktop Shirt (alt)"
-	path = /obj/item/clothing/underwear/shirt/tanktop/alt
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/alt
 
-/datum/gear/shirt/tanktop/midriff
+/datum/loadout_item/shirt/tanktop/midriff
 	name = "Midriff Tanktop Shirt"
-	path = /obj/item/clothing/underwear/shirt/tanktop/midriff
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/midriff
 
-/datum/gear/shirt/tanktop/midriff/alt
+/datum/loadout_item/shirt/tanktop/midriff/alt
 	name = "Midriff Tanktop Shirt (alt)"
-	path = /obj/item/clothing/underwear/shirt/tanktop/midriff/alt
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/midriff/alt
 
-/datum/gear/shirt/tanktop/rainbow
+/datum/loadout_item/shirt/tanktop/rainbow
 	name = "Rainbow Tanktop Shirt"
-	path = /obj/item/clothing/underwear/shirt/tanktop/rainbow
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/rainbow
 
-/datum/gear/shirt/tanktop/striped
+/datum/loadout_item/shirt/tanktop/striped
 	name = "Striped Tanktop Shirt"
-	path = /obj/item/clothing/underwear/shirt/tanktop/striped
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/striped
 
-/datum/gear/shirt/tanktop/sun
+/datum/loadout_item/shirt/tanktop/sun
 	name = "Sun Tanktop Shirt"
-	path = /obj/item/clothing/underwear/shirt/tanktop/sun
+	item_path = /obj/item/clothing/underwear/shirt/tanktop/sun
 
-/datum/gear/shirt/tiedye
+/datum/loadout_item/shirt/tiedye
 	name = "Tie Dye Shirt"
-	path = /obj/item/clothing/underwear/shirt/tiedye
+	item_path = /obj/item/clothing/underwear/shirt/tiedye
 
-/datum/gear/shirt/top/shibari
+/datum/loadout_item/shirt/top/shibari
 	name = "Shibari Ropes"
-	path = /obj/item/clothing/underwear/shirt/top/shibari
+	item_path = /obj/item/clothing/underwear/shirt/top/shibari
 
-/datum/gear/shirt/top/shibari_sleeved
+/datum/loadout_item/shirt/top/shibari_sleeved
 	name = "Shibari Ropes - sleeves"
-	path = /obj/item/clothing/underwear/shirt/top/shibari_sleeved
+	item_path = /obj/item/clothing/underwear/shirt/top/shibari_sleeved
 
-/datum/gear/shirt/uk
+/datum/loadout_item/shirt/uk
 	name = "UK Shirt"
-	path = /obj/item/clothing/underwear/shirt/uk
+	item_path = /obj/item/clothing/underwear/shirt/uk
 
-/datum/gear/shirt/usa
+/datum/loadout_item/shirt/usa
 	name = "USA Shirt"
-	path = /obj/item/clothing/underwear/shirt/usa
+	item_path = /obj/item/clothing/underwear/shirt/usa

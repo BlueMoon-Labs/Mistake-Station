@@ -1,201 +1,197 @@
-/datum/gear/socks
+/datum/loadout_item/socks
 	name = "Socks"
 	category = LOADOUT_CATEGORY_GENERAL_UNDER
-	subcategory = LOADOUT_SUBCATEGORY_SOCKS
-	slot = ITEM_SLOT_SOCKS
-	path = /obj/item/clothing/underwear/socks
-	cost = 0
+	item_path = /obj/item/clothing/underwear/socks
 
-/datum/gear/socks/bee
+/datum/loadout_item/socks/bee
 	name = "Bee Socks"
-	path = /obj/item/clothing/underwear/socks/bee
+	item_path = /obj/item/clothing/underwear/socks/bee
 
-/datum/gear/socks/candycane
+/datum/loadout_item/socks/candycane
 	name = "Candycane Socks"
-	path = /obj/item/clothing/underwear/socks/candycane
+	item_path = /obj/item/clothing/underwear/socks/candycane
 
-/datum/gear/socks/candycane/green
+/datum/loadout_item/socks/candycane/green
 	name = "Green Candycane Socks"
-	path = /obj/item/clothing/underwear/socks/candycane/green
+	item_path = /obj/item/clothing/underwear/socks/candycane/green
 
-/datum/gear/socks/christmas
+/datum/loadout_item/socks/christmas
 	name = "Christmas Socks"
-	path = /obj/item/clothing/underwear/socks/christmas
+	item_path = /obj/item/clothing/underwear/socks/christmas
 
-/datum/gear/socks/knee
+/datum/loadout_item/socks/knee
 	name = "Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee
+	item_path = /obj/item/clothing/underwear/socks/knee
 
-/datum/gear/socks/knee/bee
+/datum/loadout_item/socks/knee/bee
 	name = "Bee Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/bee
+	item_path = /obj/item/clothing/underwear/socks/knee/bee
 
-/datum/gear/socks/knee/candycane
+/datum/loadout_item/socks/knee/candycane
 	name = "Candycane Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/candycane
+	item_path = /obj/item/clothing/underwear/socks/knee/candycane
 
-/datum/gear/socks/knee/candycane/green
+/datum/loadout_item/socks/knee/candycane/green
 	name = "Green Candycane Socks"
-	path = /obj/item/clothing/underwear/socks/knee/candycane/green
+	item_path = /obj/item/clothing/underwear/socks/knee/candycane/green
 
-/datum/gear/socks/knee/commie
+/datum/loadout_item/socks/knee/commie
 	name = "Commie Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/commie
+	item_path = /obj/item/clothing/underwear/socks/knee/commie
 
-/datum/gear/socks/knee/rainbow
+/datum/loadout_item/socks/knee/rainbow
 	name = "Rainbow Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/rainbow
+	item_path = /obj/item/clothing/underwear/socks/knee/rainbow
 
-/datum/gear/socks/knee/striped
+/datum/loadout_item/socks/knee/striped
 	name = "Striped Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/striped
+	item_path = /obj/item/clothing/underwear/socks/knee/striped
 
-/datum/gear/socks/knee/thin
+/datum/loadout_item/socks/knee/thin
 	name = "Thin Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/thin
+	item_path = /obj/item/clothing/underwear/socks/knee/thin
 
-/datum/gear/socks/knee/uk
+/datum/loadout_item/socks/knee/uk
 	name = "UK Knee Socks"
-	path = /obj/item/clothing/underwear/socks/knee/uk
+	item_path = /obj/item/clothing/underwear/socks/knee/uk
 
-/datum/gear/socks/latex
+/datum/loadout_item/socks/latex
 	name = "Latex socks"
-	path = /obj/item/clothing/underwear/socks/latex
+	item_path = /obj/item/clothing/underwear/socks/latex
 
-/datum/gear/socks/pantyhose
+/datum/loadout_item/socks/pantyhose
 	name = "Pantyhose"
-	path = /obj/item/clothing/underwear/socks/pantyhose
+	item_path = /obj/item/clothing/underwear/socks/pantyhose
 
-/datum/gear/socks/pantyhose_ripped
+/datum/loadout_item/socks/pantyhose_ripped
 	name = "Pantyhose - Ripped"
-	path = /obj/item/clothing/underwear/socks/pantyhose_ripped
+	item_path = /obj/item/clothing/underwear/socks/pantyhose_ripped
 
-/datum/gear/socks/short
+/datum/loadout_item/socks/short
 	name = "Short Socks"
-	path = /obj/item/clothing/underwear/socks/short
+	item_path = /obj/item/clothing/underwear/socks/short
 
-/datum/gear/socks/stir
+/datum/loadout_item/socks/stir
 	name = "Polychromic Normal Stirrups"
-	description = "A type of close-fitting ladies' pant that tapers at the ankle, similar to leggings, except that the material extends to a band, or strap, that is worn under the arch of the foot to hold the pant leg in place."
-	path = /obj/item/clothing/underwear/socks/stir
+	item_path = /obj/item/clothing/underwear/socks/stir
 
-/datum/gear/socks/stir/knee
+/datum/loadout_item/socks/stir/knee
 	name = "Polychromic Knee-high Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/knee
+	item_path = /obj/item/clothing/underwear/socks/stir/knee
 
-/datum/gear/socks/stir/knee/rainbow
+/datum/loadout_item/socks/stir/knee/rainbow
 	name = "Knee-high Rainbow Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/knee/rainbow
+	item_path = /obj/item/clothing/underwear/socks/stir/knee/rainbow
 
-/datum/gear/socks/stir/leggings
+/datum/loadout_item/socks/stir/leggings
 	name = "Leggings Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/leggings
+	item_path = /obj/item/clothing/underwear/socks/stir/leggings
 
-/datum/gear/socks/stir/leggings/pantyhose
+/datum/loadout_item/socks/stir/leggings/pantyhose
 	name = "Pantyhose Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/leggings/pantyhose
+	item_path = /obj/item/clothing/underwear/socks/stir/leggings/pantyhose
 
-/datum/gear/socks/stir/leggings/pantyhose/ripped
+/datum/loadout_item/socks/stir/leggings/pantyhose/ripped
 	name = "Ripped Pantyhose Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/leggings/pantyhose/ripped
+	item_path = /obj/item/clothing/underwear/socks/stir/leggings/pantyhose/ripped
 
-/datum/gear/socks/stir/thigh
+/datum/loadout_item/socks/stir/thigh
 	name = "Polychromic Thigh-high Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/thigh
+	item_path = /obj/item/clothing/underwear/socks/stir/thigh
 
-/datum/gear/socks/stir/thigh/striped
+/datum/loadout_item/socks/stir/thigh/striped
 	name = "Thigh-high Striped Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/thigh/striped
+	item_path = /obj/item/clothing/underwear/socks/stir/thigh/striped
 
-/datum/gear/socks/stir/thigh/gym
+/datum/loadout_item/socks/stir/thigh/gym
 	name = "Thigh-high Stirrups (black with stripe)"
-	path = /obj/item/clothing/underwear/socks/stir/thigh/gym
+	item_path = /obj/item/clothing/underwear/socks/stir/thigh/gym
 
-/datum/gear/socks/stir/thigh/rainbow
+/datum/loadout_item/socks/stir/thigh/rainbow
 	name = "Thigh-high Rainbow Stirrups"
-	path = /obj/item/clothing/underwear/socks/stir/thigh/rainbow
+	item_path = /obj/item/clothing/underwear/socks/stir/thigh/rainbow
 
-/datum/gear/socks/thigh
+/datum/loadout_item/socks/thigh
 	name = "Thigh High Socks"
-	path = /obj/item/clothing/underwear/socks/thigh
+	item_path = /obj/item/clothing/underwear/socks/thigh
 
-/datum/gear/socks/thigh/bee
+/datum/loadout_item/socks/thigh/bee
 	name = "Thigh High Bee Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/bee
+	item_path = /obj/item/clothing/underwear/socks/thigh/bee
 
-/datum/gear/socks/thigh/candycane
+/datum/loadout_item/socks/thigh/candycane
 	name = "Thigh High Candycane Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/candycane
+	item_path = /obj/item/clothing/underwear/socks/thigh/candycane
 
-/datum/gear/socks/thigh/candycane/green
+/datum/loadout_item/socks/thigh/candycane/green
 	name = "Thigh High Green Candycane Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/candycane/green
+	item_path = /obj/item/clothing/underwear/socks/thigh/candycane/green
 
-/datum/gear/socks/thigh/christmas
+/datum/loadout_item/socks/thigh/christmas
 	name = "Thigh High Christmas Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/christmas
+	item_path = /obj/item/clothing/underwear/socks/thigh/christmas
 
-/datum/gear/socks/thigh/commie
+/datum/loadout_item/socks/thigh/commie
 	name = "Thigh High Commie Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/commie
+	item_path = /obj/item/clothing/underwear/socks/thigh/commie
 
-/datum/gear/socks/thigh/rainbow
+/datum/loadout_item/socks/thigh/rainbow
 	name = "Thigh High Rainbow Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/rainbow
+	item_path = /obj/item/clothing/underwear/socks/thigh/rainbow
 
-/datum/gear/socks/thigh/stockings
+/datum/loadout_item/socks/thigh/stockings
 	name = "Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings
 
-/datum/gear/socks/thigh/stockings/blue
+/datum/loadout_item/socks/thigh/stockings/blue
 	name = "Blue Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/blue
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/blue
 
-/datum/gear/socks/thigh/stockings/cyan
+/datum/loadout_item/socks/thigh/stockings/cyan
 	name = "Cyan Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/cyan
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/cyan
 
-/datum/gear/socks/thigh/stockings/fishnet
+/datum/loadout_item/socks/thigh/stockings/fishnet
 	name = "Fishnet Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/fishnet
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/fishnet
 
-/datum/gear/socks/thigh/stockings/green
+/datum/loadout_item/socks/thigh/stockings/green
 	name = "Green Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/green
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/green
 
 
-/datum/gear/socks/thigh/stockings/orange
+/datum/loadout_item/socks/thigh/stockings/orange
 	name = "Orange Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/orange
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/orange
 
 
-/datum/gear/socks/thigh/stockings/pinkish
+/datum/loadout_item/socks/thigh/stockings/pinkish
 	name = "Pinkish Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/pink2
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/pink2
 
 
-/datum/gear/socks/thigh/stockings/purple
+/datum/loadout_item/socks/thigh/stockings/purple
 	name = "Purple Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/purple
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/purple
 
-/datum/gear/socks/thigh/stockings
+/datum/loadout_item/socks/thigh/stockings
 	name = "Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/stockings/yellow
+	item_path = /obj/item/clothing/underwear/socks/thigh/stockings/yellow
 
 
-/datum/gear/socks/thigh/striped
+/datum/loadout_item/socks/thigh/striped
 	name = "Thigh High StripedSocks"
-	path = /obj/item/clothing/underwear/socks/thigh/striped
+	item_path = /obj/item/clothing/underwear/socks/thigh/striped
 
 
-/datum/gear/socks/thigh/thin
+/datum/loadout_item/socks/thigh/thin
 	name = "Thigh High Thin Socks"
-	path = /obj/item/clothing/underwear/socks/thigh/thin
+	item_path = /obj/item/clothing/underwear/socks/thigh/thin
 
-/datum/gear/socks/thigh/uk
+/datum/loadout_item/socks/thigh/uk
 	name = "Thigh High UK Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/uk
+	item_path = /obj/item/clothing/underwear/socks/thigh/uk
 
-/datum/gear/socks/thigh/usa
+/datum/loadout_item/socks/thigh/usa
 	name = "Thigh High USA Stockings"
-	path = /obj/item/clothing/underwear/socks/thigh/usa
+	item_path = /obj/item/clothing/underwear/socks/thigh/usa

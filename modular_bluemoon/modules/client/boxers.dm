@@ -1,111 +1,108 @@
-/datum/gear/underwear
+/datum/loadout_item/underwear
 	name = "Briefs"
 	category = LOADOUT_CATEGORY_GENERAL_UNDER
-	subcategory = LOADOUT_SUBCATEGORY_UNDERWEAR
-	slot = ITEM_SLOT_UNDERWEAR
-	path = /obj/item/clothing/underwear/briefs
-	cost = 0
+	item_path = /obj/item/clothing/underwear/briefs
 
-/datum/gear/underwear/jockstrap
+/datum/loadout_item/underwear/jockstrap
 	name = "Jockstrap"
-	path = 	/obj/item/clothing/underwear/briefs/jockstrap
+	item_path = 	/obj/item/clothing/underwear/briefs/jockstrap
 
-/datum/gear/underwear/mankini
+/datum/loadout_item/underwear/mankini
 	name = "Mankini"
-	path = /obj/item/clothing/underwear/briefs/mankini
+	item_path = /obj/item/clothing/underwear/briefs/mankini
 
-/datum/gear/underwear/boxers
+/datum/loadout_item/underwear/boxers
 	name = "Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers
+	item_path = /obj/item/clothing/underwear/briefs/boxers
 
-/datum/gear/underwear/boxers/heart
+/datum/loadout_item/underwear/boxers/heart
 	name = "Heart Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/heart
+	item_path = /obj/item/clothing/underwear/briefs/boxers/heart
 
-/datum/gear/underwear/boxers/uk
+/datum/loadout_item/underwear/boxers/uk
 	name = "UK Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/uk
+	item_path = /obj/item/clothing/underwear/briefs/boxers/uk
 
-/datum/gear/underwear/boxers/usa
+/datum/loadout_item/underwear/boxers/usa
 	name = "USA Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/usa
+	item_path = /obj/item/clothing/underwear/briefs/boxers/usa
 
-/datum/gear/underwear/boxers/commie
+/datum/loadout_item/underwear/boxers/commie
 	name = "Commie Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/commie
+	item_path = /obj/item/clothing/underwear/briefs/boxers/commie
 
-/datum/gear/underwear/boxers/striped
+/datum/loadout_item/underwear/boxers/striped
 	name = "Striped Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/striped
+	item_path = /obj/item/clothing/underwear/briefs/boxers/striped
 
-/datum/gear/underwear/boxers/bee_shorts
+/datum/loadout_item/underwear/boxers/bee_shorts
 	name = "Bee Shorts"
-	path = /obj/item/clothing/underwear/briefs/boxers/bee_shorts
+	item_path = /obj/item/clothing/underwear/briefs/boxers/bee_shorts
 
-/datum/gear/underwear/boxers/boxer_briefs
+/datum/loadout_item/underwear/boxers/boxer_briefs
 	name = "Boxer Briefs"
-	path = /obj/item/clothing/underwear/briefs/boxer_briefs
+	item_path = /obj/item/clothing/underwear/briefs/boxer_briefs
 
-/datum/gear/underwear/boxers/panties
+/datum/loadout_item/underwear/boxers/panties
 	name = "Panties"
-	path = /obj/item/clothing/underwear/briefs/panties
+	item_path = /obj/item/clothing/underwear/briefs/panties
 
-/datum/gear/underwear/boxers/panties/alt
+/datum/loadout_item/underwear/boxers/panties/alt
 	name = "Panties (alt)"
-	path = /obj/item/clothing/underwear/briefs/panties/alt
+	item_path = /obj/item/clothing/underwear/briefs/panties/alt
 
-/datum/gear/underwear/boxers/panties/slim
+/datum/loadout_item/underwear/boxers/panties/slim
 	name = "Slim Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/slim
+	item_path = /obj/item/clothing/underwear/briefs/panties/slim
 
-/datum/gear/underwear/boxers/panties/thin
+/datum/loadout_item/underwear/boxers/panties/thin
 	name = "Thin Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/thin
+	item_path = /obj/item/clothing/underwear/briefs/panties/thin
 
-/datum/gear/underwear/boxers/panties/neko
+/datum/loadout_item/underwear/boxers/panties/neko
 	name = "Neko Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/neko
+	item_path = /obj/item/clothing/underwear/briefs/panties/neko
 
-/datum/gear/underwear/boxers/panties/thong
+/datum/loadout_item/underwear/boxers/panties/thong
 	name = "Thong"
-	path = /obj/item/clothing/underwear/briefs/panties/thong
+	item_path = /obj/item/clothing/underwear/briefs/panties/thong
 
-/datum/gear/underwear/boxers/panties/thong/babydoll
+/datum/loadout_item/underwear/boxers/panties/thong/babydoll
 	name = "Babydoll Thong"
-	path = /obj/item/clothing/underwear/briefs/panties/thong/babydoll
+	item_path = /obj/item/clothing/underwear/briefs/panties/thong/babydoll
 
-/datum/gear/underwear/boxers/panties/swimming
+/datum/loadout_item/underwear/boxers/panties/swimming
 	name = "Swimming Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/swimming
+	item_path = /obj/item/clothing/underwear/briefs/panties/swimming
 
-/datum/gear/underwear/boxers/panties/kinky
+/datum/loadout_item/underwear/boxers/panties/kinky
 	name = "Kinky Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/kinky
+	item_path = /obj/item/clothing/underwear/briefs/panties/kinky
 
-/datum/gear/underwear/boxers/panties/beekini
+/datum/loadout_item/underwear/boxers/panties/beekini
 	name = "Bee-kini Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/beekini
+	item_path = /obj/item/clothing/underwear/briefs/panties/beekini
 
-/datum/gear/underwear/boxers/panties/usa
+/datum/loadout_item/underwear/boxers/panties/usa
 	name = "USA Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/usa
+	item_path = /obj/item/clothing/underwear/briefs/panties/usa
 
-/datum/gear/underwear/boxers/panties/commie
+/datum/loadout_item/underwear/boxers/panties/commie
 	name = "Commie Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/commie
+	item_path = /obj/item/clothing/underwear/briefs/panties/commie
 
-/datum/gear/underwear/boxers/panties/uk
+/datum/loadout_item/underwear/boxers/panties/uk
 	name = "UK Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/uk
+	item_path = /obj/item/clothing/underwear/briefs/panties/uk
 
-/datum/gear/underwear/boxers/panties/striped
+/datum/loadout_item/underwear/boxers/panties/striped
 	name = "Striped Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/striped
+	item_path = /obj/item/clothing/underwear/briefs/panties/striped
 
-/datum/gear/underwear/boxers/panties/fishnet
+/datum/loadout_item/underwear/boxers/panties/fishnet
 	name = "Fishnet Panties"
-	path = /obj/item/clothing/underwear/briefs/panties/fishnet
+	item_path = /obj/item/clothing/underwear/briefs/panties/fishnet
 
-/datum/gear/underwear/boxers/long
+/datum/loadout_item/underwear/boxers/long
 	name = "Long Boxers"
-	path = /obj/item/clothing/underwear/briefs/boxers/long
+	item_path = /obj/item/clothing/underwear/briefs/boxers/long

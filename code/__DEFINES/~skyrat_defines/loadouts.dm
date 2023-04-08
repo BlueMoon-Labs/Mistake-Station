@@ -13,8 +13,9 @@
 #define LOADOUT_ITEM_INHAND "inhand_items"
 #define LOADOUT_ITEM_MISC "pocket_items"
 #define LOADOUT_ITEM_TOYS "toys"
+
 #define LOADOUT_ITEM_UNDERWEAR "underwear"
-#define LOADOUT_ITEM_SHIRT "toys"
+#define LOADOUT_ITEM_SHIRT "shirt"
 #define LOADOUT_ITEM_SOCKS "socks"
 #define LOADOUT_ITEM_WRISTS "wrists"
 

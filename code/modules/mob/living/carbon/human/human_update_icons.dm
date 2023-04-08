@@ -371,7 +371,7 @@ There are several things that need to be remembered:
 		// SKYRAT EDIT ADDITION
 		var/mutant_override = FALSE
 		if(dna.species.bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_WRISTS, wrists)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_CATEGORY_WRISTS, wrists)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
@@ -413,7 +413,7 @@ There are several things that need to be remembered:
 				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 				mutant_override = TRUE // SKYRAT EDIT ADDITION
 		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_UNDERWEAR, underwear)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_SUBCATEGORY_UNDERWEAR, underwear)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
@@ -454,7 +454,7 @@ There are several things that need to be remembered:
 				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 				mutant_override = TRUE // SKYRAT EDIT ADDITION
 		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_SOCKS, w_socks)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_SUBCATEGORY_SOCKS, w_socks)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
@@ -495,7 +495,7 @@ There are several things that need to be remembered:
 				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 				mutant_override = TRUE // SKYRAT EDIT ADDITION
 		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_SHIRT, w_shirt)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_SUBCATEGORY_SHIRT, w_shirt)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
