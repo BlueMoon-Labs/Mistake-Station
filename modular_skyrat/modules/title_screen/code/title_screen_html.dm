@@ -89,13 +89,13 @@ GLOBAL_LIST_EMPTY(startup_messages)
 
 	else
 		dat += {"<img src="loading_screen.gif" class="bg" alt="">"}
-
+		dat += "<div class='container_notice'>"
+		dat += "<p class='menu_title'>BlueMoon</p>"
 		if(SStitle.current_notice)
 			dat += {"
-			<div class="container_notice">
 				<p class="menu_notice">[SStitle.current_notice]</p>
-			</div>
 		"}
+		dat += "</div>"
 
 		dat += {"<div class="container_nav">"}
 

@@ -22,27 +22,6 @@
 /datum/storage/pockets/tiny/spacenam
 	attack_hand_interact = TRUE		//So you can actually see what you stuff in there
 
-/obj/item/clothing/head/costume/kepi
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	name = "kepi"
-	desc = "A white cap with visor. Oui oui, mon capitane!"
-	icon_state = "kepi"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/costume/kepi/old
-	icon_state = "kepi_old"
-	desc = "A flat, white circular cap with a visor, that demands some honor from it's wearer."
-
-/obj/item/clothing/head/costume/maid
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	name = "maid headband"
-	desc = "Maid in China."
-	icon_state = "maid"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-
 //Cyberpunk PI Costume - Sprites from Eris
 /obj/item/clothing/head/fedora/det_hat/cybergoggles //Subset of detective fedora so that detectives dont have to sacrifice candycorns for style
 	name = "type-34C semi-enclosed headwear"
@@ -115,29 +94,6 @@
 	soft_type = "enclaveo"
 	dog_fashion = null
 
-/obj/item/clothing/head/costume/whiterussian
-	name = "papakha"
-	desc = "A big wooly clump of fur designed to go on your head."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "papakha"
-	dog_fashion = null
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/costume/whiterussian/white
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "papakha_white"
-	dog_fashion = null
-
-/obj/item/clothing/head/costume/whiterussian/black
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "papakha_kuban"
-	dog_fashion = null
-
 /obj/item/clothing/head/hats/sec/peacekeeper/sol
 	name = "sol police cap"
 	desc = "Be a proper boy in blue with this cap, comes with a black visor to block out inconvenient truths."
@@ -170,17 +126,6 @@
 	greyscale_config_worn = /datum/greyscale_config/flatcap/worn
 	greyscale_colors = "#79684c"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/costume/flowerpin
-	name = "flower pin"
-	desc = "A small, colourable flower pin"
-	icon_state = "flowerpin"
-	greyscale_config = /datum/greyscale_config/flowerpin
-	greyscale_config_worn = /datum/greyscale_config/flowerpin/worn
-	greyscale_colors = "#FF0000"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	w_class = WEIGHT_CLASS_SMALL
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hats/imperial
@@ -261,13 +206,6 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "goggles")
 
-/obj/item/clothing/head/corgi/en
-	name = "E-N suit head"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "enhead"
-	supports_variations_flags = NONE
-
 /obj/item/clothing/head/soft/yankee
 	name = "fashionable baseball cap"
 	desc = "Rimmed and brimmed."
@@ -301,20 +239,6 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "blfedora"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/costume/christmas
-	name = "red christmas hat"
-	desc = "A red Christmas Hat! How festive!"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "christmashat"
-
-/obj/item/clothing/head/costume/christmas/green
-	name = "green christmas hat"
-	desc = "A green Christmas Hat! How festive!"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "christmashatg"
 
 /obj/item/clothing/head/standalone_hood
 	name = "hood"

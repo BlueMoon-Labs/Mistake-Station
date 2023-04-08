@@ -149,7 +149,7 @@
 
 /datum/preference/choiced/erp_status/deserialize(input, datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
-		return "disabled"
+		return "No"
 	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
 		return "No"
 	. = ..()
