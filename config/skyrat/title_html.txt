@@ -209,7 +209,7 @@
 					padding-top: 1vmin;
 					top: calc(50% - 10vmin);
 					left:50%;
-					transform: translate(-50%, -50%);
+					transform: translate(-50%, -150%);
 					z-index: 1;
 				}
 
@@ -227,6 +227,21 @@
 					font-size: 3vmin;
 					line-height: 2vmin;
 				}
+
+		.menu_title {
+			display: inline-block;
+			font-family: "Fixedsys";
+			font-weight: lighter;
+			text-decoration: none;
+			width: 100%;
+			text-align: left;
+			color: #c1e8f0;
+			text-shadow: 6px 6px #a3b7c9, 12px 12px #7593af, 18px 18px #476f95;
+			margin-right: 0%;
+			margin-top: 0px;
+			font-size: 11vmin;
+			line-height: 0.8;
+		}
 
 				.unchecked {
 					color: #F44;
