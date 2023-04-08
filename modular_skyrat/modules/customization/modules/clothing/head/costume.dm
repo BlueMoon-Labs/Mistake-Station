@@ -42,18 +42,6 @@
 	icon_state = "enhead"
 	supports_variations_flags = NONE
 
-//Ushankas
-//These have to be subtypes of TG's ushanka to inherit the toggleability
-/obj/item/clothing/head/costume/ushanka/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
-	name = "security ushanka"
-	desc = "A warm and comfortable ushanka, dyed with 'all natural flavors' according to the tag."
-	icon_state = "ushankablue"
-	inhand_icon_state = "rus_ushanka"
-	upsprite = "ushankablueup"
-	downsprite = "ushankablue"
-
 //Pelts
 //Not made into a subtype of /costume but stored in the same file
 /obj/item/clothing/head/pelt
