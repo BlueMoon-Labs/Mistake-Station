@@ -716,20 +716,24 @@
 /obj/item/clothing/under/rank/security/officer
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "security_black"
+	icon_state = "rsecurity"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "security_black",
-			RESKIN_WORN_ICON_STATE = "security_black"
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "security_white",
+			RESKIN_WORN_ICON_STATE = "security_white"
 		),
 		"Blue Variant" = list(
 			RESKIN_ICON_STATE = "security_blue",
 			RESKIN_WORN_ICON_STATE = "security_blue"
 		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON_STATE = "security_white"
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "rsecurity",
+			RESKIN_WORN_ICON_STATE = "rsecurity"
+		),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "security_black",
+			RESKIN_WORN_ICON_STATE = "security_black"
 		),
 	)
 

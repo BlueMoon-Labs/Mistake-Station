@@ -143,12 +143,12 @@
 
 	var/obj/item/clockwork/clockwork_slab/slab = attack_item
 
-	if(slab.buffer)
+	if(slab.traplink)
 
 		if(takes_input)
-			to_chat(user, span_brass("You connect [slab.buffer.parent] to [parent]."))
-			add_output(slab.buffer)
-			slab.buffer = null
+			to_chat(user, span_brass("You connect [slab.traplink.parent] to [parent]."))
+			add_output(slab.traplink)
+			slab.traplink = null
 
 		else
 			to_chat(user, span_brass("That device does not accept input."))
@@ -157,7 +157,7 @@
 
 		if(sends_input)
 			to_chat(user, span_brass("You prepare to connect [parent] with other devices."))
-			slab.buffer = src
+			slab.traplink = src
 
 		else
 

@@ -64,6 +64,7 @@
 					/obj/item/storage/backpack/satchel/sec = 5,
 					/obj/item/storage/backpack/duffelbag/sec = 5,
 					/obj/item/clothing/under/rank/security/officer = 5,
+					/obj/item/clothing/under/rank/security/officer/skirt = 5,
 					/obj/item/clothing/under/rank/security/peacekeeper/tactical = 4,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol/cadet = 3,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol = 3,

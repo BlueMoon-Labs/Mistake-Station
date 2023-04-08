@@ -7262,6 +7262,7 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\sentinel.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
+#include "modular_splurt\code\game\say.dm"
 #include "modular_splurt\code\__HELPERS\_cit_helpers.dm"
 #include "modular_splurt\code\__HELPERS\text.dm"
 #include "modular_splurt\code\__HELPERS\unsorted.dm"

@@ -49,8 +49,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 	var/list/default_scriptures = list()
 
 	//For trap linkage
-	var/datum/component/clockwork_trap/buffer
-
+	var/datum/component/clockwork_trap/traplink
 
 /obj/item/clockwork/clockwork_slab/Initialize(mapload)
 	. = ..()
