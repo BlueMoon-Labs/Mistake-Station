@@ -104,7 +104,7 @@
 	savefile_key = "butt_enlargement"
 
 /datum/preference/toggle/erp/butt_shrinkage
-	savefile_key = "butt_shrinkage_pref"
+	savefile_key = "butt_shrinkage"
 
 /datum/preference/toggle/erp/belly_enlargement
 	savefile_key = "belly_enlargement"
