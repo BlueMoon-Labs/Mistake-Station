@@ -195,7 +195,17 @@
 	if(neck)
 		EQUIP_OUTFIT_ITEM(neck, ITEM_SLOT_NECK)
 	if(ears)
-		EQUIP_OUTFIT_ITEM(ears, ITEM_SLOT_EARS_LEFT) //BlueMoon edit
+		EQUIP_OUTFIT_ITEM(ears, ITEM_SLOT_EARS_LEFT)
+	if(ears_extra)
+		EQUIP_OUTFIT_ITEM(ears_extra, ITEM_SLOT_EARS_RIGHT)
+	if(underwear)
+		EQUIP_OUTFIT_ITEM(underwear, ITEM_SLOT_UNDERWEAR)
+	if(socks)
+		EQUIP_OUTFIT_ITEM(socks, ITEM_SLOT_SOCKS)
+	if(shirt)
+		EQUIP_OUTFIT_ITEM(shirt, ITEM_SLOT_SHIRT)
+	if(wrists)
+		EQUIP_OUTFIT_ITEM(wrists, ITEM_SLOT_WRISTS)
 	if(glasses)
 		EQUIP_OUTFIT_ITEM(glasses, ITEM_SLOT_EYES)
 	if(back)
@@ -380,7 +390,7 @@
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
-	var/list/types = list(uniform, underwear, socks, shirt, ears_extra, suit, back, belt, gloves, wrists, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand) //BlueMoon edit
+	var/list/types = list(uniform, underwear, socks, shirt, ears_extra, suit, back, belt, gloves, wrists, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
 	types += chameleon_extras
 	types += skillchips
 	list_clear_nulls(types)
@@ -412,6 +422,11 @@
 	preload += l_hand
 	preload += r_hand
 	preload += accessory
+	underwear += underwear
+	socks += socks
+	shirt += shirt
+	ears_extra += ears_extra
+	wrists += wrists
 	preload += box
 	for(var/implant_type in implants)
 		preload += implant_type
@@ -450,6 +465,11 @@
 	.["box"] = box
 	.["implants"] = implants
 	.["accessory"] = accessory
+	.["underwear"] = underwear
+	.["socks"] = socks
+	.["shirt"] = shirt
+	.["ears_extra"] = ears_extra
+	.["wrists"] = wrists
 
 /// Copy most vars from another outfit to this one
 /datum/outfit/proc/copy_from(datum/outfit/target)
@@ -477,6 +497,11 @@
 	box = target.box
 	implants = target.implants
 	accessory = target.accessory
+	underwear = target.underwear
+	socks = target.socks
+	shirt = target.shirt
+	ears_extra = target.ears_extra
+	wrists = target.wrists
 
 /// Prompt the passed in mob client to download this outfit as a json blob
 /datum/outfit/proc/save_to_file(mob/admin)
@@ -511,6 +536,11 @@
 	r_hand = text2path(outfit_data["r_hand"])
 	l_hand = text2path(outfit_data["l_hand"])
 	internals_slot = outfit_data["internals_slot"]
+	underwear = outfit_data["underwear"]
+	socks = outfit_data["socks"]
+	shirt = outfit_data["shirt"]
+	ears_extra = outfit_data["ears_extra"]
+	wrists = outfit_data["wrists"]
 	var/list/backpack = outfit_data["backpack_contents"]
 	backpack_contents = list()
 	for(var/item in backpack)

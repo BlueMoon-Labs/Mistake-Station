@@ -6,7 +6,7 @@ export const OutfitEditor = (props, context) => {
   const { act, data } = useBackend(context);
   const { outfit, saveable, dummy64 } = data;
   return (
-    <Window width={380} height={600} theme="admin">
+    <Window width={600} height={870}>
       <Window.Content>
         <Box
           as="img"
@@ -69,18 +69,25 @@ export const OutfitEditor = (props, context) => {
           }>
           <Box textAlign="center">
             <Stack mb={2}>
+              <OutfitSlot
+                name="Right Ear"
+                icon="headphones-alt"
+                slot="ears_extra"
+              />
               <OutfitSlot name="Headgear" icon="hard-hat" slot="head" />
+              <OutfitSlot name="Left Ear" icon="headphones-alt" slot="ears" />
+            </Stack>
+            <Stack mb={2}>
+              <OutfitSlot name="Mask" icon="theater-masks" slot="mask" />
               <OutfitSlot name="Glasses" icon="glasses" slot="glasses" />
-              <OutfitSlot name="Ears" icon="headphones-alt" slot="ears" />
             </Stack>
             <Stack mb={2}>
               <OutfitSlot name="Neck" icon="stethoscope" slot="neck" />
-              <OutfitSlot name="Mask" icon="theater-masks" slot="mask" />
             </Stack>
             <Stack mb={2}>
-              <OutfitSlot name="Uniform" icon="tshirt" slot="uniform" />
-              <OutfitSlot name="Suit" icon="user-tie" slot="suit" />
-              <OutfitSlot name="Gloves" icon="mitten" slot="gloves" />
+              <OutfitSlot name="Suit" icon="user-astronaut" slot="suit" />
+              <OutfitSlot name="Uniform" icon="user-tie" slot="uniform" />
+              <OutfitSlot name="Shirt" icon="tshirt" slot="shirt" />
             </Stack>
             <Stack mb={2}>
               <OutfitSlot
@@ -92,24 +99,32 @@ export const OutfitEditor = (props, context) => {
               <OutfitSlot name="ID" icon="id-card-o" slot="id" />
             </Stack>
             <Stack mb={2}>
-              <OutfitSlot name="Belt" icon="band-aid" slot="belt" />
-              <OutfitSlot name="Left Hand" icon="hand-paper" slot="l_hand" />
               <OutfitSlot name="Right Hand" icon="hand-paper" slot="r_hand" />
+              <OutfitSlot name="Wrists" icon="hands" slot="wrists" />
+              <OutfitSlot name="Gloves" icon="mitten" slot="gloves" />
+              <OutfitSlot name="Left Hand" icon="hand-paper" slot="l_hand" />
             </Stack>
             <Stack mb={2}>
-              <OutfitSlot name="Shoes" icon="socks" slot="shoes" />
-              <OutfitSlot
-                name="Left Pocket"
-                icon="envelope-open-o"
-                iconRot={180}
-                slot="l_pocket"
-              />
               <OutfitSlot
                 name="Right Pocket"
                 icon="envelope-open-o"
                 iconRot={180}
                 slot="r_pocket"
               />
+              <OutfitSlot name="Underwear" icon="baby" slot="underwear" />
+              <OutfitSlot name="Belt" icon="band-aid" slot="belt" />
+              <OutfitSlot
+                name="Left Pocket"
+                icon="envelope-open-o"
+                iconRot={180}
+                slot="l_pocket"
+              />
+            </Stack>
+            <Stack mb={2}>
+              <OutfitSlot name="Socks" icon="socks" slot="socks" />
+            </Stack>
+            <Stack mb={2}>
+              <OutfitSlot name="Shoes" icon="shoe-prints" slot="shoes" />
             </Stack>
           </Box>
         </Section>

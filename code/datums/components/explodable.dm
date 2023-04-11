@@ -125,7 +125,7 @@
 	worn_items += list(wearer.head, wearer.wear_mask, wearer.gloves, wearer.shoes, wearer.glasses, wearer.ears)
 	if(ishuman(wearer))
 		var/mob/living/carbon/human/human_wearer = wearer
-		worn_items += list(human_wearer.wear_suit, human_wearer.w_uniform)
+		worn_items += list(human_wearer.wear_suit, human_wearer.w_uniform, human_wearer.belt, human_wearer.s_store, human_wearer.wear_id, human_wearer.w_socks, human_wearer.w_underwear, human_wearer.w_shirt, human_wearer.ears_extra) //BlueMoon edit. Нахуй это нужно? Не знаю.
 
 	if(!(item in worn_items))
 		return FALSE

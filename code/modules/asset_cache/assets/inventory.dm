@@ -17,4 +17,10 @@
 		"inventory-back.png" = 'icons/ui_icons/inventory/back.png',
 		"inventory-pocket.png" = 'icons/ui_icons/inventory/pocket.png',
 		"inventory-collar.png" = 'icons/ui_icons/inventory/collar.png',
+		///BlueMoon content
+		"inventory-ears_extra.png" = 'modular_sand/icons/ui_icons/inventory/ears_extra.png',
+		"inventory-underwear.png" = 'modular_sand/icons/ui_icons/inventory/underwear.png',
+		"inventory-socks.png" = 'modular_sand/icons/ui_icons/inventory/socks.png',
+		"inventory-undershirt.png" = 'modular_sand/icons/ui_icons/inventory/undershirt.png',
+		"inventory-wrists.png" = 'modular_sand/icons/ui_icons/inventory/wrists.png',
 	)
