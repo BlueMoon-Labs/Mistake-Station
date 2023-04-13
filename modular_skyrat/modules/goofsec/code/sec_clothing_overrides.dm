@@ -152,17 +152,17 @@
 	icon_state = "duffel_security"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "duffel_security",
-			RESKIN_WORN_ICON_STATE = "duffel_security"
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "security_duffle_white",
+			RESKIN_WORN_ICON_STATE = "security_duffle_white"
 		),
 		"Blue Variant" = list(
 			RESKIN_ICON_STATE = "security_duffle_blue",
 			RESKIN_WORN_ICON_STATE = "security_duffle_blue"
 		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_duffle_white",
-			RESKIN_WORN_ICON_STATE = "security_duffle_white"
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "duffel_security",
+			RESKIN_WORN_ICON_STATE = "duffel_security"
 		),
 	)
 
@@ -791,44 +791,6 @@
 /obj/item/clothing/shoes/jackboots/sec/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_skyrat/master_files/sound/effects/footstep1.ogg'=1,'modular_skyrat/master_files/sound/effects/footstep2.ogg'=1, 'modular_skyrat/master_files/sound/effects/footstep3.ogg'=1), 100)
-
-//
-// This code overrides security's jumpskirt preference, as we're not going to be giving them jumpskirts
-//
-/datum/outfit/job/security/pre_equip(mob/living/carbon/human/affected_mob)
-	if(affected_mob.jumpsuit_style == PREF_SKIRT)
-		to_chat(affected_mob, span_alertwarning("Corporation Security uniforms don't include a skirt variant! You've been equipped with a jumpsuit instead."))
-		affected_mob.jumpsuit_style = PREF_SUIT
-	. = ..()
-
-/datum/outfit/job/hos/pre_equip(mob/living/carbon/human/affected_mob)
-	if(affected_mob.jumpsuit_style == PREF_SKIRT)
-		to_chat(affected_mob, span_alertwarning("Corporation Security uniforms don't include a skirt variant! You've been equipped with a jumpsuit instead."))
-		affected_mob.jumpsuit_style = PREF_SUIT
-	. = ..()
-
-/datum/outfit/job/warden/pre_equip(mob/living/carbon/human/affected_mob)
-	if(affected_mob.jumpsuit_style == PREF_SKIRT)
-		to_chat(affected_mob, span_alertwarning("Corporation Security uniforms don't include a skirt variant! You've been equipped with a jumpsuit instead."))
-		affected_mob.jumpsuit_style = PREF_SUIT
-	. = ..()
-
-//PDA Greyscale Overrides
-///obj/item/modular_computer/pda/security
-//	greyscale_colors = "#2B356D#1E1E1E"
-//
-///obj/item/modular_computer/pda/detective
-//	greyscale_colors = "#90714F#1E1E1E"
-//
-///obj/item/modular_computer/pda/warden
-//	greyscale_colors = "#2F416E#1E1E1E#ACACAC"
-//
-///obj/item/modular_computer/pda/heads/hos
-//	greyscale_colors = "#2B356D#1E1E1E"
-
-/*
-*	A bunch of re-overrides so that admins can keep using some redsec stuff; not all of them have this though!
-*/
 
 /*
 *	EYES

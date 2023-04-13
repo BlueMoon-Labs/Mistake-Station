@@ -383,8 +383,16 @@
 		ears = H.ears.type
 	if(H.glasses)
 		glasses = H.glasses.type
-	if(H.belt)
-		belt = H.belt.type
+	if(H.w_shirt)
+		shirt = H.worn_shirt.type
+	if(H.w_underwear)
+		underwear = H.worn_underwear.type
+	if(H.w_socks)
+		socks = H.worn_socks.type
+	if(H.wrists)
+		wrists = H.worn_wrists.type
+	if(H.ears_extra)
+		ears_extra = H.ears.type
 	return TRUE
 // SKYRAT EDIT END
 
@@ -422,11 +430,11 @@
 	preload += l_hand
 	preload += r_hand
 	preload += accessory
-	underwear += underwear
-	socks += socks
-	shirt += shirt
-	ears_extra += ears_extra
-	wrists += wrists
+	preload += underwear
+	preload += socks
+	preload += shirt
+	preload += ears_extra
+	preload += wrists
 	preload += box
 	for(var/implant_type in implants)
 		preload += implant_type

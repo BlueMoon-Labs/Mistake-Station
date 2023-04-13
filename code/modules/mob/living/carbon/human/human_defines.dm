@@ -62,7 +62,7 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 
-	//skyrat slots
+	//BlueMoon slots
 	var/obj/item/w_underwear = null
 	var/obj/item/w_socks = null
 	var/obj/item/w_shirt = null

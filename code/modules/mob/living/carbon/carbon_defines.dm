@@ -47,6 +47,12 @@
 	///only used by humans.
 	var/obj/item/clothing/ears = null
 
+		// BlueMoon Edit.
+	var/obj/item/clothing/underwear/shirt/worn_shirt = null
+	var/obj/item/clothing/underwear/briefs/worn_underwear = null
+	var/obj/item/clothing/underwear/socks/worn_socks = null
+	var/obj/item/clothing/wrists/worn_wrists = null
+
 	/// Carbon
 	var/datum/dna/dna = null
 	///last mind to control this mob, for blood-based cloning

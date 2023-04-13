@@ -1,14 +1,5 @@
-/// Shoe Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_shirts, generate_loadout_items(/datum/loadout_item/shirt))
-
-/// Shoe Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_underwear, generate_loadout_items(/datum/loadout_item/underwear))
-
-/// Shoe Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_socks, generate_loadout_items(/datum/loadout_item/socks))
-
 /datum/loadout_item/shirt
-	category = LOADOUT_CATEGORY_GENERAL_UNDER
+	category = LOADOUT_SUBCATEGORY_SHIRT
 
 /datum/loadout_item/shirt/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.shirt))
@@ -24,7 +15,7 @@ GLOBAL_LIST_INIT(loadout_socks, generate_loadout_items(/datum/loadout_item/socks
 		outfit.shirt = item_path
 
 /datum/loadout_item/underwear
-	category = LOADOUT_CATEGORY_GENERAL_UNDER
+	category = LOADOUT_SUBCATEGORY_UNDERWEAR
 
 /datum/loadout_item/underwear/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.underwear))
@@ -40,7 +31,7 @@ GLOBAL_LIST_INIT(loadout_socks, generate_loadout_items(/datum/loadout_item/socks
 		outfit.underwear = item_path
 
 /datum/loadout_item/socks
-	category = LOADOUT_CATEGORY_GENERAL_UNDER
+	category = LOADOUT_SUBCATEGORY_SOCKS
 
 /datum/loadout_item/socks/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.socks))
