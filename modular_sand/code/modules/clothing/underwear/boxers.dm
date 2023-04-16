@@ -1,6 +1,9 @@
 /obj/item/clothing/underwear/briefs
 	name = "briefs"
 	desc = "Not going commando."
+	icon = 'modular_sand/icons/mob/clothing/underwear.dmi' //if someone is willing to make proper inventory sprites that'd be very cash money
+	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	icon_state = "briefs"
 	under_type = /obj/item/clothing/underwear/briefs
 	body_parts_covered = GROIN
@@ -124,3 +127,11 @@
 	name = "usa panties"
 	desc = "Not nearly as free as not wearing any."
 	icon_state = "panties_assblastusa"
+
+/obj/item/clothing/underwear/briefs/panties/panties_cow
+	name = "cow-kini panties"
+	desc = "Moo!"
+	icon_state = "panties_cow"
+	icon = 'modular_splurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/underwear_digi.dmi'

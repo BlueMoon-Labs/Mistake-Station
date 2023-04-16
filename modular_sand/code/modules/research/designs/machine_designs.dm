@@ -1,21 +1,3 @@
-///datum/design/board/telesci_console
-//	name = "Computer Design (Telepad Control Console Board)"
-//	desc = "Allows for the construction of circuit boards used to build a telescience console."
-//	id = "telesci_console"
-//	build_path = /obj/item/circuitboard/computer/telesci_console
-//	category = list("Teleportation Machinery")
-//	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
-
-///datum/design/mclunky_electronics
-//	name = "Machine Design (McLunky Circuit Board)"
-//	desc = "Now just give the parts to the botanist and they could perhaps be making power for you!"
-//	id = "mclunky_circuit_board"
-//	build_type = AUTOLATHE | PROTOLATHE
-//	materials = list(/datum/material/iron = 1000, /datum/material/glass = 2000)
-//	build_path = /obj/item/circuitboard/machine/pacman/mclunky
-//	category = list("initial", "Electronics")
-//	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_ENGINEERING
-
 /datum/design/board/autodoc
 	name = "Machine Design (Autodoc)"
 	desc = "The circuit board for an Autodoc."

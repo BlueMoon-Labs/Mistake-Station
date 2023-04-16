@@ -1,6 +1,6 @@
 //GLOVE SLOT ITEMS...
 //SynTech ring
-/obj/item/clothing/accessory/ring/syntech
+/obj/item/clothing/gloves/ring/syntech
 	name = "normalizer ring"
 	desc = "An expensive, shimmering SynTech ring gilded with golden NanoTrasen markings. It will 'normalize' the size of the user to a specified height approved for work-conditions, as long as it is equipped. The artificial violet gem inside twinkles ominously."
 	icon = 'modular_splurt/icons/obj/clothing/sizeaccessories.dmi'
@@ -12,7 +12,7 @@
 	//These are already defined under the parent ring, but I wanna leave em here for reference purposes
 
 //For glove slots
-/obj/item/clothing/accessory/ring/syntech/equipped(mob/living/user, slot)
+/obj/item/clothing/gloves/ring/syntech/equipped(mob/living/user, slot)
 	if(slot != ITEM_SLOT_GLOVES)
 		return ..()
 
@@ -23,11 +23,26 @@
 		user.AddComponent(/datum/component/size_normalized, wear=src)
 	. = ..()
 
-/obj/item/clothing/accessory/ring/syntech/dropped(mob/living/user, slot)
+/obj/item/clothing/gloves/ring/syntech/dropped(mob/living/user, slot)
 	var/datum/component/size_normalized/comp = user.GetComponent(/datum/component/size_normalized)
 	if(comp?.attached_wear == src)
 		qdel(comp)
 	. = ..()
+
+//wrist items (now we do, ha ha!)
+/obj/item/clothing/wrists
+	name = "slap bracelet"
+	desc = "oh no."
+	gender = PLURAL //change this if it is for a single wrist
+	w_class = WEIGHT_CLASS_SMALL
+	icon = 'modular_sand/icons/obj/clothing/wrist.dmi'
+	worn_icon = 'modular_sand/icons/mob/clothing/wrists.dmi'
+	siemens_coefficient = 0.5
+	body_parts_covered = HANDS
+	slot_flags = ITEM_SLOT_WRISTS
+	attack_verb_simple = list("slapped on the wrist")
+	strip_delay = 20
+	equip_delay_other = 40
 
 //SynTech Wristband
 /obj/item/clothing/wrists/syntech

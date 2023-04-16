@@ -6,12 +6,12 @@
 					/obj/item/clothing/head/gunfighter = 5
 	)
 	for(var/P in typesof(/datum/loadout_item/underwear))
-		var/datum/gear/G = P
-		products[initial(G.path)] = 5
+		var/datum/loadout_item/G = P
+		products[initial(G.item_path)] = 5
 	for(var/P in typesof(/datum/loadout_item/shirt))
-		var/datum/gear/G = P
-		products[initial(G.path)] = 5
+		var/datum/loadout_item/G = P
+		products[initial(G.item_path)] = 5
 	for(var/P in typesof(/datum/loadout_item/socks))
-		var/datum/gear/G = P
-		products[initial(G.path)] = 5
+		var/datum/loadout_item/G = P
+		products[initial(G.item_path)] = 5
 	. = ..()

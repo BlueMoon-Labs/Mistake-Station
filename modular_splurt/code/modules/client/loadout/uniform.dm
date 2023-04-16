@@ -1,153 +1,149 @@
-/datum/gear/uniform/tunic
+/datum/loadout_item/under/tunic
 	name = "Tunic"
-	description = "A simple tunic."
-	path = /obj/item/clothing/under/tunic
+	item_path = /obj/item/clothing/under/tunic
 
-/datum/gear/uniform/lumberjack
+/datum/loadout_item/under/lumberjack
 	name = "Lumberjack Outfit"
-	description = "Makes you want to pull a genocide on trees."
-	path = /obj/item/clothing/under/lumberjack
+	item_path = /obj/item/clothing/under/lumberjack
 
-/datum/gear/uniform/halfsuit
+/datum/loadout_item/under/halfsuit
 	name = "Half Latex Catsuit"
-	path = /obj/item/clothing/under/latex/half
+	item_path = /obj/item/clothing/under/latex/half
 
-/datum/gear/uniform/latex
+/datum/loadout_item/under/latex
 	name = "Full Latex Catsuit"
-	path = /obj/item/clothing/under/misc/latex_catsuit
+	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
-/datum/gear/uniform/shorts/redwshort
+/datum/loadout_item/under/shorts/redwshort
 	name = "Red workout short"
-	path = /obj/item/clothing/under/shorts/redwshort
+	item_path = /obj/item/clothing/under/shorts/redwshort
 
-/datum/gear/uniform/shorts/yellowwshort
+/datum/loadout_item/under/shorts/yellowwshort
 	name = "Yellow workout short"
-	path = /obj/item/clothing/under/shorts/yellowwshort
+	item_path = /obj/item/clothing/under/shorts/yellowwshort
 
-/datum/gear/uniform/shorts/pinkwshort
+/datum/loadout_item/under/shorts/pinkwshort
 	name = "Pink workout short"
-	path = /obj/item/clothing/under/shorts/pinkwshort
+	item_path = /obj/item/clothing/under/shorts/pinkwshort
 
-/datum/gear/uniform/domina
+/datum/loadout_item/under/domina
 	name = "Dominatrix Dress"
-	path = /obj/item/clothing/under/domina
+	item_path = /obj/item/clothing/under/domina
 
-/datum/gear/uniform/bluedress
+/datum/loadout_item/under/bluedress
 	name = "Blue Royal Dress"
-	path = /obj/item/clothing/under/bluedress
+	item_path = /obj/item/clothing/under/bluedress
 
-/datum/gear/uniform/performer
+/datum/loadout_item/under/performer
 	name = "Performers one piece"
-	path = /obj/item/clothing/under/performer
+	item_path = /obj/item/clothing/under/performer
 
 // Suggestion #151
-/datum/gear/uniform/waiter
+/datum/loadout_item/under/waiter
 	name = "waiter's outfit"
-	path = /obj/item/clothing/under/suit/waiter
+	item_path = /obj/item/clothing/under/suit/waiter
 
 // Suggestion #3278
-/datum/gear/uniform/amish
+/datum/loadout_item/under/amish
 	name = "Amish suit"
-	path = /obj/item/clothing/under/suit/sl
+	item_path = /obj/item/clothing/under/suit/sl
 
-/datum/gear/uniform/bunnysuit
+/datum/loadout_item/under/bunnysuit
 	name = "bunny outfit"
-	path = /obj/item/clothing/under/bunnysuit
+	item_path = /obj/item/clothing/under/bunnysuit
 
-/datum/gear/uniform/bunnysuitwhite
+/datum/loadout_item/under/bunnysuitwhite
 	name = "white bunny outfit"
-	path = /obj/item/clothing/under/bunnysuit/white
+	item_path = /obj/item/clothing/under/bunnysuit/white
 
-/datum/gear/uniform/raccveralls
+/datum/loadout_item/under/raccveralls
 	name = "form fitting overalls"
-	path = /obj/item/clothing/under/raccveralls
+	item_path = /obj/item/clothing/under/raccveralls
 
-/datum/gear/uniform/sexyoffice
+/datum/loadout_item/under/sexyoffice
 	name = "Revealing office uniform"
-	path = /obj/item/clothing/under/officesexy
+	item_path = /obj/item/clothing/under/officesexy
 
-/datum/gear/uniform/vaultsuit
+/datum/loadout_item/under/vaultsuit
 	name = "vault suit"
-	path = /obj/item/clothing/under/vaultsuit
+	item_path = /obj/item/clothing/under/vaultsuit
 
 // Updates restrictions to accomodate new jobs (mostly trekkie stuff)
-/datum/gear/uniform/grey/sec
+/datum/loadout_item/under/grey/sec
 	restricted_roles = list("Detective", "Security Officer", "Warden", "Head of Security", "Brig Physician")
 
-/datum/gear/uniform/grey/med
+/datum/loadout_item/under/grey/med
 	restricted_roles = list("Medical Doctor", "Virologist", "Chemist", "Geneticist", "Paramedic", "Brig Physician")
 
-/datum/gear/uniform/grey/com
+/datum/loadout_item/under/grey/com
 	restricted_roles = list("Quartermaster", "Research Director", "Chief Medical Officer", "Head Of Security", "Head Of Personnel", "Captain", "Blueshield", "Bridge Officer")
 
-/datum/gear/uniform/trekcmdtos
+/datum/loadout_item/under/trekcmdtos
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/trekmedscitos
+/datum/loadout_item/under/trekmedscitos
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/trekengtos
+/datum/loadout_item/under/trekengtos
 	restricted_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician","Head of Security","Blueshield","Cargo Technician", "Shaft Miner", "Quartermaster")
 
-/datum/gear/uniform/trekcmdtng
+/datum/loadout_item/under/trekcmdtng
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/trekmedscitng
+/datum/loadout_item/under/trekmedscitng
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/trekengtng
+/datum/loadout_item/under/trekengtng
 	restricted_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician","Head of Security","Blueshield","Cargo Technician", "Shaft Miner", "Quartermaster")
 
-/datum/gear/uniform/trekcmdvoy
+/datum/loadout_item/under/trekcmdvoy
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/trekmedscivoy
+/datum/loadout_item/under/trekmedscivoy
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/trekengvoy
+/datum/loadout_item/under/trekengvoy
 	restricted_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician","Head of Security","Blueshield","Cargo Technician", "Shaft Miner", "Quartermaster")
 
-/datum/gear/uniform/trekcmdds9
+/datum/loadout_item/under/trekcmdds9
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/trekmedscids9
+/datum/loadout_item/under/trekmedscids9
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/trekengds9
+/datum/loadout_item/under/trekengds9
 	restricted_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician","Head of Security","Blueshield","Cargo Technician", "Shaft Miner", "Quartermaster")
 
-/datum/gear/uniform/trekcmdent
+/datum/loadout_item/under/trekcmdent
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/trekmedscient
+/datum/loadout_item/under/trekmedscient
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/trekengent
+/datum/loadout_item/under/trekengent
 	restricted_roles = list("Chief Engineer","Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician","Head of Security","Blueshield","Cargo Technician", "Shaft Miner", "Quartermaster")
 
-/datum/gear/uniform/trekfedutil
+/datum/loadout_item/under/trekfedutil
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Blueshield","Bridge Officer",
 							"Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Scientist", "Roboticist",
 							"Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician",
 							"Cargo Technician", "Shaft Miner")
 
-/datum/gear/uniform/orvcmd
+/datum/loadout_item/under/orvcmd
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Bridge Officer")
 
-/datum/gear/uniform/orvmedsci
+/datum/loadout_item/under/orvmedsci
 	restricted_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Virologist", "Paramedic", "Geneticist", "Research Director", "Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/uniform/orvsec
+/datum/loadout_item/under/orvsec
 	restricted_roles = list("Warden", "Detective", "Security Officer", "Head of Security", "Brig Physician", "Blueshield")
 
-/datum/gear/uniform/stripper/security
+/datum/loadout_item/under/stripper/security
 	name = "Security Stripper Outfit"
-	path = /obj/item/clothing/under/rank/security/stripper
-	subcategory = LOADOUT_SUBCATEGORY_UNIFORM_JOBS
+	item_path = /obj/item/clothing/under/rank/security/stripper
 	restricted_roles = list("Security Officer", "Warden", "Head Of Security")
 
-/datum/gear/uniform/stripper/explorer
+/datum/loadout_item/under/stripper/explorer
 	name = "Explorer Stripper Outfit"
-	path = /obj/item/clothing/under/rank/cargo/miner/lavaland/stripper
-	subcategory = LOADOUT_SUBCATEGORY_UNIFORM_JOBS
+	item_path = /obj/item/clothing/under/rank/cargo/miner/lavaland/stripper
 	restricted_roles = list("Shaft Miner")

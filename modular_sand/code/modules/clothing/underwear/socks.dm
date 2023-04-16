@@ -1,6 +1,9 @@
 /obj/item/clothing/underwear/socks
 	name = "socks"
 	desc = "A pair of socks."
+	icon = 'modular_sand/icons/mob/clothing/underwear.dmi' //if someone is willing to make proper inventory sprites that'd be very cash money
+	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	icon_state = "socks"
 	under_type = /obj/item/clothing/underwear/socks
 	body_parts_covered = FEET
@@ -237,3 +240,23 @@
 	name = "thigh-high rainbow stirrups"
 	icon_state = "rainbow_thigh-stir"
 
+/obj/item/clothing/underwear/socks/thigh/thigh_cow
+	name = "cow thigh high socks"
+	desc = "Moo?"
+	icon_state = "socks_cow"
+	icon = 'modular_splurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/underwear_digi.dmi'
+
+/obj/item/clothing/underwear/socks/thigh/fishnet
+	name = "Fishnet tights"
+	desc = "The thickest of thighs will make this net break rather easily"
+	icon_state = "fishnet"
+	icon = 'modular_splurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/underwear_digi.dmi'
+	body_parts_covered = FEET|LEGS|GROIN
+
+/obj/item/clothing/underwear/socks/thigh/fishnet/white
+	name = "White Fishnet tights"
+	icon_state = "fishnet_w"

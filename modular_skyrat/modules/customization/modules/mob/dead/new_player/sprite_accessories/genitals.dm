@@ -10,48 +10,48 @@
 	///Where the genital is on the body. If clothing doesn't cover it, it shows up!
 	var/genital_location = GROIN
 
-/datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
-	var/obj/item/organ/external/genital/badonkers = target_mob.get_organ_slot(associated_organ_slot)
-	if(!badonkers)
-		return TRUE
-	switch(badonkers.visibility_preference)
-		if(GENITAL_ALWAYS_SHOW) //Never hidden
-			return FALSE
-		if(GENITAL_HIDDEN_BY_CLOTHES) //Hidden if the relevant body parts are covered by clothes or underwear
-			//Do they have a Uniform or Suit that covers them?
-			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
-				return TRUE
-			//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
-			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/skyrat/hospitalgown))
-				return TRUE
-
-			//Are they wearing an Undershirt?
-			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-				var/datum/sprite_accessory/undershirt/worn_undershirt = GLOB.undershirt_list[target_mob.undershirt]
-				//Does this Undershirt cover a relevant slot?
-				if(genital_location == CHEST) //(Undershirt always covers chest)
-					return TRUE
-
-				else if(genital_location == GROIN && worn_undershirt.hides_groin)
-					return TRUE
-
-			//Undershirt didn't cover them, are they wearing Underwear?
-			if(target_mob.underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-				var/datum/sprite_accessory/underwear/worn_underwear = GLOB.underwear_list[target_mob.underwear]
-				//Does this Underwear cover a relevant slot?
-				if(genital_location == GROIN) //(Underwear always covers groin)
-					return TRUE
-
-				else if(genital_location == CHEST && worn_underwear.hides_breasts)
-					return TRUE
-
-			//Nothing they're wearing will cover them
-			else
-				return FALSE
-
-		//If not always shown or hidden by clothes, then it defaults to always hidden
-		else
-			return TRUE
+///datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
+//	var/obj/item/organ/external/genital/badonkers = target_mob.get_organ_slot(associated_organ_slot)
+//	if(!badonkers)
+//		return TRUE
+//	switch(badonkers.visibility_preference)
+//		if(GENITAL_ALWAYS_SHOW) //Never hidden
+//			return FALSE
+//		if(GENITAL_HIDDEN_BY_CLOTHES) //Hidden if the relevant body parts are covered by clothes or underwear
+//			//Do they have a Uniform or Suit that covers them?
+//			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
+//				return TRUE
+//			//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
+//			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/skyrat/hospitalgown))
+//				return TRUE
+//
+//			//Are they wearing an Undershirt?
+//			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+//				var/datum/sprite_accessory/undershirt/worn_undershirt = GLOB.undershirt_list[target_mob.undershirt]
+//				//Does this Undershirt cover a relevant slot?
+//				if(genital_location == CHEST) //(Undershirt always covers chest)
+//					return TRUE
+//
+//				else if(genital_location == GROIN && worn_undershirt.hides_groin)
+//					return TRUE
+//
+//			//Undershirt didn't cover them, are they wearing Underwear?
+//			if(target_mob.underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+//				var/datum/sprite_accessory/underwear/worn_underwear = GLOB.underwear_list[target_mob.underwear]
+//				//Does this Underwear cover a relevant slot?
+//				if(genital_location == GROIN) //(Underwear always covers groin)
+//					return TRUE
+//
+//				else if(genital_location == CHEST && worn_underwear.hides_breasts)
+//					return TRUE
+//
+//			//Nothing they're wearing will cover them
+//			else
+//				return FALSE
+//
+//		//If not always shown or hidden by clothes, then it defaults to always hidden
+//		else
+//			return TRUE
 
 /datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
 	var/obj/item/organ/external/genital/genital = human.get_organ_slot(associated_organ_slot)

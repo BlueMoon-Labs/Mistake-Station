@@ -1,4 +1,22 @@
+GLOBAL_LIST_INIT(loadout_underwear, generate_loadout_items(/datum/loadout_item/underwear))
+
 /datum/loadout_item/underwear
+	category = LOADOUT_SUBCATEGORY_UNDERWEAR
+
+/datum/loadout_item/underwear/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
+	if(initial(outfit_important_for_life.underwear))
+		.. ()
+		return TRUE
+
+/datum/loadout_item/underwear/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
+	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
+		if(outfit.underwear)
+			LAZYADD(outfit.backpack_contents, outfit.underwear)
+		outfit.underwear = item_path
+	else
+		outfit.underwear = item_path
+
+/datum/loadout_item/underwear/plain
 	name = "Briefs"
 	category = LOADOUT_CATEGORY_GENERAL_UNDER
 	item_path = /obj/item/clothing/underwear/briefs

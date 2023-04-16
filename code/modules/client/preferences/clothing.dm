@@ -1,9 +1,3 @@
-/proc/generate_values_for_underwear(list/input, color)
-	var/list/keys = list()
-	for(var/key in input)
-		UNTYPED_LIST_ADD(keys, key)
-	return keys
-
 /// Backpack preference
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"

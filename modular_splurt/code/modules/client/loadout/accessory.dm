@@ -1,11 +1,11 @@
-/datum/gear/accessory/shortcrop
+/datum/loadout_item/accessory/shortcrop
 	name = "Short sleeved croptop"
-	path = /obj/item/clothing/accessory/shortcrop
+	item_path = /obj/item/clothing/accessory/shortcrop
 
-/datum/gear/accessory/longcrop
+/datum/loadout_item/accessory/longcrop
 	name = "Long sleeved croptop"
-	path = /obj/item/clothing/accessory/longcrop
+	item_path = /obj/item/clothing/accessory/longcrop
 
-/datum/gear/accessory/formalcrop
+/datum/loadout_item/accessory/formalcrop
 	name = "Formal croptop"
-	path = /obj/item/clothing/accessory/formalcrop
+	item_path = /obj/item/clothing/accessory/formalcrop

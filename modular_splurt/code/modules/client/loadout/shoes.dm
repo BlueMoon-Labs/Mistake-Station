@@ -1,43 +1,43 @@
 //Hyper stuff
-/datum/gear/shoes/footwraps
+/datum/loadout_item/shoes/footwraps
 	name = "Cloth Footwraps"
-	path= /obj/item/clothing/shoes/footwraps
+	item_path = /obj/item/clothing/shoes/footwraps
 
-/datum/gear/shoes/invisiboots
+/datum/loadout_item/shoes/invisiboots
 	name = "Invisifiber Footwraps"
-	path= /obj/item/clothing/shoes/invisiboots
+	item_path = /obj/item/clothing/shoes/invisiboots
 
-/datum/gear/shoes/workboots/toeless
+/datum/loadout_item/shoes/workboots/toeless
 	name = "Toeless Work Boots"
-	path = /obj/item/clothing/shoes/workboots/toeless
+	item_path = /obj/item/clothing/shoes/workboots/toeless
 
-/datum/gear/shoes/jackboots/toeless
+/datum/loadout_item/shoes/jackboots/toeless
 	name = "Toeless Jackboots"
-	path = /obj/item/clothing/shoes/jackboots/toeless
+	item_path = /obj/item/clothing/shoes/jackboots/toeless
 
-/datum/gear/shoes/jackboots/tall
+/datum/loadout_item/shoes/jackboots/tall
 	name = "Tall Jackboots"
-	path = /obj/item/clothing/shoes/jackboots/tall
+	item_path = /obj/item/clothing/shoes/jackboots/tall
 
-/datum/gear/shoes/highheels
+/datum/loadout_item/shoes/highheels
 	name = "High Heels"
-	path = /obj/item/clothing/shoes/highheels
+	item_path = /obj/item/clothing/shoes/highheels
 
-/datum/gear/shoes/latex
+/datum/loadout_item/shoes/latex
 	name = "Latex Socks"
-	path = /obj/item/clothing/shoes/latex_socks
+	item_path = /obj/item/clothing/shoes/latex_socks
 
-/datum/gear/shoes/latex/heels
+/datum/loadout_item/shoes/latex/heels
 	name = "Latex Heels"
-	path = /obj/item/clothing/shoes/latexheels
+	item_path = /obj/item/clothing/shoes/latexheels
 
-/datum/gear/shoes/latex/dominant
+/datum/loadout_item/shoes/latex/dominant
 	name = "Dominant Heels"
-	path = /obj/item/clothing/shoes/dominaheels
+	item_path = /obj/item/clothing/shoes/dominaheels
 
-/datum/gear/shoes/puttee
+/datum/loadout_item/shoes/puttee
 	restricted_roles = list("Security Officer", "Warden", "Head of Security", "Brig Physician", "Blueshield")
 
-/datum/gear/shoes/highheel_sandals
+/datum/loadout_item/shoes/highheel_sandals
 	name = "High-heel Sandals"
-	path = /obj/item/clothing/shoes/highheel_sandals
+	item_path = /obj/item/clothing/shoes/highheel_sandals

@@ -1,108 +1,105 @@
 // Hyper stuff
 
-/datum/gear/backpack/condom
+/datum/loadout_item/pocket_items/condom
 	name = "Condom"
-	path = /obj/item/genital_equipment/condom
-	cost = 1
+	item_path = /obj/item/genital_equipment/condom
 
-/datum/gear/backpack/condom_box
+/datum/loadout_item/pocket_items/condom_box
 	name = "Box of Condoms"
-	path = /obj/item/storage/box/bulk_condoms
-	cost = 2
+	item_path = /obj/item/storage/box/bulk_condoms
 
-/datum/gear/backpack/sounding
+/datum/loadout_item/pocket_items/sounding
 	name = "Sounding rod"
-	path = /obj/item/genital_equipment/sounding
-	cost = 1
+	item_path = /obj/item/genital_equipment/sounding
 
 //Lipstick
-/datum/gear/backpack/lipstick
+/datum/loadout_item/pocket_items/lipstick
 	name = "Lipstick"
-	path = /obj/item/lipstick
+	item_path = /obj/item/lipstick
 
-/datum/gear/backpack/lipstick/jade
+/datum/loadout_item/pocket_items/lipstick/jade
 	name = "Jade Lipstick"
-	path = /obj/item/lipstick/jade
+	item_path = /obj/item/lipstick/jade
 
-/datum/gear/backpack/lipstick/purple
+/datum/loadout_item/pocket_items/lipstick/purple
 	name = "Purple Lipstick"
-	path = /obj/item/lipstick/purple
+	item_path = /obj/item/lipstick/purple
 
-/datum/gear/backpack/lipstick/black
+/datum/loadout_item/pocket_items/lipstick/black
 	name = "Black Lipstick"
-	path = /obj/item/lipstick/black
+	item_path = /obj/item/lipstick/black
 
-/datum/gear/backpack/lipstick/yellow
+/datum/loadout_item/pocket_items/lipstick/yellow
 	name = "Yellow Lipstick"
-	path = /obj/item/lipstick/yellow
+	item_path = /obj/item/lipstick/yellow
 
-/datum/gear/backpack/lipstick/blue
+/datum/loadout_item/pocket_items/lipstick/blue
 	name = "Blue Lipstick"
-	path = /obj/item/lipstick/blue
+	item_path = /obj/item/lipstick/blue
 
-/datum/gear/backpack/lipstick/teal
+/datum/loadout_item/pocket_items/lipstick/teal
 	name = "Teal Lipstick"
-	path = /obj/item/lipstick/teal
+	item_path = /obj/item/lipstick/teal
 
-/datum/gear/backpack/lipstick/fuchsia
+/datum/loadout_item/pocket_items/lipstick/fuchsia
 	name = "Fuchsia Lipstick"
-	path = /obj/item/lipstick/fuchsia
+	item_path = /obj/item/lipstick/fuchsia
 
-/datum/gear/backpack/lipstick/navy
+/datum/loadout_item/pocket_items/lipstick/navy
 	name = "Navy Blue Lipstick"
-	path = /obj/item/lipstick/navy
+	item_path = /obj/item/lipstick/navy
 
-/datum/gear/backpack/lipstick/aqua
+/datum/loadout_item/pocket_items/lipstick/aqua
 	name = "Cyan Lipstick"
-	path = /obj/item/lipstick/aqua
+	item_path = /obj/item/lipstick/aqua
 
-/datum/gear/backpack/lipstick/white
+/datum/loadout_item/pocket_items/lipstick/white
 	name = "White Lipstick"
-	path = /obj/item/lipstick/white
+	item_path = /obj/item/lipstick/white
 
 //Nail polish
-/datum/gear/backpack/nailpolish_red
+/datum/loadout_item/pocket_items/nailpolish_red
 	name = "Red Nail Polish"
-	path = /obj/item/nailpolish/red
+	item_path = /obj/item/nailpolish/red
 
-/datum/gear/backpack/nailpolish_blue
+/datum/loadout_item/pocket_items/nailpolish_blue
 	name = "Blue Nail Polish"
-	path = /obj/item/nailpolish/blue
+	item_path = /obj/item/nailpolish/blue
 
-/datum/gear/backpack/nailpolish_aqua
+/datum/loadout_item/pocket_items/nailpolish_aqua
 	name = "Cyan Nail Polish"
-	path = /obj/item/nailpolish/aqua
+	item_path = /obj/item/nailpolish/aqua
 
-/datum/gear/backpack/nailpolish_black
+/datum/loadout_item/pocket_items/nailpolish_black
 	name = "Black Nail Polish"
-	path = /obj/item/nailpolish/black
+	item_path = /obj/item/nailpolish/black
 
-/datum/gear/backpack/nailpolish_white
+/datum/loadout_item/pocket_items/nailpolish_white
 	name = "White Nail Polish"
-	path = /obj/item/nailpolish/white
+	item_path = /obj/item/nailpolish/white
 
-/datum/gear/backpack/nailpolish_navy
+/datum/loadout_item/pocket_items/nailpolish_navy
 	name = "Navy Nail Polish"
-	path = /obj/item/nailpolish/navy
+	item_path = /obj/item/nailpolish/navy
 
-/datum/gear/backpack/nailpolish_yellow
+/datum/loadout_item/pocket_items/nailpolish_yellow
 	name = "Yellow Nail Polish"
-	path = /obj/item/nailpolish/yellow
+	item_path = /obj/item/nailpolish/yellow
 
-/datum/gear/backpack/nailpolish_purple
+/datum/loadout_item/pocket_items/nailpolish_purple
 	name = "Purple Nail Polish"
-	path = /obj/item/nailpolish/purple
+	item_path = /obj/item/nailpolish/purple
 
-/datum/gear/backpack/secbadge
+/datum/loadout_item/pocket_items/secbadge
 	name = "Security Badge"
-	path = /obj/item/clothing/accessory/badge
+	item_path = /obj/item/clothing/accessory/badge
 	restricted_roles = list("Security Officer", "Warden", "Detective", "Head of Security")
 
-/datum/gear/backpack/holobadge
+/datum/loadout_item/pocket_items/holobadge
 	name = "Security Holo Badge"
-	path = /obj/item/clothing/accessory/badge/holo
+	item_path = /obj/item/clothing/accessory/badge/holo
 	restricted_roles = list("Security Officer", "Warden", "Detective", "Head of Security")
 
-/datum/gear/backpack/towel
+/datum/loadout_item/pocket_items/towel
 	name = "Towel"
-	path = /obj/item/towel
+	item_path = /obj/item/towel

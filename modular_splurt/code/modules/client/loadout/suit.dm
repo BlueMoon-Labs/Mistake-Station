@@ -1,100 +1,90 @@
 // removes resricted role for D.A.B. suits. RIP N.E.E.T. gear as exclusive for assistants (2019-2021).
-/datum/gear/suit/neetsuit
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_GENERAL
+/datum/loadout_item/suit/neetsuit
 	restricted_roles = list()
 
 // Suggestion #148
-/datum/gear/suit/techpriest
+/datum/loadout_item/suit/techpriest
 	name ="Techpriest robes"
-	path = /obj/item/clothing/suit/hooded/techpriest
+	item_path = /obj/item/clothing/suit/hooded/techpriest
 	restricted_roles = list("Chief Engineer","Research Director","Scientist", "Roboticist","Atmospheric Technician","Station Engineer", "Chaplain")
 
 // Suggestion #183
-///datum/gear/suit/dracula
+///datum/loadout_item/suit/dracula
 //	name = "dracula coat"
-//	path = /obj/item/clothing/suit/dracula
+//	item_path = /obj/item/clothing/suit/dracula
 
 // Suggestion #3279
-/datum/gear/suit/apron
+/datum/loadout_item/suit/apron
 	name = "apron, blue"
-	path = /obj/item/clothing/suit/apron
+	item_path = /obj/item/clothing/suit/apron
 
-/datum/gear/suit/overalls
+/datum/loadout_item/suit/overalls
 	name = "overalls"
-	path = /obj/item/clothing/suit/apron/overalls
+	item_path = /obj/item/clothing/suit/apron/overalls
 
 // Fixes "Fed (Modern) uniform, White" being in general suit loadout section.
-/datum/gear/suit/trekcmdcapmod
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JOBS
+/datum/loadout_item/suit/trekcmdcapmod
+	category = LOADOUT_SUBCATEGORY_SUIT_JOBS
 
 // Updates restrictions to accomodate new jobs (mostly trekkie stuff)
-/datum/gear/suit/trekds9_coat
+/datum/loadout_item/suit/trekds9_coat
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Blueshield","Bridge Officer",
 							"Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Scientist", "Roboticist",
 							"Atmospheric Technician","Station Engineer","Warden","Detective","Security Officer","Brig Physician",
 							"Cargo Technician", "Shaft Miner")
 
-/datum/gear/suit/trekcmdcap
+/datum/loadout_item/suit/trekcmdcap
 	restricted_roles = list("Captain","Head of Personnel","Blueshield")
 
-/datum/gear/suit/trekcmdmov
+/datum/loadout_item/suit/trekcmdmov
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Warden","Detective","Security Officer","Brig Physician","Blueshield","Bridge Officer")
 
-/datum/gear/suit/trekmedscimov
+/datum/loadout_item/suit/trekmedscimov
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/suit/trekcmdmod
+/datum/loadout_item/suit/trekcmdmod
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Warden","Detective","Security Officer","Brig Physician","Blueshield","Bridge Officer")
 
-/datum/gear/suit/trekmedscimod
+/datum/loadout_item/suit/trekmedscimod
 	restricted_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Virologist","Paramedic","Geneticist","Research Director","Scientist", "Roboticist", "Brig Physician")
 
-/datum/gear/suit/jacketyellow
+/datum/loadout_item/suit/jacketyellow
 	name = "Yellow Jacket"
-	path = /obj/item/clothing/suit/toggle/rp_jacket
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/rp_jacket
 
-/datum/gear/suit/jacketorange
+/datum/loadout_item/suit/jacketorange
 	name = "Orange Jacket"
-	path = /obj/item/clothing/suit/toggle/rp_jacket/orange
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/rp_jacket/orange
 
-/datum/gear/suit/jacketred
+/datum/loadout_item/suit/jacketred
 	name = "Red Jacket"
-	path = /obj/item/clothing/suit/toggle/rp_jacket/red
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/rp_jacket/red
 
-/datum/gear/suit/jacketpurple
+/datum/loadout_item/suit/jacketpurple
 	name = "Purple Jacket"
-	path = /obj/item/clothing/suit/toggle/rp_jacket/purple
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/rp_jacket/purple
 
-/datum/gear/suit/jacketwhite
+/datum/loadout_item/suit/jacketwhite
 	name = "White Jacket"
-	path = /obj/item/clothing/suit/toggle/rp_jacket/white
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/rp_jacket/white
 
-/datum/gear/suit/baroness
+/datum/loadout_item/suit/baroness
 	name = "Baroness Dress"
-	path = /obj/item/clothing/suit/baroness
+	item_path = /obj/item/clothing/suit/baroness
 
-/datum/gear/suit/ladyballat
+/datum/loadout_item/suit/ladyballat
 	name = "Green Ball Dress"
-	path = /obj/item/clothing/suit/baroness/ladyballat
+	item_path = /obj/item/clothing/suit/baroness/ladyballat
 
 // Polychrome GWTB
-/datum/gear/suit/gonersuit
-	name = "polychromic trencher coat"
-	cost = 2
-	path = /obj/item/clothing/suit/goner/fake/poly
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#E6E6E6", "#D6D6D6", "#D6D6D6")
+/datum/loadout_item/suit/gonersuit
+	name = "trencher coat"
+	item_path = /obj/item/clothing/suit/goner/fake/poly
 
-/datum/gear/suit/gonersuit/classic
-	name = "polychromic trencher coat (classic)"
-	path = /obj/item/clothing/suit/goner/fake/poly/classic
+/datum/loadout_item/suit/gonersuit/classic
+	name = "trencher coat (classic)"
+	item_path = /obj/item/clothing/suit/goner/fake/poly/classic
 
-/datum/gear/suit/tunnelfox
+/datum/loadout_item/suit/tunnelfox
 	name = "tunnel fox jacket"
-	path = /obj/item/clothing/suit/toggle/tunnelfox
-	subcategory = LOADOUT_SUBCATEGORY_SUIT_JACKETS
+	item_path = /obj/item/clothing/suit/toggle/tunnelfox

@@ -1,13 +1,12 @@
 //Hyper stuff
-/datum/gear/gloves/latexsleeves
+/datum/loadout_item/gloves/latexsleeves
 	name = "Latex sleeves"
-	path = /obj/item/clothing/gloves/latexsleeves
-	cost = 1
+	item_path = /obj/item/clothing/gloves/latexsleeves
 
-/datum/gear/gloves/latex
+/datum/loadout_item/gloves/latex
 	name = "Latex Gloves"
-	path = /obj/item/clothing/gloves/latex_gloves
+	item_path = /obj/item/clothing/gloves/latex_gloves
 
-/datum/gear/gloves/syntech/ring
+/datum/loadout_item/gloves/syntech/ring
 	name = "Normalizer Ring"
-	path = /obj/item/clothing/accessory/ring/syntech
+	item_path = /obj/item/clothing/gloves/ring/syntech

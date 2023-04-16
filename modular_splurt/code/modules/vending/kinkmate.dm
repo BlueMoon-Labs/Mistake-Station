@@ -178,7 +178,7 @@
 		/obj/item/clothing/neck/human_petcollar/casino = 5,
 		/obj/item/clothing/gloves/latexsleeves = 3,
 		/obj/item/genital_equipment/sounding = 4,
-		/obj/item/clothing/accessory/ring/syntech = 4,
+		/obj/item/clothing/gloves/ring/syntech = 4,
 		/obj/item/clothing/wrists/syntech = 4,
 		/obj/item/clothing/neck/syntech = 4,
 		/obj/item/clothing/neck/syntech/choker = 4,

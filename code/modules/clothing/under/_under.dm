@@ -174,7 +174,7 @@
 
 /obj/item/clothing/under/proc/attach_accessory(obj/item/I, mob/user, notifyAttach = 1)
 	. = FALSE
-	if(istype(I, /obj/item/clothing/accessory) && !istype(I, /obj/item/clothing/accessory/ring))
+	if(istype(I, /obj/item/clothing/accessory) && !istype(I, /obj/item/clothing/gloves/ring))
 		var/obj/item/clothing/accessory/A = I
 		if(length(attached_accessories) >= max_accessories)
 			if(user)

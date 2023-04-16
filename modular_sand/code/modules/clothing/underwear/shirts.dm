@@ -1,6 +1,9 @@
 /obj/item/clothing/underwear/shirt
 	name = "shirt"
 	desc = "A shirt."
+	icon = 'modular_sand/icons/mob/clothing/underwear.dmi' //if someone is willing to make proper inventory sprites that'd be very cash money
+	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	icon_state = "undershirt"
 	under_type = /obj/item/clothing/underwear/shirt
 	body_parts_covered = CHEST | ARMS
@@ -357,3 +360,12 @@
 	name = "usa shirt"
 	desc = "Freedom and obesity."
 	icon_state = "undershirt_assblastusa"
+
+/obj/item/clothing/underwear/shirt/top/bra_cow
+	name = "cow-kini bra"
+	desc = "Moo."
+	body_parts_covered = CHEST
+	icon_state = "bra_cow"
+	icon = 'modular_splurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_splurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_splurt/icons/mob/clothing/underwear_digi.dmi'

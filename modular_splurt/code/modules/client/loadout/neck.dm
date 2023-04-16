@@ -1,42 +1,32 @@
-/datum/gear/neck/boatcloakcomm
+/datum/loadout_item/neck/boatcloakcomm
 	name = "Command Boatcloak"
-	path = /obj/item/clothing/neck/cloak/alt/boatcloak/command
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
-	restricted_desc = "Heads of Staff"
+	item_path = /obj/item/clothing/neck/cloak/alt/boatcloak/command
 	restricted_roles = list("Head of Security","Captain","Head of Personnel","Chief Engineer","Research Director","Chief Medical Officer","Quartermaster","Blueshield","Bridge Officer")
 
-/datum/gear/neck/spikedcollar
+/datum/loadout_item/neck/spikedcollar
 	name = "Spiked Pet Collar"
-	path = /obj/item/clothing/neck/human_petcollar/spike
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/human_petcollar/spike
 
-/datum/gear/neck/holocollar
+/datum/loadout_item/neck/holocollar
 	name = "Holo-collar"
-	path = /obj/item/clothing/neck/human_petcollar/holo
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
-	loadout_initial_colors = list("#33FFFF")
+	item_path = /obj/item/clothing/neck/human_petcollar/holo
 
-/datum/gear/neck/casinoslave
+/datum/loadout_item/neck/casinoslave
 	name = "Casino Collar"
-	path = /obj/item/clothing/neck/human_petcollar/casino
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/human_petcollar/casino
 
-/datum/gear/neck/handmade
+/datum/loadout_item/neck/handmade
 	name = "handmade collar"
-	path = /obj/item/clothing/neck/human_petcollar/handmade
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/human_petcollar/handmade
 
-/datum/gear/neck/syntech/pendant
+/datum/loadout_item/neck/syntech/pendant
 	name = "Normalizer Pendant"
-	path = /obj/item/clothing/neck/syntech
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/syntech
 
-/datum/gear/neck/syntech/choker
+/datum/loadout_item/neck/syntech/choker
 	name = "Normalizer Choker"
-	path = /obj/item/clothing/neck/syntech/choker
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/syntech/choker
 
-/datum/gear/neck/syntech/collar
+/datum/loadout_item/neck/syntech/collar
 	name = "Normalizer Collar"
-	path = /obj/item/clothing/neck/syntech/collar
-	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+	item_path = /obj/item/clothing/neck/syntech/collar

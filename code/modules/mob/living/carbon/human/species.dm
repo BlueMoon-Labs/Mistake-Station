@@ -1119,7 +1119,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_ACCESSORY)
-			if(istype(I, /obj/item/clothing/accessory/ring))
+			if(istype(I, /obj/item/clothing/gloves/ring))
 				if(istype(H.gloves))
 					var/obj/item/clothing/gloves/attaching_target = H.gloves
 					if(length(attaching_target.attached_accessories) > attaching_target.max_accessories)
