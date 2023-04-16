@@ -65,11 +65,7 @@
 		"random_hairstyle" = "hairstyle",
 		"random_jumpsuit_style" = "jumpsuit_style",
 		"random_skin_tone" = "skin_tone",
-		"random_socks" = "socks",
 		"random_species" = "species",
-		"random_undershirt" = "undershirt",
-		"random_underwear" = "underwear",
-		"random_underwear_color" = "underwear_color",
 	)
 
 	var/static/list/random_antag_settings = list(

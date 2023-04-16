@@ -27,7 +27,6 @@
 	human.eye_color_right = random_eye_color
 	human.dna.blood_type = random_blood_type()
 	human.dna.features["mcolor"] = "#[random_color()]"
-	human.dna.species.randomize_active_underwear_only(human)
 
 	human.set_bark(pick(GLOB.bark_random_list))
 	human.vocal_pitch = BARK_PITCH_RAND(human.gender)

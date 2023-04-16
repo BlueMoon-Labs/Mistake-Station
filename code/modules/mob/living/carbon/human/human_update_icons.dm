@@ -54,7 +54,7 @@ There are several things that need to be remembered:
 		// BlueMoon edit
 		update_inv_w_underwear()
 		update_inv_w_socks()
-		update_inv_w_shirt()
+		update_inv_w_undershirt()
 		update_inv_ears_extra()
 		update_inv_wrists()
 		//
@@ -470,15 +470,15 @@ There are several things that need to be remembered:
 
 	update_body_parts()
 
-/mob/living/carbon/human/update_inv_w_shirt()
+/mob/living/carbon/human/update_inv_w_undershirt()
 	remove_overlay(SHIRT_LAYER)
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHIRT) + 1]
 		inv.update_icon()
 
-	if(w_shirt)
-		var/obj/item/worn_item = w_shirt
+	if(w_undershirt)
+		var/obj/item/worn_item = w_undershirt
 		update_hud_shirt(worn_item)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SHIRT)
@@ -495,12 +495,12 @@ There are several things that need to be remembered:
 				icon_file = worn_item.worn_icon_digi || 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 				mutant_override = TRUE // SKYRAT EDIT ADDITION
 		else if(dna.species.bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_SUBCATEGORY_SHIRT, w_shirt)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_SUBCATEGORY_SHIRT, w_undershirt)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
 
-		var/mutable_appearance/shirt_overlay = w_shirt.build_worn_icon(default_layer = SHIRT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+		var/mutable_appearance/shirt_overlay = w_undershirt.build_worn_icon(default_layer = SHIRT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
 		if(!mutant_override && (OFFSET_SHIRT in dna.species.offset_features)) // SKYRAT EDIT CHANGE
 			shirt_overlay.pixel_x += dna.species.offset_features[OFFSET_SHIRT][1]

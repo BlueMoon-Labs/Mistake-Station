@@ -54,7 +54,7 @@
 /mob/proc/update_inv_w_socks()
 	return
 
-/mob/proc/update_inv_w_shirt()
+/mob/proc/update_inv_w_undershirt()
 	return
 
 /mob/proc/update_inv_wrists()

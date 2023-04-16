@@ -18,7 +18,7 @@
 	if(slot_flags & ITEM_SLOT_EARS_RIGHT)
 		update_inv_ears_extra()
 	if(slot_flags & ITEM_SLOT_SHIRT)
-		update_inv_w_shirt()
+		update_inv_w_undershirt()
 	if(slot_flags & ITEM_SLOT_UNDERWEAR)
 		update_inv_w_underwear()
 	if(slot_flags & ITEM_SLOT_SOCKS)

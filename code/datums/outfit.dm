@@ -331,8 +331,8 @@
 		H.w_socks.add_fingerprint(H, ignoregloves = TRUE)
 	if(H.w_underwear)
 		H.w_underwear.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.w_shirt)
-		H.w_shirt.add_fingerprint(H, ignoregloves = TRUE)
+	if(H.w_undershirt)
+		H.w_undershirt.add_fingerprint(H, ignoregloves = TRUE)
 	if(H.ears_extra)
 		H.ears_extra.add_fingerprint(H, ignoregloves = TRUE)
 	//
@@ -383,7 +383,7 @@
 		ears = H.ears.type
 	if(H.glasses)
 		glasses = H.glasses.type
-	if(H.w_shirt)
+	if(H.w_undershirt)
 		shirt = H.worn_shirt.type
 	if(H.w_underwear)
 		underwear = H.worn_underwear.type

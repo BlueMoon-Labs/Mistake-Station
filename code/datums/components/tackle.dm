@@ -290,7 +290,7 @@
 		if(isnull(tackle_target.wear_suit) && isnull(tackle_target.w_uniform)) // who honestly puts all of their effort into tackling a naked guy?
 			defense_mod += 2
 			//BlueMoon edit
-			if(isnull(tackle_target.w_underwear) && isnull(tackle_target.w_socks) && isnull(tackle_target.w_shirt))
+			if(isnull(tackle_target.w_underwear) && isnull(tackle_target.w_socks) && isnull(tackle_target.w_undershirt))
 				defense_mod += 1
 			//
 		if(tackle_target.mob_negates_gravity())

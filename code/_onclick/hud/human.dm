@@ -515,9 +515,9 @@
 		if(H.w_socks)
 			H.w_socks.screen_loc = ui_socks
 			screenmob.client.screen += H.w_socks
-		if(H.w_shirt)
-			H.w_shirt.screen_loc = ui_shirt
-			screenmob.client.screen += H.w_shirt
+		if(H.w_undershirt)
+			H.w_undershirt.screen_loc = ui_shirt
+			screenmob.client.screen += H.w_undershirt
 		if(H.wrists)
 			H.wrists.screen_loc = ui_wrists
 			screenmob.client.screen += H.wrists
@@ -528,8 +528,8 @@
 			screenmob.client.screen -= H.w_underwear
 		if(H.w_socks)
 			screenmob.client.screen -= H.w_socks
-		if(H.w_shirt)
-			screenmob.client.screen -= H.w_shirt
+		if(H.w_undershirt)
+			screenmob.client.screen -= H.w_undershirt
 		if(H.wrists)
 			screenmob.client.screen -= H.wrists
 //

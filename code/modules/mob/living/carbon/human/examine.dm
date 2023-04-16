@@ -76,8 +76,8 @@
 		. += "[t_on] одет[t_a] в [w_underwear.get_examine_string(user)]."
 	if(w_socks && !socks_hidden)
 		. += "[t_on] одет[t_a] в [w_socks.get_examine_string(user)]."
-	if(w_shirt && !shirt_hidden)
-		. += "[t_on] одет[t_a] в [w_shirt.get_examine_string(user)]."
+	if(w_undershirt && !shirt_hidden)
+		. += "[t_on] одет[t_a] в [w_undershirt.get_examine_string(user)]."
 	//Wrist slot because you're epic
 	if(wrists && !(ITEM_SLOT_WRISTS in obscured))
 		. += "[t_on] одет[t_a] в [wrists.get_examine_string(user)]."

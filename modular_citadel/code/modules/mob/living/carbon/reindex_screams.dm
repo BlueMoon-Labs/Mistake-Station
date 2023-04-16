@@ -28,8 +28,8 @@
 		add_screams(w_underwear.alternate_screams)
 	if(w_socks)
 		add_screams(w_socks.alternate_screams)
-	if(w_shirt)
-		add_screams(w_shirt.alternate_screams)
+	if(w_undershirt)
+		add_screams(w_undershirt.alternate_screams)
 	//
 	if(glasses)
 		add_screams(glasses.alternate_screams)

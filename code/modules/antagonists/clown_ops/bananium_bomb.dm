@@ -47,7 +47,7 @@
 		clowned_on.equip_to_slot_or_del(clown_shirt, ITEM_SLOT_ICLOTHING)
 
 	//BlueMoon edit
-	if(!clowned_on.w_shirt || clowned_on.dropItemToGround(clowned_on.w_shirt))
+	if(!clowned_on.w_undershirt || clowned_on.dropItemToGround(clowned_on.w_undershirt))
 		var/obj/item/clothing/clown_undershirt = new /obj/item/clothing/underwear/shirt/clown(clowned_on)
 		ADD_TRAIT(clown_undershirt, TRAIT_NODROP, CLOWN_NUKE_TRAIT)
 		clowned_on.equip_to_slot_or_del(clown_undershirt, ITEM_SLOT_SHIRT)

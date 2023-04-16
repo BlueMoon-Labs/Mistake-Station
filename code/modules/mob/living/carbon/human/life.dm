@@ -178,9 +178,9 @@
 	if(w_socks)
 		if(w_socks.max_heat_protection_temperature && w_socks.max_heat_protection_temperature >= temperature)
 			thermal_protection_flags |= w_socks.heat_protection
-	if(w_shirt)
-		if(w_shirt.max_heat_protection_temperature && w_shirt.max_heat_protection_temperature >= temperature)
-			thermal_protection_flags |= w_shirt.heat_protection
+	if(w_undershirt)
+		if(w_undershirt.max_heat_protection_temperature && w_undershirt.max_heat_protection_temperature >= temperature)
+			thermal_protection_flags |= w_undershirt.heat_protection
 	if(wrists)
 		if(wrists.max_heat_protection_temperature && wrists.max_heat_protection_temperature >= temperature)
 			thermal_protection_flags |= wrists.heat_protection

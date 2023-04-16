@@ -33,7 +33,7 @@
 		if(ITEM_SLOT_SOCKS)
 			return w_socks
 		if(ITEM_SLOT_SHIRT)
-			return w_shirt
+			return w_undershirt
 		//
 		if(ITEM_SLOT_LPOCKET)
 			return l_store
@@ -102,7 +102,7 @@
 		w_uniform,
 		w_underwear, //BlueMoon edit
 		w_socks, //BlueMoon edit
-		w_shirt //BlueMoon edit
+		w_undershirt //BlueMoon edit
 		)
 
 /mob/living/carbon/human/proc/get_head_slots()
@@ -246,8 +246,8 @@
 			w_socks = I
 			update_inv_w_socks()
 		if(ITEM_SLOT_SHIRT)
-			w_shirt = I
-			update_inv_w_shirt()
+			w_undershirt = I
+			update_inv_w_undershirt()
 		//
 		if(ITEM_SLOT_LPOCKET)
 			l_store = I
@@ -329,10 +329,10 @@
 		w_socks = null
 		if(!QDELETED(src))
 			update_inv_w_socks()
-	else if(I == w_shirt)
-		w_shirt = null
+	else if(I == w_undershirt)
+		w_undershirt = null
 		if(!QDELETED(src))
-			update_inv_w_shirt()
+			update_inv_w_undershirt()
 	else if(I == wrists)
 		wrists = null
 		if(!QDELETED(src))
