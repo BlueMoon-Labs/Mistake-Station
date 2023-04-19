@@ -1,7 +1,7 @@
-/obj/item/organ/genital/breasts
+/obj/item/organ/external/genital/breasts
 	default_fluid_id = /datum/reagent/consumable/milk
 
-/obj/item/organ/genital/breasts/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/breasts/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.features["breasts_fluid"])
 		var/datum/reagent/fluid = find_reagent_object_from_type(D.features["breasts_fluid"])
@@ -16,7 +16,7 @@
 	fluid_max_volume += ((cached_size - breast_values[initial(size)])*2.5)*(owner ? get_size(owner) : 1)
 	fluid_rate += ((cached_size - breast_values[initial(size)])/10)*(owner ? get_size(owner) : 1)
 
-/obj/item/organ/genital/breasts/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen)
+/obj/item/organ/external/genital/breasts/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen)
 	if(!(owner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)))
 		return
 

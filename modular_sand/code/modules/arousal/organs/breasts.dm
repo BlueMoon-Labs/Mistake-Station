@@ -1,6 +1,6 @@
-/obj/item/organ/genital/breasts/Insert(mob/living/carbon/M, special, drop_if_replaced)
+/obj/item/organ/external/genital/breasts/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
-	var/obj/item/organ/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/external/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 	if(!W)
 		return
 	if(!W.impregnated)
@@ -8,8 +8,8 @@
 
 	fluid_rate *= 2
 
-/obj/item/organ/genital/breasts/Remove(special)
-	var/obj/item/organ/genital/womb/W = owner.get_organ_slot(ORGAN_SLOT_WOMB)
+/obj/item/organ/external/genital/breasts/Remove(special, moving)
+	var/obj/item/organ/external/genital/womb/W = owner.get_organ_slot(ORGAN_SLOT_WOMB)
 	if(!W)
 		return ..()
 	if(!W.impregnated)

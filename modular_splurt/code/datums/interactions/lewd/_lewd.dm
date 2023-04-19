@@ -41,7 +41,7 @@
 	if(has_belly && !istype(C))
 		return TRUE
 	if(istype(C))
-		var/obj/item/organ/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BELLY)
+		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BELLY)
 		if(peepee)
 			switch(nintendo)
 				if(REQUIRE_ANY)
@@ -67,7 +67,7 @@
 	//var/u_S = p_s()
 	//var/t_His = partner?.ru_ego()
 	var/cumin = FALSE
-	var/obj/item/organ/genital/target_gen
+	var/obj/item/organ/external/genital/target_gen
 	var/mob/living/carbon/c_partner
 	//Carbon checks
 	if(iscarbon(partner))
@@ -87,7 +87,7 @@
 						else
 							message = "кончает на грудь и шею <b>[partner]</b>."
 							if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
-								target_gen = new /obj/item/organ/genital/breasts
+								target_gen = new /obj/item/organ/external/genital/breasts
 								target_gen.Insert(c_partner)
 						if(target_gen)
 							target_gen.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS))
@@ -112,7 +112,7 @@
 							message = "кончает на тело <b>[partner]</b>."
 						if(c_partner)
 							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-								var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
+								var/obj/item/organ/external/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
 									gut.Insert(partner)
@@ -124,13 +124,13 @@
 					if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 						if(c_partner)
 							if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-								var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
+								var/obj/item/organ/external/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 								if(!gut)
 									gut = new
 									gut.Insert(partner)
 								gut.climax_modify_size(src, get_organ_slot(ORGAN_SLOT_PENIS), target_orifice)
 							else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-								var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
+								var/obj/item/organ/external/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 								if(!ass)
 									ass = new
 									ass.Insert(partner)
@@ -138,7 +138,7 @@
 
 		else
 			switch(last_genital.type)
-				if(/obj/item/organ/genital/penis)
+				if(/obj/item/organ/external/genital/penis)
 					if(!istype(partner))
 						target_orifice = null
 					switch(target_orifice)
@@ -150,7 +150,7 @@
 							else
 								message = "кончает на грудь и шею <b>[partner]</b>."
 								if((partner.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) && c_partner)
-									target_gen = new /obj/item/organ/genital/breasts
+									target_gen = new /obj/item/organ/external/genital/breasts
 									target_gen.Insert(partner)
 
 							if(target_gen)
@@ -176,13 +176,13 @@
 								message = "кончает на тело <b>[partner]</b>."
 							if(c_partner)
 								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-									var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
+									var/obj/item/organ/external/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
 								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-									var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
+									var/obj/item/organ/external/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new
 										ass.Insert(partner)
@@ -191,13 +191,13 @@
 						if(CUM_TARGET_MOUTH, CUM_TARGET_THROAT, CUM_TARGET_VAGINA, CUM_TARGET_ANUS)
 							if(c_partner)
 								if(partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-									var/obj/item/organ/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
+									var/obj/item/organ/external/genital/belly/gut = partner.get_organ_slot(ORGAN_SLOT_BELLY)
 									if(!gut)
 										gut = new
 										gut.Insert(partner)
 									gut.climax_modify_size(src, last_genital, target_orifice)
 								else if((partner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)) && target_orifice == CUM_TARGET_ANUS)
-									var/obj/item/organ/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
+									var/obj/item/organ/external/genital/butt/ass = partner.get_organ_slot(ORGAN_SLOT_BUTT)
 									if(!ass)
 										ass = new
 										ass.Insert(partner)
@@ -263,7 +263,7 @@
 
 /mob/living/proc/do_oral_self(mob/living/user, var/fucktarget = "penis")
 	var/message
-	var/obj/item/organ/genital/peepee = null
+	var/obj/item/organ/external/genital/peepee = null
 	var/lust_increase = NORMAL_LUST
 
 	if(user.is_fucking(src, CUM_TARGET_MOUTH))
@@ -395,7 +395,7 @@
 /*
 
 /mob/living/proc/remove_equipment(mob/living/carbon/target)
-	var/obj/item/organ/genital/holder = pick_receiving_organ(target, HAS_EQUIPMENT, "Remove equipment", "What genital?")
+	var/obj/item/organ/external/genital/holder = pick_receiving_organ(target, HAS_EQUIPMENT, "Remove equipment", "What genital?")
 	if(!holder)
 		to_chat(src, "<span class='warning'>Нужно обнажить гениталии!</b>")
 		return
@@ -802,7 +802,7 @@
 	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
 		genital_name = target.get_penetrating_genital_name()
 	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/external/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
 		genital_name = genital.name
 	*/
 
@@ -827,7 +827,7 @@
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE))
 	playlewdinteractionsound(loc, pick(GLOB.brap_noises), 50, 1, -1, ignored_mobs = get_unconsenting(unholy = TRUE))
 	if(!target.is_fucking(src, CUM_TARGET_ANUS))
-		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
+		var/obj/item/organ/external/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 		target.set_is_fucking(src, CUM_TARGET_ANUS, genital)
 	if(!target.has_strapon(REQUIRE_EXPOSED))
 		target.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, src)
@@ -942,7 +942,7 @@
 	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
 		genital_name = target.get_penetrating_genital_name()
 	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/external/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
 		genital_name = genital.name
 	*/
 
@@ -962,7 +962,7 @@
 	visible_message(message, ignored_mobs = get_unconsenting(unholy = TRUE))
 	playlewdinteractionsound(loc, pick(GLOB.brap_noises), 50, 1, -1, ignored_mobs = get_unconsenting(unholy = TRUE))
 	if(!target.is_fucking(src, CUM_TARGET_ANUS))
-		var/obj/item/organ/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
+		var/obj/item/organ/external/genital/genital = target.has_penis(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_PENIS) : (target.has_vagina(REQUIRE_EXPOSED) ? target.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 		target.set_is_fucking(src, CUM_TARGET_ANUS, genital)
 	if(!target.has_strapon(REQUIRE_EXPOSED))
 		target.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, src)

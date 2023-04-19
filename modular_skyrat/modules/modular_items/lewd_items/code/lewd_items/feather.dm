@@ -30,7 +30,7 @@
 		if(BODY_ZONE_CHEST)
 			targetedsomewhere = TRUE
 			var/obj/item/organ/external/genital/badonkers = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			if(!(target.is_topless() || badonkers.visibility_preference == GENITAL_ALWAYS_SHOW))
+			if(!(target.is_topless() || badonkers.genital_flags == GENITAL_THROUGH_CLOTHES))
 				to_chat(user, span_danger("[target]'s chest is covered!"))
 				return
 			message = (user == target) ? pick("tickles [target.p_them()]self with [src]", "gently teases [target.p_their()] own nipples with [src]") : pick("teases [target]'s nipples with [src]", "uses [src] to tickle [target]'s left nipple", "uses [src] to tickle [target]'s right nipple")

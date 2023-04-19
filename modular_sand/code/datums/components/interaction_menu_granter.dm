@@ -115,7 +115,7 @@
 	var/list/genitals = list()
 	var/mob/living/carbon/get_genitals = self
 	if(istype(get_genitals))
-		for(var/obj/item/organ/genital/genital in get_genitals.organs)	//Only get the genitals
+		for(var/obj/item/organ/external/genital/genital in get_genitals.organs)	//Only get the genitals
 			if(CHECK_BITFIELD(genital.genital_flags, GENITAL_INTERNAL))			//Not those though
 				continue
 			var/list/genital_entry = list()
@@ -168,8 +168,8 @@
 	var/list/genital_fluids = list()
 	var/mob/living/carbon/target_genitals = target || self
 	if(istype(target_genitals))
-		for(var/obj/item/organ/genital/genital in target_genitals.organs)
-			if(!(CHECK_BITFIELD(genital.genital_flags, GENITAL_FUID_PRODUCTION)))
+		for(var/obj/item/organ/external/genital/genital in target_genitals.organs)
+			if(!(CHECK_BITFIELD(genital.genital_flags, GENITAL_FLUID_PRODUCTION)))
 				continue
 			var/fluids = (clamp(genital.fluid_rate * ((world.time - genital.last_orgasmed) / (10 SECONDS)) * genital.fluid_mult, 0, genital.fluid_max_volume) / genital.fluid_max_volume)
 			var/list/genital_entry = list()
@@ -181,7 +181,7 @@
 
 	var/list/genital_interactibles = list()
 	if(istype(target_genitals))
-		for(var/obj/item/organ/genital/genital in target_genitals.organs)
+		for(var/obj/item/organ/external/genital/genital in target_genitals.organs)
 			if(!genital.is_exposed())
 				continue
 			var/list/equipment_names = list()
@@ -254,12 +254,12 @@
 				if(params["genital"] == "anus")
 					self.anus_toggle_visibility(params["visibility"])
 					return TRUE
-				var/obj/item/organ/genital/genital = locate(params["genital"], self.organs)
+				var/obj/item/organ/external/genital/genital = locate(params["genital"], self.organs)
 				if(genital && (genital in self.organs))
 					genital.toggle_visibility(params["visibility"])
 					return TRUE
 			if("set_arousal" in params)
-				var/obj/item/organ/genital/genital = locate(params["genital"], self.organs)
+				var/obj/item/organ/external/genital/genital = locate(params["genital"], self.organs)
 				if(!genital || (genital \
 					&& (!CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_AROUSE) \
 					|| HAS_TRAIT(self, TRAIT_PERMABONER) \
@@ -282,7 +282,7 @@
 				if(!self.get_organ_slot(ORGAN_SLOT_ANUS) && params["genital"] == "anus")
 					self.toggle_anus_always_accessible()
 					return TRUE
-				var/obj/item/organ/genital/genital = locate(params["genital"], self.organs)
+				var/obj/item/organ/external/genital/genital = locate(params["genital"], self.organs)
 				if(!genital)
 					return FALSE
 				genital.toggle_accessibility()
@@ -292,7 +292,7 @@
 		if("genital_interaction")
 			var/mob/living/carbon/actual_target = target || usr
 			var/mob/user = usr
-			var/obj/item/organ/genital/genital = locate(params["genital"], actual_target.organs)
+			var/obj/item/organ/external/genital/genital = locate(params["genital"], actual_target.organs)
 			if(!(genital && (genital in actual_target.organs)))
 				return FALSE
 			switch(params["action"])

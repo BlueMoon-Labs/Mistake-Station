@@ -336,7 +336,6 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	/// This is necessary for if your `init_possible_values()` override
 	/// returns an assoc list of names to atoms/icons.
 	var/should_generate_icons = FALSE
-
 	var/list/cached_values
 
 	/// If the preference is a main feature (PREFERENCE_CATEGORY_FEATURES or PREFERENCE_CATEGORY_CLOTHING)
@@ -520,7 +519,6 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// A preference whose value is always TRUE or FALSE
 /datum/preference/toggle
 	abstract_type = /datum/preference/toggle
-
 	/// The default value of the toggle, if create_default_value is not specified
 	var/default_value = TRUE
 

@@ -13,7 +13,7 @@
 	if(!isgenital(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	var/obj/item/organ/genital = parent
+	var/obj/item/organ/external/genital = parent
 
 	carrier = genital.owner
 
@@ -34,7 +34,7 @@
 /datum/component/ovipositor/proc/on_inserted(datum/source)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/genital/gen = parent
+	var/obj/item/organ/external/genital/gen = parent
 
 	if(gen.owner)
 		carrier = gen.owner
@@ -43,7 +43,7 @@
 /datum/component/ovipositor/proc/on_removed(datum/source)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/genital/gen = parent
+	var/obj/item/organ/external/genital/gen = parent
 
 	if(gen.owner)
 		unregister_carrier()
@@ -62,10 +62,10 @@
 		eggs_stored += 1
 		eggs_stored = min(3, eggs_stored)
 
-/datum/component/ovipositor/proc/on_climax(datum/source, datum/reagents/senders_cum, atom/target, obj/item/organ/genital/sender, obj/item/organ/genital/receiver, spill)
+/datum/component/ovipositor/proc/on_climax(datum/source, datum/reagents/senders_cum, atom/target, obj/item/organ/external/genital/sender, obj/item/organ/external/genital/receiver, spill)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/genital/stuff = parent
+	var/obj/item/organ/external/genital/stuff = parent
 	if(stuff != sender && stuff.linked_organ != sender)
 		return FALSE
 
@@ -89,7 +89,7 @@
 		if(!recv.owner)
 			return FALSE
 
-	var/obj/item/organ/genital/gen = parent
+	var/obj/item/organ/external/genital/gen = parent
 	if(!(gen.is_exposed() || gen.linked_organ?.is_exposed()))
 		return FALSE
 

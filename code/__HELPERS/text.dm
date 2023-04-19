@@ -1183,24 +1183,6 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
 
-///Returns a string based on the weight class define used as argument
-/proc/weight_class_to_text(w_class)
-	switch(w_class)
-		if(WEIGHT_CLASS_TINY)
-			. = "tiny"
-		if(WEIGHT_CLASS_SMALL)
-			. = "small"
-		if(WEIGHT_CLASS_NORMAL)
-			. = "normal-sized"
-		if(WEIGHT_CLASS_BULKY)
-			. = "bulky"
-		if(WEIGHT_CLASS_HUGE)
-			. = "huge"
-		if(WEIGHT_CLASS_GIGANTIC)
-			. = "gigantic"
-		else
-			. = ""
-
 /// Removes all non-alphanumerics from the text, keep in mind this can lead to id conflicts
 /proc/sanitize_css_class_name(name)
 	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")
@@ -1220,3 +1202,124 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 			return two
 		else
 			return five
+
+///Returns a string based on the weight class define used as argument
+/proc/weight_class_to_text(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY)
+			. = "маленького"
+		if(WEIGHT_CLASS_SMALL)
+			. = "небольшого"
+		if(WEIGHT_CLASS_NORMAL)
+			. = "среднего"
+		if(WEIGHT_CLASS_BULKY)
+			. = "большого"
+		if(WEIGHT_CLASS_HUGE)
+			. = "огромного"
+		if(WEIGHT_CLASS_GIGANTIC)
+			. = "гигантского"
+		else
+			. = ""
+
+// FUCK?
+/proc/ru_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Ассистент"
+	else if (job == JOB_CAPTAIN)
+		return "Капитан"
+	else if (job == JOB_NT_REP)
+		return "Представитель ЦК"
+	else if (job == JOB_BLUESHIELD)
+		return "Синий Щит"
+	else if (job == JOB_BRIDGE_OFFICER)
+		return "Офицер Мостика"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Инженер"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Инженер"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Техник"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Главный Врач"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Врач"
+	else if (job == JOB_PARAMEDIC)
+		return "Парамедик"
+	else if (job == JOB_VIROLOGIST)
+		return "Вирусолог"
+	else if (job == JOB_CHEMIST)
+		return "Химик"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Научный Руководитель"
+	else if (job == JOB_SCIENTIST)
+		return "Учёный"
+	else if (job == JOB_GENETICIST)
+		return "Генетик"
+	else if (job == JOB_ROBOTICIST)
+		return "Робототехник"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Начальник Службы Безопасности"
+	else if (job == JOB_WARDEN)
+		return "Надзиратель"
+	else if (job == JOB_CORRECTIONS_OFFICER)
+		return "Офицер Пермабрига"
+	else if (job == JOB_DETECTIVE)
+		return "Детектив"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Офицер"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Офицер (Снабжение)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Офицер (Инженерный)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Офицер (Медбей)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Офицер (Научный)"
+	else if (job == JOB_SECURITY_MEDIC)
+		return "Полевой Медик"
+	else if (job == JOB_QUARTERMASTER)
+		return "Квартирмейстер"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Глава Персонала"
+	else if (job == JOB_BARTENDER)
+		return "Бармен"
+	else if (job == JOB_BOTANIST)
+		return "Ботаник"
+	else if (job == JOB_COOK)
+		return "Повар"
+	else if (job == JOB_JANITOR)
+		return "Уборщик"
+	else if (job == JOB_CURATOR)
+		return "Куратор"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Психолог"
+	else if (job == JOB_LAWYER)
+		return "Адвокат"
+	else if (job == JOB_CHAPLAIN)
+		return "Капеллан"
+	else if (job == JOB_CLOWN)
+		return "Клоун"
+	else if (job == JOB_MIME)
+		return "Мим"
+	else if (job == JOB_BARBER)
+		return "Стилист"
+	else if (job == JOB_BOUNCER)
+		return "Вышибала"
+	else if (job == JOB_ORDERLY)
+		return "Вышибала"
+	else if (job == JOB_CUSTOMS_AGENT)
+		return "Вышибала"
+	else if (job == JOB_ENGINEERING_GUARD)
+		return "Вышибала"
+	else if (job == JOB_PRISONER)
+		return "Заключённый"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else
+		return job

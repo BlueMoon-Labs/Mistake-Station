@@ -1,147 +1,177 @@
 import { FeatureDropdownInput, Feature, FeatureNumberInput, CheckboxInput, FeatureTriColorInput, FeatureTriBoolInput, FeatureNumeric, FeatureToggle, FeatureChoiced } from '../../base';
 
+export const penis_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Пенис к телу персонажа.',
+  component: CheckboxInput,
+};
+
 export const feature_penis: Feature<string> = {
-  name: 'Penis Choice',
+  name: 'Гениталии. Penis Choice',
   component: FeatureDropdownInput,
 };
 
 export const penis_skin_tone: FeatureToggle = {
-  name: 'Penis uses Skin Tone',
+  name: 'Гениталии. Penis uses Skin Tone',
   component: CheckboxInput,
 };
 
 export const penis_skin_color: FeatureToggle = {
-  name: 'Penis uses Skin Color',
+  name: 'Гениталии. Penis uses Skin Color',
   component: CheckboxInput,
 };
 
 export const penis_color: Feature<string[]> = {
-  name: 'Penis Color',
+  name: 'Гениталии. Penis Color',
   component: FeatureTriColorInput,
 };
 
 export const penis_emissive: Feature<boolean[]> = {
-  name: 'Penis Emissives',
+  name: 'Гениталии. Penis Emissives',
   component: FeatureTriBoolInput,
 };
 
 export const penis_sheath: Feature<string> = {
-  name: 'Penis Sheath',
+  name: 'Гениталии. Penis Sheath',
   component: FeatureDropdownInput,
 };
 
 export const penis_length: FeatureNumeric = {
-  name: 'Penis Length',
+  name: 'Гениталии. Penis Length',
   component: FeatureNumberInput,
 };
 
 export const penis_girth: FeatureNumeric = {
-  name: 'Penis Girth',
+  name: 'Гениталии. Penis Girth',
   component: FeatureNumberInput,
 };
 
 export const penis_taur_mode_toggle: FeatureToggle = {
-  name: 'Penis Taur Mode',
+  name: 'Гениталии. Penis Taur Mode',
+  component: CheckboxInput,
+};
+
+export const testicles_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Яйца.',
   component: CheckboxInput,
 };
 
 export const feature_testicles: Feature<string> = {
-  name: 'Testicles Choice',
+  name: 'Гениталии. Testicles Choice',
   component: FeatureDropdownInput,
 };
 
 export const testicles_skin_tone: FeatureToggle = {
-  name: 'Testicles uses Skin Tone',
+  name: 'Гениталии. Testicles uses Skin Tone',
   component: CheckboxInput,
 };
 
 export const testicles_skin_color: FeatureToggle = {
-  name: 'Testicles uses Skin Color',
+  name: 'Гениталии. Testicles uses Skin Color',
   component: CheckboxInput,
 };
 
 export const testicles_color: Feature<string[]> = {
-  name: 'Testicles Color',
+  name: 'Гениталии. Testicles Color',
   component: FeatureTriColorInput,
 };
 
 export const testicles_emissive: Feature<boolean[]> = {
-  name: 'Testicles Emissives',
+  name: 'Гениталии. Testicles Emissives',
   component: FeatureTriBoolInput,
 };
 
 export const balls_size: FeatureNumeric = {
-  name: 'Testicles Size',
+  name: 'Гениталии. Testicles Size',
   component: FeatureNumberInput,
 };
 
+export const vagina_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Вагину к телу персонажа.',
+  component: CheckboxInput,
+};
+
 export const feature_vagina: Feature<string> = {
-  name: 'Vagina Choice',
+  name: 'Гениталии. Вагина Choice',
   component: FeatureDropdownInput,
 };
 
 export const vagina_skin_tone: FeatureToggle = {
-  name: 'Vagina uses Skin Tone',
+  name: 'Гениталии. Вагина uses Skin Tone',
   component: CheckboxInput,
 };
 
 export const vagina_skin_color: FeatureToggle = {
-  name: 'Vagina uses Skin Color',
+  name: 'Гениталии. Вагина uses Skin Color',
   component: CheckboxInput,
 };
 
 export const vagina_color: Feature<string[]> = {
-  name: 'Vagina Color',
+  name: 'Гениталии. Цвет Вагины.',
   component: FeatureTriColorInput,
 };
 
 export const vagina_emissive: Feature<boolean[]> = {
-  name: 'Vagina Emissives',
+  name: 'Гениталии. Вагина Светится.',
   component: FeatureTriBoolInput,
 };
 
+export const womb_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Матку к телу персонажа.',
+  component: CheckboxInput,
+};
+
 export const feature_womb: Feature<string> = {
-  name: 'Womb Choice',
+  name: 'Гениталии. Тип Матки.',
   component: FeatureDropdownInput,
 };
 
+export const breasts_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Грудь к телу персонажа.',
+  component: CheckboxInput,
+};
+
 export const feature_breasts: Feature<string> = {
-  name: 'Breast Choice',
+  name: 'Гениталии. Breast Choice',
   component: FeatureDropdownInput,
 };
 
 export const breasts_skin_tone: FeatureToggle = {
-  name: 'Breasts use Skin Tone',
+  name: 'Гениталии. Breasts use Skin Tone',
   component: CheckboxInput,
 };
 
 export const breasts_skin_color: FeatureToggle = {
-  name: 'Breasts use Skin Color',
+  name: 'Гениталии. Breasts use Skin Color',
   component: CheckboxInput,
 };
 
 export const breasts_color: Feature<string[]> = {
-  name: 'Breast Color',
+  name: 'Гениталии. Breast Color',
   component: FeatureTriColorInput,
 };
 
 export const breasts_emissive: Feature<boolean[]> = {
-  name: 'Breast Emissives',
+  name: 'Гениталии. Breast Emissives',
   component: FeatureTriBoolInput,
 };
 
 export const breasts_lactation_toggle: FeatureToggle = {
-  name: 'Breast Lactation',
+  name: 'Гениталии. Breast Lactation',
   component: CheckboxInput,
 };
 
 export const breasts_size: Feature<string> = {
-  name: 'Breast Size',
+  name: 'Гениталии. Breast Size',
   component: FeatureDropdownInput,
 };
 
+export const anus_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Анус к телу персонажа.',
+  component: CheckboxInput,
+};
+
 export const feature_anus: Feature<string> = {
-  name: 'Anus Choice',
+  name: 'Гениталии. Anus Choice',
   component: FeatureDropdownInput,
 };
 

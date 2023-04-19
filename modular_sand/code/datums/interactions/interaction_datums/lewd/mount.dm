@@ -97,7 +97,7 @@
 
 /datum/interaction/lewd/thighs/display_interaction(mob/living/user, mob/living/partner)
 	var/message
-	var/obj/item/organ/genital/genital = null
+	var/obj/item/organ/external/genital/genital = null
 	var/lust_increase = 1
 
 	//var/u_His = user.ru_ego()

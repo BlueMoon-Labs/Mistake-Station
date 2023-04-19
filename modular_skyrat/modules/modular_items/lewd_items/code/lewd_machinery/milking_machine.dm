@@ -192,15 +192,15 @@
 
 	current_breasts = affected_mob.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(current_breasts)
-		breasts_size = current_breasts.genital_size
+		breasts_size = current_breasts.size
 
 	current_testicles = affected_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(current_testicles)
-		testicles_size = current_testicles.genital_size
+		testicles_size = current_testicles.size
 
 	current_vagina = affected_mob.get_organ_slot(ORGAN_SLOT_VAGINA)
 	if(current_vagina)
-		vagina_size = current_vagina.genital_size
+		vagina_size = current_vagina.size
 
 	cut_overlay(locks_overlay)
 	locks_overlay.icon_state = "locks_closed"
@@ -575,13 +575,13 @@
 		cut_overlay(organ_overlay)
 		organ_overlay_new_icon_state = null
 		if(istype(current_selected_organ, /obj/item/organ/external/genital/breasts))
-			if(current_selected_organ.genital_type == "pair")
+			if(current_selected_organ.shape == "pair")
 				current_selected_organ_type = "double_breast"
-				current_selected_organ_size = current_selected_organ.genital_size
-			if(current_selected_organ.genital_type == "quad")
+				current_selected_organ_size = current_selected_organ.size
+			if(current_selected_organ.shape == "quad")
 				current_selected_organ_type = "quad_breast"
 				// Optimization needed
-				switch(current_selected_organ.genital_size)
+				switch(current_selected_organ.size)
 					if(0 to 2)
 						current_selected_organ_size = "0"
 					if(3 to 4)
@@ -594,9 +594,9 @@
 						current_selected_organ_size = "4"
 					else
 						current_selected_organ_size = "5"
-			if(current_selected_organ.genital_type == "sextuple")
+			if(current_selected_organ.shape == "sextuple")
 				current_selected_organ_type = "six_breast"
-				switch(current_selected_organ.genital_size)
+				switch(current_selected_organ.size)
 					if(0 to 2)
 						current_selected_organ_size = "0"
 					if(3 to 4)
@@ -622,7 +622,7 @@
 
 		if(istype(current_selected_organ, /obj/item/organ/external/genital/testicles))
 			current_selected_organ_type = ORGAN_SLOT_PENIS
-			current_selected_organ_size = current_selected_organ.genital_size
+			current_selected_organ_size = current_selected_organ.size
 			if(current_mode == mode_list[1])
 				pump_state = pump_state_list[1]
 				organ_overlay_new_icon_state = "[current_selected_organ_type]_[pump_state]"
@@ -636,7 +636,7 @@
 
 		if(istype(current_selected_organ, /obj/item/organ/external/genital/vagina))
 			current_selected_organ_type = ORGAN_SLOT_VAGINA
-			current_selected_organ_size = current_selected_organ.genital_size
+			current_selected_organ_size = current_selected_organ.size
 			if(current_mode == mode_list[1])
 				pump_state = pump_state_list[1]
 				organ_overlay_new_icon_state = "[current_selected_organ_type]_[pump_state]"
@@ -711,7 +711,7 @@
 	var/list/data = list()
 
 	data["mobName"] = current_mob ? current_mob.name : null
-	data["mobCanLactate"] = current_breasts ? current_breasts.lactates : null
+	data["mobCanLactate"] = current_breasts ? current_breasts.aroused_state : null
 	data["beaker"] = beaker ? beaker : null
 	data["BeakerName"] = beaker ? beaker.name : null
 	data["beakerMaxVolume"] = beaker ? beaker.volume : null
@@ -726,17 +726,17 @@
 	data["current_vessel"] = current_vessel ? current_vessel : null
 	data["current_selected_organ"] = current_selected_organ ? current_selected_organ : null
 	data["current_selected_organ_name"] = current_selected_organ ? current_selected_organ.name : null
-	if(current_mob?.is_topless() || current_breasts?.visibility_preference == GENITAL_ALWAYS_SHOW)
+	if(current_mob?.is_topless() || current_breasts?.genital_flags == GENITAL_THROUGH_CLOTHES)
 		data["current_breasts"] = current_breasts ? current_breasts : null
 	else
 		data["current_breasts"] = null
 
-	if(current_mob?.is_bottomless() || current_testicles?.visibility_preference == GENITAL_ALWAYS_SHOW)
+	if(current_mob?.is_bottomless() || current_testicles?.genital_flags == GENITAL_THROUGH_CLOTHES)
 		data["current_testicles"] = current_testicles ? current_testicles : null
 	else
 		data["current_testicles"] = current_testicles = null
 
-	if(current_mob?.is_bottomless() || current_vagina?.visibility_preference == GENITAL_ALWAYS_SHOW)
+	if(current_mob?.is_bottomless() || current_vagina?.genital_flags == GENITAL_THROUGH_CLOTHES)
 		data["current_vagina"] = current_vagina ? current_vagina : null
 	else
 		data["current_vagina"] = current_vagina = null

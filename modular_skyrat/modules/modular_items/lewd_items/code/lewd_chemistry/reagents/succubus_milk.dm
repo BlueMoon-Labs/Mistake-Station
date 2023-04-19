@@ -119,17 +119,17 @@
 		return
 
 	// Checks for cup size.
-	var/translation = mob_breasts.breasts_size_to_cup(mob_breasts.genital_size)
+	var/translation = mob_breasts.update_size(mob_breasts.size)
 
-	if(mob_breasts.visibility_preference == GENITAL_ALWAYS_SHOW || exposed_mob.is_topless())
+	if(mob_breasts.genital_flags == GENITAL_THROUGH_CLOTHES || exposed_mob.is_topless())
 		switch(translation)
 			if(BREAST_SIZE_FLATCHESTED)
 				return
 			if(BREAST_SIZE_BEYOND_MEASUREMENT)
 				exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(public_bigger_action_text_list)]"))
-				to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [mob_breasts.genital_size] inches in diameter."))
+				to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [mob_breasts.size] inches in diameter."))
 			else
-				if(mob_breasts?.genital_size >= (max_breast_size - 2))
+				if(mob_breasts?.size >= (max_breast_size - 2))
 					exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(public_bigger_action_text_list)]"))
 					to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [translation]-cups."))
 				else
@@ -142,9 +142,9 @@
 
 			if(BREAST_SIZE_BEYOND_MEASUREMENT)
 				exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(boob_text_list)] [pick(public_bigger_action_text_list)]"))
-				to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [mob_breasts.genital_size] inches in diameter."))
+				to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [mob_breasts.size] inches in diameter."))
 			else
-				if(mob_breasts?.genital_size >= (max_breast_size - 2))
+				if(mob_breasts?.size >= (max_breast_size - 2))
 					exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(boob_text_list)] [pick(public_bigger_action_text_list)]"))
 					to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger)] [pick(bigger_boob_text_list)] [pick(action_text_list)]about [translation]-cups."))
 				else

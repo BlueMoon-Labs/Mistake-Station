@@ -122,7 +122,7 @@
 	tier /= parts
 	return ..()
 
-/obj/machinery/research_table/proc/on_cum(mob/living/carbon/buckled_mob, obj/item/organ/genital/target_orifice, mob/living/partner)
+/obj/machinery/research_table/proc/on_cum(mob/living/carbon/buckled_mob, obj/item/organ/external/genital/target_orifice, mob/living/partner)
 	if(!configured)
 		say("Failed to get any data, the table is not configured!")
 		return
@@ -137,9 +137,9 @@
 		return
 	users[buckled_mob.name] += 1
 	var/points_awarded = 0
-	for(var/obj/item/organ/genital/genital in buckled_mob.organs)
-		if(istype(genital, /obj/item/organ/genital/breasts))
-			var/obj/item/organ/genital/breasts/breasts = genital
+	for(var/obj/item/organ/external/genital/genital in buckled_mob.organs)
+		if(istype(genital, /obj/item/organ/external/genital/breasts))
+			var/obj/item/organ/external/genital/breasts/breasts = genital
 			points_awarded += breasts.fluid_rate + breasts.breast_values[breasts.size] // Breasts use letters instead of numbers!
 			continue
 		points_awarded += genital.fluid_rate + genital.size

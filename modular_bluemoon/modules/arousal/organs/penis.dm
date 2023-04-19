@@ -1,4 +1,4 @@
-/obj/item/organ/genital/penis
+/obj/item/organ/external/genital/penis
 	name = "пенис"
 	desc = "A male reproductive organ."
 	icon_state = "penis"
@@ -15,12 +15,12 @@
 	size = 2 //arbitrary value derived from length and diameter for sprites.
 	layer_index = PENIS_LAYER_INDEX
 	var/length = 6 //inches
-
+	var/sheath = SHEATH_NONE
 	var/prev_length = 6 //really should be renamed to prev_length
 	var/diameter = 4.38
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
 
-/obj/item/organ/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
+/obj/item/organ/external/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	var/new_value = clamp(length + modifier, min, max)
 	if(new_value == length)
 		return
@@ -29,7 +29,7 @@
 	update()
 	..()
 
-/obj/item/organ/genital/penis/update_size(modified = FALSE)
+/obj/item/organ/external/genital/penis/update_size(modified = FALSE)
 	if(length <= 0)//I don't actually know what round() does to negative numbers, so to be safe!!
 		if(owner)
 			to_chat(owner, "<span class='warning'>Вы чувствуете, как ваш пенис уменьшается в размерах по сравнению с вашим телом, а пах становится плоским!</b></span>")
@@ -64,12 +64,15 @@
 	icon_state = sanitize_text("penis_[shape]_[size]")
 	diameter = (length * diameter_ratio)//Is it just me or is this ludicous, why not make it exponentially decay?
 
-
-/obj/item/organ/genital/penis/update_appearance()
+/obj/item/organ/external/genital/penis/update_appearance()
 	. = ..()
 	var/datum/sprite_accessory/genital/S = GLOB.cock_shapes_list[shape]
 	var/icon_shape = S ? S.icon_state : "human"
-	icon_state = "penis_[icon_shape]_[size]"
+	if(aroused_state != AROUSAL_FULL && sheath != SHEATH_NONE) //Sheath time!
+		if(aroused_state == AROUSAL_NONE)
+			aroused_state = 1
+		return "penis_[lowertext(sheath)]_[aroused_state]"
+	else icon_state = "penis_[icon_shape]_[size]"
 	var/lowershape = lowertext(shape)
 
 	if(owner)
@@ -88,7 +91,7 @@
 
 	desc = "Вы наблюдаете [lowershape] [aroused_state ? "эрегированный" : "висящий"] [pick(GLOB.dick_nouns)]. По вашим оценкам, он примерно [round(length*get_size(owner), 0.25)] [round(length*get_size(owner), 0.25) != 1 ? "" : ""] сантиметров в длину и [round(diameter*get_size(owner), 0.25)] [round(diameter*get_size(owner), 0.25) != 1 ? "" : ""] сантиметров в ширину."
 
-/obj/item/organ/genital/penis/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/penis/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)

@@ -19,7 +19,7 @@
 			var/mob/living/carbon/human/H = M
 			var/list/genits = H.adjust_arousal(current_cycle, "crocin", aphro = TRUE) // redundant but should still be here
 			for(var/g in genits)
-				var/obj/item/organ/genital/G = g
+				var/obj/item/organ/external/genital/G = g
 				to_chat(M, "<span class='userlove'>[G.arousal_verb]!</span>")
 	..()
 
@@ -51,7 +51,7 @@
 			var/mob/living/carbon/human/H = M
 			var/list/genits = H.adjust_arousal(100, "hexacrocin", aphro = TRUE) // redundant but should still be here
 			for(var/g in genits)
-				var/obj/item/organ/genital/G = g
+				var/obj/item/organ/external/genital/G = g
 				to_chat(M, "<span class='userlove'>[G.arousal_verb]!</span>")
 	..()
 

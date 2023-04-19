@@ -1,21 +1,21 @@
 //Main code edits
 /datum/reagent/fermi/breast_enlarger/overdose_process(mob/living/carbon/M)
 	if(M.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement))
-		var/obj/item/organ/genital/breasts/tity = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+		var/obj/item/organ/external/genital/breasts/tity = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 		tity?.fluid_id = tity?.original_fluid_id
 	. = ..()
 
 /datum/reagent/fermi/penis_enlarger/overdose_process(mob/living/carbon/human/M)
 	if(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement))
-		var/obj/item/organ/genital/penis/pp = M.get_organ_slot(ORGAN_SLOT_PENIS)
-		var/obj/item/organ/genital/testicles/balls = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
+		var/obj/item/organ/external/genital/penis/pp = M.get_organ_slot(ORGAN_SLOT_PENIS)
+		var/obj/item/organ/external/genital/testicles/balls = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
 		pp?.fluid_id = pp?.original_fluid_id
 		balls?.fluid_id = balls?.original_fluid_id
 	. = ..()
 
 /datum/reagent/fermi/butt_enlarger/overdose_process(mob/living/M)
 	if(M.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement))
-		var/obj/item/organ/genital/butt/ass = M.get_organ_slot(ORGAN_SLOT_BUTT)
+		var/obj/item/organ/external/genital/butt/ass = M.get_organ_slot(ORGAN_SLOT_BUTT)
 		ass?.fluid_id = ass?.original_fluid_id
 	. = ..()
 
@@ -34,7 +34,7 @@
 	if(!ishuman(M))
 		if(volume >= 15)
 			var/turf/T = get_turf(M)
-			var/obj/item/organ/genital/belly/B = new /obj/item/organ/genital/belly(T)
+			var/obj/item/organ/external/genital/belly/B = new /obj/item/organ/external/genital/belly(T)
 			M.visible_message("<span class='warning'>A belly suddenly flies out of [M]!")
 			var/T2 = get_random_station_turf()
 			M.adjustBruteLoss(25)
@@ -53,7 +53,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!(H.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement)))
 		return ..()
-	var/obj/item/organ/genital/belly/B = M.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/external/genital/belly/B = M.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(!B)
 		B = new
 		B.Insert(M)
@@ -86,10 +86,10 @@
 		return
 	var/mob/living/carbon/human/H = M
 	if(!H.get_organ_slot(ORGAN_SLOT_BELLY) && H.dna.features["has_belly"])
-		H.give_genital(/obj/item/organ/genital/belly)
+		H.give_genital(/obj/item/organ/external/genital/belly)
 
 /datum/reagent/fermi/GEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/belly/B = M.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/external/genital/belly/B = M.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(!B)
 		return ..()
 	var/optimal_size = M.dna.features["belly_size"]
@@ -103,6 +103,6 @@
 
 /datum/reagent/fermi/butt_enlarger/overdose_process(mob/living/M)
 	if(M.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement))
-		var/obj/item/organ/genital/belly/gut = M.get_organ_slot(ORGAN_SLOT_BELLY)
+		var/obj/item/organ/external/genital/belly/gut = M.get_organ_slot(ORGAN_SLOT_BELLY)
 		gut?.fluid_id = gut?.original_fluid_id
 	. = ..()

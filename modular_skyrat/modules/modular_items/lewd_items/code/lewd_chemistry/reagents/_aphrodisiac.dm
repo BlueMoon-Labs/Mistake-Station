@@ -163,13 +163,13 @@
 	enlargement_amount += enlarger_increase_step
 
 	if(enlargement_amount >= enlargement_threshold)
-		if(mob_penis?.genital_size >= penis_max_length)
+		if(mob_penis?.size >= penis_max_length)
 			return
 
-		mob_penis.genital_size = min(mob_penis.genital_size + penis_length_increase_step, penis_max_length)
+		mob_penis.size = min(mob_penis.size + penis_length_increase_step, penis_max_length)
 		// Improvision to girth to not make it random chance.
-		if(mob_penis?.girth < penis_max_girth) // Because any higher is ridiculous. However, should still allow for regular penis growth.
-			mob_penis.girth = round(mob_penis.girth + (mob_penis.genital_size/mob_penis.girth))
+		if(mob_penis?.diameter < penis_max_girth) // Because any higher is ridiculous. However, should still allow for regular penis growth.
+			mob_penis.diameter = round(mob_penis.diameter + (mob_penis.size/mob_penis.diameter))
 
 		update_appearance(exposed_mob, mob_penis)
 		enlargement_amount = 0
@@ -177,7 +177,7 @@
 		growth_to_chat(exposed_mob, mob_penis, suppress_chat)
 
 	// Damage from being too big for your clothes
-	if((mob_penis?.genital_size >= (TAKE_DAMAGE_THRESHOLD_PENIS)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
+	if((mob_penis?.size >= (TAKE_DAMAGE_THRESHOLD_PENIS)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
 		var/target_bodypart = exposed_mob.get_bodypart(BODY_ZONE_PRECISE_GROIN)
 		if(prob(damage_chance))
 			to_chat(exposed_mob, span_danger("You feel a tightness in your pants!"))
@@ -202,13 +202,13 @@
 
 	var/obj/item/organ/external/genital/penis/mob_penis = exposed_mob.get_organ_slot(ORGAN_SLOT_PENIS)
 
-	if(mob_testicles.genital_size < balls_big_size && prob(balls_increase_chance)) // Add some randomness so growth happens more gradually in most cases
-		mob_testicles.genital_size = min(mob_testicles.genital_size + testicles_size_increase_step, balls_max_size)
+	if(mob_testicles.size < balls_big_size && prob(balls_increase_chance)) // Add some randomness so growth happens more gradually in most cases
+		mob_testicles.size = min(mob_testicles.size + testicles_size_increase_step, balls_max_size)
 		update_appearance(exposed_mob, mob_testicles)
 		growth_to_chat(exposed_mob, mob_testicles, suppress_chat)
 
-	else if(mob_testicles.genital_size == balls_big_size && mob_penis?.genital_size >= balls_enormous_size_threshold) // Make the balls enormous only when the penis reaches a certain size
-		mob_testicles.genital_size = min(mob_testicles.genital_size + testicles_size_increase_step, balls_max_size)
+	else if(mob_testicles.size == balls_big_size && mob_penis?.size >= balls_enormous_size_threshold) // Make the balls enormous only when the penis reaches a certain size
+		mob_testicles.size = min(mob_testicles.size + testicles_size_increase_step, balls_max_size)
 		update_appearance(exposed_mob, mob_testicles)
 		growth_to_chat(exposed_mob, mob_testicles, suppress_chat)
 
@@ -230,17 +230,17 @@
 	enlargement_amount += enlarger_increase_step
 
 	if(enlargement_amount >= enlargement_threshold)
-		if(mob_breasts?.genital_size >= max_breast_size)
+		if(mob_breasts?.size >= max_breast_size)
 			return
 
-		mob_breasts.genital_size = min(mob_breasts.genital_size + breast_size_increase_step, max_breast_size)
+		mob_breasts.size = min(mob_breasts.size + breast_size_increase_step, max_breast_size)
 		update_appearance(exposed_mob, mob_breasts)
 		enlargement_amount = 0
 
 		growth_to_chat(exposed_mob, mob_breasts, suppress_chat)
 
 	// Damage from being too big for your clothes
-	if((mob_breasts?.genital_size >= (TAKE_DAMAGE_THRESHOLD_BREASTS)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
+	if((mob_breasts?.size >= (TAKE_DAMAGE_THRESHOLD_BREASTS)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
 		if(prob(damage_chance))
 			to_chat(exposed_mob, span_danger("Your breasts begin to strain against your clothes!"))
 			exposed_mob.adjustOxyLoss(5)
@@ -286,16 +286,16 @@
 		return
 
 	// Handle completely shrinking away, if prefs allow
-	if(mob_penis.genital_size == penis_min_length)
+	if(mob_penis.size == penis_min_length)
 		remove_genital(exposed_mob, mob_penis, suppress_chat)
 	else
 		var/needs_updating = FALSE
-		if(mob_penis.genital_size > penis_min_length)
-			mob_penis.genital_size = max(mob_penis.genital_size - penis_size_reduction_step, penis_min_length)
+		if(mob_penis.size > penis_min_length)
+			mob_penis.size = max(mob_penis.size - penis_size_reduction_step, penis_min_length)
 			needs_updating = TRUE
 
-		if(mob_penis.girth > penis_minimum_girth)
-			mob_penis.girth = max(mob_penis.girth - penis_girth_reduction_step, penis_minimum_girth)
+		if(mob_penis.diameter > penis_minimum_girth)
+			mob_penis.diameter = max(mob_penis.diameter - penis_girth_reduction_step, penis_minimum_girth)
 			needs_updating = TRUE
 
 		if(needs_updating)
@@ -318,11 +318,11 @@
 	if(!exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_shrinkage))
 		return
 
-	if(mob_testicles.genital_size > balls_min_size)
-		mob_testicles.genital_size = max(mob_testicles.genital_size - testicles_size_reduction_step, balls_min_size)
+	if(mob_testicles.size > balls_min_size)
+		mob_testicles.size = max(mob_testicles.size - testicles_size_reduction_step, balls_min_size)
 		update_appearance(exposed_mob, mob_testicles)
 
-	else if(mob_testicles.genital_size == balls_min_size && !mob_penis) // Wait for penis to completely shrink away first before removing balls
+	else if(mob_testicles.size == balls_min_size && !mob_penis) // Wait for penis to completely shrink away first before removing balls
 		var/message = "You feel a tightening sensation in your groin as things seem to smooth out down there."
 		remove_genital(exposed_mob, mob_testicles, suppress_chat, message)
 
@@ -342,11 +342,11 @@
 	if(!exposed_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/breast_shrinkage))
 		return
 
-	if(mob_breasts.genital_size > breast_minimum_size)
-		mob_breasts.genital_size = max(mob_breasts.genital_size - breast_size_reduction_step, breast_minimum_size)
+	if(mob_breasts.size > breast_minimum_size)
+		mob_breasts.size = max(mob_breasts.size - breast_size_reduction_step, breast_minimum_size)
 		update_appearance(exposed_mob, mob_breasts)
 
-	else if(mob_breasts.genital_size == breast_minimum_size) // Handle completely shrinking away, if prefs allow
+	else if(mob_breasts.size == breast_minimum_size) // Handle completely shrinking away, if prefs allow
 		var/message = "Your breasts have completely tightened into firm, flat pecs."
 		remove_genital(exposed_mob, mob_breasts, suppress_chat, message)
 
@@ -463,8 +463,8 @@
 	var/obj/item/organ/external/genital/penis/new_penis = new
 	new_penis.build_from_dna(exposed_mob.dna, ORGAN_SLOT_PENIS)
 	new_penis.Insert(exposed_mob, 0, FALSE)
-	new_penis.genital_size = 4
-	new_penis.girth = 3
+	new_penis.size = 4
+	new_penis.diameter = 3
 	update_appearance(exposed_mob, new_penis)
 
 	if(!suppress_chat)
@@ -489,7 +489,7 @@
 	var/obj/item/organ/external/genital/testicles/new_balls = new
 	new_balls.build_from_dna(exposed_mob.dna, ORGAN_SLOT_TESTICLES)
 	new_balls.Insert(exposed_mob, 0, FALSE)
-	new_balls.genital_size = 0
+	new_balls.size = 0
 	update_appearance(genital = new_balls)
 
 	return new_balls
@@ -518,11 +518,11 @@
 	var/obj/item/organ/external/genital/breasts/new_breasts = new
 	new_breasts.build_from_dna(exposed_mob.dna, ORGAN_SLOT_BREASTS)
 	new_breasts.Insert(exposed_mob, FALSE, FALSE)
-	new_breasts.genital_size = 2
+	new_breasts.size = 2
 	update_appearance(exposed_mob, new_breasts)
 	enlargement_amount = 0
 
-	if(new_breasts.visibility_preference == GENITAL_ALWAYS_SHOW || exposed_mob.is_topless())
+	if(new_breasts.genital_flags == GENITAL_THROUGH_CLOTHES || exposed_mob.is_topless())
 		if(!suppress_chat) // So we don't spam chat
 			exposed_mob.visible_message(span_notice("[exposed_mob]'s bust suddenly expands!"))
 			to_chat(exposed_mob, span_purple("Your chest feels warm, tingling with sensitivity as it expands outward."))
@@ -594,7 +594,7 @@
 */
 /datum/reagent/drug/aphrodisiac/proc/update_appearance(mob/living/carbon/human/exposed_mob, obj/item/organ/external/genital/genital, mutations_overlay = FALSE)
 	if(genital)
-		genital.update_sprite_suffix()
+		genital.update()
 	if(exposed_mob)
 		exposed_mob.update_body()
 		if(mutations_overlay)

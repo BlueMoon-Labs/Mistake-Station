@@ -1,7 +1,7 @@
 #define BREASTS_ICON_MIN_SIZE 1
 #define BREASTS_ICON_MAX_SIZE 6
 
-/obj/item/organ/genital/breasts
+/obj/item/organ/external/genital/breasts
 	name = "грудь"
 	desc = "Female milk producing organs."
 	icon_state = "breasts"
@@ -12,7 +12,7 @@
 	fluid_id = /datum/reagent/consumable/milk
 	fluid_rate = MILK_RATE
 	shape = DEF_BREASTS_SHAPE
-	genital_flags = CAN_MASTURBATE_WITH|CAN_CLIMAX_WITH|GENITAL_FUID_PRODUCTION|GENITAL_CAN_AROUSE|UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
+	genital_flags = CAN_MASTURBATE_WITH|CAN_CLIMAX_WITH|GENITAL_FLUID_PRODUCTION|GENITAL_CAN_AROUSE|UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
 	masturbation_verb = "massage"
 	arousal_verb = "Ваши соски становятся намного более чувствительными и твёрдыми"
 	unarousal_verb = "Ваши соски больше не такие твёрдые и чувствительные"
@@ -23,13 +23,13 @@
 	var/cached_size //these two vars pertain size modifications and so should be expressed in NUMBERS.
 	var/prev_size //former cached_size value, to allow update_size() to early return should be there no significant changes.
 
-/obj/item/organ/genital/breasts/Initialize(mapload, do_update = TRUE)
+/obj/item/organ/external/genital/breasts/Initialize(mapload, do_update = TRUE)
 	if(do_update)
 		cached_size = breast_values[size]
 		prev_size = cached_size
 	return ..()
 
-/obj/item/organ/genital/breasts/update_appearance()
+/obj/item/organ/external/genital/breasts/update_appearance()
 	. = ..()
 	var/lowershape = lowertext(shape)
 	switch(lowershape)
@@ -49,7 +49,7 @@
 		else
 			desc += " По вашим оценкам, грудь примерно [uppertext(size)] размера."
 
-	if((genital_flags & GENITAL_FUID_PRODUCTION) && aroused_state)
+	if((genital_flags & GENITAL_FLUID_PRODUCTION) && aroused_state)
 		var/datum/reagent/R = GLOB.chemical_reagents_list[fluid_id]
 		if(R)
 			desc += " Соски подтекают '[lowertext(R.name)]'."
@@ -73,7 +73,7 @@
 //Ridiculous sizes makes you more cumbersome.
 //this is far too lewd wah
 
-/obj/item/organ/genital/breasts/modify_size(modifier, min = -INFINITY, max = INFINITY)
+/obj/item/organ/external/genital/breasts/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	var/new_value = clamp(cached_size + modifier, min, max)
 	if(new_value == cached_size)
 		return
@@ -82,7 +82,7 @@
 	update()
 	..()
 
-/obj/item/organ/genital/breasts/update_size()//wah
+/obj/item/organ/external/genital/breasts/update_size()//wah
 	var/rounded_cached = round(cached_size)
 	if(cached_size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
 		if(owner)
@@ -114,7 +114,7 @@
 		else if (rounded_cached < r_prev_size)
 			to_chat(H, "<span class='warning'>Ваша грудь начинает [pick("уменьшаться до", "уменьшаться до", "сдуваться до", "сморщиваться с сожалением до", "сокращаться до")] [uppertext(size)] размера.</span>")
 
-/obj/item/organ/genital/breasts/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/breasts/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
@@ -122,8 +122,8 @@
 		color = "#[D.features["breasts_color"]]"
 	size = D.features["breasts_size"]
 	shape = D.features["breasts_shape"]
-	if(!D.features["breasts_producing"])
-		genital_flags &= ~ (GENITAL_FUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
+	if(!D.features["mobCanLactate"])
+		genital_flags &= ~ (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
 	if(!isnum(size))
 		cached_size = breast_values[size]
 	else

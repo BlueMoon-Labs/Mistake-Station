@@ -1,7 +1,7 @@
-/obj/item/organ/genital/butt
+/obj/item/organ/external/genital/butt
 	linked_organ_slot = ORGAN_SLOT_ANUS
 
-/obj/item/organ/genital/butt/update_size()
+/obj/item/organ/external/genital/butt/update_size()
 	if(!linked_organ)
 		return ..()
 
@@ -11,20 +11,20 @@
 		QDEL_IN(linked_organ, 1)
 	. = ..()
 
-/obj/item/organ/genital/butt/toggle_visibility(visibility, update)
+/obj/item/organ/external/genital/butt/toggle_visibility(visibility, update)
 	. = ..()
-	var/obj/item/organ/genital/anus/butthole = linked_organ
+	var/obj/item/organ/external/genital/anus/butthole = linked_organ
 	if(!butthole?.is_exposed() || is_exposed())
 		return .
 	linked_organ.toggle_visibility(visibility)
 
-/obj/item/organ/genital/butt/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/get_features(mob/living/carbon/human/H)
 	. = ..()
 	original_fluid_id = fluid_id
 	fluid_max_volume += ((size - initial(size))*2.5)*(owner ? get_size(owner) : 1)
 	fluid_rate += ((size - initial(size))/10)*(owner ? get_size(owner) : 1)
 
-/obj/item/organ/genital/butt/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen, from_belly = FALSE)
+/obj/item/organ/external/genital/butt/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen, from_belly = FALSE)
 	if(!(owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 		return
 

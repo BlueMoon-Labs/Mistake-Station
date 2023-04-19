@@ -22,7 +22,7 @@
 #define GENITAL_INTERNAL		(1<<1)
 #define GENITAL_HIDDEN			(1<<2)
 #define GENITAL_THROUGH_CLOTHES	(1<<3)
-#define GENITAL_FUID_PRODUCTION	(1<<4)
+#define GENITAL_FLUID_PRODUCTION	(1<<4)
 #define CAN_MASTURBATE_WITH		(1<<5)
 #define MASTURBATE_LINKED_ORGAN	(1<<6) //used to pass our mission to the linked organ
 #define CAN_CLIMAX_WITH			(1<<7)
@@ -79,7 +79,7 @@
 #define BELLY_SIZE_DEF		1
 #define BELLY_SIZE_MAX		10
 
-#define DEF_ANUS_SHAPE "пончиковидный"
+#define DEF_ANUS_SHAPE "Пончиковидный"
 
 //visibility toggles defines to avoid errors typos code errors.
 #define GEN_VISIBLE_ALWAYS "Always visible"
@@ -95,7 +95,7 @@
 #define ADMIN_REJECT(client) "(<a href='?_src_=holder;rejectadminhelp=\ref[client]'>REJT</a>)"//Rejects an adminhelp for being unclear or otherwise unhelpful. resets their adminhelp timer
 
 //Citadel istypes
-#define isgenital(A) (istype(A, /obj/item/organ/genital))
+#define isgenital(A) (istype(A, /obj/item/organ/external/genital))
 
 #define CITADEL_MENTOR_OOC_COLOUR "#224724"
 

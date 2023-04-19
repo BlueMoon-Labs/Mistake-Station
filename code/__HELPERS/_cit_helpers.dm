@@ -110,14 +110,14 @@ GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 
 /*pretty much everything got moved to modular_skyrat (interactions)
 /mob/living/carbon/has_penis() // Skyrat Change
-	var/obj/item/organ/genital/G = get_organ_slot(ORGAN_SLOT_PENIS)
-	if(G && istype(G, /obj/item/organ/genital/penis))
+	var/obj/item/organ/external/genital/G = get_organ_slot(ORGAN_SLOT_PENIS)
+	if(G && istype(G, /obj/item/organ/external/genital/penis))
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/proc/has_balls() // Skyrat Change
-	var/obj/item/organ/genital/G = get_organ_slot(ORGAN_SLOT_TESTICLES)
-	if(G && istype(G, /obj/item/organ/genital/testicles))
+	var/obj/item/organ/external/genital/G = get_organ_slot(ORGAN_SLOT_TESTICLES)
+	if(G && istype(G, /obj/item/organ/external/genital/testicles))
 		return TRUE
 	return FALSE
 
@@ -168,15 +168,15 @@ GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 	message_admins("[src] gave everyone genitals.")
 	for(var/mob/living/carbon/human/H in GLOB.mob_list)
 		if(H.gender == MALE)
-			H.give_genital(/obj/item/organ/genital/penis)
-			H.give_genital(/obj/item/organ/genital/testicles)
-			H.give_genital(/obj/item/organ/genital/butt)
-			H.give_genital(/obj/item/organ/genital/belly)
-			H.give_genital(/obj/item/organ/genital/anus)
+			H.give_genital(/obj/item/organ/external/genital/penis)
+			H.give_genital(/obj/item/organ/external/genital/testicles)
+			H.give_genital(/obj/item/organ/external/genital/butt)
+			H.give_genital(/obj/item/organ/external/genital/belly)
+			H.give_genital(/obj/item/organ/external/genital/anus)
 		else
-			H.give_genital(/obj/item/organ/genital/vagina)
-			H.give_genital(/obj/item/organ/genital/womb)
-			H.give_genital(/obj/item/organ/genital/breasts)
-			H.give_genital(/obj/item/organ/genital/butt)
-			H.give_genital(/obj/item/organ/genital/belly)
-			H.give_genital(/obj/item/organ/genital/anus)
+			H.give_genital(/obj/item/organ/external/genital/vagina)
+			H.give_genital(/obj/item/organ/external/genital/womb)
+			H.give_genital(/obj/item/organ/external/genital/breasts)
+			H.give_genital(/obj/item/organ/external/genital/butt)
+			H.give_genital(/obj/item/organ/external/genital/belly)
+			H.give_genital(/obj/item/organ/external/genital/anus)

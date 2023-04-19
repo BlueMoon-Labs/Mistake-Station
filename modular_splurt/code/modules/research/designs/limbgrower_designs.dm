@@ -5,5 +5,5 @@
 	research_icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 25)
-	build_path = /obj/item/organ/genital/belly
+	build_path = /obj/item/organ/external/genital/belly
 	category = list("initial","human","lizard","fly","insect","plasmaman","mammal","xeno")

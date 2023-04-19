@@ -30,7 +30,7 @@
 	. = ..()
 
 	// Set list of possible genitals
-	var/list/obj/item/organ/genital/genitals_list
+	var/list/obj/item/organ/external/genital/genitals_list
 
 	// Set list of possible fluids
 	var/list/datum/reagent/fluid_list = list()
@@ -39,8 +39,8 @@
 	var/mob/living/carbon/human/genital_owner = imp_in
 
 	// List their genitals if they have any at all
-	for(var/obj/item/organ/genital/genital_checked in genital_owner.organs)
-		if(istype(genital_checked) && (genital_checked.genital_flags & GENITAL_FUID_PRODUCTION))
+	for(var/obj/item/organ/external/genital/genital_checked in genital_owner.organs)
+		if(istype(genital_checked) && (genital_checked.genital_flags & GENITAL_FLUID_PRODUCTION))
 			// Add genitals to the list
 			LAZYADD(genitals_list, genital_checked)
 
@@ -71,7 +71,7 @@
 		return
 
 	// Prompt user for which genital to use
-	var/obj/item/organ/genital/genital_input = tgui_input_list(genital_owner, "Pick a genital", "Genital Fluid Infuser", genitals_list)
+	var/obj/item/organ/external/genital/genital_input = tgui_input_list(genital_owner, "Pick a genital", "Genital Fluid Infuser", genitals_list)
 	if(!genital_input)
 		// No selection was made
 		return

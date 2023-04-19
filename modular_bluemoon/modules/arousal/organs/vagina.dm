@@ -1,4 +1,4 @@
-/obj/item/organ/genital/vagina
+/obj/item/organ/external/genital/vagina
 	name = "вагина"
 	desc = "A female reproductive organ."
 	icon = 'icons/obj/genitals/vagina.dmi'
@@ -21,7 +21,7 @@
 	var/clit_len = 0.25
 	var/list/vag_types = list("тентяклевидная", "зубастая", "волосатая", "лопатковидная", "мохнатая")
 
-/obj/item/organ/genital/vagina/update_appearance()
+/obj/item/organ/external/genital/vagina/update_appearance()
 	. = ..()
 	icon_state = "vagina"
 	var/lowershape = lowertext(shape)
@@ -66,7 +66,7 @@
 			var/mob/living/carbon/human/H = owner
 			H.update_genitals()
 
-/obj/item/organ/genital/vagina/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/vagina/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)

@@ -137,11 +137,11 @@
 
 	egg_name = name
 
-/datum/component/pregnancy/proc/on_climax(datum/source, datum/reagents/senders_cum, atom/target, obj/item/organ/genital/sender, obj/item/organ/genital/receiver, spill)
+/datum/component/pregnancy/proc/on_climax(datum/source, datum/reagents/senders_cum, atom/target, obj/item/organ/external/genital/sender, obj/item/organ/external/genital/receiver, spill)
 	SIGNAL_HANDLER
 
 	if(isgenital(container))
-		var/obj/item/organ/genital/stuff = container
+		var/obj/item/organ/external/genital/stuff = container
 		if(stuff != sender && stuff.linked_organ != sender)
 			return FALSE
 
@@ -202,8 +202,8 @@
 		COOLDOWN_START(src, stage_time, PREGNANCY_STAGE_DURATION)
 
 /datum/component/pregnancy/proc/inflate_organs(mob/living/carbon/human/gregnant)
-	//var/obj/item/organ/genital/belly/belly = gregnant.get_organ_slot(ORGAN_SLOT_BELLY)
-	var/obj/item/organ/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
+	//var/obj/item/organ/external/genital/belly/belly = gregnant.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/external/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
 
 	if(added_size < 4)
 		added_size += 1
@@ -312,7 +312,7 @@
 			return FALSE
 
 	if(container && isgenital(container))
-		var/obj/item/organ/genital/gen = container
+		var/obj/item/organ/external/genital/gen = container
 		if(!(gen.is_exposed() || gen.linked_organ?.is_exposed()))
 			return FALSE
 
@@ -394,9 +394,9 @@
 
 /datum/component/pregnancy/proc/human_pragency_start(mob/living/carbon/human/gregnant)
 	if(pregnancy_breast_growth)
-		var/obj/item/organ/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
+		var/obj/item/organ/external/genital/breasts/boob = gregnant.get_organ_slot(ORGAN_SLOT_BREASTS)
 		if(!boob)
-			boob = gregnant.give_genital(/obj/item/organ/genital/breasts)
+			boob = gregnant.give_genital(/obj/item/organ/external/genital/breasts)
 	return TRUE
 
 /datum/component/pregnancy/proc/human_pragency_end(mob/living/carbon/human/gregnant)

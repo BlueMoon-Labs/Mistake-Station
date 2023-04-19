@@ -106,7 +106,7 @@
 			if(!vagina)
 				to_chat(user, span_danger("[target] don't have suitable genitalia for that!"))
 				return
-			if(!(target.is_bottomless() || vagina.visibility_preference == GENITAL_ALWAYS_SHOW))
+			if(!(target.is_bottomless() || vagina.genital_flags == GENITAL_THROUGH_CLOTHES))
 				to_chat(user, span_danger("[target]'s groin is covered!"))
 				return
 			message = (user == target) ? pick("rubs [target.p_their()] vagina with [src]", "gently jams [target.p_their()] pussy with [src]", "fucks [target.p_their()] vagina with a [src]") : pick("delicately rubs [target]'s vagina with [src]", "uses [src] to fuck [target]'s vagina", "jams [target]'s pussy with [src]", "teasing [target]'s pussy with [src]")
@@ -332,10 +332,10 @@
 
 
 	if(src == user.vagina)
-		vagina?.visibility_preference = GENITAL_NEVER_SHOW
-		womb?.visibility_preference = GENITAL_NEVER_SHOW
-		penis?.visibility_preference = GENITAL_NEVER_SHOW
-		testicles?.visibility_preference = GENITAL_NEVER_SHOW
+		vagina?.genital_flags = GENITAL_INTERNAL
+		womb?.genital_flags = GENITAL_INTERNAL
+		penis?.genital_flags = GENITAL_INTERNAL
+		testicles?.genital_flags = GENITAL_INTERNAL
 		user.update_body()
 
 	else if(src == user.anus)
@@ -368,10 +368,10 @@
 
 	if(!(src == user.vagina))
 		return
-	vagina?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-	womb?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-	penis?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-	testicles?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
+	vagina?.genital_flags = GENITAL_HIDDEN
+	womb?.genital_flags = GENITAL_HIDDEN
+	penis?.genital_flags = GENITAL_HIDDEN
+	testicles?.genital_flags = GENITAL_HIDDEN
 	user.update_body()
 
 /obj/item/clothing/sextoy/dildo/dildo_side

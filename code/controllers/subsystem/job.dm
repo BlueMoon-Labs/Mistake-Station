@@ -535,7 +535,7 @@ SUBSYSTEM_DEF(job)
 
 	equipping.mind?.set_assigned_role_with_greeting(job, player_client)
 	if(player_client)
-		to_chat(player_client, span_infoplain("You are the [chosen_title].")) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: to_chat(player_client, span_infoplain("You are the [job.title]."))
+		to_chat(player_client, span_infoplain("Вы [chosen_title].")) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: to_chat(player_client, span_infoplain("You are the [job.title]."))
 
 	equipping.on_job_equipping(job, player_client?.prefs) //SKYRAT EDIT CHANGE
 
@@ -547,6 +547,10 @@ SUBSYSTEM_DEF(job)
 		else
 			handle_auto_deadmin_roles(player_client, job.title)
 
+	var/ambition_text
+	if(equipping.mind)
+		ambition_text = equipping.mind.assign_random_ambition()
+	to_chat(player_client, "\n<big><b>Я - [ru_job_parse(default_title)], [gvorno()].</b></big>\n")
 
 	if(player_client)
 		to_chat(player_client, span_infoplain("As the [chosen_title == job.title ? chosen_title : "[chosen_title] ([job.title])"] you answer directly to [job.supervisors]. Special circumstances may change this.")) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: to_chat(player_client, span_infoplain("As the [job.title] you answer directly to [job.supervisors]. Special circumstances may change this."))
@@ -555,8 +559,7 @@ SUBSYSTEM_DEF(job)
 
 	if(player_client)
 		if(job.req_admin_notify)
-			to_chat(player_client, span_infoplain("<b>You are playing a job that is important for Game Progression. \
-				If you have to disconnect, please notify the admins via adminhelp.</b>"))
+			to_chat(player_client, span_infoplain("<b>Это ответственная должность. Перед уходом стоит найти себе замену.</b>"))
 		if(CONFIG_GET(number/minimal_access_threshold))
 			to_chat(player_client, span_boldnotice("As this station was initially staffed with a \
 				[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
@@ -579,7 +582,12 @@ SUBSYSTEM_DEF(job)
 
 		setup_alt_job_items(wageslave, job, player_client) // SKYRAT EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 
+	if(ambition_text)
+		to_chat(player_client, span_info(ambition_text))
+
 	job.after_spawn(equipping, player_client)
+
+	return equipping
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
 	if(!C?.holder)

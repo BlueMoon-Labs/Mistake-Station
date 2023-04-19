@@ -494,14 +494,14 @@
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
-/datum/job/engineering_guard
+/datum/job/engineering_guard/New()
 	var/list/extra_titles = list(
 		"Freak",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
-/datum/job/science_guard
+/datum/job/science_guard/New()
 	var/list/extra_titles = list(
 		"Low-Quality Product",
 	)

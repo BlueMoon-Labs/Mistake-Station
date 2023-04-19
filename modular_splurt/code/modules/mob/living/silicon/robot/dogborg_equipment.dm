@@ -333,7 +333,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 			playsound(src.loc, 'sound/effects/attackblob.ogg', 30, 1)
 			victim.add_lust(5)
 		if(BODY_ZONE_CHEST)
-			var/obj/item/organ/genital/breasts/breasts = victim.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/external/genital/breasts/breasts = victim.get_organ_slot(ORGAN_SLOT_BREASTS)
 			if(breasts?.is_exposed())
 				user.visible_message(span_warning("[user] sucks on [victim]'s [breasts.name]]!"),
 					span_notice("You suck on [victim]'s [breasts.name]]!")
@@ -360,7 +360,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 				return
 			switch(choice)
 				if("Penis")
-					var/obj/item/organ/genital/penis/penis = victim.get_organ_slot(ORGAN_SLOT_PENIS)
+					var/obj/item/organ/external/genital/penis/penis = victim.get_organ_slot(ORGAN_SLOT_PENIS)
 					if(penis?.is_exposed())
 						target_organ = ORGAN_SLOT_PENIS
 						user.visible_message(span_warning("[user] blows [victim]'s [penis.name]!"),
@@ -372,7 +372,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 					else
 						to_chat(user, span_info("Lickable penis not found!"))
 				if("Testicles")
-					var/obj/item/organ/genital/testicles/testicles = victim.get_organ_slot(ORGAN_SLOT_TESTICLES)
+					var/obj/item/organ/external/genital/testicles/testicles = victim.get_organ_slot(ORGAN_SLOT_TESTICLES)
 					if(testicles?.is_exposed())
 						user.visible_message(span_warning("[user] laps [victim]'s [testicles.name]!"),
 							span_notice("You lap [victim]'s [testicles.name]!")
@@ -383,7 +383,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 					else
 						to_chat(user, span_info("Lickable testicles not found!"))
 				if("Vagina")
-					var/obj/item/organ/genital/vagina/vagina = victim.get_organ_slot(ORGAN_SLOT_VAGINA)
+					var/obj/item/organ/external/genital/vagina/vagina = victim.get_organ_slot(ORGAN_SLOT_VAGINA)
 					if(vagina?.is_exposed())
 						target_organ = ORGAN_SLOT_VAGINA
 						user.visible_message(span_warning("[user] tongue fucks [victim]'s [vagina.name]!"),
@@ -395,7 +395,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 					else
 						to_chat(user, span_info("Lickable pussy not found!"))
 				if("Butt")
-					var/obj/item/organ/genital/butt/butt = victim.get_organ_slot(ORGAN_SLOT_BUTT)
+					var/obj/item/organ/external/genital/butt/butt = victim.get_organ_slot(ORGAN_SLOT_BUTT)
 					if(butt?.is_exposed())
 						user.visible_message(span_warning("[user]'s giving [victim] a rimjob!"),
 							span_notice("You rim [victim]'s [butt.name]!")
@@ -405,7 +405,7 @@ SLEEPER CODE IS IN game/objects/items/devices/dogborg_sleeper.dm !
 					else
 						to_chat(user, span_info("Lickable ass not found!"))
 				if("Belly")
-					var/obj/item/organ/genital/belly/belly = victim.get_organ_slot(ORGAN_SLOT_BELLY)
+					var/obj/item/organ/external/genital/belly/belly = victim.get_organ_slot(ORGAN_SLOT_BELLY)
 					if(belly?.is_exposed())
 						user.visible_message(span_notice("[user]'s lapping [victim]'s [belly.name]!"),
 							span_notice("You lick [victim]'s [belly.name]!")

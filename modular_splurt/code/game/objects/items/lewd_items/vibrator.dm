@@ -61,7 +61,7 @@ Code:
 /*
 /obj/item/electropack/vibrator/attack(mob/living/carbon/C, mob/living/user)
 
-	var/obj/item/organ/genital/picked_organ
+	var/obj/item/organ/external/genital/picked_organ
 	var/mob/living/carbon/human/S = user
 	var/mob/living/carbon/human/T = C
 	picked_organ = S.pick_receiving_organ(T, HAS_EQUIPMENT, "Vibrator", "Where are you putting it in?")
@@ -71,7 +71,7 @@ Code:
 		if(!do_after(user, C, 5 SECONDS))//warn them and have a delay of 5 seconds to apply.
 			return
 
-		if(style == "long" && !(picked_organ.type == /obj/item/organ/genital/vagina)) //long vibrators dont fit on anything but vaginas, but small ones fit everywhere
+		if(style == "long" && !(picked_organ.type == /obj/item/organ/external/genital/vagina)) //long vibrators dont fit on anything but vaginas, but small ones fit everywhere
 			to_chat(user, span_warning("[src] is too big to fit there, use a smaller version."))
 			return
 
@@ -106,14 +106,14 @@ Code:
 	last = world.time + 3 SECONDS //lets stop spam.
 
 	if(inside)
-		if(!istype(loc, /obj/item/organ/genital))
+		if(!istype(loc, /obj/item/organ/external/genital))
 			return
-		var/obj/item/organ/genital/G = loc
+		var/obj/item/organ/external/genital/G = loc
 		var/mob/living/carbon/U = G.owner
 
 		if(G)
 			switch(G.type) //just being fancy
-				if(/obj/item/organ/genital/breasts)
+				if(/obj/item/organ/external/genital/breasts)
 					to_chat(U, span_love("[src] vibrates against your nipples!"))
 				else
 					to_chat(U, span_love("[src] vibrates against your [G.name]!"))

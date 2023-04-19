@@ -87,5 +87,5 @@
 		return
 	user.adjust_arousal(1 * delta_time)
 	user.adjust_pleasure(1 * delta_time)
-	if(balls.aroused != AROUSAL_CANT)
-		balls.aroused = AROUSAL_FULL //Vibroring keep penis erected.
+	if(balls.aroused_state != AROUSAL_CANT)
+		balls.aroused_state = AROUSAL_FULL //Vibroring keep penis erected.

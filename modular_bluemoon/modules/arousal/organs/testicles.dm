@@ -1,4 +1,4 @@
-/obj/item/organ/genital/testicles
+/obj/item/organ/external/genital/testicles
 	name = "яйца"
 	desc = "A male reproductive organ."
 	icon_state = "testicles"
@@ -9,25 +9,31 @@
 	arousal_verb = "Твои яйца немного болят от переполненности"
 	unarousal_verb = "Твои яйца наконец-то перестают болеть от переполненности"
 	linked_organ_slot = ORGAN_SLOT_PENIS
-	genital_flags = CAN_MASTURBATE_WITH|MASTURBATE_LINKED_ORGAN|GENITAL_FUID_PRODUCTION|UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
+	genital_flags = CAN_MASTURBATE_WITH|MASTURBATE_LINKED_ORGAN|GENITAL_FLUID_PRODUCTION|UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
 	var/size_name = "average"
 	shape = DEF_BALLS_SHAPE
 	fluid_id = /datum/reagent/consumable/semen
 	masturbation_verb = "massage"
 	layer_index = TESTICLES_LAYER_INDEX
 
-/obj/item/organ/genital/testicles/generate_fluid()
+/obj/item/organ/external/genital/testicles/generate_fluid()
 	if(!linked_organ && !update_link())
 		return FALSE
 	return ..()
 	// in memoriam "Your balls finally feel full, again." ??-2020
 
-/obj/item/organ/genital/testicles/upon_link()
+/obj/item/organ/external/genital/testicles/upon_link()
 	size = linked_organ.size
 	update_size()
 	update_appearance()
 
-/obj/item/organ/genital/testicles/update_size(modified = FALSE)
+/obj/item/organ/external/genital/testicles/proc/balls_description_to_size(cup)
+	for(var/key in GLOB.balls_size_translation)
+		if(GLOB.balls_size_translation[key] == cup)
+			return text2num(key)
+	return 0
+
+/obj/item/organ/external/genital/testicles/update_size(modified = FALSE)
 	switch(size)
 		if(BALLS_SIZE_MIN)
 			size_name = "среднего"
@@ -42,7 +48,7 @@
 		else
 			size_name = "плоского"
 
-/obj/item/organ/genital/testicles/update_appearance()
+/obj/item/organ/external/genital/testicles/update_appearance()
 	. = ..()
 	desc = "Вы наблюдаете два семенника [size_name] размера."
 	var/datum/sprite_accessory/S = GLOB.balls_shapes_list[shape]
@@ -58,7 +64,7 @@
 		else
 			color = "#[owner.dna.features["balls_color"]]"
 
-/obj/item/organ/genital/testicles/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/testicles/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)

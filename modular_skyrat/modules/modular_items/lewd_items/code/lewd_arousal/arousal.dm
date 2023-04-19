@@ -13,8 +13,8 @@
 		if(istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/target = src
 			for(var/obj/item/organ/external/genital/target_genital in target.organs)
-				if(!target_genital.aroused == AROUSAL_CANT)
-					target_genital.aroused = arousal_status
+				if(!target_genital.set_aroused_state == AROUSAL_CANT)
+					target_genital.set_aroused_state = arousal_status
 					target_genital.update_sprite_suffix()
 			target.update_body()
 

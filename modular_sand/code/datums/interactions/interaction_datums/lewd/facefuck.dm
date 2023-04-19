@@ -14,7 +14,7 @@
 
 /datum/interaction/lewd/facefuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
-	var/obj/item/organ/genital/genital = null
+	var/obj/item/organ/external/genital/genital = null
 	var/retaliation_message = FALSE
 
 	if(user.is_fucking(partner, CUM_TARGET_MOUTH))
@@ -114,7 +114,7 @@
 
 /datum/interaction/lewd/throatfuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
-	var/obj/item/organ/genital/genital = null
+	var/obj/item/organ/external/genital/genital = null
 	var/retaliation_message = FALSE
 
 	if(user.is_fucking(partner, CUM_TARGET_THROAT))

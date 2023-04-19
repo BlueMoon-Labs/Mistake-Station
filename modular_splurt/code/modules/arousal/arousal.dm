@@ -1,12 +1,12 @@
-/mob/living/carbon/human/mob_climax_partner(obj/item/organ/genital/G, mob/living/L, spillage, mb_time, obj/item/organ/genital/Lgen, forced = FALSE)
+/mob/living/carbon/human/mob_climax_partner(obj/item/organ/external/genital/G, mob/living/L, spillage, mb_time, obj/item/organ/external/genital/Lgen, forced = FALSE)
 	. = ..()
 	L.receive_climax(src, Lgen, G, spillage, forced = forced)
 
-/mob/living/proc/receive_climax(mob/living/partner, obj/item/organ/genital/receiver, obj/item/organ/genital/source, spill, forced)
+/mob/living/proc/receive_climax(mob/living/partner, obj/item/organ/external/genital/receiver, obj/item/organ/external/genital/source, spill, forced)
 	//gregnancy...
-	if(!spill && istype(source, /obj/item/organ/genital/penis) && \
-		istype(receiver, /obj/item/organ/genital/vagina) && get_organ_slot(ORGAN_SLOT_WOMB))
-		var/obj/item/organ/genital/penis/peenus = source
+	if(!spill && istype(source, /obj/item/organ/external/genital/penis) && \
+		istype(receiver, /obj/item/organ/external/genital/vagina) && get_organ_slot(ORGAN_SLOT_WOMB))
+		var/obj/item/organ/external/genital/penis/peenus = source
 		if(!(locate(/obj/item/genital_equipment/condom) in peenus.contents))
 			impregnate(partner)
 
@@ -38,7 +38,7 @@
 		eggo.forceMove(container)
 		eggo.AddComponent(/datum/component/pregnancy, src, partner, baby_type)
 
-/mob/living/carbon/human/do_climax(datum/reagents/R, atom/target, obj/item/organ/genital/sender, spill, cover = FALSE, obj/item/organ/genital/receiver)
+/mob/living/carbon/human/do_climax(datum/reagents/R, atom/target, obj/item/organ/external/genital/sender, spill, cover = FALSE, obj/item/organ/external/genital/receiver)
 	if(!sender)
 		return
 	if(!target || !R)
@@ -56,8 +56,8 @@
 			var/default = sender.get_default_fluid()
 			sender.set_fluid_id(default)
 
-	if(istype(sender, /obj/item/organ/genital/penis))
-		var/obj/item/organ/genital/penis/bepis = sender
+	if(istype(sender, /obj/item/organ/external/genital/penis))
+		var/obj/item/organ/external/genital/penis/bepis = sender
 		if(locate(/obj/item/genital_equipment/sounding) in bepis.contents)
 			spill = TRUE
 			to_chat(src, "<span class='userlove'>You feel your sounding rod being pushed out of your cockhole with the burst of jizz!</span>")
@@ -65,8 +65,8 @@
 			rod.forceMove(get_turf(src))
 
 	if(cover)
-		if(istype(sender, /obj/item/organ/genital/penis))
-			var/obj/item/organ/genital/penis/bepis = sender
+		if(istype(sender, /obj/item/organ/external/genital/penis))
+			var/obj/item/organ/external/genital/penis/bepis = sender
 			var/size = bepis.size
 			switch(size)
 				if(BALLS_SIZE_MIN)
@@ -85,7 +85,7 @@
 	if(cached_fluid)
 		sender.set_fluid_id(cached_fluid)
 
-/mob/living/carbon/human/mob_fill_container(obj/item/organ/genital/G, obj/item/reagent_containers/container, mb_time, obj/item/milking_machine/M)
+/mob/living/carbon/human/mob_fill_container(obj/item/organ/external/genital/G, obj/item/reagent_containers/container, mb_time, obj/item/milking_machine/M)
 	if(!M)
 		return ..()
 
@@ -105,7 +105,7 @@
 	do_climax(fluid_source, container, G, FALSE, cover = TRUE)
 	emote("moan")
 
-/mob/living/carbon/human/proc/mob_climax_over(obj/item/organ/genital/G, mob/living/L, spillage = TRUE, mb_time = 30)
+/mob/living/carbon/human/proc/mob_climax_over(obj/item/organ/external/genital/G, mob/living/L, spillage = TRUE, mb_time = 30)
 	var/datum/reagents/fluid_source = G.climaxable(src)
 	if(!fluid_source)
 		return

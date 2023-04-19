@@ -1,7 +1,7 @@
-/obj/item/organ/genital/testicles
+/obj/item/organ/external/genital/testicles
 	default_fluid_id = /datum/reagent/consumable/semen
 
-/obj/item/organ/genital/testicles/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/testicles/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.features["balls_fluid"])
 		var/datum/reagent/fluid = find_reagent_object_from_type(D.features["balls_fluid"])

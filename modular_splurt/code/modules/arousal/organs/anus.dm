@@ -1,5 +1,5 @@
 // TEH DONUT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-/obj/item/organ/genital/anus
+/obj/item/organ/external/genital/anus
 	name = "анус"
 	desc = "You see their squishy donut pucker parting their asscheeks"
 	icon_state = "anus"
@@ -13,13 +13,13 @@
 	shape = "пончиковидный"
 	layer_index = ANUS_LAYER_INDEX
 
-/obj/item/organ/genital/anus/upon_link()
+/obj/item/organ/external/genital/anus/upon_link()
 	. = ..()
 	size = linked_organ.size
 	update_size()
 	update_appearance()
 
-/obj/item/organ/genital/anus/update_appearance(updates)
+/obj/item/organ/external/genital/anus/update_appearance(updates)
 	var/u_His = owner?.ru_ego() || "their"
 
 	var/datum/sprite_accessory/genital/anus/S = GLOB.anus_shapes_list[shape]
@@ -39,7 +39,7 @@
 			color = "#[owner.dna.features["anus_color"]]"
 	. = ..()
 
-/obj/item/organ/genital/anus/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/anus/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
@@ -51,10 +51,10 @@
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 	. = ..()
 
-/obj/item/organ/genital/anus/toggle_visibility(visibility, update = TRUE)
+/obj/item/organ/external/genital/anus/toggle_visibility(visibility, update = TRUE)
 	var/previous_flags = genital_flags
 	. = ..()
-	var/obj/item/organ/genital/butt/tush = linked_organ
+	var/obj/item/organ/external/genital/butt/tush = linked_organ
 	if(!is_exposed() || tush?.is_exposed())
 		return .
 	genital_flags = previous_flags

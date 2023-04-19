@@ -268,7 +268,7 @@
 	playlewdinteractionsound(user, 'sound/items/bikehorn.ogg', 40, 1, -1)
 
 /datum/interaction/lewd/do_breastfeed/display_interaction(mob/living/user, mob/living/target)
-	var/obj/item/organ/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
 	var/blacklist = target.client?.prefs.gfluid_blacklist
 	var/cached_fluid
 	if((milkers?.get_fluid_id() in blacklist) || ((/datum/reagent/blood in blacklist) && ispath(milkers?.get_fluid_id(), /datum/reagent/blood)))
@@ -335,7 +335,7 @@
 	playlewdinteractionsound(user, 'sound/items/bikehorn.ogg', 40, 1, -1)
 
 /datum/interaction/lewd/self_nipsuck/display_interaction(mob/living/user, mob/living/target)
-	var/obj/item/organ/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
 	var/blacklist = target.client?.prefs.gfluid_blacklist
 	var/cached_fluid
 	if((milkers?.get_fluid_id() in blacklist) || ((/datum/reagent/blood in blacklist) && ispath(milkers?.get_fluid_id(), /datum/reagent/blood)))
@@ -361,7 +361,7 @@
 	playlewdinteractionsound(user, 'sound/items/bikehorn.ogg', 40, 1, -1)
 
 /datum/interaction/lewd/nipsuck/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	var/obj/item/organ/genital/breasts/milkers = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/milkers = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 	var/blacklist = user.client?.prefs.gfluid_blacklist
 	var/cached_fluid
 	if((milkers?.get_fluid_id() in blacklist) || ((/datum/reagent/blood in blacklist) && ispath(milkers?.get_fluid_id(), /datum/reagent/blood)))
@@ -476,7 +476,7 @@
 	write_log_target = null
 
 /datum/interaction/lewd/deflate_belly/display_interaction(mob/living/carbon/user)
-	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/external/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
 		gut.modify_size(-1)
 
@@ -490,7 +490,7 @@
 	write_log_target = null
 
 /datum/interaction/lewd/inflate_belly/display_interaction(mob/living/carbon/user)
-	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/external/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
 		gut.modify_size(1)
 

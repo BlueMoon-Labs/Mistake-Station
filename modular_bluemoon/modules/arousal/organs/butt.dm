@@ -1,4 +1,4 @@
-/obj/item/organ/genital/butt
+/obj/item/organ/external/genital/butt
 	name 					= "попа"
 	desc 					= "You see a pair of asscheeks."
 	icon_state 				= "butt"
@@ -15,7 +15,7 @@
 	var/prev_size //former size value, to allow update_size() to early return should be there no significant changes.
 	layer_index = BUTT_LAYER_INDEX
 
-/obj/item/organ/genital/butt/modify_size(modifier, min = -INFINITY, max = BUTT_SIZE_MAX)
+/obj/item/organ/external/genital/butt/modify_size(modifier, min = -INFINITY, max = BUTT_SIZE_MAX)
 	var/new_value = clamp(size_cached + modifier, min, max)
 	if(new_value == size_cached)
 		return
@@ -25,7 +25,7 @@
 	update()
 	..()
 
-/obj/item/organ/genital/butt/update_size()//wah
+/obj/item/organ/external/genital/butt/update_size()//wah
 	var/rounded_size = round(size)
 	if(size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
 		if(owner)
@@ -42,7 +42,7 @@
 			to_chat(H, "<span class='warning'>Ваши ягодицы начинают [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера.</span>")
 
 
-/obj/item/organ/genital/butt/update_appearance()
+/obj/item/organ/external/genital/butt/update_appearance()
 	var/lowershape = lowertext(shape)
 
 	//Reflect the size of dat ass on examine.
@@ -81,7 +81,7 @@
 			color = "#[owner.dna.features["butt_color"]]"
 	return ..()
 
-/obj/item/organ/genital/butt/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)

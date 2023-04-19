@@ -8,7 +8,7 @@
 	if(DNA.features["breasts_size"] > 0)
 		size = DNA.features["breasts_size"]
 
-	switch(genital_type)
+	switch(shape)
 		if("pair")
 			breasts_capacity = 2
 		if("quad")

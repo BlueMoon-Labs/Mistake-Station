@@ -71,27 +71,27 @@
 /obj/item/autosurgeon/penis
 	desc = "A single use autosurgeon that contains a penis. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
-	starting_organ = /obj/item/organ/genital/penis
+	starting_organ = /obj/item/organ/external/genital/penis
 
 /obj/item/autosurgeon/testicles
 	desc = "A single use autosurgeon that contains a set of testicles. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
-	starting_organ = /obj/item/organ/genital/testicles
+	starting_organ = /obj/item/organ/external/genital/testicles
 
 /obj/item/autosurgeon/vagina
 	desc = "A single use autosurgeon that contains a vagina. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
-	starting_organ = /obj/item/organ/genital/vagina
+	starting_organ = /obj/item/organ/external/genital/vagina
 
 /obj/item/autosurgeon/breasts
 	desc = "A single use autosurgeon that contains a set of breasts. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
-	starting_organ = /obj/item/organ/genital/breasts
+	starting_organ = /obj/item/organ/external/genital/breasts
 
 /obj/item/autosurgeon/womb
 	desc = "A single use autosurgeon that contains a womb. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
-	starting_organ = /obj/item/organ/genital/womb
+	starting_organ = /obj/item/organ/external/genital/womb
 
 /obj/machinery/vending/kink
 	name = "KinkMate"

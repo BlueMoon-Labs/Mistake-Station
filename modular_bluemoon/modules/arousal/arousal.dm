@@ -42,11 +42,11 @@
 
 
 /mob/living/carbon/human/proc/adjust_arousal(strength, cause = "manual toggle", aphro = FALSE,maso = FALSE) // returns all genitals that were adjust
-	var/list/obj/item/organ/genital/genit_list = list()
+	var/list/obj/item/organ/external/genital/genit_list = list()
 	if(!client?.prefs.arousable || (aphro && (client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
 		return // no adjusting made here
 	var/enabling = strength > 0
-	for(var/obj/item/organ/genital/G in organs)
+	for(var/obj/item/organ/external/genital/G in organs)
 		if(G.genital_flags & GENITAL_CAN_AROUSE && !G.aroused_state && prob(abs(strength)*G.sensitivity * arousal_rate))
 			G.set_aroused_state(enabling,cause)
 			G.update_appearance()
@@ -55,8 +55,8 @@
 				genit_list += G
 	return genit_list
 
-/obj/item/organ/genital/proc/climaxable(mob/living/carbon/human/H, silent = FALSE) //returns the fluid source (ergo reagents holder) if found.
-	if((genital_flags & GENITAL_FUID_PRODUCTION))
+/obj/item/organ/external/genital/proc/climaxable(mob/living/carbon/human/H, silent = FALSE) //returns the fluid source (ergo reagents holder) if found.
+	if((genital_flags & GENITAL_FLUID_PRODUCTION))
 		. = reagents
 	else
 		if(linked_organ)
@@ -64,15 +64,15 @@
 	if(!. && !silent)
 		to_chat(H, "<span class='warning'>Твой [name] не в состоянии производить собственную жидкость, ведь у него отсутствуют органы для этого.</span>")
 
-/mob/living/carbon/human/proc/do_climax(datum/reagents/R, atom/target, obj/item/organ/genital/G, spill = TRUE)
+/mob/living/carbon/human/proc/do_climax(datum/reagents/R, atom/target, obj/item/organ/external/genital/G, spill = TRUE)
 	if(!G)
 		return
 	if(!target || !R)
 		return
 	var/turfing = isturf(target)
 	var/condomning
-	if(istype(G, /obj/item/organ/genital/penis))
-		var/obj/item/organ/genital/penis/P = G
+	if(istype(G, /obj/item/organ/external/genital/penis))
+		var/obj/item/organ/external/genital/penis/P = G
 		condomning = locate(/obj/item/genital_equipment/condom) in P.contents
 	G.generate_fluid(R)
 	log_message("Climaxed using [G] with [target]", LOG_EMOTE)
@@ -93,7 +93,7 @@
 		newtonian_move(turn(dir, 180))
 	//
 
-/mob/living/carbon/human/proc/mob_climax_outside(obj/item/organ/genital/G, mb_time = 30) //This is used for forced orgasms and other hands-free climaxes
+/mob/living/carbon/human/proc/mob_climax_outside(obj/item/organ/external/genital/G, mb_time = 30) //This is used for forced orgasms and other hands-free climaxes
 	var/datum/reagents/fluid_source = G.climaxable(src, TRUE)
 	if(!fluid_source)
 		to_chat(src,"<span class='userdanger'>Твой [G.name] предательски сжимается, не имея возможности кончить...</span>")
@@ -105,7 +105,7 @@
 	to_chat(src,"<span class='userlove'>Вы оргазмируете [isturf(loc) ? "прямо на <b>'[loc]'</b>" : ""], отлично! Конечно же, [G.name] изливается следом.</span>")
 	do_climax(fluid_source, loc, G)
 
-/mob/living/carbon/human/proc/mob_climax_partner(obj/item/organ/genital/G, mob/living/L, spillage = TRUE, mb_time = 30, obj/item/organ/genital/Lgen = null) //Used for climaxing with any living thing
+/mob/living/carbon/human/proc/mob_climax_partner(obj/item/organ/external/genital/G, mob/living/L, spillage = TRUE, mb_time = 30, obj/item/organ/external/genital/Lgen = null) //Used for climaxing with any living thing
 	var/datum/reagents/fluid_source = G.climaxable(src)
 	if(!fluid_source)
 		return
@@ -124,7 +124,7 @@
 	do_climax(fluid_source, spillage ? loc : L, G, spillage,, Lgen)
 	//L.receive_climax(src, Lgen, G, spillage)
 
-/mob/living/carbon/human/proc/mob_fill_container(obj/item/organ/genital/G, obj/item/reagent_containers/container, mb_time = 30) //For beaker-filling, beware the bartender
+/mob/living/carbon/human/proc/mob_fill_container(obj/item/organ/external/genital/G, obj/item/reagent_containers/container, mb_time = 30) //For beaker-filling, beware the bartender
 	var/datum/reagents/fluid_source = G.climaxable(src)
 	if(!fluid_source)
 		return
@@ -140,11 +140,11 @@
 	var/list/genitals_list
 	var/list/worn_stuff = get_equipped_items()
 
-	for(var/obj/item/organ/genital/G in organs)
+	for(var/obj/item/organ/external/genital/G in organs)
 		if((G.genital_flags & CAN_CLIMAX_WITH) && G.is_exposed(worn_stuff)) //filter out what you can't masturbate with
 			LAZYADD(genitals_list, G)
 	if(LAZYLEN(genitals_list))
-		var/obj/item/organ/genital/ret_organ = input(src, "Чем?", "Климаксировать", null) as null|obj in genitals_list
+		var/obj/item/organ/external/genital/ret_organ = input(src, "Чем?", "Климаксировать", null) as null|obj in genitals_list
 		return ret_organ
 	else if(!silent)
 		to_chat(src, "<span class='warning'>Вы не можете достичь кульминации без наличия гениталий.</span>")
@@ -213,7 +213,7 @@
 
 //Here's the main proc itself
 //skyrat edit - forced partner and spillage
-/mob/living/carbon/human/proc/mob_climax(forced_climax=FALSE,cause = "", var/mob/living/forced_partner = null, var/forced_spillage = TRUE, var/obj/item/organ/genital/forced_receiving_genital = null) //Forced is instead of the other proc, makes you cum if you have the tools for it, ignoring restraints
+/mob/living/carbon/human/proc/mob_climax(forced_climax=FALSE,cause = "", var/mob/living/forced_partner = null, var/forced_spillage = TRUE, var/obj/item/organ/external/genital/forced_receiving_genital = null) //Forced is instead of the other proc, makes you cum if you have the tools for it, ignoring restraints
 	set waitfor = FALSE
 	if(mb_cd_timer > world.time)
 		if(!forced_climax) //Don't spam the message to the victim if forced to come too fast
@@ -228,7 +228,7 @@
 		return
 	if(forced_climax) //Something forced us to cum, this is not a masturbation thing and does not progress to the other checks
 		log_message("was forced to climax by [cause]",LOG_EMOTE)
-		for(var/obj/item/organ/genital/G in organs)
+		for(var/obj/item/organ/external/genital/G in organs)
 			if(!(G.genital_flags & CAN_CLIMAX_WITH)) //Skip things like wombs and testicles
 				continue
 			var/mob/living/partner
@@ -283,13 +283,13 @@
 		if("Оргазмировать в одиночестве")
 			if(!available_rosie_palms())
 				return
-			var/obj/item/organ/genital/picked_organ = pick_climax_genitals()
+			var/obj/item/organ/external/genital/picked_organ = pick_climax_genitals()
 			if(picked_organ && available_rosie_palms(TRUE))
 				mob_climax_outside(picked_organ)
 		if("Оргазмировать совместно с кем-то")
 			//We need no hands, we can be restrained and so on, so let's pick an organ
-			var/obj/item/organ/genital/picked_organ = pick_climax_genitals()
-			var/obj/item/organ/genital/picked_target = null
+			var/obj/item/organ/external/genital/picked_organ = pick_climax_genitals()
+			var/obj/item/organ/external/genital/picked_target = null
 			if(picked_organ)
 				var/mob/living/partner = pick_partner() //Get someone
 				if(partner)
@@ -302,7 +302,7 @@
 			if(!available_rosie_palms(FALSE, /obj/item/reagent_containers))
 				return
 			//We got hands, let's pick an organ
-			var/obj/item/organ/genital/picked_organ
+			var/obj/item/organ/external/genital/picked_organ
 			picked_organ = pick_climax_genitals() //Gotta be climaxable, not just masturbation, to fill with fluids.
 			if(picked_organ)
 				//Good, got an organ, time to pick a container
@@ -311,7 +311,7 @@
 					mob_fill_container(picked_organ, fluid_container)
 		if("Оргазмировать на кого-то (CTRL+ЛКМ)")
 			//We need no hands, we can be restrained and so on, so let's pick an organ
-			var/obj/item/organ/genital/picked_organ = pick_climax_genitals()
+			var/obj/item/organ/external/genital/picked_organ = pick_climax_genitals()
 			if(picked_organ)
 				var/mob/living/partner = pick_partner() //Get someone
 				if(partner)

@@ -15,11 +15,12 @@
 					if(!dna.species.mutant_bodyparts[genital])
 						continue
 					var/datum/sprite_accessory/genital/G = GLOB.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
+					var/obj/item/organ/external/genital/D
 					if(!G)
 						continue
 					if(G.is_hidden(src))
 						continue
-					var/obj/item/organ/external/genital/ORG = get_organ_slot(G.associated_organ_slot)
+					var/obj/item/organ/external/genital/ORG = get_organ_slot(D.slot)
 					if(!ORG)
 						continue
 					line += ORG.get_description_string(G)

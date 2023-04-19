@@ -25,10 +25,10 @@
 	if(penis_sprite.is_hidden(affected_human))
 		to_chat(user, span_notice("You need to expose yourself in order to masturbate."))
 		return
-	else if(penis.aroused != AROUSAL_FULL)
+	else if(penis.aroused_state != AROUSAL_FULL)
 		to_chat(user, span_notice("You need to be aroused in order to masturbate."))
 		return
-	var/cum_volume = testicles.genital_size * CUM_VOLUME_MULTIPLIER
+	var/cum_volume = testicles.size * CUM_VOLUME_MULTIPLIER
 	if(target == user)
 		user.visible_message(span_warning("[user] starts masturbating onto [target.p_them()]self!"), span_danger("You start masturbating onto yourself!"))
 

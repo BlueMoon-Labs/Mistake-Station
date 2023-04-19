@@ -16,7 +16,7 @@
 
 /datum/interaction/lewd/oral/display_interaction(mob/living/user, mob/living/partner)
 	var/message
-	var/obj/item/organ/genital/genital = null
+	var/obj/item/organ/external/genital/genital = null
 	var/lust_increase = NORMAL_LUST
 
 	if(partner.is_fucking(user, CUM_TARGET_MOUTH))

@@ -1,4 +1,4 @@
-/obj/item/organ/genital/belly //I know, I know a belly aint a genital. but it is in the sake of code.
+/obj/item/organ/external/genital/belly //I know, I know a belly aint a genital. but it is in the sake of code.
 	name 					= "живот"
 	desc 					= "You see a belly on their midsection."
 	icon_state 				= "belly"
@@ -19,13 +19,13 @@
 	layer_index = BELLY_LAYER_INDEX
 
 
-/obj/item/organ/genital/belly/on_life()
+/obj/item/organ/external/genital/belly/on_life()
 	if(QDELETED(src))
 		return
 	if(!owner)
 		return
 
-/obj/item/organ/genital/belly/modify_size(modifier, min = -INFINITY, max = BELLY_SIZE_MAX)
+/obj/item/organ/external/genital/belly/modify_size(modifier, min = -INFINITY, max = BELLY_SIZE_MAX)
 	var/new_value = clamp(size_cached + modifier, min, max)
 	if(new_value == size_cached)
 		return
@@ -35,7 +35,7 @@
 	update()
 	..()
 
-/obj/item/organ/genital/belly/update_size()//wah
+/obj/item/organ/external/genital/belly/update_size()//wah
 	var/rounded_size = round(size)
 	var/list/belly_names = list("stomach", "belly", "gut", "midsection", "rolls")
 	if(size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
@@ -52,7 +52,7 @@
 		else if (rounded_size < r_prev_size)
 			to_chat(H, "<span class='warning'>Ваш животик начинает [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера.</span>")
 
-/obj/item/organ/genital/belly/update_appearance()
+/obj/item/organ/external/genital/belly/update_appearance()
 	var/lowershape = lowertext(shape)
 
 	//Reflect the size of dat ass on examine.
@@ -89,7 +89,7 @@
 			color = "#[owner.dna.features["belly_color"]]"
 	return ..()
 
-/obj/item/organ/genital/belly/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/belly/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
@@ -105,10 +105,10 @@
 	if(D.features["belly_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
-/obj/item/organ/genital/belly/climax_modify_size(mob/living/partner, obj/item/organ/genital/source_gen, cum_hole)
+/obj/item/organ/external/genital/belly/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen, cum_hole)
 	if(!(owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_enlargement)))
 		if(owner.has_anus(REQUIRE_EXPOSED) && (cum_hole == CUM_TARGET_ANUS) && (owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
-			var/obj/item/organ/genital/butt/ass = owner.get_organ_slot(ORGAN_SLOT_BUTT)
+			var/obj/item/organ/external/genital/butt/ass = owner.get_organ_slot(ORGAN_SLOT_BUTT)
 			if(!ass)
 				ass = new
 				ass.Insert(owner)
@@ -134,7 +134,7 @@
 			owner.visible_message("<span class='lewd'>\The Животик <b>[owner]</b> становится совсем выпуклым и раздувается от наполнения [pick("сладкой", "желанной")] '[lowertext(source_gen.get_fluid_name())]'!</span>", ignored_mobs = owner.get_unconsenting())
 			fluid_id = source_gen.get_fluid_id()
 		if((growth_amount >= 3 || size >= 3) && (owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
-			var/obj/item/organ/genital/butt/ass = owner.get_organ_slot(ORGAN_SLOT_BUTT)
+			var/obj/item/organ/external/genital/butt/ass = owner.get_organ_slot(ORGAN_SLOT_BUTT)
 			if(!ass)
 				ass = new
 				ass.Insert(owner)

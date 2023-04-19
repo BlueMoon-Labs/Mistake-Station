@@ -15,7 +15,7 @@
 					"<span class='lewd'>\The <b>[user]</b> в улыбке облизывает [pick("сосок", "соски")] \the <b>[target]</b> и усмехается.</span>"))
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
-			var/obj/item/organ/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(B.size)
 				if("c", "d", "e")
 					modifier = 2
@@ -35,7 +35,7 @@
 					"<span class='lewd'>\The <b>[user]</b> хватается губами за [pick("сосок", "соски")], касается зубками \the <b>[target]</b>'s и начинает грубо посасывать.</span>"))
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
-			var/obj/item/organ/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(B.size)
 				if("c", "d", "e")
 					modifier = 2
@@ -56,7 +56,7 @@
 					"<span class='lewd'>\The <b>[user]</b> игриво облизывает [pick("сосок", "соски")] \the <b>[target]</b> и ехидно ухмыляется.</span>"))
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
-			var/obj/item/organ/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(B.size)
 				if("c", "d", "e")
 					modifier = 2

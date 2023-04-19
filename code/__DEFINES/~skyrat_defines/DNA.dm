@@ -71,14 +71,14 @@
 //In inches
 #define PENIS_MAX_GIRTH 15
 #define PENIS_MIN_LENGTH 1
-#define PENIS_MAX_LENGTH 20
+#define PENIS_MAX_LENGTH 128
 
 #define TESTICLES_MIN_SIZE 0
 #define TESTICLES_MAX_SIZE 3
 
-#define SHEATH_NONE	"None"
-#define SHEATH_NORMAL "Sheath"
-#define SHEATH_SLIT	"Slit"
+#define SHEATH_NONE	"none"
+#define SHEATH_NORMAL "sheath"
+#define SHEATH_SLIT	"slit"
 #define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
 
 #define MANDATORY_FEATURE_LIST list(\
@@ -96,7 +96,6 @@
 	"cock_length" = COCK_SIZE_DEF,\
 	"cock_diameter_ratio" = COCK_DIAMETER_RATIO_DEF,\
 	"cock_color" = "ffffff",\
-	"cock_taur" = FALSE,\
 	"has_balls" = FALSE,\
 	"balls_color" = "ffffff",\
 	"balls_shape" = DEF_BALLS_SHAPE,\
@@ -108,7 +107,7 @@
 	"breasts_color" = "ffffff",\
 	"breasts_size" = BREASTS_SIZE_DEF,\
 	"breasts_shape" = DEF_BREASTS_SHAPE,\
-	"breasts_producing" = FALSE,\
+	"mobCanLactate" = FALSE,\
 	"has_vag" = FALSE,\
 	"vag_shape" = DEF_VAGINA_SHAPE,\
 	"vag_color" = "ffffff",\
@@ -140,9 +139,9 @@
 )
 
 #define AROUSAL_CANT 0
-#define AROUSAL_NONE 1
-#define AROUSAL_PARTIAL 2
-#define AROUSAL_FULL 3
+#define AROUSAL_NONE 0
+#define AROUSAL_PARTIAL 1
+#define AROUSAL_FULL 1
 
 //Species IDs. If you wanna look at tg's species ID defines, go look in the *other* DNA.dm file
 #define SPECIES_AKULA "akula"

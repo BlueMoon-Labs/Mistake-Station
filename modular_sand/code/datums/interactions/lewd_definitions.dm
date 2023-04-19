@@ -92,7 +92,7 @@
 /mob/living/proc/has_genital(slot, visibility = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/genital/genital = C.get_organ_slot(slot)
+		var/obj/item/organ/external/genital/genital = C.get_organ_slot(slot)
 		if(genital)
 			switch(visibility)
 				if(REQUIRE_ANY)
@@ -351,7 +351,7 @@
 	if(has_butt && !istype(C))
 		return TRUE
 	if(istype(C))
-		var/obj/item/organ/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BUTT)
+		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BUTT)
 		if(peepee)
 			switch(nintendo)
 				if(REQUIRE_ANY)
@@ -432,7 +432,7 @@
 	var/t_His = partner?.ru_ego()
 	var/cumin = FALSE
 	var/partner_carbon_check = FALSE
-	var/obj/item/organ/genital/target_gen = null
+	var/obj/item/organ/external/genital/target_gen = null
 	var/mob/living/carbon/c_partner = null
 	//Carbon checks
 	if(iscarbon(partner))
@@ -604,7 +604,7 @@
 				message = pick("orgasms violently!", "twists in orgasm.")
 		else
 			switch(last_genital.type)
-				if(/obj/item/organ/genital/penis)
+				if(/obj/item/organ/external/genital/penis)
 					if(!istype(partner))
 						target_orifice = null
 
@@ -686,7 +686,7 @@
 								message = "cums on the floor!"
 						else
 							message = "cums on the floor!"
-				if(/obj/item/organ/genital/vagina)
+				if(/obj/item/organ/external/genital/vagina)
 					if(!istype(partner))
 						target_orifice = null
 
@@ -801,7 +801,7 @@
 		return TRUE
 	return FALSE
 
-/mob/living/proc/set_is_fucking(mob/living/partner, orifice, obj/item/organ/genital/genepool)
+/mob/living/proc/set_is_fucking(mob/living/partner, orifice, obj/item/organ/external/genital/genepool)
 	last_partner = partner
 	last_orifice = orifice
 	last_genital = genepool

@@ -1,187 +1,4 @@
-/datum/sprite_accessory/genital
-	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
-	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
-	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
-	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
-	var/taur_dimension_y = 32
-	var/taur_dimension_x = 32
-
-
-//DICKS,COCKS,PENISES,WHATEVER YOU WANT TO CALL THEM
-/datum/sprite_accessory/genital/penis
-	icon = 'icons/obj/genitals/penis_onmob.dmi'
-	name = "penis"			//the preview name of the accessory
-	color_src = "cock_color"
-	alt_aroused = TRUE
-	feat_taur = "cock_taur"
-
-/datum/sprite_accessory/genital/penis/human
-	icon_state = "human"
-	name = "человеческий"
-
-/datum/sprite_accessory/genital/penis/knotted
-	icon_state = "knotted"
-	name = "узловатый"
-	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
-	taur_dimension_x = 64
-
-/datum/sprite_accessory/genital/penis/flared
-	icon_state = "flared"
-	name = "утолщённый"
-	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
-	taur_dimension_x = 64
-
-/datum/sprite_accessory/genital/penis/barbknot
-	icon_state = "barbknot"
-	name = "колючий узловатый"
-
-/datum/sprite_accessory/genital/penis/tapered
-	icon_state = "tapered"
-	name = "конусоподобный"
-	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
-	taur_dimension_x = 64
-
-/datum/sprite_accessory/genital/penis/tentacle
-	icon_state = "tentacle"
-	name = "тентяклевидный"
-
-/datum/sprite_accessory/genital/penis/hemi
-	icon_state = "hemi"
-	name = "двойной"
-
-/datum/sprite_accessory/genital/penis/hemiknot
-	icon_state = "hemiknot"
-	name = "двойной узловатый"
-
-//Penises
-/datum/sprite_accessory/genital/penis/thick
-	icon_state = "thick"
-	name = "толстый"
-
-//Testicles
-/datum/sprite_accessory/genital/testicles
-	icon = 'icons/obj/genitals/testicles_onmob.dmi'
-	icon_state = "testicle"
-	name = "яйца"		//the preview name of the accessory
-	color_src = "balls_color"
-
-/datum/sprite_accessory/genital/testicles/single
-	icon_state = "single"
-	name = "одинарные" //Single as "single pair", for clarity.
-
-/datum/sprite_accessory/genital/testicles/hidden
-	icon_state = "hidden"
-	name = "скрытые" //not sure why these were missing, but I'm pretty certain people might want these.
-
-//Vaginas
-/datum/sprite_accessory/genital/vagina
-	icon = 'icons/obj/genitals/vagina_onmob.dmi'
-	name = "вагина"
-	color_src = "vag_color"
-	alt_aroused = TRUE
-
-/datum/sprite_accessory/genital/vagina/human
-	icon_state = "human"
-	name = "человеческая"
-
-/datum/sprite_accessory/genital/vagina/tentacles
-	icon_state = "tentacle"
-	name = "тентяклевидная"
-
-/datum/sprite_accessory/genital/vagina/dentata
-	icon_state = "dentata"
-	name = "зубастая"
-
-/datum/sprite_accessory/genital/vagina/hairy
-	icon_state = "hairy"
-	name = "волосатая"
-	alt_aroused = FALSE
-
-/datum/sprite_accessory/genital/vagina/spade
-	icon_state = "spade"
-	name = "лопатковидная"
-	alt_aroused = FALSE
-
-/datum/sprite_accessory/genital/vagina/furred
-	icon_state = "furred"
-	name = "мохнатая"
-	alt_aroused = FALSE
-
-/datum/sprite_accessory/genital/vagina/gaping
-	icon_state = "gaping"
-	name = "приоткрытая"
-
-//BREASTS BE HERE
-/datum/sprite_accessory/genital/breasts
-	icon = 'icons/obj/genitals/breasts_onmob.dmi'
-	name = "breasts"
-	color_src = "breasts_color"
-
-/datum/sprite_accessory/genital/breasts/pair
-	icon_state = "pair"
-	name = "Pair"
-
-/datum/sprite_accessory/genital/breasts/quad
-	icon_state = "quad"
-	name = "Quad"
-
-/datum/sprite_accessory/genital/breasts/sextuple
-	icon_state = "sextuple"
-	name = "Sextuple"
-
-//BUTT BE HERE
-/datum/sprite_accessory/genital/butt
-	icon = 'icons/obj/genitals/butt_onmob.dmi'
-	icon_state = "butt"
-	name = "butt"
-	color_src = "butt_color"
-
-//there literally shouldn't be any other ass types besides one because that'd be weird, this is just here to keep things consistent for the genital system.
-/datum/sprite_accessory/genital/butt/pair
-	icon_state = "pair"
-	name = "Pair"
-
-//Butt (main code edit)
-/datum/sprite_accessory/genital/butt
-	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
-
-//Vaginas
-/datum/sprite_accessory/genital/vagina/cloaca
-	name = "клоака"
-	icon_state = "cloaca"
-
-//Testicles
-/datum/sprite_accessory/genital/testicles/sheath
-	icon_state = "sheath"
-	name = "оболонковые"
-
-//Bellies
-/datum/sprite_accessory/genital/belly
-	icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
-	icon_state = "belly"
-	name = "belly"
-	color_src = "belly_color"
-
-//there literally shouldn't be any other ass types besides one because that'd be weird, this is just here to keep things consistent for the genital system.
-/datum/sprite_accessory/genital/belly/pair
-	icon_state = "pair"
-	name = "Pair"
-
-/datum/sprite_accessory/genital/anus
-	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
-	icon_state = "anus"
-	name = "anus"
-	color_src = "anus_color"
-
-/datum/sprite_accessory/genital/anus/donut
-	icon_state = DEF_ANUS_SHAPE
-	name = DEF_ANUS_SHAPE
-
-/datum/sprite_accessory/genital/anus/squished
-	icon_state = "squished"
-	name = "сплющенный"
-
-/obj/item/organ/genital
+/obj/item/organ/external/genital
 	color = "#fcccb3"
 	w_class = WEIGHT_CLASS_SMALL
 	organ_flags = ORGAN_NO_DISMEMBERMENT|ORGAN_EDIBLE|HAS_EQUIPMENT //Maay edit it for other genitals later
@@ -201,25 +18,25 @@
 	var/fluid_mult = 1
 	var/last_orgasmed = 0
 	var/aroused_state = FALSE //Boolean used in icon_state strings
-	var/obj/item/organ/genital/linked_organ
+	var/obj/item/organ/external/genital/linked_organ
 	var/linked_organ_slot //used for linking an apparatus' organ to its other half on update_link().
 	var/layer_index = GENITAL_LAYER_INDEX //Order should be very important. FIRST vagina, THEN testicles, THEN penis, as this affects the order they are rendered in.
 
-/obj/item/organ/genital/Initialize(mapload, do_update = TRUE)
+/obj/item/organ/external/genital/Initialize(mapload, do_update = TRUE)
 	. = ..()
 	if(do_update)
 		update()
 
-/obj/item/organ/genital/Destroy()
+/obj/item/organ/external/genital/Destroy()
 	if(linked_organ?.linked_organ == src)
 		linked_organ.linked_organ = null
 	linked_organ = null
 	. = ..()
 
-/obj/item/organ/genital/on_life()
+/obj/item/organ/external/genital/on_life()
 	return
 
-/obj/item/organ/genital/proc/set_aroused_state(new_state,cause = "manual toggle")
+/obj/item/organ/external/genital/proc/set_aroused_state(new_state,cause = "manual toggle")
 	if(!(genital_flags & GENITAL_CAN_AROUSE))
 		return FALSE
 	if(!((HAS_TRAIT(owner,TRAIT_PERMABONER) && !new_state) || HAS_TRAIT(owner,TRAIT_NEVERBONER) && new_state))
@@ -227,7 +44,7 @@
 	owner.log_message("[src]'s arousal was [new_state ? "enabled" : "disabled"] due to [cause]", LOG_EMOTE)
 	return aroused_state
 
-/obj/item/organ/genital/proc/update()
+/obj/item/organ/external/genital/proc/update()
 	if(QDELETED(src))
 		return
 	update_size()
@@ -242,7 +59,7 @@
 /mob/living/carbon
 	var/list/exposed_genitals = list() //Keeping track of them so we don't have to iterate through every genitalia and see if exposed
 
-/obj/item/organ/genital/proc/is_exposed()
+/obj/item/organ/external/genital/proc/is_exposed()
 	if(!owner || genital_flags & (GENITAL_INTERNAL|GENITAL_HIDDEN))
 		return FALSE
 
@@ -255,7 +72,7 @@
 		if(BODY_ZONE_PRECISE_GROIN)
 			return owner.is_groin_exposed()
 
-/obj/item/organ/genital/proc/toggle_visibility(visibility, update = TRUE)
+/obj/item/organ/external/genital/proc/toggle_visibility(visibility, update = TRUE)
 	if(visibility != GEN_ALLOW_EGG_STUFFING)
 		genital_flags &= ~(GENITAL_THROUGH_CLOTHES|GENITAL_HIDDEN|GENITAL_UNDIES_HIDDEN)
 	if(owner)
@@ -296,13 +113,13 @@
 		return
 
 	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/G in organs)
+	for(var/obj/item/organ/external/genital/G in organs)
 		if(!(G.genital_flags & GENITAL_INTERNAL))
 			genital_list += G
 	if(!genital_list.len) //There is nothing to expose
 		return
 	//Full list of exposable genitals created
-	var/obj/item/organ/genital/picked_organ
+	var/obj/item/organ/external/genital/picked_organ
 	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in (get_organ_slot(ORGAN_SLOT_ANUS) ? genital_list : genital_list + list("anus"))
 	if(picked_organ && (picked_organ in organs))
 		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in GLOB.genitals_visibility_toggles
@@ -331,12 +148,12 @@
 	set name = "Toggle genital arousal"
 	set desc = "Allows you to toggle which genitals are showing signs of arousal."
 	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/G in organs)
+	for(var/obj/item/organ/external/genital/G in organs)
 		if(G.genital_flags & GENITAL_CAN_AROUSE)
 			genital_list += G
 	if(!genital_list.len) //There's nothing that can show arousal
 		return
-	var/obj/item/organ/genital/picked_organ
+	var/obj/item/organ/external/genital/picked_organ
 	picked_organ = input(src, "Choose which genitalia to toggle arousal on", "Set genital arousal", null) in genital_list
 	if(picked_organ)
 		var/original_state = picked_organ.aroused_state
@@ -352,19 +169,19 @@
 	return
 
 
-/obj/item/organ/genital/proc/modify_size(modifier, min = -INFINITY, max = INFINITY)
+/obj/item/organ/external/genital/proc/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	fluid_max_volume += modifier*2.5
 	fluid_rate += modifier/10
 	return
 
-/obj/item/organ/genital/proc/update_size()
+/obj/item/organ/external/genital/proc/update_size()
 	return
 
-/obj/item/organ/genital/proc/update_appearance_genitals()
+/obj/item/organ/external/genital/proc/update_appearance_genitals()
 	if(!owner || owner.stat == DEAD)
 		aroused_state = FALSE
 
-/obj/item/organ/genital/proc/generate_fluid(datum/reagents/R)
+/obj/item/organ/external/genital/proc/generate_fluid(datum/reagents/R)
 	var/amount = clamp((fluid_rate * ((world.time - last_orgasmed) / (10 SECONDS)) * fluid_mult),0,fluid_max_volume)
 	R.clear_reagents()
 	R.maximum_volume = fluid_max_volume
@@ -374,7 +191,7 @@
 		R.add_reagent(linked_organ.fluid_id,amount, owner.get_blood_data())
 	return TRUE
 
-/obj/item/organ/genital/proc/update_link()
+/obj/item/organ/external/genital/proc/update_link()
 	if(owner)
 		if(linked_organ)
 			return FALSE
@@ -390,10 +207,10 @@
 	return FALSE
 
 //post organ duo making arrangements.
-/obj/item/organ/genital/proc/upon_link()
+/obj/item/organ/external/genital/proc/upon_link()
 	return
 
-/obj/item/organ/genital/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	. = ..()
 	if(.)
 		update()
@@ -401,7 +218,7 @@
 		if(genital_flags & GENITAL_THROUGH_CLOTHES)
 			owner.exposed_genitals += src
 
-/obj/item/organ/genital/Remove(special = FALSE)
+/obj/item/organ/external/genital/Remove(special = FALSE, moving)
 	. = ..()
 	var/mob/living/carbon/C = .
 	update()
@@ -415,28 +232,28 @@
 //proc to give a player their genitals and stuff when they log in
 /mob/living/carbon/human/proc/give_genitals(clean = FALSE)//clean will remove all pre-existing genitals. proc will then give them any genitals that are enabled in their DNA
 	if(clean)
-		for(var/obj/item/organ/genital/G in organs)
+		for(var/obj/item/organ/external/genital/G in organs)
 			qdel(G)
 	if (NOGENITALS in dna.species.species_traits)
 		return
 	if(dna.features["has_vag"])
-		give_genital(/obj/item/organ/genital/vagina)
+		give_genital(/obj/item/organ/external/genital/vagina)
 	if(dna.features["has_womb"])
-		give_genital(/obj/item/organ/genital/womb)
+		give_genital(/obj/item/organ/external/genital/womb)
 	if(dna.features["has_balls"])
-		give_genital(/obj/item/organ/genital/testicles)
+		give_genital(/obj/item/organ/external/genital/testicles)
 	if(dna.features["has_breasts"])
-		give_genital(/obj/item/organ/genital/breasts)
+		give_genital(/obj/item/organ/external/genital/breasts)
 	if(dna.features["has_cock"])
-		give_genital(/obj/item/organ/genital/penis)
+		give_genital(/obj/item/organ/external/genital/penis)
 	if(dna.features["has_butt"])
-		give_genital(/obj/item/organ/genital/butt)
+		give_genital(/obj/item/organ/external/genital/butt)
 	if(dna.features["has_belly"])
-		give_genital(/obj/item/organ/genital/belly)
+		give_genital(/obj/item/organ/external/genital/belly)
 	if(dna.features["has_anus"])
-		give_genital(/obj/item/organ/genital/anus)
+		give_genital(/obj/item/organ/external/genital/anus)
 
-/mob/living/carbon/human/proc/give_genital(obj/item/organ/genital/G)
+/mob/living/carbon/human/proc/give_genital(obj/item/organ/external/genital/G)
 	if(!dna || (NOGENITALS in dna.species.species_traits) || get_organ_slot(initial(G.slot)))
 		return FALSE
 	G = new G(null, FALSE)
@@ -444,8 +261,11 @@
 	G.Insert(src)
 	return G
 
-/obj/item/organ/genital/proc/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/proc/get_features(mob/living/carbon/human/H)
 	return
+
+/obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
+	return "Вы наблюдаете гениталии"
 
 /mob/living/carbon/human/proc/update_genitals()
 	if(QDELETED(src))
@@ -466,7 +286,7 @@
 	var/list/gen_index[GENITAL_LAYER_INDEX_LENGTH]
 	var/list/genitals_to_add
 	var/list/fully_exposed
-	for(var/obj/item/organ/genital/G in organs)
+	for(var/obj/item/organ/external/genital/G in organs)
 		if(G.is_exposed()) //Checks appropriate clothing slot and if it's through_clothes
 			LAZYADD(gen_index[G.layer_index], G)
 	if(has_strapon(REQUIRE_EXPOSED))
@@ -498,23 +318,23 @@
 					standing += genital_overlay
 				continue
 
-			var/obj/item/organ/genital/G = A
+			var/obj/item/organ/external/genital/G = A
 			var/datum/sprite_accessory/genital/S
 			var/size = G.size
 			switch(G.type)
-				if(/obj/item/organ/genital/penis)
+				if(/obj/item/organ/external/genital/penis)
 					S = GLOB.cock_shapes_list[G.shape]
-				if(/obj/item/organ/genital/testicles)
+				if(/obj/item/organ/external/genital/testicles)
 					S = GLOB.balls_shapes_list[G.shape]
-				if(/obj/item/organ/genital/vagina)
+				if(/obj/item/organ/external/genital/vagina)
 					S = GLOB.vagina_shapes_list[G.shape]
-				if(/obj/item/organ/genital/breasts)
+				if(/obj/item/organ/external/genital/breasts)
 					S = GLOB.breasts_shapes_list[G.shape]
-				if(/obj/item/organ/genital/butt)
+				if(/obj/item/organ/external/genital/butt)
 					S = GLOB.butt_shapes_list[G.shape]
-				if(/obj/item/organ/genital/belly)
+				if(/obj/item/organ/external/genital/belly)
 					S = GLOB.belly_shapes_list[G.shape]
-				if(/obj/item/organ/genital/anus)
+				if(/obj/item/organ/external/genital/anus)
 					S = GLOB.anus_shapes_list[G.shape]
 
 			if(!S || S.icon_state == "none")
@@ -580,7 +400,7 @@
 	if(!client.prefs.arousable)
 		return FALSE
 
-	var/organCheck = locate(/obj/item/organ/genital) in organs
+	var/organCheck = locate(/obj/item/organ/external/genital) in organs
 	var/breastCheck = get_organ_slot(ORGAN_SLOT_BREASTS)
 	var/willyCheck = get_organ_slot(ORGAN_SLOT_PENIS)
 	var/buttCheck = get_organ_slot(ORGAN_SLOT_BUTT)
@@ -620,3 +440,280 @@
 		else if (anusCheck)
 			dna.features["anus_color"] = dna.features["butt_color"]
 	return TRUE
+
+/obj/item/organ/external/genital
+	/// The fluid count of the genital.
+	var/internal_fluid_count = 0
+
+	/// The maximum amount of fluid that can be stored in the genital.
+	var/internal_fluid_maximum = 0
+
+	/// The datum to be used for the tracked fluid, should it need to be added to a fluid container.
+	var/internal_fluid_datum
+
+	/// The currently inserted sex toy.
+	var/obj/item/inserted_item
+
+/// Helper proc for checking if internal fluids are full or not.
+/obj/item/organ/external/genital/proc/internal_fluid_full()
+	return internal_fluid_count >= internal_fluid_maximum
+
+/// Adds the given amount to the internal fluid count, clamping it between 0 and internal_fluid_maximum.
+/obj/item/organ/external/genital/proc/adjust_internal_fluid(amount)
+	internal_fluid_count = clamp(internal_fluid_count + amount, 0, internal_fluid_maximum)
+
+/// Tries to add the specified amount to the target reagent container. Keeps in mind internal_fluid_count.
+/obj/item/organ/external/genital/proc/transfer_internal_fluid(datum/reagents/reagent_container, attempt_amount)
+	if(!internal_fluid_datum || !internal_fluid_count || !internal_fluid_maximum || !reagent_container)
+		return FALSE
+
+	attempt_amount = clamp(attempt_amount, 0, internal_fluid_count)
+	reagent_container.add_reagent(internal_fluid_datum, attempt_amount)
+	internal_fluid_count -= attempt_amount
+
+/obj/item/organ/external/genital
+	/// Controls whenever a genital is always accessible
+	var/always_accessible = FALSE
+
+/// Toggles whether such genital can always be accessed
+/obj/item/organ/external/genital/proc/toggle_accessibility()
+	always_accessible = !always_accessible
+
+/datum/sprite_accessory/genital
+	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
+	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
+	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
+	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
+	var/taur_dimension_y = 32
+	var/taur_dimension_x = 32
+
+//DICKS,COCKS,PENISES,WHATEVER YOU WANT TO CALL THEM
+
+/datum/sprite_accessory/genital/penis
+	icon = 'icons/obj/genitals/penis_onmob.dmi'
+	name = "penis"			//the preview name of the accessory
+	color_src = "cock_color"
+	alt_aroused = TRUE
+	feat_taur = "penis_taur_mode"
+
+/datum/sprite_accessory/genital/penis/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/penis/human
+	icon_state = "human"
+	name = "человеческий"
+
+/datum/sprite_accessory/genital/penis/knotted
+	icon_state = "knotted"
+	name = "узловатый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/flared
+	icon_state = "flared"
+	name = "утолщённый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/barbknot
+	icon_state = "barbknot"
+	name = "колючий узловатый"
+
+/datum/sprite_accessory/genital/penis/tapered
+	icon_state = "tapered"
+	name = "конусоподобный"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/tentacle
+	icon_state = "tentacle"
+	name = "тентяклевидный"
+
+/datum/sprite_accessory/genital/penis/hemi
+	icon_state = "hemi"
+	name = "двойной"
+
+/datum/sprite_accessory/genital/penis/hemiknot
+	icon_state = "hemiknot"
+	name = "двойной узловатый"
+
+/datum/sprite_accessory/genital/penis/thick
+	icon_state = "thick"
+	name = "толстый"
+
+//Testicles
+/datum/sprite_accessory/genital/testicles
+	icon = 'icons/obj/genitals/testicles_onmob.dmi'
+	icon_state = "testicle"
+	name = "яйца"
+	color_src = "balls_color"
+
+/datum/sprite_accessory/genital/testicles/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/testicles/single
+	icon_state = "single"
+	name = "одинарные"
+
+/datum/sprite_accessory/genital/testicles/hidden
+	icon_state = "hidden"
+	name = "скрытые"
+
+/datum/sprite_accessory/genital/testicles/sheath
+	icon_state = "sheath"
+	name = "оболонковые"
+
+//Vaginas
+/datum/sprite_accessory/genital/vagina
+	icon = 'icons/obj/genitals/vagina_onmob.dmi'
+	name = "вагина"
+	color_src = "vag_color"
+	alt_aroused = TRUE
+
+/datum/sprite_accessory/genital/vagina/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/vagina/human
+	icon_state = "human"
+	name = "человеческая"
+
+/datum/sprite_accessory/genital/vagina/tentacles
+	icon_state = "tentacle"
+	name = "тентяклевидная"
+
+/datum/sprite_accessory/genital/vagina/dentata
+	icon_state = "dentata"
+	name = "зубастая"
+
+/datum/sprite_accessory/genital/vagina/hairy
+	icon_state = "hairy"
+	name = "волосатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/spade
+	icon_state = "spade"
+	name = "лопатковидная"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/furred
+	icon_state = "furred"
+	name = "мохнатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/gaping
+	icon_state = "gaping"
+	name = "приоткрытая"
+
+/datum/sprite_accessory/genital/vagina/cloaca
+	icon_state = "cloaca"
+	name = "клоака"
+
+//BREASTS BE HERE
+/datum/sprite_accessory/genital/breasts
+	icon = 'icons/obj/genitals/breasts_onmob.dmi'
+	name = "breasts"
+	color_src = "breasts_color"
+
+/datum/sprite_accessory/genital/breasts/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/breasts/pair
+	icon_state = "pair"
+	name = "Двойные"
+
+/datum/sprite_accessory/genital/breasts/quad
+	icon_state = "quad"
+	name = "Четверные"
+
+/datum/sprite_accessory/genital/breasts/sextuple
+	icon_state = "sextuple"
+	name = "Шестерные"
+
+//Bellies
+/datum/sprite_accessory/genital/belly
+	icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
+	icon_state = "belly"
+	name = "belly"
+	color_src = "belly_color"
+
+/datum/sprite_accessory/genital/belly/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/belly/pair
+	icon_state = "pair"
+	name = "Двойной"
+
+// Анальные Жопы.
+
+/datum/sprite_accessory/genital/anus
+	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
+	icon_state = "anus"
+	name = "anus"
+	color_src = "anus_color"
+
+/datum/sprite_accessory/genital/anus/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/anus/donut
+	icon_state = "anus"
+	name = DEF_ANUS_SHAPE
+
+/datum/sprite_accessory/genital/anus/squished
+	icon_state = "squished"
+	name = "Сплющенный"
+
+//BUTT BE HERE
+/datum/sprite_accessory/genital/butt
+	icon = 'icons/obj/genitals/butt_onmob.dmi'
+	icon_state = "butt"
+	name = "butt"
+	color_src = "butt_color"
+
+/datum/sprite_accessory/genital/butt
+	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
+
+/datum/sprite_accessory/genital/butt/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/butt/pair
+	icon_state = "pair"
+	name = "Стандартная"
+
+// Матка.
+
+/datum/sprite_accessory/genital/womb
+	organ_type = /obj/item/organ/external/genital/womb
+	key = ORGAN_SLOT_WOMB
+	genetic = TRUE
+
+/datum/sprite_accessory/genital/womb/none
+	icon_state = "none"
+	name = "None"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/womb/normal
+	icon_state = "none"
+	name = "Normal"
+	color_src = null

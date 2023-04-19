@@ -48,16 +48,16 @@
 	alert_type = null
 
 /datum/status_effect/climax_cooldown/tick()
-	var/obj/item/organ/external/genital/vagina/vagina = owner.get_organ_slot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/external/genital/testicles/balls = owner.get_organ_slot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/external/genital/testicles/penis = owner.get_organ_slot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/external/genital/testicles/anus = owner.get_organ_slot(ORGAN_SLOT_ANUS)
+	var/obj/item/organ/external/genital/vagina = owner.get_organ_slot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/balls = owner.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/external/genital/penis = owner.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/anus = owner.get_organ_slot(ORGAN_SLOT_ANUS)
 
 	if(penis)
-		penis.aroused = AROUSAL_NONE
+		penis.aroused_state = AROUSAL_NONE
 	if(vagina)
-		vagina.aroused = AROUSAL_NONE
+		vagina.aroused_state = AROUSAL_NONE
 	if(balls)
-		balls.aroused = AROUSAL_NONE
+		balls.aroused_state = AROUSAL_NONE
 	if(anus)
-		anus.aroused = AROUSAL_NONE
+		anus.aroused_state = AROUSAL_NONE

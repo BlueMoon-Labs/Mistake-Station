@@ -1,8 +1,8 @@
-/obj/item/proc/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/genital/target_organ)
+/obj/item/proc/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
 	to_chat(user, span_warning("You can't insert this item!"))
 	return
 
-/obj/item/genital_equipment/condom/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/genital/target_organ)
+/obj/item/genital_equipment/condom/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
 	if(!(target.client?.prefs?.erppref == "Yes"))
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return
@@ -11,7 +11,7 @@
 		to_chat(user, span_notice("You must remove the condom from the package first!"))
 		return
 
-	var/obj/item/organ/genital/penis/ween = target_organ
+	var/obj/item/organ/external/genital/penis/ween = target_organ
 	if(!istype(ween))
 		to_chat(user, span_notice("You can't put the condom on this genital!"))
 		return
@@ -36,7 +36,7 @@
 	playsound(target, 'modular_sand/sound/lewd/latex.ogg', 50, 1, -1)
 	to_chat(target, span_userlove("Your penis feels more safe!"))
 
-/obj/item/genital_equipment/sounding/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/genital/target_organ)
+/obj/item/genital_equipment/sounding/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
 	if(!(target.client?.prefs?.erppref == "Yes"))
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return
@@ -45,7 +45,7 @@
 		to_chat(user, span_notice("You must remove the rod from the package first!"))
 		return
 
-	var/obj/item/organ/genital/penis/ween = target_organ
+	var/obj/item/organ/external/genital/penis/ween = target_organ
 	if(!istype(ween))
 		to_chat(user, span_notice("You can't put the rod inside this genital!"))
 		return
@@ -71,12 +71,12 @@
 	to_chat(target, span_userlove("Your penis feels stuffed and stretched!"))
 	owner = target
 
-/obj/item/electropack/vibrator/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/genital/target_organ)
+/obj/item/electropack/vibrator/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
 	if(!(target.client?.prefs?.erppref == "Yes"))
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return
 
-	if(!(istype(target_organ, /obj/item/organ/genital/vagina)) && !(istype(target_organ, /obj/item/organ/genital/anus))) //long vibrators dont fit on anything but vaginas AND ANUS, but small ones fit everywhere
+	if(!(istype(target_organ, /obj/item/organ/external/genital/vagina)) && !(istype(target_organ, /obj/item/organ/external/genital/anus))) //long vibrators dont fit on anything but vaginas AND ANUS, but small ones fit everywhere
 		to_chat(user, "<span class='warning'>[src] is too big to fit there, use a smaller version.</span>")
 		return
 
@@ -106,7 +106,7 @@
 	inside = TRUE
 
 
-/obj/item/oviposition_egg/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/genital/target_organ)
+/obj/item/oviposition_egg/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
 	if(!(target.client?.prefs?.erppref == "Yes"))
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return

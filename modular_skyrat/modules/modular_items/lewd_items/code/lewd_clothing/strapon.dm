@@ -65,10 +65,10 @@
 	var/obj/item/organ/external/genital/testicles/affected_testicles = affected_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 
 	if(src == affected_mob.belt)
-		affected_vagina?.visibility_preference = GENITAL_NEVER_SHOW
-		affected_womb?.visibility_preference = GENITAL_NEVER_SHOW
-		affected_penis?.visibility_preference = GENITAL_NEVER_SHOW
-		affected_testicles?.visibility_preference = GENITAL_NEVER_SHOW
+		affected_vagina?.genital_flags = GENITAL_INTERNAL
+		affected_womb?.genital_flags = GENITAL_INTERNAL
+		affected_penis?.genital_flags = GENITAL_INTERNAL
+		affected_testicles?.genital_flags = GENITAL_INTERNAL
 		affected_mob.update_body()
 	else
 		return
@@ -86,10 +86,10 @@
 		in_hands = FALSE
 
 	if(src == affected_mob.belt)
-		affected_vagina?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-		affected_womb?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-		affected_penis?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
-		affected_testicles?.visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
+		affected_vagina?.genital_flags = GENITAL_HIDDEN
+		affected_womb?.genital_flags = GENITAL_HIDDEN
+		affected_penis?.genital_flags = GENITAL_HIDDEN
+		affected_testicles?.genital_flags = GENITAL_HIDDEN
 		affected_mob.update_body()
 	else
 		return
@@ -201,7 +201,7 @@
 		switch(user.zone_selected) //to let code know what part of body we gonna fuck
 			if(BODY_ZONE_PRECISE_GROIN)
 				if(vagina)
-					if(hit_mob.is_bottomless() || vagina.visibility_preference == GENITAL_ALWAYS_SHOW)
+					if(hit_mob.is_bottomless() || vagina.genital_flags == GENITAL_THROUGH_CLOTHES)
 						message = pick("delicately rubs [hit_mob]'s vagina with [src]", "uses [src] to fuck [hit_mob]'s vagina", "jams [hit_mob]'s pussy with [src]", "teases [hit_mob]'s pussy with [src]")
 						hit_mob.adjust_arousal(6)
 						hit_mob.adjust_pleasure(8)

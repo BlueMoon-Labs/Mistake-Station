@@ -34,7 +34,7 @@
 	if(!ishuman(M)) //The monkey clause
 		if(volume >= 15) //To prevent monkey breast farms
 			var/turf/T = get_turf(M)
-			var/obj/item/organ/genital/breasts/B = new /obj/item/organ/genital/breasts(T)
+			var/obj/item/organ/external/genital/breasts/B = new /obj/item/organ/external/genital/breasts(T)
 			M.visible_message("<span class='warning'>A pair of breasts suddenly fly out of [M]!</b></span>")
 			var/T2 = get_random_station_turf()
 			M.adjustBruteLoss(25)
@@ -54,7 +54,7 @@
 	//If they've opted out, ignore and return early.
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)))
 		return..()
-	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	//otherwise proceed as normal
 	if(!B) //If they don't have breasts, give them breasts.
 
@@ -79,10 +79,10 @@
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_shrinkage)))
 		return ..()
 
-	var/obj/item/organ/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
-	var/obj/item/organ/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/external/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/external/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 
 	if(M.gender == MALE)
 		M.set_gender(FEMALE)
@@ -112,7 +112,7 @@
 	chemical_flags = NONE
 
 /datum/reagent/fermi/BEsmaller/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement)) || !B)
 		return ..()
 	B.modify_size(-0.05)
@@ -133,12 +133,12 @@
 		return
 	var/mob/living/carbon/human/H = M
 	if(!H.get_organ_slot(ORGAN_SLOT_VAGINA) && H.dna.features["has_vag"])
-		H.give_genital(/obj/item/organ/genital/vagina)
+		H.give_genital(/obj/item/organ/external/genital/vagina)
 	if(!H.get_organ_slot(ORGAN_SLOT_WOMB) && H.dna.features["has_womb"])
-		H.give_genital(/obj/item/organ/genital/womb)
+		H.give_genital(/obj/item/organ/external/genital/womb)
 
 /datum/reagent/fermi/BEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!B)
 		return..()
 	var/optimal_size = B.breast_values[M.dna.features["breasts_size"]]
@@ -172,7 +172,7 @@
 	if(!ishuman(M)) //Just monkeying around.
 		if(volume >= 15) //to prevent monkey penis farms
 			var/turf/T = get_turf(M)
-			var/obj/item/organ/genital/penis/P = new /obj/item/organ/genital/penis(T)
+			var/obj/item/organ/external/genital/penis/P = new /obj/item/organ/external/genital/penis(T)
 			M.visible_message("<span class='warning'>A penis suddenly flies out of [M]!</b></span>")
 			var/T2 = get_random_station_turf()
 			M.adjustBruteLoss(25)
@@ -191,8 +191,8 @@
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return ..()
 
-	var/obj/item/organ/genital/testicles/T = H.get_organ_slot(ORGAN_SLOT_TESTICLES) //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
-	var/obj/item/organ/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/testicles/T = H.get_organ_slot(ORGAN_SLOT_TESTICLES) //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
+	var/obj/item/organ/external/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
 	//otherwise proceed as normal
 
 	if(!T)//Hyper change// Adds testicles if there are none.
@@ -221,10 +221,10 @@
 	if(!(M.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
 		return..()
 
-	var/obj/item/organ/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
-	var/obj/item/organ/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
-	var/obj/item/organ/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
+	var/obj/item/organ/external/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/testicles/T = M.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/external/genital/vagina/V = M.get_organ_slot(ORGAN_SLOT_VAGINA)
+	var/obj/item/organ/external/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 
 	if(M.gender == FEMALE)
 		M.set_gender(MALE)
@@ -252,7 +252,7 @@
 	if(!ishuman(M))
 		return ..()
 	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/penis/P = H.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!(H.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)) || !P)
 		return..()
 
@@ -273,12 +273,12 @@
 		return
 	var/mob/living/carbon/human/H = M
 	if(!H.get_organ_slot(ORGAN_SLOT_PENIS) && H.dna.features["has_cock"])
-		H.give_genital(/obj/item/organ/genital/penis)
+		H.give_genital(/obj/item/organ/external/genital/penis)
 	if(!H.get_organ_slot(ORGAN_SLOT_TESTICLES) && H.dna.features["has_balls"])
-		H.give_genital(/obj/item/organ/genital/testicles)
+		H.give_genital(/obj/item/organ/external/genital/testicles)
 
 /datum/reagent/fermi/PEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/external/genital/penis/P = M.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!P)
 		return ..()
 	var/optimal_size = M.dna.features["cock_length"]
@@ -306,7 +306,7 @@
 	if(!ishuman(M)) //leaving the monkey feature for those desperate for goon level comedy.
 		if(volume >= 15) //to prevent monkey butt farms
 			var/turf/T = get_turf(M)
-			var/obj/item/organ/genital/butt/B = new /obj/item/organ/genital/butt(T)
+			var/obj/item/organ/external/genital/butt/B = new /obj/item/organ/external/genital/butt(T)
 			M.visible_message("<span class='warning'>An ass suddenly flies out of [M]!</b></span>")
 			var/T2 = get_random_station_turf()
 			M.adjustBruteLoss(25)
@@ -324,9 +324,9 @@
 	var/mob/living/carbon/human/H = M
 	if(!(H.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
 		return ..()
-	var/obj/item/organ/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
+	var/obj/item/organ/external/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
 	if(!B) //If they don't have a butt. Give them one!
-		var/obj/item/organ/genital/butt/nB = new
+		var/obj/item/organ/external/genital/butt/nB = new
 		nB.Insert(M)
 		if(nB)
 			if(M.dna.species.use_skintones && M.dna.features["genitals_use_skintone"])
@@ -358,10 +358,10 @@
 		return
 	var/mob/living/carbon/human/H = M
 	if(!H.get_organ_slot(ORGAN_SLOT_BUTT) && H.dna.features["has_butt"])
-		H.give_genital(/obj/item/organ/genital/butt)
+		H.give_genital(/obj/item/organ/external/genital/butt)
 
 /datum/reagent/fermi/AEsmaller_hypo/on_mob_life(mob/living/carbon/M)
-	var/obj/item/organ/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
+	var/obj/item/organ/external/genital/butt/B = M.get_organ_slot(ORGAN_SLOT_BUTT)
 	if(!B)
 		return ..()
 	var/optimal_size = M.dna.features["butt_size"]
