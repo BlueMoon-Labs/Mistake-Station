@@ -61,3 +61,24 @@
 	if(update && owner && ishuman(owner)) //recast to use update genitals proc
 		var/mob/living/carbon/human/H = owner
 		H.update_genitals()
+
+/datum/sprite_accessory/genital/anus
+	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
+	icon_state = "anus"
+	name = "anus"
+	color_src = "anus_color"
+	key = ORGAN_SLOT_ANUS
+
+/datum/sprite_accessory/genital/anus/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/anus/donut
+	icon_state = "anus"
+	name = DEF_ANUS_SHAPE
+
+/datum/sprite_accessory/genital/anus/squished
+	icon_state = "squished"
+	name = "сплющенный"

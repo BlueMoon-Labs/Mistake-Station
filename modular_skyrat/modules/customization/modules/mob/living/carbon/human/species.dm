@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	. = ..()
 	if(can_have_genitals)
 		for(var/genital in genitals_list)
-			default_mutant_bodyparts[genital] = "None"
+			default_mutant_bodyparts[genital] = "Нету"
 
 /datum/species/dullahan
 	mutant_bodyparts = list()

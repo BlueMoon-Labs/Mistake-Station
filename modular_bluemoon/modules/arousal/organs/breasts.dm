@@ -2,7 +2,7 @@
 #define BREASTS_ICON_MAX_SIZE 6
 
 /obj/item/organ/external/genital/breasts
-	name = "грудь"
+	name = "breasts"
 	desc = "Female milk producing organs."
 	icon_state = "breasts"
 	icon = 'icons/obj/genitals/breasts.dmi'
@@ -22,6 +22,11 @@
 	var/static/list/breast_values = list("a" =  1, "b" = 2, "c" = 3, "d" = 4, "e" = 5, "f" = 6, "g" = 7, "h" = 8, "i" = 9, "j" = 10, "k" = 11, "l" = 12, "m" = 13, "n" = 14, "o" = 15, "huge" = 16, "massive" = 17, "giga" = 25, "impossible" = 30, "flat" = 0)
 	var/cached_size //these two vars pertain size modifications and so should be expressed in NUMBERS.
 	var/prev_size //former cached_size value, to allow update_size() to early return should be there no significant changes.
+
+
+/obj/item/organ/external/genital/breasts/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	if(DNA.features["breasts_uses_skintones"])
+		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/breasts/Initialize(mapload, do_update = TRUE)
 	if(do_update)
@@ -66,12 +71,6 @@
 					icon_state += "_s"
 		else
 			color = "#[owner.dna.features["breasts_color"]]"
-
-//Allows breasts to grow and change size, with sprite changes too.
-//maximum wah
-//Comical sizes slow you down in movement and actions.
-//Ridiculous sizes makes you more cumbersome.
-//this is far too lewd wah
 
 /obj/item/organ/external/genital/breasts/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	var/new_value = clamp(cached_size + modifier, min, max)
@@ -136,3 +135,24 @@
 
 #undef BREASTS_ICON_MIN_SIZE
 #undef BREASTS_ICON_MAX_SIZE
+
+/datum/sprite_accessory/genital/breasts
+	icon = 'icons/obj/genitals/breasts_onmob.dmi'
+	name = "breasts"
+	color_src = "breasts_color"
+	has_skintone_shading = TRUE
+	key = ORGAN_SLOT_BREASTS
+/datum/sprite_accessory/genital/breasts/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+/datum/sprite_accessory/genital/breasts/pair
+	icon_state = "pair"
+	name = "Двойные"
+/datum/sprite_accessory/genital/breasts/quad
+	icon_state = "quad"
+	name = "Четверные"
+/datum/sprite_accessory/genital/breasts/sextuple
+	icon_state = "sextuple"
+	name = "Шестерные"

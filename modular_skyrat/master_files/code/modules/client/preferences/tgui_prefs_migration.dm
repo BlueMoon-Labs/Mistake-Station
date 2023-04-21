@@ -24,7 +24,9 @@ MUTANT_SYNTH_CHASSIS, \
 "testicles", \
 "womb", \
 "vagina", \
-"breasts",))
+"breasts", \
+"belly", \
+"butt",))
 
 /datum/preferences/proc/migrate_skyrat(list/skyrat_data)
 	if(features["flavor_text"])
@@ -57,7 +59,7 @@ MUTANT_SYNTH_CHASSIS, \
 		if(mutant_bodyparts[body_part])
 			var/type = mutant_bodyparts[body_part][MUTANT_INDEX_NAME]
 			var/list/colors = mutant_bodyparts[body_part][MUTANT_INDEX_COLOR_LIST]
-			if(type == "None")
+			if(type == "Нету")
 				continue
 			var/colors_length = colors.len
 			/// Intensive checking to ensure this process does not runtime. If it runtimes, goodbye savefiles.

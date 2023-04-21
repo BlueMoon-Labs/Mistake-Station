@@ -83,8 +83,7 @@
 	var/passed_initial_check = ..(preferences)
 	var/part_name = preferences.read_preference(genital_pref_type)
 	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[relevant_mutant_bodypart]?[part_name]
-	var/mob/living/carbon/human/H
-	if(!accessory?.factual || !H.dna.skin_tone_override)
+	if(!accessory?.factual || !accessory.has_skintone_shading)
 		return FALSE
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
@@ -524,6 +523,9 @@
 	bm_type_to_check = /datum/preference/toggle/genital/belly
 	default_accessory_type = /datum/sprite_accessory/genital/belly/none
 
+/datum/preference/numeric/belly_length/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["belly_size"] = value
+
 // BUTT
 
 /datum/preference/toggle/genital/butt
@@ -544,3 +546,6 @@
 	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
 	bm_type_to_check = /datum/preference/toggle/genital/butt
 	default_accessory_type = /datum/sprite_accessory/genital/butt/none
+
+/datum/preference/numeric/butt_length/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["butt_size"] = value

@@ -1,5 +1,5 @@
 /obj/item/organ/external/genital/belly //I know, I know a belly aint a genital. but it is in the sake of code.
-	name 					= "живот"
+	name 					= "belly"
 	desc 					= "You see a belly on their midsection."
 	icon_state 				= "belly"
 	icon 					= 'icons/obj/genitals/breasts.dmi' // I have no idea why it's set up like this on hyper
@@ -140,3 +140,20 @@
 				ass.Insert(owner)
 			ass.climax_modify_size(partner, source_gen, TRUE)
 		climax_fluids.clear_reagents()
+
+/datum/sprite_accessory/genital/belly
+	icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
+	icon_state = "belly"
+	name = "belly"
+	color_src = "belly_color"
+	key = ORGAN_SLOT_BELLY
+
+/datum/sprite_accessory/genital/belly/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/belly/pair
+	icon_state = "pair"
+	name = "Двойной"

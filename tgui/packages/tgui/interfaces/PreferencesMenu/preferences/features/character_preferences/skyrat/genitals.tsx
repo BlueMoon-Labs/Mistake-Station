@@ -6,7 +6,7 @@ export const penis_toggle: FeatureToggle = {
 };
 
 export const feature_penis: Feature<string> = {
-  name: 'Гениталии. Penis Choice',
+  name: 'Гениталии. Тип Пениса',
   component: FeatureDropdownInput,
 };
 
@@ -56,7 +56,7 @@ export const testicles_toggle: FeatureToggle = {
 };
 
 export const feature_testicles: Feature<string> = {
-  name: 'Гениталии. Testicles Choice',
+  name: 'Гениталии. Тип Семенников',
   component: FeatureDropdownInput,
 };
 
@@ -91,7 +91,7 @@ export const vagina_toggle: FeatureToggle = {
 };
 
 export const feature_vagina: Feature<string> = {
-  name: 'Гениталии. Вагина Choice',
+  name: 'Гениталии. Тип Вагины',
   component: FeatureDropdownInput,
 };
 
@@ -121,7 +121,7 @@ export const womb_toggle: FeatureToggle = {
 };
 
 export const feature_womb: Feature<string> = {
-  name: 'Гениталии. Тип Матки.',
+  name: 'Гениталии. Тип Матки',
   component: FeatureDropdownInput,
 };
 
@@ -131,7 +131,7 @@ export const breasts_toggle: FeatureToggle = {
 };
 
 export const feature_breasts: Feature<string> = {
-  name: 'Гениталии. Breast Choice',
+  name: 'Гениталии. Тип Груди',
   component: FeatureDropdownInput,
 };
 
@@ -171,7 +171,7 @@ export const anus_toggle: FeatureToggle = {
 };
 
 export const feature_anus: Feature<string> = {
-  name: 'Гениталии. Anus Choice',
+  name: 'Гениталии. Тип Ануса',
   component: FeatureDropdownInput,
 };
 

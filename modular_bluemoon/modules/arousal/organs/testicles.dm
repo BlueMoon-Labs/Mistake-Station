@@ -1,5 +1,5 @@
 /obj/item/organ/external/genital/testicles
-	name = "яйца"
+	name = "testicles"
 	desc = "A male reproductive organ."
 	icon_state = "testicles"
 	icon = 'icons/obj/genitals/testicles.dmi'
@@ -15,6 +15,10 @@
 	fluid_id = /datum/reagent/consumable/semen
 	masturbation_verb = "massage"
 	layer_index = TESTICLES_LAYER_INDEX
+
+/obj/item/organ/external/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	if(DNA.features["testicles_uses_skintones"])
+		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/testicles/generate_fluid()
 	if(!linked_organ && !update_link())
@@ -80,3 +84,28 @@
 	if(D.features["inert_eggs"])
 		AddComponent(/datum/component/ovipositor)
 
+/datum/sprite_accessory/genital/testicles
+	icon = 'icons/obj/genitals/testicles_onmob.dmi'
+	icon_state = "testicle"
+	name = "яйца"
+	color_src = "balls_color"
+	key = ORGAN_SLOT_TESTICLES
+
+/datum/sprite_accessory/genital/testicles/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/testicles/single
+	icon_state = "single"
+	name = "стандартные"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/testicles/hidden
+	icon_state = "hidden"
+	name = "скрытые"
+
+/datum/sprite_accessory/genital/testicles/sheath
+	icon_state = "sheath"
+	name = "оболонковые"

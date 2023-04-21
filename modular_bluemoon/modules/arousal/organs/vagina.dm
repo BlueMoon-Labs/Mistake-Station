@@ -1,5 +1,5 @@
 /obj/item/organ/external/genital/vagina
-	name = "вагина"
+	name = "vagina"
 	desc = "A female reproductive organ."
 	icon = 'icons/obj/genitals/vagina.dmi'
 	icon_state = ORGAN_SLOT_VAGINA
@@ -20,6 +20,10 @@
 	var/clit_diam = 0.25
 	var/clit_len = 0.25
 	var/list/vag_types = list("тентяклевидная", "зубастая", "волосатая", "лопатковидная", "мохнатая")
+
+/obj/item/organ/external/genital/vagina/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	if(DNA.features["vagina_uses_skintones"])
+		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/vagina/update_appearance()
 	. = ..()
@@ -76,3 +80,51 @@
 	toggle_visibility(D.features["vag_visibility"], FALSE)
 	if(D.features["vag_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
+
+/datum/sprite_accessory/genital/vagina
+	icon = 'icons/obj/genitals/vagina_onmob.dmi'
+	name = "вагина"
+	color_src = "vag_color"
+	alt_aroused = TRUE
+	key = ORGAN_SLOT_VAGINA
+
+/datum/sprite_accessory/genital/vagina/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/vagina/human
+	icon_state = "human"
+	name = "человеческая"
+
+/datum/sprite_accessory/genital/vagina/tentacles
+	icon_state = "tentacle"
+	name = "тентяклевидная"
+
+/datum/sprite_accessory/genital/vagina/dentata
+	icon_state = "dentata"
+	name = "зубастая"
+
+/datum/sprite_accessory/genital/vagina/hairy
+	icon_state = "hairy"
+	name = "волосатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/spade
+	icon_state = "spade"
+	name = "лопатковидная"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/furred
+	icon_state = "furred"
+	name = "мохнатая"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/gaping
+	icon_state = "gaping"
+	name = "приоткрытая"
+
+/datum/sprite_accessory/genital/vagina/cloaca
+	icon_state = "cloaca"
+	name = "клоака"

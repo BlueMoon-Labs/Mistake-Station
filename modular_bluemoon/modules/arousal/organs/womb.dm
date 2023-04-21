@@ -13,3 +13,19 @@
 	var/datum/dna/D = H.dna
 	if(D.features["inert_eggs"])
 		AddComponent(/datum/component/ovipositor)
+
+/datum/sprite_accessory/genital/womb
+	organ_type = /obj/item/organ/external/genital/womb
+	key = ORGAN_SLOT_WOMB
+	genetic = TRUE
+
+/datum/sprite_accessory/genital/womb/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/womb/normal
+	icon_state = "none"
+	name = "Нормальная"
+	color_src = null

@@ -1,5 +1,5 @@
 /obj/item/organ/external/genital/penis
-	name = "пенис"
+	name = "penis"
 	desc = "A male reproductive organ."
 	icon_state = "penis"
 	icon = 'icons/obj/genitals/penis.dmi'
@@ -19,6 +19,13 @@
 	var/prev_length = 6 //really should be renamed to prev_length
 	var/diameter = 4.38
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
+
+/obj/item/organ/external/genital/penis/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	var/datum/sprite_accessory/genital/penis/snake = accessory
+	if(snake.can_have_sheath)
+		sheath = DNA.features["penis_sheath"]
+	if(DNA.features["penis_uses_skintones"])
+		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	var/new_value = clamp(length + modifier, min, max)
@@ -76,7 +83,7 @@
 	var/lowershape = lowertext(shape)
 
 	if(owner)
-		if(owner.dna.species.use_skintones && owner.dna.features["genitals_use_skintone"])
+		if(owner.dna.species.use_skintones && owner.dna.features["penis_uses_skintones"])
 			if(ishuman(owner)) // Check before recasting type, although someone fucked up if you're not human AND have use_skintones somehow...
 				var/mob/living/carbon/human/H = owner // only human mobs have skin_tone, which we need.
 				color = SKINTONE2HEX(H.skin_tone)
@@ -91,9 +98,12 @@
 
 	desc = "Вы наблюдаете [lowershape] [aroused_state ? "эрегированный" : "висящий"] [pick(GLOB.dick_nouns)]. По вашим оценкам, он примерно [round(length*get_size(owner), 0.25)] [round(length*get_size(owner), 0.25) != 1 ? "" : ""] сантиметров в длину и [round(diameter*get_size(owner), 0.25)] [round(diameter*get_size(owner), 0.25) != 1 ? "" : ""] сантиметров в ширину."
 
-/obj/item/organ/external/genital/penis/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/penis/get_features(datum/sprite_accessory/genital/accessory, mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
-	if(D.species.use_skintones && D.features["genitals_use_skintone"])
+	var/datum/sprite_accessory/genital/penis/snake = accessory
+	if(snake.can_have_sheath)
+		sheath = D.features["penis_sheath"]
+	if(D.species.use_skintones && D.features["penis_uses_skintones"])
 		color = SKINTONE2HEX(H.skin_tone)
 	else
 		color = "#[D.features["cock_color"]]"
@@ -104,3 +114,62 @@
 	toggle_visibility(D.features["cock_visibility"], FALSE)
 	if(D.features["cock_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
+
+/datum/sprite_accessory/genital/penis
+	icon = 'icons/obj/genitals/penis_onmob.dmi'
+	name = "penis"			//the preview name of the accessory
+	color_src = "cock_color"
+	alt_aroused = TRUE
+	var/can_have_sheath = TRUE
+	feat_taur = "penis_taur_mode"
+
+/datum/sprite_accessory/genital/penis/none
+	icon_state = "none"
+	name = "Нету"
+	factual = FALSE
+	color_src = null
+	key = ORGAN_SLOT_PENIS
+
+/datum/sprite_accessory/genital/penis/human
+	icon_state = "human"
+	name = "человеческий"
+	can_have_sheath = FALSE
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/knotted
+	icon_state = "knotted"
+	name = "узловатый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/flared
+	icon_state = "flared"
+	name = "утолщённый"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/barbknot
+	icon_state = "barbknot"
+	name = "колючий узловатый"
+
+/datum/sprite_accessory/genital/penis/tapered
+	icon_state = "tapered"
+	name = "конусоподобный"
+	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
+	taur_dimension_x = 64
+
+/datum/sprite_accessory/genital/penis/tentacle
+	icon_state = "tentacle"
+	name = "тентяклевидный"
+
+/datum/sprite_accessory/genital/penis/hemi
+	icon_state = "hemi"
+	name = "двойной"
+
+/datum/sprite_accessory/genital/penis/hemiknot
+	icon_state = "hemiknot"
+	name = "двойной узловатый"
+
+/datum/sprite_accessory/genital/penis/thick
+	icon_state = "thick"
+	name = "толстый"
