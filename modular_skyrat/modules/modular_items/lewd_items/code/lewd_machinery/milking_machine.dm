@@ -458,7 +458,7 @@
 				if("sextuple")
 					current_selected_organ_type = "six_breast"
 
-			if((current_selected_organ.shape == "sextuple") || (current_selected_organ.genital_type == "quad"))
+			if((current_selected_organ.shape == "sextuple") || (current_selected_organ.shape == "quad"))
 				switch(current_selected_organ.size)
 					if(0 to 2)
 						current_selected_organ_size = "0"

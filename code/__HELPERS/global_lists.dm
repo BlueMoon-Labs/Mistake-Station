@@ -51,6 +51,11 @@
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	//SKYRAT EDIT END
 
+	for(var/spath in subtypesof(/datum/bark))
+		var/datum/bark/B = new spath()
+		GLOB.bark_list[B.id] = spath
+	sort_list(GLOB.bark_random_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
+
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()
 	for(var/spath in subtypesof(/datum/species))
@@ -65,12 +70,6 @@
 		surgeries += new path()
 	sort_list(surgeries, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	return surgeries
-
-	for(var/path in subtypesof(/datum/bark))
-		var/datum/bark/B = new path()
-		GLOB.bark_list[B.id] = path
-		if(B.allow_random)
-			GLOB.bark_random_list[B.id] = path
 
 	// Hair Gradients - Initialise all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 /// Hair Gradients - Initialise all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name

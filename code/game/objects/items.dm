@@ -173,8 +173,6 @@
 	var/tool_behaviour = NONE
 	///How fast does the tool work
 	var/toolspeed = 1
-	//Special multitools
-	var/obj/machinery/buffer // simple machine buffer for device linkage
 	var/block_chance = 0
 	var/hit_reaction_chance = 0 //If you want to have something unrelated to blocking/armour piercing etc. Maybe not needed, but trying to think ahead/allow more freedom
 	///In tiles, how far this weapon can reach; 1 for adjacent, which is default

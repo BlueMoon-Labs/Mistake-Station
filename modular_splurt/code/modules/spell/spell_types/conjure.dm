@@ -3,7 +3,7 @@
 	desc = "For El Trollage. And maybe a bit of crew's anger too."
 	cooldown_time = 100 SECONDS
 
-	button_icon = 'icons/obj/weapons/items_and_weapons.dmi'
+	button_icon = 'icons/obj/watercloset.dmi'
 	button_icon_state = "soapdeluxe"
 	sound = 'sound/magic/summonitems_generic.ogg'
 

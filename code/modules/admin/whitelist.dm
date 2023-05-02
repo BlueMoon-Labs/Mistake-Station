@@ -23,7 +23,6 @@
 
 	return allow
 
-
 // usually, this would go into chat_commands.dm
 // BUT i don't want to put so much code there
 /datum/tgs_chat_command/whitelist

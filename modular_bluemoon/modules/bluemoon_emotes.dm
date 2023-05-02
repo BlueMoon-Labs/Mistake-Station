@@ -265,7 +265,7 @@
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
 	attack_verb_simple = list("licked", "lapped", "mlemmed")
-	hitsound = 'sound/effects/gib_step.ogg'
+	hitsound = 'sound/effects/footstep/gib_step.ogg'
 
 /datum/emote/living/carbon/lick
 	key = "lick"

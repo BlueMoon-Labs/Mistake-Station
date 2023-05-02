@@ -101,7 +101,6 @@
 	vend_reply = "Have fun, you shameless pervert!"
 	products = list(
 				/obj/item/genital_equipment/condom = 10,
-				/obj/item/clothing/head/costume/maid = 5,
 				/obj/item/clothing/head/costume/maidheadband = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
