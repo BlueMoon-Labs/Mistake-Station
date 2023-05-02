@@ -32,21 +32,21 @@
 	var/details
 
 	switch(lowershape)
-		if("тентяклевидная")
+		if("tentacles")
 			details = "Отверстие закрыто половыми губами, оно покрыто несколькими щупальцами и они "
-		if("зубастая")
+		if("dentata")
 			details = "Внутри и снаружи есть зубы, и они "
-		if("волосатая")
+		if("hairy")
 			details = "На ней довольно много волос и они "
-		if("человеческая")
+		if("human")
 			details = "Она подтянута, не имеет на своей поверхности сильно много волос, обладает особо гладкой и нежной кожей, и её губы "
-		if("приоткрытая")
+		if("gaping")
 			details = "Она слегка приоткрыта, не имеет большой растительности и её половые губы "
-		if("лопатковидная")
+		if("spade")
 			details = "По форме она похожа на собачью лопатку и её половые губы "
-		if("мохнатая")
+		if("furred")
 			details = "Она имеет аккуратно ухоженный мех вокруг половых губок, которые "
-		if("клоаковидная")
+		if("cloaca")
 			details = "Это узкое, небольшое горизонтальное отверстие и внешние губы "
 		else
 			details = "Она имеет экзотическую форму и её губы "
@@ -83,48 +83,49 @@
 
 /datum/sprite_accessory/genital/vagina
 	icon = 'icons/obj/genitals/vagina_onmob.dmi'
-	name = "вагина"
+	organ_type = /obj/item/organ/external/genital/vagina
 	color_src = "vag_color"
 	alt_aroused = TRUE
 	key = ORGAN_SLOT_VAGINA
+	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/vagina/human
 	icon_state = "human"
-	name = "человеческая"
+	name = "human"
 
 /datum/sprite_accessory/genital/vagina/tentacles
 	icon_state = "tentacle"
-	name = "тентяклевидная"
+	name = "tentacles"
 
 /datum/sprite_accessory/genital/vagina/dentata
 	icon_state = "dentata"
-	name = "зубастая"
+	name = "dentata"
 
 /datum/sprite_accessory/genital/vagina/hairy
 	icon_state = "hairy"
-	name = "волосатая"
+	name = "hairy"
 	alt_aroused = FALSE
 
 /datum/sprite_accessory/genital/vagina/spade
 	icon_state = "spade"
-	name = "лопатковидная"
+	name = "spade"
 	alt_aroused = FALSE
 
 /datum/sprite_accessory/genital/vagina/furred
 	icon_state = "furred"
-	name = "мохнатая"
+	name = "furred"
 	alt_aroused = FALSE
 
 /datum/sprite_accessory/genital/vagina/gaping
 	icon_state = "gaping"
-	name = "приоткрытая"
+	name = "gaping"
 
 /datum/sprite_accessory/genital/vagina/cloaca
 	icon_state = "cloaca"
-	name = "клоака"
+	name = "cloaca"

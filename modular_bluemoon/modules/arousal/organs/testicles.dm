@@ -87,25 +87,26 @@
 /datum/sprite_accessory/genital/testicles
 	icon = 'icons/obj/genitals/testicles_onmob.dmi'
 	icon_state = "testicle"
-	name = "яйца"
 	color_src = "balls_color"
 	key = ORGAN_SLOT_TESTICLES
+	always_color_customizable = TRUE
+	organ_type = /obj/item/organ/external/genital/testicles
 
 /datum/sprite_accessory/genital/testicles/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/testicles/single
 	icon_state = "single"
-	name = "стандартные"
+	name = "single"
 	has_skintone_shading = TRUE
 
 /datum/sprite_accessory/genital/testicles/hidden
 	icon_state = "hidden"
-	name = "скрытые"
+	name = "hidden"
 
 /datum/sprite_accessory/genital/testicles/sheath
 	icon_state = "sheath"
-	name = "оболонковые"
+	name = "sheath"

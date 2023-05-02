@@ -48,15 +48,15 @@
 	var/new_size
 	switch(rounded_length)
 		if(0 to 12) //If modest size
-			new_size = 1
+			new_size = 123
 		if(13 to 24) //If large
-			new_size = 2
+			new_size = 234
 		if(23 to 50) //If massive
-			new_size = 3
+			new_size = 345
 		if(51 to 90) //If comical
-			new_size = 4 //no new sprites for anything larger yet //Now there is :3
+			new_size = 456 //no new sprites for anything larger yet //Now there is :3
 		if(91 to INFINITY)
-			new_size = 5
+			new_size = 567
 
 	if(linked_organ)
 		linked_organ.size = clamp(size, BALLS_SIZE_MIN, BALLS_SIZE_MAX) //SPLURT Edit. No more randomly massive balls
@@ -117,59 +117,60 @@
 
 /datum/sprite_accessory/genital/penis
 	icon = 'icons/obj/genitals/penis_onmob.dmi'
-	name = "penis"			//the preview name of the accessory
+	organ_type = /obj/item/organ/external/genital/penis
 	color_src = "cock_color"
 	alt_aroused = TRUE
 	var/can_have_sheath = TRUE
+	key = ORGAN_SLOT_PENIS
 	feat_taur = "penis_taur_mode"
+	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/penis/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
-	key = ORGAN_SLOT_PENIS
 
 /datum/sprite_accessory/genital/penis/human
 	icon_state = "human"
-	name = "человеческий"
+	name = "human"
 	can_have_sheath = FALSE
 	has_skintone_shading = TRUE
 
 /datum/sprite_accessory/genital/penis/knotted
 	icon_state = "knotted"
-	name = "узловатый"
+	name = "knotted"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/flared
 	icon_state = "flared"
-	name = "утолщённый"
+	name = "flared"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/barbknot
 	icon_state = "barbknot"
-	name = "колючий узловатый"
+	name = "barbknot"
 
 /datum/sprite_accessory/genital/penis/tapered
 	icon_state = "tapered"
-	name = "конусоподобный"
+	name = "tapered"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/tentacle
 	icon_state = "tentacle"
-	name = "тентяклевидный"
+	name = "tentacle"
 
 /datum/sprite_accessory/genital/penis/hemi
 	icon_state = "hemi"
-	name = "двойной"
+	name = "hemi"
 
 /datum/sprite_accessory/genital/penis/hemiknot
 	icon_state = "hemiknot"
-	name = "двойной узловатый"
+	name = "hemiknot"
 
 /datum/sprite_accessory/genital/penis/thick
 	icon_state = "thick"
-	name = "толстый"
+	name = "thick"

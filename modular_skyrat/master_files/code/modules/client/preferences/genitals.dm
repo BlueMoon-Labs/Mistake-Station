@@ -508,44 +508,62 @@
 	savefile_key = "belly_toggle"
 	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
 
-/datum/preference/numeric/belly_size
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "belly_size"
-	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
-	bm_type_to_check = /datum/preference/toggle/genital/belly
-	minimum = 0
-	maximum = 7
-
 /datum/preference/choiced/genital/belly
 	savefile_key = "feature_belly"
 	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
 	bm_type_to_check = /datum/preference/toggle/genital/belly
 	default_accessory_type = /datum/sprite_accessory/genital/belly/none
+/datum/preference/numeric/belly_length
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "belly_size"
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
+	bm_type_to_check = /datum/preference/toggle/genital/belly
+	minimum = 0
+	maximum = 7
 
 /datum/preference/numeric/belly_length/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["belly_size"] = value
+
+/datum/preference/numeric/belly_length/is_accessible(datum/preferences/preferences)
+	var/passed_initial_check = ..(preferences)
+	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
+	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/belly))
+	return erp_allowed && part_enabled && (passed_initial_check || allowed)
+
+/datum/preference/numeric/belly_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
+	return 0
 
 // BUTT
 
 /datum/preference/toggle/genital/butt
 	savefile_key = "butt_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
-
-/datum/preference/numeric/butt_size
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "butt_size"
-	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
-	bm_type_to_check = /datum/preference/toggle/genital/butt
-	minimum = 0
-	maximum = 7
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
 
 /datum/preference/choiced/genital/butt
 	savefile_key = "feature_butt"
-	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
 	bm_type_to_check = /datum/preference/toggle/genital/butt
 	default_accessory_type = /datum/sprite_accessory/genital/butt/none
+/datum/preference/numeric/butt_length
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "butt_size"
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
+	bm_type_to_check = /datum/preference/toggle/genital/butt
+	minimum = 0
+	maximum = 8
 
 /datum/preference/numeric/butt_length/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["butt_size"] = value
+
+/datum/preference/numeric/butt_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
+	return 0
+
+/datum/preference/numeric/butt_length/is_accessible(datum/preferences/preferences)
+	var/passed_initial_check = ..(preferences)
+	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
+	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/butt))
+	return erp_allowed && part_enabled && (passed_initial_check || allowed)

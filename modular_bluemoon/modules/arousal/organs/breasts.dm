@@ -138,21 +138,22 @@
 
 /datum/sprite_accessory/genital/breasts
 	icon = 'icons/obj/genitals/breasts_onmob.dmi'
-	name = "breasts"
+	organ_type = /obj/item/organ/external/genital/breasts
 	color_src = "breasts_color"
 	has_skintone_shading = TRUE
 	key = ORGAN_SLOT_BREASTS
+	always_color_customizable = TRUE
 /datum/sprite_accessory/genital/breasts/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 /datum/sprite_accessory/genital/breasts/pair
 	icon_state = "pair"
-	name = "Двойные"
+	name = "pair"
 /datum/sprite_accessory/genital/breasts/quad
 	icon_state = "quad"
-	name = "Четверные"
+	name = "quad"
 /datum/sprite_accessory/genital/breasts/sextuple
 	icon_state = "sextuple"
-	name = "Шестерные"
+	name = "sextuple"

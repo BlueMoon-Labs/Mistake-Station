@@ -143,6 +143,7 @@
 
 /datum/sprite_accessory/genital/belly
 	icon = 'modular_splurt/icons/obj/genitals/belly_onmob.dmi'
+	organ_type = /obj/item/organ/external/genital/belly
 	icon_state = "belly"
 	name = "belly"
 	color_src = "belly_color"
@@ -150,10 +151,10 @@
 
 /datum/sprite_accessory/genital/belly/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/belly/pair
 	icon_state = "pair"
-	name = "Двойной"
+	name = "pair"

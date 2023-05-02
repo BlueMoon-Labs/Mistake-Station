@@ -18,14 +18,15 @@
 	organ_type = /obj/item/organ/external/genital/womb
 	key = ORGAN_SLOT_WOMB
 	genetic = TRUE
+	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/womb/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/womb/normal
 	icon_state = "none"
-	name = "Нормальная"
+	name = "normal"
 	color_src = null

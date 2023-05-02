@@ -95,21 +95,19 @@
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
 /datum/sprite_accessory/genital/butt
-	icon = 'icons/obj/genitals/butt_onmob.dmi'
+	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
+	organ_type = /obj/item/organ/external/genital/butt
 	icon_state = "butt"
-	name = "butt"
 	color_src = "butt_color"
 	key = ORGAN_SLOT_BUTT
-
-/datum/sprite_accessory/genital/butt
-	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
+	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/butt/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/butt/pair
 	icon_state = "pair"
-	name = "Стандартная"
+	name = "pair"

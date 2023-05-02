@@ -11,42 +11,42 @@ export const feature_penis: Feature<string> = {
 };
 
 export const penis_skin_tone: FeatureToggle = {
-  name: 'Гениталии. Penis uses Skin Tone',
+  name: 'Гениталии. Пенис uses Skin Tone',
   component: CheckboxInput,
 };
 
 export const penis_skin_color: FeatureToggle = {
-  name: 'Гениталии. Penis uses Skin Color',
+  name: 'Гениталии. Пенис uses Skin Color',
   component: CheckboxInput,
 };
 
 export const penis_color: Feature<string[]> = {
-  name: 'Гениталии. Penis Color',
+  name: 'Гениталии. Пенис - Цвет',
   component: FeatureTriColorInput,
 };
 
 export const penis_emissive: Feature<boolean[]> = {
-  name: 'Гениталии. Penis Emissives',
+  name: 'Гениталии. Пенис - Светится',
   component: FeatureTriBoolInput,
 };
 
 export const penis_sheath: Feature<string> = {
-  name: 'Гениталии. Penis Sheath',
+  name: 'Гениталии. Пенис - Чехольчик',
   component: FeatureDropdownInput,
 };
 
 export const penis_length: FeatureNumeric = {
-  name: 'Гениталии. Penis Length',
+  name: 'Гениталии. Пенис - Длина',
   component: FeatureNumberInput,
 };
 
 export const penis_girth: FeatureNumeric = {
-  name: 'Гениталии. Penis Girth',
+  name: 'Гениталии. Пенис - Ширина',
   component: FeatureNumberInput,
 };
 
 export const penis_taur_mode_toggle: FeatureToggle = {
-  name: 'Гениталии. Penis Taur Mode',
+  name: 'Гениталии. Пенис для Тавров',
   component: CheckboxInput,
 };
 
@@ -61,27 +61,27 @@ export const feature_testicles: Feature<string> = {
 };
 
 export const testicles_skin_tone: FeatureToggle = {
-  name: 'Гениталии. Testicles uses Skin Tone',
+  name: 'Гениталии. Семенники uses Skin Tone',
   component: CheckboxInput,
 };
 
 export const testicles_skin_color: FeatureToggle = {
-  name: 'Гениталии. Testicles uses Skin Color',
+  name: 'Гениталии. Семенники uses Skin Color',
   component: CheckboxInput,
 };
 
 export const testicles_color: Feature<string[]> = {
-  name: 'Гениталии. Testicles Color',
+  name: 'Гениталии. Цвет семенников',
   component: FeatureTriColorInput,
 };
 
 export const testicles_emissive: Feature<boolean[]> = {
-  name: 'Гениталии. Testicles Emissives',
+  name: 'Гениталии. Семенники светятся',
   component: FeatureTriBoolInput,
 };
 
 export const balls_size: FeatureNumeric = {
-  name: 'Гениталии. Testicles Size',
+  name: 'Гениталии. Размер семенников',
   component: FeatureNumberInput,
 };
 
@@ -136,32 +136,32 @@ export const feature_breasts: Feature<string> = {
 };
 
 export const breasts_skin_tone: FeatureToggle = {
-  name: 'Гениталии. Breasts use Skin Tone',
+  name: 'Гениталии. Грудь use Skin Tone',
   component: CheckboxInput,
 };
 
 export const breasts_skin_color: FeatureToggle = {
-  name: 'Гениталии. Breasts use Skin Color',
+  name: 'Гениталии. Грудь use Skin Color',
   component: CheckboxInput,
 };
 
 export const breasts_color: Feature<string[]> = {
-  name: 'Гениталии. Breast Color',
+  name: 'Гениталии. Цвет Груди',
   component: FeatureTriColorInput,
 };
 
 export const breasts_emissive: Feature<boolean[]> = {
-  name: 'Гениталии. Breast Emissives',
+  name: 'Гениталии. Грудь светится',
   component: FeatureTriBoolInput,
 };
 
 export const breasts_lactation_toggle: FeatureToggle = {
-  name: 'Гениталии. Breast Lactation',
+  name: 'Гениталии. Лактация',
   component: CheckboxInput,
 };
 
 export const breasts_size: Feature<string> = {
-  name: 'Гениталии. Breast Size',
+  name: 'Гениталии. Размер Груди',
   component: FeatureDropdownInput,
 };
 
@@ -173,6 +173,26 @@ export const anus_toggle: FeatureToggle = {
 export const feature_anus: Feature<string> = {
   name: 'Гениталии. Тип Ануса',
   component: FeatureDropdownInput,
+};
+
+export const butt_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Попу к телу персонажа.',
+  component: CheckboxInput,
+};
+
+export const butt_size: FeatureNumeric = {
+  name: 'Гениталии. Размер Попы',
+  component: FeatureNumberInput,
+};
+
+export const belly_toggle: FeatureToggle = {
+  name: 'Гениталии. Прицепить Живот к телу персонажа.',
+  component: CheckboxInput,
+};
+
+export const belly_size: FeatureNumeric = {
+  name: 'Гениталии. Размер Живота',
+  component: FeatureNumberInput,
 };
 
 export const body_size: FeatureNumeric = {

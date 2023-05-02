@@ -59,7 +59,7 @@ MUTANT_SYNTH_CHASSIS, \
 		if(mutant_bodyparts[body_part])
 			var/type = mutant_bodyparts[body_part][MUTANT_INDEX_NAME]
 			var/list/colors = mutant_bodyparts[body_part][MUTANT_INDEX_COLOR_LIST]
-			if(type == "Нету")
+			if(type == "None")
 				continue
 			var/colors_length = colors.len
 			/// Intensive checking to ensure this process does not runtime. If it runtimes, goodbye savefiles.

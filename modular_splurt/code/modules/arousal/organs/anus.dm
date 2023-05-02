@@ -64,6 +64,7 @@
 
 /datum/sprite_accessory/genital/anus
 	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
+	organ_type = /obj/item/organ/external/genital/anus
 	icon_state = "anus"
 	name = "anus"
 	color_src = "anus_color"
@@ -71,7 +72,7 @@
 
 /datum/sprite_accessory/genital/anus/none
 	icon_state = "none"
-	name = "Нету"
+	name = "None"
 	factual = FALSE
 	color_src = null
 
@@ -81,4 +82,4 @@
 
 /datum/sprite_accessory/genital/anus/squished
 	icon_state = "squished"
-	name = "сплющенный"
+	name = "squished"
