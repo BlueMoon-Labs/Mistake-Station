@@ -168,7 +168,7 @@
 #define LOW_SIGIL_LAYER 2.52
 #define SIGIL_LAYER 2.53
 #define HIGH_PIPE_LAYER 2.54
-// Anything aboe this layer is not "on" a turf for the purposes of washing
+// Anything above this layer is not "on" a turf for the purposes of washing
 // I hate this life of ours
 #define FLOOR_CLEAN_LAYER 2.55
 
@@ -259,6 +259,7 @@
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
 #define ECHO_LAYER 7
+#define PARRY_LAYER 8
 
 #define FOV_EFFECT_LAYER 100
 
@@ -307,4 +308,4 @@
 /// We expect at most 3 layers of multiz
 /// Increment this define if you make a huge map. We unit test for it too just to make it easy for you
 /// If you modify this, you'll need to modify the tsx file too
-#define MAX_EXPECTED_Z_DEPTH 2
+#define MAX_EXPECTED_Z_DEPTH 3

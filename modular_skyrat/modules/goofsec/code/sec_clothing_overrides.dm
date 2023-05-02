@@ -121,12 +121,12 @@
 			RESKIN_WORN_ICON_STATE = "backpack_security"
 		),
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "backpack_black",
-			RESKIN_WORN_ICON_STATE = "backpack_black"
+			RESKIN_ICON_STATE = "backpack_security_black",
+			RESKIN_WORN_ICON_STATE = "backpack_security_black"
 		),
 		"White Variant" = list(
-			RESKIN_ICON_STATE = "backpack_white",
-			RESKIN_WORN_ICON_STATE = "backpack_white"
+			RESKIN_ICON_STATE = "backpack_security_white",
+			RESKIN_WORN_ICON_STATE = "backpack_security_white"
 		),
 	)
 

@@ -349,3 +349,12 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 //SKYRAT EDIT END
 
 #define BLOCK_PRIORITY_DEFAULT BLOCK_PRIORITY_HELD_ITEM
+// Defines for combo attack component
+/// LMB Attack
+#define LEFT_ATTACK "Left Attack"
+/// RMB Attack
+#define RIGHT_ATTACK "Right Attack"
+/// Steps for the combo
+#define COMBO_STEPS "steps"
+/// The proc the combo calls
+#define COMBO_PROC "proc"

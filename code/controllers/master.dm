@@ -98,6 +98,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 //Master -> SSPreInit -> GLOB -> world -> config -> SSInit -> Failsafe
 //GOT IT MEMORIZED?
 
+// See initialization order in /code/game/world.dm
+GLOBAL_REAL(Master, /datum/controller/master)
 /datum/controller/master
 	name = "Master"
 
@@ -166,7 +168,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	if(!random_seed)
 		#ifdef UNIT_TESTS
-		random_seed = 29051994
+		random_seed = 29051994 // How about 22475?
 		#else
 		random_seed = rand(1, 1e9)
 		#endif

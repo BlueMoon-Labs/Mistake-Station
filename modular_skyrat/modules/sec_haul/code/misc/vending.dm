@@ -67,6 +67,7 @@
 					/obj/item/clothing/under/rank/security/peacekeeper/tactical = 4,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol/cadet = 3,
 					/obj/item/clothing/under/rank/security/peacekeeper/sol = 3,
+					/obj/item/clothing/under/rank/security/skyrat/utility = 3,
 					/obj/item/clothing/shoes/jackboots/sec = 5,
 					/obj/item/clothing/head/beret/sec = 5,
 					/obj/item/clothing/head/security_garrison = 5,
