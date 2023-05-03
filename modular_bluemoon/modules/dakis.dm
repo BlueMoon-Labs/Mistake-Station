@@ -4,7 +4,7 @@
 
 /obj/item/storage/daki
 	name = "dakimakura"
-	desc = "A large pillow depicting a girl in a compromising position. Featuring as many dimensions as you."
+	desc = "Большая подушка с изображением девушки в компрометирующей позе. Она примерно такого же размера, как и вы."
 	icon = 'icons/obj/daki.dmi'
 	icon_state = "daki_base"
 	slot_flags = ITEM_SLOT_BACK

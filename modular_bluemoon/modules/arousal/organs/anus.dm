@@ -5,6 +5,8 @@
 	icon_state = "anus"
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_ANUS
+	mutantpart_key = ORGAN_SLOT_ANUS
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FEB"))
 	size = 0
 	arousal_verb = "Your donut quivers"
 	unarousal_verb = "Your pucker stops twitching"
@@ -12,6 +14,14 @@
 	genital_flags = UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
 	shape = "пончиковидный"
 	layer_index = ANUS_LAYER_INDEX
+	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/anus
+
+/datum/bodypart_overlay/mutant/genital/anus
+	feature_key = ORGAN_SLOT_ANUS
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/anus/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_ANUS]
 
 /obj/item/organ/external/genital/anus/upon_link()
 	. = ..()

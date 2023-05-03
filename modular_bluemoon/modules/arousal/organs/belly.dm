@@ -5,6 +5,8 @@
 	icon 					= 'icons/obj/genitals/breasts.dmi' // I have no idea why it's set up like this on hyper
 	zone 					= BODY_ZONE_CHEST
 	slot 					= ORGAN_SLOT_BELLY
+	mutantpart_key 			= ORGAN_SLOT_WOMB
+	mutantpart_info			= list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("FFEEBB"))
 	w_class 				= WEIGHT_CLASS_NORMAL
 	size 					= 0
 	var/size_name 			= "flat"
@@ -16,8 +18,15 @@
 	var/prev_size //former size value, to allow update_size() to early return should be there no significant changes.
 	var/sent_full_message	= TRUE //defaults to 1 since they're full to start
 	//var/inflatable			= FALSE //For inflation connoisseurs //This is handled with the BELLY_INFLATION cit toggle now
-	layer_index = BELLY_LAYER_INDEX
+	layer_index 			= BELLY_LAYER_INDEX
+	bodypart_overlay 		= /datum/bodypart_overlay/mutant/genital/belly
 
+/datum/bodypart_overlay/mutant/genital/belly
+	feature_key = ORGAN_SLOT_BELLY
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/belly/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_BELLY]
 
 /obj/item/organ/external/genital/belly/on_life()
 	if(QDELETED(src))

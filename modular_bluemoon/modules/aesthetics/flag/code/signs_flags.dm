@@ -1,5 +1,5 @@
 /obj/structure/sign/flag
-	name = "blank flag"
+	name = "Blank Flag"
 	desc = "The flag of nothing. It has nothing on it. Magnificient."
 	icon = 'modular_bluemoon/modules/aesthetics/flag/icons/flags.dmi'
 	icon_state = "flag_coder"
@@ -88,13 +88,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 
 /obj/structure/sign/flag/rus
-	name = "флаг Старой Российской Федерации"
+	name = "Флаг Старой Российской Федерации"
 	desc = "Флаг некогда великого Государства, обладающего огромными землями, возможностями, а также огромным Советским Наследством, всё из чего по итогу было уничтожено политическими махинациями политиков этого же самого Государства."
 	icon_state = "flag_rus"
 	item_flag = /obj/item/sign/flag/rus
 
 /obj/structure/sign/flag/soviet
-	name = "флаг Союза Советских Социалистических Республик"
+	name = "Флаг Союза Советских Социалистических Республик"
 	desc = "Флаг некогда великого Государства, которое максимально сильно приблизилось к значению Утопичной Диктатуры. От флага ощущается сильный запах... железа. Или крови? Из чего сделана эта красная краска?"
 	icon_state = "flag_soviet"
 	item_flag = /obj/item/sign/flag/soviet
@@ -105,18 +105,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 	icon_state = "flag_ger"
 
 /obj/structure/sign/flag/ukraine
-	name = "flag of the Ukraine"
+	name = "Флаг Украины"
 	desc = "Прапор колись особливо героїчної держави, яку було загублено в попелищі Земної Історії..."
 	icon_state = "flag_ua"
 
-
 /obj/structure/sign/flag/chechnya
-	name = "flag of the Soviet Union"
+	name = "Флаг Чечни"
 	desc = "Круто!!!"
 	icon_state = "flag_chechen"
 
 /obj/item/sign/flag
-	name = "folded blank flag"
+	name = "Folded Blank Flag"
 	desc = "The folded flag of nothing. It has nothing on it. Beautiful. {CTRL+SHIFT+LMB}"
 	icon = 'modular_bluemoon/modules/aesthetics/flag/icons/flags.dmi'
 	icon_state = "folded_coder"

@@ -6,6 +6,8 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_TESTICLES
 	size = BALLS_SIZE_MIN
+	mutantpart_key = ORGAN_SLOT_TESTICLES
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Pair", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	arousal_verb = "Твои яйца немного болят от переполненности"
 	unarousal_verb = "Твои яйца наконец-то перестают болеть от переполненности"
 	linked_organ_slot = ORGAN_SLOT_PENIS
@@ -15,6 +17,14 @@
 	fluid_id = /datum/reagent/consumable/semen
 	masturbation_verb = "massage"
 	layer_index = TESTICLES_LAYER_INDEX
+	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/testicles
+
+/datum/bodypart_overlay/mutant/genital/testicles
+	feature_key = ORGAN_SLOT_TESTICLES
+	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/testicles/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_TESTICLES]
 
 /obj/item/organ/external/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["testicles_uses_skintones"])
@@ -83,6 +93,22 @@
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 	if(D.features["inert_eggs"])
 		AddComponent(/datum/component/ovipositor)
+
+/obj/item/organ/external/genital/testicles
+	default_fluid_id = /datum/reagent/consumable/semen
+
+/obj/item/organ/external/genital/testicles/get_features(mob/living/carbon/human/H)
+	var/datum/dna/D = H.dna
+	if(D.features["balls_fluid"])
+		var/datum/reagent/fluid = find_reagent_object_from_type(D.features["balls_fluid"])
+		if(istype(fluid, /datum/reagent/blood))
+			fluid_id = H.get_blood_id()
+		if(fluid && ((fluid in GLOB.genital_fluids_list) || istype(fluid, H.get_blood_id())))
+			fluid_id = D.features["balls_fluid"]
+	else
+		fluid_id = initial(fluid_id)
+	original_fluid_id = fluid_id
+	. = ..()
 
 /datum/sprite_accessory/genital/testicles
 	icon = 'icons/obj/genitals/testicles_onmob.dmi'

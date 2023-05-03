@@ -7,7 +7,7 @@
 		return
 	COOLDOWN_START(src, hailer_cooldown, PHRASE_COOLDOWN)
 	user.audible_message("[user]'s Compli-o-Nator: <font color='red' size='4'><b>[initial(phrase.phrase_text)]</b></font>")
-	playsound(src, "modular_bluemoon/modules/hailer/complionator/[initial(phrase.phrase_sound)].ogg", 150, FALSE, 4)
+	playsound(src, "modular_bluemoon/modules/hailer/complionator/[initial(phrase.phrase_sound)].ogg", 200, FALSE, 4)
 	return TRUE
 
 /datum/hailer_phrase/emag

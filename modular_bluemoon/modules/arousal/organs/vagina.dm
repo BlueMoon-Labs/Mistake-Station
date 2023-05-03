@@ -5,6 +5,8 @@
 	icon_state = ORGAN_SLOT_VAGINA
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_VAGINA
+	mutantpart_key = ORGAN_SLOT_VAGINA
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Human", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	size = 1 //There is only 1 size right now
 	shape = DEF_VAGINA_SHAPE
 	genital_flags = CAN_MASTURBATE_WITH|CAN_CLIMAX_WITH|GENITAL_CAN_AROUSE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
@@ -20,6 +22,14 @@
 	var/clit_diam = 0.25
 	var/clit_len = 0.25
 	var/list/vag_types = list("тентяклевидная", "зубастая", "волосатая", "лопатковидная", "мохнатая")
+	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/vagina
+
+/datum/bodypart_overlay/mutant/genital/vagina
+	feature_key = ORGAN_SLOT_VAGINA
+	layers = EXTERNAL_FRONT
+
+/datum/bodypart_overlay/mutant/genital/vagina/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_VAGINA]
 
 /obj/item/organ/external/genital/vagina/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["vagina_uses_skintones"])

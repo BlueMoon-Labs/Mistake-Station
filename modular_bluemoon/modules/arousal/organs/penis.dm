@@ -5,6 +5,9 @@
 	icon = 'icons/obj/genitals/penis.dmi'
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_PENIS
+	mutantpart_key = ORGAN_SLOT_PENIS
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Human", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
+	drop_when_organ_spilling = FALSE
 	masturbation_verb = "stroke"
 	arousal_verb = "У тебя сильный стояк"
 	unarousal_verb = "Твой стояк опускается"
@@ -19,6 +22,14 @@
 	var/prev_length = 6 //really should be renamed to prev_length
 	var/diameter = 4.38
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
+	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/penis
+
+/datum/bodypart_overlay/mutant/genital/penis
+	feature_key = ORGAN_SLOT_PENIS
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_PENIS]
 
 /obj/item/organ/external/genital/penis/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	var/datum/sprite_accessory/genital/penis/snake = accessory
@@ -48,15 +59,15 @@
 	var/new_size
 	switch(rounded_length)
 		if(0 to 12) //If modest size
-			new_size = 123
+			new_size = 1
 		if(13 to 24) //If large
-			new_size = 234
+			new_size = 2
 		if(23 to 50) //If massive
-			new_size = 345
+			new_size = 3
 		if(51 to 90) //If comical
-			new_size = 456 //no new sprites for anything larger yet //Now there is :3
+			new_size = 4 //no new sprites for anything larger yet //Now there is :3
 		if(91 to INFINITY)
-			new_size = 567
+			new_size = 5
 
 	if(linked_organ)
 		linked_organ.size = clamp(size, BALLS_SIZE_MIN, BALLS_SIZE_MAX) //SPLURT Edit. No more randomly massive balls
@@ -114,6 +125,44 @@
 	toggle_visibility(D.features["cock_visibility"], FALSE)
 	if(D.features["cock_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
+
+/obj/item/organ/external/genital/penis/get_features(mob/living/carbon/human/H)
+	. = ..()
+	original_fluid_id = fluid_id
+	fluid_max_volume += ((length - initial(length))*2.5)*(owner ? get_size(owner) : 1)
+	fluid_rate += ((length - initial(length))/10)*(owner ? get_size(owner) : 1)
+
+/obj/item/organ/external/genital/penis/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen)
+	if(!(owner.client?.prefs.read_preference(/datum/preference/toggle/erp/penis_enlargement)))
+		return
+
+	var/datum/reagents/fluid_source = source_gen.climaxable(partner)
+	if(!fluid_source)
+		return
+
+	var/datum/reagents/target
+	if(linked_organ)
+		if(!linked_organ.climax_fluids)
+			linked_organ.climax_fluids = new
+			linked_organ.climax_fluids.maximum_volume = INFINITY
+		target = linked_organ.climax_fluids
+	else
+		if(!climax_fluids)
+			climax_fluids = new
+			climax_fluids.maximum_volume = INFINITY
+		target = climax_fluids
+
+	source_gen.generate_fluid(fluid_source)
+	fluid_source.trans_to(target, fluid_source.total_volume)
+
+	if(target.total_volume >= fluid_max_volume * GENITAL_INFLATION_THRESHOLD)
+		var/previous = size
+		modify_size(target.total_volume / (fluid_max_volume * GENITAL_INFLATION_THRESHOLD))
+		if(size != previous)
+			owner.visible_message("<span class='lewd'>\The <b>[owner]</b> [pick(GLOB.dick_nouns)][linked_organ ? " и [pick(list("орехи", "яйца", "яички", "семенники", "мешочек"))]" : ""] набухают и увеличиваются в размерах по мере того, как они наполняются \the <b>[partner]</b>'s [lowertext(source_gen.get_fluid_name())]!</span>", ignored_mobs = owner.get_unconsenting())
+			if(linked_organ)
+				linked_organ.fluid_id = source_gen.get_fluid_id()
+		target.clear_reagents()
 
 /datum/sprite_accessory/genital/penis
 	icon = 'icons/obj/genitals/penis_onmob.dmi'
