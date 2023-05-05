@@ -7066,8 +7066,6 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
 #include "modular_citadel\code\datums\components\souldeath.dm"
 #include "modular_citadel\code\game\objects\effects\temporary_visuals\souldeath.dm"
-#include "modular_citadel\code\modules\client\preferences_savefile.dm"
-#include "modular_citadel\code\modules\client\preferences_toggles.dm"
 #include "modular_citadel\code\modules\clothing\neck.dm"
 #include "modular_citadel\code\modules\clothing\suits\suits.dm"
 #include "modular_citadel\code\modules\custom_loadout\custom_items.dm"

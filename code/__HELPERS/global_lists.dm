@@ -56,6 +56,7 @@
 		GLOB.bark_list[B.id] = spath
 		if(B.allow_random)
 			GLOB.bark_random_list[B.id] = spath
+	sort_list(GLOB.bark_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()

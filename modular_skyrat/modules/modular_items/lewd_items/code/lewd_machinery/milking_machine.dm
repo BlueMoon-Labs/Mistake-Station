@@ -552,7 +552,7 @@
 	var/list/data = list()
 
 	data["mobName"] = current_mob ? current_mob.name : null
-	data["mobCanLactate"] = current_breasts ? current_breasts.aroused_state : null
+	data["mobCanLactate"] = current_breasts ? current_breasts.lactates : null
 	data["beaker"] = beaker ? beaker : null
 	data["BeakerName"] = beaker ? beaker.name : null
 	data["beakerMaxVolume"] = beaker ? beaker.volume : null

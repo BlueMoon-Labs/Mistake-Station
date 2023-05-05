@@ -21,6 +21,7 @@
 	orgasm_verb = "leaking"
 	fluid_transfer_factor = 0.5
 	layer_index = BREASTS_LAYER_INDEX
+	var/lactates = FALSE
 	var/static/list/breast_values = list("a" =  1, "b" = 2, "c" = 3, "d" = 4, "e" = 5, "f" = 6, "g" = 7, "h" = 8, "i" = 9, "j" = 10, "k" = 11, "l" = 12, "m" = 13, "n" = 14, "o" = 15, "huge" = 16, "massive" = 17, "giga" = 25, "impossible" = 30, "flat" = 0)
 	var/cached_size //these two vars pertain size modifications and so should be expressed in NUMBERS.
 	var/prev_size //former cached_size value, to allow update_size() to early return should be there no significant changes.
@@ -119,6 +120,11 @@
 		else if (rounded_cached < r_prev_size)
 			to_chat(H, "<span class='warning'>Ваша грудь начинает [pick("уменьшаться до", "уменьшаться до", "сдуваться до", "сморщиваться с сожалением до", "сокращаться до")] [uppertext(size)] размера.</span>")
 
+/obj/item/organ/external/genital/breasts/build_from_dna(datum/dna/DNA, associated_key)
+	lactates = DNA.features["breasts_lactation"]
+
+	return ..()
+
 /obj/item/organ/external/genital/breasts/get_features(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
@@ -127,7 +133,7 @@
 		color = "#[D.features["breasts_color"]]"
 	size = D.features["breasts_size"]
 	shape = D.features["breasts_shape"]
-	if(!D.features["mobCanLactate"])
+	if(!D.features["breasts_lactation"])
 		genital_flags &= ~ (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
 	if(!isnum(size))
 		cached_size = breast_values[size]

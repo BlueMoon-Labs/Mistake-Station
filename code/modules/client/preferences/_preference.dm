@@ -109,6 +109,14 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	/// will show the feature as selectable.
 	var/relevant_external_organ = null
 	var/personal_chat_color = "#ffffff"
+
+	// Vocal bark prefs
+	var/bark_id = "mutedc3"
+	var/bark_speed = 4
+	var/bark_pitch = 1
+	var/bark_variance = 0.2
+	COOLDOWN_DECLARE(bark_previewing)
+
 /// Called on the saved input when retrieving.
 /// Also called by the value sent from the user through UI. Do not trust it.
 /// Input is the value inside the savefile, output is to tell other code

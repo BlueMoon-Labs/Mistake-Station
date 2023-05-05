@@ -89,7 +89,7 @@
 	"skin_color" = "#FFEEDD",\
 	"flavor_text" = "",\
 	"body_size" = BODY_SIZE_NORMAL,\
-	"penis_taur_mode" = TRUE,\
+	"penis_taur_mode" = FALSE,\
 	"genitals_use_skintone" = FALSE,\
 	"has_cock" = FALSE,\
 	"cock_shape" = DEF_COCK_SHAPE,\
