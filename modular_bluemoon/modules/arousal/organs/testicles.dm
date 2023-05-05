@@ -27,7 +27,7 @@
 	return GLOB.sprite_accessories[ORGAN_SLOT_TESTICLES]
 
 /obj/item/organ/external/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	if(DNA.features["testicles_uses_skintones"])
+	if(DNA.features["genitals_use_skintone"])
 		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/testicles/generate_fluid()

@@ -31,7 +31,7 @@
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
 /obj/item/organ/external/genital/breasts/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	if(DNA.features["breasts_uses_skintones"])
+	if(DNA.features["genitals_use_skintone"])
 		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/breasts/Initialize(mapload, do_update = TRUE)

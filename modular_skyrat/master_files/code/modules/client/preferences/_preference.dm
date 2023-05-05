@@ -1,21 +1,5 @@
 #define REQUIRED_CROP_LIST_SIZE 4
 
-/**
- * Base class for choices character features, mainly mutant body parts
- */
-/datum/preference
-	/// Path to the corresponding /datum/preference/toggle to check if part is enabled.
-	var/datum/preference/bm_type_to_check
-
-/**
- * Is this part enabled by the player?
- *
- * Arguments:
- * * preferences - The relevant character preferences.
- */
-/datum/preference/proc/is_part_enabled(datum/preferences/preferences)
-	return preferences.read_preference(bm_type_to_check)
-
 /datum/preference/tri_color
 	abstract_type = /datum/preference/tri_color
 	var/type_to_check = /datum/preference/toggle/allow_mismatched_parts
@@ -128,6 +112,8 @@
 
 	/// Path to the default sprite accessory
 	var/datum/sprite_accessory/default_accessory_type
+	/// Path to the corresponding /datum/preference/toggle to check if part is enabled.
+	var/datum/preference/toggle/type_to_check
 	/// Generates icons from the provided mutant bodypart for use in icon-enabled selection boxes in the prefs window.
 	var/generate_icons = FALSE
 	/// A list of the four co-ordinates to crop to, if `generate_icons` is enabled. Useful for icons whose main contents are smaller than 32x32. Please keep it square.
@@ -178,6 +164,15 @@
 
 /datum/preference/choiced/mutant_choice/create_default_value()
 	return initial(default_accessory_type?.name) || "None"
+
+/**
+ * Is this part enabled by the player?
+ *
+ * Arguments:
+ * * preferences - The relevant character preferences.
+ */
+/datum/preference/choiced/mutant_choice/proc/is_part_enabled(datum/preferences/preferences)
+	return preferences.read_preference(type_to_check)
 
 /**
  * Actually rendered. Slimmed down version of the logic in is_available() that actually works when spawning or drawing the character.

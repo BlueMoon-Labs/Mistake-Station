@@ -153,29 +153,22 @@
 
 // PENIS
 
-/datum/preference/toggle/genital/penis
-	savefile_key = "penis_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-
 /datum/preference/choiced/genital/penis
 	savefile_key = "feature_penis"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 	default_accessory_type = /datum/sprite_accessory/genital/penis/none
 
 /datum/preference/toggle/genital_skin_tone/penis
 	savefile_key = "penis_skin_tone"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 	genital_pref_type = /datum/preference/choiced/genital/penis
 
 /datum/preference/toggle/genital_skin_tone/penis/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features["penis_uses_skintones"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/toggle/genital_skin_color/penis
 	savefile_key = "penis_skin_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 	genital_pref_type = /datum/preference/choiced/genital/penis
 
 /datum/preference/toggle/genital_skin_color/penis/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -189,7 +182,6 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "penis_length"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 	minimum = PENIS_MIN_LENGTH
 	maximum = PENIS_MAX_LENGTH
 
@@ -211,7 +203,6 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "penis_girth"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 	minimum = PENIS_MIN_LENGTH
 	maximum = PENIS_MAX_GIRTH
 
@@ -231,13 +222,13 @@
 /datum/preference/tri_color/genital/penis
 	savefile_key = "penis_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/choiced/genital/penis
+	type_to_check = /datum/preference/choiced/genital/penis
 	skin_color_type = /datum/preference/toggle/genital_skin_color/penis
 
 /datum/preference/tri_bool/genital/penis
 	savefile_key = "penis_emissive"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/choiced/genital/penis
+	type_to_check = /datum/preference/choiced/genital/penis
 	skin_color_type = /datum/preference/toggle/genital_skin_color/penis
 
 /datum/preference/toggle/penis_taur_mode
@@ -246,7 +237,6 @@
 	savefile_key = "penis_taur_mode_toggle"
 	default_value = FALSE
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 
 /datum/preference/toggle/penis_taur_mode/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.dna.features["penis_taur_mode"] = value
@@ -265,7 +255,6 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
-	bm_type_to_check = /datum/preference/toggle/genital/penis
 
 /datum/preference/choiced/penis_sheath/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
@@ -285,29 +274,22 @@
 
 // TESTES
 
-/datum/preference/toggle/genital/testicles
-	savefile_key = "testicles_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-
 /datum/preference/choiced/genital/testicles
 	savefile_key = "feature_testicles"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/toggle/genital/testicles
 	default_accessory_type = /datum/sprite_accessory/genital/testicles/none
 
 /datum/preference/toggle/genital_skin_tone/testicles
 	savefile_key = "testicles_skin_tone"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/toggle/genital/testicles
 	genital_pref_type = /datum/preference/choiced/genital/testicles
 
 /datum/preference/toggle/genital_skin_tone/testicles/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features["testicles_uses_skintones"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/toggle/genital_skin_color/testicles
 	savefile_key = "testicles_skin_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/toggle/genital/testicles
 	genital_pref_type = /datum/preference/choiced/genital/testicles
 
 /datum/preference/toggle/genital_skin_color/testicles/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -319,13 +301,13 @@
 /datum/preference/tri_color/genital/testicles
 	savefile_key = "testicles_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/choiced/genital/testicles
+	type_to_check = /datum/preference/choiced/genital/testicles
 	skin_color_type = /datum/preference/toggle/genital_skin_color/testicles
 
 /datum/preference/tri_bool/genital/testicles
 	savefile_key = "testicles_emissive"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/choiced/genital/testicles
+	type_to_check = /datum/preference/choiced/genital/testicles
 	skin_color_type = /datum/preference/toggle/genital_skin_color/testicles
 
 /datum/preference/numeric/balls_size
@@ -333,7 +315,6 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "balls_size"
 	relevant_mutant_bodypart = ORGAN_SLOT_TESTICLES
-	bm_type_to_check = /datum/preference/toggle/genital/testicles
 	minimum = 1
 	maximum = 5
 
@@ -352,29 +333,22 @@
 
 // VAGINA
 
-/datum/preference/toggle/genital/vagina
-	savefile_key = "vagina_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-
 /datum/preference/choiced/genital/vagina
 	savefile_key = "feature_vagina"
 	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-	bm_type_to_check = /datum/preference/toggle/genital/vagina
 	default_accessory_type = /datum/sprite_accessory/genital/vagina/none
 
 /datum/preference/toggle/genital_skin_tone/vagina
 	savefile_key = "vagina_skin_tone"
 	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-	bm_type_to_check = /datum/preference/toggle/genital/vagina
 	genital_pref_type = /datum/preference/choiced/genital/vagina
 
 /datum/preference/toggle/genital_skin_tone/vagina/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features["vagina_uses_skintones"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/toggle/genital_skin_color/vagina
 	savefile_key = "vagina_skin_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-	bm_type_to_check = /datum/preference/toggle/genital/vagina
 	genital_pref_type = /datum/preference/choiced/genital/vagina
 
 /datum/preference/toggle/genital_skin_color/vagina/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -386,47 +360,36 @@
 /datum/preference/tri_color/genital/vagina
 	savefile_key = "vagina_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-	bm_type_to_check = /datum/preference/choiced/genital/vagina
+	type_to_check = /datum/preference/choiced/genital/vagina
 	skin_color_type = /datum/preference/toggle/genital_skin_color/vagina
 
 /datum/preference/tri_bool/genital/vagina
 	savefile_key = "vagina_emissive"
 	relevant_mutant_bodypart = ORGAN_SLOT_VAGINA
-	bm_type_to_check = /datum/preference/choiced/genital/vagina
+	type_to_check = /datum/preference/choiced/genital/vagina
 	skin_color_type = /datum/preference/toggle/genital_skin_color/vagina
 
 // UTERUS
 
-/datum/preference/toggle/genital/womb
-	savefile_key = "womb_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_WOMB
-
 /datum/preference/choiced/genital/womb
 	savefile_key = "feature_womb"
 	relevant_mutant_bodypart = ORGAN_SLOT_WOMB
-	bm_type_to_check = /datum/preference/toggle/genital/womb
 	default_accessory_type = /datum/sprite_accessory/genital/womb/none
 
 // BREASTS
 
-/datum/preference/toggle/genital/breasts
-	savefile_key = "breasts_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
-
 /datum/preference/choiced/genital/breasts
 	savefile_key = "feature_breasts"
 	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
-	bm_type_to_check = /datum/preference/toggle/genital/breasts
 	default_accessory_type = /datum/sprite_accessory/genital/breasts/none
 
 /datum/preference/toggle/genital_skin_tone/breasts
 	savefile_key = "breasts_skin_tone"
 	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
-	bm_type_to_check = /datum/preference/toggle/genital/breasts
 	genital_pref_type = /datum/preference/choiced/genital/breasts
 
 /datum/preference/toggle/genital_skin_tone/breasts/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features["breasts_uses_skintones"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/toggle/genital_skin_color/breasts
 	savefile_key = "breasts_skin_color"
@@ -442,13 +405,13 @@
 /datum/preference/tri_color/genital/breasts
 	savefile_key = "breasts_color"
 	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
-	bm_type_to_check = /datum/preference/choiced/genital/breasts
+	type_to_check = /datum/preference/choiced/genital/breasts
 	skin_color_type = /datum/preference/toggle/genital_skin_color/breasts
 
 /datum/preference/tri_bool/genital/breasts
 	savefile_key = "breasts_emissive"
 	relevant_mutant_bodypart = ORGAN_SLOT_BREASTS
-	bm_type_to_check = /datum/preference/choiced/genital/breasts
+	type_to_check = /datum/preference/choiced/genital/breasts
 	skin_color_type = /datum/preference/toggle/genital_skin_color/breasts
 
 /datum/preference/toggle/breasts_lactation
@@ -492,33 +455,22 @@
 
 // ANUS
 
-/datum/preference/toggle/genital/anus
-	savefile_key = "anus_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_ANUS
-
 /datum/preference/choiced/genital/anus
 	savefile_key = "feature_anus"
 	relevant_mutant_bodypart = ORGAN_SLOT_ANUS
-	bm_type_to_check = /datum/preference/toggle/genital/anus
 	default_accessory_type = /datum/sprite_accessory/genital/anus/none
 
 // BELLY
 
-/datum/preference/toggle/genital/belly
-	savefile_key = "belly_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-
 /datum/preference/choiced/genital/belly
 	savefile_key = "feature_belly"
 	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-	bm_type_to_check = /datum/preference/toggle/genital/belly
 	default_accessory_type = /datum/sprite_accessory/genital/belly/none
 /datum/preference/numeric/belly_length
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "belly_size"
 	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-	bm_type_to_check = /datum/preference/toggle/genital/belly
 	minimum = 0
 	maximum = 7
 
@@ -532,31 +484,71 @@
 	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/belly))
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
+/datum/preference/toggle/genital_skin_color/belly
+	savefile_key = "belly_skin_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
+	genital_pref_type = /datum/preference/choiced/genital/belly
+
+/datum/preference/toggle/genital_skin_color/belly/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+	target.dna.features["belly_uses_skincolor"] = value
+
+/datum/preference/tri_color/genital/belly
+	savefile_key = "belly_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
+	type_to_check = /datum/preference/choiced/genital/belly
+	skin_color_type = /datum/preference/toggle/genital_skin_color/belly
+
+/datum/preference/tri_bool/genital/belly
+	savefile_key = "belly_emissive"
+	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
+	type_to_check = /datum/preference/choiced/genital/belly
+	skin_color_type = /datum/preference/toggle/genital_skin_color/belly
+
 /datum/preference/numeric/belly_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
 	return 0
 
 // BUTT
 
-/datum/preference/toggle/genital/butt
-	savefile_key = "butt_toggle"
-	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-
 /datum/preference/choiced/genital/butt
 	savefile_key = "feature_butt"
 	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-	bm_type_to_check = /datum/preference/toggle/genital/butt
 	default_accessory_type = /datum/sprite_accessory/genital/butt/none
 /datum/preference/numeric/butt_length
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "butt_size"
-	relevant_mutant_bodypart = ORGAN_SLOT_BELLY
-	bm_type_to_check = /datum/preference/toggle/genital/butt
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
 	minimum = 0
 	maximum = 8
 
 /datum/preference/numeric/butt_length/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["butt_size"] = value
+
+/datum/preference/toggle/genital_skin_color/butt
+	savefile_key = "butt_skin_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	genital_pref_type = /datum/preference/choiced/genital/butt
+
+/datum/preference/toggle/genital_skin_color/butt/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+	target.dna.features["butt_uses_skincolor"] = value
+
+/datum/preference/tri_color/genital/butt
+	savefile_key = "butt_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	type_to_check = /datum/preference/choiced/genital/butt
+	skin_color_type = /datum/preference/toggle/genital_skin_color/butt
+
+/datum/preference/tri_bool/genital/butt
+	savefile_key = "butt_emissive"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	type_to_check = /datum/preference/choiced/genital/butt
+	skin_color_type = /datum/preference/toggle/genital_skin_color/butt
 
 /datum/preference/numeric/butt_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
 	return 0

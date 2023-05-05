@@ -32,7 +32,7 @@
 	return GLOB.sprite_accessories[ORGAN_SLOT_VAGINA]
 
 /obj/item/organ/external/genital/vagina/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	if(DNA.features["vagina_uses_skintones"])
+	if(DNA.features["genitals_use_skintone"])
 		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/vagina/update_appearance()

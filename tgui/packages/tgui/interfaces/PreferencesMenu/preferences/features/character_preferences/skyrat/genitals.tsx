@@ -175,7 +175,7 @@ export const feature_anus: Feature<string> = {
   component: FeatureDropdownInput,
 };
 
-export const butt_toggle: FeatureToggle = {
+export const feature_butt: FeatureToggle = {
   name: 'Гениталии. Прицепить Попу к телу персонажа.',
   component: CheckboxInput,
 };
@@ -185,7 +185,7 @@ export const butt_size: FeatureNumeric = {
   component: FeatureNumberInput,
 };
 
-export const belly_toggle: FeatureToggle = {
+export const feature_belly: FeatureToggle = {
   name: 'Гениталии. Прицепить Живот к телу персонажа.',
   component: CheckboxInput,
 };

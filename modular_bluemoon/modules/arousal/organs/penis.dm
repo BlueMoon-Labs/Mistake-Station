@@ -35,7 +35,7 @@
 	var/datum/sprite_accessory/genital/penis/snake = accessory
 	if(snake.can_have_sheath)
 		sheath = DNA.features["penis_sheath"]
-	if(DNA.features["penis_uses_skintones"])
+	if(DNA.features["genitals_use_skintone"])
 		uses_skintones = accessory.has_skintone_shading
 
 /obj/item/organ/external/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
@@ -94,7 +94,7 @@
 	var/lowershape = lowertext(shape)
 
 	if(owner)
-		if(owner.dna.species.use_skintones && owner.dna.features["penis_uses_skintones"])
+		if(owner.dna.species.use_skintones && owner.dna.features["genitals_use_skintone"])
 			if(ishuman(owner)) // Check before recasting type, although someone fucked up if you're not human AND have use_skintones somehow...
 				var/mob/living/carbon/human/H = owner // only human mobs have skin_tone, which we need.
 				color = SKINTONE2HEX(H.skin_tone)
@@ -114,7 +114,7 @@
 	var/datum/sprite_accessory/genital/penis/snake = accessory
 	if(snake.can_have_sheath)
 		sheath = D.features["penis_sheath"]
-	if(D.species.use_skintones && D.features["penis_uses_skintones"])
+	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
 	else
 		color = "#[D.features["cock_color"]]"
