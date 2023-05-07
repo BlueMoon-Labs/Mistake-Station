@@ -23,6 +23,8 @@
 	var/layer_index = GENITAL_LAYER_INDEX //Order should be very important. FIRST vagina, THEN testicles, THEN penis, as this affects the order they are rendered in.
 	///Whether the organ is supposed to use a skintoned variant of the sprite
 	var/uses_skintones = FALSE
+	///Used for determining what sprite is being used, derrives from size and type
+	var/sprite_suffix
 
 /obj/item/organ/external/genital/Initialize(mapload, do_update = TRUE)
 	. = ..()
@@ -34,6 +36,67 @@
 		linked_organ.linked_organ = null
 	linked_organ = null
 	. = ..()
+
+//This translates the float size into a sprite string
+/obj/item/organ/external/genital/proc/get_sprite_size_string()
+	return 0
+
+//This translates the float size into a sprite string
+/obj/item/organ/external/genital/proc/update_sprite_suffix()
+	sprite_suffix = "[get_sprite_size_string()]"
+
+	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
+
+	our_overlay.sprite_suffix = sprite_suffix
+
+/obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
+	. = ..()
+	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
+	name = accessory.name
+	shape = accessory.icon_state
+	build_from_accessory(accessory, DNA)
+	update_sprite_suffix()
+
+	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
+
+	our_overlay.color_source = uses_skintones ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/genital
+	layers = EXTERNAL_FRONT
+	color_source = ORGAN_COLOR_OVERRIDE
+	/// The suffix appended to the feature_key for the overlays.
+	var/sprite_suffix
+
+/datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
+	return draw_color
+
+/datum/bodypart_overlay/mutant/genital/get_base_icon_state()
+	return sprite_suffix
+
+
+/datum/bodypart_overlay/mutant/genital/get_color_layer_names(icon_state_to_lookup)
+	if(length(sprite_datum.color_layer_names))
+		return sprite_datum.color_layer_names
+
+	sprite_datum.color_layer_names = list()
+	if (!GLOB.cached_mutant_icon_files[sprite_datum.icon])
+		GLOB.cached_mutant_icon_files[sprite_datum.icon] = icon_states(new /icon(sprite_datum.icon))
+
+	var/list/cached_mutant_icon_states = GLOB.cached_mutant_icon_files[sprite_datum.icon]
+
+	for (var/layer in all_layers)
+		if(!(layer & layers))
+			continue
+
+		var/layertext = mutant_bodyparts_layertext(bitflag_to_layer(layer))
+		if ("[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
+			sprite_datum.color_layer_names["1"] = "primary"
+		if ("[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
+			sprite_datum.color_layer_names["2"] = "secondary"
+		if ("[feature_key]_[get_base_icon_state()]_[layertext]_tertiary" in cached_mutant_icon_states)
+			sprite_datum.color_layer_names["3"] = "tertiary"
+
+	return sprite_datum.color_layer_names
 
 /obj/item/organ/external/genital/on_life()
 	return

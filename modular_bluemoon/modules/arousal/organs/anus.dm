@@ -76,7 +76,6 @@
 	icon = 'modular_splurt/icons/obj/genitals/anus_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/anus
 	icon_state = "anus"
-	name = "anus"
 	color_src = "anus_color"
 	key = ORGAN_SLOT_ANUS
 

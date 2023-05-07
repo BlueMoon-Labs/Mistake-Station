@@ -1,10 +1,5 @@
 import { FeatureDropdownInput, Feature, FeatureNumberInput, CheckboxInput, FeatureTriColorInput, FeatureTriBoolInput, FeatureNumeric, FeatureToggle, FeatureChoiced } from '../../base';
 
-export const penis_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Пенис к телу персонажа.',
-  component: CheckboxInput,
-};
-
 export const feature_penis: Feature<string> = {
   name: 'Гениталии. Тип Пениса',
   component: FeatureDropdownInput,
@@ -50,11 +45,6 @@ export const penis_taur_mode_toggle: FeatureToggle = {
   component: CheckboxInput,
 };
 
-export const testicles_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Яйца.',
-  component: CheckboxInput,
-};
-
 export const feature_testicles: Feature<string> = {
   name: 'Гениталии. Тип Семенников',
   component: FeatureDropdownInput,
@@ -85,11 +75,6 @@ export const balls_size: FeatureNumeric = {
   component: FeatureNumberInput,
 };
 
-export const vagina_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Вагину к телу персонажа.',
-  component: CheckboxInput,
-};
-
 export const feature_vagina: Feature<string> = {
   name: 'Гениталии. Тип Вагины',
   component: FeatureDropdownInput,
@@ -115,19 +100,9 @@ export const vagina_emissive: Feature<boolean[]> = {
   component: FeatureTriBoolInput,
 };
 
-export const womb_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Матку к телу персонажа.',
-  component: CheckboxInput,
-};
-
 export const feature_womb: Feature<string> = {
   name: 'Гениталии. Тип Матки',
   component: FeatureDropdownInput,
-};
-
-export const breasts_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Грудь к телу персонажа.',
-  component: CheckboxInput,
 };
 
 export const feature_breasts: Feature<string> = {
@@ -165,19 +140,14 @@ export const breasts_size: Feature<string> = {
   component: FeatureDropdownInput,
 };
 
-export const anus_toggle: FeatureToggle = {
-  name: 'Гениталии. Прицепить Анус к телу персонажа.',
-  component: CheckboxInput,
-};
-
 export const feature_anus: Feature<string> = {
   name: 'Гениталии. Тип Ануса',
   component: FeatureDropdownInput,
 };
 
-export const feature_butt: FeatureToggle = {
-  name: 'Гениталии. Прицепить Попу к телу персонажа.',
-  component: CheckboxInput,
+export const feature_butt: Feature<string> = {
+  name: 'Гениталии. Тип Попы.',
+  component: FeatureDropdownInput,
 };
 
 export const butt_size: FeatureNumeric = {
@@ -185,9 +155,9 @@ export const butt_size: FeatureNumeric = {
   component: FeatureNumberInput,
 };
 
-export const feature_belly: FeatureToggle = {
-  name: 'Гениталии. Прицепить Живот к телу персонажа.',
-  component: CheckboxInput,
+export const feature_belly: Feature<string> = {
+  name: 'Гениталии. Тип Живота.',
+  component: FeatureDropdownInput,
 };
 
 export const belly_size: FeatureNumeric = {

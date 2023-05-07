@@ -31,6 +31,9 @@
 	feature_key = ORGAN_SLOT_BREASTS
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
+/datum/bodypart_overlay/mutant/genital/breasts/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_BREASTS]
+
 /obj/item/organ/external/genital/breasts/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["genitals_use_skintone"])
 		uses_skintones = accessory.has_skintone_shading

@@ -5,7 +5,7 @@
 	icon 					= 'icons/obj/genitals/breasts.dmi' // I have no idea why it's set up like this on hyper
 	zone 					= BODY_ZONE_CHEST
 	slot 					= ORGAN_SLOT_BELLY
-	mutantpart_key 			= ORGAN_SLOT_WOMB
+	mutantpart_key 			= ORGAN_SLOT_BELLY
 	mutantpart_info			= list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("FFEEBB"))
 	w_class 				= WEIGHT_CLASS_NORMAL
 	size 					= 0
