@@ -1,8 +1,8 @@
 /obj/item/organ/external/genital/butt
 	name 					= "butt"
 	desc 					= "You see a pair of asscheeks."
-	icon_state 				= "butt"
 	icon 					= 'icons/obj/genitals/butt.dmi'
+	icon_state 				= "butt"
 	zone 					= BODY_ZONE_PRECISE_GROIN
 	slot 					= ORGAN_SLOT_BUTT
 	mutantpart_key 			= ORGAN_SLOT_BUTT
@@ -11,11 +11,11 @@
 	size 					= 0
 	var/size_name			= "nonexistent"
 	shape					= "Pair" //turn this into a default constant if for some inexplicable reason we get more than one butt type but I doubt it.
-	genital_flags = UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
+	genital_flags 			= UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
 	masturbation_verb 		= "massage"
 	var/size_cached			= 0
-	var/prev_size //former size value, to allow update_size() to early return should be there no significant changes.
-	layer_index = BUTT_LAYER_INDEX
+	var/prev_size 			//former size value, to allow update_size() to early return should be there no significant changes.
+	layer_index 			= BUTT_LAYER_INDEX
 	bodypart_overlay		= /datum/bodypart_overlay/mutant/genital/anus
 
 /datum/bodypart_overlay/mutant/genital/butt
@@ -161,6 +161,7 @@
 	icon_state = "butt"
 	color_src = "butt_color"
 	key = ORGAN_SLOT_BUTT
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/butt/none

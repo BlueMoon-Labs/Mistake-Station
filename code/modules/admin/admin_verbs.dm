@@ -250,7 +250,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/view_runtimes,
 
-	/client/proc/reload_interactions,	/*SKYRAT EDIT ADDITION*/
+	//client/proc/reload_interactions,	/*SKYRAT EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - SKYRAT EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*SKYRAT EDIT ADDITION*/
 	)

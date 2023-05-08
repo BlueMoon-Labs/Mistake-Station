@@ -116,6 +116,7 @@
 	color_src = "balls_color"
 	key = ORGAN_SLOT_TESTICLES
 	always_color_customizable = TRUE
+	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
 	organ_type = /obj/item/organ/external/genital/testicles
 
 /datum/sprite_accessory/genital/testicles/none

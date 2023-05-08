@@ -171,6 +171,7 @@
 	alt_aroused = TRUE
 	var/can_have_sheath = TRUE
 	key = ORGAN_SLOT_PENIS
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	feat_taur = "penis_taur_mode"
 	always_color_customizable = TRUE
 

@@ -1,4 +1,3 @@
-// TEH DONUT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /obj/item/organ/external/genital/anus
 	name = "анус"
 	desc = "You see their squishy donut pucker parting their asscheeks"
@@ -87,8 +86,8 @@
 
 /datum/sprite_accessory/genital/anus/donut
 	icon_state = "anus"
-	name = DEF_ANUS_SHAPE
+	name = "Anus"
 
 /datum/sprite_accessory/genital/anus/squished
 	icon_state = "squished"
-	name = "squished"
+	name = "Squished"

@@ -466,6 +466,7 @@
 	savefile_key = "feature_butt"
 	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
 	default_accessory_type = /datum/sprite_accessory/genital/butt/none
+
 /datum/preference/numeric/butt_length
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -500,7 +501,7 @@
 	type_to_check = /datum/preference/choiced/genital/butt
 	skin_color_type = /datum/preference/toggle/genital_skin_color/butt
 
-/datum/preference/numeric/butt_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
+/datum/preference/numeric/butt_length/create_default_value()
 	return 0
 
 /datum/preference/numeric/butt_length/is_accessible(datum/preferences/preferences)

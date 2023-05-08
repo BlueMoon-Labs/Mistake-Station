@@ -97,6 +97,7 @@
 	color_src = "vag_color"
 	alt_aroused = TRUE
 	key = ORGAN_SLOT_VAGINA
+	relevent_layers = list(BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
 
 /datum/sprite_accessory/genital/vagina/none

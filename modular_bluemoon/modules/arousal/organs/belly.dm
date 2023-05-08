@@ -156,6 +156,7 @@
 	icon_state = "belly"
 	name = "belly"
 	color_src = "belly_color"
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	key = ORGAN_SLOT_BELLY
 
 /datum/sprite_accessory/genital/belly/none

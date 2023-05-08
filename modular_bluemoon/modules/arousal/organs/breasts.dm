@@ -198,6 +198,7 @@
 	color_src = "breasts_color"
 	has_skintone_shading = TRUE
 	key = ORGAN_SLOT_BREASTS
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
 /datum/sprite_accessory/genital/breasts/none
 	icon_state = "none"
