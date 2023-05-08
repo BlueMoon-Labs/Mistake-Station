@@ -15,9 +15,8 @@
 	genital_flags 			= UPDATE_OWNER_APPEARANCE | GENITAL_UNDIES_HIDDEN | CAN_CUM_INTO | HAS_EQUIPMENT
 	masturbation_verb 		= "massage"
 	var/size_cached			= 0
-	var/prev_size //former size value, to allow update_size() to early return should be there no significant changes.
+	var/prev_size 			//former size value, to allow update_size() to early return should be there no significant changes.
 	var/sent_full_message	= TRUE //defaults to 1 since they're full to start
-	//var/inflatable			= FALSE //For inflation connoisseurs //This is handled with the BELLY_INFLATION cit toggle now
 	layer_index 			= BELLY_LAYER_INDEX
 	bodypart_overlay 		= /datum/bodypart_overlay/mutant/genital/belly
 
