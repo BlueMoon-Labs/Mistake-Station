@@ -62,6 +62,12 @@
 		else
 			size_name = "плоского"
 
+/obj/item/organ/external/genital/testicles/build_from_dna(datum/dna/DNA, associated_key)
+	uses_skintones = DNA.features["genitals_use_skintone"]
+	update_size(DNA.features["balls_size"])
+
+	return ..()
+
 /obj/item/organ/external/genital/testicles/update_appearance()
 	. = ..()
 	desc = "Вы наблюдаете два семенника [size_name] размера."
@@ -113,10 +119,11 @@
 /datum/sprite_accessory/genital/testicles
 	icon = 'icons/obj/genitals/testicles_onmob.dmi'
 	icon_state = "testicle"
-	color_src = "balls_color"
+	color_src = USE_ONE_COLOR
 	key = ORGAN_SLOT_TESTICLES
 	always_color_customizable = TRUE
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
+	genetic = TRUE
 	organ_type = /obj/item/organ/external/genital/testicles
 
 /datum/sprite_accessory/genital/testicles/none

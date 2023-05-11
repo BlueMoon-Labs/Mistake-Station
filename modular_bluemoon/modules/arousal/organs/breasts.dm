@@ -125,6 +125,8 @@
 
 /obj/item/organ/external/genital/breasts/build_from_dna(datum/dna/DNA, associated_key)
 	lactates = DNA.features["breasts_lactation"]
+	uses_skintones = DNA.features["genitals_use_skintone"]
+	update_size(DNA.features["breasts_size"])
 
 	return ..()
 
@@ -195,11 +197,12 @@
 /datum/sprite_accessory/genital/breasts
 	icon = 'icons/obj/genitals/breasts_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/breasts
-	color_src = "breasts_color"
+	default_color = DEFAULT_SKIN_OR_PRIMARY
 	has_skintone_shading = TRUE
 	key = ORGAN_SLOT_BREASTS
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
+	genetic = TRUE
 /datum/sprite_accessory/genital/breasts/none
 	icon_state = "none"
 	name = "None"

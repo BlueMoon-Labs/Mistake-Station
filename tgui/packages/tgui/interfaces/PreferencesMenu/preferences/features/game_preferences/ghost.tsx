@@ -8,7 +8,7 @@ import { useBackend } from '../../../../../backend';
 import { PreferencesMenuData } from '../../../data';
 
 export const ghost_accs: FeatureChoiced = {
-  name: 'Ghost accessories',
+  name: 'Призрак. Аксессуары',
   category: 'GHOST',
   description: 'Determines what adjustments your ghost will have.',
   component: FeatureDropdownInput,
@@ -82,21 +82,21 @@ const GhostFormInput = (
 };
 
 export const ghost_form: FeatureChoiced = {
-  name: 'Ghosts form',
+  name: 'Призрак. Форма',
   category: 'GHOST',
   description: 'The appearance of your ghost. Requires BYOND membership.',
   component: GhostFormInput,
 };
 
 export const ghost_hud: FeatureToggle = {
-  name: 'Ghost HUD',
+  name: 'Призрак. ХУД',
   category: 'GHOST',
   description: 'Enable HUD buttons for ghosts.',
   component: CheckboxInput,
 };
 
 export const ghost_orbit: FeatureChoiced = {
-  name: 'Ghost orbit',
+  name: 'Призрак. Тип Полёта',
   category: 'GHOST',
   description: multiline`
     The shape in which your ghost will orbit.
@@ -115,7 +115,7 @@ export const ghost_orbit: FeatureChoiced = {
 };
 
 export const ghost_others: FeatureChoiced = {
-  name: 'Ghosts of others',
+  name: 'Призрак. Остальные',
   category: 'GHOST',
   description: multiline`
     Do you want the ghosts of others to show up as their own setting, as
@@ -125,14 +125,14 @@ export const ghost_others: FeatureChoiced = {
 };
 
 export const inquisitive_ghost: FeatureToggle = {
-  name: 'Ghost inquisitiveness',
+  name: 'Призрак. Любознательность',
   category: 'GHOST',
   description: 'Clicking on something as a ghost will examine it.',
   component: CheckboxInput,
 };
 
 export const ghost_roles: FeatureToggle = {
-  name: 'Get ghost roles',
+  name: 'Получать Роли Призраков',
   category: 'GHOST',
   description: multiline`
     If you de-select this, you will not get any ghost role pop-ups what-so-ever!

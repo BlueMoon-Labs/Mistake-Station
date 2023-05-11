@@ -796,27 +796,6 @@
 
 /mob/living/proc/do_crotchfart(mob/living/carbon/target)
 	var/message
-	/* Bluemoon edit - DON'T FUCKIN' TOUCH
-	var/u_His = ru_ego()
-	var/genital_name = "crotch"
-	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
-		genital_name = target.get_penetrating_genital_name()
-	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/external/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
-		genital_name = genital.name
-	*/
-
-	//var/list/asscheeks = list("asscheeks", "buttcheeks", "ass buns", "booty pillows", "dumptruck spheres", "[pick(list("jiggly", "bouncy", "wobbly"))] buttocks")
-	//var/list/ass = list("ass", "butt", "dumptruck", "tush", "badonk", "booty", "rump")
-	//var/jiggle = "[u_His] [pick(asscheeks)] [pick(list("jiggle", "bounce", "bounce around", "wobble"))] like crazy!"
-	//var/list/stank = list("greasy", "rancid", "pungent", "rotten", "boiling hot", "wet", "nose-burning", "heavy", "dense", "thick", "stinky", "stenchy", "warm")
-	/*var/list/braps = list(
-		"выдает массивный, зловонный метеоризм.",
-		"громко разрывает задницу, выпуская клуб пахнущего газа.",
-		"выпусакет немного вонючего газа.",
-		"сбрасывает вонючую газовую бомбу.",
-		"позволяет заднице расслабиться, выпуская ненормальное количество зловонного облака газа."
-	)*/
 	var/list/hell = list(
 		" толкает свою жопу прямо на промежность <b>[target]</b>, выдавая смачные и вонючие газы.",
 		" и <b>[target]</b> могут почувствовать запах зловония, заполняющего комнату, когда жопа просачивается между ляжек <b>[target]</b>!",
@@ -934,23 +913,6 @@
 
 /mob/living/proc/do_crotchshit(mob/living/carbon/target)
 	var/message
-	//var/t_His = target.ru_ego()
-	//var/u_His = ru_ego()
-
-	/* Bluemoon edit - DON'T FUCKIN' TOUCH
-	var/genital_name = "crotch"
-	if(target.has_penis(REQUIRE_EXPOSED) || target.has_strapon(REQUIRE_EXPOSED))
-		genital_name = target.get_penetrating_genital_name()
-	else if(target.has_vagina(REQUIRE_EXPOSED))
-		var/obj/item/organ/external/genital/vagina/genital = target.get_organ_slot(ORGAN_SLOT_VAGINA)
-		genital_name = genital.name
-	*/
-
-	//var/list/asscheeks = list("asscheeks", "buttcheeks", "ass buns", "booty pillows", "dumptruck spheres", "[pick(list("jiggly", "bouncy", "wobbly"))] buttocks")
-	//var/list/ass = list("ass", "butt", "dumptruck", "tush", "badonk", "booty", "rump")
-	//var/jiggle = "[u_His] [pick(asscheeks)] [pick(list("jiggle", "bounce", "bounce around", "wobble"))] like crazy!"
-	//var/list/stank = list("greasy", "rancid", "pungent", "rotten", "boiling hot", "wet", "nose-burning", "heavy", "dense", "thick", "stinky", "stenchy", "warm")
-	//var/list/stankhole = list("greasy", "stinky", "dirty", "gassy", "shitting", "noisy", "quaking", "musky", "messy", "shitcaked", "nasty")
 
 	var/list/hell = list(
 		"прижимает свои ягодицы к промежности <b>[target]</b>, покрывая все большим количеством теплого дерьма,",

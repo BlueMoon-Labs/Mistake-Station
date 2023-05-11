@@ -80,7 +80,7 @@
 			var/mob/living/carbon/human/H = owner
 			H.update_genitals()
 
-/obj/item/organ/external/genital/vagina/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/vagina/build_from_dna(mob/living/carbon/human/H, datum/dna/DNA)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
@@ -91,14 +91,17 @@
 	if(D.features["vag_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
+	return ..() // will update the sprite suffix
+
 /datum/sprite_accessory/genital/vagina
 	icon = 'icons/obj/genitals/vagina_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/vagina
-	color_src = "vag_color"
 	alt_aroused = TRUE
 	key = ORGAN_SLOT_VAGINA
 	relevent_layers = list(BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
+	default_color = "#FFCCCC"
+	genetic = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
 	icon_state = "none"

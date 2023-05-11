@@ -4,7 +4,8 @@
  * Now, please don't tell me your creature has a dna but it's very snowflakey, then i say you should rewrite your mob
  * instead of touching this file.
 */
-/proc/get_size(mob/living/carbon/human/dummy)
+/proc/get_size()
+	var/mob/living/carbon/human/dummy/dummy = new
 	if(!dummy)
 		CRASH("get_size(NULL) was called")
 	if(!istype(dummy))

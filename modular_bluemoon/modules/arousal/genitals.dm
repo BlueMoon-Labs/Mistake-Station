@@ -1,8 +1,33 @@
+/datum/sprite_accessory/genital
+	special_render_case = TRUE
+	special_colorize = TRUE
+	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
+	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
+	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
+	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
+	var/taur_dimension_y = 32
+	var/taur_dimension_x = 32
+	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
+	var/has_skintone_shading = FALSE
+	/// Where the genital is actually located, for clothing checks.
+	var/genital_location = GROIN
+
+/datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
+	var/obj/item/organ/external/genital/genital = human.get_organ_slot(key)
+	return "[genital?.sprite_suffix]"
+
+/datum/sprite_accessory/genital/get_special_render_colour(mob/living/carbon/human/human, render_state)
+	var/obj/item/organ/external/genital/genital = human.get_organ_slot(key)
+	if(genital?.uses_skintones && human.dna.species.use_skintones)
+		return skintone2hex(human.skin_tone)
+
 /obj/item/organ/external/genital
 	color = "#fcccb3"
 	w_class = WEIGHT_CLASS_SMALL
 	organ_flags = ORGAN_NO_DISMEMBERMENT|ORGAN_EDIBLE|HAS_EQUIPMENT //Maay edit it for other genitals later
-	var/shape
+	var/shape = SPECIES_HUMAN
+	///Size value of the genital, needs to be translated to proper lengths/diameters/cups
+	var/genital_size = 1
 	var/sensitivity = 1 // wow if this were ever used that'd be cool but it's not but i'm keeping it for my unshit code
 	var/genital_flags //see citadel_defines.dm
 	var/masturbation_verb = "стимулировать"
@@ -26,17 +51,6 @@
 	///Used for determining what sprite is being used, derrives from size and type
 	var/sprite_suffix
 
-/obj/item/organ/external/genital/Initialize(mapload, do_update = TRUE)
-	. = ..()
-	if(do_update)
-		update()
-
-/obj/item/organ/external/genital/Destroy()
-	if(linked_organ?.linked_organ == src)
-		linked_organ.linked_organ = null
-	linked_organ = null
-	. = ..()
-
 //This translates the float size into a sprite string
 /obj/item/organ/external/genital/proc/get_sprite_size_string()
 	return 0
@@ -49,18 +63,6 @@
 
 	our_overlay.sprite_suffix = sprite_suffix
 
-/obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
-	. = ..()
-	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
-	name = accessory.name
-	shape = accessory.icon_state
-	build_from_accessory(accessory, DNA)
-	update_sprite_suffix()
-
-	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
-
-	our_overlay.color_source = uses_skintones ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
-
 /datum/bodypart_overlay/mutant/genital
 	layers = EXTERNAL_FRONT
 	color_source = ORGAN_COLOR_OVERRIDE
@@ -72,7 +74,6 @@
 
 /datum/bodypart_overlay/mutant/genital/get_base_icon_state()
 	return sprite_suffix
-
 
 /datum/bodypart_overlay/mutant/genital/get_color_layer_names(icon_state_to_lookup)
 	if(length(sprite_datum.color_layer_names))
@@ -119,6 +120,12 @@
 		H.update_genitals()
 	if(linked_organ_slot || (linked_organ && !owner))
 		update_link()
+
+/obj/item/organ/external/genital/Destroy()
+	if(linked_organ?.linked_organ == src)
+		linked_organ.linked_organ = null
+	linked_organ = null
+	. = ..()
 
 //exposure and through-clothing code
 /mob/living/carbon
@@ -228,6 +235,7 @@
 		else
 			to_chat(src,"<span class='userlove'>You can't make that genital [picked_organ.aroused_state ? "unaroused" : "aroused"]!</span>")
 		picked_organ.update_appearance()
+		picked_organ.update_sprite_suffix()
 		if(ishuman(src))
 			var/mob/living/carbon/human/human = src
 			human.update_genitals()
@@ -237,9 +245,6 @@
 	if(owner) //Add extra space depending on the owner's size
 		fluid_max_volume += (modifier*2.5)*(get_size(owner)-1)
 		fluid_rate += (modifier/10)*(get_size(owner)-1)
-
-/obj/item/organ/external/genital/proc/update_size()
-	return
 
 /obj/item/organ/external/genital/proc/update_appearance_genitals()
 	if(!owner || owner.stat == DEAD)
@@ -275,6 +280,8 @@
 	return
 
 /obj/item/organ/external/genital/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return
 	. = ..()
 	if(.)
 		update()
@@ -292,6 +299,18 @@
 			H.update_genitals()
 		C.exposed_genitals -= src
 		UnregisterSignal(C, COMSIG_GLOB_MOB_DEATH)
+
+/obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
+	. = ..()
+	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
+	name = accessory.name
+	shape = accessory.icon_state
+	build_from_accessory(accessory, DNA)
+	update_sprite_suffix()
+
+	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
+
+	our_overlay.color_source = uses_skintones ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
 
 //proc to give a player their genitals and stuff when they log in
 /mob/living/carbon/human/proc/give_genitals(clean = FALSE)//clean will remove all pre-existing genitals. proc will then give them any genitals that are enabled in their DNA
@@ -330,6 +349,16 @@
 
 /obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
 	return "Вы наблюдаете гениталии"
+
+/obj/item/organ/external/genital/proc/update_size()
+	genital_size = size
+	update_sprite_suffix()
+
+/obj/item/organ/external/genital/Initialize(mapload, do_update = TRUE)
+	. = ..()
+	update_sprite_suffix()
+	if(do_update)
+		update()
 
 /mob/living/carbon/human/proc/update_genitals()
 	if(QDELETED(src))
@@ -587,13 +616,3 @@
 
 /obj/item/organ/external/genital
 	var/list/obj/item/equipment = list()
-
-/datum/sprite_accessory/genital
-	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
-	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
-	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
-	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
-	var/taur_dimension_y = 32
-	var/taur_dimension_x = 32
-	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
-	var/has_skintone_shading = FALSE

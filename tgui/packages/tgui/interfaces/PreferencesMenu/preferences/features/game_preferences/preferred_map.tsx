@@ -2,7 +2,7 @@ import { multiline } from 'common/string';
 import { Feature, FeatureDropdownInput } from '../base';
 
 export const preferred_map: Feature<string> = {
-  name: 'Preferred map',
+  name: 'Предпочитаемая Карта',
   category: 'GAMEPLAY',
   description: multiline`
     During map rotation, prefer this map be chosen.

@@ -41,7 +41,7 @@
 		var/obj/item/organ/external/genital/gent = target.get_organ_slot(organ_key)
 		if(gent)
 			gent.aroused_state = prefs.arousal_preview
-			gent.update_appearance()
+			gent.update_sprite_suffix()
 	//SKYRAT EDIT END
 
 /datum/preference/choiced/species/compile_constant_data()

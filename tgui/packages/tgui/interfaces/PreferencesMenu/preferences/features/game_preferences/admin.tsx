@@ -2,21 +2,21 @@ import { CheckboxInput, FeatureColorInput, Feature, FeatureDropdownInput, Featur
 import { multiline } from 'common/string';
 
 export const asaycolor: Feature<string> = {
-  name: 'Admin chat color',
+  name: 'Цвет Администратора в Чате',
   category: 'ADMIN',
   description: 'The color of your messages in Adminsay.',
   component: FeatureColorInput,
 };
 
 export const brief_outfit: Feature<string> = {
-  name: 'Brief outfit',
+  name: 'Наряд при встрече ОБР',
   category: 'ADMIN',
   description: 'The outfit to gain when spawning as the briefing officer.',
   component: FeatureDropdownInput,
 };
 
 export const bypass_deadmin_in_centcom: FeatureToggle = {
-  name: 'Bypass deadmin options when in CentCom',
+  name: 'Обход опции Деадмин при работе на ЦК',
   category: 'ADMIN',
   description:
     'Whether or not to always remain an admin when spawned in CentCom.',
@@ -24,7 +24,7 @@ export const bypass_deadmin_in_centcom: FeatureToggle = {
 };
 
 export const fast_mc_refresh: FeatureToggle = {
-  name: 'Enable fast MC stat panel refreshes',
+  name: 'Включить быстрое обновление Панели Статистики Сервера',
   category: 'ADMIN',
   description:
     'Whether or not the MC tab of the Stat Panel refreshes fast. This is expensive so make sure you need it.',
@@ -32,7 +32,7 @@ export const fast_mc_refresh: FeatureToggle = {
 };
 
 export const ghost_roles_as_admin: FeatureToggle = {
-  name: 'Get ghost roles while adminned',
+  name: 'Становление Обычным Призраком При Администрировании',
   category: 'ADMIN',
   description: multiline`
     If you de-select this, you will not get any ghost role pop-ups while
@@ -44,7 +44,7 @@ export const ghost_roles_as_admin: FeatureToggle = {
 };
 
 export const comms_notification: FeatureToggle = {
-  name: 'Enable comms console sound',
+  name: 'Включить звук Консоли Связи',
   category: 'ADMIN',
   component: CheckboxInput,
 };

@@ -26,16 +26,14 @@
 				var/obj/item/organ/external/genital/gent = mannequin.get_organ_slot(organ_key)
 				if(gent)
 					gent.aroused_state = AROUSAL_NONE
-					var/mob/living/carbon/human/H = mannequin
-					H.update_genitals()
+					gent.update_sprite_suffix()
 		if(PREVIEW_PREF_NAKED_AROUSED)
 			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS
 			for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS, ORGAN_SLOT_BUTT, ORGAN_SLOT_BELLY))
 				var/obj/item/organ/external/genital/gent = mannequin.get_organ_slot(organ_key)
 				if(gent)
 					gent.aroused_state = AROUSAL_FULL
-					var/mob/living/carbon/human/H = mannequin
-					H.update_genitals()
+					gent.update_sprite_suffix()
 
 	// Apply visual quirks
 	// Yes we do it every time because it needs to be done after job gear

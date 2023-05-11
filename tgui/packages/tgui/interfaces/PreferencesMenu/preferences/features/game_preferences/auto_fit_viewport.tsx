@@ -1,7 +1,7 @@
 import { CheckboxInput, FeatureToggle } from '../base';
 
 export const auto_fit_viewport: FeatureToggle = {
-  name: 'Auto fit viewport',
+  name: 'Автоматическая Подгонка Области Просмотра',
   category: 'UI',
   component: CheckboxInput,
 };

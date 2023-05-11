@@ -20,16 +20,13 @@
 	var/length = 6 //inches
 	var/sheath = SHEATH_NONE
 	var/prev_length = 6 //really should be renamed to prev_length
-	var/diameter = 4.38
+	var/diameter = 4
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/penis
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
-
-/datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
-	return GLOB.sprite_accessories[ORGAN_SLOT_PENIS]
 
 /obj/item/organ/external/genital/penis/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	var/datum/sprite_accessory/genital/penis/snake = accessory
@@ -81,6 +78,44 @@
 			to_chat(owner, "<span class='warning'>Твой [pick(GLOB.dick_nouns)] начинает [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] [uppertext(round(length*get_size(owner)))]-см. Не-ет!</b></span>")
 	icon_state = sanitize_text("penis_[shape]_[size]")
 	diameter = (length * diameter_ratio)//Is it just me or is this ludicous, why not make it exponentially decay?
+
+/obj/item/organ/external/genital/penis/get_sprite_size_string()
+	if(aroused_state != AROUSAL_FULL && sheath != SHEATH_NONE) //Sheath time!
+		var/poking_out = 0
+		if(aroused_state == AROUSAL_PARTIAL)
+			poking_out = 1
+		return "[lowertext(sheath)]_[poking_out]"
+
+	var/size_affix
+	var/measured_size = FLOOR(genital_size,1)
+	var/is_erect = 0
+	if(aroused_state == AROUSAL_FULL)
+		is_erect = 1
+	if(measured_size < 1)
+		measured_size = 1
+	switch(measured_size)
+		if(0 to 12)
+			size_affix = 1
+		if(13 to 24)
+			size_affix = 2
+		if(23 to 50)
+			size_affix = 3
+		if(51 to 90)
+			size_affix = 4
+		if(91 to INFINITY)
+			size_affix = 5
+
+	var/passed_string = "[shape]_[size_affix]_[is_erect]"
+	if(uses_skintones)
+		passed_string += "_s"
+	return passed_string
+
+/obj/item/organ/external/genital/penis/build_from_dna(datum/dna/DNA, associated_key)
+	length = DNA.features["cock_length"]
+	uses_skintones = DNA.features["genitals_use_skintone"]
+	update_size(DNA.features["cock_diameter_ratio"])
+
+	return ..()
 
 /obj/item/organ/external/genital/penis/update_appearance()
 	. = ..()
@@ -164,16 +199,22 @@
 				linked_organ.fluid_id = source_gen.get_fluid_id()
 		target.clear_reagents()
 
+/datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_PENIS]
+
 /datum/sprite_accessory/genital/penis
 	icon = 'icons/obj/genitals/penis_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/penis
-	color_src = "cock_color"
-	alt_aroused = TRUE
-	var/can_have_sheath = TRUE
+	color_src = USE_MATRIXED_COLORS
 	key = ORGAN_SLOT_PENIS
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	feat_taur = "penis_taur_mode"
 	always_color_customizable = TRUE
+	center = TRUE
+	special_icon_case = TRUE
+	special_x_dimension = TRUE
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	genetic = TRUE
+	var/can_have_sheath = TRUE
+	feat_taur = "penis_taur_mode"
 
 /datum/sprite_accessory/genital/penis/none
 	icon_state = "none"
@@ -183,44 +224,44 @@
 
 /datum/sprite_accessory/genital/penis/human
 	icon_state = "human"
-	name = "human"
+	name = "Human"
 	can_have_sheath = FALSE
 	has_skintone_shading = TRUE
 
 /datum/sprite_accessory/genital/penis/knotted
 	icon_state = "knotted"
-	name = "knotted"
+	name = "Knotted"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/flared
 	icon_state = "flared"
-	name = "flared"
+	name = "Flared"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/barbknot
 	icon_state = "barbknot"
-	name = "barbknot"
+	name = "Barbknot"
 
 /datum/sprite_accessory/genital/penis/tapered
 	icon_state = "tapered"
-	name = "tapered"
+	name = "Tapered"
 	taur_icon = 'icons/obj/genitals/taur_penis_onmob.dmi'
 	taur_dimension_x = 64
 
 /datum/sprite_accessory/genital/penis/tentacle
 	icon_state = "tentacle"
-	name = "tentacle"
+	name = "Tentacle"
 
 /datum/sprite_accessory/genital/penis/hemi
 	icon_state = "hemi"
-	name = "hemi"
+	name = "Hemi"
 
 /datum/sprite_accessory/genital/penis/hemiknot
 	icon_state = "hemiknot"
-	name = "hemiknot"
+	name = "Hemiknot"
 
 /datum/sprite_accessory/genital/penis/thick
 	icon_state = "thick"
-	name = "thick"
+	name = "Thick"

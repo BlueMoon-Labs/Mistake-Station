@@ -159,10 +159,11 @@
 	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/butt
 	icon_state = "butt"
-	color_src = "butt_color"
+	color_src = USE_ONE_COLOR
 	key = ORGAN_SLOT_BUTT
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
+	genetic = TRUE
 
 /datum/sprite_accessory/genital/butt/none
 	icon_state = "none"

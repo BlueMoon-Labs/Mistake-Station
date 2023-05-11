@@ -154,9 +154,10 @@
 	organ_type = /obj/item/organ/external/genital/belly
 	icon_state = "belly"
 	name = "belly"
-	color_src = "belly_color"
+	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	key = ORGAN_SLOT_BELLY
+	genetic = TRUE
 
 /datum/sprite_accessory/genital/belly/none
 	icon_state = "none"

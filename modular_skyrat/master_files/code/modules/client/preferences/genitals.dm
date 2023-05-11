@@ -175,7 +175,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["penis_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/numeric/penis_length
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -193,30 +193,30 @@
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
 /datum/preference/numeric/penis_length/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["penis_size"] = value
+	target.dna.features["cock_length"] = value
 
 /datum/preference/numeric/penis_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
 	return round((PENIS_MIN_LENGTH + PENIS_MAX_LENGTH) / 2)
 
-/datum/preference/numeric/penis_girth
+/datum/preference/numeric/cock_diameter_ratio
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "penis_girth"
+	savefile_key = "cock_diameter_ratio"
 	relevant_mutant_bodypart = ORGAN_SLOT_PENIS
 	minimum = PENIS_MIN_LENGTH
 	maximum = PENIS_MAX_GIRTH
 
-/datum/preference/numeric/penis_girth/is_accessible(datum/preferences/preferences)
+/datum/preference/numeric/cock_diameter_ratio/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
 	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/penis))
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
-/datum/preference/numeric/penis_girth/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["penis_girth"] = value
+/datum/preference/numeric/cock_diameter_ratio/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["cock_diameter_ratio"] = value
 
-/datum/preference/numeric/penis_girth/create_default_value()
+/datum/preference/numeric/cock_diameter_ratio/create_default_value()
 	return round((PENIS_MIN_LENGTH + PENIS_MAX_GIRTH) / 2)
 
 /datum/preference/tri_color/genital/penis
@@ -296,7 +296,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["testicles_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/tri_color/genital/testicles
 	savefile_key = "testicles_color"
@@ -355,7 +355,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["vagina_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/tri_color/genital/vagina
 	savefile_key = "vagina_color"
@@ -400,7 +400,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["breasts_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/tri_color/genital/breasts
 	savefile_key = "breasts_color"
@@ -487,7 +487,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["butt_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/tri_color/genital/butt
 	savefile_key = "butt_color"
@@ -546,7 +546,7 @@
 	if(!..()) // Don't apply it if it failed the check in the parent.
 		value = FALSE
 
-	target.dna.features["belly_uses_skincolor"] = value
+	target.dna.features["genitals_use_skintone"] = value
 
 /datum/preference/tri_color/genital/belly
 	savefile_key = "belly_color"

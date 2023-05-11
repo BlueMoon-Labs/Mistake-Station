@@ -1,7 +1,7 @@
 import { Feature, FeatureDropdownInput } from '../base';
 
 export const parallax: Feature<string> = {
-  name: 'Parallax (fancy space)',
+  name: 'Параллакс (Красивый Космос)',
   category: 'GAMEPLAY',
   component: FeatureDropdownInput,
 };

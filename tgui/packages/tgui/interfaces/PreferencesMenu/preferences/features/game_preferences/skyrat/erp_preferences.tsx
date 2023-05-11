@@ -1,21 +1,21 @@
 import { CheckboxInput, FeatureDropdownInput, FeatureChoiced, FeatureToggle } from '../../base';
 
 export const master_erp_pref: FeatureToggle = {
-  name: 'Show/Hide Erotic Roleplay Preferences',
+  name: 'Показать / Скрыть Предпочтения в эротических ролевых играх',
   category: 'ERP',
   description: 'This shows/hides ERP preferences.',
   component: CheckboxInput,
 };
 
 export const erp_pref: FeatureToggle = {
-  name: 'Erotic Roleplay Interaction',
+  name: 'Эротическое Ролевое Взаимодействие',
   category: 'ERP',
   description: 'This informs players of if you wish to engage in ERP.',
   component: CheckboxInput,
 };
 
 export const bimbofication_pref: FeatureToggle = {
-  name: 'Bimbofication',
+  name: 'Бимбофикация',
   category: 'ERP',
   description:
     'Toggles if you are able to react to the effects of bimbofication.',
@@ -23,7 +23,7 @@ export const bimbofication_pref: FeatureToggle = {
 };
 
 export const aphro_pref: FeatureToggle = {
-  name: 'Aphrodisiacs',
+  name: 'Афродизиаки',
   category: 'ERP',
   description:
     'Toggles whether you wish to recieve the effects of aphrodisiacs',
@@ -31,14 +31,14 @@ export const aphro_pref: FeatureToggle = {
 };
 
 export const sextoy_pref: FeatureToggle = {
-  name: 'Sex toy interaction',
+  name: 'Взаимодействие с Секс-Игрушками',
   category: 'ERP',
   description: 'When enabled, you will be able to interact with sex toys.',
   component: CheckboxInput,
 };
 
 export const breast_enlargement_pref: FeatureToggle = {
-  name: 'Breast enlargement',
+  name: 'Увеличение Груди',
   category: 'ERP',
   description:
     'Determines if you wish to receive the effects of breast enlargement chemicals.',
@@ -46,7 +46,7 @@ export const breast_enlargement_pref: FeatureToggle = {
 };
 
 export const breast_shrinkage_pref: FeatureToggle = {
-  name: 'Breast shrinkage',
+  name: 'Уменьшение Груди',
   category: 'ERP',
   description:
     'Determines if you wish to receive the effects of breast shrinkage chemicals.',
@@ -54,7 +54,7 @@ export const breast_shrinkage_pref: FeatureToggle = {
 };
 
 export const breast_removal_pref: FeatureToggle = {
-  name: 'Complete breast shrinkage',
+  name: 'Полное Уменьшение Груди',
   category: 'ERP',
   description:
     'Determines if you wish to receive the full effects of breast shrinkage chemicals.',
@@ -62,7 +62,7 @@ export const breast_removal_pref: FeatureToggle = {
 };
 
 export const penis_enlargement_pref: FeatureToggle = {
-  name: 'Penis enlargement',
+  name: 'Увеличение Полового Члена',
   category: 'ERP',
   description:
     'Determines if you wish to receive the effects of penis enlargement chemicals.',
@@ -70,7 +70,7 @@ export const penis_enlargement_pref: FeatureToggle = {
 };
 
 export const penis_shrinkage_pref: FeatureToggle = {
-  name: 'Penis shrinkage',
+  name: 'Уменьшение Полового Члена',
   category: 'ERP',
   description:
     'Determines if you wish to receive the effects of penis shrinkage chemicals.',
@@ -78,14 +78,14 @@ export const penis_shrinkage_pref: FeatureToggle = {
 };
 
 export const gender_change_pref: FeatureToggle = {
-  name: 'Forced gender change',
+  name: 'Принудительное Изменение Пола',
   category: 'ERP',
   description: 'Determines if you wish to allow forced gender changing.',
   component: CheckboxInput,
 };
 
 export const autocum_pref: FeatureToggle = {
-  name: 'Autocum',
+  name: 'Автоматический Оргазм',
   category: 'ERP',
   description:
     'Toggles whether you automatically cum using the arousal system, or if you need to do it manually.',
@@ -93,7 +93,7 @@ export const autocum_pref: FeatureToggle = {
 };
 
 export const autoemote_pref: FeatureToggle = {
-  name: 'Auto Emote',
+  name: 'Автоматические ЭРП-Реакции',
   category: 'ERP',
   description:
     'Toggles whether you automatically emote using the arousal system, or if you need to do it manually.',
@@ -101,7 +101,7 @@ export const autoemote_pref: FeatureToggle = {
 };
 
 export const erp_sexuality_pref: FeatureChoiced = {
-  name: 'Sexuality Preference',
+  name: 'Сексуальные Предпочтения',
   category: 'ERP',
   description:
     'Определяет, какой сексуальный контент вы предпочитаете. "Нет" показывает все содержимое.',
@@ -109,7 +109,7 @@ export const erp_sexuality_pref: FeatureChoiced = {
 };
 
 export const genitalia_removal_pref: FeatureToggle = {
-  name: 'ERP Genitalia Removal',
+  name: 'Удаление Половых Органов',
   category: 'ERP',
   description:
     'Если флажок установлен, позволяет наркотикам удалять существующие гениталии вашего персонажа.',
@@ -117,7 +117,7 @@ export const genitalia_removal_pref: FeatureToggle = {
 };
 
 export const new_genitalia_growth_pref: FeatureToggle = {
-  name: 'ERP New Genitalia Growth',
+  name: 'Наращивание Половых Органов',
   category: 'ERP',
   description:
     'Если флажок установлен, позволяет наркотикам вырастить новые гениталии на вашем персонаже.',

@@ -2,7 +2,7 @@ import { multiline } from 'common/string';
 import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput } from '../base';
 
 export const screentip_color: Feature<string> = {
-  name: 'Screentips color',
+  name: 'Подсказки. Цвет',
   category: 'UI',
   description: multiline`
     The color of screen tips, the text you see when hovering over something.
@@ -11,7 +11,7 @@ export const screentip_color: Feature<string> = {
 };
 
 export const screentip_pref: FeatureChoiced = {
-  name: 'Enable screentips',
+  name: 'Подсказки. Включить',
   category: 'UI',
   description: multiline`
     Enables screen tips, the text you see when hovering over something.

@@ -454,8 +454,8 @@
 		if("Penis Girth")
 			var/obj/item/organ/external/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
-			if(alterer.dna.features["penis_size"] >= max_girth)
-				max_girth = alterer.dna.features["penis_size"]
+			if(alterer.dna.features["cock_length"] >= max_girth)
+				max_girth = alterer.dna.features["cock_length"]
 			var/new_girth = tgui_input_number(
 				alterer,
 				"Choose your penis girth:\n(1-[max_girth] (based on length) in inches)",
@@ -464,8 +464,8 @@
 				min_value = 1
 			)
 			if(new_girth)
-				alterer.dna.features["penis_girth"] = new_girth
-				sausage.diameter = alterer.dna.features["penis_girth"]
+				alterer.dna.features["cock_diameter_ratio"] = new_girth
+				sausage.diameter = alterer.dna.features["cock_diameter_ratio"]
 
 		if("Penis Length")
 			var/obj/item/organ/external/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
@@ -478,11 +478,11 @@
 			)
 			if(!new_length)
 				return
-			alterer.dna.features["penis_size"] = new_length
-			if(alterer.dna.features["penis_girth"] >= new_length)
-				alterer.dna.features["penis_girth"] = new_length - 1
-				wang.diameter = alterer.dna.features["penis_girth"]
-			wang.update_size(alterer.dna.features["penis_size"])
+			alterer.dna.features["cock_length"] = new_length
+			if(alterer.dna.features["cock_diameter_ratio"] >= new_length)
+				alterer.dna.features["cock_diameter_ratio"] = new_length - 1
+				wang.diameter = alterer.dna.features["cock_diameter_ratio"]
+			wang.update_size(alterer.dna.features["cock_length"])
 
 		if("Penis Sheath")
 			var/obj/item/organ/external/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)

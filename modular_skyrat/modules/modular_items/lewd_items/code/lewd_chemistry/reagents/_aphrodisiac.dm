@@ -36,7 +36,7 @@
 	/// How much the penis is increased in size each time it's run
 	var/penis_length_increase_step = 1
 	/// How much the penis is increased in girth each time it's run
-	var/penis_girth_increase_step = 1
+	var/cock_diameter_ratio_increase_step = 1
 	/// How much the testicles are increased in size each time it's run
 	var/testicles_size_increase_step = 1
 	/// Largest girth the chem can make a mob's penis
@@ -44,9 +44,9 @@
 	/// Smallest girth the chem can make a mob's penis
 	var/penis_minimum_girth = 2
 	/// How much to reduce the size of the penis each time it's run
-	var/penis_size_reduction_step = 1
+	var/cock_length_reduction_step = 1
 	/// How much to reduce the girth of the penis each time it's run
-	var/penis_girth_reduction_step = 1
+	var/cock_diameter_ratio_reduction_step = 1
 	/// How much to reduce the size of the balls each time it's run
 	var/testicles_size_reduction_step = 1
 
@@ -291,11 +291,11 @@
 	else
 		var/needs_updating = FALSE
 		if(mob_penis.size > penis_min_length)
-			mob_penis.size = max(mob_penis.size - penis_size_reduction_step, penis_min_length)
+			mob_penis.size = max(mob_penis.size - cock_length_reduction_step, penis_min_length)
 			needs_updating = TRUE
 
 		if(mob_penis.diameter > penis_minimum_girth)
-			mob_penis.diameter = max(mob_penis.diameter - penis_girth_reduction_step, penis_minimum_girth)
+			mob_penis.diameter = max(mob_penis.diameter - cock_diameter_ratio_reduction_step, penis_minimum_girth)
 			needs_updating = TRUE
 
 		if(needs_updating)
@@ -594,7 +594,7 @@
 */
 /datum/reagent/drug/aphrodisiac/proc/update_appearance(mob/living/carbon/human/exposed_mob, obj/item/organ/external/genital/genital, mutations_overlay = FALSE)
 	if(genital)
-		genital.update()
+		genital.update_sprite_suffix()
 	if(exposed_mob)
 		exposed_mob.update_body()
 		if(mutations_overlay)

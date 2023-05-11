@@ -1,756 +1,756 @@
 import { FeatureChoiced, FeatureDropdownInput, Feature, FeatureColorInput, FeatureTextInput, FeatureShortTextInput, CheckboxInput, FeatureTriColorInput, FeatureTriBoolInput, FeatureToggle, FeatureNumberInput } from '../../base';
 
 export const feature_leg_type: FeatureChoiced = {
-  name: 'Leg type',
+  name: 'Тип Ног',
   component: FeatureDropdownInput,
 };
 
 export const feature_mcolor2: Feature<string> = {
-  name: 'Mutant color 2',
+  name: 'Вторичный Цвет Тела',
   component: FeatureColorInput,
 };
 export const feature_mcolor3: Feature<string> = {
-  name: 'Mutant color 3',
+  name: 'Третьичный Цвет Тела',
   component: FeatureColorInput,
 };
 
 export const flavor_text: Feature<string> = {
-  name: 'Flavor Text',
+  name: 'Описание Персонажа',
   description: 'Describe your character!',
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
-  name: 'Flavor Text (Silicon)',
+  name: 'Описание Персонажа для Силиконов',
   description: 'Describe your cyborg/AI shell!',
   component: FeatureTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
-  name: 'OOC Notes',
+  name: 'Описание персонажа — ООС-записи',
   description: 'Talk about your character OOCly!',
   component: FeatureTextInput,
 };
 
 export const custom_species: Feature<string> = {
-  name: 'Custom Species Name',
+  name: 'Особое Название Расы Вашего Персонажа',
   description:
     "Want to have a fancy species name? Put it here, or leave it blank if you want to use your species' default name.",
   component: FeatureShortTextInput,
 };
 
 export const custom_species_lore: Feature<string> = {
-  name: 'Custom Species Lore',
+  name: 'Особая Предыстория Вашего Персонажа',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: FeatureTextInput,
 };
 // SKYRAT EDIT ADDITION BEGIN -- RECORDS REJUVINATION
 export const general_record: Feature<string> = {
-  name: 'Records - General',
+  name: 'Записи - Основные',
   description:
     'Your general records! These are records that are for general viewing-things like employment, qualifications, etc. By default, anyone with a HUD/records access can view these.',
   component: FeatureTextInput,
 };
 
 export const security_record: Feature<string> = {
-  name: 'Records - Security',
+  name: 'Записи - Служба Безопасности',
   description:
     'Your security records! These are records for criminal records, arrest history, things like that. Sec officers can view these.',
   component: FeatureTextInput,
 };
 
 export const medical_record: Feature<string> = {
-  name: 'Records - Medical',
+  name: 'Записи - Медицинские',
   description:
     'Your medical records! These are records for things like medical history, prescriptions, DNR orders, etc. Medical staff can view these.',
   component: FeatureTextInput,
 };
 
 export const exploitable_info: Feature<string> = {
-  name: 'Records - Exploitable',
+  name: 'Записи - Используемое Антагонистами',
   description:
     "This section is for information antagonists can use, IN CHARACTER AND OUT. If you are willing to be disrupted by antagonists MORE than the average player (this is usually a very fun experience, if you're into that kind of roleplay), put it here! Also for things antagonists can use against your character.",
   component: FeatureTextInput,
 };
 
 export const pda_ringer: Feature<string> = {
-  name: 'PDA Ringer Message',
+  name: 'КПК — Предпочитаемый Рингтон',
   description:
     'Want your PDA to say something other than "beep"? Accepts the first 20 characters.',
   component: FeatureShortTextInput,
 };
 
 export const background_info: Feature<string> = {
-  name: 'Records - Background',
+  name: 'Записи - Предыстория(?)',
   description: 'nobody uses this lmao',
   component: FeatureTextInput,
 };
 // SKYRAT EDIT END
 export const allow_mismatched_parts_toggle: FeatureToggle = {
-  name: 'Allow Mismatched Parts',
+  name: 'Допустить Использование Дополнительных Частей',
   description:
     'Want to go completely crazy with your character design? Use this to select any parts from any species!',
   component: CheckboxInput,
 };
 
 export const allow_genitals_toggle: FeatureToggle = {
-  name: 'Allow Genital Parts',
+  name: 'Допустить Использование Половых Органов',
   description: 'Enables if you want to have genitals on your character.',
   component: CheckboxInput,
 };
 
 export const allow_emissives_toggle: FeatureToggle = {
-  name: 'Allow Emissives',
+  name: 'Допустить Свечение Органов',
   description: 'Time to become a glowstick.',
   component: CheckboxInput,
 };
 
 export const eye_emissives: FeatureToggle = {
-  name: 'Eye Emissives',
+  name: 'Допустить Свечение Глаз',
   description: 'Turn your eyes into sparklers.',
   component: CheckboxInput,
 };
 
 export const mutant_colors_color: Feature<string[]> = {
-  name: 'Mutant Colors',
+  name: 'Первичный Цвет Тела',
   description: 'Legacy colors for controlling shit.',
   component: FeatureTriColorInput,
 };
 
 export const body_markings_toggle: FeatureToggle = {
-  name: 'Body Markings',
+  name: 'Маркировка На Теле',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_body_markings: Feature<string> = {
-  name: 'Body Markings Selection',
+  name: 'Маркировка На Теле. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const body_markings_color: Feature<string[]> = {
-  name: 'Body Markings Colors',
+  name: 'Маркировка На Теле. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const body_markings_emissive: Feature<boolean[]> = {
-  name: 'Body Markings Emissives',
+  name: 'Маркировка На Теле. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const tail_toggle: FeatureToggle = {
-  name: 'Tail',
+  name: 'Хвост',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_tail: Feature<string> = {
-  name: 'Tail Selection',
+  name: 'Хвост. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const tail_color: Feature<string[]> = {
-  name: 'Tail Colors',
+  name: 'Хвост. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const tail_emissive: Feature<boolean[]> = {
-  name: 'Tail Emissives',
+  name: 'Хвост. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const snout_toggle: FeatureToggle = {
-  name: 'Snout',
+  name: 'Морда',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_snout: Feature<string> = {
-  name: 'Snout Selection',
+  name: 'Морда. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const snout_color: Feature<string[]> = {
-  name: 'Snout Colors',
+  name: 'Морда. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const snout_emissive: Feature<boolean[]> = {
-  name: 'Snout Emissives',
+  name: 'Морда. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const horns_toggle: FeatureToggle = {
-  name: 'Horns',
+  name: 'Рога',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_horns: Feature<string> = {
-  name: 'Horns Selection',
+  name: 'Рога. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const horns_color: Feature<string[]> = {
-  name: 'Horns Colors',
+  name: 'Рога. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const horns_emissive: Feature<boolean[]> = {
-  name: 'Horns Emissives',
+  name: 'Рога. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const ears_toggle: FeatureToggle = {
-  name: 'Ears',
+  name: 'Уши',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_ears: Feature<string> = {
-  name: 'Ears Selection',
+  name: 'Уши. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const ears_color: Feature<string[]> = {
-  name: 'Ears Colors',
+  name: 'Уши. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const ears_emissive: Feature<boolean[]> = {
-  name: 'Ears Emissives',
+  name: 'Уши. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const wings_toggle: FeatureToggle = {
-  name: 'Wings',
+  name: 'Крылья',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_wings: Feature<string> = {
-  name: 'Wings Selection',
+  name: 'Крылья. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const wings_color: Feature<string[]> = {
-  name: 'Wings Colors',
+  name: 'Крылья. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const wings_emissive: Feature<boolean[]> = {
-  name: 'Wings Emissives',
+  name: 'Крылья. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const frills_toggle: FeatureToggle = {
-  name: 'Frills',
+  name: 'Кожаный Воротник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_frills: Feature<string> = {
-  name: 'Frills Selection',
+  name: 'Кожаный Воротник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const frills_color: Feature<string[]> = {
-  name: 'Frills Colors',
+  name: 'Кожаный Воротник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const frills_emissive: Feature<boolean[]> = {
-  name: 'Frills Emissives',
+  name: 'Кожаный Воротник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const spines_toggle: FeatureToggle = {
-  name: 'Spines',
+  name: 'Выступающий Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_spines: Feature<string> = {
-  name: 'Spines Selection',
+  name: 'Выступающий Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const spines_color: Feature<string[]> = {
-  name: 'Spines Colors',
+  name: 'Выступающий Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const spines_emissive: Feature<boolean[]> = {
-  name: 'Spines Emissives',
+  name: 'Выступающий Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const digitigrade_legs: FeatureChoiced = {
-  name: 'Legs',
+  name: 'Ноги',
   component: FeatureDropdownInput,
 };
 
 export const caps_toggle: FeatureToggle = {
-  name: 'Cap',
+  name: 'Шляпка',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_caps: Feature<string> = {
-  name: 'Cap Selection',
+  name: 'Шляпка. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const caps_color: Feature<string[]> = {
-  name: 'Cap Colors',
+  name: 'Шляпка. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const caps_emissive: Feature<boolean[]> = {
-  name: 'Caps Emissives',
+  name: 'Шляпка. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const moth_antennae_toggle: FeatureToggle = {
-  name: 'Moth Antenna',
+  name: 'Моль - Антенна',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_moth_antennae: Feature<string> = {
-  name: 'Moth Antenna Selection',
+  name: 'Моль - Антенна. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const moth_antennae_color: Feature<string[]> = {
-  name: 'Moth Antenna Colors',
+  name: 'Моль - Антенна. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const moth_antennae_emissive: Feature<boolean[]> = {
-  name: 'Moth Antennae Emissives',
+  name: 'Моль - Антенна. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const moth_markings_toggle: FeatureToggle = {
-  name: 'Moth Markings',
+  name: 'Моль - Маркировка',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_moth_markings: Feature<string> = {
-  name: 'Moth Markings Selection',
+  name: 'Моль - Маркировка. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const moth_markings_color: Feature<string[]> = {
-  name: 'Moth Markings Colors',
+  name: 'Моль - Маркировка. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const moth_markings_emissive: Feature<boolean[]> = {
-  name: 'Moth Markings Emissives',
+  name: 'Моль - Маркировка. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const fluff_toggle: FeatureToggle = {
-  name: 'Fluff',
+  name: 'Пушистость',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_fluff: Feature<string> = {
-  name: 'Fluff Selection',
+  name: 'Пушистость. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const fluff_color: Feature<string[]> = {
-  name: 'Fluff Colors',
+  name: 'Пушистость. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const fluff_emissive: Feature<boolean[]> = {
-  name: 'Fluff Emissives',
+  name: 'Пушистость. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const head_acc_toggle: FeatureToggle = {
-  name: 'Head Accessories',
+  name: 'Голова - Дополнительные Части',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_head_acc: Feature<string> = {
-  name: 'Head Accessories Selection',
+  name: 'Голова - Дополнительные Части. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const head_acc_color: Feature<string[]> = {
-  name: 'Head Accessories Colors',
+  name: 'Голова - Дополнительные Части. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const head_acc_emissive: Feature<boolean[]> = {
-  name: 'Head Accessories Emissives',
+  name: 'Голова - Дополнительные Части. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const feature_ipc_screen: Feature<string> = {
-  name: 'IPC Screen Selection',
+  name: 'Экран IPC. Выбор',
   description:
     'The screen you wish to have displayed. If you have this set to "None", you won\'t get any screen at all.',
   component: FeatureDropdownInput,
 };
 
 export const ipc_screen_color: Feature<string> = {
-  name: 'IPC Screen Color',
+  name: 'Экран IPC. Color',
   description:
     "If your screen is greyscale enabled, then it'll take on this color.",
   component: FeatureColorInput,
 };
 
 export const ipc_screen_emissive: Feature<boolean> = {
-  name: 'IPC Screen Emissive',
+  name: 'Экран IPC. Emissive',
   description: 'Want your screen to glow in the dark?',
   component: CheckboxInput,
 };
 
 export const ipc_antenna_toggle: FeatureToggle = {
-  name: 'Synth Antenna',
+  name: 'Синт - Антенна',
   description: 'Want an antenna?',
   component: CheckboxInput,
 };
 
 export const feature_ipc_antenna: Feature<string> = {
-  name: 'Synth Antenna Selection',
+  name: 'Синт - Антенна. Выбор',
   description: 'The antenna you want attached to your head.',
   component: FeatureDropdownInput,
 };
 
 export const ipc_antenna_color: Feature<string[]> = {
-  name: 'Synth Antenna Colors',
+  name: 'Синт - Антенна. Цвет',
   description:
     'The color you want your antenna to be. Some support multiple colors.',
   component: FeatureTriColorInput,
 };
 
 export const ipc_antenna_emissive: Feature<boolean[]> = {
-  name: 'Synth Antenna Emissives',
+  name: 'Синт - Антенна. Свечение',
   description: 'Want your antenna to glow in the dark?.',
   component: FeatureTriBoolInput,
 };
 
 export const feature_ipc_chassis: Feature<string> = {
-  name: 'Synth Chassis Selection',
+  name: 'Синт - Ходовая Часть. Выбор',
   description:
     "Allows customization of an Synth's chassis! Only works for Synths.",
   component: FeatureDropdownInput,
 };
 
 export const ipc_chassis_color: Feature<string> = {
-  name: 'Synth Chassis Colors',
+  name: 'Синт - Ходовая Часть. Цвет',
   description:
     "Allows customization of an Synth's chassis! Only works for Synths, for chassis that support greyscale coloring.",
   component: FeatureColorInput,
 };
 
 export const feature_ipc_head: Feature<string> = {
-  name: 'Synth Head Selection',
+  name: 'Синт - Голова. Выбор',
   description:
     "Allows customization of an Synth's chassis! Only works for Synths.",
   component: FeatureDropdownInput,
 };
 
 export const ipc_head_color: Feature<string> = {
-  name: 'Synth Head Colors',
+  name: 'Синт - Голова. Цвет',
   description:
     "Allows customization of an Synth's head! Only works for Synths, for heads that support greyscale coloring.",
   component: FeatureColorInput,
 };
 
 export const feature_hair_opacity_toggle: Feature<boolean> = {
-  name: 'Hair Opacity',
+  name: 'Волосы - Непрозрачность',
   description: 'Enable the ability to override your hair opacity!',
   component: CheckboxInput,
 };
 
 export const feature_hair_opacity: Feature<number> = {
-  name: 'Hair Opacity',
+  name: 'Волосы - Непрозрачность',
   description: 'Change your hair opacity! Hardlight hair, anyone?',
   component: FeatureNumberInput,
 };
 
 export const neck_acc_toggle: FeatureToggle = {
-  name: 'Neck Accessories',
+  name: 'Шея - Дополнительные Части',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_neck_acc: Feature<string> = {
-  name: 'Neck Accessories Selection',
+  name: 'Шея - Дополнительные Части. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const neck_acc_color: Feature<string[]> = {
-  name: 'Neck Accessories Colors',
+  name: 'Шея - Дополнительные Части. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const neck_acc_emissive: Feature<boolean[]> = {
-  name: 'Neck Accessories Emissives',
+  name: 'Шея - Дополнительные Части. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const skrell_hair_toggle: FeatureToggle = {
-  name: 'Skrell Hair',
+  name: 'Скрелльская Причёска',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_skrell_hair: Feature<string> = {
-  name: 'Skrell Hair Selection',
+  name: 'Скрелльская Причёска. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const skrell_hair_color: Feature<string[]> = {
-  name: 'Skrell Hair Colors',
+  name: 'Скрелльская Причёска. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const skrell_hair_emissive: Feature<boolean[]> = {
-  name: 'Skrell Hair Emissives',
+  name: 'Скрелльская Причёска. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const taur_toggle: FeatureToggle = {
-  name: 'Taur',
+  name: 'Тавр',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_taur: Feature<string> = {
-  name: 'Taur Selection',
+  name: 'Тавр. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const taur_color: Feature<string[]> = {
-  name: 'Taur Colors',
+  name: 'Тавр. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const taur_emissive: Feature<boolean[]> = {
-  name: 'Taur Emissives',
+  name: 'Тавр. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const xenodorsal_toggle: FeatureToggle = {
-  name: 'Xenodorsal',
+  name: 'Ксеноморф - Выступающий Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_xenodorsal: Feature<string> = {
-  name: 'Xenodorsal Selection',
+  name: 'Ксеноморф - Выступающий Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const xenodorsal_color: Feature<string[]> = {
-  name: 'Xenodorsal Colors',
+  name: 'Ксеноморф - Выступающий Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const xenodorsal_emissive: Feature<boolean[]> = {
-  name: 'Xenodorsal Emissives',
+  name: 'Ксеноморф - Выступающий Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const xenohead_toggle: FeatureToggle = {
-  name: 'Xeno Head',
+  name: 'Ксеноморф - Голова',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_xenohead: Feature<string> = {
-  name: 'Xeno Head Selection',
+  name: 'Ксеноморф - Голова Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const xenohead_color: Feature<string[]> = {
-  name: 'Xeno Head Colors',
+  name: 'Ксеноморф - Голова. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const xenohead_emissive: Feature<boolean[]> = {
-  name: 'Xeno Head Emissives',
+  name: 'Ксеноморф - Голова. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const undershirt_color: Feature<string> = {
-  name: 'Undershirt color',
+  name: 'Цвет Рубашки',
   component: FeatureColorInput,
 };
 
 export const socks_color: Feature<string> = {
-  name: 'Socks color',
+  name: 'Цвет Носков',
   component: FeatureColorInput,
 };
 
 export const heterochromia_toggle: FeatureToggle = {
-  name: 'Heterochromia',
+  name: 'Глаза - Гетерохромия',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_heterochromia: Feature<string> = {
-  name: 'Heterochromia Selection',
+  name: 'Глаза - Гетерохромия. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const heterochromia_color: Feature<string[]> = {
-  name: 'Heterochromia Colors',
+  name: 'Глаза - Гетерохромия. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const heterochromia_emissive: Feature<boolean[]> = {
-  name: 'Heterochromia Emissives',
+  name: 'Глаза - Гетерохромия. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 
 export const vox_bodycolor: Feature<string> = {
-  name: 'Vox Bodycolor',
+  name: 'Цвет Тела Вокса',
   component: FeatureDropdownInput,
 };

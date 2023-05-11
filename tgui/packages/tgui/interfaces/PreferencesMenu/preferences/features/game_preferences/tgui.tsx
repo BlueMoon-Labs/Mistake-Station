@@ -1,42 +1,42 @@
 import { CheckboxInput, FeatureToggle } from '../base';
 
 export const tgui_fancy: FeatureToggle = {
-  name: 'Enable fancy TGUI',
+  name: 'Включить TGUI',
   category: 'UI',
   description: 'Makes TGUI windows look better, at the cost of compatibility.',
   component: CheckboxInput,
 };
 
 export const tgui_input: FeatureToggle = {
-  name: 'Input: Enable TGUI',
+  name: 'Инпут: Включить TGUI',
   category: 'UI',
   description: 'Renders input boxes in TGUI.',
   component: CheckboxInput,
 };
 
 export const tgui_input_large: FeatureToggle = {
-  name: 'Input: Larger buttons',
+  name: 'Инпут: Большие Кнопки',
   category: 'UI',
   description: 'Makes TGUI buttons less traditional, more functional.',
   component: CheckboxInput,
 };
 
 export const tgui_input_swapped: FeatureToggle = {
-  name: 'Input: Swap Submit/Cancel buttons',
+  name: 'Инпут: Поменять Местами Кнопки Отправки / Отмены',
   category: 'UI',
   description: 'Makes TGUI buttons less traditional, more functional.',
   component: CheckboxInput,
 };
 
 export const tgui_lock: FeatureToggle = {
-  name: 'Lock TGUI to main monitor',
+  name: 'Закрепить TGUI',
   category: 'UI',
   description: 'Locks TGUI windows to your main monitor.',
   component: CheckboxInput,
 };
 
 export const tgui_say_light_mode: FeatureToggle = {
-  name: 'Say: Light mode',
+  name: 'Говорить: Светлый Режим',
   category: 'UI',
   description: 'Sets TGUI Say to use a light mode.',
   component: CheckboxInput,

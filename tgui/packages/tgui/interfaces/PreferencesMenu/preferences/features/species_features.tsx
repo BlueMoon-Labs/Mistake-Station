@@ -1,81 +1,81 @@
 import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput } from './base';
 
 export const eye_color: Feature<string> = {
-  name: 'Eye color',
+  name: 'Цвет Глаз',
   component: FeatureColorInput,
 };
 
 export const facial_hair_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Растительность. Лицевая. Цвет',
   component: FeatureColorInput,
 };
 
 export const facial_hair_gradient: FeatureChoiced = {
-  name: 'Facial hair gradient',
+  name: 'Растительность. Лицевая. Градиент',
   component: FeatureDropdownInput,
 };
 
 export const facial_hair_gradient_color: Feature<string> = {
-  name: 'Facial hair gradient color',
+  name: 'Растительность. Лицевая. Цвет Градиента',
   component: FeatureColorInput,
 };
 
 export const hair_color: Feature<string> = {
-  name: 'Hair color',
+  name: 'Растительность. Цвет',
   component: FeatureColorInput,
 };
 
 export const hair_gradient: FeatureChoiced = {
-  name: 'Hair gradient',
+  name: 'Растительность. Градиент',
   component: FeatureDropdownInput,
 };
 
 export const hair_gradient_color: Feature<string> = {
-  name: 'Hair gradient color',
+  name: 'Растительность. Цвет Градиента',
   component: FeatureColorInput,
 };
 
 export const feature_human_ears: FeatureChoiced = {
-  name: 'Ears',
+  name: 'Уши',
   component: FeatureDropdownInput,
 };
 
 export const feature_human_tail: FeatureChoiced = {
-  name: 'Tail',
+  name: 'Хвост',
   component: FeatureDropdownInput,
 };
 
 export const feature_lizard_legs: FeatureChoiced = {
-  name: 'Legs',
+  name: 'Ноги',
   component: FeatureDropdownInput,
 };
 
 export const feature_lizard_spines: FeatureChoiced = {
-  name: 'Spines',
+  name: 'Выступающий Позвоночник',
   component: FeatureDropdownInput,
 };
 
 export const feature_lizard_tail: FeatureChoiced = {
-  name: 'Tail',
+  name: 'Хвост',
   component: FeatureDropdownInput,
 };
 
 export const feature_mcolor: Feature<string> = {
-  name: 'Mutant color',
+  name: 'Первичный Цвет Тела',
   component: FeatureColorInput,
 };
 
 export const underwear_color: Feature<string> = {
-  name: 'Underwear color',
+  name: 'Цвет Нижнего Белья',
   component: FeatureColorInput,
 };
 
 export const feature_vampire_status: Feature<string> = {
-  name: 'Vampire status',
+  name: 'Вампирский Статус',
   component: FeatureDropdownInput,
 };
 
 export const heterochromatic: Feature<string> = {
-  name: 'Heterochromatic (Right Eye) color',
+  name: 'Глаза - Гетерохромия (Правый Глаз)',
   component: FeatureColorInput,
 };
