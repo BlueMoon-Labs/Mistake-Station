@@ -46,7 +46,7 @@
 
 /obj/item/organ/external/genital/breasts/update_appearance()
 	. = ..()
-	var/lowershape = lowertext(shape)
+	var/lowershape = lowertext(genital_name)
 	switch(lowershape)
 		if("pair")
 			desc = "Вы видите грудь с двумя сосками."

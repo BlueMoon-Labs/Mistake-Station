@@ -35,7 +35,7 @@
 #define GENITAL_CAN_STUFF       (1<<14) //Splurt edit, used for pregnancy
 
 
-#define DEF_VAGINA_SHAPE	"человеческая"
+#define DEF_VAGINA_SHAPE	"human"
 
 #define COCK_SIZE_DEF		6
 
@@ -43,7 +43,7 @@
 #define COCK_DIAMETER_RATIO_DEF		0.25
 #define COCK_DIAMETER_RATIO_MIN		0.15
 
-#define DEF_COCK_SHAPE		"человеческий"
+#define DEF_COCK_SHAPE		"human"
 
 #define BALLS_VOLUME_BASE	25
 #define BALLS_VOLUME_MULT	1

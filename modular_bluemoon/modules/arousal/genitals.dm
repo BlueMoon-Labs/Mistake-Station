@@ -9,8 +9,6 @@
 	var/taur_dimension_x = 32
 	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
 	var/has_skintone_shading = FALSE
-	/// Where the genital is actually located, for clothing checks.
-	var/genital_location = GROIN
 
 /datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
 	var/obj/item/organ/external/genital/genital = human.get_organ_slot(key)
@@ -50,6 +48,10 @@
 	var/uses_skintones = FALSE
 	///Used for determining what sprite is being used, derrives from size and type
 	var/sprite_suffix
+	///Sprite name of the genital, it's what shows up on character creation
+	var/genital_name = "Human"
+	///Type of the genital. For penises tapered/horse/human etc. for breasts quadruple/sixtuple etc...
+	var/genital_type = SPECIES_HUMAN
 
 //This translates the float size into a sprite string
 /obj/item/organ/external/genital/proc/get_sprite_size_string()
@@ -303,8 +305,8 @@
 /obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
 	. = ..()
 	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
-	name = accessory.name
-	shape = accessory.icon_state
+	genital_name = accessory.name
+	genital_type = accessory.icon_state
 	build_from_accessory(accessory, DNA)
 	update_sprite_suffix()
 

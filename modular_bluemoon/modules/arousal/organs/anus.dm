@@ -29,7 +29,7 @@
 	update_appearance()
 
 /obj/item/organ/external/genital/anus/update_appearance(updates)
-	var/u_His = owner?.ru_ego() || "their"
+	var/u_His = owner?.ru_ego() || "этот самый"
 
 	var/datum/sprite_accessory/genital/anus/S = GLOB.anus_shapes_list[shape]
 	var/lowershape = lowertext(S?.icon_state || DEF_ANUS_SHAPE)

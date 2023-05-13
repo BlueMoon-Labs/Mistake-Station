@@ -61,7 +61,7 @@
 			to_chat(H, "<span class='warning'>Ваш животик начинает [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера.</span>")
 
 /obj/item/organ/external/genital/belly/update_appearance()
-	var/lowershape = lowertext(shape)
+	var/lowershape = lowertext(genital_name)
 
 	//Reflect the size of dat ass on examine.
 	switch(round(size))

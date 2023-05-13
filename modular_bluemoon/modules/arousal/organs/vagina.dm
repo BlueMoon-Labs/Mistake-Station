@@ -38,7 +38,7 @@
 /obj/item/organ/external/genital/vagina/update_appearance()
 	. = ..()
 	icon_state = "vagina"
-	var/lowershape = lowertext(shape)
+	var/lowershape = lowertext(genital_name)
 	var/details
 
 	switch(lowershape)

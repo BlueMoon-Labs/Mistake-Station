@@ -53,7 +53,7 @@
 
 
 /obj/item/organ/external/genital/butt/update_appearance()
-	var/lowershape = lowertext(shape)
+	var/lowershape = lowertext(genital_name)
 
 	//Reflect the size of dat ass on examine.
 	switch(round(size))

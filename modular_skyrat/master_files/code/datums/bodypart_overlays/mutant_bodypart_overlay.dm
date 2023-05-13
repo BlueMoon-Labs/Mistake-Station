@@ -63,7 +63,6 @@
 
 	return .
 
-
 /**
  * Helper to fetch the `feature_key` of the bodypart_overlay, so that it can be
  * overriden in the cases where `feature_key` is not what we want to use here.
@@ -71,10 +70,8 @@
 /datum/bodypart_overlay/mutant/proc/get_feature_key_for_overlay()
 	return feature_key
 
-
 /datum/bodypart_overlay/mutant/can_draw_on_bodypart(mob/living/carbon/human/human)
 	return !sprite_datum.is_hidden(human)
-
 
 /// Get the images we need to draw on the person. Called from get_overlay() which is called from _bodyparts.dm.
 /// `limb` can be null.
