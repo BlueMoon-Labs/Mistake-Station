@@ -100,6 +100,12 @@ export const allow_genitals_toggle: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const allow_add_genitals_toggle: FeatureToggle = {
+  name: 'Допустить Использование Доп. Половых Органов',
+  description: 'Enables if you want to have genitals on your character.',
+  component: CheckboxInput,
+};
+
 export const allow_emissives_toggle: FeatureToggle = {
   name: 'Допустить Свечение Органов',
   description: 'Time to become a glowstick.',
@@ -315,28 +321,28 @@ export const frills_emissive: Feature<boolean[]> = {
 };
 
 export const spines_toggle: FeatureToggle = {
-  name: 'Выступающий Позвоночник',
+  name: 'Крутой Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_spines: Feature<string> = {
-  name: 'Выступающий Позвоночник. Выбор',
+  name: 'Крутой Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const spines_color: Feature<string[]> = {
-  name: 'Выступающий Позвоночник. Цвет',
+  name: 'Крутой Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const spines_emissive: Feature<boolean[]> = {
-  name: 'Выступающий Позвоночник. Свечение',
+  name: 'Крутой Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
@@ -561,13 +567,13 @@ export const ipc_head_color: Feature<string> = {
 };
 
 export const feature_hair_opacity_toggle: Feature<boolean> = {
-  name: 'Волосы - Непрозрачность',
+  name: 'Растительность на Голове - Непрозрачность',
   description: 'Enable the ability to override your hair opacity!',
   component: CheckboxInput,
 };
 
 export const feature_hair_opacity: Feature<number> = {
-  name: 'Волосы - Непрозрачность',
+  name: 'Растительность на Голове - Непрозрачность',
   description: 'Change your hair opacity! Hardlight hair, anyone?',
   component: FeatureNumberInput,
 };
@@ -657,28 +663,28 @@ export const taur_emissive: Feature<boolean[]> = {
 };
 
 export const xenodorsal_toggle: FeatureToggle = {
-  name: 'Ксеноморф - Выступающий Позвоночник',
+  name: 'Ксеноморф - Крутой Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_xenodorsal: Feature<string> = {
-  name: 'Ксеноморф - Выступающий Позвоночник. Выбор',
+  name: 'Ксеноморф - Крутой Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureDropdownInput,
 };
 
 export const xenodorsal_color: Feature<string[]> = {
-  name: 'Ксеноморф - Выступающий Позвоночник. Цвет',
+  name: 'Ксеноморф - Крутой Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const xenodorsal_emissive: Feature<boolean[]> = {
-  name: 'Ксеноморф - Выступающий Позвоночник. Свечение',
+  name: 'Ксеноморф - Крутой Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,

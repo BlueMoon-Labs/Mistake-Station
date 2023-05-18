@@ -38,13 +38,6 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list, add_blank = TRUE) // SKYRAT EDIT - Customization - ORIGINAL: init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
 	//SKYRAT EDIT ADDITION BEGIN
 
-	//genitals
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/penis, GLOB.cock_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/vagina, GLOB.vagina_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/breasts, GLOB.breasts_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/testicles, GLOB.balls_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/anus, GLOB.anus_shapes_list)
-
 	//Scream types
 	for(var/spath in subtypesof(/datum/scream_type))
 		var/datum/scream_type/S = new spath()

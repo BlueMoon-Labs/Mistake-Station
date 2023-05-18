@@ -51,7 +51,7 @@ export const feature_lizard_legs: FeatureChoiced = {
 };
 
 export const feature_lizard_spines: FeatureChoiced = {
-  name: 'Выступающий Позвоночник',
+  name: 'Крутой Позвоночник',
   component: FeatureDropdownInput,
 };
 

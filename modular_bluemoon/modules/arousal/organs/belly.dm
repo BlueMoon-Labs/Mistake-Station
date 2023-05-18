@@ -1,7 +1,7 @@
 /obj/item/organ/external/genital/belly
 	name = "belly"
 	desc = "You see a belly on their midsection."
-	icon_state = "belly"
+	icon_state = "breasts_sextuple_e_s"
 	icon = 'icons/obj/genitals/breasts.dmi'
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_BELLY
@@ -97,9 +97,8 @@
 	update()
 	..()
 
-/obj/item/organ/external/genital/belly/build_from_dna()
+/obj/item/organ/external/genital/belly/build_from_dna(mob/living/carbon/human/H)
 	. = ..()
-	(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)

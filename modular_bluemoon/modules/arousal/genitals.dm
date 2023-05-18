@@ -156,25 +156,16 @@
 	return
 
 /obj/item/organ/external/genital/proc/is_exposed()
-	if(!owner)
+	if(!owner || visibility_preference & (GENITAL_INTERNAL|GENITAL_HIDDEN))
+		return FALSE
+	if(visibility_preference & GENITAL_THROUGH_CLOTHES)
 		return TRUE
 
-	if(!ishuman(owner))
-		return TRUE
-
-	var/mob/living/carbon/human/human = owner
-
-	switch(visibility_preference)
-		if(GENITAL_ALWAYS_SHOW)
-			return TRUE
-		if(GENITAL_HIDDEN_BY_CLOTHES)
-			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
-				return FALSE
-			else
-				return TRUE
-		else
-			return FALSE
-
+	switch(zone) //update as more genitals are added
+		if(BODY_ZONE_CHEST)
+			return owner.is_chest_exposed()
+		if(BODY_ZONE_PRECISE_GROIN)
+			return owner.is_groin_exposed()
 
 /datum/bodypart_overlay/mutant/genital
 	layers = EXTERNAL_FRONT
@@ -652,23 +643,23 @@
 				return TRUE
 
 			//Are they wearing an Undershirt?
-			if(target_mob.w_undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-				var/obj/item/clothing/underwear/shirt/worn_undershirt = GLOB.undershirt_list[target_mob.w_undershirt]
+			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+				var/datum/sprite_accessory/undershirt/worn_undershirt = GLOB.undershirt_list[target_mob.undershirt]
 				//Does this Undershirt cover a relevant slot?
 				if(genital_location == CHEST) //(Undershirt always covers chest)
 					return TRUE
 
-				else if(genital_location == GROIN && worn_undershirt.hides_breasts)
+				else if(genital_location == GROIN && worn_undershirt.hides_groin)
 					return TRUE
 
 			//Undershirt didn't cover them, are they wearing Underwear?
-			if(target_mob.w_underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-				var/obj/item/clothing/underwear/briefs/worn_underwear = GLOB.underwear_list[target_mob.w_underwear]
+			if(target_mob.underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+				var/datum/sprite_accessory/underwear/worn_underwear = GLOB.underwear_list[target_mob.underwear]
 				//Does this Underwear cover a relevant slot?
 				if(genital_location == GROIN) //(Underwear always covers groin)
 					return TRUE
 
-				else if(genital_location == CHEST && worn_underwear.hides_groin)
+				else if(genital_location == CHEST && worn_underwear.hides_breasts)
 					return TRUE
 
 			//Nothing they're wearing will cover them

@@ -1,22 +1,22 @@
 /obj/item/organ/external/genital/butt
-	name 					= "butt"
-	desc 					= "You see a pair of asscheeks."
-	icon 					= 'icons/obj/genitals/butt.dmi'
-	icon_state 				= "butt_pair_1"
-	zone 					= BODY_ZONE_PRECISE_GROIN
-	slot 					= ORGAN_SLOT_BUTT
-	mutantpart_key 			= ORGAN_SLOT_BUTT
-	mutantpart_info			= list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FEB"))
-	w_class 				= 3
-	genital_size 			= 0
-	var/size_name			= "nonexistent"
-	genital_type			= "Pair" //turn this into a default constant if for some inexplicable reason we get more than one butt type but I doubt it.
-	genital_flags 			= UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
-	masturbation_verb 		= "massage"
-	var/size_cached			= 0
-	var/prev_size 			//former size value, to allow update_size() to early return should be there no significant changes.
-	layer_index 			= BUTT_LAYER_INDEX
-	bodypart_overlay		= /datum/bodypart_overlay/mutant/genital/butt
+	name 				= "butt"
+	desc 				= "You see a pair of asscheeks."
+	icon 				= 'icons/obj/genitals/butt.dmi'
+	icon_state 			= "butt_pair_1"
+	zone 				= BODY_ZONE_PRECISE_GROIN
+	slot 				= ORGAN_SLOT_BUTT
+	mutantpart_key 		= ORGAN_SLOT_BUTT
+	mutantpart_info		= list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FEB"))
+	w_class 			= 3
+	genital_size 		= 0
+	var/size_name		= "nonexistent"
+	genital_type		= "Pair" //turn this into a default constant if for some inexplicable reason we get more than one butt type but I doubt it.
+	genital_flags 		= UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
+	masturbation_verb 	= "massage"
+	var/size_cached		= 0
+	var/prev_size 		//former size value, to allow update_size() to early return should be there no significant changes.
+	layer_index 		= BUTT_LAYER_INDEX
+	bodypart_overlay	= /datum/bodypart_overlay/mutant/genital/butt
 
 /datum/bodypart_overlay/mutant/genital/butt
 	feature_key = ORGAN_SLOT_BUTT

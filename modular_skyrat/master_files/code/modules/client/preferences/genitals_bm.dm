@@ -1,3 +1,27 @@
+/datum/preference/toggle/bm_allow_genitals
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "allow_add_genitals_toggle"
+	default_value = TRUE
+
+/datum/preference/toggle/bm_allow_genitals/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return TRUE // we dont actually want this to do anything
+
+/datum/preference/toggle/bm_allow_genitals/is_accessible(datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+	var/passed_initial_check = ..(preferences)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+	return erp_allowed && passed_initial_check
+
+/datum/preference/choiced/bm_genital/is_accessible(datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+	var/passed_initial_check = ..(preferences)
+	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/bm_allow_genitals)
+	return erp_allowed && (passed_initial_check || allowed)
+
 /datum/preference/choiced/bm_genital
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER

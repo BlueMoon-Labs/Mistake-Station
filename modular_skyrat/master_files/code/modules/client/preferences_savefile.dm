@@ -96,14 +96,12 @@
 		var/static/list/old_toggles
 		if(!old_toggles)
 			old_toggles = list(
-				"feature_penis" = /datum/preference/choiced/genital/penis,
-				"feature_testicles" = /datum/preference/choiced/genital/testicles,
-				"feature_vagina" = /datum/preference/choiced/genital/vagina,
-				"feature_womb" = /datum/preference/choiced/genital/womb,
-				"feature_breasts" = /datum/preference/choiced/genital/breasts,
-				"feature_belly" = /datum/preference/choiced/bm_genital/belly,
-				"feature_anus" = /datum/preference/choiced/genital/anus,
-				"feature_butt" = /datum/preference/choiced/bm_genital/butt,
+				"penis_toggle" = /datum/preference/choiced/genital/penis,
+				"testicles_toggle" = /datum/preference/choiced/genital/testicles,
+				"vagina_toggle" = /datum/preference/choiced/genital/vagina,
+				"womb_toggle" = /datum/preference/choiced/genital/womb,
+				"breasts_toggle" = /datum/preference/choiced/genital/breasts,
+				"anus_toggle" = /datum/preference/choiced/genital/anus,
 			)
 
 		for(var/toggle in old_toggles)
