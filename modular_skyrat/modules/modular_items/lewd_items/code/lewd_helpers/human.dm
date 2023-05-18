@@ -12,12 +12,6 @@
 	var/obj/item/nipples = null
 	var/obj/item/penis = null
 
-// For tracking arousal and fluid regen.
-/mob/living/carbon/human/Initialize(mapload)
-	. = ..()
-	if(!istype(src, /mob/living/carbon/human/species/monkey))
-		apply_status_effect(/datum/status_effect/aroused)
-		apply_status_effect(/datum/status_effect/body_fluid_regen)
 
 /mob/living/carbon/human/proc/is_hands_uncovered()
 	return (gloves?.body_parts_covered & ARMS)
@@ -71,6 +65,112 @@
 	gender = ngender
 	if(update_icon)
 		update_body()
+
+/*
+*	ICON UPDATING EXTENTION
+*/
+
+/// Updating vagina slot
+/mob/living/carbon/human/proc/update_inv_vagina()
+	// on_mob stuff
+	remove_overlay(VAGINA_LAYER)
+
+	var/obj/item/clothing/sextoy/sex_toy = vagina
+
+	if(wear_suit && (wear_suit.flags_inv & HIDESEXTOY)) // You can add proper flags here if required
+		return
+
+	var/icon_file = vagina?.worn_icon
+	var/mutable_appearance/vagina_overlay
+
+	if(!vagina_overlay)
+		vagina_overlay = sex_toy?.build_worn_icon(default_layer = VAGINA_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+
+	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
+	chest_part?.worn_uniform_offset?.apply_offset(vagina_overlay) // every day we stray further and further from god
+	overlays_standing[VAGINA_LAYER] = vagina_overlay
+
+	apply_overlay(VAGINA_LAYER)
+	update_mutant_bodyparts()
+
+/// Updating anus slot
+/mob/living/carbon/human/proc/update_inv_anus()
+	// on_mob stuff
+	remove_overlay(ANUS_LAYER)
+
+	var/obj/item/clothing/sextoy/sex_toy = anus
+
+	if(wear_suit && (wear_suit.flags_inv & HIDESEXTOY)) // You can add proper flags here if required
+		return
+
+	var/icon_file = anus?.worn_icon
+	var/mutable_appearance/anus_overlay
+
+	if(!anus_overlay)
+		anus_overlay = sex_toy?.build_worn_icon(default_layer = ANUS_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+
+	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
+
+	chest_part?.worn_uniform_offset?.apply_offset(anus_overlay) // and i keep on asking myself... why? why do we do this?
+	overlays_standing[ANUS_LAYER] = anus_overlay
+
+	apply_overlay(ANUS_LAYER)
+	update_mutant_bodyparts()
+
+/// Updating nipples slot
+/mob/living/carbon/human/proc/update_inv_nipples()
+	// on_mob stuff
+	remove_overlay(NIPPLES_LAYER)
+
+	var/obj/item/clothing/sextoy/sex_toy = nipples
+
+	if(wear_suit && (wear_suit.flags_inv & HIDESEXTOY)) // You can add proper flags here if required
+		return
+
+	var/icon_file = nipples?.worn_icon
+	var/mutable_appearance/nipples_overlay
+
+	if(!nipples_overlay)
+		nipples_overlay = sex_toy?.build_worn_icon(default_layer = NIPPLES_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+
+	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
+	chest_part?.worn_uniform_offset?.apply_offset(nipples_overlay) // then i realised something, something horrific
+
+	overlays_standing[NIPPLES_LAYER] = nipples_overlay
+
+	apply_overlay(NIPPLES_LAYER)
+	update_mutant_bodyparts()
+
+/// Updating penis slot
+/mob/living/carbon/human/proc/update_inv_penis()
+	// on_mob stuff
+	remove_overlay(PENIS_LAYER)
+
+	var/obj/item/clothing/sextoy/sex_toy = penis
+
+	if(wear_suit && (wear_suit.flags_inv & HIDESEXTOY)) // You can add proper flags here if required
+		return
+
+	var/icon_file = penis?.worn_icon
+	var/mutable_appearance/penis_overlay
+
+	if(!penis_overlay)
+		penis_overlay = sex_toy?.build_worn_icon(default_layer = PENIS_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+
+	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
+	chest_part?.worn_uniform_offset?.apply_offset(penis_overlay) // we can never escape, we are forever governed by sex(two)
+
+	overlays_standing[PENIS_LAYER] = penis_overlay
+
+	apply_overlay(PENIS_LAYER)
+	update_mutant_bodyparts()
+
+/// Helper proc for calling all the lewd slot update_inv_ procs.
+/mob/living/carbon/human/proc/update_inv_lewd()
+	update_inv_vagina()
+	update_inv_anus()
+	update_inv_nipples()
+	update_inv_penis()
 
 /*
 *	MISC LOGIC

@@ -203,7 +203,7 @@
 	if(statue.name == initial(statue.name)) //statue has not been set up
 		statue.name = "statue of [becoming_statue.real_name]"
 		statue.desc = "statue depicting [becoming_statue.real_name]"
-		statue.set_custom_materials(list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*5))
+		statue.set_custom_materials(list(/datum/material/silver=SHEET_MATERIAL_AMOUNT*5))
 
 	if(is_statue)
 		statue.visible_message(span_danger("[statue] becomes animated!"))
@@ -470,15 +470,6 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	desc = "A fleshy muscle mostly used for meowing."
 	say_mod = "meows"
 
-/obj/item/organ/internal/tongue/bananium
-	name = "bananium tongue"
-	desc = "A bananium geode mostly used for honking."
-	say_mod = "honks"
-	icon = 'icons/obj/weapons/horn.dmi'
-	icon_state = "gold_horn"
-	lefthand_file = 'icons/mob/inhands/equipment/horns_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/horns_righthand.dmi'
-
 /obj/item/organ/internal/tongue/jelly
 	name = "jelly tongue"
 	desc = "Ah... That's not the sound I expected it to make. Sounds like a Space Autumn Bird."
@@ -513,3 +504,11 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	icon_state = "tonguefluffy"
 	taste_sensitivity = 10 // extra sensitive and inquisitive uwu
 	initial_accents = list(/datum/accent/fluffy)
+
+/obj/item/organ/internal/tongue/golem
+	name = "golem tongue"
+	color = COLOR_WEBSAFE_DARK_GRAY
+	desc = "This silicate plate doesn't seem particularly mobile, but golems use it to form sounds."
+	say_mod = "rumbles"
+	sense_of_taste = FALSE
+	status = ORGAN_MINERAL

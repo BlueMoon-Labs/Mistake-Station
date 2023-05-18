@@ -52,6 +52,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/preview_outfit
 	/// Lazy list for antagonists to request the admins objectives.
 	var/list/requested_objective_changes
+	/// Flags for antags to turn on or off and check!
+	var/antag_flags = FLAG_ANTAG_CAN_BE_INDUCTED
 
 	//ANTAG UI
 
