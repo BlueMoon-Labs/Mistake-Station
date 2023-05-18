@@ -101,9 +101,9 @@
 				"feature_vagina" = /datum/preference/choiced/genital/vagina,
 				"feature_womb" = /datum/preference/choiced/genital/womb,
 				"feature_breasts" = /datum/preference/choiced/genital/breasts,
-				//"feature_belly" = /datum/preference/choiced/genital/belly,
+				"feature_belly" = /datum/preference/choiced/bm_genital/belly,
 				"feature_anus" = /datum/preference/choiced/genital/anus,
-				//"feature_butt" = /datum/preference/choiced/genital/butt,
+				"feature_butt" = /datum/preference/choiced/bm_genital/butt,
 			)
 
 		for(var/toggle in old_toggles)

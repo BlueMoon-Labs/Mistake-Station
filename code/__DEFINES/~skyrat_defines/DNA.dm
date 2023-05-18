@@ -95,6 +95,8 @@
 	"penis_taur_mode" = TRUE,\
 	"penis_sheath" = SHEATH_NONE,\
 	"balls_size" = 1,\
+	"belly_size" = 0,\
+	"butt_size" = 0,\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\
 	"penis_uses_skintones" = TRUE,\
@@ -105,12 +107,16 @@
 	"vagina_uses_skincolor" = TRUE,\
 	"breasts_uses_skintones" = TRUE,\
 	"breasts_uses_skincolor" = TRUE,\
+	"belly_uses_skintones" = TRUE,\
+	"belly_uses_skincolor" = TRUE,\
+	"butt_uses_skintones" = TRUE,\
+	"butt_uses_skincolor" = TRUE,\
 )
 
 #define AROUSAL_CANT 0
-#define AROUSAL_NONE 0
-#define AROUSAL_PARTIAL 1
-#define AROUSAL_FULL 1
+#define AROUSAL_NONE 1
+#define AROUSAL_PARTIAL 2
+#define AROUSAL_FULL 3
 
 //Species IDs. If you wanna look at tg's species ID defines, go look in the *other* DNA.dm file
 #define SPECIES_AKULA "akula"
