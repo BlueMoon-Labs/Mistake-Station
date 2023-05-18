@@ -8,7 +8,7 @@
 	icon_state = "crocinpen"
 	volume = 30
 	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/drug/aphrodisiac = 30)
+	list_reagents = list(/datum/reagent/drug/aphrodisiac/crocin = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/crocin/plus
 	name = "Shot of concentrated lust"
@@ -18,7 +18,7 @@
 	righthand_file = 'modular_splurt/icons/mob/inhands/equipment/medical_righthand.dmi'
 	icon_state = "hcrocinpen"
 	icon_state = "hcrocinpen"
-	list_reagents = list(/datum/reagent/drug/aphrodisiacplus = 30)
+	list_reagents = list(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/breastgrowth
 	name = "Succubus milk autoinjector"
@@ -96,7 +96,7 @@
 	volume = 60
 	amount_per_transfer_from_this = 60
 	list_reagents = list(
-		/datum/reagent/drug/aphrodisiacplus = 10,
+		/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 10,
 		/datum/reagent/fermi/breast_enlarger = 10,
 		/datum/reagent/fermi/penis_enlarger = 10,
 		/datum/reagent/fermi/butt_enlarger = 10,

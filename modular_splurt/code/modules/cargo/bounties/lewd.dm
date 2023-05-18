@@ -71,7 +71,7 @@
             var/static/list/possible_reagents = list(\
                 /datum/reagent/drug/aphrodisiac,\
                 /datum/reagent/consumable/ethanol/between_the_sheets,\
-                /datum/reagent/drug/aphrodisiacplus,\
+                /datum/reagent/drug/aphrodisiac/crocin/hexacrocin,\
                 /datum/reagent/lube)
             required_volume = 30
             reagent_type = pick(possible_reagents)

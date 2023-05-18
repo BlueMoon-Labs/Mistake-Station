@@ -45,7 +45,7 @@
 	update_body(TRUE)
 
 
-/mob/living/carbon/human/proc/adjust_arousal(strength, cause = "manual toggle", aphro = FALSE,maso = FALSE) // returns all genitals that were adjust
+/mob/living/carbon/human/proc/adjust_arousal(strength, cause = "manual toggle", aphro = FALSE, maso = FALSE) // returns all genitals that were adjust
 	var/list/obj/item/organ/external/genital/genit_list = list()
 	if(!client?.prefs.arousable || (aphro && (client?.prefs.read_preference(/datum/preference/toggle/erp/aphro))) || (maso && !HAS_TRAIT(src, TRAIT_MASOCHISM)))
 		return // no adjusting made here

@@ -19,7 +19,7 @@
 		playsound(src.loc, 'sound/weapons/tap.ogg', 50, 1, -1)
 		return
 	if(istype(H))
-		H.adjust_arousal(20, "masochism", maso=TRUE)
+		H.adjust_arousal(20, "masochism")
 		if(HAS_TRAIT(H, TRAIT_MASOCHISM) && H.has_dna() && prob(10))
 			H.mob_climax(forced_climax=TRUE, cause="masochism")
 	if(!HAS_TRAIT(src, TRAIT_PERMABONER))

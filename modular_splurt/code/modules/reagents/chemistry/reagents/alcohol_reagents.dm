@@ -169,7 +169,7 @@
 /datum/reagent/consumable/ethanol/chemical_ex/on_mob_life(mob/living/carbon/C)
 	. = ..()
 	if(!(current_cycle % 10)) //Every 10 cycles
-		C.reagents.add_reagent_list(list(/datum/reagent/drug/aphrodisiacplus = 2, /datum/reagent/medicine/morphine = 4))
+		C.reagents.add_reagent_list(list(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 2, /datum/reagent/medicine/morphine = 4))
 
 /datum/reagent/consumable/ethanol/heart_of_gold
 	name = "Heart Of Gold"

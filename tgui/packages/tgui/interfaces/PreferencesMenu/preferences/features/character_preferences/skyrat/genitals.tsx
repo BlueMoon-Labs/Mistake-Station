@@ -126,7 +126,7 @@ export const feature_womb: Feature<string> = {
 };
 
 export const feature_breasts: Feature<string> = {
-  name: 'Breast Choice',
+  name: 'Половые Органы. Грудь. Тип',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {

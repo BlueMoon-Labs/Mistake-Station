@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(micro_bricks_recipes, list( \
 	icon = 'modular_splurt/icons/obj/stack_objects.dmi'
 	icon_state = "SmallBucket"
 	icon_state = "SmallBucket"
-	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = 2000)
 	flags_1 = CONDUCT_1
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/micro_bricks

@@ -1,27 +1,3 @@
-/datum/round_event_control/scrubber_overflow/cope_and_seethe
-	name = "Copium Flood"
-	typepath = /datum/round_event/scrubber_overflow/cope_and_seethe
-	max_occurrences = 0
-
-/datum/round_event/scrubber_overflow/cope_and_seethe/announce()
-	priority_announce("Мы обнаружили высокий уровень Агрессии на станции. Для борьбы с этим мы будем использовать массовое количество копиума. Пожалуйста, держитесь подальше от вентиляционных отверстий, пока давление не выровняется.", "Центральное Командование")
-
-/datum/round_event/scrubber_overflow/cope_and_seethe
-	safer_chems = list(
-		/datum/reagent/drug/copium
-	)
-
-/datum/round_event/scrubber_overflow/cope_and_seethe/start()
-	for (var/obj/machinery/atmospherics/components/unary/vent as anything in scrubbers)
-		if (vent && vent.loc && !vent.welded)
-			var/datum/reagents/R = new/datum/reagents(1000)
-			R.my_atom = vent
-			R.add_reagent(/datum/reagent/drug/copium, 5)
-
-			R.create_foam(/datum/effect_system/fluid_spread/smoke, reagents_amount)
-
-		CHECK_TICK
-
 /datum/round_event_control/scrubber_overflow/female
 	name = "Clogged Vents: Girlcum"
 	typepath = /datum/round_event/scrubber_overflow/female
@@ -106,9 +82,9 @@
 
 /datum/round_event/scrubber_overflow/crocin/hexacrocin
 	safer_chems = list(
-		/datum/reagent/drug/aphrodisiacplus
+		/datum/reagent/drug/aphrodisiac/crocin/hexacrocin
 	)
-	reagent = /datum/reagent/drug/aphrodisiacplus
+	reagent = /datum/reagent/drug/aphrodisiac/crocin/hexacrocin
 
 /datum/round_event/scrubber_overflow/crocin/hexacrocin/announce()
 	priority_announce("Мы обнаружили опасно низкий уровень похоти на станции. Чтобы исправить это, мы будем использовать большое количество сильных афродизиаков. Пожалуйста, не подходите к вентиляционным отверстиям, пока розовый газ не рассеется, если вы хотите избежать повреждения мозга.", "Центральное Командование")

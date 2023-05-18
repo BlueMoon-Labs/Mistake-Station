@@ -1,13 +1,13 @@
-/datum/preference/toggle/bm_allow_genitals
+/datum/preference/toggle/allow_add_genitals
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "allow_add_genitals_toggle"
-	default_value = TRUE
+	default_value = FALSE
 
-/datum/preference/toggle/bm_allow_genitals/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/toggle/allow_add_genitals_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
-/datum/preference/toggle/bm_allow_genitals/is_accessible(datum/preferences/preferences)
+/datum/preference/toggle/allow_add_genitals_toggle/is_accessible(datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
 	var/passed_initial_check = ..(preferences)
@@ -19,7 +19,7 @@
 		return FALSE
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
-	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/bm_allow_genitals)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_add_genitals)
 	return erp_allowed && (passed_initial_check || allowed)
 
 /datum/preference/choiced/bm_genital
@@ -50,15 +50,6 @@
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
 	return erp_allowed && (passed_initial_check || allowed)
 
-/**
- * Actually rendered. Slimmed down version of the logic in is_available() that actually works when spawning or drawing the character.
- *
- * Returns if feature is visible.
- *
- * Arguments:
- * * The character this is being applied to.
- * * preferences - The relevant character preferences.
- */
 /datum/preference/choiced/bm_genital/proc/is_visible(mob/living/carbon/human/target, datum/preferences/preferences)
 	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences) || !preferences.read_preference(/datum/preference/toggle/allow_genitals))
 		return FALSE

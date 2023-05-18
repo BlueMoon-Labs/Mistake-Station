@@ -455,7 +455,7 @@
 
 		// Causes positive mood bonus
 		// On overdose: Causes negative mood penalty and disgust
-		/datum/reagent/drug/copium/gfluid,
+		/datum/reagent/drug/space_drugs,
 
 		// Restores blood volume
 		/datum/reagent/blood,
@@ -591,7 +591,7 @@
 /obj/item/implant/aphrodisiac_pump/plus
 	name = "hexacrocin pumping implant"
 	desc = "A pump that injects a potent aphrodisiac drug into the bloodstream constantly."
-	reagent = /datum/reagent/drug/aphrodisiacplus
+	reagent = /datum/reagent/drug/aphrodisiac/crocin/hexacrocin
 
 /obj/item/implant/aphrodisiac_pump/plus/get_data()
 	var/data = {"

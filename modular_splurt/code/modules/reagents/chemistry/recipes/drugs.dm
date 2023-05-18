@@ -7,5 +7,5 @@
 	required_reagents = list(/datum/reagent/consumable/tea = 1, /datum/reagent/consumable/enzyme = 3 , /datum/reagent/fuel = 1)
 
 /datum/chemical_reaction/copium
-	results = list(/datum/reagent/drug/copium = 2)
-	required_reagents = list(/datum/reagent/drug/anaphrodisiac = 1, /datum/reagent/drug/aphrodisiac = 1)
+	results = list(/datum/reagent/drug/space_drugs = 2)
+	required_reagents = list(/datum/reagent/drug/space_drugs = 1, /datum/reagent/drug/aphrodisiac = 1)
