@@ -4,23 +4,15 @@
 	savefile_key = "allow_add_genitals_toggle"
 	default_value = FALSE
 
-/datum/preference/toggle/allow_add_genitals_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/toggle/allow_add_genitals/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
-/datum/preference/toggle/allow_add_genitals_toggle/is_accessible(datum/preferences/preferences)
+/datum/preference/toggle/allow_add_genitals/is_accessible(datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
 	var/passed_initial_check = ..(preferences)
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
 	return erp_allowed && passed_initial_check
-
-/datum/preference/choiced/bm_genital/is_accessible(datum/preferences/preferences)
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return FALSE
-	var/passed_initial_check = ..(preferences)
-	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
-	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_add_genitals)
-	return erp_allowed && (passed_initial_check || allowed)
 
 /datum/preference/choiced/bm_genital
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -29,6 +21,26 @@
 
 	/// Path to the default sprite accessory
 	var/datum/sprite_accessory/default_accessory_type
+
+/datum/preference/choiced/bm_genital/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if(!preferences || !is_visible(target, preferences))
+		value = create_default_value()
+		. = FALSE
+
+	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
+		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = value, MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
+		return TRUE
+
+	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_NAME] = value
+	return TRUE
+
+/datum/preference/choiced/bm_genital/is_accessible(datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+	var/passed_initial_check = ..(preferences)
+	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_add_genitals)
+	return erp_allowed && (passed_initial_check || allowed)
 
 /datum/preference/choiced/bm_genital/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(!preferences || !is_visible(target, preferences))
