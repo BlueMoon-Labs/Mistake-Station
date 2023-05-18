@@ -111,7 +111,7 @@
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return
 
-	if(!(CHECK_BITFIELD(target_organ.genital_flags, GENITAL_CAN_STUFF)))
+	if(!(CHECK_BITFIELD(target_organ.visibility_preference, GENITAL_CAN_STUFF)))
 		to_chat(user, span_warning("This genital can't be stuffed!"))
 		return
 

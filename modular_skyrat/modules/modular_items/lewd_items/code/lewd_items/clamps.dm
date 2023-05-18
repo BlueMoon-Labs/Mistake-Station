@@ -44,8 +44,8 @@
 
 	if(src == user.nipples)
 		if(user_breast)
-			breast_type = user_breast?.shape
-			breast_size = user_breast?.size
+			breast_type = user_breast?.genital_type
+			breast_size = user_breast?.genital_size
 		else //character don't have tits, but male character should suffer too!
 			breast_type = "pair"
 			breast_size = 0
@@ -80,5 +80,5 @@
 	if(target.arousal < 15)
 		target.adjust_arousal(1 * seconds_per_tick)
 
-	if(target_breast.aroused_state != AROUSAL_CANT)
-		target_breast.aroused_state = AROUSAL_FULL //Clamps keeping nipples aroused
+	if(target_breast.aroused != AROUSAL_CANT)
+		target_breast.aroused = AROUSAL_FULL //Clamps keeping nipples aroused

@@ -25,7 +25,7 @@
 		to_chat(user, "<span class='notice'>You must remove the rod from the package first!</span>")
 		return
 	var/obj/item/organ/external/genital/penis/P = C.get_organ_slot(ORGAN_SLOT_PENIS)
-	if(C.has_penis(REQUIRE_EXPOSED) && (P?.genital_flags & HAS_EQUIPMENT))
+	if(C.has_penis(REQUIRE_EXPOSED) && (P?.visibility_preference & HAS_EQUIPMENT))
 		if(P.equipment[GENITAL_EQUIPMENT_SOUNDING])
 			to_chat(user, "<span class='notice'><b>\The [C]</b> already has a rod inside!</span>")
 			return

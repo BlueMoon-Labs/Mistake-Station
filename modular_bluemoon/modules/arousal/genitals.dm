@@ -1,57 +1,104 @@
-/datum/sprite_accessory/genital
-	special_render_case = TRUE
-	special_colorize = TRUE
-	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
-	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
-	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
-	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
-	var/taur_dimension_y = 32
-	var/taur_dimension_x = 32
-	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
-	var/has_skintone_shading = FALSE
-
-/datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
-	var/obj/item/organ/external/genital/genital = human.get_organ_slot(key)
-	return "[genital?.sprite_suffix]"
-
-/datum/sprite_accessory/genital/get_special_render_colour(mob/living/carbon/human/human, render_state)
-	var/obj/item/organ/external/genital/genital = human.get_organ_slot(key)
-	if(genital?.uses_skintones && human.dna.species.use_skintones)
-		return skintone2hex(human.skin_tone)
-
 /obj/item/organ/external/genital
 	color = "#fcccb3"
-	w_class = WEIGHT_CLASS_SMALL
-	organ_flags = ORGAN_NO_DISMEMBERMENT|ORGAN_EDIBLE|HAS_EQUIPMENT //Maay edit it for other genitals later
-	var/shape = SPECIES_HUMAN
-	///Size value of the genital, needs to be translated to proper lengths/diameters/cups
+	organ_flags = ORGAN_EDIBLE | ORGAN_NO_DISMEMBERMENT
+	///Size value of the genital, needs to be translated to proper lengths/girths/cups
 	var/genital_size = 1
-	var/sensitivity = 1 // wow if this were ever used that'd be cool but it's not but i'm keeping it for my unshit code
-	var/genital_flags //see citadel_defines.dm
-	var/masturbation_verb = "стимулировать"
-	var/orgasm_verb = "cumming" //present continous
-	var/arousal_verb = "You feel aroused"
-	var/unarousal_verb = "You no longer feel aroused"
-	var/fluid_transfer_factor = 0 //How much would a partner get in them if they climax using this?
-	var/size = 2 //can vary between num or text, just used in icon_state strings
+	///Sprite name of the genital, it's what shows up on character creation
+	var/genital_name = "Human"
+	///Type of the genital. For penises tapered/horse/human etc. for breasts quadruple/sixtuple etc...
+	var/genital_type = SPECIES_HUMAN
+	///Used for determining what sprite is being used, derrives from size and type
+	var/sprite_suffix
+	///Used for input from the user whether to show a genital through clothing or not, always or never etc.
+	var/visibility_preference = GENITAL_HIDDEN_BY_CLOTHES
+	///Whether the organ is aroused, matters for sprites, use AROUSAL_CANT, AROUSAL_NONE, AROUSAL_PARTIAL or AROUSAL_FULL
+	var/aroused = AROUSAL_NONE
+	///Whether the organ is supposed to use a skintoned variant of the sprite
+	var/uses_skintones = FALSE
+	///Whether the organ is supposed to use the color of the holder's skin tone.
+	var/uses_skin_color = FALSE
+	/// Where the genital is actually located, for clothing checks.
+	var/genital_location = GROIN
+	var/obj/item/organ/external/genital/linked_organ
+	//used for linking an apparatus' organ to its other half on update_link().
+	var/linked_organ_slot
+	// wow if this were ever used that'd be cool but it's not but i'm keeping it for my unshit code
+	var/sensitivity = 1
+	// For Fluids.
+	var/genital_flags
+	// How much would a partner get in them if they climax using this?
+	var/fluid_transfer_factor = 0
+	// Жидкости, сука, нахуй, блядь.
 	var/datum/reagent/fluid_id = null
 	var/fluid_max_volume = 50
 	var/fluid_efficiency = 1
 	var/fluid_rate = CUM_RATE
 	var/fluid_mult = 1
 	var/last_orgasmed = 0
-	var/aroused_state = FALSE //Boolean used in icon_state strings
-	var/obj/item/organ/external/genital/linked_organ
-	var/linked_organ_slot //used for linking an apparatus' organ to its other half on update_link().
+	var/arousal_verb = "Вы ощущаете сильное возбуждение"
+	var/unarousal_verb = "Возбуждение пропадает, будто бы его и не было"
+	// Boolean used in icon_state strings
+	var/aroused_state = FALSE
+	var/masturbation_verb = "стимулировать"
 	var/layer_index = GENITAL_LAYER_INDEX //Order should be very important. FIRST vagina, THEN testicles, THEN penis, as this affects the order they are rendered in.
-	///Whether the organ is supposed to use a skintoned variant of the sprite
-	var/uses_skintones = FALSE
-	///Used for determining what sprite is being used, derrives from size and type
-	var/sprite_suffix
-	///Sprite name of the genital, it's what shows up on character creation
-	var/genital_name = "Human"
-	///Type of the genital. For penises tapered/horse/human etc. for breasts quadruple/sixtuple etc...
-	var/genital_type = SPECIES_HUMAN
+
+/obj/item/organ/external/genital
+	/// Controls whenever a genital is always accessible
+	var/always_accessible = FALSE
+
+/// Toggles whether such genital can always be accessed
+/obj/item/organ/external/genital/proc/toggle_accessibility()
+	always_accessible = !always_accessible
+
+/obj/item/organ/external/genital
+	/// The fluid count of the genital.
+	var/internal_fluid_count = 0
+
+	/// The maximum amount of fluid that can be stored in the genital.
+	var/internal_fluid_maximum = 0
+
+	/// The datum to be used for the tracked fluid, should it need to be added to a fluid container.
+	var/internal_fluid_datum
+
+	/// The currently inserted sex toy.
+	var/obj/item/inserted_item
+
+/mob/living/carbon/proc/anus_toggle_visibility(visibility)
+	switch(visibility)
+		if(GEN_VISIBLE_ALWAYS)
+			anus_exposed = TRUE
+			log_message("Exposed their anus", LOG_EMOTE)
+		if(GEN_VISIBLE_NO_UNDIES)
+			anus_exposed = FALSE
+			log_message("Hid their anus under underwear", LOG_EMOTE)
+		else
+			anus_exposed = -1
+			log_message("Hid their anus completely", LOG_EMOTE)
+
+/obj/item/organ/external/genital/proc/set_aroused_state(new_state,cause = "manual toggle")
+	if(!(genital_flags & GENITAL_CAN_AROUSE))
+		return FALSE
+	if(!((HAS_TRAIT(owner,TRAIT_PERMABONER) && !new_state) || HAS_TRAIT(owner,TRAIT_NEVERBONER) && new_state))
+		aroused_state = new_state
+	owner.log_message("[src]'s arousal was [new_state ? "enabled" : "disabled"] due to [cause]", LOG_EMOTE)
+	return aroused_state
+
+/// Helper proc for checking if internal fluids are full or not.
+/obj/item/organ/external/genital/proc/internal_fluid_full()
+	return internal_fluid_count >= internal_fluid_maximum
+
+/// Adds the given amount to the internal fluid count, clamping it between 0 and internal_fluid_maximum.
+/obj/item/organ/external/genital/proc/adjust_internal_fluid(amount)
+	internal_fluid_count = clamp(internal_fluid_count + amount, 0, internal_fluid_maximum)
+
+/// Tries to add the specified amount to the target reagent container. Keeps in mind internal_fluid_count.
+/obj/item/organ/external/genital/proc/transfer_internal_fluid(datum/reagents/reagent_container, attempt_amount)
+	if(!internal_fluid_datum || !internal_fluid_count || !internal_fluid_maximum || !reagent_container)
+		return FALSE
+
+	attempt_amount = clamp(attempt_amount, 0, internal_fluid_count)
+	reagent_container.add_reagent(internal_fluid_datum, attempt_amount)
+	internal_fluid_count -= attempt_amount
 
 //This translates the float size into a sprite string
 /obj/item/organ/external/genital/proc/get_sprite_size_string()
@@ -65,6 +112,70 @@
 
 	our_overlay.sprite_suffix = sprite_suffix
 
+
+/obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
+	return "Вы наблюдаете Гениталии..."
+
+/obj/item/organ/external/genital/proc/update_genital_icon_state()
+	return
+
+/obj/item/organ/external/genital/proc/set_size(size)
+	genital_size = size
+	update_sprite_suffix()
+
+/obj/item/organ/external/genital/Initialize(mapload)
+	. = ..()
+	update_sprite_suffix()
+	if(CONFIG_GET(flag/disable_lewd_items))
+		return INITIALIZE_HINT_QDEL
+
+//Removes ERP organs depending on config
+/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special, drop_if_replaced)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return
+	. = ..()
+
+/obj/item/organ/external/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
+	. = ..()
+	update_genital_icon_state()
+
+/obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
+	. = ..()
+	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
+	genital_name = accessory.name
+	genital_type = accessory.icon_state
+	build_from_accessory(accessory, DNA)
+	update_sprite_suffix()
+
+	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
+
+	our_overlay.color_source = uses_skin_color ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
+
+/// for specific build_from_dna behavior that also checks the genital accessory.
+/obj/item/organ/external/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	return
+
+/obj/item/organ/external/genital/proc/is_exposed()
+	if(!owner)
+		return TRUE
+
+	if(!ishuman(owner))
+		return TRUE
+
+	var/mob/living/carbon/human/human = owner
+
+	switch(visibility_preference)
+		if(GENITAL_ALWAYS_SHOW)
+			return TRUE
+		if(GENITAL_HIDDEN_BY_CLOTHES)
+			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
+				return FALSE
+			else
+				return TRUE
+		else
+			return FALSE
+
+
 /datum/bodypart_overlay/mutant/genital
 	layers = EXTERNAL_FRONT
 	color_source = ORGAN_COLOR_OVERRIDE
@@ -76,6 +187,7 @@
 
 /datum/bodypart_overlay/mutant/genital/get_base_icon_state()
 	return sprite_suffix
+
 
 /datum/bodypart_overlay/mutant/genital/get_color_layer_names(icon_state_to_lookup)
 	if(length(sprite_datum.color_layer_names))
@@ -92,168 +204,84 @@
 			continue
 
 		var/layertext = mutant_bodyparts_layertext(bitflag_to_layer(layer))
-		if ("[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["1"] = "primary"
-		if ("[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["2"] = "secondary"
-		if ("[feature_key]_[get_base_icon_state()]_[layertext]_tertiary" in cached_mutant_icon_states)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_tertiary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["3"] = "tertiary"
 
 	return sprite_datum.color_layer_names
 
-/obj/item/organ/external/genital/on_life()
-	return
-
-/obj/item/organ/external/genital/proc/set_aroused_state(new_state,cause = "manual toggle")
-	if(!(genital_flags & GENITAL_CAN_AROUSE))
-		return FALSE
-	if(!((HAS_TRAIT(owner,TRAIT_PERMABONER) && !new_state) || HAS_TRAIT(owner,TRAIT_NEVERBONER) && new_state))
-		aroused_state = new_state
-	owner.log_message("[src]'s arousal was [new_state ? "enabled" : "disabled"] due to [cause]", LOG_EMOTE)
-	return aroused_state
-
-/obj/item/organ/external/genital/proc/update()
-	if(QDELETED(src))
-		return
-	update_size()
-	update_appearance()
-	if(genital_flags & UPDATE_OWNER_APPEARANCE && owner && ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		H.update_genitals()
-	if(linked_organ_slot || (linked_organ && !owner))
-		update_link()
-
-/obj/item/organ/external/genital/Destroy()
-	if(linked_organ?.linked_organ == src)
-		linked_organ.linked_organ = null
-	linked_organ = null
-	. = ..()
-
-//exposure and through-clothing code
-/mob/living/carbon
-	var/list/exposed_genitals = list() //Keeping track of them so we don't have to iterate through every genitalia and see if exposed
-
-/obj/item/organ/external/genital/proc/is_exposed()
-	if(!owner || genital_flags & (GENITAL_INTERNAL|GENITAL_HIDDEN))
-		return FALSE
-
-	if(genital_flags & GENITAL_THROUGH_CLOTHES)
-		return TRUE
-
-	switch(zone) //update as more genitals are added
-		if(BODY_ZONE_CHEST)
-			return owner.is_chest_exposed()
-		if(BODY_ZONE_PRECISE_GROIN)
-			return owner.is_groin_exposed()
-
-/obj/item/organ/external/genital/proc/toggle_visibility(visibility, update = TRUE)
-	if(visibility != GEN_ALLOW_EGG_STUFFING)
-		genital_flags &= ~(GENITAL_THROUGH_CLOTHES|GENITAL_HIDDEN|GENITAL_UNDIES_HIDDEN)
-	if(owner)
-		owner.exposed_genitals -= src
-	switch(visibility)
-		if(GEN_VISIBLE_ALWAYS)
-			genital_flags |= GENITAL_THROUGH_CLOTHES
-			if(owner)
-				owner.log_message("Exposed their [src]",LOG_EMOTE)
-				owner.exposed_genitals += src
-		if(GEN_VISIBLE_NO_CLOTHES)
-			if(owner)
-				owner.log_message("Hid their [src] under clothes only",LOG_EMOTE)
-		if(GEN_VISIBLE_NO_UNDIES)
-			genital_flags |= GENITAL_UNDIES_HIDDEN
-			if(owner)
-				owner.log_message("Hid their [src] under underwear",LOG_EMOTE)
-		if(GEN_VISIBLE_NEVER)
-			genital_flags |= GENITAL_HIDDEN
-			if(owner)
-				owner.log_message("Hid their [src] completely",LOG_EMOTE)
-		if(GEN_ALLOW_EGG_STUFFING)
-			TOGGLE_BITFIELD(genital_flags, GENITAL_CAN_STUFF)
-			if(owner)
-				owner.log_message("Allowed egg stuffing in their [src]",LOG_EMOTE)
-
-	if(update && owner && ishuman(owner)) //recast to use update genitals proc
-		var/mob/living/carbon/human/H = owner
-		H.update_genitals()
-
-/mob/living/carbon/verb/toggle_genitals()
+/mob/living/carbon/human/verb/toggle_genitals()
 	set category = "IC"
 	set name = "Expose/Hide genitals"
 	set desc = "Allows you to toggle which genitals should show through clothes or not."
 
 	if(stat != CONSCIOUS)
-		to_chat(usr, "<span class='warning'>You can toggle genitals visibility right now...</span>")
+		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
 		return
 
 	var/list/genital_list = list()
-	for(var/obj/item/organ/external/genital/G in organs)
-		if(!(G.genital_flags & GENITAL_INTERNAL))
-			genital_list += G
+	for(var/obj/item/organ/external/genital/genital in organs)
+		if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
+			genital_list += genital
 	if(!genital_list.len) //There is nothing to expose
 		return
 	//Full list of exposable genitals created
 	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in (get_organ_slot(ORGAN_SLOT_ANUS) ? genital_list : genital_list + list("anus"))
+	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
 	if(picked_organ && (picked_organ in organs))
-		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in GLOB.genitals_visibility_toggles
+		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
+									"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+									"Always show" = GENITAL_ALWAYS_SHOW
+									)
+		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in gen_vis_trans
 		if(picked_visibility && picked_organ && (picked_organ in organs))
-			picked_organ.toggle_visibility(picked_visibility)
-
-	if(picked_organ == "anus" && !get_organ_slot(ORGAN_SLOT_ANUS))
-		var/picked_visibility = tgui_input_list(src, "Chose visibility setting", "Expose/Hide genitals", GLOB.genitals_visibility_toggles - list(GEN_VISIBLE_NO_CLOTHES))
-		anus_toggle_visibility(picked_visibility)
+			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
+			update_body()
 	return
 
-/mob/living/carbon/proc/anus_toggle_visibility(visibility)
-	switch(visibility)
-		if(GEN_VISIBLE_ALWAYS)
-			anus_exposed = TRUE
-			log_message("Exposed their anus", LOG_EMOTE)
-		if(GEN_VISIBLE_NO_UNDIES)
-			anus_exposed = FALSE
-			log_message("Hid their anus under underwear", LOG_EMOTE)
-		else
-			anus_exposed = -1
-			log_message("Hid their anus completely", LOG_EMOTE)
+//Removing ERP IC verb depending on config
+/mob/living/carbon/human/Initialize(mapload)
+	. = ..()
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		verbs -= /mob/living/carbon/human/verb/toggle_genitals
+		verbs -= /mob/living/carbon/human/verb/toggle_arousal
 
-/mob/living/carbon/verb/toggle_arousal_state()
+/mob/living/carbon/human/verb/toggle_arousal()
 	set category = "IC"
-	set name = "Toggle genital arousal"
-	set desc = "Allows you to toggle which genitals are showing signs of arousal."
-	var/list/genital_list = list()
-	for(var/obj/item/organ/external/genital/G in organs)
-		if(G.genital_flags & GENITAL_CAN_AROUSE)
-			genital_list += G
-	if(!genital_list.len) //There's nothing that can show arousal
+	set name = "Toggle Arousal"
+	set desc = "Allows you to toggle how aroused your private parts are."
+
+	if(stat != CONSCIOUS)
+		to_chat(usr, span_warning("You can't toggle arousal right now..."))
 		return
+
+	var/list/genital_list = list()
+	for(var/obj/item/organ/external/genital/genital in organs)
+		if(!genital.aroused == AROUSAL_CANT)
+			genital_list += genital
+	if(!genital_list.len) //There is nothing to expose
+		return
+	//Full list of exposable genitals created
 	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to toggle arousal on", "Set genital arousal", null) in genital_list
-	if(picked_organ)
-		var/original_state = picked_organ.aroused_state
-		picked_organ.set_aroused_state(!picked_organ.aroused_state)
-		if(original_state != picked_organ.aroused_state)
-			to_chat(src,"<span class='userlove'>[picked_organ.aroused_state ? picked_organ.arousal_verb : picked_organ.unarousal_verb].</span>")
-		else
-			to_chat(src,"<span class='userlove'>You can't make that genital [picked_organ.aroused_state ? "unaroused" : "aroused"]!</span>")
-		picked_organ.update_appearance()
-		picked_organ.update_sprite_suffix()
-		if(ishuman(src))
-			var/mob/living/carbon/human/human = src
-			human.update_genitals()
+	picked_organ = input(src, "Choose which genitalia to change arousal", "Expose/Hide genitals") as null|anything in genital_list
+	if(picked_organ && (picked_organ in organs))
+		var/list/gen_arous_trans = list(
+			"Not aroused" = AROUSAL_NONE,
+			"Partly aroused" = AROUSAL_PARTIAL,
+			"Very aroused" = AROUSAL_FULL,
+		)
+		var/picked_arousal = input(src, "Choose arousal", "Toggle Arousal") as null|anything in gen_arous_trans
+		if(picked_arousal && picked_organ && (picked_organ in organs))
+			picked_organ.aroused = gen_arous_trans[picked_arousal]
+			picked_organ.update_sprite_suffix()
+			update_body()
 	return
-
-/obj/item/organ/external/genital/proc/modify_size(modifier, min = -INFINITY, max = INFINITY)
-	if(owner) //Add extra space depending on the owner's size
-		fluid_max_volume += (modifier*2.5)*(get_size(owner)-1)
-		fluid_rate += (modifier/10)*(get_size(owner)-1)
-
-/obj/item/organ/external/genital/proc/update_appearance_genitals()
-	if(!owner || owner.stat == DEAD)
-		aroused_state = FALSE
 
 /obj/item/organ/external/genital/proc/generate_fluid(datum/reagents/R)
-	var/amount = clamp((fluid_rate * ((world.time - last_orgasmed) / (10 SECONDS)) * fluid_mult),0,fluid_max_volume)
+	var/amount = get_fluid()
 	R.clear_reagents()
 	R.maximum_volume = fluid_max_volume
 	if(fluid_id)
@@ -262,11 +290,21 @@
 		R.add_reagent(linked_organ.fluid_id,amount, owner.get_blood_data())
 	return TRUE
 
+/obj/item/organ/external/genital/proc/update()
+	if(QDELETED(src))
+		return
+	update_appearance()
+	if(genital_flags & UPDATE_OWNER_APPEARANCE && owner && ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		H.update_genitals()
+	if(linked_organ_slot || (linked_organ && !owner))
+		update_link()
+
 /obj/item/organ/external/genital/proc/update_link()
 	if(owner)
 		if(linked_organ)
 			return FALSE
-		linked_organ = owner.get_organ_slot(linked_organ_slot)
+		linked_organ = owner.getorganslot(linked_organ_slot)
 		if(linked_organ)
 			linked_organ.linked_organ = src
 			linked_organ.upon_link()
@@ -281,38 +319,111 @@
 /obj/item/organ/external/genital/proc/upon_link()
 	return
 
-/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
-	if(CONFIG_GET(flag/disable_erp_preferences))
+//Checks to see if organs are new on the mob, and changes their colours so that they don't get crazy colours.
+/mob/living/carbon/human/proc/emergent_genital_call()
+	if(!client.prefs.arousable)
+		return FALSE
+
+	var/organCheck = locate(/obj/item/organ/external/genital) in organs
+	var/breastCheck = getorganslot(ORGAN_SLOT_BREASTS)
+	var/willyCheck = getorganslot(ORGAN_SLOT_PENIS)
+	var/buttCheck = getorganslot(ORGAN_SLOT_BUTT)
+	var/ballCheck = getorganslot(ORGAN_SLOT_TESTICLES)
+	var/bellyCheck = getorganslot(ORGAN_SLOT_BELLY)
+	var/anusCheck = getorganslot(ORGAN_SLOT_ANUS)
+
+	if(organCheck == FALSE)
+		if(ishuman(src) && dna.species.use_skintones)
+			dna.features["genitals_use_skintone"] = TRUE
+		if(dna.species.fixed_mut_color)
+			dna.features["cock_color"] = "[dna.species.fixed_mut_color]"
+			dna.features["breasts_color"] = "[dna.species.fixed_mut_color]"
+			dna.features["butt_color"] = "[dna.species.fixed_mut_color]"
+			dna.features["testicles_color"] = "[dna.species.fixed_mut_color]"
+			dna.features["belly_color"] = "[dna.species.fixed_mut_color]"
+			dna.features["anus_color"] = "[dna.species.fixed_mut_color]"
+			return
+		//So people who haven't set stuff up don't get rainbow surprises.
+		dna.features["cock_color"] = "[dna.features["mcolor"]]"
+		dna.features["breasts_color"] = "[dna.features["mcolor"]]"
+		dna.features["butt_color"] = "[dna.features["mcolor"]]"
+		dna.features["testicles_color"] = "[dna.features["mcolor"]]"
+		dna.features["belly_color"] = "[dna.features["mcolor"]]"
+		dna.features["anus_color"] = "[dna.features["mcolor"]]"
+	else //If there's a new organ, make it the same colour.
+		if(breastCheck == FALSE)
+			dna.features["breasts_color"] = dna.features["cock_color"]
+		else if (willyCheck == FALSE)
+			dna.features["cock_color"] = dna.features["breasts_color"]
+		else if (buttCheck == FALSE)
+			dna.features["butt_color"] = dna.features["butt_color"]
+		else if (ballCheck == FALSE)
+			dna.features["testicles_color"] = dna.features["testicles_color"]
+		else if (bellyCheck == FALSE)
+			dna.features["belly_color"] = dna.features["belly_color"]
+		else if (anusCheck)
+			dna.features["anus_color"] = dna.features["butt_color"]
+	return TRUE
+
+/obj/item/organ/external/genital
+	var/max_size = 6
+	var/min_size = 1
+	var/datum/reagents/climax_fluids
+	var/datum/reagent/original_fluid_id
+	var/datum/reagent/default_fluid_id
+	var/list/writtentext = ""
+
+/obj/item/organ/external/genital/proc/modify_size(modifier, min = -INFINITY, max = INFINITY)
+	fluid_max_volume += modifier*2.5
+	fluid_rate += modifier/10
+	return
+
+/obj/item/organ/external/genital/modify_size(modifier, min, max)
+	. = ..()
+	if(owner) //Add extra space depending on the owner's size
+		fluid_max_volume += (modifier*2.5)*(get_size(owner)-1)
+		fluid_rate += (modifier/10)*(get_size(owner)-1)
+
+/obj/item/organ/external/genital/proc/size_to_state()
+	return genital_size
+
+/obj/item/organ/external/genital/proc/get_fluid()
+	return clamp(fluid_rate * ((world.time - last_orgasmed) / (10 SECONDS)) * fluid_mult, 0, fluid_max_volume)
+
+/obj/item/organ/external/genital/proc/get_fluid_fraction()
+	return get_fluid() / fluid_max_volume
+
+/obj/item/organ/external/genital/proc/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen)
+    return
+
+/obj/item/organ/external/genital/proc/get_fluid_id()
+	if(fluid_id)
+		return fluid_id
+	else if(linked_organ?.fluid_id)
+		return linked_organ.fluid_id
+	return
+
+/obj/item/organ/external/genital/proc/get_fluid_name()
+	var/milkies = get_fluid_id()
+	var/message
+	if(!milkies) //No milkies??
 		return
-	. = ..()
-	if(.)
-		update()
-		RegisterSignal(owner, COMSIG_GLOB_MOB_DEATH, .proc/update_appearance_genitals)
-		if(genital_flags & GENITAL_THROUGH_CLOTHES)
-			owner.exposed_genitals += src
+	var/datum/reagent/R = find_reagent_object_from_type(milkies)
+	message = R.name
+	return message
 
-/obj/item/organ/external/genital/Remove(special = FALSE, moving)
-	. = ..()
-	var/mob/living/carbon/C = .
-	update()
-	if(!QDELETED(C))
-		if(genital_flags & UPDATE_OWNER_APPEARANCE && ishuman(C))
-			var/mob/living/carbon/human/H = .
-			H.update_genitals()
-		C.exposed_genitals -= src
-		UnregisterSignal(C, COMSIG_GLOB_MOB_DEATH)
+/obj/item/organ/external/genital/proc/get_default_fluid()
+	if(default_fluid_id)
+		return default_fluid_id
+	else if(linked_organ?.default_fluid_id)
+		return linked_organ.default_fluid_id
+	return
 
-/obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)
-	. = ..()
-	var/datum/sprite_accessory/genital/accessory = GLOB.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
-	genital_name = accessory.name
-	genital_type = accessory.icon_state
-	build_from_accessory(accessory, DNA)
-	update_sprite_suffix()
-
-	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
-
-	our_overlay.color_source = uses_skintones ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
+/obj/item/organ/external/genital/proc/set_fluid_id(new_fluidtype)
+	if(genital_flags & GENITAL_FLUID_PRODUCTION)
+		fluid_id = new_fluidtype
+	else if(linked_organ?.genital_flags & GENITAL_FLUID_PRODUCTION)
+		linked_organ?.fluid_id = new_fluidtype
 
 //proc to give a player their genitals and stuff when they log in
 /mob/living/carbon/human/proc/give_genitals(clean = FALSE)//clean will remove all pre-existing genitals. proc will then give them any genitals that are enabled in their DNA
@@ -339,28 +450,15 @@
 		give_genital(/obj/item/organ/external/genital/anus)
 
 /mob/living/carbon/human/proc/give_genital(obj/item/organ/external/genital/G)
-	if(!dna || (NOGENITALS in dna.species.species_traits) || get_organ_slot(initial(G.slot)))
+	if(!dna || (NOGENITALS in dna.species.species_traits) || getorganslot(initial(G.slot)))
 		return FALSE
 	G = new G(null, FALSE)
-	G.get_features(src)
+	G.build_from_dna(src)
 	G.Insert(src)
 	return G
 
-/obj/item/organ/external/genital/proc/get_features(mob/living/carbon/human/H)
-	return
-
-/obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
-	return "Вы наблюдаете гениталии"
-
-/obj/item/organ/external/genital/proc/update_size()
-	genital_size = size
-	update_sprite_suffix()
-
-/obj/item/organ/external/genital/Initialize(mapload, do_update = TRUE)
-	. = ..()
-	update_sprite_suffix()
-	if(do_update)
-		update()
+/obj/item/organ/external/genital
+	var/list/obj/item/equipment = list()
 
 /mob/living/carbon/human/proc/update_genitals()
 	if(QDELETED(src))
@@ -399,7 +497,7 @@
 		for(var/A in genitals_to_add)
 			if(istype(A, /obj/item/clothing/underwear/briefs/strapon))
 				var/obj/item/clothing/underwear/briefs/strapon/strapon = A
-				var/datum/sprite_accessory/genital/S = GLOB.cock_shapes_list[GLOB.dildo_shape_to_cock_shape[strapon.dildo_shape]]
+				var/datum/sprite_accessory/S = GLOB.cock_shapes_list[GLOB.dildo_shape_to_cock_shape[strapon.dildo_shape]]
 				var/mutable_appearance/genital_overlay = mutable_appearance(S.icon, layer = -layer)
 				genital_overlay.color = strapon.dildo_color
 				genital_overlay.icon_state = "[ORGAN_SLOT_PENIS]_[S.icon_state]_[strapon.dildo_size]_[1]_[layertext]"
@@ -414,27 +512,27 @@
 				continue
 
 			var/obj/item/organ/external/genital/G = A
-			var/datum/sprite_accessory/genital/S
-			var/size = G.size
+			var/datum/sprite_accessory/S
+			var/size = G.size_to_state()
 			switch(G.type)
 				if(/obj/item/organ/external/genital/penis)
-					S = GLOB.cock_shapes_list[G.shape]
+					S = GLOB.cock_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/testicles)
-					S = GLOB.balls_shapes_list[G.shape]
+					S = GLOB.balls_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/vagina)
-					S = GLOB.vagina_shapes_list[G.shape]
+					S = GLOB.vagina_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/breasts)
-					S = GLOB.breasts_shapes_list[G.shape]
+					S = GLOB.breasts_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/butt)
-					S = GLOB.butt_shapes_list[G.shape]
+					S = GLOB.butt_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/belly)
-					S = GLOB.belly_shapes_list[G.shape]
+					S = GLOB.belly_shapes_list[G.genital_type]
 				if(/obj/item/organ/external/genital/anus)
-					S = GLOB.anus_shapes_list[G.shape]
+					S = GLOB.anus_shapes_list[G.genital_type]
 
 			if(!S || S.icon_state == "none")
 				continue
-			var/aroused_state = G.aroused_state && S.alt_aroused
+			var/aroused_state = G.aroused && S.alt_aroused
 			var/accessory_icon = S.icon
 			var/do_center = S.center
 			var/dim_x = S.dimension_x
@@ -489,132 +587,111 @@
 	for(var/L in relevant_layers)
 		apply_overlay(layers_num[L])
 
+/mob/living/carbon/human/update_genitals()
+	. = ..()
 
-//Checks to see if organs are new on the mob, and changes their colours so that they don't get crazy colours.
-/mob/living/carbon/human/proc/emergent_genital_call()
-	if(!client.prefs.arousable)
-		return FALSE
+	// Send signal
+	SEND_SIGNAL(src, COMSIG_MOB_UPDATE_GENITALS)
 
-	var/organCheck = locate(/obj/item/organ/external/genital) in organs
-	var/breastCheck = get_organ_slot(ORGAN_SLOT_BREASTS)
-	var/willyCheck = get_organ_slot(ORGAN_SLOT_PENIS)
-	var/buttCheck = get_organ_slot(ORGAN_SLOT_BUTT)
-	var/ballCheck = get_organ_slot(ORGAN_SLOT_TESTICLES)
-	var/bellyCheck = get_organ_slot(ORGAN_SLOT_BELLY)
-	var/anusCheck = get_organ_slot(ORGAN_SLOT_ANUS)
+/obj/item/organ/external/genital/proc/toggle_visibility(visibility, update = TRUE)
+	if(visibility != GEN_ALLOW_EGG_STUFFING)
+		genital_flags &= ~(GENITAL_THROUGH_CLOTHES|GENITAL_HIDDEN|GENITAL_UNDIES_HIDDEN)
+	if(owner)
+		owner.exposed_genitals -= src
+	switch(visibility)
+		if(GEN_VISIBLE_ALWAYS)
+			genital_flags |= GENITAL_THROUGH_CLOTHES
+			if(owner)
+				owner.log_message("Exposed their [src]",LOG_EMOTE)
+				owner.exposed_genitals += src
+		if(GEN_VISIBLE_NO_CLOTHES)
+			if(owner)
+				owner.log_message("Hid their [src] under clothes only",LOG_EMOTE)
+		if(GEN_VISIBLE_NO_UNDIES)
+			genital_flags |= GENITAL_UNDIES_HIDDEN
+			if(owner)
+				owner.log_message("Hid their [src] under underwear",LOG_EMOTE)
+		if(GEN_VISIBLE_NEVER)
+			genital_flags |= GENITAL_HIDDEN
+			if(owner)
+				owner.log_message("Hid their [src] completely",LOG_EMOTE)
+		if(GEN_ALLOW_EGG_STUFFING)
+			TOGGLE_BITFIELD(genital_flags, GENITAL_CAN_STUFF)
+			if(owner)
+				owner.log_message("Allowed egg stuffing in their [src]",LOG_EMOTE)
 
-	if(organCheck == FALSE)
-		if(ishuman(src) && dna.species.use_skintones)
-			dna.features["genitals_use_skintone"] = TRUE
-		if(dna.species.fixed_mut_color)
-			dna.features["cock_color"] = "[dna.species.fixed_mut_color]"
-			dna.features["breasts_color"] = "[dna.species.fixed_mut_color]"
-			dna.features["butt_color"] = "[dna.species.fixed_mut_color]"
-			dna.features["testicles_color"] = "[dna.species.fixed_mut_color]"
-			dna.features["belly_color"] = "[dna.species.fixed_mut_color]"
-			dna.features["anus_color"] = "[dna.species.fixed_mut_color]"
-			return
-		//So people who haven't set stuff up don't get rainbow surprises.
-		dna.features["cock_color"] = "[dna.features["mcolor"]]"
-		dna.features["breasts_color"] = "[dna.features["mcolor"]]"
-		dna.features["butt_color"] = "[dna.features["mcolor"]]"
-		dna.features["testicles_color"] = "[dna.features["mcolor"]]"
-		dna.features["belly_color"] = "[dna.features["mcolor"]]"
-		dna.features["anus_color"] = "[dna.features["mcolor"]]"
-	else //If there's a new organ, make it the same colour.
-		if(breastCheck == FALSE)
-			dna.features["breasts_color"] = dna.features["cock_color"]
-		else if (willyCheck == FALSE)
-			dna.features["cock_color"] = dna.features["breasts_color"]
-		else if (buttCheck == FALSE)
-			dna.features["butt_color"] = dna.features["butt_color"]
-		else if (ballCheck == FALSE)
-			dna.features["testicles_color"] = dna.features["testicles_color"]
-		else if (bellyCheck == FALSE)
-			dna.features["belly_color"] = dna.features["belly_color"]
-		else if (anusCheck)
-			dna.features["anus_color"] = dna.features["butt_color"]
-	return TRUE
+	if(update && owner && ishuman(owner)) //recast to use update genitals proc
+		var/mob/living/carbon/human/H = owner
+		H.update_genitals()
 
-/obj/item/organ/external/genital
-	/// The fluid count of the genital.
-	var/internal_fluid_count = 0
+/// The alternative `dimension_x` to use if it's a taur.
+#define TAUR_DIMENSION_X 64
 
-	/// The maximum amount of fluid that can be stored in the genital.
-	var/internal_fluid_maximum = 0
+/datum/sprite_accessory/genital
+	special_render_case = TRUE
+	special_colorize = TRUE
+	var/associated_organ_slot
+	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
+	var/has_skintone_shading = FALSE
+	///Where the genital is on the body. If clothing doesn't cover it, it shows up!
+	var/genital_location = GROIN
 
-	/// The datum to be used for the tracked fluid, should it need to be added to a fluid container.
-	var/internal_fluid_datum
+/datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
+	var/obj/item/organ/external/genital/badonkers = target_mob.get_organ_slot(associated_organ_slot)
+	if(!badonkers)
+		return TRUE
+	switch(badonkers.visibility_preference)
+		if(GENITAL_ALWAYS_SHOW) //Never hidden
+			return FALSE
+		if(GENITAL_HIDDEN_BY_CLOTHES) //Hidden if the relevant body parts are covered by clothes or underwear
+			//Do they have a Uniform or Suit that covers them?
+			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
+				return TRUE
+			//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
+			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/skyrat/hospitalgown))
+				return TRUE
 
-	/// The currently inserted sex toy.
-	var/obj/item/inserted_item
+			//Are they wearing an Undershirt?
+			if(target_mob.w_undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+				var/obj/item/clothing/underwear/shirt/worn_undershirt = GLOB.undershirt_list[target_mob.w_undershirt]
+				//Does this Undershirt cover a relevant slot?
+				if(genital_location == CHEST) //(Undershirt always covers chest)
+					return TRUE
 
-/// Helper proc for checking if internal fluids are full or not.
-/obj/item/organ/external/genital/proc/internal_fluid_full()
-	return internal_fluid_count >= internal_fluid_maximum
+				else if(genital_location == GROIN && worn_undershirt.hides_breasts)
+					return TRUE
 
-/// Adds the given amount to the internal fluid count, clamping it between 0 and internal_fluid_maximum.
-/obj/item/organ/external/genital/proc/adjust_internal_fluid(amount)
-	internal_fluid_count = clamp(internal_fluid_count + amount, 0, internal_fluid_maximum)
+			//Undershirt didn't cover them, are they wearing Underwear?
+			if(target_mob.w_underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+				var/obj/item/clothing/underwear/briefs/worn_underwear = GLOB.underwear_list[target_mob.w_underwear]
+				//Does this Underwear cover a relevant slot?
+				if(genital_location == GROIN) //(Underwear always covers groin)
+					return TRUE
 
-/// Tries to add the specified amount to the target reagent container. Keeps in mind internal_fluid_count.
-/obj/item/organ/external/genital/proc/transfer_internal_fluid(datum/reagents/reagent_container, attempt_amount)
-	if(!internal_fluid_datum || !internal_fluid_count || !internal_fluid_maximum || !reagent_container)
-		return FALSE
+				else if(genital_location == CHEST && worn_underwear.hides_groin)
+					return TRUE
 
-	attempt_amount = clamp(attempt_amount, 0, internal_fluid_count)
-	reagent_container.add_reagent(internal_fluid_datum, attempt_amount)
-	internal_fluid_count -= attempt_amount
+			//Nothing they're wearing will cover them
+			else
+				return FALSE
 
-/obj/item/organ/external/genital
-	/// Controls whenever a genital is always accessible
-	var/always_accessible = FALSE
+		//If not always shown or hidden by clothes, then it defaults to always hidden
+		else
+			return TRUE
 
-/// Toggles whether such genital can always be accessed
-/obj/item/organ/external/genital/proc/toggle_accessibility()
-	always_accessible = !always_accessible
+/datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
+	var/obj/item/organ/external/genital/genital = human.get_organ_slot(associated_organ_slot)
+	return "[genital?.sprite_suffix]"
 
-/obj/item/organ/external/genital
-	var/datum/reagents/climax_fluids
-	var/datum/reagent/original_fluid_id
-	var/datum/reagent/default_fluid_id
-	var/list/writtentext = ""
+/datum/sprite_accessory/genital/get_special_render_colour(mob/living/carbon/human/human, render_state)
+	var/obj/item/organ/external/genital/genital = human.get_organ_slot(associated_organ_slot)
+	if(genital?.uses_skin_color && human.dna.species.use_skintones)
+		return skintone2hex(human.skin_tone)
 
-/// for specific build_from_dna behavior that also checks the genital accessory.
-/obj/item/organ/external/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	return
-
-/obj/item/organ/external/genital/proc/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen)
-    return
-
-/obj/item/organ/external/genital/proc/get_fluid_id()
-	if(fluid_id)
-		return fluid_id
-	else if(linked_organ?.fluid_id)
-		return linked_organ.fluid_id
-	return
-
-/obj/item/organ/external/genital/proc/get_fluid_name()
-	var/milkies = get_fluid_id()
-	var/message
-	if(!milkies) //No milkies??
-		return
-	var/datum/reagent/R = find_reagent_object_from_type(milkies)
-	message = R.name
-	return message
-
-/obj/item/organ/external/genital/proc/get_default_fluid()
-	if(default_fluid_id)
-		return default_fluid_id
-	else if(linked_organ?.default_fluid_id)
-		return linked_organ.default_fluid_id
-	return
-
-/obj/item/organ/external/genital/proc/set_fluid_id(new_fluidtype)
-	if(genital_flags & GENITAL_FLUID_PRODUCTION)
-		fluid_id = new_fluidtype
-	else if(linked_organ?.genital_flags & GENITAL_FLUID_PRODUCTION)
-		linked_organ?.fluid_id = new_fluidtype
-
-/obj/item/organ/external/genital
-	var/list/obj/item/equipment = list()
+/datum/sprite_accessory
+	var/alt_aroused = FALSE //CIT CODE if this is TRUE, then the genitals will use an alternate icon_state when aroused.
+	var/taur_icon //leave null if the genital doesn't have a taur counterpart.
+	var/feat_taur //the text string of the dna feature to check for those who want to opt out.
+	var/accepted_taurs = STYLE_TAUR_HOOF|STYLE_TAUR_PAW //Types that match with the accessory.
+	var/taur_dimension_y = 32
+	var/taur_dimension_x = 32

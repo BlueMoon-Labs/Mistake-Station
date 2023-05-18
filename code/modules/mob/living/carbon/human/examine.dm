@@ -185,7 +185,7 @@
 		for(var/obj/item/organ/external/genital/dicc in organs)
 			if(istype(dicc) && dicc.is_exposed())
 				. += "[dicc.desc]"
-				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.genital_flags & GENITAL_FLUID_PRODUCTION) || ((dicc?.linked_organ?.genital_flags & GENITAL_FLUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))
+				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.visibility_preference & GENITAL_FLUID_PRODUCTION) || ((dicc?.linked_organ?.visibility_preference & GENITAL_FLUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))
 					var/datum/reagent/cummies = find_reagent_object_from_type(dicc?.get_fluid_id())
 					. += "Вы чувствуете, как от [t_ego] тела пахнет <b>'<span style='color:[cummies.color]';>[cummies.name]</span>'</b>..."
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref))

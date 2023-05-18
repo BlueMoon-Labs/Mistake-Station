@@ -64,8 +64,8 @@
 				B.color = "#[M.dna.features["belly_color"]]"
 			else
 				B.color = SKINTONE2HEX(H.skin_tone)
-			B.size = 1
-			B.size_cached = B.size
+			B.genital_size = 1
+			B.size_cached = B.genital_size
 			to_chat(M, "<span class='warning'>You feel your midsection get warmer... bubbling softly as it seems to start distending</b></span>")
 			M.reagents.remove_reagent(type, 5)
 	//If they have, increase size.
@@ -95,9 +95,9 @@
 	var/optimal_size = M.dna.features["belly_size"]
 	if(!optimal_size)//Fast fix for those who don't want it.
 		B.modify_size(-0.2)
-	else if(B.size > optimal_size)
+	else if(B.genital_size > optimal_size)
 		B.modify_size(-0.1, optimal_size)
-	else if(B.size < optimal_size)
+	else if(B.genital_size < optimal_size)
 		B.modify_size(0.1, 0, optimal_size)
 	return ..()
 

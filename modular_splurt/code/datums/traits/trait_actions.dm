@@ -811,12 +811,12 @@
 			organ_breasts.color = "#[action_owner.dna.features["mcolor"]]"
 			organ_breasts.update()
 		if(organ_penis)
-			organ_penis.shape = "Knotted"
+			organ_penis.genital_type = "Knotted"
 			organ_penis.color = "#ff7c80"
 			organ_penis.update()
 			organ_penis.modify_size(6)
 		if(organ_vagina)
-			organ_vagina.shape = "Furred"
+			organ_vagina.genital_type = "Furred"
 			organ_vagina.color = "#[action_owner.dna.features["mcolor"]]"
 			organ_vagina.update()
 
@@ -855,15 +855,15 @@
 			organ_breasts.color = "#[old_features["breasts_color"]]"
 			organ_breasts.update()
 		if(action_owner.has_penis())
-			organ_penis.shape = old_features["cock_shape"]
+			organ_penis.genital_type = old_features["cock_shape"]
 			organ_penis.color = "#[old_features["cock_color"]]"
 			organ_penis.update()
 			organ_penis.modify_size(-6)
 		if(action_owner.has_vagina())
-			organ_vagina.shape = old_features["vag_shape"]
+			organ_vagina.genital_type = old_features["vag_shape"]
 			organ_vagina.color = "#[old_features["vag_color"]]"
 			organ_vagina.update()
-			organ_vagina.update_size()
+			organ_vagina.get_description_string()
 
 	// Set transformation message
 	var/owner_ru_ego = action_owner.ru_ego()

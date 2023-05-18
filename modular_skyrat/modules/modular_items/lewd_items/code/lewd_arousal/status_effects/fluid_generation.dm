@@ -30,7 +30,7 @@
 			balls.internal_fluid_count += regen
 
 	if(breasts)
-		if(breasts.aroused_state == TRUE)
+		if(breasts.aroused == TRUE)
 			var/regen = ((owner.nutrition / (NUTRITION_LEVEL_WELL_FED / NUTRITION_MULTIPLIER)) / NUTRITION_MULTIPLIER) * (breasts.internal_fluid_maximum / BREASTS_MULTIPLIER) * BASE_MULTIPLIER
 			if(!breasts.internal_fluid_full())
 				owner.adjust_nutrition(-regen / NUTRITION_COST_MULTIPLIER)

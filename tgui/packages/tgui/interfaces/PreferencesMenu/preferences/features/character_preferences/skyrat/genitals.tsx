@@ -35,7 +35,7 @@ export const penis_length: FeatureNumeric = {
   component: FeatureNumberInput,
 };
 
-export const cock_diameter_ratio: FeatureNumeric = {
+export const cock_girth: FeatureNumeric = {
   name: 'Половые Органы. Пенис. Ширина',
   component: FeatureNumberInput,
 };

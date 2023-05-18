@@ -435,7 +435,7 @@
 		if("Breasts Lactation")
 			var/obj/item/organ/external/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
 			alterer.dna.features["breasts_lactation"] = !alterer.dna.features["breasts_lactation"]
-			melons.aroused_state = alterer.dna.features["breasts_lactation"]
+			melons.lactates = alterer.dna.features["breasts_lactation"]
 			alterer.balloon_alert(alterer, "[alterer.dna.features["breasts_lactation"] ? "lactating" : "not lactating"]")
 
 		if("Breasts Size")
@@ -448,14 +448,14 @@
 			)
 			if(!new_size)
 				return
-			alterer.dna.features["breasts_size"] = melons.update_size(new_size)
-			melons.update_size(alterer.dna.features["breasts_size"])
+			alterer.dna.features["breasts_size"] = melons.breasts_cup_to_size(new_size)
+			melons.set_size(alterer.dna.features["breasts_size"])
 
 		if("Penis Girth")
 			var/obj/item/organ/external/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
-			if(alterer.dna.features["cock_length"] >= max_girth)
-				max_girth = alterer.dna.features["cock_length"]
+			if(alterer.dna.features["penis_size"] >= max_girth)
+				max_girth = alterer.dna.features["penis_size"]
 			var/new_girth = tgui_input_number(
 				alterer,
 				"Choose your penis girth:\n(1-[max_girth] (based on length) in inches)",
@@ -464,8 +464,8 @@
 				min_value = 1
 			)
 			if(new_girth)
-				alterer.dna.features["cock_diameter_ratio"] = new_girth
-				sausage.diameter = alterer.dna.features["cock_diameter_ratio"]
+				alterer.dna.features["penis_girth"] = new_girth
+				sausage.girth = alterer.dna.features["penis_girth"]
 
 		if("Penis Length")
 			var/obj/item/organ/external/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
@@ -478,11 +478,11 @@
 			)
 			if(!new_length)
 				return
-			alterer.dna.features["cock_length"] = new_length
-			if(alterer.dna.features["cock_diameter_ratio"] >= new_length)
-				alterer.dna.features["cock_diameter_ratio"] = new_length - 1
-				wang.diameter = alterer.dna.features["cock_diameter_ratio"]
-			wang.update_size(alterer.dna.features["cock_length"])
+			alterer.dna.features["penis_size"] = new_length
+			if(alterer.dna.features["penis_girth"] >= new_length)
+				alterer.dna.features["penis_girth"] = new_length - 1
+				wang.girth = alterer.dna.features["penis_girth"]
+			wang.set_size(alterer.dna.features["penis_size"])
 
 		if("Penis Sheath")
 			var/obj/item/organ/external/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
@@ -509,5 +509,5 @@
 				GLOB.preference_balls_sizes,
 			)
 			if(new_size)
-				alterer.dna.features["balls_size"] = avocados.update_size(new_size)
-				avocados.upon_link(alterer.dna.features["balls_size"])
+				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
+				avocados.set_size(alterer.dna.features["balls_size"])

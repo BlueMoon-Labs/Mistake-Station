@@ -38,8 +38,8 @@
 
 	var/modified_genitals = FALSE
 	for(var/obj/item/organ/external/genital/mob_genitals in exposed_mob.organs)
-		if(!mob_genitals.aroused_state == AROUSAL_CANT)
-			mob_genitals.aroused_state = AROUSAL_FULL
+		if(!mob_genitals.aroused == AROUSAL_CANT)
+			mob_genitals.aroused = AROUSAL_FULL
 			mob_genitals.update_sprite_suffix()
 			modified_genitals = TRUE
 	if (modified_genitals)

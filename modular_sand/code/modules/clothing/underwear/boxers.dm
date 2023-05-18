@@ -8,6 +8,8 @@
 	under_type = /obj/item/clothing/underwear/briefs
 	body_parts_covered = GROIN
 	slot_flags = ITEM_SLOT_UNDERWEAR
+	///Whether this underwear includes a bottom (For Leotards and the likes)
+	var/hides_groin = TRUE
 
 // please make sure they're sorted alphabetically and categorized, above is the only exception
 

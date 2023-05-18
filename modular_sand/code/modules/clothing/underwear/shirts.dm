@@ -8,6 +8,8 @@
 	under_type = /obj/item/clothing/underwear/shirt
 	body_parts_covered = CHEST | ARMS
 	slot_flags = ITEM_SLOT_SHIRT
+	///Whether this underwear includes a top (Because gender = FEMALE doesn't actually apply here.). Hides breasts, nothing more.
+	var/hides_breasts = TRUE
 
 // please make sure they're sorted alphabetically and categorized, above is the only exception
 

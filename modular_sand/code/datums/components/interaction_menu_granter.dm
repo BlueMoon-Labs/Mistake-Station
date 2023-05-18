@@ -116,23 +116,23 @@
 	var/mob/living/carbon/get_genitals = self
 	if(istype(get_genitals))
 		for(var/obj/item/organ/external/genital/genital in get_genitals.organs)	//Only get the genitals
-			if(CHECK_BITFIELD(genital.genital_flags, GENITAL_INTERNAL))			//Not those though
+			if(CHECK_BITFIELD(genital.visibility_preference, GENITAL_INTERNAL))			//Not those though
 				continue
 			var/list/genital_entry = list()
 			genital_entry["name"] = "[capitalize(genital.name)]" //Prevents code from adding a prefix
 			genital_entry["key"] = REF(genital) //The key is the reference to the object
 			var/visibility = "Invalid"
-			if(CHECK_BITFIELD(genital.genital_flags, GENITAL_THROUGH_CLOTHES))
+			if(CHECK_BITFIELD(genital.visibility_preference, GENITAL_THROUGH_CLOTHES))
 				visibility = "Always visible"
-			else if(CHECK_BITFIELD(genital.genital_flags, GENITAL_UNDIES_HIDDEN))
+			else if(CHECK_BITFIELD(genital.visibility_preference, GENITAL_UNDIES_HIDDEN))
 				visibility = "Hidden by underwear"
-			else if(CHECK_BITFIELD(genital.genital_flags, GENITAL_HIDDEN))
+			else if(CHECK_BITFIELD(genital.visibility_preference, GENITAL_HIDDEN))
 				visibility = "Always hidden"
 			else
 				visibility = "Hidden by clothes"
 
 			var/extras = "None"
-			if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_STUFF))
+			if(CHECK_BITFIELD(genital.visibility_preference, GENITAL_CAN_STUFF))
 				extras = "Allows egg stuffing"
 
 			genital_entry["extras"] = extras
@@ -140,10 +140,10 @@
 			genital_entry["possible_choices"] = GLOB.genitals_visibility_toggles
 			genital_entry["extra_choices"] = list(GEN_ALLOW_EGG_STUFFING)
 			genital_entry["can_arouse"] = (
-				!!CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_AROUSE) \
+				!!CHECK_BITFIELD(genital.visibility_preference, GENITAL_CAN_AROUSE) \
 				&& !(HAS_TRAIT(get_genitals, TRAIT_PERMABONER) \
 				|| HAS_TRAIT(get_genitals, TRAIT_NEVERBONER)))
-			genital_entry["arousal_state"] = genital.aroused_state
+			genital_entry["arousal_state"] = genital.aroused
 			genital_entry["always_accessible"] = genital.always_accessible
 			genitals += list(genital_entry)
 		if(!get_genitals.get_organ_slot(ORGAN_SLOT_ANUS)) //SPLURT Edit
@@ -169,7 +169,7 @@
 	var/mob/living/carbon/target_genitals = target || self
 	if(istype(target_genitals))
 		for(var/obj/item/organ/external/genital/genital in target_genitals.organs)
-			if(!(CHECK_BITFIELD(genital.genital_flags, GENITAL_FLUID_PRODUCTION)))
+			if(!(CHECK_BITFIELD(genital.visibility_preference, GENITAL_FLUID_PRODUCTION)))
 				continue
 			var/fluids = (clamp(genital.fluid_rate * ((world.time - genital.last_orgasmed) / (10 SECONDS)) * genital.fluid_mult, 0, genital.fluid_max_volume) / genital.fluid_max_volume)
 			var/list/genital_entry = list()
@@ -261,17 +261,17 @@
 			if("set_arousal" in params)
 				var/obj/item/organ/external/genital/genital = locate(params["genital"], self.organs)
 				if(!genital || (genital \
-					&& (!CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_AROUSE) \
+					&& (!CHECK_BITFIELD(genital.visibility_preference, GENITAL_CAN_AROUSE) \
 					|| HAS_TRAIT(self, TRAIT_PERMABONER) \
 					|| HAS_TRAIT(self, TRAIT_NEVERBONER))))
 					return FALSE
-				var/original_state = genital.aroused_state
-				genital.set_aroused_state(params["set_arousal"])// i'm not making it just `!aroused_state` because
-				if(original_state != genital.aroused_state)		// someone just might port skyrat's new genitals
-					to_chat(self, span_userlove("[genital.aroused_state ? genital.arousal_verb : genital.unarousal_verb]."))
+				var/original_state = genital.aroused
+				genital.set_aroused_state(params["set_arousal"])// i'm not making it just `!aroused` because
+				if(original_state != genital.aroused)		// someone just might port skyrat's new genitals
+					to_chat(self, span_userlove("[genital.aroused ? genital.arousal_verb : genital.unarousal_verb]."))
 					. = TRUE
 				else
-					to_chat(self, span_userlove("You can't make that genital [genital.aroused_state ? "unaroused" : "aroused"]!"))
+					to_chat(self, span_userlove("You can't make that genital [genital.aroused ? "unaroused" : "aroused"]!"))
 					. = FALSE
 				genital.update_appearance()
 				if(ishuman(self))

@@ -71,14 +71,14 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/oral1.ogg',
 						'modular_sand/sound/interactions/oral2.ogg'), 70, 1, -1)
 
-	switch(milkers.size)
+	switch(milkers.genital_size)
 		if("c", "d", "e")
 			modifier = 2
 		if("f", "g", "h")
 			modifier = 3
 		else
-			if(milkers.size in milkers.breast_values)
-				modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
+			if(milkers.genital_size in milkers.breast_values)
+				modifier = clamp(milkers.breast_values[milkers.genital_size] - 5, 0, INFINITY)
 			else
 				modifier = 1
 	user.reagents.add_reagent(milktype, rand(1,3 * modifier))

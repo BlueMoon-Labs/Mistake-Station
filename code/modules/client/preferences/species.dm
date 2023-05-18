@@ -40,7 +40,7 @@
 	for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS, ORGAN_SLOT_BUTT, ORGAN_SLOT_BELLY))
 		var/obj/item/organ/external/genital/gent = target.get_organ_slot(organ_key)
 		if(gent)
-			gent.aroused_state = prefs.arousal_preview
+			gent.aroused = prefs.arousal_preview
 			gent.update_sprite_suffix()
 	//SKYRAT EDIT END
 

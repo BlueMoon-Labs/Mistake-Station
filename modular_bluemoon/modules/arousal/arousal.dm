@@ -2,6 +2,10 @@
 	var/mb_cd_length = 5 SECONDS						//5 second cooldown for masturbating because fuck spam.
 	var/mb_cd_timer = 0									//The timer itself
 
+//exposure and through-clothing code
+/mob/living/carbon
+	var/list/exposed_genitals = list() //Keeping track of them so we don't have to iterate through every genitalia and see if exposed
+
 /mob/living/carbon/human
 	var/saved_underwear = ""//saves their underwear so it can be toggled later
 	var/saved_undershirt = ""
@@ -47,16 +51,16 @@
 		return // no adjusting made here
 	var/enabling = strength > 0
 	for(var/obj/item/organ/external/genital/G in organs)
-		if(G.genital_flags & GENITAL_CAN_AROUSE && !G.aroused_state && prob(abs(strength)*G.sensitivity * arousal_rate))
+		if(G.visibility_preference & GENITAL_CAN_AROUSE && !G.aroused && prob(abs(strength)*G.sensitivity * arousal_rate))
 			G.set_aroused_state(enabling,cause)
 			G.update_appearance()
 			update_body(TRUE)
-			if(G.aroused_state)
+			if(G.aroused)
 				genit_list += G
 	return genit_list
 
 /obj/item/organ/external/genital/proc/climaxable(mob/living/carbon/human/H, silent = FALSE) //returns the fluid source (ergo reagents holder) if found.
-	if((genital_flags & GENITAL_FLUID_PRODUCTION))
+	if((visibility_preference & GENITAL_FLUID_PRODUCTION))
 		. = reagents
 	else
 		if(linked_organ)
@@ -141,7 +145,7 @@
 	var/list/worn_stuff = get_equipped_items()
 
 	for(var/obj/item/organ/external/genital/G in organs)
-		if((G.genital_flags & CAN_CLIMAX_WITH) && G.is_exposed(worn_stuff)) //filter out what you can't masturbate with
+		if((G.visibility_preference & CAN_CLIMAX_WITH) && G.is_exposed(worn_stuff)) //filter out what you can't masturbate with
 			LAZYADD(genitals_list, G)
 	if(LAZYLEN(genitals_list))
 		var/obj/item/organ/external/genital/ret_organ = input(src, "Чем?", "Климаксировать", null) as null|obj in genitals_list
@@ -229,7 +233,7 @@
 	if(forced_climax) //Something forced us to cum, this is not a masturbation thing and does not progress to the other checks
 		log_message("was forced to climax by [cause]",LOG_EMOTE)
 		for(var/obj/item/organ/external/genital/G in organs)
-			if(!(G.genital_flags & CAN_CLIMAX_WITH)) //Skip things like wombs and testicles
+			if(!(G.visibility_preference & CAN_CLIMAX_WITH)) //Skip things like wombs and testicles
 				continue
 			var/mob/living/partner
 			var/check_target

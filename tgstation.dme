@@ -10,7 +10,7 @@
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
-//#define DEBUG
+#define DEBUG
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
@@ -6227,7 +6227,6 @@
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\ears.dm"
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\fluff.dm"
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\frills.dm"
-#include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\genitals.dm"
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\hair.dm"
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\head_accessory.dm"
 #include "modular_skyrat\modules\customization\modules\mob\dead\new_player\sprite_accessories\horns.dm"
@@ -6730,9 +6729,6 @@
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_items\vibroring.dm"
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_machinery\lustwish.dm"
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_machinery\milking_machine.dm"
-#include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_organs\breasts.dm"
-#include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_organs\testicles.dm"
-#include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_organs\vagina.dm"
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_structures\bdsm_furniture.dm"
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_structures\construction.dm"
 #include "modular_skyrat\modules\modular_items\lewd_items\code\lewd_structures\dancing_pole.dm"
@@ -7146,8 +7142,6 @@
 #include "modular_citadel\code\modules\projectiles\guns\ballistic\spinfusor.dm"
 #include "modular_citadel\code\modules\projectiles\guns\energy\energy_gun.dm"
 #include "modular_citadel\code\modules\projectiles\projectiles\reusable.dm"
-#include "modular_citadel\code\modules\reagents\chemistry\reagents\enlargement.dm"
-#include "modular_citadel\code\modules\reagents\chemistry\recipes\fermi.dm"
 #include "modular_sand\code\_globalvars\bitfields.dm"
 #include "modular_sand\code\_globalvars\lists\lewd_content.dm"
 #include "modular_sand\code\_globalvars\lists\misc.dm"

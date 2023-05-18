@@ -8,9 +8,9 @@
 	mutantpart_key 			= ORGAN_SLOT_BUTT
 	mutantpart_info			= list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FEB"))
 	w_class 				= 3
-	size 					= 0
+	genital_size 			= 0
 	var/size_name			= "nonexistent"
-	shape					= "Pair" //turn this into a default constant if for some inexplicable reason we get more than one butt type but I doubt it.
+	genital_type			= "Pair" //turn this into a default constant if for some inexplicable reason we get more than one butt type but I doubt it.
 	genital_flags 			= UPDATE_OWNER_APPEARANCE|GENITAL_UNDIES_HIDDEN|CAN_CUM_INTO|HAS_EQUIPMENT
 	masturbation_verb 		= "massage"
 	var/size_cached			= 0
@@ -31,13 +31,14 @@
 		return
 	prev_size = size_cached
 	size_cached = new_value
-	size = round(size_cached)
+	genital_size = round(size_cached)
 	update()
 	..()
 
-/obj/item/organ/external/genital/butt/update_size()//wah
-	var/rounded_size = round(size)
-	if(size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
+/obj/item/organ/external/genital/butt/get_sprite_size_string(datum/sprite_accessory/genital/gas)
+	. = ..()
+	var/rounded_size = round(genital_size)
+	if(genital_size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
 		if(owner)
 			to_chat(owner, "<span class='warning'>Вы чувствуете, как ваши ягодицы уменьшаются до обычного размера.</span>")
 		QDEL_IN(src, 1)
@@ -53,10 +54,10 @@
 
 
 /obj/item/organ/external/genital/butt/update_appearance()
-	var/lowershape = lowertext(genital_name)
+	var/lowershape = lowertext(genital_type)
 
 	//Reflect the size of dat ass on examine.
-	switch(round(size))
+	switch(round(genital_size))
 		if(1)
 			size_name = "среднего"
 		if(2)
@@ -78,7 +79,7 @@
 
 	desc = "Вы наблюдаете попу [size_name] размера."
 
-	var/icon_size = size
+	var/icon_size = genital_size
 	icon_state = "butt_[lowershape]_[icon_size]"
 	if(owner)
 		if(owner.dna.species.use_skintones && owner.dna.features["genitals_use_skintone"])
@@ -91,15 +92,15 @@
 			color = "#[owner.dna.features["butt_color"]]"
 	return ..()
 
-/obj/item/organ/external/genital/butt/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/build_from_accessory(mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
 	else
 		color = "#[D.features["butt_color"]]"
-	size = D.features["butt_size"]
-	prev_size = size
-	size_cached = size
+	genital_size = D.features["butt_size"]
+	prev_size = genital_size
+	size_cached = genital_size
 	toggle_visibility(D.features["butt_visibility"], FALSE)
 	if(D.features["butt_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
@@ -107,13 +108,13 @@
 /obj/item/organ/external/genital/butt
 	linked_organ_slot = ORGAN_SLOT_ANUS
 
-/obj/item/organ/external/genital/butt/update_size()
+/obj/item/organ/external/genital/butt/get_sprite_size_string()
 	if(!linked_organ)
 		return ..()
 
-	linked_organ.size = size
+	linked_organ.genital_size = genital_size
 	linked_organ.update()
-	if(size < 0)
+	if(genital_size < 0)
 		QDEL_IN(linked_organ, 1)
 	. = ..()
 
@@ -124,11 +125,11 @@
 		return .
 	linked_organ.toggle_visibility(visibility)
 
-/obj/item/organ/external/genital/butt/get_features(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/build_from_accessory(mob/living/carbon/human/H)
 	. = ..()
 	original_fluid_id = fluid_id
-	fluid_max_volume += ((size - initial(size))*2.5)*(owner ? get_size(owner) : 1)
-	fluid_rate += ((size - initial(size))/10)*(owner ? get_size(owner) : 1)
+	fluid_max_volume += ((genital_size - initial(genital_size))*2.5)*(owner ? get_size(owner) : 1)
+	fluid_rate += ((genital_size - initial(genital_size))/10)*(owner ? get_size(owner) : 1)
 
 /obj/item/organ/external/genital/butt/climax_modify_size(mob/living/partner, obj/item/organ/external/genital/source_gen, from_belly = FALSE)
 	if(!(owner.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_enlargement)))
@@ -146,11 +147,11 @@
 	fluid_source.trans_to(climax_fluids, fluid_source.total_volume)
 
 	if(climax_fluids.total_volume >= fluid_max_volume * GENITAL_INFLATION_THRESHOLD)
-		var/previous = size
+		var/previous = genital_size
 		var/growth_amount = (from_belly ? min(climax_fluids.total_volume, 1) : climax_fluids.total_volume)
 		var/list/asscheeks = list("попка", "ягодицы", "булочки", "подушечки", "шары Дамптрака", "[pick(list("покачивающиеся", "непоседливые", "шатающиеся"))] ягодицы")
 		modify_size(growth_amount)
-		if(size != previous)
+		if(genital_size != previous)
 			owner.visible_message("<span class='lewd'>\The [pick(GLOB.butt_nouns + asscheeks)] <b>[owner]</b> непристойно отскакивают наружу, как [owner.ru_who()] накачивают [lowertext(source_gen.get_fluid_name())] сзади!</span>", ignored_mobs = owner.get_unconsenting())
 			fluid_id = source_gen.get_fluid_id()
 		climax_fluids.clear_reagents()

@@ -112,7 +112,7 @@
 				to_chat(user, span_danger("[target] don't have suitable genitalia for that!"))
 				return FALSE
 
-			if(!(target.is_bottomless() || vagina.genital_flags == GENITAL_THROUGH_CLOTHES))
+			if(!(target.is_bottomless() || vagina.visibility_preference == GENITAL_THROUGH_CLOTHES))
 				to_chat(user, span_danger("[target]'s groin is covered!"))
 				return FALSE
 
@@ -347,10 +347,10 @@
 
 
 	if(src == user.vagina)
-		vagina?.genital_flags = GENITAL_INTERNAL
-		womb?.genital_flags = GENITAL_INTERNAL
-		penis?.genital_flags = GENITAL_INTERNAL
-		testicles?.genital_flags = GENITAL_INTERNAL
+		vagina?.visibility_preference = GENITAL_INTERNAL
+		womb?.visibility_preference = GENITAL_INTERNAL
+		penis?.visibility_preference = GENITAL_INTERNAL
+		testicles?.visibility_preference = GENITAL_INTERNAL
 		user.update_body()
 
 	else if(src == user.anus)
@@ -384,10 +384,10 @@
 
 	if(!(src == user.vagina))
 		return
-	vagina?.genital_flags = GENITAL_HIDDEN
-	womb?.genital_flags = GENITAL_HIDDEN
-	penis?.genital_flags = GENITAL_HIDDEN
-	testicles?.genital_flags = GENITAL_HIDDEN
+	vagina?.visibility_preference = GENITAL_HIDDEN
+	womb?.visibility_preference = GENITAL_HIDDEN
+	penis?.visibility_preference = GENITAL_HIDDEN
+	testicles?.visibility_preference = GENITAL_HIDDEN
 	user.update_body()
 
 /obj/item/clothing/sextoy/dildo/dildo_side

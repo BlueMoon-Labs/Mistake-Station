@@ -67,7 +67,7 @@
 	if(cover)
 		if(istype(sender, /obj/item/organ/external/genital/penis))
 			var/obj/item/organ/external/genital/penis/bepis = sender
-			var/size = bepis.size
+			var/size = bepis.genital_size
 			switch(size)
 				if(BALLS_SIZE_MIN)
 					size = pick("", "", "", "")

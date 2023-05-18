@@ -54,10 +54,10 @@
 	var/obj/item/organ/external/genital/anus = owner.get_organ_slot(ORGAN_SLOT_ANUS)
 
 	if(penis)
-		penis.aroused_state = AROUSAL_NONE
+		penis.aroused = AROUSAL_NONE
 	if(vagina)
-		vagina.aroused_state = AROUSAL_NONE
+		vagina.aroused = AROUSAL_NONE
 	if(balls)
-		balls.aroused_state = AROUSAL_NONE
+		balls.aroused = AROUSAL_NONE
 	if(anus)
-		anus.aroused_state = AROUSAL_NONE
+		anus.aroused = AROUSAL_NONE

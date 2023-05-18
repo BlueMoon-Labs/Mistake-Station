@@ -40,7 +40,7 @@
 
 	// List their genitals if they have any at all
 	for(var/obj/item/organ/external/genital/genital_checked in genital_owner.organs)
-		if(istype(genital_checked) && (genital_checked.genital_flags & GENITAL_FLUID_PRODUCTION))
+		if(istype(genital_checked) && (genital_checked.visibility_preference & GENITAL_FLUID_PRODUCTION))
 			// Add genitals to the list
 			LAZYADD(genitals_list, genital_checked)
 

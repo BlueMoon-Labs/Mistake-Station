@@ -30,10 +30,10 @@
 	var/obj/item/organ/external/genital/breasts/booba = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!booba)
 		return FALSE
-	if(booba.genital_flags & (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH))
+	if(booba.visibility_preference & (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH))
 		noapply = TRUE
 		return FALSE
-	booba.genital_flags |= (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
+	booba.visibility_preference |= (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
 	return TRUE
 
 /datum/status_effect/lactation/on_remove()
@@ -41,5 +41,5 @@
 	var/obj/item/organ/external/genital/breasts/booba = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!booba || noapply)
 		return
-	booba.genital_flags &= ~ (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
+	booba.visibility_preference &= ~ (GENITAL_FLUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)
 

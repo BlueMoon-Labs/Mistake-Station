@@ -66,7 +66,7 @@
 		to_chat(user, "<span class='notice'>You must remove the condom from the package first!</span>")
 		return
 	var/obj/item/organ/external/genital/penis/P = C.get_organ_slot(ORGAN_SLOT_PENIS)
-	if((C.has_penis(REQUIRE_EXPOSED) && (P?.genital_flags & HAS_EQUIPMENT)) || (C.has_strapon(REQUIRE_EXPOSED)))
+	if((C.has_penis(REQUIRE_EXPOSED) && (P?.visibility_preference & HAS_EQUIPMENT)) || (C.has_strapon(REQUIRE_EXPOSED)))
 		if(P.equipment[GENITAL_EQUIPEMENT_CONDOM])
 			to_chat(user, "<span class='notice'>\The [C] already has condom on!</span>")
 			return

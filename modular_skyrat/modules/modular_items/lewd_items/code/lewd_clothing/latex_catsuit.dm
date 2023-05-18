@@ -45,19 +45,19 @@
 	update_overlays()
 
 	//Breasts overlay for catsuit
-	if(affected_breasts?.size >= 6 || affected_breasts?.shape == "pair")
+	if(affected_breasts?.genital_size >= 6 || affected_breasts?.genital_type == "pair")
 		breasts_overlay.icon_state = "breasts_double"
 		breasts_icon_overlay.icon_state = "iconbreasts_double"
 		accessory_overlay = breasts_overlay
 		add_overlay(breasts_icon_overlay)
 		update_overlays()
-	if(affected_breasts?.shape == "quad")
+	if(affected_breasts?.genital_type == "quad")
 		breasts_overlay.icon_state = "breasts_quad"
 		breasts_icon_overlay.icon_state = "iconbreasts_quad"
 		accessory_overlay = breasts_overlay
 		add_overlay(breasts_icon_overlay)
 		update_overlays()
-	if(affected_breasts?.shape == "sextuple")
+	if(affected_breasts?.genital_type == "sextuple")
 		breasts_overlay.icon_state = "breasts_sextuple"
 		breasts_icon_overlay.icon_state = "iconbreasts_sextuple"
 		accessory_overlay = breasts_overlay

@@ -446,11 +446,11 @@
 /obj/structure/chair/milking_machine/proc/update_all_visuals()
 	if(current_selected_organ != null)
 		var/current_selected_organ_type = null
-		var/current_selected_organ_size = current_selected_organ.size
+		var/current_selected_organ_size = current_selected_organ.genital_size
 		cut_overlay(organ_overlay)
 
 		if(istype(current_selected_organ, /obj/item/organ/external/genital/breasts))
-			switch(current_selected_organ.shape)
+			switch(current_selected_organ.genital_type)
 				if("pair")
 					current_selected_organ_type = "double_breast"
 				if("quad")
@@ -458,8 +458,8 @@
 				if("sextuple")
 					current_selected_organ_type = "six_breast"
 
-			if((current_selected_organ.shape == "sextuple") || (current_selected_organ.shape == "quad"))
-				switch(current_selected_organ.size)
+			if((current_selected_organ.genital_type == "sextuple") || (current_selected_organ.genital_type == "quad"))
+				switch(current_selected_organ.genital_size)
 					if(0 to 2)
 						current_selected_organ_size = "0"
 					if(3 to 4)
@@ -567,17 +567,17 @@
 	data["current_vessel"] = current_vessel ? current_vessel : null
 	data["current_selected_organ"] = current_selected_organ ? current_selected_organ : null
 	data["current_selected_organ_name"] = current_selected_organ ? current_selected_organ.name : null
-	if(current_mob?.is_topless() || current_breasts?.genital_flags == GENITAL_THROUGH_CLOTHES)
+	if(current_mob?.is_topless() || current_breasts?.visibility_preference == GENITAL_ALWAYS_SHOW)
 		data["current_breasts"] = current_breasts ? current_breasts : null
 	else
 		data["current_breasts"] = null
 
-	if(current_mob?.is_bottomless() || current_testicles?.genital_flags == GENITAL_THROUGH_CLOTHES)
+	if(current_mob?.is_bottomless() || current_testicles?.visibility_preference == GENITAL_ALWAYS_SHOW)
 		data["current_testicles"] = current_testicles ? current_testicles : null
 	else
 		data["current_testicles"] = current_testicles = null
 
-	if(current_mob?.is_bottomless() || current_vagina?.genital_flags == GENITAL_THROUGH_CLOTHES)
+	if(current_mob?.is_bottomless() || current_vagina?.visibility_preference == GENITAL_ALWAYS_SHOW)
 		data["current_vagina"] = current_vagina ? current_vagina : null
 	else
 		data["current_vagina"] = current_vagina = null

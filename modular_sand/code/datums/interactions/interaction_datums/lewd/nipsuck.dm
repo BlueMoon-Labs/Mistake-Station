@@ -16,14 +16,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
+			switch(B.genital_size)
 				if("c", "d", "e")
 					modifier = 2
 				if("f", "g", "h")
 					modifier = 3
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
+					if(B.genital_size in B.breast_values)
+						modifier = clamp(B.breast_values[B.genital_size] - 5, 0, INFINITY)
 					else
 						modifier = 1
 			if(B.fluid_id)
@@ -36,14 +36,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
+			switch(B.genital_size)
 				if("c", "d", "e")
 					modifier = 2
 				if("f", "g", "h")
 					modifier = 3
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
+					if(B.genital_size in B.breast_values)
+						modifier = clamp(B.breast_values[B.genital_size] - 5, 0, INFINITY)
 					else
 						modifier = 1
 			if(B.fluid_id)
@@ -57,14 +57,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
+			switch(B.genital_size)
 				if("c", "d", "e")
 					modifier = 2
 				if("f", "g", "h")
 					modifier = 3
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
+					if(B.genital_size in B.breast_values)
+						modifier = clamp(B.breast_values[B.genital_size] - 5, 0, INFINITY)
 					else
 						modifier = 1
 			if(B.fluid_id)

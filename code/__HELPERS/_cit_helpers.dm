@@ -108,35 +108,6 @@ GLOBAL_LIST_INIT(meat_types, list(
 //Crew objective and miscreants stuff
 GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 
-/*pretty much everything got moved to modular_skyrat (interactions)
-/mob/living/carbon/has_penis() // Skyrat Change
-	var/obj/item/organ/external/genital/G = get_organ_slot(ORGAN_SLOT_PENIS)
-	if(G && istype(G, /obj/item/organ/external/genital/penis))
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/proc/has_balls() // Skyrat Change
-	var/obj/item/organ/external/genital/G = get_organ_slot(ORGAN_SLOT_TESTICLES)
-	if(G && istype(G, /obj/item/organ/external/genital/testicles))
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/has_vagina() // Skyrat Change
-	if(get_organ_slot(ORGAN_SLOT_VAGINA))
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/has_breasts() // Skyrat Change
-	if(get_organ_slot(ORGAN_SLOT_BREASTS))
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/proc/has_butt()
-	if(get_organ_slot(ORGAN_SLOT_BUTT))
-		return TRUE
-	return FALSE
-*/
-
 /mob/living/carbon/proc/is_groin_exposed(list/L)
 	if(!L)
 		L = get_equipped_items()
@@ -155,6 +126,36 @@ GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 			return FALSE
 	return TRUE
 
+/mob/proc/getorgan(typepath)
+	return
+
+/mob/proc/getorganszone(zone)
+	return
+
+/mob/proc/getorganslot(slot)
+	return
+
+/mob/living/carbon/getorgan(typepath)
+	return (locate(typepath) in organs)
+
+/mob/living/carbon/getorganszone(zone, subzones = 0)
+	var/list/returnorg = list()
+	if(subzones)
+		// Include subzones - groin for chest, eyes and mouth for head
+		if(zone == BODY_ZONE_HEAD)
+			returnorg = getorganszone(BODY_ZONE_PRECISE_EYES) + getorganszone(BODY_ZONE_PRECISE_MOUTH)
+		if(zone == BODY_ZONE_CHEST)
+			returnorg = getorganszone(BODY_ZONE_PRECISE_GROIN)
+
+	for(var/X in organs)
+		var/obj/item/organ/O = X
+		if(zone == O.zone)
+			returnorg += O
+	return returnorg
+
+/mob/living/carbon/getorganslot(slot)
+	return organs_slot[slot]
+
 ////////////////////////
 //DANGER | DEBUG PROCS//
 ////////////////////////
@@ -170,13 +171,13 @@ GLOBAL_VAR_INIT(miscreants_allowed, FALSE)
 		if(H.gender == MALE)
 			H.give_genital(/obj/item/organ/external/genital/penis)
 			H.give_genital(/obj/item/organ/external/genital/testicles)
-			H.give_genital(/obj/item/organ/external/genital/butt)
-			H.give_genital(/obj/item/organ/external/genital/belly)
+			//H.give_genital(/obj/item/organ/external/genital/butt)
+			//H.give_genital(/obj/item/organ/external/genital/belly)
 			H.give_genital(/obj/item/organ/external/genital/anus)
 		else
 			H.give_genital(/obj/item/organ/external/genital/vagina)
 			H.give_genital(/obj/item/organ/external/genital/womb)
 			H.give_genital(/obj/item/organ/external/genital/breasts)
-			H.give_genital(/obj/item/organ/external/genital/butt)
-			H.give_genital(/obj/item/organ/external/genital/belly)
+			//H.give_genital(/obj/item/organ/external/genital/butt)
+			//H.give_genital(/obj/item/organ/external/genital/belly)
 			H.give_genital(/obj/item/organ/external/genital/anus)

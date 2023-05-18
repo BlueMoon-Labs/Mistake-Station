@@ -42,8 +42,6 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/penis, GLOB.cock_shapes_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/vagina, GLOB.vagina_shapes_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/breasts, GLOB.breasts_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/butt, GLOB.butt_shapes_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/belly, GLOB.belly_shapes_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/testicles, GLOB.balls_shapes_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/genital/anus, GLOB.anus_shapes_list)
 

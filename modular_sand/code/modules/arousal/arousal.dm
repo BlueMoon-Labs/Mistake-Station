@@ -9,7 +9,7 @@
 	var/list/receivers_list
 	var/list/other_worn = L.get_equipped_items()
 	for(var/obj/item/organ/external/genital/G in L.organs)
-		if((!flag || (G.genital_flags & flag)) && G.is_exposed(other_worn)) //filter out what you can't cum into
+		if((!flag || (G.visibility_preference & flag)) && G.is_exposed(other_worn)) //filter out what you can't cum into
 			LAZYADD(receivers_list, G)
 	if(LAZYLEN(receivers_list))
 		var/obj/item/organ/external/genital/ret_organ = input(src, desc, title, null) as null|obj in receivers_list

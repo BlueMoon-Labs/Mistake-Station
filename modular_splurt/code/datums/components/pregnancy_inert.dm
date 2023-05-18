@@ -73,7 +73,7 @@
 		return FALSE
 
 	if(receiver && isliving(target))
-		if(CHECK_BITFIELD(receiver.genital_flags, GENITAL_CAN_STUFF))
+		if(CHECK_BITFIELD(receiver.visibility_preference, GENITAL_CAN_STUFF))
 			return lay_eg(receiver, senders_cum)
 	return lay_eg(get_turf(carrier), senders_cum)
 

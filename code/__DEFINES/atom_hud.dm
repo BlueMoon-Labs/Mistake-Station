@@ -45,7 +45,6 @@
 #define FAN_HUD "21"
 /// Mech camera HUD
 #define DIAG_CAMERA_HUD "22"
-
 // SKYRAT EDIT ADDITION BEGIN - gun permits
 /// ammo of guns
 #define AMMO_HUD "25"
@@ -71,14 +70,12 @@
 #define DATA_HUD_AI_DETECT 9
 #define DATA_HUD_FAN 10
 #define DATA_HUD_PERMIT 11 //SKYRAT EDIT
+#define DATA_HUD_ANTAGTARGET 12 // Which players consent via their game settings to be a target for antagonists
 
 // Notification action types
 #define NOTIFY_JUMP "jump"
 #define NOTIFY_ATTACK "attack"
 #define NOTIFY_ORBIT "orbit"
-
-// Which players consent via their game settings to be a target for antagonists
-#define DATA_HUD_ANTAGTARGET	30
 
 /// cooldown for being shown the images for any particular data hud
 #define ADD_HUD_TO_COOLDOWN 20
