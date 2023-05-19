@@ -20,6 +20,20 @@
 /datum/bodypart_overlay/mutant/genital/womb/get_global_feature_list()
 	return GLOB.sprite_accessories[ORGAN_SLOT_WOMB]
 
+/obj/item/organ/external/genital/womb
+	var/impregnated = FALSE
+
+/obj/item/organ/external/genital/womb/Remove(special, moving)
+	if(!impregnated)
+		return ..()
+	impregnated = FALSE
+	var/obj/item/organ/external/genital/breasts/B = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
+	if(!B)
+		return ..()
+
+	B.fluid_rate *= 0.5
+	. = ..()
+
 /datum/sprite_accessory/genital/womb
 	organ_type = /obj/item/organ/external/genital/womb
 	associated_organ_slot = ORGAN_SLOT_WOMB

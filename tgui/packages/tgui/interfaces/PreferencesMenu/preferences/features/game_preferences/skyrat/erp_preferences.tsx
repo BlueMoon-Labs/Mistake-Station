@@ -1,14 +1,14 @@
 import { CheckboxInput, FeatureDropdownInput, FeatureChoiced, FeatureToggle } from '../../base';
 
 export const master_erp_pref: FeatureToggle = {
-  name: 'Показать / Скрыть Предпочтения в эротических ролевых играх',
+  name: 'Допустить ЕРП в Описаниях',
   category: 'ERP',
   description: 'This shows/hides ERP preferences.',
   component: CheckboxInput,
 };
 
 export const erp_pref: FeatureToggle = {
-  name: 'Эротическое Ролевое Взаимодействие',
+  name: 'Эротическое Ролевое Взаимодействие | Панелька',
   category: 'ERP',
   description: 'This informs players of if you wish to engage in ERP.',
   component: CheckboxInput,
@@ -178,14 +178,7 @@ export const ass_slap: FeatureToggle = {
   component: CheckboxInput,
 };
 
-export const unholy_pref: FeatureChoiced = {
-  name: 'Особые ERP возможности',
-  category: 'ERP',
-  description: 'Если включено, то вас можно будет обоссать, ворить и кусать',
-  component: FeatureDropdownInput,
-};
-
-export const nonconpref: FeatureChoiced = {
+export const noncon_pref: FeatureChoiced = {
   name: 'Изнасилование',
   category: 'ERP',
   description: 'Если включено, то вас можно насиловать',
@@ -197,4 +190,25 @@ export const extreme_pref: FeatureChoiced = {
   category: 'ERP',
   description: 'Если включено, то вас можно экстремально поиметь',
   component: FeatureDropdownInput,
+};
+
+export const unholy_pref: FeatureChoiced = {
+  name: 'Особые ERP возможности',
+  category: 'ERP',
+  description: 'Если включено, то вас можно будет обоссать, ворить и кусать',
+  component: FeatureDropdownInput,
+};
+
+export const vore_pref: FeatureChoiced = {
+  name: 'VORE',
+  category: 'ERP',
+  description: 'Если включено, то вас можно будет кушать',
+  component: FeatureDropdownInput,
+};
+
+export const extreme_harm: FeatureToggle = {
+  name: 'Особые ERP возможности',
+  category: 'ERP',
+  description: 'Если включено, то вас можно будет съесть насмерть',
+  component: CheckboxInput,
 };

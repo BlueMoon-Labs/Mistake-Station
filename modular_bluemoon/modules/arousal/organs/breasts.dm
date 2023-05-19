@@ -15,7 +15,7 @@
 	unarousal_verb = "Ваши соски больше не такие твёрдые и чувствительные"
 	fluid_id = /datum/reagent/consumable/milk
 	fluid_rate = MILK_RATE
-	var/static/list/breast_values = list("a" =  1, "b" = 2, "c" = 3, "d" = 4, "e" = 5, "f" = 6, "g" = 7, "h" = 8, "i" = 9, "j" = 10, "k" = 11, "l" = 12, "m" = 13, "n" = 14, "o" = 15, "huge" = 16, "massive" = 17, "giga" = 25, "impossible" = 30, "flat" = 0)
+	var/static/list/breast_values = list("a" =  1, "b" = 2, "c" = 3, "d" = 4, "e" = 5, "f" = 6, "g" = 7, "h" = 8, "i" = 9, "j" = 10, "k" = 11, "l" = 12, "m" = 13, "n" = 14, "o" = 15, "huge" = 16, "flat" = 0)
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/breasts
 
 /datum/bodypart_overlay/mutant/genital/breasts
@@ -113,6 +113,26 @@
 		if("sextuple")
 			breasts_capacity = 5
 	internal_fluid_maximum = size * breasts_capacity * 60 // This seems like it could balloon drastically out of proportion with larger breast sizes.
+
+/obj/item/organ/external/genital/breasts/Insert(mob/living/carbon/M, special, drop_if_replaced)
+	. = ..()
+	var/obj/item/organ/external/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
+	if(!W)
+		return
+	if(!W.impregnated)
+		return
+
+	fluid_rate *= 2
+
+/obj/item/organ/external/genital/breasts/Remove(special, moving)
+	var/obj/item/organ/external/genital/womb/W = owner.get_organ_slot(ORGAN_SLOT_WOMB)
+	if(!W)
+		return ..()
+	if(!W.impregnated)
+		return ..()
+
+	fluid_rate *= 0.5
+	. = ..()
 
 /datum/sprite_accessory/genital/breasts
 	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'

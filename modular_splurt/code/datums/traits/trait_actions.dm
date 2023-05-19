@@ -160,7 +160,7 @@
 	var/input_consent
 
 	// Check for non-consensual setting
-	if(action_target.client?.prefs.nonconpref != "Yes")
+	if(action_target.client?.prefs.noncon_pref != "Yes")
 		// Non-consensual is NOT enabled
 		// Prompt target for consent response
 		input_consent = alert(action_target, "Will you fall into a hypnotic stupor? This will allow [action_owner] to issue hypnotic suggestions.", "Hypnosis", "Yes", "No")

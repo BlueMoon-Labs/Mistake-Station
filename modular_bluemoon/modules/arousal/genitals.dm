@@ -37,8 +37,6 @@
 	var/last_orgasmed = 0
 	var/arousal_verb = "Вы ощущаете сильное возбуждение"
 	var/unarousal_verb = "Возбуждение пропадает, будто бы его и не было"
-	// Boolean used in icon_state strings
-	var/aroused_state = FALSE
 	var/masturbation_verb = "стимулировать"
 	var/layer_index = GENITAL_LAYER_INDEX //Order should be very important. FIRST vagina, THEN testicles, THEN penis, as this affects the order they are rendered in.
 
@@ -79,9 +77,9 @@
 	if(!(genital_flags & GENITAL_CAN_AROUSE))
 		return FALSE
 	if(!((HAS_TRAIT(owner,TRAIT_PERMABONER) && !new_state) || HAS_TRAIT(owner,TRAIT_NEVERBONER) && new_state))
-		aroused_state = new_state
+		aroused = new_state
 	owner.log_message("[src]'s arousal was [new_state ? "enabled" : "disabled"] due to [cause]", LOG_EMOTE)
-	return aroused_state
+	return aroused
 
 /// Helper proc for checking if internal fluids are full or not.
 /obj/item/organ/external/genital/proc/internal_fluid_full()
@@ -129,14 +127,31 @@
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
 
+/obj/item/organ/external/genital/proc/update_appearance_genitals()
+	if(!owner || owner.stat == DEAD)
+		aroused = FALSE
+
 //Removes ERP organs depending on config
-/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special, drop_if_replaced)
+/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special, drop_if_replaced = TRUE)
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return
 	. = ..()
+	if(.)
+		update()
+		RegisterSignal(owner, COMSIG_GLOB_MOB_DEATH, .proc/update_appearance_genitals)
+		if(genital_flags & GENITAL_THROUGH_CLOTHES)
+			owner.exposed_genitals += src
 
-/obj/item/organ/external/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
+/obj/item/organ/external/genital/Remove(special, moving)
 	. = ..()
+	var/mob/living/carbon/C = .
+	update()
+	if(!QDELETED(C))
+		if(genital_flags & UPDATE_OWNER_APPEARANCE && ishuman(C))
+			var/mob/living/carbon/human/H = .
+			H.update_genitals()
+		C.exposed_genitals -= src
+		UnregisterSignal(C, COMSIG_GLOB_MOB_DEATH)
 	update_genital_icon_state()
 
 /obj/item/organ/external/genital/build_from_dna(datum/dna/DNA, associated_key)

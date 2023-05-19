@@ -18,6 +18,17 @@
 	feature_key = ORGAN_SLOT_TESTICLES
 	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
+/datum/bodypart_overlay/mutant/genital/testicles/get_global_feature_list()
+	return GLOB.sprite_accessories[ORGAN_SLOT_TESTICLES]
+
+/obj/item/organ/external/genital/testicles/get_sprite_size_string()
+	var/measured_size = FLOOR(genital_size,1)
+	measured_size = clamp(measured_size, 0, 3)
+	var/passed_string = "[genital_type]_[measured_size]"
+	if(uses_skintones)
+		passed_string += "_s"
+	return passed_string
+
 /obj/item/organ/external/genital/testicles/update_genital_icon_state()
 	var/measured_size = clamp(genital_size, 1, 3)
 	var/passed_string = "testicles_[genital_type]_[measured_size]"
@@ -29,7 +40,7 @@
 	if(genital_name == "Internal") //Checks if Testicles are of Internal Variety
 		visibility_preference = GENITAL_SKIP_VISIBILITY //Removes visibility if yes.
 	else
-		return "You see a pair of testicles, they look [lowertext(balls_size_to_description(genital_size))]."
+		return "Вы наблюдаете семенники [lowertext(balls_size_to_description(genital_size))] размера."
 
 /obj/item/organ/external/genital/testicles/build_from_dna(datum/dna/DNA, associated_key)
 	uses_skin_color = DNA.features["testicles_uses_skincolor"]
@@ -40,18 +51,6 @@
 /obj/item/organ/external/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["testicles_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
-
-/obj/item/organ/external/genital/testicles/get_sprite_size_string()
-	var/measured_size = FLOOR(genital_size,1)
-	measured_size = clamp(measured_size, 0, 3)
-	var/passed_string = "[genital_type]_[measured_size]"
-	if(uses_skintones)
-		passed_string += "_s"
-	return passed_string
-
-/datum/bodypart_overlay/mutant/genital/testicles/get_global_feature_list()
-	return GLOB.sprite_accessories[ORGAN_SLOT_TESTICLES]
-
 
 /obj/item/organ/external/genital/testicles/proc/balls_size_to_description(number)
 	if(number < 0)

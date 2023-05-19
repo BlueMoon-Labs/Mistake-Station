@@ -68,16 +68,30 @@
 	/// How much to reduce the size of the breasts each time it's run
 	var/breast_size_reduction_step = 1
 
+	var/max_belly_size = 10
+	var/belly_size_increase_step = 1
+	var/belly_minimum_size = 2
+	var/belly_size_reduction_step = 1
+
+	var/max_butt_size = 8
+	var/butt_size_increase_step = 1
+	var/butt_minimum_size = 2
+	var/butt_size_reduction_step = 1
+
 	/// Used for determining which genitals the chemical should affect
 	#define GENITAL_PENIS 1
 	#define GENITAL_TESTICLES 2
 	#define GENITAL_BREASTS 3
 	#define GENITAL_VAGINA 4
 	#define GENITAL_WOMB 5
+	#define GENITAL_BELLY 6
+	#define GENITAL_BUTT 7
 
 	// damage to take from being too big
 	#define TAKE_DAMAGE_THRESHOLD_PENIS penis_max_length - 2
 	#define TAKE_DAMAGE_THRESHOLD_BREASTS max_breast_size - 2
+	#define TAKE_DAMAGE_THRESHOLD_BELLY max_belly_size - 2
+	#define TAKE_DAMAGE_THRESHOLD_BUTT max_butt_size - 2
 
 	// Not important at all, really, but I don't want folk complaining about a removed feature.
 	var/static/list/species_to_penis = list(
@@ -246,6 +260,58 @@
 			exposed_mob.adjustOxyLoss(5)
 			exposed_mob.apply_damage(1, BRUTE, exposed_mob.get_bodypart(BODY_ZONE_CHEST))
 
+/datum/reagent/drug/aphrodisiac/proc/grow_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+	if(!mob_belly)
+		return
+
+	if(!exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/belly_enlargement))
+		return
+
+	enlargement_amount += enlarger_increase_step
+
+	if(enlargement_amount >= enlargement_threshold)
+		if(mob_belly?.genital_size >= max_belly_size)
+			return
+
+		mob_belly.genital_size = min(mob_belly.genital_size + belly_size_increase_step, max_belly_size)
+		update_appearance(exposed_mob, mob_belly)
+		enlargement_amount = 0
+
+		growth_to_chat(exposed_mob, mob_belly, suppress_chat)
+
+	// Damage from being too big for your clothes
+	if((mob_belly?.genital_size >= (TAKE_DAMAGE_THRESHOLD_BELLY)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
+		if(prob(damage_chance))
+			to_chat(exposed_mob, span_danger("Ваш животик начинает [pick("разбухать до", "расцветать до", "расширяться до", "пухнуть до", "расти с нетерпением до", "увеличиваться до")] большего размера!"))
+			exposed_mob.adjustOxyLoss(5)
+			exposed_mob.apply_damage(1, BRUTE, exposed_mob.get_bodypart(BODY_ZONE_PRECISE_GROIN))
+
+/datum/reagent/drug/aphrodisiac/proc/grow_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+	if(!mob_butt)
+		return
+
+	if(!exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/butt_enlargement))
+		return
+
+	enlargement_amount += enlarger_increase_step
+
+	if(enlargement_amount >= enlargement_threshold)
+		if(mob_butt?.genital_size >= max_butt_size)
+			return
+
+		mob_butt.genital_size = min(mob_butt.genital_size + butt_size_increase_step, max_butt_size)
+		update_appearance(exposed_mob, mob_butt)
+		enlargement_amount = 0
+
+		growth_to_chat(exposed_mob, mob_butt, suppress_chat)
+
+	// Damage from being too big for your clothes
+	if((mob_butt?.genital_size >= (TAKE_DAMAGE_THRESHOLD_BUTT)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
+		if(prob(damage_chance))
+			to_chat(exposed_mob, span_danger("Ваша попка начинает [pick("разбухать до", "расцветать до", "расширяться до", "пухнуть до", "расти с нетерпением до", "увеличиваться до")] большего размера!"))
+			exposed_mob.adjustOxyLoss(5)
+			exposed_mob.apply_damage(1, BRUTE, exposed_mob.get_bodypart(BODY_ZONE_PRECISE_GROIN))
+
 /** ---- Genital Shrinkage ----
 *
 * Handle genital shrinkage
@@ -267,6 +333,10 @@
 				shrink_vagina(exposed_mob, suppress_chat)
 			if(GENITAL_WOMB)
 				shrink_womb(exposed_mob, suppress_chat)
+			if(GENITAL_BUTT)
+				shrink_butt(exposed_mob, suppress_chat)
+			if(GENITAL_BELLY)
+				shrink_belly(exposed_mob, suppress_chat)
 
 /**
 * Handle penis shrinkage
@@ -371,6 +441,38 @@
 */
 /datum/reagent/drug/aphrodisiac/proc/shrink_womb(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/womb/mob_womb = exposed_mob?.get_organ_slot(ORGAN_SLOT_WOMB))
 	remove_genital(exposed_mob, mob_womb, suppress_chat)
+
+/datum/reagent/drug/aphrodisiac/proc/shrink_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+
+	if(!mob_belly)
+		return
+
+	if(!exposed_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/belly_shrinkage))
+		return
+
+	if(mob_belly.genital_size > belly_minimum_size)
+		mob_belly.genital_size = max(mob_belly.genital_size - belly_size_reduction_step, belly_minimum_size)
+		update_appearance(exposed_mob, mob_belly)
+
+	else if(mob_belly.genital_size == belly_minimum_size) // Handle completely shrinking away, if prefs allow
+		var/message = "Ваш животик начинает [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера вплоть до становления плоским."
+		remove_genital(exposed_mob, mob_belly, suppress_chat, message)
+
+/datum/reagent/drug/aphrodisiac/proc/shrink_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+
+	if(!mob_butt)
+		return
+
+	if(!exposed_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/butt_shrinkage))
+		return
+
+	if(mob_butt.genital_size > butt_minimum_size)
+		mob_butt.genital_size = max(mob_butt.genital_size - butt_size_reduction_step, butt_minimum_size)
+		update_appearance(exposed_mob, mob_butt)
+
+	else if(mob_butt.genital_size == butt_minimum_size) // Handle completely shrinking away, if prefs allow
+		var/message = "Ваши ягодицы начинают [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера вплоть до становления плоскими."
+		remove_genital(exposed_mob, mob_butt, suppress_chat, message)
 
 /** ---- Genital Removal ----
 *

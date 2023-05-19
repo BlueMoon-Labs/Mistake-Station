@@ -253,7 +253,7 @@
 	savefile_key = "erp_sexuality_pref"
 
 /datum/preference/choiced/erp_sexuality/init_possible_values()
-	return list("Gay", "Straight", "None") // For simplicity's sake we only have 3 options.
+	return list("Гетеросексуальный", "Гомосексуальный", "Бисексуальный", "Ничего Не Хочу") // For simplicity's sake we only have 3 options.
 
 /datum/preference/choiced/erp_sexuality/create_default_value()
 	return "None"
@@ -286,10 +286,13 @@
 /datum/preference/toggle/erp/ass_slap
 	savefile_key = "ass_slap"
 
+/datum/preference/toggle/erp/extreme_harm
+	savefile_key = "extreme_harm"
+
 /datum/preference/choiced/erp_yesnoask
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_identifier = PREFERENCE_PLAYER
-	savefile_key = "nonconpref"
+	savefile_key = "noncon_pref"
 
 /datum/preference/choiced/erp_yesnoask/init_possible_values()
 	return list("Yes", "Ask", "No")
@@ -297,11 +300,14 @@
 /datum/preference/choiced/erp_yesnoask/create_default_value()
 	return "Ask"
 
-/datum/preference/choiced/erp_yesnoask/unholy_pref
-	savefile_key = "unholy_pref"
+/datum/preference/choiced/erp_yesnoask/noncon_pref
+	savefile_key = "noncon_pref"
 
-/datum/preference/choiced/erp_yesnoask/nonconpref
-	savefile_key = "nonconpref"
+/datum/preference/choiced/erp_yesnoask/vore_pref
+	savefile_key = "vore_pref"
 
 /datum/preference/choiced/erp_yesnoask/extreme_pref
 	savefile_key = "extreme_pref"
+
+/datum/preference/choiced/erp_yesnoask/extreme_harm
+	savefile_key = "unholy_pref"

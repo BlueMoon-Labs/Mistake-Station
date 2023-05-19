@@ -117,7 +117,7 @@ export const allow_emissives_toggle: FeatureToggle = {
 };
 
 export const eye_emissives: FeatureToggle = {
-  name: 'Допустить Свечение Глаз',
+  name: 'Свечение Глаз',
   description: 'Turn your eyes into sparklers.',
   component: CheckboxInput,
 };

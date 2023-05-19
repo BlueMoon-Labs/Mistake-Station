@@ -25,38 +25,24 @@
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return GLOB.sprite_accessories[ORGAN_SLOT_BUTT]
 
-/obj/item/organ/external/genital/butt/modify_size(modifier, min = -INFINITY, max = BUTT_SIZE_MAX)
-	var/new_value = clamp(size_cached + modifier, min, max)
-	if(new_value == size_cached)
-		return
-	prev_size = size_cached
-	size_cached = new_value
-	genital_size = round(size_cached)
-	update()
-	..()
+/obj/item/organ/external/genital/butt/get_sprite_size_string()
+	var/measured_size = FLOOR(genital_size,1)
+	measured_size = clamp(measured_size, 0, 8)
+	var/passed_string = "[genital_type]_[measured_size]"
+	if(uses_skintones)
+		passed_string += "_s"
+	return passed_string
 
-/obj/item/organ/external/genital/butt/get_sprite_size_string(datum/sprite_accessory/genital/gas)
-	. = ..()
-	var/rounded_size = round(genital_size)
-	if(genital_size < 0)//I don't actually know what round() does to negative numbers, so to be safe!!fixed
-		if(owner)
-			to_chat(owner, "<span class='warning'>Вы чувствуете, как ваши ягодицы уменьшаются до обычного размера.</span>")
-		QDEL_IN(src, 1)
-		return
+/obj/item/organ/external/genital/butt/update_genital_icon_state()
+	var/measured_size = clamp(genital_size, 1, 10)
+	var/passed_string = "butt_pair_[measured_size]"
+	if(uses_skintones)
+		passed_string += "_s"
+	icon_state = passed_string
 
-	if(owner) //Because byond doesn't count from 0, I have to do this.
-		var/mob/living/carbon/human/H = owner
-		var/r_prev_size = round(prev_size)
-		if (rounded_size > r_prev_size)
-			to_chat(H, "<span class='warning'>Ваши ягодицы начинают [pick("разбухать до", "расцветать до", "расширяться до", "пухнуть до", "расти с нетерпением до", "увеличиваться до")] большего размера.</span>")
-		else if (rounded_size < r_prev_size)
-			to_chat(H, "<span class='warning'>Ваши ягодицы начинают [pick("уменьшаться до", "сдуваться до", "колебаться до", "сокращаться до", "сморщиваться с сожалением до", "сдуваться до")] меньшего размера.</span>")
+/obj/item/organ/external/genital/butt/get_description_string(datum/sprite_accessory/genital/gas)
+	var/returned_string = "Вы наблюдаете сочную попку. Кажется, она [lowertext(genital_size)] размера."
 
-
-/obj/item/organ/external/genital/butt/update_appearance()
-	var/lowershape = lowertext(genital_type)
-
-	//Reflect the size of dat ass on examine.
 	switch(round(genital_size))
 		if(1)
 			size_name = "среднего"
@@ -77,22 +63,11 @@
 		else
 			size_name = "плоского"
 
-	desc = "Вы наблюдаете попу [size_name] размера."
+	returned_string = "Вы наблюдаете животик [size_name] размера.."
 
-	var/icon_size = genital_size
-	icon_state = "butt_[lowershape]_[icon_size]"
-	if(owner)
-		if(owner.dna.species.use_skintones && owner.dna.features["genitals_use_skintone"])
-			if(ishuman(owner)) // Check before recasting type, although someone fucked up if you're not human AND have use_skintones somehow...
-				var/mob/living/carbon/human/H = owner // only human mobs have skin_tone, which we need.
-				color = SKINTONE2HEX(H.skin_tone)
-				if(!H.dna.skin_tone_override)
-					icon_state += "_s"
-		else
-			color = "#[owner.dna.features["butt_color"]]"
-	return ..()
+	return returned_string
 
-/obj/item/organ/external/genital/butt/build_from_accessory(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/build_from_dna(associated_key, mob/living/carbon/human/H)
 	var/datum/dna/D = H.dna
 	if(D.species.use_skintones && D.features["genitals_use_skintone"])
 		color = SKINTONE2HEX(H.skin_tone)
@@ -105,10 +80,22 @@
 	if(D.features["butt_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
+	return ..()
+
+/obj/item/organ/external/genital/butt/modify_size(modifier, min = -INFINITY, max = BUTT_SIZE_MAX)
+	var/new_value = clamp(size_cached + modifier, min, max)
+	if(new_value == size_cached)
+		return
+	prev_size = size_cached
+	size_cached = new_value
+	genital_size = round(size_cached)
+	update()
+	..()
+
 /obj/item/organ/external/genital/butt
 	linked_organ_slot = ORGAN_SLOT_ANUS
 
-/obj/item/organ/external/genital/butt/get_sprite_size_string()
+/obj/item/organ/external/genital/butt/build_from_dna()
 	if(!linked_organ)
 		return ..()
 

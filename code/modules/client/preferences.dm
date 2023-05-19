@@ -112,7 +112,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//Sandstorm CHANGES BEGIN
 	var/gender = MALE					//gender of character (well duh)
 	var/erppref = "Ask"
-	var/nonconpref = "Ask"
+	var/noncon_pref = "Ask"
 	var/vorepref = "Ask"
 	var/extremepref = "No" //This is for extreme shit, maybe even literal shit, better to keep it on no by default
 	var/extremeharm = "No" //If "extreme content" is enabled, this option serves as a toggle for the related interactions to cause damage or not
