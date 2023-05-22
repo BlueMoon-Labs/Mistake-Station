@@ -9,6 +9,10 @@ $include interviews.txt
 $include lua.txt
 $include auxtools.txt
 
+# Special BlueMoon configs
+$include bluemoon/autocryo.txt
+$include bluemoon/general.txt
+
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
 # @SERVERNAME tgstation
