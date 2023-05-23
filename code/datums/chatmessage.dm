@@ -112,6 +112,8 @@
 
 	// Register client who owns this message
 	owned_by = owner.client
+	if(!owned_by)
+		return
 	RegisterSignal(owned_by, COMSIG_PARENT_QDELETING, PROC_REF(on_parent_qdel))
 
 	// Remove spans in the message from things like the recorder
@@ -374,7 +376,7 @@
 #undef CHAT_LAYER_MAX_Z
 #undef CHAT_LAYER_Z_STEP
 #undef CHAT_MESSAGE_APPROX_LHEIGHT
-#undef CHAT_MESSAGE_GRACE_PERIOD 
+#undef CHAT_MESSAGE_GRACE_PERIOD
 #undef CHAT_MESSAGE_EOL_FADE
 #undef CHAT_MESSAGE_EXP_DECAY
 #undef CHAT_MESSAGE_HEIGHT_DECAY

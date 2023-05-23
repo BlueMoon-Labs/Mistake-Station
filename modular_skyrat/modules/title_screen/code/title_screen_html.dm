@@ -116,8 +116,8 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			<a id="be_antag" class="menu_button" href='?src=[text_ref(src)];toggle_antag=1'>[client.prefs.read_preference(/datum/preference/toggle/be_antag) ? "<span class='checked'>☑</span> БЫТЬ АНТАГОНИСТОМ" : "<span class='unchecked'>☒</span> НЕ БЫТЬ АНТАГОНИСТОМ"]</a>
 		"}
 
-		if(!is_guest_key(src.key))
-			dat += playerpolls()
+		//if(!is_guest_key(src.key))
+		//	dat += playerpolls()
 
 		dat += "</div>"
 		dat += {"

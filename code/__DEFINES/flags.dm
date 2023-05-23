@@ -141,28 +141,31 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 	the atom/checkpass() proc uses them (tables will call movable atom checkpass(PASSTABLE) for example)
 */
 //flags for pass_flags
-#define PASSTABLE (1<<0)
-#define PASSGLASS (1<<1)
-#define PASSGRILLE (1<<2)
-#define PASSBLOB (1<<3)
-#define PASSMOB (1<<4)
-#define PASSCLOSEDTURF (1<<5)
+#define PASSTABLE		(1<<0)
+#define PASSGLASS		(1<<1)
+#define PASSGRILLE		(1<<2)
+#define PASSBLOB		(1<<3)
+#define PASSMOB			(1<<4)
+#define PASSCLOSEDTURF	(1<<5)
 /// Let thrown things past us. **ONLY MEANINGFUL ON pass_flags_self!**
-#define LETPASSTHROW (1<<6)
-#define PASSMACHINE (1<<7)
-#define PASSSTRUCTURE (1<<8)
-#define PASSFLAPS (1<<9)
-#define PASSDOORS (1<<10)
-#define PASSVEHICLE (1<<11)
-#define PASSITEM (1<<12)
+#define LETPASSTHROW	(1<<6)
+#define	PASSMACHINE		(1<<7)
+#define PASSSTRUCTURE	(1<<8)
+#define PASSCRAWL		(1<<9) //SPLURT edit
+#define PASSFLAPS 		(1<<10)
+#define PASSDOORS 		(1<<11)
+#define PASSVEHICLE 	(1<<12)
+#define PASSITEM		(1<<13)
 
 //Movement Types
-#define GROUND (1<<0)
-#define FLYING (1<<1)
-#define VENTCRAWLING (1<<2)
-#define FLOATING (1<<3)
+#define GROUND				(1<<0)
+#define FLYING				(1<<1)
+#define VENTCRAWLING 		(1<<2)
+#define FLOATING			(1<<3)
 /// When moving, will Cross() everything, but won't stop or Bump() anything.
-#define PHASING (1<<4)
+#define PHASING				(1<<4)
+///Applied if you're crawling around on the ground/resting.
+#define CRAWLING			(1<<5)
 
 //Fire and Acid stuff, for resistance_flags
 #define LAVA_PROOF (1<<0)
@@ -345,11 +348,6 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define EXCITED_CLEANUP_1 (1 << 13)
 
 #define NO_ALERTS (1<<12)
-
-#define PASSCRAWL		(1<<9) //SPLURT edit
-
-///Applied if you're crawling around on the ground/resting.
-#define CRAWLING			(1<<5)
 
 //Fire and Acid stuff, for resistance_flags
 #define GOLIATH_RESISTANCE (1<<8) //CIT CHANGE

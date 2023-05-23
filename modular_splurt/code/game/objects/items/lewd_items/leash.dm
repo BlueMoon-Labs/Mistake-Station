@@ -121,7 +121,7 @@ Icons, maybe?
 				leash_pet.apply_status_effect(/datum/status_effect/leash_freepet)
 				leash_pet.remove_status_effect(/datum/status_effect/leash_dom)
 			while(1) //While true loop. The mark of a genius coder.  ##MAINLOOP START
-				sleep(2) //Check every other tick
+				//sleep(2)
 				if(leash_pet == "null") //No pet, break loop
 					return
 				if(!(leash_pet.get_item_by_slot(ITEM_SLOT_NECK))) //The pet has slipped their collar and is not the pet anymore.

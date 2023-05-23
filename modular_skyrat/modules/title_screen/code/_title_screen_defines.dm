@@ -172,30 +172,6 @@
 					animation: pulse_button 0.25s infinite alternate;
 				}
 
-				@keyframes pollsbox {
-					0% {color: #ddd;}
-					50% {color: #f80;}
-				}
-
-				.menu_newpoll {
-					animation: pollsbox 2s step-start infinite;
-					padding-left: 0px;
-				}
-
-				.menu_newpoll::before {
-					content: "→";
-					text-align: center;
-					width: 5vmin;
-					display: inline-block;
-				}
-
-				.menu_newpoll::after {
-					content: "←";
-					text-align: center;
-					width: 5vmin;
-					display: inline-block;
-				}
-
 				.container_notice {
 					position: absolute;
 					box-sizing: border-box;

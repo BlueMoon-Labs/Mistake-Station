@@ -101,9 +101,7 @@
 
 /datum/movespeed_modifier/carbon_crawling
 	multiplicative_slowdown = CRAWLING_ADD_SLOWDOWN
-	movetypes = CRAWLING
 	flags = IGNORE_NOSLOW
-	priority = 20000
 
 /datum/movespeed_modifier/mob_config_speedmod
 	variable = TRUE

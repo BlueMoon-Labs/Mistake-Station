@@ -124,7 +124,7 @@
 				.container_nav hr {
 					display: none;
 					height: 8px;
-					background-color: #cde;
+					background-color: #ddd;
 					border: none;
 					box-shadow: 2px 2px black;
 					max-width: 50%;
@@ -142,7 +142,7 @@
 					line-height: 4vmin;
 					width: 100%;
 					text-align: left;
-					color: #cde;
+					color: #ddd;
 					min-height: 4vmin;
 					padding-left: 5vmin;
 					letter-spacing: 1px;
@@ -181,30 +181,6 @@
 					text-align: center;
 					width: 5vmin;
 					animation: pulse_button 0.25s infinite alternate;
-				}
-
-				@keyframes pollsbox {
-					0% {color: #cde;}
-					50% {color: #f80;}
-				}
-
-				.menu_newpoll {
-					animation: pollsbox 2s step-start infinite;
-					padding-left: 0px;
-				}
-
-				.menu_newpoll::before {
-					content: "→";
-					text-align: center;
-					width: 5vmin;
-					display: inline-block;
-				}
-
-				.menu_newpoll::after {
-					content: "←";
-					text-align: center;
-					width: 5vmin;
-					display: inline-block;
 				}
 
 				.container_notice {
