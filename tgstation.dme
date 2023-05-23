@@ -5537,8 +5537,6 @@
 #include "modular_bluemoon\modules\bark\code\base_seeds\mobs\other.dm"
 #include "modular_bluemoon\modules\bark\code\base_seeds\mobs\pets.dm"
 #include "modular_bluemoon\modules\bark\code\base_seeds\objs\objs.dm"
-#include "modular_bluemoon\modules\bark\code\_bark_defines.dm"
-#include "modular_bluemoon\modules\bark\code\bark_preferences.dm"
 #include "modular_bluemoon\modules\barsigns\code\barsigns.dm"
 #include "modular_bluemoon\modules\customization\datums\keybinding\communication.dm"
 #include "modular_bluemoon\modules\cyrillic_key_fixes\code\communication.dm"
