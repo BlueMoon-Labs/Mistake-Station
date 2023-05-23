@@ -118,7 +118,7 @@
 
 				.container_nav hr {
 					height: 2px;
-					background-color: #cde;
+					background-color: #ddd;
 					border: none;
 					box-shadow: 2px 2px black;
 				}
@@ -134,7 +134,7 @@
 					line-height: 4vmin;
 					width: 100%;
 					text-align: left;
-					color: #cde;
+					color: #ddd;
 					height: 4vmin;
 					padding-left: 5vmin;
 					letter-spacing: 1px;
@@ -173,7 +173,7 @@
 				}
 
 				@keyframes pollsbox {
-					0% {color: #cde;}
+					0% {color: #ddd;}
 					50% {color: #f80;}
 				}
 
