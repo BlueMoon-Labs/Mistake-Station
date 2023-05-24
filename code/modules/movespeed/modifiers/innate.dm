@@ -13,3 +13,8 @@
 /datum/movespeed_modifier/dna_vault_speedup
 	blacklisted_movetypes = (FLYING|FLOATING)
 	multiplicative_slowdown = -0.4
+
+/datum/movespeed_modifier/small_stride
+	blacklisted_movetypes = (FLOATING|CRAWLING)
+	variable = TRUE
+	flags = IGNORE_NOSLOW
