@@ -320,11 +320,11 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 
 	print_command_report(., "Central Command Status Summary", announce=FALSE)
 	if(greenshift)
-		priority_announce("Thanks to the tireless efforts of our security and intelligence divisions, there are currently no credible threats to [station_name()]. All station construction projects have been authorized. Have a secure shift!", "Security Report", SSstation.announcer.get_rand_report_sound())
+		priority_announce("Благодаря неустанным усилиям наших специальных оперативных подразделений в настоящее время нет никаких действительных угроз для [station_name()]. Все проекты строительства станции утверждены. Безопасной смены!", "Отдел ССО Пакта Синих Лун", SSstation.announcer.get_rand_report_sound())
 	else
-		priority_announce("A summary has been copied and printed to all communications consoles.", "Security level elevated.", ANNOUNCER_INTERCEPT)
-		if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
-			SSsecurity_level.set_level(SEC_LEVEL_BLUE)
+		priority_announce("Благодаря неустанным усилиям наших специальных оперативных подразделений мы обнаружили несколько возможных угроз для [station_name()]. Будьте осторожней!", "Отдел ССО Пакта Синих Лун", SSstation.announcer.get_rand_report_sound())
+		//if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE) // Ну чтобы не манчили устраивали манче-приколы с самого начала раунда.
+		//	SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 
 /// Generate the advisory level depending on the shown threat level.
 /datum/game_mode/dynamic/proc/generate_advisory_level()
