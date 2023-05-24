@@ -4,17 +4,17 @@ GLOBAL_LIST_INIT(loadout_shirts, generate_loadout_items(/datum/loadout_item/shir
 	category = LOADOUT_SUBCATEGORY_SHIRT
 
 /datum/loadout_item/shirt/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(initial(outfit_important_for_life.shirt))
+	if(initial(outfit_important_for_life.bm_undershirt))
 		.. ()
 		return TRUE
 
 /datum/loadout_item/shirt/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
 	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
-		if(outfit.shirt)
-			LAZYADD(outfit.backpack_contents, outfit.shirt)
-		outfit.shirt = item_path
+		if(outfit.bm_undershirt)
+			LAZYADD(outfit.backpack_contents, outfit.bm_undershirt)
+		outfit.bm_undershirt = item_path
 	else
-		outfit.shirt = item_path
+		outfit.bm_undershirt = item_path
 
 /datum/loadout_item/shirt/plain
 	name = "Shirt"

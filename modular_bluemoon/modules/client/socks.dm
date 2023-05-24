@@ -4,17 +4,17 @@ GLOBAL_LIST_INIT(loadout_socks, generate_loadout_items(/datum/loadout_item/socks
 	category = LOADOUT_SUBCATEGORY_SOCKS
 
 /datum/loadout_item/socks/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(initial(outfit_important_for_life.socks))
+	if(initial(outfit_important_for_life.bm_socks))
 		.. ()
 		return TRUE
 
 /datum/loadout_item/socks/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
 	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
-		if(outfit.socks)
-			LAZYADD(outfit.backpack_contents, outfit.socks)
-		outfit.socks = item_path
+		if(outfit.bm_socks)
+			LAZYADD(outfit.backpack_contents, outfit.bm_socks)
+		outfit.bm_socks = item_path
 	else
-		outfit.socks = item_path
+		outfit.bm_socks = item_path
 
 /datum/loadout_item/socks/plain
 	name = "Socks"

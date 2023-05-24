@@ -34,15 +34,15 @@
 		if(ITEM_SLOT_EARS_LEFT)
 			ears = item_path
 		if(ITEM_SLOT_EARS_RIGHT)
-			ears_extra = item_path
+			bm_ears_extra = item_path
 		if(ITEM_SLOT_WRISTS)
-			wrists = item_path
+			bm_wrists = item_path
 		if(ITEM_SLOT_SHIRT)
-			shirt = item_path
+			bm_undershirt = item_path
 		if(ITEM_SLOT_UNDERWEAR)
-			underwear = item_path
+			bm_underwear = item_path
 		if(ITEM_SLOT_SOCKS)
-			socks = item_path
+			bm_socks = item_path
 		//
 		if(ITEM_SLOT_EYES)
 			glasses = item_path

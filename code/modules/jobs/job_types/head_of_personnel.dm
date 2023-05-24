@@ -76,7 +76,7 @@
 /datum/outfit/job/hop/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(check_holidays("Ian's Birthday"))
-		undershirt = /datum/sprite_accessory/undershirt/ian
+		bm_undershirt = /obj/item/clothing/underwear/shirt/ian
 
 //only pet worth reviving
 /datum/job/head_of_personnel/get_mail_goodies(mob/recipient)
