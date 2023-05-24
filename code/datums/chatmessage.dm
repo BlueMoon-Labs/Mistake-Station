@@ -126,11 +126,11 @@
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
-	if (!target.chat_color || target.chat_color_name != target.name || owner.key)
+	if (!target.chat_color || target.chat_color_name != target.name)
 		var/mob/M = target
 		if(GLOB.runechat_color_names[target.name])
 			target.chat_color = GLOB.runechat_color_names[target.name]
-		else if (ismob(target) && M.name == M.real_name)
+		else if (ismob(target) && M.client?.prefs?.enable_personal_chat_color && M.name == M.real_name && M.name == M.client.prefs.read_preference(/datum/preference/name/real_name))
 			var/per_color = M.client.prefs.personal_chat_color
 			GLOB.runechat_color_names[target.name] = per_color
 			target.chat_color = per_color
@@ -138,11 +138,6 @@
 			target.chat_color = colorize_string(target.name)
 		target.chat_color_darkened = colorize_string(target.chat_color, 0.85, 0.85)
 		target.chat_color_name = target.name
-	else if (!target.chat_color || target.chat_color_name != target.name)
-		target.chat_color = colorize_string(target.name)
-		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		target.chat_color_name = target.name
-
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")

@@ -64,7 +64,7 @@
 	department_experience_type = EXP_TYPE_SECURITY
 	display_order = 2
 	label_class = "security"
-	ui_color = "#d46a78"
+	ui_color = "#be3333"
 	nation_prefixes = list("Securi", "Beepski", "Shitcuri", "Red", "Stunba", "Flashbango", "Flasha", "Stanfordi")
 
 /datum/job_department/engineering
