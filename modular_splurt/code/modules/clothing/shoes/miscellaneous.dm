@@ -63,7 +63,6 @@
 	worn_icon = 'modular_splurt/icons/mob/clothing/shoes.dmi'
 	worn_icon_digi = 'modular_splurt/icons/mob/clothing/shoes_digi.dmi'
 	resistance_flags = ACID_PROOF
-	is_edible = 0
 
 /obj/item/clothing/shoes/jackboots/cbrn/Initialize()
 	. = ..()

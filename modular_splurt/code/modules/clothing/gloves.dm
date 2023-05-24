@@ -12,7 +12,6 @@
 	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/utility_radiation
 	equip_delay_other = 60
-	is_edible = 0
 
 /obj/item/clothing/gloves/cbrn/Initialize()
 	. = ..()

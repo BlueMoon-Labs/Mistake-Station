@@ -29,7 +29,6 @@
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
 	resistance_flags = ACID_PROOF
 	visor_flags_inv = 0
-	is_edible = 0
 
 /obj/item/clothing/mask/gas/cbrn/Initialize()
 	. = ..()

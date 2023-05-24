@@ -60,7 +60,6 @@
 	clothing_flags = THICKMATERIAL
 	flags_inv = HIDEHAIR|HIDEEARS
 	resistance_flags = ACID_PROOF
-	is_edible = 0
 
 /obj/item/clothing/head/helmet/cbrn/Initialize()
 	. = ..()
@@ -71,14 +70,10 @@
 	desc = "Mission Oriented Protective Posture. A hood design for harsh combat conditions short of no atmosphere. This one has a helmet towed onto the hood for added protection."
 	icon_state = "mopphood"
 	icon_state = "mopphood"
-	is_edible = 0
-
 /obj/item/clothing/head/helmet/cbrn/mopp/advance
 	name = "advance MOPP hood"
 	desc = "Mission Oriented Protective Posture. A hood design for harsh combat conditions short of no atmosphere. This is an advance versoin for ERT units and Central Command Staff."
 	clothing_flags = NONE
-	is_edible = 0
-
 
 // research nods
 /datum/design/cbrn/cbrnhood
