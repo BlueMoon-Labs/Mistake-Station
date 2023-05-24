@@ -259,7 +259,10 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
-		my_head.worn_glasses_offset?.apply_offset(glasses_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_head.worn_glasses_offset?.apply_offset(glasses_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
@@ -294,16 +297,18 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EAR_LEFT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
-		if(!mutant_override && (OFFSET_EARS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
-			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
-			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_head.worn_ears_offset?.apply_offset(ears_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[EAR_LEFT_LAYER] = ears_overlay
 	apply_overlay(EAR_LEFT_LAYER)
 
 /mob/living/carbon/human/update_inv_ears_extra()
 	remove_overlay(EAR_RIGHT_LAYER)
 
-	if(!get_bodypart(BODY_ZONE_HEAD)) //decapitated
+	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
+	if(isnull(my_head)) //decapitated
 		return
 
 	if(client && hud_used)
@@ -330,9 +335,10 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/ears_overlay = ears_extra.build_worn_icon(default_layer = EAR_RIGHT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
-		if(!mutant_override && (OFFSET_EARS in dna.species.offset_features)) // SKYRAT EDIT CHANGE
-			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
-			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
+	// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_head.worn_ears_offset?.apply_offset(ears_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[EAR_RIGHT_LAYER] = ears_overlay
 	apply_overlay(EAR_RIGHT_LAYER)
 
@@ -541,7 +547,10 @@ There are several things that need to be remembered:
 		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_belt_offset?.apply_offset(neck_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_chest?.worn_belt_offset?.apply_offset(neck_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[NECK_LAYER] = neck_overlay
 
 	apply_overlay(NECK_LAYER)
@@ -656,7 +665,10 @@ There are several things that need to be remembered:
 		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
 		var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
-		my_head?.worn_head_offset?.apply_offset(head_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_head?.worn_head_offset?.apply_offset(head_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[HEAD_LAYER] = head_overlay
 
 	update_mutant_bodyparts()
@@ -690,7 +702,10 @@ There are several things that need to be remembered:
 		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[BELT_LAYER] = belt_overlay
 
 	apply_overlay(BELT_LAYER)
@@ -732,7 +747,10 @@ There are several things that need to be remembered:
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null, mutant_styles = mutant_styles) // SKYRAT EDIT CHANGE - Mutant bodytypes and Taur-friendly suits!
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[SUIT_LAYER] = suit_overlay
 	update_body_parts()
 	update_mutant_bodyparts()
@@ -797,7 +815,10 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
 
-		my_head.worn_mask_offset?.apply_offset(mask_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_head.worn_mask_offset?.apply_offset(mask_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
@@ -830,7 +851,10 @@ There are several things that need to be remembered:
 		if(!back_overlay)
 			return
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		// SKYRAT EDIT END
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
 

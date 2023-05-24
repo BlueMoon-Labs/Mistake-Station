@@ -77,12 +77,14 @@
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
 /datum/chatmessage/Destroy()
-	if(REALTIMEOFDAY < animate_start + animate_lifespan)
-		stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-	if (owned_by)
+	if (!QDELING(owned_by))
+		if(REALTIMEOFDAY < animate_start + animate_lifespan)
+			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
+
 		if (owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
 		owned_by.images.Remove(message)
+
 	owned_by = null
 	message_loc = null
 	message = null

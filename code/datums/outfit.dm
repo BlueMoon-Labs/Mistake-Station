@@ -98,11 +98,11 @@
 	var/list/chameleon_extras
 
 	//BlueMoon edit
-	var/underwear = null
-	var/socks = null
-	var/shirt = null
-	var/ears_extra = null
-	var/wrists = null
+	var/bm_underwear = null
+	var/bm_socks = null
+	var/bm_undershirt = null
+	var/bm_ears_extra = null
+	var/bm_wrists = null
 	//
 
 	/**
@@ -126,7 +126,9 @@
 	var/preload = FALSE
 
 	/// Any undershirt. While on humans it is a string, here we use paths to stay consistent with the rest of the equips.
-	var/datum/sprite_accessory/undershirt = null
+	var/datum/sprite_accessory/skyrat_undershirt = null
+	var/datum/sprite_accessory/skyrat_underwear = null
+	var/datum/sprite_accessory/skyrat_socks = null
 
 /**
  * Called at the start of the equip proc
@@ -139,7 +141,7 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
 	//to be overridden for customization depending on client prefs,species etc
 	return
 
@@ -154,15 +156,15 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
 	//to be overridden for toggling internals, id binding, access etc
 	return
 
 #define EQUIP_OUTFIT_ITEM(item_path, slot_name) if(##item_path) { \
-	H.equip_to_slot_or_del(SSwardrobe.provide_type(##item_path, H), ##slot_name, TRUE); \
-	var/obj/item/outfit_item = H.get_item_by_slot(##slot_name); \
+	user.equip_to_slot_or_del(SSwardrobe.provide_type(##item_path, user), ##slot_name, TRUE); \
+	var/obj/item/outfit_item = user.get_item_by_slot(##slot_name); \
 	if (outfit_item && outfit_item.type == ##item_path) { \
-		outfit_item.on_outfit_equip(H, visualsOnly, ##slot_name); \
+		outfit_item.on_outfit_equip(user, visualsOnly, ##slot_name); \
 	} \
 }
 
@@ -174,8 +176,8 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	pre_equip(H, visualsOnly)
+/datum/outfit/proc/equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+	pre_equip(user, visualsOnly)
 
 	//Start with uniform,suit,backpack for additional slots
 	if(uniform)
@@ -196,51 +198,57 @@
 		EQUIP_OUTFIT_ITEM(neck, ITEM_SLOT_NECK)
 	if(ears)
 		EQUIP_OUTFIT_ITEM(ears, ITEM_SLOT_EARS_LEFT)
-	if(ears_extra)
-		EQUIP_OUTFIT_ITEM(ears_extra, ITEM_SLOT_EARS_RIGHT)
-	if(underwear)
-		EQUIP_OUTFIT_ITEM(underwear, ITEM_SLOT_UNDERWEAR)
-	if(socks)
-		EQUIP_OUTFIT_ITEM(socks, ITEM_SLOT_SOCKS)
-	if(shirt)
-		EQUIP_OUTFIT_ITEM(shirt, ITEM_SLOT_SHIRT)
-	if(wrists)
-		EQUIP_OUTFIT_ITEM(wrists, ITEM_SLOT_WRISTS)
+	if(bm_ears_extra)
+		EQUIP_OUTFIT_ITEM(bm_ears_extra, ITEM_SLOT_EARS_RIGHT)
+	if(bm_underwear)
+		EQUIP_OUTFIT_ITEM(bm_underwear, ITEM_SLOT_UNDERWEAR)
+	if(bm_socks)
+		EQUIP_OUTFIT_ITEM(bm_socks, ITEM_SLOT_SOCKS)
+	if(bm_undershirt)
+		EQUIP_OUTFIT_ITEM(bm_undershirt, ITEM_SLOT_SHIRT)
+	if(bm_wrists)
+		EQUIP_OUTFIT_ITEM(bm_wrists, ITEM_SLOT_WRISTS)
 	if(glasses)
 		EQUIP_OUTFIT_ITEM(glasses, ITEM_SLOT_EYES)
 	if(back)
 		EQUIP_OUTFIT_ITEM(back, ITEM_SLOT_BACK)
 	if(id)
 		EQUIP_OUTFIT_ITEM(id, ITEM_SLOT_ID)
-	if(!visualsOnly && id_trim && H.wear_id)
-		var/obj/item/card/id/id_card = H.wear_id
+	if(!visualsOnly && id_trim && user.wear_id)
+		var/obj/item/card/id/id_card = user.wear_id
 		if(!istype(id_card)) //If an ID wasn't found in their ID slot, it's probably something holding their ID like a wallet or PDA
-			id_card = locate() in H.wear_id
+			id_card = locate() in user.wear_id
 
 		if(istype(id_card)) //Make sure that we actually found an ID to modify, otherwise this runtimes and cancels equipping the outfit
-			id_card.registered_age = H.age
+			id_card.registered_age = user.age
 			if(id_trim)
 				if(!SSid_access.apply_trim_to_card(id_card, id_trim))
 					WARNING("Unable to apply trim [id_trim] to [id_card] in outfit [name].")
-				H.sec_hud_set_ID()
+				user.sec_hud_set_ID()
 
 	if(suit_store)
 		EQUIP_OUTFIT_ITEM(suit_store, ITEM_SLOT_SUITSTORE)
 
-	if(undershirt)
-		H.undershirt = initial(undershirt.name)
+	//if(undershirt)
+	//	user.undershirt = initial(undershirt.name)
+//
+	//if(underwear)
+	//	user.underwear = initial(underwear.name)
+//
+	//if(socks)
+	//	user.socks = initial(socks.name)
 
 	if(accessory)
-		var/obj/item/clothing/under/U = H.w_uniform
+		var/obj/item/clothing/under/U = user.w_uniform
 		if(U)
-			U.attach_accessory(SSwardrobe.provide_type(accessory, H))
+			U.attach_accessory(SSwardrobe.provide_type(accessory, user))
 		else
 			WARNING("Unable to equip accessory [accessory] in outfit [name]. No uniform present!")
 
 	if(l_hand)
-		H.put_in_l_hand(SSwardrobe.provide_type(l_hand, H))
+		user.put_in_l_hand(SSwardrobe.provide_type(l_hand, user))
 	if(r_hand)
-		H.put_in_r_hand(SSwardrobe.provide_type(r_hand, H))
+		user.put_in_r_hand(SSwardrobe.provide_type(r_hand, user))
 
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
@@ -262,38 +270,38 @@
 				for(var/i in 1 to number)
 					EQUIP_OUTFIT_ITEM(path, ITEM_SLOT_BACKPACK)
 
-	post_equip(H, visualsOnly)
+	post_equip(user, visualsOnly)
 
 	if(!visualsOnly)
-		apply_fingerprints(H)
+		apply_fingerprints(user)
 		if(internals_slot)
 			if(internals_slot & ITEM_SLOT_HANDS)
-				var/obj/item/tank/internals/internals = H.is_holding_item_of_type(/obj/item/tank/internals)
+				var/obj/item/tank/internals/internals = user.is_holding_item_of_type(/obj/item/tank/internals)
 				if(internals)
-					H.open_internals(internals)
+					user.open_internals(internals)
 			else
-				H.open_internals(H.get_item_by_slot(internals_slot))
+				user.open_internals(user.get_item_by_slot(internals_slot))
 		if(implants)
 			for(var/implant_type in implants)
-				var/obj/item/implant/I = SSwardrobe.provide_type(implant_type, H)
-				I.implant(H, null, TRUE)
+				var/obj/item/implant/implanter = SSwardrobe.provide_type(implant_type, user)
+				implanter.implant(user, null, TRUE)
 
 		// Insert the skillchips associated with this outfit into the target.
 		if(skillchips)
 			for(var/skillchip_path in skillchips)
 				var/obj/item/skillchip/skillchip_instance = SSwardrobe.provide_type(skillchip_path)
-				var/implant_msg = H.implant_skillchip(skillchip_instance)
+				var/implant_msg = user.implant_skillchip(skillchip_instance)
 				if(implant_msg)
-					stack_trace("Failed to implant [H] with [skillchip_instance], on job [src]. Failure message: [implant_msg]")
+					stack_trace("Failed to implant [user] with [skillchip_instance], on job [src]. Failure message: [implant_msg]")
 					qdel(skillchip_instance)
 					return
 
 				var/activate_msg = skillchip_instance.try_activate_skillchip(TRUE, TRUE)
 				if(activate_msg)
-					CRASH("Failed to activate [H]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
+					CRASH("Failed to activate [user]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
 
 
-	H.update_body()
+	user.update_body()
 	return TRUE
 
 #undef EQUIP_OUTFIT_ITEM
@@ -305,57 +313,57 @@
  * essentially calls add_fingerprint to every defined item on the human
  *
  */
-/datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
-	if(!istype(H))
+/datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/user)
+	if(!istype(user))
 		return
-	if(H.back)
-		H.back.add_fingerprint(H, ignoregloves = TRUE)
-		for(var/obj/item/I in H.back.contents)
-			I.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.wear_id)
-		H.wear_id.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.w_uniform)
-		H.w_uniform.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.wear_suit)
-		H.wear_suit.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.wear_mask)
-		H.wear_mask.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.wear_neck)
-		H.wear_neck.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.head)
-		H.head.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.shoes)
-		H.shoes.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.gloves)
-		H.gloves.add_fingerprint(H, ignoregloves = TRUE)
+	if(user.back)
+		user.back.add_fingerprint(user, ignoregloves = TRUE)
+		for(var/obj/item/item in user.back.contents)
+			item.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.wear_id)
+		user.wear_id.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.w_uniform)
+		user.w_uniform.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.wear_suit)
+		user.wear_suit.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.wear_mask)
+		user.wear_mask.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.wear_neck)
+		user.wear_neck.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.head)
+		user.head.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.shoes)
+		user.shoes.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.gloves)
+		user.gloves.add_fingerprint(user, ignoregloves = TRUE)
 	//BlueMoon edit
-	if(H.wrists)
-		H.wrists.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.w_socks)
-		H.w_socks.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.w_underwear)
-		H.w_underwear.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.w_undershirt)
-		H.w_undershirt.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.ears_extra)
-		H.ears_extra.add_fingerprint(H, ignoregloves = TRUE)
+	if(user.wrists)
+		user.wrists.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.w_socks)
+		user.w_socks.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.w_underwear)
+		user.w_underwear.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.w_undershirt)
+		user.w_undershirt.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.ears_extra)
+		user.ears_extra.add_fingerprint(user, ignoregloves = TRUE)
 	//
-	if(H.ears)
-		H.ears.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.glasses)
-		H.glasses.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.belt)
-		H.belt.add_fingerprint(H, ignoregloves = TRUE)
-		for(var/obj/item/I in H.belt.contents)
-			I.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.s_store)
-		H.s_store.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.l_store)
-		H.l_store.add_fingerprint(H, ignoregloves = TRUE)
-	if(H.r_store)
-		H.r_store.add_fingerprint(H, ignoregloves = TRUE)
-	for(var/obj/item/I in H.held_items)
-		I.add_fingerprint(H, ignoregloves = TRUE)
+	if(user.ears)
+		user.ears.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.glasses)
+		user.glasses.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.belt)
+		user.belt.add_fingerprint(user, ignoregloves = TRUE)
+		for(var/obj/item/item in user.belt.contents)
+			item.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.s_store)
+		user.s_store.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.l_store)
+		user.l_store.add_fingerprint(user, ignoregloves = TRUE)
+	if(user.r_store)
+		user.r_store.add_fingerprint(user, ignoregloves = TRUE)
+	for(var/obj/item/item in user.held_items)
+		item.add_fingerprint(user, ignoregloves = TRUE)
 	return TRUE
 
 //SKYRAT EDIT
@@ -388,21 +396,21 @@
 	if(H.glasses)
 		glasses = H.glasses.type
 	if(H.w_undershirt)
-		shirt = H.worn_shirt.type
+		bm_undershirt = H.worn_shirt.type
 	if(H.w_underwear)
-		underwear = H.worn_underwear.type
+		bm_underwear = H.worn_underwear.type
 	if(H.w_socks)
-		socks = H.worn_socks.type
+		bm_socks = H.worn_socks.type
 	if(H.wrists)
-		wrists = H.worn_wrists.type
+		bm_wrists = H.worn_wrists.type
 	if(H.ears_extra)
-		ears_extra = H.ears.type
+		bm_ears_extra = H.ears.type
 	return TRUE
 // SKYRAT EDIT END
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
-	var/list/types = list(uniform, underwear, socks, shirt, ears_extra, suit, back, belt, gloves, wrists, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
+	var/list/types = list(uniform, bm_underwear, bm_socks, bm_undershirt, bm_ears_extra, suit, back, belt, gloves, bm_wrists, shoes, head, mask, neck, ears, glasses, id, l_pocket, r_pocket, suit_store, r_hand, l_hand)
 	types += chameleon_extras
 	types += skillchips
 	list_clear_nulls(types)
@@ -434,11 +442,11 @@
 	preload += l_hand
 	preload += r_hand
 	preload += accessory
-	preload += underwear
-	preload += socks
-	preload += shirt
-	preload += ears_extra
-	preload += wrists
+	preload += bm_underwear
+	preload += bm_socks
+	preload += bm_undershirt
+	preload += bm_ears_extra
+	preload += bm_wrists
 	preload += box
 	for(var/implant_type in implants)
 		preload += implant_type
@@ -477,11 +485,11 @@
 	.["box"] = box
 	.["implants"] = implants
 	.["accessory"] = accessory
-	.["underwear"] = underwear
-	.["socks"] = socks
-	.["shirt"] = shirt
-	.["ears_extra"] = ears_extra
-	.["wrists"] = wrists
+	.["underwear"] = bm_underwear
+	.["socks"] = bm_socks
+	.["shirt"] = bm_undershirt
+	.["ears_extra"] = bm_ears_extra
+	.["wrists"] = bm_wrists
 
 /// Copy most vars from another outfit to this one
 /datum/outfit/proc/copy_from(datum/outfit/target)
@@ -509,11 +517,11 @@
 	box = target.box
 	implants = target.implants
 	accessory = target.accessory
-	underwear = target.underwear
-	socks = target.socks
-	shirt = target.shirt
-	ears_extra = target.ears_extra
-	wrists = target.wrists
+	bm_underwear = target.bm_underwear
+	bm_socks = target.bm_socks
+	bm_undershirt = target.bm_undershirt
+	bm_ears_extra = target.bm_ears_extra
+	bm_wrists = target.bm_wrists
 
 /// Prompt the passed in mob client to download this outfit as a json blob
 /datum/outfit/proc/save_to_file(mob/admin)
@@ -548,11 +556,11 @@
 	r_hand = text2path(outfit_data["r_hand"])
 	l_hand = text2path(outfit_data["l_hand"])
 	internals_slot = outfit_data["internals_slot"]
-	underwear = outfit_data["underwear"]
-	socks = outfit_data["socks"]
-	shirt = outfit_data["shirt"]
-	ears_extra = outfit_data["ears_extra"]
-	wrists = outfit_data["wrists"]
+	bm_underwear = outfit_data["underwear"]
+	bm_socks = outfit_data["socks"]
+	bm_undershirt = outfit_data["shirt"]
+	bm_ears_extra = outfit_data["ears_extra"]
+	bm_wrists = outfit_data["wrists"]
 	var/list/backpack = outfit_data["backpack_contents"]
 	backpack_contents = list()
 	for(var/item in backpack)

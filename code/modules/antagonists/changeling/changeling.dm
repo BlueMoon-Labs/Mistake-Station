@@ -616,6 +616,8 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 		new_profile.worn_icon_vox_list[slot] = clothing_item.worn_icon_vox
 		new_profile.supports_variations_flags_list[slot] = clothing_item.supports_variations_flags
 		// SKYRAT EDIT END
+	new_profile.voice = target.voice
+	new_profile.voice_filter = target.voice_filter
 
 	return new_profile
 
@@ -810,6 +812,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 	user.grad_style = LAZYLISTDUPLICATE(chosen_profile.grad_style)
 	user.grad_color = LAZYLISTDUPLICATE(chosen_profile.grad_color)
+
 	user.physique = chosen_profile.physique
 	qdel(user.selected_scream)
 	qdel(user.selected_laugh)
@@ -832,6 +835,8 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 				break
 
 	// SKYRAT EDIT END
+	user.voice = chosen_profile.voice
+	user.voice_filter = chosen_profile.voice_filter
 
 	chosen_dna.transfer_identity(user, TRUE)
 
@@ -993,6 +998,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	var/emissive_eyes
 	var/list/grad_style = list("None", "None")
 	var/list/grad_color = list(null, null)
+
 	var/physique
 	var/list/worn_icon_digi_list = list()
 	var/list/worn_icon_monkey_list = list()
@@ -1004,6 +1010,12 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	var/age
 	var/list/quirks = list()
 	/// SKYRAT EDIT END
+
+	/// The TTS voice of the profile source
+	var/voice
+	/// The TTS filter of the profile filter
+	var/voice_filter = ""
+
 
 /datum/changeling_profile/Destroy()
 	qdel(dna)
@@ -1045,6 +1057,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	new_profile.emissive_eyes = emissive_eyes
 	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
 	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
+
 	new_profile.physique = physique
 	new_profile.worn_icon_digi_list = worn_icon_digi_list.Copy()
 	new_profile.worn_icon_monkey_list = worn_icon_monkey_list.Copy()
@@ -1056,6 +1069,9 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	new_profile.age = age
 	new_profile.quirks = quirks.Copy()
 	// SKYRAT EDIT END
+
+	new_profile.voice = voice
+	new_profile.voice_filter = voice_filter
 
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()

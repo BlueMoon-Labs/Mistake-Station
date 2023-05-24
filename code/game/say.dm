@@ -39,8 +39,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		language = get_selected_language()
 	send_speech(message, message_range, src, bubble_type, spans, message_language = language, forced = forced)
 
+/// Called when this movable hears a message from a source.
+/// Returns TRUE if the message was received and understood.
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range=0)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
+	return TRUE
 
 
 /**
@@ -80,25 +83,46 @@ GLOBAL_LIST_INIT(freqtospan, list(
 /atom/movable/proc/can_speak(allow_mimes = FALSE)
 	return TRUE
 
-/atom/movable/proc/send_speech(message, range = 7, atom/movable/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode, forced = FALSE)
-	var/rendered = compose_message(src, message_language, message, , spans, message_mode, source)
-	var/list/hearers = get_hearers_in_view(range, source)
-	for(var/_AM in hearers)
-		var/atom/movable/AM = _AM
-		AM.Hear(rendered, src, message_language, message, , spans, message_mode, source)
-	if(SEND_SIGNAL(src, COMSIG_MOVABLE_QUEUE_BARK, hearers, args) || vocal_bark || vocal_bark_id)
-		for(var/mob/M in hearers)
+/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE, tts_message, list/tts_filter)
+	var/found_client = FALSE
+	var/list/listeners = get_hearers_in_view(range, source)
+	var/list/listened = list()
+	for(var/atom/movable/hearing_movable as anything in listeners)
+		if(!hearing_movable)//theoretically this should use as anything because it shouldnt be able to get nulls but there are reports that it does.
+			stack_trace("somehow theres a null returned from get_listeners_in_view() in send_speech!")
+			continue
+		if(hearing_movable.Hear(null, src, message_language, message, null, spans, message_mods, range))
+			listened += hearing_movable
+		if(!found_client && length(hearing_movable.client_mobs_in_contents))
+			found_client = TRUE
+
+	var/tts_message_to_use = tts_message
+	if(!tts_message_to_use)
+		tts_message_to_use = message
+
+	var/list/filter = list()
+	if(length(voice_filter) > 0)
+		filter += voice_filter
+
+	if(length(tts_filter) > 0)
+		filter += tts_filter.Join(",")
+
+	if(voice && found_client)
+		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(tts_message_to_use), message_language, voice, filter.Join(","), listened, message_range = range)
+
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_QUEUE_BARK, listeners, args) || vocal_bark || vocal_bark_id)
+		for(var/mob/M in listeners)
 			if(!M.client)
 				continue
 			if(!(M.client.prefs.toggles & SOUND_BARK))
-				hearers -= M
+				listeners -= M
 		var/barks = min(round((LAZYLEN(message) / vocal_speed)) + 1, BARK_MAX_BARKS)
 		var/total_delay
-		vocal_current_bark = world.time //this is juuuuust random enough to reliably be unique every time send_speech() is called, in most scenarios
+		vocal_current_bark = world.time
 		for(var/i in 1 to barks)
 			if(total_delay > BARK_MAX_TIME)
 				break
-			addtimer(CALLBACK(src, .proc/bark, hearers, range, vocal_volume, BARK_DO_VARY(vocal_pitch, vocal_pitch_range), vocal_current_bark), total_delay)
+			addtimer(CALLBACK(src, .proc/bark, listeners, range, vocal_volume, BARK_DO_VARY(vocal_pitch, vocal_pitch_range), vocal_current_bark), total_delay)
 			total_delay += rand(DS2TICKS(vocal_speed / BARK_SPEED_BASELINE), DS2TICKS(vocal_speed / BARK_SPEED_BASELINE) + DS2TICKS(vocal_speed / BARK_SPEED_BASELINE)) TICKS
 
 /atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), face_name = FALSE)
