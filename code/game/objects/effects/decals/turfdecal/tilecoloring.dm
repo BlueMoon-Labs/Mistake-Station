@@ -58,9 +58,9 @@
 TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/blue)
 
 /// Dark blue tiles
-/obj/effect/turf_decal/tile/dark_blue
+/obj/effect/turf_decal/tile/dark_blue // Теперь Красный. А то Хули. КРАСНЫЙ В СИНИЙ ПРЕВРАТИЛИ? А ТЕПЕРЬ СИНИЙ В КРАСНЫЙ, НАХУЙ!!!
 	name = "dark blue corner"
-	color = "#486091"
+	color = "#DE3A3A"
 
 TILE_DECAL_SUBTYPE_HELPER(/obj/effect/turf_decal/tile/dark_blue)
 
