@@ -5,7 +5,6 @@
 	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
 	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	icon_state = "socks"
-	under_type = /obj/item/clothing/underwear/socks
 	body_parts_covered = FEET
 	slot_flags = ITEM_SLOT_SOCKS
 

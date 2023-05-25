@@ -5,7 +5,6 @@
 	worn_icon = 'modular_sand/icons/mob/clothing/underwear.dmi'
 	worn_icon_digi = 'modular_sand/icons/mob/clothing/underwear_digi.dmi'
 	icon_state = "undershirt"
-	under_type = /obj/item/clothing/underwear/shirt
 	body_parts_covered = CHEST | ARMS
 	slot_flags = ITEM_SLOT_SHIRT
 	///Whether this underwear includes a top (Because gender = FEMALE doesn't actually apply here.). Hides breasts, nothing more.

@@ -1,15 +1,15 @@
 /obj/machinery/vending/dorms
-	name = "LustWish"
+	name = "KinkMate"
 	desc = "A vending machine with various toys. Not for the faint of heart."
-	icon_state = "lustwish"
-	base_icon_state = "lustwish"
+	icon_state = "kink"
+	base_icon_state = "kink"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/lustwish.dmi'
-	light_mask = "lustwish-light-mask"
+	light_mask = "kink-light-mask"
 	age_restrictions = TRUE
 	///Has the discount card been used on the vending machine?
 	var/card_used = FALSE
 	product_ads = "Try me!;Kinky!;Lewd and fun!;Hey you, yeah you... wanna take a look at my collection?;Come on, take a look!;Remember, always adhere to Nanotrasen corporate policy!;Don't forget to use protection!"
-	vend_reply = "Enjoy!;We're glad to satisfy your desires!"
+	vend_reply = "Have fun, you shameless pervert!;Enjoy!;We're glad to satisfy your desires!"
 
 	//STUFF SOLD HERE//
 	products = list(//Sex toys
@@ -173,6 +173,6 @@
 
 //Refill item
 /obj/item/vending_refill/lustwish
-	machine_name = "LustWish"
+	machine_name = "KinkMate"
 	icon_state = "lustwish_refill"
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'

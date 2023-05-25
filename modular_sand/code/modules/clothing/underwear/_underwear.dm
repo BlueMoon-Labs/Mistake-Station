@@ -25,7 +25,6 @@
 	slot_flags = ITEM_SLOT_UNDERWEAR
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	w_class = WEIGHT_CLASS_SMALL
-	var/under_type = /obj/item/clothing/underwear //i don't know what i'm gonna use this for
 	var/fitted = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/underwear/Move()

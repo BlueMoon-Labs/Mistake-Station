@@ -97,8 +97,8 @@
 	name = "KinkMate"
 	desc = "A vending machine for all your unmentionable desires."
 	icon_state = "kink"
-	product_slogans = "Kinky!;Sexy!;Check me out, big boy!"
-	vend_reply = "Have fun, you shameless pervert!"
+	product_slogans = "Kinky!;Sexy!;Check me out, big boy!;Try me!;Kinky!;Lewd and fun!;Hey you, yeah you... wanna take a look at my collection?;Come on, take a look!;Remember, always adhere to Nanotrasen corporate policy!;Don't forget to use protection!"
+	vend_reply = "Have fun, you shameless pervert!;Enjoy!;We're glad to satisfy your desires!"
 	products = list(
 				/obj/item/genital_equipment/condom = 10,
 				/obj/item/clothing/head/costume/maidheadband = 5,
@@ -129,8 +129,6 @@
 				/obj/item/storage/pill_bottle/penis_enlargement = 10,
 				/obj/item/storage/pill_bottle/breast_enlargement = 10,
 				/obj/item/storage/pill_bottle/butt_enlargement = 10,
-				/obj/item/reagent_containers/cup/bottle/crocin = 10,
-				/obj/item/reagent_containers/cup/bottle/camphor = 5,
 				/obj/item/storage/daki = 4,
 				/obj/item/pregnancytest = 10,
 				)
@@ -149,23 +147,19 @@
 				/obj/item/reagent_containers/cup/bottle/hexacrocin = 10,
 				/obj/item/clothing/under/pants/chaps = 5
 				)
-	refill_canister = /obj/item/vending_refill/kink
+	refill_canister = /obj/item/vending_refill/dorms
 	light_color = COLOR_STRONG_VIOLET
 	payment_department = NO_FREEBIES
 
-/obj/item/vending_refill/kink
+/obj/item/vending_refill/dorms
 	machine_name 	= "KinkMate"
 	icon_state 		= "refill_kink"
 
-/obj/machinery/vending/kink/Initialize()
+/obj/machinery/vending/dorms/Initialize()
 	var/list/extra_products = list(
 		/obj/item/storage/pill_bottle/belly_inflation = 10,
-		/obj/item/clothing/head/deprivation_helmet = 5,
-		/obj/item/clothing/under/misc/latex_catsuit = 10,
-		/obj/item/clothing/shoes/latex_socks = 10,
 		/obj/item/clothing/shoes/latexheels = 10,
 		/obj/item/clothing/shoes/dominaheels = 10,
-		/obj/item/clothing/gloves/latex_gloves = 10,
 		/obj/item/electropack/vibrator/small = 2,
 		/obj/item/electropack/vibrator = 2,
 		/obj/item/leash = 3,
@@ -184,10 +178,33 @@
 		/obj/item/storage/box/aphrodisiac_pump = 5,
 		/obj/item/storage/box/bulk_condoms = 10,
 		/obj/item/strapon_strap = 5,
+		/obj/item/genital_equipment/condom = 10,
+		/obj/item/clothing/head/costume/maidheadband = 5,
+		/obj/item/clothing/neck/human_petcollar/leather = 5,
+		/obj/item/clothing/neck/stole = 2,
+		/obj/item/clothing/neck/stole/black = 2,
+		/obj/item/restraints/handcuffs/fake/kinky = 5,
+		/obj/item/clothing/glasses/blindfold = 4,
+		/obj/item/clothing/mask/muzzle = 4,
+		/obj/item/clothing/shoes/highheels = 3,
+		/obj/item/clothing/under/misc/stripper = 3,
+		/obj/item/clothing/under/misc/stripper/green = 3,
+		/obj/item/clothing/underwear/shirt/corset = 3,
+		/obj/item/clothing/under/latex/half = 3,
+		/obj/item/clothing/under/misc/gear_harness = 10,
+		/obj/item/dildo/custom = 5,
+		/obj/item/electropack/shockcollar = 3,
+		/obj/item/assembly/timer = 3,
+		/obj/item/autosurgeon/penis = 3,
+		/obj/item/autosurgeon/testicles = 3,
+		/obj/item/storage/pill_bottle/penis_enlargement = 10,
+		/obj/item/storage/pill_bottle/breast_enlargement = 10,
+		/obj/item/storage/pill_bottle/butt_enlargement = 10,
+		/obj/item/storage/daki = 4,
+		/obj/item/pregnancytest = 10,
 		/obj/item/restraints/bondage_rope = 5,
 		/obj/item/clothing/under/domina = 5,
 		/obj/item/clothing/under/performer = 3,
-		/obj/item/clothing/mask/leatherwhip = 3,
 		/obj/item/clothing/mask/leatherwhip/ridingcrop = 3,
 		/obj/item/clothing/suit/chaplainsuit/nun = 5,
 		/obj/item/clothing/head/chaplain/nun_hood = 5,
@@ -198,17 +215,25 @@
 		//Lewd-Clothes
 		/obj/item/dildo/flared/huge = 6,
 		/obj/item/clothing/glasses/hypno = 3,
-		/obj/item/clothing/neck/mind_collar = 3,
 		/obj/item/key/latex = 5,
 		/obj/item/clothing/head/dominatrixcap = 3,
 		/obj/item/mesmetron = 3,
+		/obj/item/key/collar = 2,
+		/obj/item/clothing/head/costume/kitty = 3,
+		/obj/item/clothing/head/costume/rabbitears = 3,
+		/obj/item/clothing/under/misc/keyholesweater = 2,
+		/obj/item/clothing/under/misc/stripper/mankini = 2,
+		/obj/item/clothing/gloves/evening/black = 2,
 		/obj/item/clothing/neck/human_petcollar/locked/holo = 2,
 		/obj/item/storage/box/aphrodisiac_pump/plus = 3,
 		/obj/item/storage/box/medipens/lewd = 2,
 		/datum/reagent/drug/labebium = 1
 	)
 	var/list/extra_premium = list(
-		/obj/item/clothing/mask/muzzle/ballgag = 3
+		/obj/item/clothing/mask/muzzle/ballgag = 3,
+		/obj/item/clothing/accessory/skullcodpiece/fake = 3,
+		/obj/item/reagent_containers/cup/bottle/hexacrocin = 10,
+		/obj/item/clothing/under/pants/chaps = 5
 	)
 	LAZYADD(products, extra_products)
 	LAZYADD(contraband, extra_contraband)

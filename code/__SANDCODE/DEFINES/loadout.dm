@@ -5,7 +5,7 @@
 /// Subcategory for underwear
 #define LOADOUT_SUBCATEGORY_UNDERWEAR		"Underwear"
 /// Subcategory for shirts
-#define LOADOUT_SUBCATEGORY_SHIRT		"Shirt"
+#define LOADOUT_SUBCATEGORY_SHIRT		"Undershirt"
 /// Subcategory for socks
 #define LOADOUT_SUBCATEGORY_SOCKS		"Socks"
 
