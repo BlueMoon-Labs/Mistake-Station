@@ -525,6 +525,10 @@
 				create_vagina(exposed_mob, suppress_chat)
 			if(GENITAL_WOMB)
 				create_womb(exposed_mob, suppress_chat)
+			if(GENITAL_BUTT)
+				create_belly(exposed_mob, suppress_chat)
+			if(GENITAL_BELLY)
+				create_butt(exposed_mob, suppress_chat)
 
 /**
 * Handle creation of penis
@@ -680,6 +684,32 @@
 	var/obj/item/organ/external/genital/womb/new_womb = new
 	new_womb.build_from_dna(exposed_mob.dna, ORGAN_SLOT_WOMB)
 	new_womb.Insert(exposed_mob, 0, FALSE)
+	update_appearance(exposed_mob)
+
+/datum/reagent/drug/aphrodisiac/proc/create_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+
+	if(mob_butt)
+		return
+
+	if (exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BUTT][MUTANT_INDEX_NAME] == "None")
+		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BUTT][MUTANT_INDEX_NAME] = "Pair"
+
+	var/obj/item/organ/external/genital/butt/new_butt = new
+	new_butt.build_from_dna(exposed_mob.dna, ORGAN_SLOT_BUTT)
+	new_butt.Insert(exposed_mob, 0, FALSE)
+	update_appearance(exposed_mob)
+
+/datum/reagent/drug/aphrodisiac/proc/create_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+
+	if(mob_belly)
+		return
+
+	if (exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BELLY][MUTANT_INDEX_NAME] == "None")
+		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BELLY][MUTANT_INDEX_NAME] = "Normal"
+
+	var/obj/item/organ/external/genital/belly/new_belly = new
+	new_belly.build_from_dna(exposed_mob.dna, ORGAN_SLOT_BELLY)
+	new_belly.Insert(exposed_mob, 0, FALSE)
 	update_appearance(exposed_mob)
 
 /**

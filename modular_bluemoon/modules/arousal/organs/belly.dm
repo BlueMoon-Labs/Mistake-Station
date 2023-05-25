@@ -85,7 +85,7 @@
 /obj/item/organ/external/genital/belly/build_from_dna(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/dna/D = H.dna
-	if(D.species.use_skintones && D.features["genitals_use_skintone"])
+	if(D.species.use_skintones && D.features["belly_uses_skintones"])
 		color = SKINTONE2HEX(H.skin_tone)
 	else
 		color = "#[D.features["belly_color"]]"

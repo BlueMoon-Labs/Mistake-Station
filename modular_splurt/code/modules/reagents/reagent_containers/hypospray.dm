@@ -30,7 +30,7 @@
 	icon_state = "succupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/fermi/breast_enlarger = 30)
+	list_reagents = list(/datum/reagent/drug/aphrodisiac/succubus_milk = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/penisgrowth
 	name = "Incubus draft autoinjector"
@@ -42,7 +42,7 @@
 	icon_state = "incupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/fermi/penis_enlarger = 30)
+	list_reagents = list(/datum/reagent/drug/aphrodisiac/incubus_draft = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/buttgrowth
 	name = "Denbu Tincture autoinjector"
@@ -54,7 +54,7 @@
 	icon_state = "denbupen"
 	volume = 30
 	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/fermi/butt_enlarger = 30)
+	list_reagents = list(/datum/reagent/growthchem = 15) //list(/datum/reagent/fermi/butt_enlarger = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/bellygrowth
 	name = "Belladine nectar autoinjector"
@@ -66,7 +66,7 @@
 	icon_state = "bellypen"
 	volume = 30
 	amount_per_transfer_from_this = 30
-	list_reagents = list(/datum/reagent/fermi/belly_inflator = 30)
+	list_reagents = list(/datum/reagent/growthchem = 15) //list(/datum/reagent/fermi/belly_inflator = 30)
 
 /obj/item/reagent_containers/hypospray/medipen/prospacillin
 	name = "Extra height shot"
@@ -97,9 +97,9 @@
 	amount_per_transfer_from_this = 60
 	list_reagents = list(
 		/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 10,
-		/datum/reagent/fermi/breast_enlarger = 10,
-		/datum/reagent/fermi/penis_enlarger = 10,
-		/datum/reagent/fermi/butt_enlarger = 10,
-		/datum/reagent/fermi/belly_inflator = 10,
+		/datum/reagent/drug/aphrodisiac/succubus_milk = 10,
+		/datum/reagent/drug/aphrodisiac/incubus_draft = 10,
+		//datum/reagent/fermi/butt_enlarger = 10,
+		//datum/reagent/fermi/belly_inflator = 10,
 		/datum/reagent/growthchem = 10
 	)

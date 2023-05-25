@@ -3,7 +3,7 @@
 	return
 
 /obj/item/genital_equipment/condom/insert_item_organ(mob/living/carbon/user, mob/living/carbon/target, obj/item/organ/external/genital/target_organ)
-	if(!(target.client?.prefs?.erppref == "Yes"))
+	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/master_erp_preferences))
 		to_chat(user, span_warning("They don't want you to do that!"))
 		return
 

@@ -147,7 +147,7 @@
 	update()
 	if(!QDELETED(C))
 		if(genital_flags & UPDATE_OWNER_APPEARANCE && ishuman(C))
-			var/mob/living/carbon/human/H = .
+			var/mob/living/carbon/human/H = C
 			H.update_genitals()
 		C.exposed_genitals -= src
 		UnregisterSignal(C, COMSIG_GLOB_MOB_DEATH)
@@ -338,8 +338,6 @@
 	var/anusCheck = getorganslot(ORGAN_SLOT_ANUS)
 
 	if(organCheck == FALSE)
-		if(ishuman(src) && dna.species.use_skintones)
-			dna.features["genitals_use_skintone"] = TRUE
 		if(dna.species.fixed_mut_color)
 			dna.features["cock_color"] = "[dna.species.fixed_mut_color]"
 			dna.features["breasts_color"] = "[dna.species.fixed_mut_color]"

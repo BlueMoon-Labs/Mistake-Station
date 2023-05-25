@@ -25,6 +25,13 @@
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return GLOB.sprite_accessories[ORGAN_SLOT_BUTT]
 
+/obj/item/organ/external/genital/butt/update_genital_icon_state()
+	var/measured_size = clamp(genital_size, 1, 10)
+	var/passed_string = "butt_pair_[measured_size]"
+	if(uses_skintones)
+		passed_string += "_s"
+	icon_state = passed_string
+
 /obj/item/organ/external/genital/butt/get_sprite_size_string()
 	var/measured_size = FLOOR(genital_size,1)
 	measured_size = clamp(measured_size, 0, 8)
@@ -32,13 +39,6 @@
 	if(uses_skintones)
 		passed_string += "_s"
 	return passed_string
-
-/obj/item/organ/external/genital/butt/update_genital_icon_state()
-	var/measured_size = clamp(genital_size, 1, 10)
-	var/passed_string = "butt_pair_[measured_size]"
-	if(uses_skintones)
-		passed_string += "_s"
-	icon_state = passed_string
 
 /obj/item/organ/external/genital/butt/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "Вы наблюдаете сочную попку. Кажется, она [lowertext(genital_size)] размера."
@@ -63,21 +63,15 @@
 		else
 			size_name = "плоского"
 
-	returned_string = "Вы наблюдаете животик [size_name] размера.."
+	returned_string = "Вы наблюдаете попку [size_name] размера."
 
 	return returned_string
 
-/obj/item/organ/external/genital/butt/build_from_dna(associated_key, mob/living/carbon/human/H)
-	var/datum/dna/D = H.dna
-	if(D.species.use_skintones && D.features["genitals_use_skintone"])
-		color = SKINTONE2HEX(H.skin_tone)
-	else
-		color = "#[D.features["butt_color"]]"
-	genital_size = D.features["butt_size"]
-	prev_size = genital_size
-	size_cached = genital_size
-	toggle_visibility(D.features["butt_visibility"], FALSE)
-	if(D.features["butt_stuffing"])
+/obj/item/organ/external/genital/butt/build_from_dna(datum/dna/DNA, associated_key)
+	uses_skin_color = DNA.features["butt_uses_skincolor"]
+	set_size(DNA.features["butt_size"])
+	toggle_visibility(DNA.features["butt_visibility"], FALSE)
+	if(DNA.features["butt_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
 
 	return ..()
@@ -112,7 +106,9 @@
 		return .
 	linked_organ.toggle_visibility(visibility)
 
-/obj/item/organ/external/genital/butt/build_from_accessory(mob/living/carbon/human/H)
+/obj/item/organ/external/genital/butt/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA, mob/living/carbon/human/H)
+	if(DNA.features["butt_uses_skintones"])
+		uses_skintones = accessory.has_skintone_shading
 	. = ..()
 	original_fluid_id = fluid_id
 	fluid_max_volume += ((genital_size - initial(genital_size))*2.5)*(owner ? get_size(owner) : 1)
@@ -146,11 +142,13 @@
 /datum/sprite_accessory/genital/butt
 	icon = 'modular_splurt/icons/obj/genitals/butt_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/butt
-	icon_state = "butt"
-	color_src = USE_ONE_COLOR
+	associated_organ_slot = ORGAN_SLOT_BUTT
 	key = ORGAN_SLOT_BUTT
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	always_color_customizable = TRUE
+	default_color = DEFAULT_SKIN_OR_PRIMARY
+	relevent_layers = list(GENITALS_BEHIND_LAYER)
+	has_skintone_shading = TRUE
+	genital_location = CHEST
 	genetic = TRUE
 
 /datum/sprite_accessory/genital/butt/none
@@ -161,4 +159,4 @@
 
 /datum/sprite_accessory/genital/butt/pair
 	icon_state = "pair"
-	name = "pair"
+	name = "Pair"
