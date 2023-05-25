@@ -124,8 +124,8 @@
 
 	fluid_rate *= 2
 
-/obj/item/organ/external/genital/breasts/Remove(special, moving)
-	var/obj/item/organ/external/genital/womb/W = owner.get_organ_slot(ORGAN_SLOT_WOMB)
+/obj/item/organ/external/genital/breasts/Remove(mob/living/carbon/M, special, moving)
+	var/obj/item/organ/external/genital/womb/W = M.get_organ_slot(ORGAN_SLOT_WOMB)
 	if(!W)
 		return ..()
 	if(!W.impregnated)

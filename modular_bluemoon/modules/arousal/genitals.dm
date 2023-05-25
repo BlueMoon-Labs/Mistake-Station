@@ -142,9 +142,8 @@
 		if(genital_flags & GENITAL_THROUGH_CLOTHES)
 			owner.exposed_genitals += src
 
-/obj/item/organ/external/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
+/obj/item/organ/external/genital/Remove(mob/living/carbon/C, special = FALSE, moving)
 	. = ..()
-	var/mob/living/carbon/human/C = M
 	update()
 	if(!QDELETED(C))
 		if(genital_flags & UPDATE_OWNER_APPEARANCE && ishuman(C))

@@ -99,6 +99,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/datum/admins/proc/toggleaooc,		/*Toggle Antag OOC - SKYRAT EDIT ADDITION*/
 	/datum/admins/proc/toggledchat, 	/*SKYRAT EDIT ADDITION*/
 	/datum/admins/proc/togglesooc,		/*Toggle Security OOC - SKYRAT EDIT ADDITION*/
+	/datum/admins/proc/toggleeorg,		//BLUEMOON EDIT ADDITION - EORG
 
 	/client/proc/admin_open_event_spawners_menu,	/*EVENTS - SKYRAT EDIT ADDITION*/
 	/client/proc/request_help,						/*SKYRAT EDIT ADDITION*/

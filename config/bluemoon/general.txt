@@ -2,6 +2,9 @@
 # Uncomment this to allow player's speech barks #
 ENABLE_GLOBAL_BARKS
 
+## Toggles round-end teleportation of players with checked EORG preference
+ALLOW_EORG
+
 ## Minimum and maximum limits for penis length from the character creation menu.
 PENIS_MIN_INCHES_PREFS 1
 PENIS_MAX_INCHES_PREFS 128

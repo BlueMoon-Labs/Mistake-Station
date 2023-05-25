@@ -23,11 +23,11 @@
 /obj/item/organ/external/genital/womb
 	var/impregnated = FALSE
 
-/obj/item/organ/external/genital/womb/Remove(special, moving)
+/obj/item/organ/external/genital/womb/Remove(mob/living/carbon/M, special, moving)
 	if(!impregnated)
 		return ..()
 	impregnated = FALSE
-	var/obj/item/organ/external/genital/breasts/B = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/external/genital/breasts/B = M.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!B)
 		return ..()
 
