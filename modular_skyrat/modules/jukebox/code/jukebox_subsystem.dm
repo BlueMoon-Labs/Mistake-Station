@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(jukeboxes)
 		for(var/mob/M in GLOB.player_list)
 			if(!M.client)
 				continue
-			if(!(M.client.prefs.read_preference(/datum/preference/toggle/sound_instruments)))
+			if(!(M.client.prefs.read_preference(/datum/preference/toggle/sound_jukebox)))
 				M.stop_sound_channel(jukeinfo[JUKE_CHANNEL])
 				continue
 
