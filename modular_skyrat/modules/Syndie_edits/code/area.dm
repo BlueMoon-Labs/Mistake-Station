@@ -2,35 +2,35 @@
 	always_unpowered = FALSE
 
 /area/ruin/syndicate_lava_base/engineering
-	name = "Interdyne Engineering"
+	name = "DS-1 Engineering"
 
 /area/ruin/syndicate_lava_base/medbay
-	name = "Interdyne Medbay"
+	name = "DS-1 Medbay"
 
 /area/ruin/syndicate_lava_base/arrivals
-	name = "Interdyne Arrivals"
+	name = "DS-1 Arrivals"
 
 /area/ruin/syndicate_lava_base/bar
-	name = "Interdyne Bar"
+	name = "DS-1 Bar"
 
 /area/ruin/syndicate_lava_base/main
-	name = "Interdyne Primary Hallway"
+	name = "DS-1 Primary Hallway"
 
 /area/ruin/syndicate_lava_base/cargo
-	name = "Interdyne Cargo Bay"
+	name = "DS-1 Cargo Bay"
 
 /area/ruin/syndicate_lava_base/chemistry
-	name = "Interdyne Chemistry"
+	name = "DS-1 Chemistry"
 
 /area/ruin/syndicate_lava_base/virology
-	name = "Interdyne Virology"
+	name = "DS-1 Virology"
 
 /area/ruin/syndicate_lava_base/testlab
-	name = "Interdyne Experimentation Lab"
+	name = "DS-1 Experimentation Lab"
 	area_flags = XENOBIOLOGY_COMPATIBLE
 
 /area/ruin/syndicate_lava_base/dormitories
-	name = "Interdyne Dormitories"
+	name = "DS-1 Dormitories"
 
 /area/ruin/syndicate_lava_base/telecomms
-	name = "Interdyne Telecommunications"
+	name = "DS-1 Telecommunications"

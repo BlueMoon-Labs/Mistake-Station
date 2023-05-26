@@ -1461,7 +1461,7 @@
 "xQ" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/secure/weapon{
-	name = "Delivery - Interdyne Mining Co";
+	name = "Delivery - DS-1 Mining Co";
 	req_access = list("syndicate")
 	},
 /obj/effect/spawner/random/exotic/antag_gear,

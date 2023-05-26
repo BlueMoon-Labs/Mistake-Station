@@ -88,7 +88,7 @@
 /// Interdyne
 
 /datum/id_trim/syndicom/skyrat/interdyne
-	assignment = "Interdyne Operative"
+	assignment = "DS-1 Operative"
 
 /datum/id_trim/syndicom/skyrat/interdyne/deckofficer
 	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'

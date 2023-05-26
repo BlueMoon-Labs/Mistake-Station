@@ -348,8 +348,18 @@
 /obj/item/clothing/head/helmet/alt
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
-	icon_state = "helmetalt_blue"
-	base_icon_state = "helmetalt_blue"
+	icon_state = "helmetalt"
+	base_icon_state = "helmetalt"
+	unique_reskin = list(
+		"Standart Red Variant" = list(
+			RESKIN_ICON_STATE = "helmetalt",
+			RESKIN_WORN_ICON_STATE = "helmetalt"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "helmetalt_blue",
+			RESKIN_WORN_ICON_STATE = "helmetalt_blue"
+		),
+	)
 
 /obj/item/clothing/head/helmet/sec
 	name = "Peacekeeper Helmet"
@@ -672,6 +682,7 @@
 
 //Riot Armor
 /obj/item/clothing/suit/armor/riot
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi' //ORION TODO - actually have a unique icon_state overriding it instead of this cop-out it originally had (The original was actually done wrong anyways)
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -680,6 +691,7 @@
 			RESKIN_WORN_ICON_STATE = "riot"
 		),
 		"Peacekeeper Variant" = list(
+			RESKIN_ICON_STATE = "peacekeeper_riot",
 			RESKIN_WORN_ICON_STATE = "peacekeeper_riot"
 		),
 	)

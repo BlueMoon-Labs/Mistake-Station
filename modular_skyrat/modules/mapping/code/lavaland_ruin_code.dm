@@ -1,27 +1,27 @@
 //SPAWNERS//
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/shaftminer
-	name = "Interdyne Shaft Miner"
-	you_are_text = "You are an Interdyne shaft miner, employed in a top secret research facility developing biological weapons."
+	name = "DS-1 Shaft Miner"
+	you_are_text = "You are an DS-1 shaft miner, employed in a top secret research facility developing biological weapons."
 	outfit = /datum/outfit/lavaland_syndicate/shaftminer
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
 	outfit = /datum/outfit/lavaland_syndicate/comms/space
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/shaftminer/ice
-	name = "Interdyne Shaft Miner"
-	you_are_text = "You are an Interdyne shaft miner, employed in a top secret research facility developing biological weapons."
+	name = "DS-1 Shaft Miner"
+	you_are_text = "You are an DS-1 shaft miner, employed in a top secret research facility developing biological weapons."
 	outfit = /datum/outfit/lavaland_syndicate/shaftminer/ice
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
-	name = "Interdyne Bioweapon Scientist"
-	you_are_text = "You are an Interdyne science technician, employed in a top secret research facility developing biological weapons."
+	name = "DS-1 Bioweapon Scientist"
+	you_are_text = "You are an DS-1 science technician, employed in a top secret research facility developing biological weapons."
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/ice
 	outfit = /datum/outfit/lavaland_syndicate/ice
 
 //OUTFITS//
 /datum/outfit/lavaland_syndicate
-	name = "Interdyne Bioweapon Scientist"
+	name = "DS-1 Bioweapon Scientist"
 	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility/syndicate
 	ears = /obj/item/radio/headset/interdyne
 
@@ -50,7 +50,7 @@
 	ears = /obj/item/radio/headset/syndicate/alt
 
 /datum/outfit/lavaland_syndicate/shaftminer
-	name = "Interdyne Shaft Miner"
+	name = "DS-1 Shaft Miner"
 	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/utility/syndicate
 	suit = null //Subtype moment
 	r_pocket = /obj/item/storage/bag/ore
@@ -64,7 +64,7 @@
 		/obj/item/stack/marker_beacon/ten=1)
 
 /datum/outfit/lavaland_syndicate/shaftminer/deckofficer
-	name = "Interdyne Deck Officer"
+	name = "DS-1 Deck Officer"
 	uniform = /obj/item/clothing/under/rank/cargo/qm/skyrat/syndie
 	neck = /obj/item/clothing/neck/cloak/qm/syndie
 	ears = /obj/item/radio/headset/interdyne/command
@@ -72,8 +72,8 @@
 	id_trim = /datum/id_trim/syndicom/skyrat/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer
-	name = "Interdyne Deck Officer"
-	you_are_text = "You are an Interdyne Deck Officer, employed in a top secret research facility developing biological weapons."
+	name = "DS-1 Deck Officer"
+	you_are_text = "You are an DS-1 Deck Officer, employed in a top secret research facility developing biological weapons."
 	outfit = /datum/outfit/lavaland_syndicate/shaftminer/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer/Destroy()
@@ -81,15 +81,15 @@
 	return ..()
 
 /datum/outfit/lavaland_syndicate/shaftminer/ice
-	name = "Icemoon Interdyne Shaft Miner"
+	name = "Icemoon DS-1 Shaft Miner"
 	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
 	suit = /obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
 
 //ITEMS
 
 /obj/item/radio/headset/interdyne
-	name = "interdyne headset"
-	desc = "A bowman headset with a large red cross on the earpiece, has a small 'IP' written on the top strap. Protects the ears from flashbangs."
+	name = "DS-1 headset"
+	desc = "A bowman headset with a large red cross on the earpiece, has a small 'DS-1' written on the top strap. Protects the ears from flashbangs."
 	icon_state = "syndie_headset"
 	inhand_icon_state = null
 	radiosound = 'modular_skyrat/modules/radiosound/sound/radio/syndie.ogg'
@@ -100,7 +100,7 @@
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT)) //BlueMoon edit
 
 /obj/item/radio/headset/interdyne/command
-	name = "interdyne command headset"
+	name = "DS-1 command headset"
 	desc = "A commanding headset to gather your underlings. Protects the ears from flashbangs."
 	command = TRUE
 

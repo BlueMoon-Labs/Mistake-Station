@@ -471,8 +471,8 @@ suffix = "whiteshipruin_box.dmm"*/
 /datum/map_template/ruin/space/interdyne
 	id = "interdyne"
 	suffix = "interdyne.dmm"
-	name = "Interdyne Spinward Research Base"
-	description = "An Interdyne facility abandoned due to the accidental discovery of Romerol"
+	name = "DS-1 Spinward Research Base"
+	description = "An DS-1 facility abandoned due to the accidental discovery of Romerol"
 
 /datum/map_template/ruin/space/waystation
 	id = "waystation"

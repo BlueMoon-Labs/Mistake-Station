@@ -208,10 +208,10 @@
 /area/ruin/space/has_grav/dangerous_research/maint
 	name = "\improper ASRC Maintenance"
 
-//Interdyne Ruin
+//DS-1 Ruin
 
 /area/ruin/space/has_grav/interdyne
-	name = "\improper Interdyne Research Base"
+	name = "\improper DS-1 Research Base"
 
 //Ruin of Crashed Ship
 

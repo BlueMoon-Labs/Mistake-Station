@@ -1,11 +1,11 @@
 /obj/item/circuitboard/computer/order_console/mining/interdyne
-	name = "Interdyne Mining Equipment Vendor Console"
+	name = "DS-1 Mining Equipment Vendor Console"
 	build_path = /obj/machinery/computer/order_console/mining/golem
 
 // Interdyne/DS-2 mining equipment vendor that doesn't need a cargo shuttle to work
 
 /obj/machinery/computer/order_console/mining/interdyne
-	name = "interdyne mining equipment vendor"
+	name = "DS-1 Mining Equipment Vendor"
 	circuit = /obj/item/circuitboard/computer/order_console/mining/interdyne
 	forced_express = TRUE
 	express_cost_multiplier = 1
@@ -29,5 +29,5 @@
 // Interdyne minebot
 
 /mob/living/simple_animal/hostile/mining_drone/interdyne
-	name = "\improper Interdyne minebot"
+	name = "\improper DS-1 minebot"
 	faction = list(FACTION_NEUTRAL, ROLE_SYNDICATE)

@@ -12,7 +12,7 @@
 	name = "Blackmarket Chevvy"
 
 /area/shuttle/interdyne_cargo
-	name = "Interdyne Cargo Shuttle"
+	name = "DS-1 Cargo Shuttle"
 
 /area/shuttle/syndicate/slaver
 	name = "Slave Ship"

@@ -4,7 +4,7 @@
 
 #define FREQ_CYBERSUN 1211
 
-#define RADIO_CHANNEL_INTERDYNE "Interdyne"
+#define RADIO_CHANNEL_INTERDYNE "DS-1"
 #define RADIO_KEY_INTERDYNE "w"
 #define RADIO_TOKEN_INTERDYNE ":w"
 

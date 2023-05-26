@@ -3111,7 +3111,7 @@
 /area/ruin/syndicate_lava_base/dormitories)
 "Ce" = (
 /obj/machinery/computer/security/hos{
-	name = "\improper Interdyne camera console";
+	name = "\improper DS-1 camera console";
 	network = list("intd13")
 	},
 /turf/open/floor/carpet/royalblack,

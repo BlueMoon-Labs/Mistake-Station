@@ -138,6 +138,7 @@
 	icon = 'modular_skyrat/modules/exp_corps/icons/backpack.dmi'
 	worn_icon = 'modular_skyrat/modules/exp_corps/icons/mob_backpack.dmi'
 	uses_advanced_reskins = TRUE
+	slowdown = 0.25
 	unique_reskin = list(
 		"Backpack" = list(
 			RESKIN_ICON_STATE = "exp_corps",
