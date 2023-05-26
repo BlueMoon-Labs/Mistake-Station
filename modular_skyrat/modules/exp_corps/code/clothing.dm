@@ -11,10 +11,11 @@
 	random_sensor = FALSE
 
 /datum/armor/rank_expeditionary_corps
+	melee = 10
 	bio = 10
-	fire = 15
-	acid = 15
-	wound = 5
+	fire = 30
+	acid = 30
+	wound = 10
 
 /obj/item/storage/belt/military/expeditionary_corps
 	name = "expeditionary corps chest rig"

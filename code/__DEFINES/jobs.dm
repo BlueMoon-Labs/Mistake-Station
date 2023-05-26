@@ -69,6 +69,7 @@
 #define JOB_SCIENTIST "Scientist"
 #define JOB_ROBOTICIST "Roboticist"
 #define JOB_GENETICIST "Geneticist"
+#define JOB_VANGUARD_OPERATIVE "Vanguard Operative" // BLUEMOON EDIT ADDITION
 #define JOB_SCIENCE_GUARD "Science Guard"
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"

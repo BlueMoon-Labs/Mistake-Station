@@ -7803,4 +7803,5 @@
 #include "modular_bluemoon\modules\client\shirts.dm"
 #include "modular_bluemoon\modules\client\socks.dm"
 #include "modular_bluemoon\modules\client\wrists.dm"
+#include "modular_bluemoon\modules\vanguard\expeditionary_trooper.dm"
 // END_INCLUDE
