@@ -75,8 +75,8 @@
 	desc = "A secure crate, for Expeditionary Corps only!"
 	icon_state = "expcrate"
 	icon = 'modular_skyrat/modules/exp_corps/icons/exp_crate.dmi'
-	req_access = list(ACCESS_GATEWAY, ACCESS_CENT_GENERAL)
-	max_integrity = 5000
+	req_access = list(ACCESS_GATEWAY, ACCESS_CENT_GENERAL, ACCESS_CAPTAIN, ACCESS_RD)
+	max_integrity = 500
 	var/loadout_desc = "Whoever picks this is an incredibly boring generalist."
 
 /obj/structure/closet/crate/secure/exp_corps/pointman
