@@ -102,7 +102,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 		voracious = FALSE
 
 	user.visible_message("<span class='warning'>[hound.name] is carefully inserting [target.name] into their [src.name].</span>", "<span class='notice'>You start placing [target] into your [src.name]...</span>")
@@ -145,7 +145,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!user.client || !(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+	if(!user.client || !(user.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 		voracious = FALSE
 
 	if(prob(escape_chance) && !escape_pending)
@@ -166,11 +166,11 @@
 	var/voracious = hound ? TRUE : FALSE
 	var/list/targets = target && hound ? list(target) : contents
 	if(hound)
-		if(!hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+		if(!hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 			voracious = FALSE
 		else
 			for(var/mob/M in targets)
-				if(!M.client || !(M.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+				if(!M.client || !(M.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 					voracious = FALSE
 	if(length(targets))
 		if(hound)
@@ -296,7 +296,7 @@
 				patient_laststat = patient.stat
 			prociconupdate = TRUE
 
-		if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+		if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 			hound.sleeper_nv = TRUE
 		else
 			hound.sleeper_nv = FALSE
@@ -322,7 +322,7 @@
 				patient_laststat = patient.stat
 
 			if(hound.model.sleeper_overlay == "msleeper")
-				if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+				if(!patient.client || !(patient.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 					hound.sleeper_nv = TRUE
 			else
 				hound.sleeper_nv = FALSE
@@ -501,7 +501,7 @@
 		return
 
 	var/voracious = TRUE
-	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref)))
+	if(!target.client || !(target.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)) || !hound.client || !(hound.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref)))
 		voracious = FALSE
 
 	user.visible_message("<span class='warning'>[hound.name] is ingesting [target] into their [src.name].</span>", "<span class='notice'>You start ingesting [target] into your [src.name]...</span>")

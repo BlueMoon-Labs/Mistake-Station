@@ -95,8 +95,8 @@
 	"penis_taur_mode" = TRUE,\
 	"penis_sheath" = SHEATH_NONE,\
 	"balls_size" = 1,\
-	"belly_size" = 0,\
-	"butt_size" = 0,\
+	"belly_size" = 1,\
+	"butt_size" = 1,\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\
 	"penis_uses_skintones" = TRUE,\

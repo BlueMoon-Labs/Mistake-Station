@@ -1,13 +1,15 @@
+#define PHRASE_COOLDOWN (3 SECONDS)
+
 /obj/item/clothing/mask/gas/sechailer
 	name = "Security Gas Mask"
 	desc = "Стандартный противогаз охраны с модификацией Compli-o-nator 3000. Применяется для убеждения не двигаться, пока офицер забивает преступника насмерть."
 
-/obj/item/clothing/mask/gas/sechailer/proc/play_phrase(mob/user, datum/hailer_phrase/phrase)
+/obj/item/clothing/mask/gas/sechailer/play_phrase(mob/user, datum/hailer_phrase/phrase)
 	if(!COOLDOWN_FINISHED(src, hailer_cooldown))
 		return
 	COOLDOWN_START(src, hailer_cooldown, PHRASE_COOLDOWN)
 	user.audible_message("[user]'s Compli-o-Nator: <font color='red' size='4'><b>[initial(phrase.phrase_text)]</b></font>")
-	playsound(src, "modular_bluemoon/modules/hailer/complionator/[initial(phrase.phrase_sound)].ogg", 200, FALSE, 4)
+	playsound(src, "modular_bluemoon/modules/translations/master_files/code/hailer/complionator/[initial(phrase.phrase_sound)].ogg", 10000, FALSE, 4)
 	return TRUE
 
 /datum/hailer_phrase/emag
@@ -75,7 +77,7 @@
 	phrase_sound = "zhivym_ili_mertvym"
 
 /datum/hailer_phrase/shutup
-	phrase_text = "Shut up crime!"
+	phrase_text = "Shut Up Crime!"
 	phrase_sound = "shutup"
 
 /datum/hailer_phrase/super
@@ -85,3 +87,5 @@
 /datum/hailer_phrase/dredd
 	phrase_text = "I am, the LAW!"
 	phrase_sound = "dredd"
+
+#undef PHRASE_COOLDOWN

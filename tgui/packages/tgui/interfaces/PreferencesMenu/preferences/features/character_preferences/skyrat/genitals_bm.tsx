@@ -1,8 +1,12 @@
-import { FeatureDropdownInput, Feature, FeatureNumberInput, FeatureNumeric, FeatureChoiced, FeatureToggle, CheckboxInput, FeatureTriColorInput, FeatureTriBoolInput } from '../../base';
+import { FeatureDropdownInput, Feature, FeatureNumberInput, FeatureNumeric, FeatureChoiced, FeatureToggle, FeatureValueProps, FeatureTriColorInput, FeatureTriBoolInput, CheckboxInput, FeatureChoicedServerData } from '../../base';
 
 export const feature_butt: Feature<string> = {
   name: 'Половые Органы. Попа. Тип',
-  component: FeatureDropdownInput,
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
 };
 
 export const butt_size: FeatureNumeric = {
@@ -32,7 +36,11 @@ export const butt_emissive: Feature<boolean[]> = {
 
 export const feature_belly: Feature<string> = {
   name: 'Половые Органы. Живот. Тип',
-  component: FeatureDropdownInput,
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
 };
 
 export const belly_size: FeatureNumeric = {

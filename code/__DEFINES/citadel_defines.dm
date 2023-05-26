@@ -118,7 +118,12 @@
 #define VORE_EXAMINE		(1<<14)
 #define TRASH_FORCEFEED		(1<<15)
 #define BUTT_ENLARGEMENT	(1<<16)
-#define BELLY_INFLATION		(1<<17)
+#define BELLY_ENLARGEMENT	(1<<17)
+#define BREAST_SHRINKAGE	(1<<16)
+#define PENIS_SHRINKAGE		(1<<17)
+#define BUTT_SHRINKAGE		(1<<16)
+#define BELLY_SHRINKAGE		(1<<17)
+
 //Note: reminder, if you're a coder adding more bitflags here in the event we add more horny things, the maximum is (1<<23).
 #define TOGGLES_CITADEL 0
 

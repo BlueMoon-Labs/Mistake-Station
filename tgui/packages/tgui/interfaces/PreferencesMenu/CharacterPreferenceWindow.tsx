@@ -153,7 +153,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                   currentPage={currentPage}
                   page={Page.Limbs}
                   setPage={setCurrentPage}>
-                  Импланты и Не Только
+                  Импланты++
                 </PageButton>
               </Stack.Item>
 

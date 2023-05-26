@@ -2,9 +2,11 @@
 	var/has_belly = FALSE
 
 /mob/living/has_anus(visibility = REQUIRE_ANY)
-	if(get_organ_slot(ORGAN_SLOT_ANUS))
-		return has_genital(ORGAN_SLOT_ANUS, visibility)
 	. = ..()
+	var/mob/living/carbon/C = src
+	if(has_anus && !istype(C))
+		return TRUE
+	return has_genital(ORGAN_SLOT_ANUS, visibility)
 
 /mob/living/add_lust(add)
 	. = ..()
@@ -615,7 +617,7 @@
 		)
 	else
 		lines = list(
-			"откровает свою пасть и позволяет семянникам <b>[target]</b> проскользнуть внутрь.",
+			"открывает свою пасть и позволяет семянникам <b>[target]</b> проскользнуть внутрь.",
 			"испрользует свой язык, чтобы поместить яйца <b>[target]</b> внутрь рта, внюхиваясь в этот запах.",
 			"охотно дозволяет шарам <b>[target]</b> упасть в ротовую полость, похотливо обсасывая эти сферы."
 		)

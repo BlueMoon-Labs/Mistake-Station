@@ -53,8 +53,8 @@
 	desc = "A vending machine stocked with \"Corporative Security\" package, including standardized uniforms and general equipment."
 	//icon = 'modular_skyrat/modules/sec_haul/icons/vending/vending.dmi'		Нахуй.
 	icon_state = "secdrobe"											//			Блядь.
-	product_ads = "Beat perps in style!;The stains wash right out!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
-	vend_reply = "Good luck, Peacekeeper!"
+	product_ads = "Лови преступников стильно!;Мы пачкаем форму кровью, чтобы станция оставалась чистой!;У вас есть право соблюдать моду!;Дорогой, не забудь надеть бронежилет!"
+	vend_reply = "Удачной службы!"
 	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 5,
 					/obj/item/clothing/suit/toggle/jacket/sec = 5,
 					/obj/item/clothing/suit/armor/vest/peacekeeper/brit = 5,
@@ -70,9 +70,9 @@
 					/obj/item/clothing/under/rank/security/skyrat/utility = 3,
 					/obj/item/clothing/shoes/jackboots/sec = 5,
 					/obj/item/clothing/head/beret/sec = 5,
+					/obj/item/clothing/head/beret/sec/peacekeeper = 5,
 					/obj/item/clothing/head/security_garrison = 5,
 					/obj/item/clothing/head/security_cap = 5,
-					/obj/item/clothing/head/beret/sec/peacekeeper = 5,
 					/obj/item/clothing/head/costume/ushanka/sec = 5,
 					/obj/item/clothing/head/costume/ushanka/sec/blue = 5,
 					/obj/item/clothing/head/hats/sec/peacekeeper/sol = 5,

@@ -185,18 +185,39 @@ export const noncon_pref: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
-export const extreme_pref: FeatureChoiced = {
+export const extreme_pref: FeatureToggle = {
   name: 'Экстремальный Контент',
   category: 'ERP',
   description: 'Если включено, то вас можно экстремально поиметь',
-  component: FeatureDropdownInput,
+  component: CheckboxInput,
 };
 
-export const unholy_pref: FeatureChoiced = {
+export const extreme_harm: FeatureToggle = {
+  name: 'Особо Экстремальный Контент',
+  category: 'ERP',
+  description: 'Если включено, то вас можно экстремально поиметь',
+  component: CheckboxInput,
+};
+
+export const unholy_pref: FeatureToggle = {
   name: 'Особые ERP возможности',
   category: 'ERP',
   description: 'Если включено, то вас можно будет обоссать, ворить и кусать',
-  component: FeatureDropdownInput,
+  component: CheckboxInput,
+};
+
+export const hypno_pref: FeatureToggle = {
+  name: 'Гипноз',
+  category: 'ERP',
+  description: 'Если включено, то вас можно загипнотизировать',
+  component: CheckboxInput,
+};
+
+export const never_hypno_pref: FeatureToggle = {
+  name: 'Запретить Гипноз',
+  category: 'ERP',
+  description: 'Если включено, то вас невозможно будет загипнотизировать',
+  component: CheckboxInput,
 };
 
 export const vore_pref: FeatureChoiced = {
@@ -204,11 +225,4 @@ export const vore_pref: FeatureChoiced = {
   category: 'ERP',
   description: 'Если включено, то вас можно будет кушать',
   component: FeatureDropdownInput,
-};
-
-export const extreme_harm: FeatureToggle = {
-  name: 'Особые ERP возможности',
-  category: 'ERP',
-  description: 'Если включено, то вас можно будет съесть насмерть',
-  component: CheckboxInput,
 };

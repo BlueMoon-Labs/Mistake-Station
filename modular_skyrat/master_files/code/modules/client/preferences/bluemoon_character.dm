@@ -1,3 +1,9 @@
+/datum/preference/toggle/admin/use_new_playerpanel
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "use_new_playerpanel"
+	savefile_identifier = PREFERENCE_PLAYER
+	default_value = FALSE
+
 /datum/preference/color/character_runechat_color
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER

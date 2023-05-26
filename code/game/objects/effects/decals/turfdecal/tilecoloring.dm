@@ -266,8 +266,8 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark_green)
 TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/blue)
 
 /// Dark blue trimlines
-/obj/effect/turf_decal/trimline/dark_blue
-	color = "#486091"
+/obj/effect/turf_decal/trimline/dark_blue // Теперь Красный. А то Хули. КРАСНЫЙ В СИНИЙ ПРЕВРАТИЛИ? А ТЕПЕРЬ СИНИЙ В КРАСНЫЙ, НАХУЙ!!!
+	color = "#DE3A3A"
 
 TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark_blue)
 

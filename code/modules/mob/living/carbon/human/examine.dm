@@ -188,7 +188,7 @@
 				if((src == user || HAS_TRAIT(user, TRAIT_GFLUID_DETECT)) && ((dicc?.visibility_preference & GENITAL_FLUID_PRODUCTION) || ((dicc?.linked_organ?.visibility_preference & GENITAL_FLUID_PRODUCTION) && !dicc?.linked_organ?.is_exposed())))
 					var/datum/reagent/cummies = find_reagent_object_from_type(dicc?.get_fluid_id())
 					. += "Вы чувствуете, как от [t_ego] тела пахнет <b>'<span style='color:[cummies.color]';>[cummies.name]</span>'</b>..."
-	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_yesnoask/extreme_pref))
+	if(user.client?.prefs?.read_preference(/datum/preference/toggle/erp/extreme_pref))
 		var/cursed_stuff = attempt_vr(src,"examine_bellies",args) //vore Code
 		if(cursed_stuff)
 			. += cursed_stuff
