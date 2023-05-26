@@ -39,6 +39,12 @@
 	var/unarousal_verb = "Возбуждение пропадает, будто бы его и не было"
 	var/masturbation_verb = "стимулировать"
 	var/layer_index = GENITAL_LAYER_INDEX //Order should be very important. FIRST vagina, THEN testicles, THEN penis, as this affects the order they are rendered in.
+	var/max_size = 6
+	var/min_size = 1
+	var/datum/reagents/climax_fluids
+	var/datum/reagent/original_fluid_id
+	var/datum/reagent/default_fluid_id
+	var/list/writtentext = ""
 
 /obj/item/organ/external/genital
 	/// Controls whenever a genital is always accessible
@@ -367,14 +373,6 @@
 		else if (anusCheck)
 			dna.features["anus_color"] = dna.features["butt_color"]
 	return TRUE
-
-/obj/item/organ/external/genital
-	var/max_size = 6
-	var/min_size = 1
-	var/datum/reagents/climax_fluids
-	var/datum/reagent/original_fluid_id
-	var/datum/reagent/default_fluid_id
-	var/list/writtentext = ""
 
 /obj/item/organ/external/genital/proc/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	fluid_max_volume += modifier*2.5

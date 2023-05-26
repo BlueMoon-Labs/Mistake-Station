@@ -94,15 +94,15 @@
 
 /obj/machinery/vending/barkbox/Initialize(mapload)
 	var/list/extra_products = list(
-		/obj/item/clothing/neck/human_petcollar/spike = 5,
-		/obj/item/clothing/neck/human_petcollar/holo = 5,
-		/obj/item/clothing/neck/human_petcollar/casino = 5,
-		/obj/item/clothing/neck/human_petcollar/handmade = 5
+		/obj/item/clothing/neck/human_petcollar = 8,
+		/obj/item/clothing/neck/human_petcollar/choker = 8,
+		/obj/item/clothing/neck/human_petcollar/locked/cow = 8,
+		/obj/item/clothing/neck/human_petcollar/locked/bell = 8,
+		/obj/item/clothing/neck/human_petcollar/locked/cross = 8
 	)
 	var/list/extra_contraband = list(
 		/obj/item/clothing/neck/human_petcollar/locked/spike = 2,
 		/obj/item/clothing/neck/human_petcollar/locked/holo = 2,
-		/obj/item/clothing/neck/human_petcollar/locked/casino = 2
 	)
 	LAZYADD(products, extra_products)
 	LAZYADD(contraband, extra_contraband)

@@ -36,7 +36,7 @@
 
 /// Attempt to feed this item to golem
 /datum/component/golem_food/proc/on_attack(atom/source, mob/living/target, mob/living/user, click_parameters)
-	SIGNAL_HANDLER
+	//SIGNAL_HANDLER
 	if (user.combat_mode || !HAS_TRAIT(target, TRAIT_ROCK_EATER))
 		return
 	if (extra_validation && !extra_validation.Invoke())

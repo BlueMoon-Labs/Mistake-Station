@@ -138,13 +138,3 @@
 	greyscale_config = /datum/greyscale_config/collar/spike
 	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
 	greyscale_colors = "#292929#C0C0C0"
-
-/obj/item/clothing/neck/human_petcollar/locked/casino
-	name = "Casino Collar"
-	desc = "A fancy collar whose neon hue neatly changes with time. Once probably used to mark living prizes, but it only seems to be a cool item now."
-	icon = 'modular_splurt/icons/obj/clothing/neck/collars.dmi'
-	worn_icon = 'modular_splurt/icons/mob/clothing/neck.dmi'
-	icon_state = "casinoslave"
-	greyscale_config = /datum/greyscale_config/collar/spike
-	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
-	greyscale_colors = "#292929#C0C0C0"

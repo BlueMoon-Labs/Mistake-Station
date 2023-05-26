@@ -106,42 +106,50 @@
 	M.tilt_left()
 	return ..()
 
-/datum/keybinding/mob/pixel_shift/shift_north
+/datum/keybinding/mob/shift_north
 	hotkey_keys = list("CtrlShiftW", "CtrlShiftNorth")
 	name = "pixel_shift_north"
 	full_name = "Pixel Shift North"
+	description = ""
+	category = CATEGORY_MOVEMENT
 
-/datum/keybinding/mob/pixel_shift/shift_north/down(client/user)
+/datum/keybinding/mob/shift_north/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(NORTH)
 	return ..()
 
-/datum/keybinding/mob/pixel_shift/shift_east
+/datum/keybinding/mob/shift_east
 	hotkey_keys = list("CtrlShiftD", "CtrlShiftEast")
 	name = "pixel_shift_east"
 	full_name = "Pixel Shift East"
+	description = ""
+	category = CATEGORY_MOVEMENT
 
-/datum/keybinding/mob/pixel_shift/shift_east/down(client/user)
+/datum/keybinding/mob/shift_east/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(EAST)
 	return ..()
 
-/datum/keybinding/mob/pixel_shift/shift_south
+/datum/keybinding/mob/shift_south
 	hotkey_keys = list("CtrlShiftS", "CtrlShiftSouth")
 	name = "pixel_shift_south"
 	full_name = "Pixel Shift South"
+	description = ""
+	category = CATEGORY_MOVEMENT
 
-/datum/keybinding/mob/pixel_shift/shift_south/down(client/user)
+/datum/keybinding/mob/shift_south/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(SOUTH)
 	return ..()
 
-/datum/keybinding/mob/pixel_shift/shift_west
+/datum/keybinding/mob/shift_west
 	hotkey_keys = list("CtrlShiftA", "CtrlShiftWest")
 	name = "pixel_shift_west"
 	full_name = "Pixel Shift West"
+	description = ""
+	category = CATEGORY_MOVEMENT
 
-/datum/keybinding/mob/pixel_shift/shift_west/down(client/user)
+/datum/keybinding/mob/shift_west/down(client/user)
 	var/mob/M = user.mob
 	M.pixel_shift(WEST)
 	return ..()

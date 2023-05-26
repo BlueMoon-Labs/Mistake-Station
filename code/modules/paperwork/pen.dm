@@ -148,15 +148,47 @@
 	to_chat(user, span_notice("You rotate the top of the pen to [deg] degrees."))
 	SEND_SIGNAL(src, COMSIG_PEN_ROTATED, deg, user)
 
-/obj/item/pen/attack(mob/living/M, mob/user, params)
-	if(force) // If the pen has a force value, call the normal attack procs. Used for e-daggers and captain's pen mostly.
+/obj/item/pen/attack(mob/living/M, mob/living/carbon/human/user, params)
+	if(!istype(M))
+		return
+
+	if(force)
 		return ..()
-	if(!M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
-		return FALSE
-	to_chat(user, span_warning("You stab [M] with the pen."))
-	to_chat(M, span_danger("You feel a tiny prick!"))
-	log_combat(user, M, "stabbed", src)
-	return TRUE
+
+	if(M.can_inject(user, 1))
+		if(user.combat_mode) //old poke requires harm intent.
+			to_chat(user, span_warning("Вы бьёте [M] ручкой."))
+			to_chat(M, span_danger("Вы ощутили болезненный укол!"))
+			log_combat(user, M, "stabbed", src)
+			if(!M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
+				return FALSE
+		else //writing time
+			var/mob/living/carbon/human/target_human = M
+			if(!target_human) //no human.
+				return
+			if(!get_location_accessible(target_human, BODY_ZONE_CHEST))
+				to_chat(user, span_warning("You cannot write on someone with their clothes on."))
+				return
+			var/writing = input(user, "Add writing, doesn't replace current text", "Writing on [target_human]")  as text|null
+			if(!writing)
+				return
+			var/obj/item/bodypart/bodypart = target_human.get_bodypart(user.zone_selected)
+			if(!(user == target_human))
+				src.visible_message(span_notice("[user] begins to write on [target_human]'s [bodypart.name]."))
+			else
+				to_chat(user, span_notice("You begin to write on your [bodypart.name]."))
+			if(!(do_after(user, 4 SECONDS, target_human)))
+				return
+			if(!((length(bodypart.writtentext))+(length(writing)) < 200)) //200 character limmit to stop spamming.
+				to_chat(user, span_notice("There isnt enough space to write that on [target_human]'s [bodypart.name]."))
+				return
+			bodypart.writtentext += html_encode(writing) //you can add to text, not remove it.
+			if(!(user == target_human))
+				to_chat(user, span_notice("You write on [target_human]'s [bodypart.name]."))
+			else
+				to_chat(user, span_notice("You write on your [bodypart.name]."))
+	else
+		. = ..()
 
 /obj/item/pen/afterattack(obj/O, mob/living/user, proximity)
 	. = ..()
