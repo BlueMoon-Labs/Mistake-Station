@@ -128,7 +128,7 @@
 	icon_state = "moth_food"
 	light_mask = "moth_food-light-mask"
 	light_color = LIGHT_COLOR_HALOGEN
-	product_slogans = "Support the fleet, conserve rations today!;Some options in reduced portion and cost!;Do your part to keep the fleet flying!"
+	product_slogans = "Поддержите флот, сэкономьте пайки сегодня!;Некоторые варианты в уменьшенной порции и стоимости!;Внесите свой вклад, чтобы флот летал!"
 	product_categories = list(
 		list(
 			"name" = "Snacks",

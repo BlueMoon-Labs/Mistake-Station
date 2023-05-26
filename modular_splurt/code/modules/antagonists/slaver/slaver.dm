@@ -189,40 +189,40 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 		O.team = src
 		objectives += O
 
-/datum/team/slavers/roundend_report()
-	var/list/parts = list()
-	parts += "<span class='header'>Slave Traders:</span>"
-
-	var/text = "<br><span class='header'>The crew were:</span>"
-	var/slavesSold = GLOB.slavers_slaves_sold
-	var/earnedMoney = GLOB.slavers_credits_total
-	var/slavesUnsold = 0
-
-	var/all_dead = TRUE
-	for(var/datum/mind/M in members)
-		if(considered_alive(M))
-			all_dead = FALSE
-
-	for(var/obj/item/electropack/shockcollar/slave/collar in GLOB.tracked_slaves)
-		if (isliving(collar.loc))
-			slavesUnsold++
-
-	text += "<br>"
-	text += printplayerlist(members)
-	text += "<br>"
-	text += "<b>Slaves sold:</b> [slavesSold]<br>"
-	text += "<b>Slaves not sold:</b> [slavesUnsold]<br>"
-	text += "<b>Total money earned:</b> [earnedMoney]cr (needed at least 200,000cr)"
-
-	// var/datum/objective/slaver/O = locate() in objectives
-	if(GLOB.slavers_credits_total >= 200000 && !all_dead)
-		parts += "<span class='greentext'>The slaver crew were successful!</span>"
-	else
-		parts += "<span class='redtext'>The slaver crew have failed.</span>"
-
-	parts += text
-
-	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
+///datum/team/slavers/roundend_report()
+//	var/list/parts = list()
+//	parts += "<span class='header'>Slave Traders:</span>"
+//
+//	var/text = "<br><span class='header'>The crew were:</span>"
+//	var/slavesSold = GLOB.slavers_slaves_sold
+//	var/earnedMoney = GLOB.slavers_credits_total
+//	var/slavesUnsold = 0
+//
+//	var/all_dead = TRUE
+//	for(var/datum/mind/M in members)
+//		if(considered_alive(M))
+//			all_dead = FALSE
+//
+//	for(var/obj/item/electropack/shockcollar/slave/collar in GLOB.tracked_slaves)
+//		if (isliving(collar.loc))
+//			slavesUnsold++
+//
+//	text += "<br>"
+//	text += printplayerlist(members)
+//	text += "<br>"
+//	text += "<b>Slaves sold:</b> [slavesSold]<br>"
+//	text += "<b>Slaves not sold:</b> [slavesUnsold]<br>"
+//	text += "<b>Total money earned:</b> [earnedMoney]cr (needed at least 200,000cr)"
+//
+//	// var/datum/objective/slaver/O = locate() in objectives
+//	if(GLOB.slavers_credits_total >= 200000 && !all_dead)
+//		parts += "<span class='greentext'>The slaver crew were successful!</span>"
+//	else
+//		parts += "<span class='redtext'>The slaver crew have failed.</span>"
+//
+//	parts += text
+//
+//	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
 
 /proc/is_slaver(mob/M)
 	return M && istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/slaver)

@@ -336,32 +336,32 @@
 	if(GLOB.round_id)
 		var/statspage = CONFIG_GET(string/roundstatsurl)
 		var/info = statspage ? "<a href='?action=openLink&link=[url_encode(statspage)][GLOB.round_id]'>[GLOB.round_id]</a>" : GLOB.round_id
-		parts += "[FOURSPACES]Round ID: <b>[info]</b>"
-	parts += "[FOURSPACES]Shift Duration: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B>"
-	parts += "[FOURSPACES]Station Integrity: <B>[GLOB.station_was_nuked ? span_redtext("Destroyed") : "[popcount["station_integrity"]]%"]</B>"
+		parts += "[FOURSPACES]ID Раунда: <b>[info]</b>"
+	parts += "[FOURSPACES]Длительность Смены: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B>"
+	parts += "[FOURSPACES]Физическое Состояние Корпуса Станции: <B>[GLOB.station_was_nuked ? span_redtext("Destroyed") : "[popcount["station_integrity"]]%"]</B>"
 	var/total_players = GLOB.joined_player_list.len
 	if(total_players)
-		parts+= "[FOURSPACES]Total Population: <B>[total_players]</B>"
+		parts+= "[FOURSPACES]Суммарное Количество Сотрудников: <B>[total_players]</B>"
 		if(station_evacuated)
-			parts += "<BR>[FOURSPACES]Evacuation Rate: <B>[popcount[POPCOUNT_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_ESCAPEES]/total_players)]%)</B>"
-			parts += "[FOURSPACES](on emergency shuttle): <B>[popcount[POPCOUNT_SHUTTLE_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_SHUTTLE_ESCAPEES]/total_players)]%)</B>"
-		parts += "[FOURSPACES]Survival Rate: <B>[popcount[POPCOUNT_SURVIVORS]] ([PERCENT(popcount[POPCOUNT_SURVIVORS]/total_players)]%)</B>"
+			parts += "<BR>[FOURSPACES]Суммарное Количество Эвакуированных Сотрудников: <B>[popcount[POPCOUNT_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_ESCAPEES]/total_players)]%)</B>"
+			parts += "[FOURSPACES](На Шаттле Эвакуации): <B>[popcount[POPCOUNT_SHUTTLE_ESCAPEES]] ([PERCENT(popcount[POPCOUNT_SHUTTLE_ESCAPEES]/total_players)]%)</B>"
+		parts += "[FOURSPACES]Рейтинг Выживания: <B>[popcount[POPCOUNT_SURVIVORS]] ([PERCENT(popcount[POPCOUNT_SURVIVORS]/total_players)]%)</B>"
 		if(SSblackbox.first_death)
 			var/list/ded = SSblackbox.first_death
 			if(ded.len)
-				parts += "[FOURSPACES]First Death: <b>[ded["name"]], [ded["role"]], at [ded["area"]]. Damage taken: [ded["damage"]].[ded["last_words"] ? " Their last words were: \"[ded["last_words"]]\"" : ""]</b>"
+				parts += "[FOURSPACES]Первая смерть: <b>[ded["name"]], [ded["role"]], at [ded["area"]]. Количество Полученных Повреждений: [ded["damage"]].[ded["last_words"] ? " Their last words were: \"[ded["last_words"]]\"" : ""]</b>"
 			//ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
-				parts += "[FOURSPACES]<i>Nobody died this shift!</i>"
+				parts += "[FOURSPACES]<i>Никто не умер на этой Смене!</i>"
 	if(istype(SSticker.mode, /datum/game_mode/dynamic))
 		var/datum/game_mode/dynamic/mode = SSticker.mode
-		parts += "[FOURSPACES]Threat level: [mode.threat_level]"
-		parts += "[FOURSPACES]Threat left: [mode.mid_round_budget]"
+		parts += "[FOURSPACES]Уровень Хаоса: [mode.threat_level]"
+		parts += "[FOURSPACES]Очков Хаоса Осталось: [mode.mid_round_budget]"
 		if(mode.roundend_threat_log.len)
-			parts += "[FOURSPACES]Threat edits:"
+			parts += "[FOURSPACES]Трата Очков Хаоса:"
 			for(var/entry as anything in mode.roundend_threat_log)
 				parts += "[FOURSPACES][FOURSPACES][entry]<BR>"
-		parts += "[FOURSPACES]Executed rules:"
+		parts += "[FOURSPACES]Аспект Раунда:"
 		for(var/datum/dynamic_ruleset/rule in mode.executed_rules)
 			parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] threat"
 	return parts.Join("<br>")
@@ -424,17 +424,17 @@
 			if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 				if(!M.onCentCom() && !M.onSyndieBase())
 					parts += "<div class='panel stationborder'>"
-					parts += "<span class='marooned'>You managed to survive, but were marooned on [station_name()]...</span>"
+					parts += "<span class='marooned'>Вам удалось выжить, но вы были выброшены куда-то за территорию Космической Станции [station_name()]...</span>"
 				else
 					parts += "<div class='panel greenborder'>"
-					parts += span_greentext("You managed to survive the events on [station_name()] as [M.real_name].")
+					parts += span_greentext("Вам удалось пережить события на Космической Станции [station_name()], будучи [M.real_name].")
 			else
 				parts += "<div class='panel greenborder'>"
-				parts += span_greentext("You managed to survive the events on [station_name()] as [M.real_name].")
+				parts += span_greentext("You managed to survive the events на Космической Станции [station_name()], будучи [M.real_name].")
 
 		else
 			parts += "<div class='panel redborder'>"
-			parts += span_redtext("You did not survive the events on [station_name()]...")
+			parts += span_redtext("Вы не пережили события на Космической Станции [station_name()]...")
 	else
 		parts += "<div class='panel stationborder'>"
 	parts += "<br>"
@@ -523,8 +523,8 @@
 		station_vault += current_acc.account_balance
 		if(!mr_moneybags || mr_moneybags.account_balance < current_acc.account_balance)
 			mr_moneybags = current_acc
-	parts += "<div class='panel stationborder'><span class='header'>Station Economic Summary:</span><br>"
-	parts += "<span class='service'>Service Statistics:</span><br>"
+	parts += "<div class='panel stationborder'><span class='header'>Экономическая Сводка по Станции:</span><br>"
+	parts += "<span class='service'>Статистика Сервисного Отдела:</span><br>"
 	for(var/venue_path in SSrestaurant.all_venues)
 		var/datum/venue/venue = SSrestaurant.all_venues[venue_path]
 		tourist_income += venue.total_income
@@ -533,26 +533,26 @@
 	log_econ("Roundend service income: [tourist_income] credits.")
 	switch(tourist_income)
 		if(0)
-			parts += "[span_redtext("Service did not earn any credits...")]<br>"
+			parts += "[span_redtext("Сервисная Служба не заработала ни одного кредита...")]<br>"
 		if(1 to 2000)
-			parts += "[span_redtext("Centcom is displeased. Come on service, surely you can do better than that.")]<br>"
+			parts += "[span_redtext("Центральное Командование недовольно. Ну же, Сервисный Отдел, конечно, вы обязательно сможете сделать что-то лучше...")]<br>"
 			award_service(/datum/award/achievement/jobs/service_bad)
 		if(2001 to 4999)
-			parts += "[span_greentext("Centcom is satisfied with service's job today.")]<br>"
+			parts += "[span_greentext("Центральное Командование удовлетворено работой Сервисного Отдела сегодня.")]<br>"
 			award_service(/datum/award/achievement/jobs/service_okay)
 		else
-			parts += "<span class='reallybig greentext'>Centcom is incredibly impressed with service today! What a team!</span><br>"
+			parts += "<span class='reallybig greentext'>Центральное Командование невероятно впечатлено работой Сервисного Отдела! Какая команда, какой профессионализм!</span><br>"
 			award_service(/datum/award/achievement/jobs/service_good)
 
-	parts += "<b>General Statistics:</b><br>"
-	parts += "There were [station_vault] credits collected by crew this shift.<br>"
+	parts += "<b>Основная Статистика:</b><br>"
+	parts += "Космическая Станция заработала [station_vault] кредитов благодаря усилию со стороны каждого сотрудника.<br>"
 	if(total_players > 0)
 		parts += "An average of [station_vault/total_players] credits were collected.<br>"
 		log_econ("Roundend credit total: [station_vault] credits. Average Credits: [station_vault/total_players]")
 	if(mr_moneybags)
-		parts += "The most affluent crew member at shift end was <b>[mr_moneybags.account_holder] with [mr_moneybags.account_balance]</b> cr!</div>"
+		parts += "Самым обеспеченным сотрудником Космической Станции в конце смены был <b>[mr_moneybags.account_holder]. На его балансе оказалось аж [mr_moneybags.account_balance]</b> кредитов!</div>"
 	else
-		parts += "Somehow, nobody made any money this shift! This'll result in some budget cuts...</div>"
+		parts += "Почему-то в эту смену никто не заработал денег! Это приведет к некоторым сокращениям бюджета...</div>"
 	return parts
 
 /**

@@ -74,7 +74,7 @@
 /datum/game_mode/proc/generate_station_goal_report()
 	if(!GLOB.station_goals.len)
 		return
-	. = "<hr><b>Special Orders for [station_name()]:</b><BR>"
+	. = "<hr><b>Специальные поручения для [station_name()]:</b><BR>"
 	var/list/goal_reports = list()
 	for(var/datum/station_goal/station_goal as anything in GLOB.station_goals)
 		station_goal.on_report()
@@ -95,7 +95,7 @@
 			continue
 		trait_list_string += "[station_trait.get_report()]<BR>"
 	if(trait_list_string != "")
-		return "<hr><b>Identified shift divergencies:</b><BR>" + trait_list_string
+		return "<hr><b>Выявленные Отклонения:</b><BR>" + trait_list_string
 	return
 
 /datum/game_mode/proc/generate_report_footnote()
@@ -106,7 +106,7 @@
 		footnote_pile += "<i>[footnote.signature]</i><BR>"
 		footnote_pile += "<BR>"
 
-	return "<hr><b>Additional Notes: </b><BR><BR>" + footnote_pile
+	return "<hr><b>Дополнительная Информация: </b><BR><BR>" + footnote_pile
 
 /proc/reopen_roundstart_suicide_roles()
 	var/include_command = CONFIG_GET(flag/reopen_roundstart_suicide_roles_command_positions)
