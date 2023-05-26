@@ -2,7 +2,7 @@
 	//oh no vore time
 	var/voremode = FALSE
 
-/mob/living/carbon/proc/toggle_vore_mode()
+/mob/living/carbon/proc/toggle_vore_mode(mob/living/carbon/human/user)
 	if(!user.combat_mode)
 		help_shake_act(user)
 		return FALSE
