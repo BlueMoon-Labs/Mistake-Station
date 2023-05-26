@@ -1,11 +1,11 @@
 /datum/job/expeditionary_trooper
 	title = JOB_VANGUARD_OPERATIVE
-	description = "Explore gateways, watch your friends die, find all the loot."
+	description = "Принимай участие в проекте Врата, исследуя Мир по ту сторону Аномалии Синих Лун. Наблюдай за гибелью друзей и найди всю существующую добычу..."
 	department_head = list(JOB_CAPTAIN)
 	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = SUPERVISOR_RD | SUPERVISOR_CAPTAIN
+	supervisors = "Центральное Командование, Директор Отдела Исследований и Капитан Космической Станции"
 	minimal_player_age = 40
 	exp_requirements = 400
 	exp_required_type = EXP_TYPE_CREW
@@ -133,7 +133,7 @@
 	new /obj/item/storage/medkit/expeditionary(src)
 	new /obj/item/storage/box/expeditionary_survival(src)
 	new /obj/item/radio(src)
-	new /obj/item/clothing/gloves/color/latex/nitrile/expeditionary_corps(src)
+	new /obj/item/clothing/gloves/latex/nitrile/expeditionary_corps(src)
 	new /obj/item/clothing/head/helmet/expeditionary_corps(src)
 	new /obj/item/clothing/suit/armor/vest/expeditionary_corps(src)
 	new /obj/item/storage/belt/military/expeditionary_corps/field_medic(src)
@@ -146,7 +146,7 @@
 	new /obj/item/storage/box/expeditionary_survival(src)
 	new /obj/item/radio(src)
 	new /obj/item/melee/tomahawk(src)
-	new /obj/item/clothing/gloves/color/chief_engineer/expeditionary_corps(src)
+	new /obj/item/clothing/gloves/chief_engineer/expeditionary_corps(src)
 	new /obj/item/clothing/head/helmet/expeditionary_corps(src)
 	new /obj/item/clothing/suit/armor/vest/expeditionary_corps(src)
 	new /obj/item/storage/belt/military/expeditionary_corps/combat_tech(src)
