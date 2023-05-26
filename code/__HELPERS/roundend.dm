@@ -240,22 +240,22 @@
 
 	to_chat(world, span_infoplain(span_big(span_bold("<BR><BR><BR>The round has ended."))))
 	log_game("The round has ended.")
-	send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Round [GLOB.round_id]" : "The round has"] just ended."), CONFIG_GET(string/channel_announce_end_game))
-	send2adminchat("Server", "Round just ended.")
+	send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Раунд [GLOB.round_id]" : "Раунд"] только что закончился."), CONFIG_GET(string/channel_announce_end_game))
+	send2adminchat("Сервер", "Раунд только что закончился.")
 
 	/* //SKYRAT EDIT - START (DISCORD Updates)
 	MOVED CHECK INTO TICKER.DM
 	if(length(CONFIG_GET(keyed_list/cross_server)))
 		send_news_report()
 	*/
-	send2chat("The current round has ended. Please standby for your shift interlude Nanotrasen News Network's report!", CONFIG_GET(string/channel_announce_end_game))
+	send2chat("Идущий минутами ранее раунд закончился. Пожалуйста, приготовьтесь к сменному репортажу Nanotrasen News Network!", CONFIG_GET(string/channel_announce_end_game))
 	send2chat(send_news_report(), CONFIG_GET(string/channel_announce_end_game))
 	//SKYRAT EDIT - END
 
 	CHECK_TICK
 
 	handle_hearts()
-	set_observer_default_invisibility(0, span_warning("The round is over! You are now visible to the living."))
+	set_observer_default_invisibility(0, span_warning("Раунд завершен! Теперь вы видны живым."))
 
 	CHECK_TICK
 
@@ -295,9 +295,9 @@
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(ready_for_reboot)
 		if(GLOB.station_was_nuked)
-			Reboot("Station destroyed by Nuclear Device.", "nuke")
+			Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
 		else
-			Reboot("Round ended.", "proper completion")
+			Reboot("КОНЕЦ РАУНДА! ЕОРГ ТОЛЬКО НА ЦК-АРЕНЕ!!", "proper completion", 150 SECONDS)
 	else
 		CRASH("Attempted standard reboot without ticker roundend completion")
 

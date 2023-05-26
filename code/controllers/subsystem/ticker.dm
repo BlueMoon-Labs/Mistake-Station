@@ -160,13 +160,13 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
+			to_chat(world, span_notice("<b>Добро пожаловать на Космическую Станцию Модели [station_name()]!</b>"))
 			/* ORIGINAL:
 			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/channel_announce_new_game))
 			*/ // SKYRAT EDIT START - DISCORD SPAM PREVENTION
 			if(!discord_alerted)
 				discord_alerted = TRUE
-				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // SKYRAT EDIT - Role ping and round ID in game-alert
+				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Раунд под Номером **[GLOB.round_id]** стартует на Космической Станции Модели [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nЕсли вы хотите, чтобы вас оповещали о событиях, связанных с игрой, перейдите в Канал <#[CONFIG_GET(string/role_assign_channel_id)]> и назначьте себе интересующие роли."), CONFIG_GET(string/channel_announce_new_game)) // SKYRAT EDIT - Role ping and round ID in game-alert
 			// SKYRAT EDIT END
 			current_state = GAME_STATE_PREGAME
 			SStitle.change_title_screen() //SKYRAT EDIT ADDITION - Title screen
@@ -684,9 +684,9 @@ SUBSYSTEM_DEF(ticker)
 	if(SSblackbox.first_death)
 		var/list/ded = SSblackbox.first_death
 		if(ded.len)
-			news_message += " NT Sanctioned Psykers picked up faint traces of someone near the station, allegedly having had died. Their name was: [ded["name"]], [ded["role"]], at [ded["area"]].[ded["last_words"] ? " Their last words were: \"[ded["last_words"]]\"" : ""]" // " // An Extra quote and comment because highlighting goes weird
+			news_message += " Псайкеры, санкционированные Пактом, засекли слабые следы кого-то рядом со станцией, предположительно умершего. Имя умершего: [ded["name"]], [ded["role"]], at [ded["area"]].[ded["last_words"] ? " Последними словами умершего были: \"[ded["last_words"]]\"" : ""]" // " // An Extra quote and comment because highlighting goes weird
 		else
-			news_message += " NT Sanctioned Psykers proudly confirm reports that nobody died this shift!"
+			news_message += " Псайкеры, санкционированные Пактом, с гордостью подтверждают сообщения о том, что в эту смену никто не умер!"
 	//SKYRAT EDIT - END
 
 	if(news_message && length(CONFIG_GET(keyed_list/cross_server))) //SKYRAT EDIT - CONFIG CHECK MOVED FROM ROUNDEND.DM
@@ -696,7 +696,7 @@ SUBSYSTEM_DEF(ticker)
 	if(news_message)
 		return news_message
 	else
-		return "We regret to inform you that shit be whack, yo. None of our reporters have any idea of what may or may not have gone on."
+		return "Мы с сожалением сообщаем вам, что дерьмо - это дерьмо, йоу. Никто из наших репортеров не имеет ни малейшего представления о том, что могло или не могло произойти."
 	//SKYRAT EDIT - END
 
 /datum/controller/subsystem/ticker/proc/GetTimeLeft()
