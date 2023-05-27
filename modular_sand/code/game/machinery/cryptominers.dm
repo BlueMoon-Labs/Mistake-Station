@@ -254,9 +254,9 @@
 		set_mining(FALSE)
 		visible_message(span_warning("[src] slowly comes to a halt."),
 						span_warning("You turn off [src]."))
-		balloon_alert(user, "turned off")
+		balloon_alert(user, "Выключаю!")
 		return
-	balloon_alert(user, "turned on")
+	balloon_alert(user, "Включаю!")
 	set_mining(TRUE)
 
 /obj/machinery/cryptominer/proc/set_mining(new_value)

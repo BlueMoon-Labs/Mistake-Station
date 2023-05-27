@@ -23562,6 +23562,7 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/jukebox,
 /turf/open/floor/iron,
 /area/station/service/bar)
 "hxs" = (
@@ -49238,6 +49239,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/office)
+"pFC" = (
+/obj/item/hilbertshotel/ghostdojo{
+	pixel_y = -15
+	},
+/turf/open/floor/carpet,
+/area/station/hallway/secondary/entry)
 "pFD" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/south,
@@ -221093,7 +221100,7 @@ gbt
 aUr
 nNw
 kMM
-hUj
+pFC
 hUj
 kMM
 nnK

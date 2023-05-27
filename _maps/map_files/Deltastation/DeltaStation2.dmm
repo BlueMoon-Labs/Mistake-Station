@@ -74484,6 +74484,7 @@
 /obj/structure/cable,
 /obj/machinery/barsign/directional/north,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/jukebox,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "sHj" = (
@@ -83638,6 +83639,10 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den/gaming)
+"uTC" = (
+/obj/item/hilbertshotel/ghostdojo,
+/turf/open/floor/glass/reinforced,
+/area/station/hallway/primary/fore)
 "uTG" = (
 /obj/structure/showcase/cyborg/old{
 	dir = 4;
@@ -131285,7 +131290,7 @@ uVF
 dRJ
 dRJ
 dRJ
-dRJ
+uTC
 dRJ
 dRJ
 dRJ

@@ -45509,6 +45509,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/third)
+"lVQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/hilbertshotel/ghostdojo{
+	pixel_y = -15
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "lVU" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
 	dir = 4
@@ -54267,6 +54275,7 @@
 /turf/open/floor/pod/light,
 /area/station/maintenance/floor4/port/fore)
 "oar" = (
+/obj/machinery/jukebox,
 /turf/open/misc/beach/sand,
 /area/station/hallway/secondary/entry)
 "oaE" = (
@@ -107479,7 +107488,7 @@ ycy
 byi
 nlw
 cCu
-lUu
+lVQ
 ltR
 lUu
 vhj

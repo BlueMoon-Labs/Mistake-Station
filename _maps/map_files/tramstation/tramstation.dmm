@@ -44267,6 +44267,10 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
+"oIf" = (
+/obj/item/hilbertshotel/ghostdojo,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
 "oIk" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -89109,7 +89113,7 @@ elr
 elr
 xPP
 guI
-xFx
+oIf
 vAF
 swX
 tKt

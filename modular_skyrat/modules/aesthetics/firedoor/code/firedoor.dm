@@ -30,3 +30,8 @@
 
 /obj/machinery/door/firedoor/closed
 	alarm_type = FIRELOCK_ALARM_TYPE_GENERIC
+
+/obj/structure/firelock_frame
+	icon_state = "frame1"
+	base_icon_state = "frame"
+	icon = 'modular_skyrat/modules/aesthetics/firedoor/icons/firedoor_glass.dmi'

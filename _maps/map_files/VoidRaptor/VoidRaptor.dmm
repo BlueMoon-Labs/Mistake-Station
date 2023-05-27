@@ -7874,6 +7874,10 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/power_room)
+"crD" = (
+/obj/machinery/jukebox/disco,
+/turf/open/floor/iron/grimy,
+/area/station/commons/lounge)
 "crK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
 	dir = 8
@@ -67333,6 +67337,7 @@
 	},
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/effect/landmark/event_spawn,
+/obj/item/hilbertshotel/ghostdojo,
 /turf/open/floor/iron/large,
 /area/station/hallway/primary/fore)
 "sOq" = (
@@ -118795,7 +118800,7 @@ mBJ
 tOA
 tOA
 oUR
-fUT
+crD
 sAA
 kfu
 euI
