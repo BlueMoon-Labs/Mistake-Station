@@ -71,7 +71,7 @@
 		var/mob/dead/observer/observer = new()
 		chosen_player.spawning = TRUE
 		observer.started_as_observer = TRUE
-		//chosen_player.force_close_window()
+		chosen_player.hide_title_screen() // SKYRAT EDIT ADDITION - Skyrat Titlescreen
 		var/obj/effect/landmark/observer_start/start_point = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
 		if(start_point)
 			observer.forceMove(get_turf(start_point))

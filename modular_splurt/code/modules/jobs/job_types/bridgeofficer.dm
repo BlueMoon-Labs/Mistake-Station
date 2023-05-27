@@ -5,18 +5,19 @@
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "Central Command and Captain of The Station"
-	req_admin_notify = 0
+	supervisors = "Central Command, Nanotrasen Consultant and Captain of The Station"
 	minimal_player_age = 20
 	exp_requirements = 180
-	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "BRIDGE_OFFICER"
+
 	departments_list = list(
 		/datum/job_department/command,
 		/datum/job_department/central_command
 	)
+
 	outfit = /datum/outfit/job/bridgeofficer
 	plasmaman_outfit = /datum/outfit/plasmaman/bridgeofficer
 	paycheck = PAYCHECK_COMMAND
@@ -24,6 +25,10 @@
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_OFFICER
 	bounty_types = CIV_JOB_SEC
+
+	family_heirlooms = list(/obj/item/binoculars)
+
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
 
 	alt_titles = list("Command Secretary", "Command Officer", "Bridge Secretary", "Ensign", "Bridge Bitch", "Bridge Advisor", "Bridge Intern")
 /datum/outfit/job/bridgeofficer
