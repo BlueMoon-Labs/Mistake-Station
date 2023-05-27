@@ -71,7 +71,7 @@ export const feature_lizard_legs: FeatureChoiced = {
 };
 
 export const feature_lizard_spines: FeatureChoiced = {
-  name: 'Крутой Позвоночник',
+  name: 'Внешний Позвоночник',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>
   ) => {

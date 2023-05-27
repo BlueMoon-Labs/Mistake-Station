@@ -353,14 +353,14 @@ export const frills_emissive: Feature<boolean[]> = {
 };
 
 export const spines_toggle: FeatureToggle = {
-  name: 'Крутой Позвоночник',
+  name: 'Внешний Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_spines: Feature<string> = {
-  name: 'Крутой Позвоночник. Выбор',
+  name: 'Внешний Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: (
@@ -371,14 +371,14 @@ export const feature_spines: Feature<string> = {
 };
 
 export const spines_color: Feature<string[]> = {
-  name: 'Крутой Позвоночник. Цвет',
+  name: 'Внешний Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const spines_emissive: Feature<boolean[]> = {
-  name: 'Крутой Позвоночник. Свечение',
+  name: 'Внешний Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
@@ -751,14 +751,14 @@ export const taur_emissive: Feature<boolean[]> = {
 };
 
 export const xenodorsal_toggle: FeatureToggle = {
-  name: 'Ксеноморф - Крутой Позвоночник',
+  name: 'Ксеноморф - Внешний Позвоночник',
   description:
     "Add some lore for your species! Won't show up if there's no custom species.",
   component: CheckboxInput,
 };
 
 export const feature_xenodorsal: Feature<string> = {
-  name: 'Ксеноморф - Крутой Позвоночник. Выбор',
+  name: 'Ксеноморф - Внешний Позвоночник. Выбор',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: (
@@ -769,14 +769,14 @@ export const feature_xenodorsal: Feature<string> = {
 };
 
 export const xenodorsal_color: Feature<string[]> = {
-  name: 'Ксеноморф - Крутой Позвоночник. Цвет',
+  name: 'Ксеноморф - Внешний Позвоночник. Цвет',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriColorInput,
 };
 
 export const xenodorsal_emissive: Feature<boolean[]> = {
-  name: 'Ксеноморф - Крутой Позвоночник. Свечение',
+  name: 'Ксеноморф - Внешний Позвоночник. Свечение',
   description:
     'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,

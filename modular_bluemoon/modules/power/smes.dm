@@ -2,7 +2,6 @@
 // stores power
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-#define SMESCHARGE 70			// ratio of battery storage to SMES storage		//WS Edit - Removes magic number
 #define SMESEMPTIME 20 SECONDS	// the time it takes for the SMES to go back to normal operation when emped
 
 //Cache defines
@@ -20,7 +19,6 @@
 	name = "Power Storage Unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
 	icon_state = "smes"
-	icon = 'icons/obj/machines/smes.dmi'
 	density = TRUE
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/machine/smes
@@ -44,6 +42,8 @@
 
 	var/emp_timer = TIMER_ID_NULL
 	var/is_emped = FALSE // to prevent output when emped
+
+	icon = 'icons/obj/machines/smes.dmi'
 
 /obj/machinery/power/smes/examine(user)
 	. = ..()
@@ -70,16 +70,16 @@
 	var/IO = 0
 	var/MC = 0
 	var/C = 0
-	for(var/obj/item/stock_parts/capacitor/CP in component_parts)
-		IO += CP.rating
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		IO += capacitor.tier
 	input_level_max = initial(input_level_max) * IO
 	output_level_max = initial(output_level_max) * IO
 	for(var/obj/item/stock_parts/cell/PC in component_parts)
 		MC += PC.maxcharge
 		C += PC.charge
-	capacity = MC * SMESCHARGE			//WS Edit - Removes magic number
+	capacity = MC / (15000) * 1e6
 	if(!initial(charge) && !charge)
-		charge = C * SMESCHARGE			//WS Edit - Prevents power duping
+		charge = C / 15000 * 1e6		//WS Edit - Prevents power duping
 	return ..()
 
 /*WS Edit - Smartwire Revert

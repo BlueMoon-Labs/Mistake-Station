@@ -50,7 +50,7 @@
 	inhand_icon_state =  "sword"
 
 /obj/item/melee/baton/stunsword/get_belt_overlay()
-	if(istype(loc, /obj/item/storage/belt/sabre))
+	if(istype(loc, /obj/item/storage/belt/sabre/secbelt))
 		return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "stunsword")
 	return ..()
 
@@ -104,7 +104,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	content_overlays = TRUE
 
-/obj/item/storage/belt/sabre/Initialize(mapload)
+/obj/item/storage/belt/sabre/secbelt/Initialize(mapload)
 	. = ..()
 
 	atom_storage.max_slots = 5
