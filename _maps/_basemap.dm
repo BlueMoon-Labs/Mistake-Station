@@ -17,10 +17,8 @@
 		#include "map_files\tramstation\tramstation.dmm"
 		// SKYRAT EDIT ADDITON START - Compiling our modular maps too!
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
-		// SKYRAT EDIT END
 		// BlueMoon EDIT ADDITON START
 		#include "map_files\SyndicateStation\SyndicateStation.dmm"
-		// BlueMoon EDIT END
 
 		#ifdef CIBUILDING
 			#include "templates.dm"
