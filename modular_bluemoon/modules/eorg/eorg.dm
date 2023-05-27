@@ -25,8 +25,8 @@
 	for(var/mob/living/carbon/human/eorg_candidate in GLOB.human_list)
 		if(eorg_candidate.client)
 			var/eorg_choice = eorg_candidate.client.prefs?.read_preference(/datum/preference/toggle/eorg_join)
-			to_chat(eorg_candidate, "The round will end up soon. You have choose to [eorg_choice ? "join in" : "stay away"] before. \
-			<a href='?src=[REF(eorg_candidate)];eorg_teleport_switch=1'>Shall you change your mind?</a>")
+			to_chat(eorg_candidate, span_danger("The round will end up soon. You have choose to [eorg_choice ? "join in" : "stay away"] before. \
+			<a href='?src=[REF(eorg_candidate)];eorg_teleport_switch=1'>Shall you change your mind?</a>"))
 
 /proc/process_eorg_teleport()
 	if(!(CONFIG_GET(flag/allow_eorg)))
