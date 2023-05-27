@@ -239,6 +239,10 @@ SUBSYSTEM_DEF(ticker)
 	//Configure mode and assign player to special mode stuff
 	var/can_continue = 0
 	can_continue = src.mode.pre_setup() //Choose antagonists
+	// BLUEMOON ADDITION START
+	CHECK_TICK
+	SSstories.execute_roundstart_story()
+	// BLUEMOON ADDITION END
 	CHECK_TICK
 	can_continue = can_continue && SSjob.DivideOccupations() //Distribute jobs
 	CHECK_TICK

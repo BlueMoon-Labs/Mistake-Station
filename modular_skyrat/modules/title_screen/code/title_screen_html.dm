@@ -114,7 +114,8 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			<a class="menu_button" href='?src=[text_ref(src)];character_setup=1'>МОЙ ПЕРСОНАЖ (<span id="character_slot">[uppertext(client.prefs.read_preference(/datum/preference/name/real_name))]</span>)</a>
 			<a class="menu_button" href='?src=[text_ref(src)];game_options=1'>ИГРОВЫЕ ОПЦИИ</a>
 			<a id="be_antag" class="menu_button" href='?src=[text_ref(src)];toggle_antag=1'>[client.prefs.read_preference(/datum/preference/toggle/be_antag) ? "<span class='checked'>☑</span> БЫТЬ АНТАГОНИСТОМ" : "<span class='unchecked'>☒</span> НЕ БЫТЬ АНТАГОНИСТОМ"]</a>
-		"}
+			<a id="story_pref" class="menu_button" href='?src=[text_ref(src)];toggle_story=1'>[client.prefs.read_preference(/datum/preference/toggle/story_pref) ? "<span class='checked'>☑</span> БЫТЬ ВЕДУЩИМ" : "<span class='unchecked'>☒</span> НЕ БЫТЬ ВЕДУЩИМ"]</a>
+			"}
 
 		//if(!is_guest_key(src.key))
 		//	dat += playerpolls()
@@ -150,6 +151,22 @@ GLOBAL_LIST_EMPTY(startup_messages)
 					if (antag_int === antag_marks.length)
 						antag_int = 0;
 					antag_mark.innerHTML = antag_marks\[antag_int\];
+				}
+			}
+
+			var story_int = 0;
+			var story_mark = document.getElementById("story_pref");
+			var story_marks = \[ "<span class='unchecked'>☒</span> НЕ БЫТЬ ВЕДУЩИМ", "<span class='checked'>☑</span> БЫТЬ ВЕДУЩИМ" \];
+			function toggle_story(setStory) {
+				if(setStory) {
+					story_int = setStory;
+					story_mark.innerHTML = story_marks\[story_int\];
+				}
+				else {
+					story_int++;
+					if (story_int === story_marks.length)
+						story_int = 0;
+					story_mark.innerHTML = story_marks\[story_int\];
 				}
 			}
 

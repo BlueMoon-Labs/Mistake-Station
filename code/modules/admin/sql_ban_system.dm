@@ -407,6 +407,7 @@
 				BAN_ANTAGONIST,
 				BAN_OPFOR,
 				BAN_LOOC, //SKYRAT ADDITION - LOOC muting again
+				BAN_STORY,
 			),//SKYRAT EDIT ADDITION - EXTRA_BANS
 		)
 		for(var/department in long_job_lists)

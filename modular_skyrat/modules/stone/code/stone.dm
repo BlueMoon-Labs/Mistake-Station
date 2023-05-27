@@ -22,6 +22,10 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 	new/datum/stack_recipe("stone brick tile", /obj/item/stack/tile/mineral/stone, 1, 4, 20, check_density = FALSE, category = CAT_TILES),
 	))
 
+/obj/item/stack/sheet/mineral/stone/fifty
+	amount = 50
+
+
 /obj/item/stack/sheet/mineral/stone/get_main_recipes()
 	. = ..()
 	. += GLOB.stone_recipes

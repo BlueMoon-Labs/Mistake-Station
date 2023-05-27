@@ -732,6 +732,10 @@
 	icon_state = "security_black"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "rsecurity",
+			RESKIN_WORN_ICON_STATE = "rsecurity"
+		),
 		"Black Variant" = list(
 			RESKIN_ICON_STATE = "security_black",
 			RESKIN_WORN_ICON_STATE = "security_black"
@@ -750,13 +754,33 @@
 /obj/item/clothing/under/rank/security/warden
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "warden_black"
+	icon_state = "rwarden"
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "rwarden",
+			RESKIN_WORN_ICON_STATE = "rwarden"
+		),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "warden_black",
+			RESKIN_WORN_ICON_STATE = "warden_black"
+		),
+	)
 
 //HoS
 /obj/item/clothing/under/rank/security/head_of_security
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "hos_black"
+	icon_state = "rhos"
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "rhos",
+			RESKIN_WORN_ICON_STATE = "rhos"
+		),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "hos_black",
+			RESKIN_WORN_ICON_STATE = "hos_black"
+		),
+	)
 
 /obj/item/clothing/under/rank/security/head_of_security/parade
 	icon_state = "hos_parade_male"

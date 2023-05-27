@@ -2,7 +2,7 @@
 #define HIDING_RADIAL_DMI 'modular_skyrat/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/radial.dmi'
 
 /mob/living/carbon/human
-	var/static/list/possible_genitals = list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS, ORGAN_SLOT_BUTT, ORGAN_SLOT_BELLY)
+	var/static/list/possible_genitals = list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS, ORGAN_SLOT_BUTT)
 
 /mob/living/carbon/human/Topic(href, href_list)
 	. = ..()

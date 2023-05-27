@@ -444,12 +444,12 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/imperial_cap
 	name = "Captain's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/cap
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
+	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP, JOB_BRIDGE_OFFICER)
 
 /datum/loadout_item/head/imperial_hop
 	name = "Head of Personnel's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hop
-	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
+	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP, JOB_BRIDGE_OFFICER)
 
 
 /datum/loadout_item/head/imperial_cmo
@@ -520,12 +520,12 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/imperial_generic
 	name = "Grey Naval Officer Cap"
 	item_path = /obj/item/clothing/head/hats/imperial
-	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_NT_REP)
+	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_NT_REP, JOB_BRIDGE_OFFICER)
 
 /datum/loadout_item/head/imperial_grey
 	name = "Dark Grey Naval Officer Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/grey
-	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_NT_REP)
+	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_NT_REP, JOB_BRIDGE_OFFICER)
 
 /datum/loadout_item/head/imperial_red
 	name = "Red Naval Officer Cap"

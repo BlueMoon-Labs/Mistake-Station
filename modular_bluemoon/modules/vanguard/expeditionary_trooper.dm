@@ -52,18 +52,17 @@
 	id = /obj/item/card/id/advanced/silver/exp_corps
 	id_trim = /datum/id_trim/job/expeditionary_trooper
 
-	belt = /obj/item/modular_computer/tablet/pda/expeditionary_corps
+	belt = /obj/item/modular_computer/pda/expeditionary_corps
 
 /obj/effect/landmark/start/expeditionary_corps
 	name = "Vanguard Operative"
 	icon_state = "Vanguard Operative"
 	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
 
-/obj/item/modular_computer/tablet/pda/expeditionary_corps
+/obj/item/modular_computer/pda/expeditionary_corps
 	greyscale_colors = "#891417#000099"
 	name = "Military PDA"
 	long_ranged = TRUE
-
 /obj/item/storage/box/survival/expeditionary_corps
 	mask_type = /obj/item/clothing/mask/gas/alt
 
@@ -75,7 +74,7 @@
 	desc = "A secure crate, for Expeditionary Corps only!"
 	icon_state = "expcrate"
 	icon = 'modular_skyrat/modules/exp_corps/icons/exp_crate.dmi'
-	req_access = list(ACCESS_GATEWAY, ACCESS_CENT_GENERAL, ACCESS_CAPTAIN, ACCESS_RD)
+	req_access = list(ACCESS_GATEWAY)
 	max_integrity = 500
 	var/loadout_desc = "Whoever picks this is an incredibly boring generalist."
 

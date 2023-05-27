@@ -24,9 +24,9 @@
 		using.hud = src
 		infodisplay += using
 
-	using = new /atom/movable/screen/voretoggle() //We fancy Vore now
-	using.icon = tg_ui_icon_to_cit_ui(ui_style)
-	using.screen_loc = ui_voremode
+	//using = new /atom/movable/screen/voretoggle() //We fancy Vore now
+	//using.icon = tg_ui_icon_to_cit_ui(ui_style)
+	//using.screen_loc = ui_voremode
 	//if(!widescreenlayout)
 	//	using.screen_loc = ui_boxvore
 	using.hud = src

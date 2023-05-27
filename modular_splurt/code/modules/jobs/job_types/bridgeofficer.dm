@@ -1,7 +1,7 @@
 /datum/job/bridgeofficer
 	title = JOB_BRIDGE_OFFICER
 	description = "<font color='red'>Bridge Officer are here to assist the bridge staff with whatever they need. You are not Secuirty and you are not in the line of secceustion. You have no power here.</font>"
-	department_head = list("Captain", "Head of Personnel")
+	department_head = list(JOB_NT_REP, JOB_CAPTAIN)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2

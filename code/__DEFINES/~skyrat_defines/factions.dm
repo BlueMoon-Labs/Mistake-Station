@@ -8,6 +8,10 @@
 // ERT faction
 #define FACTION_ERT "ert"
 
+// Red & Blue factions
+#define FACTION_RED "red"
+#define FACTION_BLUE "blue"
+
 // Clock cult's faction
 #define FACTION_CLOCK "clock"
 
