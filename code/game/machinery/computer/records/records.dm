@@ -147,7 +147,7 @@
 		return FALSE
 
 	if(!authenticated && !has_auth(user))
-		balloon_alert(user, "access denied")
+		balloon_alert(user, "Доступ Запрещён!")
 		playsound(src, 'sound/machines/terminal_error.ogg', 70, TRUE)
 		return FALSE
 
@@ -176,7 +176,7 @@
 		return FALSE
 
 	if(!has_auth(user))
-		balloon_alert(user, "access denied")
+		balloon_alert(user, "Доступ Запрещён!")
 		playsound(src, 'sound/machines/terminal_error.ogg', 70, TRUE)
 		return FALSE
 

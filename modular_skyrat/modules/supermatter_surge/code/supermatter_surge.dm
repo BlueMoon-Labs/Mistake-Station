@@ -39,7 +39,7 @@
 
 /datum/round_event/supermatter_surge/announce()
 	if(surge_power > SUPERMATTER_SURGE_ANNOUNCE_THRESHOLD || prob(round(surge_power)))
-		priority_announce("Class [get_surge_level()] supermatter surge detected. Intervention may be required.", "Anomaly Alert", ANNOUNCER_KLAXON)
+		priority_announce("Class [get_surge_level()] supermatter surge detected. Intervention may be required.", "Аномальная Тревога", ANNOUNCER_KLAXON)
 
 /datum/round_event/supermatter_surge/proc/get_surge_level()
 	switch(surge_power)

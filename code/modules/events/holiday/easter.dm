@@ -22,7 +22,7 @@
 	description = "Summons a wave of cute rabbits."
 
 /datum/round_event/rabbitrelease/announce(fake)
-	priority_announce("Unidentified furry objects detected coming aboard [station_name()]. Beware of Adorable-ness.", "Fluffy Alert", ANNOUNCER_ALIENS)
+	priority_announce("Обнаружены неопознанные пушистые объекты, приближающиеся к борту Космической Станции [station_name()]. Остерегайтесь оЧаРоВаТеЛьНоСтИ.", "Пушистая Тревога", ANNOUNCER_ALIENS)
 
 
 /datum/round_event/rabbitrelease/start()

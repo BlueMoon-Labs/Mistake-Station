@@ -33,7 +33,7 @@
 		grey_tide_areas += pick_n_take(potential_areas)
 
 /datum/round_event/grey_tide/announce(fake)
-	priority_announce("Gr3y.T1d3 virus detected in [station_name()] secure locking encryption subroutines. Severity level of [severity]. Recommend station AI involvement.", "Security Alert")
+	priority_announce("Gr3y.T1d3 вирус обнаружен в дверных подпрограммах [station_name()]. Уровень тяжести [severity]. Рекомендуется участие ИИ для решения проблемы.", "Security Alert")
 
 /datum/round_event/grey_tide/start()
 	if(!length(grey_tide_areas))

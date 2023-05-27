@@ -1037,7 +1037,7 @@
 			if(!can_unlock(user, user.get_idcard(), registered_id))
 				error_msg = "not your locker!"
 		else if(!can_unlock(user, user.get_idcard()))
-			error_msg = "access denied!"
+			error_msg = "Доступ Запрещён!"
 		if(error_msg)
 			if(!silent)
 				balloon_alert(user, error_msg)

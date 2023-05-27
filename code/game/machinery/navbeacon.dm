@@ -127,7 +127,7 @@
 				balloon_alert(user, "controls [controls_locked ? "locked" : "unlocked"]")
 				SStgui.update_uis(src)
 			else
-				balloon_alert(user, "access denied")
+				balloon_alert(user, "Доступ Запрещён!")
 		else
 			balloon_alert(user, "panel open!")
 		return

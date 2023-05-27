@@ -15,4 +15,4 @@
 	anomaly_path = /obj/effect/anomaly/hallucination
 
 /datum/round_event/anomaly/anomaly_hallucination/announce(fake)
-	priority_announce("Hallucinatory event detected on [ANOMALY_ANNOUNCE_MEDIUM_TEXT] [impact_area.name].", "Anomaly Alert", ANNOUNCER_ANOMALIES) //SKYRAT EDIT CHANGE
+	priority_announce("Галлюцинаторное Блюспейс-Событие обнаружено на [ANOMALY_ANNOUNCE_MEDIUM_TEXT] [impact_area.name].", "Аномальная Тревога", ANNOUNCER_ANOMALIES) //SKYRAT EDIT CHANGE

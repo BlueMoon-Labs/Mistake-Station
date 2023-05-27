@@ -28,7 +28,7 @@ trait_name = "CentCom"
 
 # METASTATION MAP TEMPLATES
 # Metastation Arrivals
-[templates.metastaton_arrivals]
+[templates.metastation_arrivals]
 map_files = ["metastation_arrivals.dmm"]
 directory = "_maps/skyrat/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
@@ -69,41 +69,41 @@ trait_name = "Station"
 
 # SYNDICATESTATION MAP TEMPLATES
 # SyndicateStation Arrivals
-[templates.metastaton_arrivals]
-map_files = ["metastation_arrivals.dmm"]
-directory = "_maps/skyrat/automapper/templates/metastation/"
+[templates.syndicatestation_arrivals]
+map_files = ["syndicatestation_arrivals.dmm"]
+directory = "_maps/skyrat/automapper/templates/syndicatestation/"
 required_map = "SyndicateStation.dmm"
 coordinates = [20, 107, 1]
 trait_name = "Station"
 
 # SyndicateStation Cryo
-[templates.metastation_cryo]
-map_files = ["metastation_cryo.dmm"]
-directory = "_maps/skyrat/automapper/templates/metastation/"
+[templates.syndicatestation_cryo]
+map_files = ["syndicatestation_cryo.dmm"]
+directory = "_maps/skyrat/automapper/templates/syndicatestation/"
 required_map = "SyndicateStation.dmm"
 coordinates = [133, 182, 1]
 trait_name = "Station"
 
 # SyndicateStation Barber
-[templates.metastation_barber]
-map_files = ["metastation_barber.dmm"]
-directory = "_maps/skyrat/automapper/templates/metastation/"
+[templates.syndicatestation_barber]
+map_files = ["syndicatestation_barber.dmm"]
+directory = "_maps/skyrat/automapper/templates/syndicatestation/"
 required_map = "SyndicateStation.dmm"
 coordinates = [101, 116, 1]
 trait_name = "Station"
 
 # SyndicateStation Armory
-[templates.metastation_armory]
-map_files = ["metastation_armory.dmm"]
-directory = "_maps/skyrat/automapper/templates/metastation/"
+[templates.syndicatestation_armory]
+map_files = ["syndicatestation_armory.dmm"]
+directory = "_maps/skyrat/automapper/templates/syndicatestation/"
 required_map = "SyndicateStation.dmm"
 coordinates = [101, 170, 1]
 trait_name = "Station"
 
 # SyndicateStation NTR Office
-[templates.metastation_ntrep_office]
-map_files = ["metastation_ntrep_office.dmm"]
-directory = "_maps/skyrat/automapper/templates/metastation/"
+[templates.syndicatestation_ntrep_office]
+map_files = ["syndicatestation_ntrep_office.dmm"]
+directory = "_maps/skyrat/automapper/templates/syndicatestation/"
 required_map = "SyndicateStation.dmm"
 coordinates = [57, 119, 1]
 trait_name = "Station"

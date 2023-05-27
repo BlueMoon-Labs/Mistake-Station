@@ -254,4 +254,4 @@
 			if(!locked)
 				ui_interact(user)
 		else
-			balloon_alert(user, "access denied!")
+			balloon_alert(user, "Доступ Запрещён!")

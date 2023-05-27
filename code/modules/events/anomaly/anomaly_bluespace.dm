@@ -14,4 +14,4 @@
 	anomaly_path = /obj/effect/anomaly/bluespace
 
 /datum/round_event/anomaly/anomaly_bluespace/announce(fake)
-	priority_announce("Bluespace instability detected on [ANOMALY_ANNOUNCE_MEDIUM_TEXT] [impact_area.name].", "Anomaly Alert", ANNOUNCER_MASSIVEBSPACEANOMALIES) //SKYRAT EDIT CHANGE
+	priority_announce("Нестабильная блюспейс аномалия обнаружена на [ANOMALY_ANNOUNCE_MEDIUM_TEXT] [impact_area.name].", "Аномальная Тревога", ANNOUNCER_MASSIVEBSPACEANOMALIES) //SKYRAT EDIT CHANGE

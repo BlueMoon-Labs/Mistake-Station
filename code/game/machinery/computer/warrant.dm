@@ -87,7 +87,7 @@
 		return FALSE
 
 	if(!isliving(user) || issilicon(user))
-		to_chat(user, span_warning("ACCESS DENIED"))
+		to_chat(user, span_warning("Доступ Запрещён!"))
 		playsound(src, 'sound/machines/terminal_error.ogg', 100, TRUE)
 		return FALSE
 

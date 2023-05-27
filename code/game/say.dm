@@ -107,9 +107,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(length(tts_filter) > 0)
 		filter += tts_filter.Join(",")
 
-	if(voice && found_client)
-		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(tts_message_to_use), message_language, voice, filter.Join(","), listened, message_range = range)
-
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_QUEUE_BARK, listeners, args) || vocal_bark || vocal_bark_id)
 		for(var/mob/M in listeners)
 			if(!M.client)

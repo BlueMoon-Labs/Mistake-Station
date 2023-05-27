@@ -23,7 +23,7 @@
 	fakeable = FALSE
 
 /datum/round_event/crystalline_reentry/announce(fake)
-	priority_announce("A crystalline asteroid has suffered a violent atmospheric entry. Brace for possible impact.", "General Alert")
+	priority_announce("A crystalline asteroid has suffered a violent atmospheric entry. Brace for possible impact.", "Основная Тревога")
 
 /datum/round_event/crystalline_reentry/start()
 	var/datum/round_event_control/crystalline_reentry/C = control
@@ -217,7 +217,7 @@
 			var/obj/structure/spawner/crystalline/M = new(src.loc)
 			visible_message("<span class='danger'>A [M] emerges from the asteroid's rubble!</span>")
 			if(prob(50) && tendrilnotify)
-				priority_announce("Unknown organic entities have been detected in the vincinity of [station_name()]. General caution is advised.", "General Alert")
+				priority_announce("Unknown organic entities have been detected in the vincinity of [station_name()]. General caution is advised.", "Основная Тревога")
 		if(31 to 99)
 			visible_message("The asteroid collapses into nothing...")
 		if(100)

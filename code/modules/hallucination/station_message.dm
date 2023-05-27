@@ -12,8 +12,8 @@
 /datum/hallucination/station_message/blob_alert
 
 /datum/hallucination/station_message/blob_alert/start()
-	to_chat(hallucinator, ALERT_TITLE("Biohazard Alert"))
-	to_chat(hallucinator, ALERT_BODY("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak."))
+	to_chat(hallucinator, ALERT_TITLE("Биологическая Тревога"))
+	to_chat(hallucinator, ALERT_BODY("Confirmed outbreak of level 5 biohazard aboard [station_name()]. Весь персонал должен противостоять эпидемии."))
 	SEND_SOUND(hallucinator, sound(SSstation.announcer.event_sounds[ANNOUNCER_OUTBREAK5]))
 	return ..()
 
@@ -31,7 +31,7 @@
 	if(!(locate(/mob/living/silicon/ai) in GLOB.silicon_mobs))
 		return FALSE
 
-	to_chat(hallucinator, ALERT_TITLE("Anomaly Alert"))
+	to_chat(hallucinator, ALERT_TITLE("Аномальная Тревога"))
 	to_chat(hallucinator, ALERT_BODY("Hostile runtimes detected in all station systems, please deactivate your AI to prevent possible damage to its morality core."))
 	SEND_SOUND(hallucinator, sound(SSstation.announcer.event_sounds[ANNOUNCER_AIMALF]))
 	return ..()
@@ -85,7 +85,7 @@
 	random_hallucination_weight = 2
 
 /datum/hallucination/station_message/meteors/start()
-	to_chat(hallucinator, ALERT_TITLE("Meteor Alert"))
+	to_chat(hallucinator, ALERT_TITLE("Метеоритная Тревога"))
 	to_chat(hallucinator, ALERT_BODY("Meteors have been detected on collision course with the station."))
 	SEND_SOUND(hallucinator, sound(SSstation.announcer.event_sounds[ANNOUNCER_METEORS]))
 	return ..()

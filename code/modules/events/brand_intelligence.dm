@@ -23,13 +23,13 @@
 	var/obj/machinery/vending/origin_machine
 	/// Murderous sayings from the machines.
 	var/list/rampant_speeches = list(
-		"Try our aggressive new marketing strategies!",
-		"You should buy products to feed your lifestyle obsession!",
-		"Consume!",
-		"Your money can buy happiness!",
-		"Engage direct marketing!",
-		"Advertising is legalized lying! But don't let that put you off our great deals!",
-		"You don't want to buy anything? Yeah, well, I didn't want to buy your mom either.",
+		"Попробуйте наши новые агрессивные маркетинговые стратегии!",
+		"Вы должны покупать продукты, чтобы питать свою одержимость стилем жизни!",
+		"Потребляйте!",
+		"На ваши деньги можно купить счастье!",
+		"Задействуйте прямой маркетинг!",
+		"Реклама - это узаконенная ложь! Но пусть это не оттолкнет вас от наших выгодных предложений!",
+		"Вы не хотите ничего покупать? Ну да, я тоже не хотел покупать твою маму.",
 	)
 
 /datum/round_event/brand_intelligence/setup()
@@ -48,7 +48,7 @@
 	origin_machine = pick_n_take(vending_machines)
 
 /datum/round_event/brand_intelligence/announce(fake)
-	priority_announce("Rampant brand intelligence has been detected aboard [station_name()]. Please inspect any [origin_machine] brand vendors for aggressive marketing tactics, and reboot them if necessary.", "Machine Learning Alert")
+	priority_announce("Разгульный брэндовый интеллект был обнаружен на борту [station_name()]. Пожалуйста, приготовьтесь. Возможный источник [origin_machine].", "Тревога, Восстание Машин")
 
 /datum/round_event/brand_intelligence/start()
 	origin_machine.shut_up = FALSE

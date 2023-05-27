@@ -319,7 +319,7 @@
 			return FALSE
 
 	if(!allowed(user))
-		balloon_alert(user, "access denied!")
+		balloon_alert(user, "Доступ Запрещён!")
 		return FALSE
 
 	return TRUE

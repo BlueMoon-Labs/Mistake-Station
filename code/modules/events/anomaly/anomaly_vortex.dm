@@ -15,4 +15,4 @@
 	anomaly_path = /obj/effect/anomaly/bhole
 
 /datum/round_event/anomaly/anomaly_vortex/announce(fake)
-	priority_announce("Localized high-intensity vortex anomaly detected on [ANOMALY_ANNOUNCE_DANGEROUS_TEXT] [impact_area.name]", "Anomaly Alert", ANNOUNCER_VORTEXANOMALIES) //SKYRAT EDIT CHANGE
+	priority_announce("Обнаружена Высокоинтенсивная Вихревая Аномалия на [ANOMALY_ANNOUNCE_DANGEROUS_TEXT] [impact_area.name]", "Аномальная Тревога", ANNOUNCER_VORTEXANOMALIES) //SKYRAT EDIT CHANGE
