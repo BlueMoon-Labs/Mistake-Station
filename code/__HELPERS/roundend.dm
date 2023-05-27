@@ -547,7 +547,7 @@
 	parts += "<b>Основная Статистика:</b><br>"
 	parts += "Космическая Станция заработала [station_vault] кредитов благодаря усилию со стороны каждого сотрудника.<br>"
 	if(total_players > 0)
-		parts += "An average of [station_vault/total_players] credits were collected.<br>"
+		parts += "В среднем, [station_vault/total_players] кредитов было заработано.<br>"
 		log_econ("Roundend credit total: [station_vault] credits. Average Credits: [station_vault/total_players]")
 	if(mr_moneybags)
 		parts += "Самым обеспеченным сотрудником Космической Станции в конце смены был <b>[mr_moneybags.account_holder]. На его балансе оказалось аж [mr_moneybags.account_balance]</b> кредитов!</div>"
