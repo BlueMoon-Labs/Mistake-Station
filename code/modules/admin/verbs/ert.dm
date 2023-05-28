@@ -17,6 +17,7 @@
 	.["mainsettings"]["teamsize"]["value"] = newtemplate.teamsize
 	.["mainsettings"]["mission"]["value"] = newtemplate.mission
 	.["mainsettings"]["polldesc"]["value"] = newtemplate.polldesc
+	.["mainsettings"]["ertphrase"]["value"] = newtemplate.ertphrase
 	.["mainsettings"]["open_armory"]["value"] = newtemplate.opendoors ? "Yes" : "No"
 	.["mainsettings"]["leader_experience"]["value"] = newtemplate.leader_experience ? "Yes" : "No"
 	.["mainsettings"]["random_names"]["value"] = newtemplate.random_names ? "Yes" : "No"
@@ -84,6 +85,7 @@
 		"teamsize" = list("desc" = "Team Size", "type" = "number", "value" = ertemplate.teamsize),
 		"mission" = list("desc" = "Mission", "type" = "string", "value" = ertemplate.mission),
 		"polldesc" = list("desc" = "Ghost poll description", "type" = "string", "value" = ertemplate.polldesc),
+		"ertphrase" = list("desc" = "Announcement sound", "type" = "string", "value" = ertemplate.ertphrase),
 		"enforce_human" = list("desc" = "Enforce human authority", "type" = "boolean", "value" = "[(CONFIG_GET(flag/enforce_human_authority) ? "Yes" : "No")]"),
 		"open_armory" = list("desc" = "Open armory doors", "type" = "boolean", "value" = "[(ertemplate.opendoors ? "Yes" : "No")]"),
 		"leader_experience" = list("desc" = "Pick an experienced leader", "type" = "boolean", "value" = "[(ertemplate.leader_experience ? "Yes" : "No")]"),
@@ -112,6 +114,7 @@
 		ertemplate.teamsize = prefs["teamsize"]["value"]
 		ertemplate.mission = prefs["mission"]["value"]
 		ertemplate.polldesc = prefs["polldesc"]["value"]
+		ertemplate.ertphrase = prefs["ertphrase"]["value"]
 		ertemplate.enforce_human = prefs["enforce_human"]["value"] == "Yes" // these next 6 are effectively toggles
 		ertemplate.opendoors = prefs["open_armory"]["value"] == "Yes"
 		ertemplate.leader_experience = prefs["leader_experience"]["value"] == "Yes"
@@ -255,7 +258,7 @@
 			message_admins("[ertemplate.polldesc] has spawned with the mission: [ertemplate.mission]")
 			//SKYRAT EDIT ADDITION BEGIN
 			if(ertemplate.notify_players)
-				priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES)
+				priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ertemplate.ertphrase)
 			//SKYRAT EDIT END
 		//Open the Armory doors
 		if(ertemplate.opendoors)
