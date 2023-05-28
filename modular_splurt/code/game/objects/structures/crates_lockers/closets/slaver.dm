@@ -3,7 +3,7 @@
 	desc = "Filled with the cheapest gear credits can buy."
 	icon_state = "syndicate"
 
-/obj/structure/closet/slaver/PopulateContents()
+/obj/structure/closet/slaver/populate_contents_immediate()
 	..()
 
 	new /obj/item/clothing/under/syndicate/skirt(src)
@@ -24,7 +24,7 @@
 /obj/structure/closet/crate/slaver_loadout
 	name = "slave trader standard issue loadout"
 
-/obj/structure/closet/crate/slaver_loadout/PopulateContents()
+/obj/structure/closet/crate/slaver_loadout/populate_contents_immediate()
 	..()
 
 	new /obj/item/clothing/under/syndicate/skirt(src)
