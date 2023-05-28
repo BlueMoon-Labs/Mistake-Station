@@ -367,6 +367,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Quirks
 	save_data["all_quirks"] = all_quirks
 
+	save_data["bark_id"] = bark_id
+	save_data["bark_speed"] = bark_speed
+	save_data["bark_pitch"] = bark_pitch
+	save_data["bark_variance"] = bark_variance
+
 	save_character_skyrat(save_data) //SKYRAT EDIT ADDITION
 
 	return TRUE

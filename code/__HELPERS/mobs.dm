@@ -28,6 +28,25 @@
 		else
 			return "#000000"
 
+/proc/random_runechat_color()
+	switch(pick(20;"brown",20;"hazel",20;"grey",15;"blue",15;"green",1;"amber",1;"albino"))
+		if("brown")
+			return "#663300"
+		if("hazel")
+			return "#554422"
+		if("grey")
+			return pick("#666666","#777777","#888888","#999999","#aaaaaa","#bbbbbb","#cccccc")
+		if("blue")
+			return "#3366cc"
+		if("green")
+			return "#006600"
+		if("amber")
+			return "#ffcc00"
+		if("albino")
+			return "#" + pick("cc","dd","ee","ff") + pick("00","11","22","33","44","55","66","77","88","99") + pick("00","11","22","33","44","55","66","77","88","99")
+		else
+			return "#000000"
+
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 

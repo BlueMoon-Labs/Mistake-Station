@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 /atom/movable/proc/can_speak(allow_mimes = FALSE)
 	return TRUE
 
-/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE, tts_message, list/tts_filter)
+/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE)
 	var/found_client = FALSE
 	var/list/listeners = get_hearers_in_view(range, source)
 	var/list/listened = list()
@@ -95,18 +95,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 			listened += hearing_movable
 		if(!found_client && length(hearing_movable.client_mobs_in_contents))
 			found_client = TRUE
-
-	var/tts_message_to_use = tts_message
-	if(!tts_message_to_use)
-		tts_message_to_use = message
-
-	var/list/filter = list()
-	if(length(voice_filter) > 0)
-		filter += voice_filter
-
-	if(length(tts_filter) > 0)
-		filter += tts_filter.Join(",")
-
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_QUEUE_BARK, listeners, args) || vocal_bark || vocal_bark_id)
 		for(var/mob/M in listeners)
 			if(!M.client)

@@ -8,13 +8,13 @@
 	hotkey_keys = list("F7")
 
 /datum/keybinding/admin/toggle_buildmode_self
-	hotkey_keys = list("F11")
+	hotkey_keys = list("Unbound")
 
 /datum/keybinding/admin/stealthmode
 	hotkey_keys = list("CtrlF9")
 
 /datum/keybinding/admin/invisimin
-	hotkey_keys = list("F9")
+	hotkey_keys = list("F11")
 
 /datum/keybinding/admin/deadsay
 	hotkey_keys = list("F10")

@@ -8,7 +8,7 @@
 	hotkey_keys = list(";")
 
 /datum/keybinding/living/rest
-	hotkey_keys = list("ShiftB")
+	hotkey_keys = list("R")
 
 /datum/keybinding/living/toggle_combat_mode
 	hotkey_keys = list("F")

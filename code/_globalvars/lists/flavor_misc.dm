@@ -392,7 +392,3 @@ GLOBAL_LIST_INIT(status_display_state_pictures, list(
 	"blank",
 	"shuttle",
 ))
-
-	//Bark bits
-GLOBAL_LIST_EMPTY(bark_list)
-GLOBAL_LIST_EMPTY(bark_random_list)
