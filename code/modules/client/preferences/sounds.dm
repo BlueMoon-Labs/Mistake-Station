@@ -88,4 +88,9 @@
 /datum/preference/toggle/weird_sounds
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "weird_sounds"
+
+/// Controls hearing elevator music
+/datum/preference/toggle/sound_elevator
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "sound_elevator"
 	savefile_identifier = PREFERENCE_PLAYER
