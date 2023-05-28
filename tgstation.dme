@@ -7776,6 +7776,7 @@
 #include "modular_bluemoon\modules\events\code\wall_fungus_event.dm"
 #include "modular_bluemoon\modules\kovac_modules\languages\german.dm"
 #include "modular_bluemoon\modules\kovac_modules\species\undead.dm"
+#include "modular_bluemoon\modules\kovac_modules\ert\code\ert_changes.dm"
 #include "modular_bluemoon\modules\mutant_parts\mob\dead\new_player\sprite_accessories\tails.dm"
 #include "modular_bluemoon\modules\power\smes.dm"
 #include "modular_bluemoon\modules\translations\master_files\code\datums\actions\mobs\small_sprite.dm"
