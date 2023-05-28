@@ -324,12 +324,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			return TRUE
 	return FALSE
 
-/obj/machinery/cryopod/proc/cryoMob()
+/obj/machinery/cryopod/proc/cryoMob(effects = TRUE)
 	despawn_occupant()
 
 /// This function can not be undone; do not call this unless you are sure.
 /// Handles despawning the player.
-/obj/machinery/cryopod/proc/despawn_occupant()
+/obj/machinery/cryopod/proc/despawn_occupant(effects = TRUE)
 	var/mob/living/mob_occupant = occupant
 
 	SSjob.FreeRole(stored_rank)
@@ -374,6 +374,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		control_computer_weakref = null
 	else
 		control_computer.frozen_crew += list(list("name" = stored_name, "job" = stored_rank))
+
+	if(effects)
+		// Fancy effect for admin-cryo
+		playsound(get_turf(mob_occupant.loc), 'sound/magic/Repulse.ogg', 100, 1)
+		var/datum/effect_system/spark_spread/quantum/sparks = new
+		sparks.set_up(10, 1, mob_occupant)
+		sparks.attach(mob_occupant.loc)
+		sparks.start()
 
 	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 	if(!quiet)
