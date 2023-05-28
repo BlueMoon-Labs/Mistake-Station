@@ -84,8 +84,12 @@
 	savefile_key = "sound_ship_ambience"
 	savefile_identifier = PREFERENCE_PLAYER
 
-/// Controls hearing ship ambience
 /datum/preference/toggle/weird_sounds
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "weird_sounds" // Пиздец, да.
+
+/// Controls hearing elevator music
+/datum/preference/toggle/sound_elevator
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "sound_elevator"
 	savefile_identifier = PREFERENCE_PLAYER
