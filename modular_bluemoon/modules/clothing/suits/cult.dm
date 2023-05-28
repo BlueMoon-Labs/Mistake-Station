@@ -8,3 +8,4 @@
 	worn_icon = 'modular_bluemoon/modules/clothing/suits/worn_suits.dmi'
 	worn_icon_digi = 'modular_bluemoon/modules/clothing/suits/worn_suits_digi.dmi'
 
+// Runtime Best Cat.
