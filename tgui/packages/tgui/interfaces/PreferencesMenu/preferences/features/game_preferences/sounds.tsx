@@ -65,9 +65,3 @@ export const weird_sounds: FeatureToggle = {
   category: 'SOUND',
   component: CheckboxInput,
 };
-
-export const sound_elevator: FeatureToggle = {
-  name: 'Enable elevator music',
-  category: 'SOUND',
-  component: CheckboxInput,
-};

@@ -45,7 +45,6 @@
 
 /// Armor values that are used for damage
 #define ARMOR_LIST_DAMAGE(...) list(BIO, BOMB, BULLET, ENERGY, LASER, MELEE, WOUND)
-
 /// Armor values that are used for durability
 #define ARMOR_LIST_DURABILITY(...) list(ACID, FIRE)
 

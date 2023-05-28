@@ -28,7 +28,8 @@
 	icon_keyboard = null
 	circuit = /obj/item/circuitboard/computer/libraryconsole
 	desc = "Checked out books MUST be returned on time."
-	anchored_tabletop_offset = 8
+	// This fixes consoles to be ON the tables, rather than their keyboards floating a bit
+	pixel_y = 8
 	///The current title we're searching for
 	var/title = ""
 	///The category we're searching for
