@@ -7,6 +7,7 @@
 	mob_trait = TRAIT_CHOKE_SLUT
 	gain_text = span_notice("Вы хотите ощутить пальцы вокруг шеи, сжимающие её до тех пор, пока не отключитесь или кончите... а может, всё сразу?")
 	lose_text = span_notice("Похоже, вас больше не возбуждает асфиксия.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/pharmacokinesis //Supposed to prevent unwanted organ additions. But i don't think it's really working rn
 	name = "Острый Печеночный Фармакокинез" //copypasting dumbo
@@ -17,6 +18,7 @@
 	var/active = FALSE
 	var/power = 0
 	var/cachedmoveCalc = 1
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/steel_ass
 	name = "Стальные Булки"
@@ -25,6 +27,7 @@
 	mob_trait = TRAIT_STEEL_ASS
 	gain_text = span_notice("Ваш зад может составить конкуренцию големскому.")
 	lose_text = span_notice("Ваш зад ощущается более мягким и уязвимым к шлепкам.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/cursed_blood
 	name = "Проклятая Кровь"
@@ -34,6 +37,7 @@
 	gain_text = span_notice("Проклятие с земель, где люди возвращаются зверьми, течёт в вашей крови.")
 	lose_text = span_notice("Вы чувствуете, что тяжесть проклятия крови наконец пропала.")
 	medical_record_text = "Организм пациента по неизвестной причине отторгает святые реагенты. Рекомендуется держать подальше от капеллана."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/headpat_hater
 	name = "Отстраненность"
@@ -43,6 +47,7 @@
 	gain_text = span_notice("Чужие прикосновения раздражают вас...")
 	lose_text = span_notice("Теперь поглаживания не кажутся настолько уж плохими...")
 	medical_record_text = "Пациента мало заботят или раздражают чужие прикосновения."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/headpat_slut
 	name = "Тактилофилия"
@@ -52,6 +57,7 @@
 	gain_text = span_notice("Вы жаждете ласки!")
 	lose_text = span_notice("Ваша зависимость от ласки исчезает.")
 	medical_record_text = "Пациент очень любвеобильный."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/headpat_slut/add()
 	. = ..()
@@ -69,6 +75,7 @@
 	gain_text = span_notice("Ваши глаза завораживающе мерцают...")
 	lose_text = span_notice("Ваша глаза становятся обычными.")
 	medical_record_text = "Длительное воздействие глаз пациента влечет усыпляющий эффект."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/Hypnotic_gaze/add_unique()
 	var/mob/living/carbon/human/Hypno_eyes = quirk_holder
@@ -81,6 +88,8 @@
 	desc = "Вы обожаете еду и появляетесь на смене с лишним весом."
 	value = 0
 	gain_text = span_notice("Вы чувствуете себя толстым!")
+	lose_text = span_notice("Вы думаете, что ваша кость больше не такая широкая.")
+	icon = FA_ICON_QUESTION_CIRCLE
 	//no lose_text cause why would there be?
 
 /datum/quirk/overweight/add_unique()
@@ -96,6 +105,7 @@
 	gain_text = span_notice("Вы чувствуете отвращение от мысли о поедании мяса.")
 	lose_text = span_notice("Вы думаете, что поесть мяса не так уж и плохо.")
 	medical_record_text = "Пациент соблюдает вегетарианскую диету."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/vegetarian/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -119,6 +129,7 @@
 	gain_text = span_notice("Вы чувствуете давление в паху.")
 	lose_text = span_notice("Вы чувствуете, как ваш пах стал легче.")
 	medical_record_text = "Гениталии пациента демонстрируют высокую продуктивность."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/cum_plus/add()
 	var/mob/living/carbon/M = quirk_holder
@@ -154,6 +165,7 @@
 	quirk_flags = QUIRK_PROCESSES
 	var/notice_delay = 0
 	var/mob/living/carbon/human/last_dom
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/well_trained/add()
 	. = ..()
@@ -239,6 +251,7 @@
 	gain_text = span_notice("Вы слышите два других голоса внутри головы(ов).")
 	lose_text = span_danger("Ваш разум становится единым.")
 	medical_record_text = "Пациент имеет несколько голов и личностей, присоединенных к телу."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/hydra/add_unique()
 	var/mob/living/carbon/human/hydra = quirk_holder
@@ -259,11 +272,13 @@
 	gain_text = span_notice("Вы начинаете ощущать специфические запахи, исходящие от чужих промежностей...")
 	lose_text = span_notice("Чужие гениталии начинают пахнуть для вас одинаково...")
 	medical_record_text = "Пациент добивался того, чтобы доктор провёл яйцами по его лицу."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/fluid_infuser
 	name = "Тядзин"
 	desc = "Вы не упустили возможность приобрести новый жидкостный индуктор от NanoTrasen, как только он был выпущен, и теперь можете заскочить на станцию с изменяемым грудным молочком!"
 	value = 0
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/fluid_infuser/add_unique()
 	. = ..()
@@ -273,7 +288,7 @@
 /datum/quirk/storage_concealment
 	name = "Имплант Для Дорсуалифоба"
 	desc = "У вас вызывает отвращение сама идея быть увиденным с любой ёмкостью для переноски, закрепленной на спине! Новая технология скрывает объект за вашей спиной, таким образом защищая вас от безмерного стыда."
-
+	icon = FA_ICON_QUESTION_CIRCLE
 	// UNUSED: Enable by setting these values to TRUE
 	// The shame is unbearable
 	quirk_flags = QUIRK_PROCESSES
@@ -304,6 +319,7 @@
 	value = 0
 	mob_trait = TRAIT_INCUBUS
 	quirk_flags = QUIRK_PROCESSES
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/incubus/add()
 	. = ..()
@@ -328,6 +344,7 @@
 	value = 0
 	mob_trait = TRAIT_SUCCUBUS
 	quirk_flags = QUIRK_PROCESSES
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/succubus/add()
 	. = ..()
@@ -345,167 +362,6 @@
 	. = ..()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_nutrition(-0.09)//increases their nutrition loss rate to encourage them to gain a partner they can essentially leech off of
-/*
-/datum/quirk/bloodfledge
-	name = "Отпрыск Кровопийцы"
-	desc = "Вы новообращенный, принадлежащий к древнему роду Кровопийц. Благословению еще предстоит полностью изменить вас, но некоторые вещи уже поменялись. Только кровь утолит голод, а божественная сила обуглит вашу плоть. <b>Это НЕ роль антагониста!</b>"
-	value = 2
-	medical_record_text = "Пациент демонстрирует начальные симптомы кровяного проклятия."
-	mob_trait = TRAIT_BLOODFLEDGE
-	gain_text = span_notice("Вы чувствуете жажду крови.")
-	lose_text = span_notice("Вы чувствуете, что жажда крови угасла.")
-	quirk_flags = QUIRK_PROCESSES
-
-/datum/quirk/bloodfledge/add()
-	. = ..()
-
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-	// Add quirk traits
-	ADD_TRAIT(quirk_mob,TRAIT_NOBREATH, ROUNDSTART_TRAIT)
-	ADD_TRAIT(quirk_mob,TRAIT_NOHUNGER, ROUNDSTART_TRAIT)
-	ADD_TRAIT(quirk_mob,TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
-
-	// Set skin tone, if possible
-	if(!quirk_mob.dna.skin_tone_override)
-		quirk_mob.skin_tone = "albino"
-
-	// Add quirk ability action datums
-	var/datum/action/bloodfledge/bite/act_bite = new
-	var/datum/action/bloodfledge/revive/act_revive = new
-	act_bite.Grant(quirk_mob)
-	act_revive.Grant(quirk_mob)
-
-	// Add quirk language
-	quirk_mob.grant_language(/datum/language/vampiric, TRUE, TRUE, LANGUAGE_BLOODSUCKER)
-
-/datum/quirk/bloodfledge/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
-	. = ..()
-
-	// Check if the current area is a coffin
-	if(istype(quirk_holder.loc, /obj/structure/closet/crate/coffin))
-		// Define quirk mob
-		var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-		// Quirk mob must be injured
-		if(quirk_mob.health >= quirk_mob.maxHealth)
-			return
-
-		// Prevent healing for robots
-		// This caused numerous technical issues
-		if(quirk_mob.mob_biotypes & MOB_ROBOTIC)
-			// Display a warning chat message (10% chance)
-			if(prob(20))
-				to_chat(quirk_mob, span_warning("Ваше механическое тело отвергает лечебные свойства проклятия!"))
-
-			// Return without healing, due robotic nature
-			return
-
-		// Nutrition (blood) level must be above STARVING
-		if(quirk_mob.nutrition <= NUTRITION_LEVEL_STARVING)
-			// Display a warning chat message (10% chance)
-			if(prob(20))
-				to_chat(quirk_mob, span_warning("Вам необходимо больше крови, перед тем как вы сможете регенерировать!"))
-
-			// Return without healing, due to lack of blood
-			return
-
-		// Define initial health
-		var/health_start = quirk_mob.health
-
-		// Heal brute and burn
-		// Accounts for robotic limbs
-		quirk_mob.heal_overall_damage(2,2)
-		/*
-		// Heal brute
-		quirk_mob.adjustBruteLoss(-2)
-		// Heal burn
-		quirk_mob.adjustFireLoss(-2)
-		*/
-		// Heal oxygen
-		quirk_mob.adjustOxyLoss(-2)
-		// Heal clone
-		quirk_mob.adjustCloneLoss(-2)
-
-		// Check for slime race
-		// NOT a slime
-		if(!isslimeperson(quirk_mob))
-			// Heal toxin
-			quirk_mob.adjustToxLoss(-2)
-		// IS a slime
-		else
-			// Grant toxin (heals slimes)
-			quirk_mob.adjustToxLoss(2)
-
-		// Update health
-		quirk_mob.updatehealth()
-
-		// Determine healed amount
-		var/health_restored = quirk_mob.health - health_start
-
-		// Remove nutrition (blood) as compensation for healing
-		// Amount is equal to 50% of healing done
-		quirk_mob.adjust_nutrition(health_restored*-1)
-
-/datum/quirk/bloodfledge/remove()
-	. = ..()
-
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-	// Remove quirk traits
-	REMOVE_TRAIT(quirk_mob, TRAIT_NOHUNGER, ROUNDSTART_TRAIT)
-	REMOVE_TRAIT(quirk_mob, TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
-
-	// Remove quirk ability action datums
-	var/datum/action/bloodfledge/bite/act_bite = locate() in quirk_mob.actions
-	var/datum/action/bloodfledge/revive/act_revive = locate() in quirk_mob.actions
-	act_bite.Remove(quirk_mob)
-	act_revive.Remove(quirk_mob)
-
-	// Remove quirk language
-	quirk_mob.remove_language(/datum/language/vampiric, TRUE, TRUE, LANGUAGE_BLOODSUCKER)
-
-/datum/quirk/bloodfledge/add_unique()
-	. = ..()
-
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-	// Create vampire ID card
-	var/obj/item/card/id/vampire/id_vampire = new /obj/item/card/id/vampire(get_turf(quirk_holder))
-
-	// Update card information
-	id_vampire.registered_name = quirk_mob.real_name
-	id_vampire.update_label(addtext(id_vampire.registered_name, "'s Bloodfledge"))
-
-	// Determine banking ID information
-	for(var/bank_account in SSeconomy.bank_accounts)
-		// Define current iteration's account
-		var/datum/bank_account/account = bank_account
-
-		// Check for match
-		if(account.account_id == quirk_mob.account_id)
-			// Add to cards list
-			account.bank_cards += src
-
-			// Assign account
-			id_vampire.registered_account = account
-
-			// Stop searching
-			break
-
-	// Try to add ID to backpack
-	var/id_in_bag = quirk_mob.equip_to_slot_if_possible(id_vampire, ITEM_SLOT_BACKPACK) || FALSE
-
-	// Text for where the item was sent
-	var/id_location = (id_in_bag ? "in your backpack" : "at your feet" )
-
-	// Alert user in chat
-	// This should not post_add, because the ID is added by on_spawn
-	to_chat(quirk_holder, span_boldnotice("There is a bloodfledge's ID card [id_location], linked to your station account. It functions as a spare ID, but lacks job access."))
-*/
 
 /datum/quirk/werewolf //adds the werewolf quirk
 	name = "Оборотень"
@@ -516,6 +372,7 @@
 	lose_text = span_notice("Зов луны растворяется в тишине.")
 	medical_record_text = "Сообщалось, что пациент выл на ночное небо."
 	var/list/old_features
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/werewolf/add()
 	// Define old features
@@ -555,7 +412,7 @@
 	lose_text = span_notice("Вы больше не чувствуете дискомфорта при ношении одежды.")
 	medical_record_text = "Пациент выражает психологическую потребность оставаться без одежды."
 	value = 0
-
+	icon = FA_ICON_QUESTION_CIRCLE
 	quirk_flags = QUIRK_PROCESSES
 
 /datum/quirk/nudist/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
@@ -580,7 +437,7 @@
 	gain_text = span_danger("Вы начинаете чувствовать себя нехорошо без противогаза.")
 	lose_text = span_notice("У вас больше нет нужды в ношении противогаза.")
 	value = 0
-
+	icon = FA_ICON_QUESTION_CIRCLE
 	medical_record_text = "Пациент чувствует себя более безопасно при ношении противогаза."
 	quirk_flags = QUIRK_PROCESSES
 
@@ -607,6 +464,7 @@
 	gain_text = span_notice("Забываю как проговаривать букву \"Р\".")
 	lose_text = span_danger("Вспоминаю как проговаривать букву \"Р\".")
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/proc/kartavo(message)
 	var/num = rand(1, 3)
@@ -631,6 +489,7 @@
 	gain_text = span_notice("Чиньг-чоньг!.")
 	lose_text = span_danger("Аниме говно.")
 	medical_record_text = "Пациент - азиат."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/proc/asiatish(message)
 	if(prob(75))

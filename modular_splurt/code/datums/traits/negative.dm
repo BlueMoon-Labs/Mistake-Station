@@ -10,6 +10,7 @@
 	gain_text = span_notice("Неожиданно вам захотелось ощутить семя внутри себя!")
 	lose_text = span_notice("Всё равно сперма была не такой уж и вкусной...")
 	medical_record_text = "У пациента навязчивая одержимость семенными жидкостями."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 	var/timer
 	var/timer_trigger = 15 MINUTES
@@ -88,6 +89,7 @@
 	gain_text = "<span class='danger'>Вы хотите есть и пить чаще.</span>"
 	lose_text = "<span class='notice'>Жир идёт на спад.</span>"
 	medical_record_text = "Пациенту требуется вдвое большее количество еды по сравнению с типичным представителем его вида."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/hungry/add()
 	var/mob/living/carbon/human/H = quirk_holder

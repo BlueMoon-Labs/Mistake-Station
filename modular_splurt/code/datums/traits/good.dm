@@ -1,6 +1,7 @@
 //Main code edits
 /datum/quirk/photographer
 	desc = "Вы берете с собой камеру и фотоальбом, куда бы вы ни пошли. Также, вы быстрее фотографируете."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/photographer/add_unique()
 	. = ..()
@@ -20,6 +21,7 @@
 	medical_record_text = "Пациент продемонстрировал аномально высокую устойчивость к травмам."
 	gain_text = "<span class='notice'>Вы чувствуете крепость в мышцах.</span>"
 	lose_text = "<span class='notice'>Вы чувствуете себя менее крепким.</span>"
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/tough/add()
 	quirk_holder.maxHealth *= 1.20
@@ -37,6 +39,7 @@
 	medical_record_text = "У пациента аномально плотный эпидермис."
 	gain_text = "<span class='notice'>Вы чувствуете себя устойчивее против горящей серы.</span>"
 	lose_text = "<span class='notice'>Ваша плоть становится более легковоспламеняемой.</span>"
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /* --FALLBACK SYSTEM INCASE THE TRAIT FAILS TO WORK. Do NOT enable this without editing ash_storm.dm to deal stamina damage with ash immunity.
 /datum/quirk/ashresistance/add()
@@ -55,6 +58,7 @@
 	mob_trait = TRAIT_RAD_FIEND
 	gain_text = span_notice("Вы чувствуете в себе силы благодаря свечению Атома.")
 	lose_text = span_notice("Вы понимаете, что радиация не такая уж безопасная.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 	// Variable for the radiation immunity check
 	var/can_gain = TRUE
@@ -100,6 +104,7 @@
 	value = 1
 	gain_text = "<span class='notice'>Вы хотите сделать кого-нибудь своим питомцем.</span>"
 	lose_text = "<span class='notice'>Вы чувствуете себя менее напористо.</span>"
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/dominant_aura/add()
 	. = ..()
@@ -177,6 +182,7 @@
 	gain_text = "<span class='notice'>У вас появляется странное ощущение рядом с анусом...</span>"
 	lose_text = "<span class='notice'>Вы чувствуете, что больше не можете вить паутину...</span>"
 	quirk_flags = QUIRK_PROCESSES
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/arachnid/add()
 	. = ..()
@@ -204,6 +210,7 @@
 	desc = "Вы можете свободно двигаться в герметичной среде с низкой гравитацией при помощи крыльев, магии или другой физиологической чуши."
 	value = 1
 	mob_trait = TRAIT_FLUTTER
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/cloth_eater
 	name = "Пожиратель Одежды"
@@ -211,3 +218,4 @@
 	value = 1
 	var/mood_category ="cloth_eaten"
 	mob_trait = TRAIT_CLOTH_EATER
+	icon = FA_ICON_QUESTION_CIRCLE

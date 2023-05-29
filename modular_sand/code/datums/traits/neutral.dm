@@ -5,6 +5,7 @@
 	gain_text = null // Handled by trauma.
 	lose_text = null
 	medical_record_text = "Пациент имеет не поддающееся лечению заболевание мозга, в результате чего он становится чрезвычайно... внушаемым...."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/hypnotic_stupor/add()
 	var/datum/brain_trauma/severe/hypnotic_stupor/T = new()
@@ -29,6 +30,7 @@
 	mob_trait = TRAIT_ESTROUS_DETECT
 	gain_text = span_love("Ваши органы чувств адаптируются, позволяя вам ощущать фертильность окружающих.")
 	lose_text = span_notice("Ваши особые чувства регрессируют и вы больше не ощущаете фертильность окружающих.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/estrous_active
 	name = "Эстральный Цикл"
@@ -37,6 +39,7 @@
 	mob_trait = TRAIT_ESTROUS_ACTIVE
 	gain_text = span_love("Ваше тело горит от желания заняться размножением.")
 	lose_text = span_notice("Вы чувствуете, что лучше контролируете свое тело и мысли.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 	// Default heat message for examine text
 	var/heat_type = "нахождение в эстральном цикле"
