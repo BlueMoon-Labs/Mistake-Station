@@ -543,7 +543,7 @@
 /area/awaymission/wildwest/gov)
 "dN" = (
 /obj/structure/table/wood,
-/datum/reagent/consumable/nutriment/soup/monkey,
+/obj/item/reagent_containers/cup/bowl/soup/monkey,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
