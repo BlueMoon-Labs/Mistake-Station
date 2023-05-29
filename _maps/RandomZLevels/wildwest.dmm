@@ -18,7 +18,7 @@
 	},
 /area/awaymission/wildwest/vault)
 "af" = (
-/mob/living/simple_animal/hostile/faithless,
+/mob/living/basic/faithless,
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
 "ag" = (
@@ -45,7 +45,7 @@
 	},
 /area/awaymission/wildwest/vault)
 "am" = (
-/mob/living/simple_animal/hostile/faithless,
+/mob/living/basic/faithless,
 /turf/open/floor/circuit/off,
 /area/awaymission/wildwest/vault)
 "an" = (
@@ -70,7 +70,7 @@
 /turf/open/floor/circuit/green/off,
 /area/awaymission/wildwest/vault)
 "as" = (
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
 "av" = (
@@ -104,11 +104,11 @@
 /turf/closed/mineral,
 /area/space/nearstation)
 "aH" = (
-/mob/living/simple_animal/hostile/faithless,
+/mob/living/basic/faithless,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/vault)
 "aI" = (
-/obj/item/storage/firstaid/advanced,
+/obj/item/storage/medkit/tactical,
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
 "aJ" = (
@@ -141,10 +141,10 @@
 /area/space/nearstation)
 "aR" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "aT" = (
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "aV" = (
 /obj/structure/window/reinforced/tinted/frosted{
@@ -154,11 +154,11 @@
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "aW" = (
 /obj/structure/table/wood,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -176,7 +176,7 @@
 	},
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/grille,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "bb" = (
 /obj/structure/window/reinforced/tinted/frosted{
@@ -187,10 +187,10 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "bd" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -202,7 +202,7 @@
 /turf/open/space,
 /area/space/nearstation)
 "bf" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "bi" = (
@@ -226,10 +226,10 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "bo" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand2"
 	},
 /area/awaymission/wildwest/gov)
@@ -243,7 +243,7 @@
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "br" = (
 /obj/structure/lattice,
@@ -257,7 +257,7 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "bt" = (
 /obj/structure/bookcase/random{
@@ -270,7 +270,7 @@
 /area/awaymission/wildwest/mines)
 "bz" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "bB" = (
 /obj/item/storage/bag/money,
@@ -317,7 +317,7 @@
 /turf/open/space,
 /area/space/nearstation)
 "bL" = (
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "bN" = (
@@ -326,10 +326,10 @@
 /area/awaymission/wildwest/gov)
 "bO" = (
 /obj/item/paper/fluff/awaymissions/wildwest/journal/page8,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "bQ" = (
-/mob/living/simple_animal/hostile/netherworld,
+/mob/living/basic/creature,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "bU" = (
@@ -361,7 +361,7 @@
 /area/awaymission/wildwest/gov)
 "cj" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "ck" = (
@@ -378,7 +378,7 @@
 	},
 /area/awaymission/wildwest/gov)
 "cy" = (
-/mob/living/simple_animal/hostile/netherworld,
+/mob/living/basic/creature,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -388,7 +388,7 @@
 /turf/closed/wall/mineral/sandstone,
 /area/awaymission/wildwest/mines)
 "cB" = (
-/obj/effect/mob_spawn/human/cook{
+/obj/effect/mob_spawn/corpse/human/cook{
 	mob_name = "Chef"
 	},
 /turf/open/floor/iron/cafeteria{
@@ -411,7 +411,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "cL" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "cN" = (
@@ -419,7 +419,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "cT" = (
-/mob/living/simple_animal/hostile/netherworld,
+/mob/living/basic/creature,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/gov)
 "cU" = (
@@ -454,11 +454,11 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced/tinted/frosted,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "dn" = (
 /obj/structure/table/wood,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "do" = (
@@ -493,11 +493,11 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced/tinted/frosted,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "dG" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "dI" = (
 /obj/machinery/door/airlock/sandstone,
@@ -543,39 +543,39 @@
 /area/awaymission/wildwest/gov)
 "dN" = (
 /obj/structure/table/wood,
-/obj/item/food/soup/monkeysdelight,
+/datum/reagent/consumable/nutriment/soup/monkey,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
 /area/awaymission/wildwest/gov)
 "dO" = (
 /obj/structure/table/wood,
-/obj/item/kitchen/knife/butcher,
+/obj/item/knife/butcher,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
 /area/awaymission/wildwest/gov)
 "dQ" = (
 /obj/structure/table/wood,
-/obj/item/food/soup/stew,
+/obj/item/reagent_containers/cup/bowl/soup/stew,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
 /area/awaymission/wildwest/gov)
 "dS" = (
-/mob/living/simple_animal/hostile/viscerator,
-/turf/open/floor/plating/ironsand,
+/mob/living/basic/viscerator,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "dV" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "dW" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
 "dX" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "dY" = (
@@ -588,7 +588,7 @@
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "eb" = (
 /obj/effect/turf_decal/tile/blue{
@@ -611,8 +611,8 @@
 /area/awaymission/wildwest/mines)
 "ej" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "ek" = (
@@ -656,18 +656,18 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "ey" = (
-/mob/living/simple_animal/hostile/asteroid/fugu,
+/mob/living/basic/wumborian_fugu,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "eA" = (
 /obj/item/gun/ballistic/shotgun,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "eB" = (
-/obj/effect/mob_spawn/human/corpse/syndicatecommando{
+/obj/effect/mob_spawn/corpse/human/syndicatecommando{
 	mob_name = "Syndicate Commando"
 	},
 /turf/open/floor/carpet,
@@ -695,17 +695,17 @@
 /area/awaymission/wildwest/mines)
 "eK" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
 /area/awaymission/wildwest/gov)
 "eL" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/patron,
+/obj/item/reagent_containers/cup/glass/bottle/patron,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -726,8 +726,8 @@
 /area/awaymission/wildwest/mines)
 "eW" = (
 /obj/structure/ore_box,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/turf/open/floor/plating/ironsand,
+/obj/item/ammo_box/magazine/m9mm,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "eX" = (
 /obj/item/paper/fluff/awaymissions/wildwest/grinder,
@@ -737,16 +737,16 @@
 /turf/open/floor/cult,
 /area/awaymission/wildwest/vault)
 "eZ" = (
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/turf/open/floor/plating/ironsand,
+/obj/item/ammo_box/magazine/m9mm,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "fa" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand12"
 	},
 /area/awaymission/wildwest/gov)
 "fb" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand14"
 	},
 /area/awaymission/wildwest/gov)
@@ -755,31 +755,31 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "fg" = (
-/obj/effect/mob_spawn/human/corpse/syndicatecommando,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando,
 /turf/open/floor/cult,
 /area/awaymission/wildwest/vault)
 "fh" = (
 /obj/structure/ore_box,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "fi" = (
 /obj/structure/toilet,
-/mob/living/simple_animal/hostile/netherworld,
+/mob/living/basic/creature,
 /turf/open/floor/iron/white,
 /area/awaymission/wildwest/gov)
 "fk" = (
 /obj/effect/mine/sound/bwoink,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "fl" = (
 /turf/closed/mineral,
 /area/awaymission/wildwest/refine)
 "fn" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "fp" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand7"
 	},
 /area/awaymission/wildwest/gov)
@@ -799,12 +799,12 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "fw" = (
 /obj/machinery/door/airlock/sandstone,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "fx" = (
 /obj/structure/lattice,
@@ -831,27 +831,27 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "fE" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "fF" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/space/fancytech,
-/obj/effect/spawner/lootdrop/space/fancytech,
-/obj/effect/spawner/lootdrop/space/fancytech,
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "fG" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/space/fancytool,
-/obj/effect/spawner/lootdrop/space/fancytool,
-/obj/effect/spawner/lootdrop/space/fancytool,
-/obj/item/melee/baton/loaded,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/obj/item/melee/baton/security,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "fH" = (
@@ -861,20 +861,20 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand12"
 	},
 /area/awaymission/wildwest/gov)
 "fO" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /obj/effect/mine/sound/bwoink,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "fP" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand7"
 	},
 /area/awaymission/wildwest/gov)
@@ -882,7 +882,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand4"
 	},
 /area/awaymission/wildwest/gov)
@@ -894,17 +894,17 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand12"
 	},
 /area/awaymission/wildwest/gov)
 "fY" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "fZ" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "gd" = (
@@ -919,7 +919,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand7"
 	},
 /area/awaymission/wildwest/gov)
@@ -927,25 +927,25 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand14"
 	},
 /area/awaymission/wildwest/gov)
 "gh" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "gj" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand9"
 	},
 /area/awaymission/wildwest/gov)
 "gk" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "gl" = (
@@ -957,28 +957,28 @@
 /area/awaymission/wildwest/vault)
 "gq" = (
 /obj/structure/closet/crate/silvercrate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/armory_spawn/centcom_rifles,
 /obj/item/storage/belt/military/abductor/full,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "gs" = (
 /obj/structure/closet/crate/silvercrate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
-/obj/item/storage/firstaid/advanced,
+/obj/effect/spawner/armory_spawn/centcom_rifles,
+/obj/item/storage/medkit/tactical,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "gt" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "gu" = (
-/obj/structure/sign/barsign,
+/obj/machinery/barsign,
 /turf/closed/wall/mineral/sandstone,
 /area/awaymission/wildwest/mines)
 "gv" = (
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "gx" = (
@@ -998,22 +998,22 @@
 /area/awaymission/wildwest/mines)
 "gN" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/wildwest/cash,
-/obj/effect/spawner/lootdrop/wildwest/cash,
-/turf/open/floor/plating/ironsand,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "gV" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "hl" = (
-/obj/effect/spawner/lootdrop/wildwest/cash,
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space/stormtrooper,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "hs" = (
 /obj/effect/mine/sound/bwoink,
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "hw" = (
@@ -1022,9 +1022,9 @@
 /area/awaymission/wildwest/mines)
 "hD" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -1072,7 +1072,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "jp" = (
 /obj/structure/chair/comfy/beige{
@@ -1158,18 +1158,18 @@
 /area/awaymission/wildwest/mines)
 "lk" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/wildwest/cash,
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "ll" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/space/cashmoney,
-/obj/effect/spawner/lootdrop/space/cashmoney,
-/obj/effect/spawner/lootdrop/space/cashmoney,
-/obj/effect/spawner/lootdrop/space/cashmoney,
-/obj/effect/spawner/lootdrop/space/cashmoney,
-/obj/item/storage/firstaid/regular,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "lm" = (
@@ -1195,20 +1195,20 @@
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "mg" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "ml" = (
 /obj/structure/closet/crate,
-/obj/item/clothing/suit/space/hostile_environment,
-/obj/item/clothing/head/helmet/space/hostile_environment,
+/obj/item/clothing/suit/hooded/hostile_environment,
+/obj/item/clothing/head/hooded/hostile_environment,
 /obj/item/chainsaw,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "my" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -1227,7 +1227,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "ne" = (
-/obj/effect/mob_spawn/human/cook{
+/obj/effect/mob_spawn/corpse/human/cook{
 	mob_name = "Chef"
 	},
 /turf/open/floor/iron/cafeteria{
@@ -1245,7 +1245,7 @@
 /turf/open/floor/grass,
 /area/awaymission/wildwest/gov)
 "nD" = (
-/mob/living/simple_animal/hostile/netherworld,
+/mob/living/basic/creature,
 /turf/open/floor/grass,
 /area/awaymission/wildwest/gov)
 "nS" = (
@@ -1256,13 +1256,13 @@
 /area/awaymission/wildwest/gov)
 "ok" = (
 /mob/living/simple_animal/hostile/bear/russian,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "oD" = (
 /obj/structure/mecha_wreckage/mauler{
 	anchored = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "oM" = (
 /obj/structure/alien/weeds/node,
@@ -1283,13 +1283,13 @@
 /turf/closed/indestructible/syndicate,
 /area/awaymission/wildwest/refine)
 "pJ" = (
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
 /area/awaymission/wildwest/mines)
 "qb" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "qj" = (
@@ -1331,10 +1331,10 @@
 "rH" = (
 /obj/structure/closet/crate,
 /obj/item/stack/spacecash/c1000,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
-/turf/open/floor/plating/ironsand,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/obj/item/ammo_box/magazine/m9mm,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "rI" = (
 /mob/living/simple_animal/hostile/alien/queen/large,
@@ -1369,17 +1369,17 @@
 /turf/open/floor/grass,
 /area/awaymission/wildwest/gov)
 "tg" = (
-/mob/living/simple_animal/hostile/giant_spider/ice,
+/mob/living/basic/giant_spider/hunter/ice,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "tl" = (
-/obj/effect/spawner/scatter/grime,
+/obj/effect/spawner/random/trash/grime,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "tw" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/armor/reactive/repulse,
-/obj/item/storage/firstaid/advanced,
+/obj/item/storage/medkit/tactical,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "tG" = (
@@ -1387,11 +1387,11 @@
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "tZ" = (
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "uf" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "ux" = (
@@ -1409,24 +1409,24 @@
 /area/awaymission/wildwest/vault)
 "vd" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/space/fancytool,
+/obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "vf" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand2"
 	},
 /area/awaymission/wildwest/gov)
 "vh" = (
 /obj/effect/mine/gas/plasma,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "vN" = (
 /obj/structure/closet/crate,
-/obj/item/gun/ballistic/automatic/assault_rifle/akm,
+/obj/item/gun/ballistic/automatic/akm/civvie,
 /obj/item/ammo_box/magazine/akm,
 /obj/item/ammo_box/magazine/akm,
 /turf/open/floor/wood,
@@ -1436,7 +1436,7 @@
 	anchored = 1
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "wf" = (
 /obj/machinery/door/airlock/external,
@@ -1478,14 +1478,14 @@
 /area/awaymission/wildwest/vault)
 "xm" = (
 /obj/structure/closet/crate,
-/obj/item/melee/classic_baton,
+/obj/item/melee/baton,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "xn" = (
 /obj/structure/fence{
 	dir = 4
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "xs" = (
 /obj/structure/window/reinforced/tinted/frosted,
@@ -1493,17 +1493,17 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "xx" = (
 /obj/structure/fence{
 	dir = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "xN" = (
 /obj/machinery/porta_turret/syndicate/energy/heavy,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "xS" = (
 /obj/structure/bookcase/random{
@@ -1513,7 +1513,7 @@
 /area/awaymission/wildwest/mines)
 "yh" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/condiment/peppermill,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "yG" = (
@@ -1526,8 +1526,8 @@
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "yW" = (
-/obj/item/storage/firstaid/regular,
-/turf/open/floor/plating/ironsand,
+/obj/item/storage/medkit/regular,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "zj" = (
 /obj/structure/window/reinforced/tinted/frosted{
@@ -1549,20 +1549,20 @@
 /area/awaymission/wildwest/mines)
 "zu" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/condiment/saltshaker,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "zw" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand4"
 	},
 /area/awaymission/wildwest/gov)
 "zB" = (
-/mob/living/simple_animal/hostile/rat,
+/mob/living/basic/mouse/rat,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "zO" = (
-/turf/open/floor/plating/ironsand{
+/turf/open/misc/ironsand{
 	icon_state = "ironsand9"
 	},
 /area/awaymission/wildwest/gov)
@@ -1573,24 +1573,24 @@
 /area/awaymission/wildwest/vault)
 "Av" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
-/obj/item/storage/firstaid/advanced,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/item/storage/medkit/tactical,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "AD" = (
 /obj/effect/decal/remains/human,
-/mob/living/simple_animal/hostile/syndicate/ranged/smg/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "AF" = (
 /obj/structure/chair/comfy/teal{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "AG" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "AK" = (
@@ -1598,32 +1598,32 @@
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "AQ" = (
-/mob/living/simple_animal/hostile/syndicate{
+/mob/living/basic/syndicate{
 	name = "Deranged Syndicate Operative"
 	},
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "AY" = (
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "Ba" = (
 /obj/structure/table/wood,
-/obj/item/storage/firstaid/emergency,
+/obj/item/storage/medkit/emergency,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Bf" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /obj/structure/closet/crate,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Bs" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Bx" = (
 /obj/item/melee/baseball_bat,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Bz" = (
 /obj/structure/trap/stun,
@@ -1635,13 +1635,13 @@
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "BI" = (
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Co" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Cr" = (
@@ -1689,7 +1689,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "Eb" = (
 /obj/structure/chair/wood{
@@ -1698,7 +1698,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "EA" = (
-/obj/effect/mob_spawn/human/corpse/syndicatecommando{
+/obj/effect/mob_spawn/corpse/human/syndicatecommando{
 	mob_name = "Syndicate Commando"
 	},
 /turf/open/floor/grass,
@@ -1709,16 +1709,16 @@
 /area/awaymission/wildwest/vault)
 "ER" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "ET" = (
 /obj/structure/mineral_door/wood,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "EZ" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/lizardboots,
+/obj/effect/spawner/random/clothing/lizardboots,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "Fa" = (
@@ -1729,7 +1729,7 @@
 /area/space/nearstation)
 "Fc" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Fy" = (
 /obj/structure/window/reinforced/tinted/frosted{
@@ -1747,7 +1747,7 @@
 /area/awaymission/wildwest/gov)
 "FP" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Gw" = (
@@ -1761,7 +1761,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/wildwest/mines)
 "Gz" = (
@@ -1772,7 +1772,7 @@
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "GG" = (
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "GH" = (
@@ -1786,7 +1786,7 @@
 "Ha" = (
 /obj/structure/closet/crate,
 /obj/item/storage/belt/security/full,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Hb" = (
@@ -1799,11 +1799,11 @@
 /area/awaymission/wildwest/mines)
 "Hi" = (
 /obj/structure/closet/crate/large,
-/obj/effect/spawner/lootdrop/space/rareseed,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "Hs" = (
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Hw" = (
@@ -1832,13 +1832,13 @@
 /area/awaymission/wildwest/vault)
 "HJ" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
-/obj/item/melee/baton/loaded,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/item/melee/baton/security,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "HW" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/armory_spawn/centcom_rifles,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Ib" = (
@@ -1856,13 +1856,13 @@
 /area/awaymission/wildwest/vault)
 "Iq" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "It" = (
 /obj/structure/table/wood,
-/obj/item/storage/firstaid/emergency,
+/obj/item/storage/medkit/emergency,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "Iu" = (
@@ -1879,7 +1879,7 @@
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "Jj" = (
-/mob/living/simple_animal/hostile/syndicate{
+/mob/living/basic/syndicate{
 	name = "Deranged Syndicate Operative"
 	},
 /turf/open/floor/plating/cobblestone/dungeon,
@@ -1897,7 +1897,7 @@
 "JM" = (
 /obj/structure/closet/crate,
 /obj/item/surgicaldrill/alien,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Kc" = (
@@ -1915,7 +1915,7 @@
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "Kw" = (
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space,
+/obj/effect/spawner/hostile/syndicate,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "Ky" = (
@@ -1925,7 +1925,7 @@
 	},
 /area/awaymission/wildwest/mines)
 "KH" = (
-/mob/living/simple_animal/hostile/syndicate,
+/mob/living/basic/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "KN" = (
@@ -1938,7 +1938,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "KW" = (
-/mob/living/simple_animal/hostile/giant_spider/ice,
+/mob/living/basic/giant_spider/hunter/ice,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "KZ" = (
@@ -1947,12 +1947,12 @@
 "Lj" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Lv" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/memeorgans,
+/obj/effect/spawner/random/medical/memeorgans,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "Lx" = (
@@ -1984,7 +1984,7 @@
 /area/awaymission/wildwest/mines)
 "LP" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/coffee,
+/obj/item/reagent_containers/cup/glass/coffee,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "Me" = (
@@ -2000,7 +2000,7 @@
 /area/awaymission/wildwest/mines)
 "Mq" = (
 /obj/structure/closet/crate,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "MD" = (
@@ -2024,7 +2024,7 @@
 "Nz" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/washing_machine,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -2053,15 +2053,15 @@
 /area/awaymission/wildwest/mines)
 "Oo" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/three_course_meal,
-/obj/effect/spawner/lootdrop/three_course_meal,
-/obj/effect/spawner/lootdrop/three_course_meal,
-/obj/item/storage/firstaid/advanced,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/item/storage/medkit/tactical,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Ot" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "OG" = (
@@ -2082,12 +2082,12 @@
 /area/awaymission/wildwest/mines)
 "Pc" = (
 /obj/structure/closet/crate/large,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Ph" = (
 /obj/machinery/washing_machine,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -2097,8 +2097,8 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Pt" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
-/turf/open/floor/plating/ironsand,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Pv" = (
 /obj/structure/mineral_door/wood,
@@ -2109,7 +2109,7 @@
 "PH" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "PQ" = (
@@ -2120,11 +2120,11 @@
 /area/awaymission/wildwest/mines)
 "PR" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/wildwest/ammo,
+/obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "Qa" = (
-/mob/living/simple_animal/hostile/viscerator,
+/mob/living/basic/viscerator,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Qi" = (
@@ -2132,8 +2132,8 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Qj" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/smg,
-/turf/open/floor/plating/ironsand,
+/obj/effect/spawner/hostile/syndicate,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "QC" = (
 /mob/living/simple_animal/hostile/skeleton,
@@ -2141,7 +2141,7 @@
 /area/awaymission/wildwest/vault)
 "QI" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/coffee,
+/obj/item/reagent_containers/cup/glass/coffee,
 /obj/item/food/donut/jelly/slimejelly,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
@@ -2158,13 +2158,13 @@
 /area/awaymission/wildwest/vault)
 "Rx" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/minor/beret_or_rabbitears,
+/obj/effect/spawner/random/clothing/beret_or_rabbitears,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "RN" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
-/obj/item/storage/firstaid/tactical,
+/obj/effect/spawner/armory_spawn/centcom_rifles,
+/obj/item/storage/medkit/tactical,
 /obj/item/storage/belt/military/abductor/full,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
@@ -2182,17 +2182,18 @@
 "Sg" = (
 /obj/structure/closet/crate,
 /obj/item/ammo_box/magazine/m16,
+/obj/item/ammo_box/magazine/m16,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "Sj" = (
 /obj/structure/mecha_wreckage/gygax{
 	anchored = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Sr" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/mob_spawn/human/miner/rig,
+/obj/effect/mob_spawn/corpse/human/miner/mod,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "SG" = (
@@ -2201,8 +2202,8 @@
 /area/awaymission/wildwest/refine)
 "SI" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/maintenance/eight,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "SR" = (
@@ -2213,7 +2214,7 @@
 /area/awaymission/wildwest/mines)
 "SV" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/wine,
+/obj/item/reagent_containers/cup/glass/bottle/wine,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -2267,11 +2268,11 @@
 /area/awaymission/wildwest/mines)
 "Uv" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/wildwest/cash,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Ve" = (
-/mob/living/simple_animal/hostile/giant_spider/ice,
+/mob/living/basic/giant_spider/hunter/ice,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
@@ -2289,7 +2290,7 @@
 /obj/structure/mecha_wreckage/ripley/deathripley{
 	anchored = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "Vx" = (
 /obj/machinery/vending/cola,
@@ -2307,19 +2308,19 @@
 /area/awaymission/wildwest/mines)
 "VC" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/space/material,
-/obj/effect/spawner/lootdrop/space/material,
-/obj/effect/spawner/lootdrop/space/material,
+/obj/effect/spawner/random/engineering/material_rare,
+/obj/effect/spawner/random/engineering/material_rare,
+/obj/effect/spawner/random/engineering/material_rare,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "VF" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "VQ" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "Wn" = (
@@ -2338,7 +2339,7 @@
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "WJ" = (
 /obj/structure/chair/office/light{
@@ -2347,7 +2348,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Xh" = (
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "Xi" = (
 /obj/machinery/door/airlock/external,
@@ -2358,7 +2359,7 @@
 /area/awaymission/wildwest/refine)
 "Xo" = (
 /obj/structure/closet/crate,
-/obj/item/gun/ballistic/automatic/assault_rifle/m16,
+/obj/item/gun/ballistic/automatic/m16/oldarms,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "Xx" = (
@@ -2383,15 +2384,15 @@
 /area/awaymission/wildwest/mines)
 "XD" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/space/languagebook,
-/obj/effect/spawner/lootdrop/space/rareseed,
+/obj/effect/spawner/random/exotic/languagebook,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "XE" = (
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/gov)
 "XI" = (
-/obj/effect/mob_spawn/human/doctor{
+/obj/effect/mob_spawn/corpse/human/doctor{
 	mob_name = "Doctor Mugabee"
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -2413,7 +2414,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/wildwest/mines)
 "Yi" = (
-/mob/living/simple_animal/hostile/giant_spider/tarantula,
+/mob/living/basic/giant_spider/tarantula,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "YJ" = (
@@ -2430,7 +2431,7 @@
 /obj/structure/mecha_wreckage/seraph{
 	anchored = 1
 	},
-/turf/open/floor/plating/ironsand,
+/turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "YT" = (
 /turf/open/floor/iron,

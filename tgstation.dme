@@ -3042,6 +3042,7 @@
 #include "code\modules\awaymissions\mission_code\snowdin.dm"
 #include "code\modules\awaymissions\mission_code\stationCollision.dm"
 #include "code\modules\awaymissions\mission_code\undergroundoutpost45.dm"
+#include "code\modules\awaymissions\mission_code\wildwest.dm"
 #include "code\modules\balloon_alert\balloon_alert.dm"
 #include "code\modules\basketball\basketball.dm"
 #include "code\modules\basketball\basketball_map_loading.dm"

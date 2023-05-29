@@ -692,7 +692,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 		if("removementor")
 			var/datum/mentors/mentors
-			mentors.remove_mentor(ckey = targetMob.ckey)
+			mentors.remove_mentor()
 
 		if ("traitor_panel")
 			admin.holder.show_traitor_panel(targetMob)
