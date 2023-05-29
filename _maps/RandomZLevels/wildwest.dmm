@@ -190,7 +190,7 @@
 /turf/open/misc/ironsand,
 /area/awaymission/wildwest/gov)
 "bd" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -202,7 +202,7 @@
 /turf/open/space,
 /area/space/nearstation)
 "bf" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/carpet,
 /area/awaymission/wildwest/mines)
 "bi" = (
@@ -575,7 +575,7 @@
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
 "dX" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "dY" = (
@@ -899,7 +899,7 @@
 	},
 /area/awaymission/wildwest/gov)
 "fY" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "fZ" = (
@@ -1008,7 +1008,7 @@
 /area/awaymission/wildwest/mines)
 "hl" = (
 /obj/effect/spawner/random/entertainment/money_large,
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "hs" = (
@@ -1579,18 +1579,18 @@
 /area/awaymission/wildwest/vault)
 "AD" = (
 /obj/effect/decal/remains/human,
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "AF" = (
 /obj/structure/chair/comfy/teal{
 	dir = 8
 	},
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "AG" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "AK" = (
@@ -1604,7 +1604,7 @@
 /turf/open/floor/plating,
 /area/awaymission/wildwest/vault)
 "AY" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/gov)
 "Ba" = (
@@ -1772,7 +1772,7 @@
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/awaymission/wildwest/vault)
 "GG" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "GH" = (
@@ -1915,7 +1915,7 @@
 /turf/open/floor/plating,
 /area/awaymission/wildwest/refine)
 "Kw" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/floor/iron,
 /area/awaymission/wildwest/refine)
 "Ky" = (
@@ -2132,7 +2132,7 @@
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
 "Qj" = (
-/obj/effect/spawner/hostile/syndicate,
+/obj/effect/spawner/random/syndicate,
 /turf/open/misc/ironsand,
 /area/awaymission/wildwest/mines)
 "QC" = (
