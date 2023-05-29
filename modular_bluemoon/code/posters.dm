@@ -50,18 +50,6 @@
 	anchored = TRUE
 	buildable_sign = FALSE //Cannot be unwrenched from a wall.
 
-/obj/structure/sign/poster/Initialize(mapload)
-	. = ..()
-	if(random_basetype)
-		randomise(random_basetype)
-	if(!ruined)
-		original_name = name // can't use initial because of random posters
-		name = "poster - [name]"
-		desc = "A large piece of space-resistant printed paper. [desc]"
-
-	addtimer(CALLBACK(src, /datum.proc/_AddElement, list(/datum/element/beauty, 300)), 0)
-
-
 /obj/structure/sign/poster/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		I.play_tool_sound(src, 100)

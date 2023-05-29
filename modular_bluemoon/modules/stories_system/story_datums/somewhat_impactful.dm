@@ -30,7 +30,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	addtimer(CALLBACK(src, .proc/inform_station), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(inform_station)), 3 MINUTES)
 
 /datum/story_type/somewhat_impactful/centcom_inspector/proc/inform_station()
 	print_command_report("Hello, an inspector will be arriving shortly for a surprise inspection, ensure they have a pleasant report.", announce = TRUE)

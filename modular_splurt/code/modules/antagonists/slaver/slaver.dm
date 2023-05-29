@@ -157,7 +157,7 @@ GLOBAL_LIST_INIT(slavers_ransom_values, list(
 	if(istype(H))
 		H.set_antag_target_indicator() // Hide consent of this player, they are an antag and can't be a target
 
-	addtimer(CALLBACK(src, .proc/slavers_name_assign), 1)
+	addtimer(CALLBACK(src, PROC_REF(slavers_name_assign), 1))
 
 /datum/antagonist/slaver/proc/spawnText()
 	to_chat(owner, "<br><B>You are tasked with infiltrating the station and kidnapping members of the crew. Once brought back to the hideout, they can be collared and priced using the console.</B>")

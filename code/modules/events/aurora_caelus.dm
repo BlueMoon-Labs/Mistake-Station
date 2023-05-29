@@ -20,9 +20,9 @@
 	var/aurora_progress = 0 //this cycles from 1 to 8, slowly changing colors from gentle green to gentle blue
 
 /datum/round_event/aurora_caelus/announce()
-	priority_announce("[station_name()]: Безвредное облако ионов приближается к вашей станции, истощая свою энергию и стукаясь о корпус. NanoTrasen разрешает всем сотрудникам сделать короткий перерыв, чтобы расслабиться и понаблюдать за этим редким событием. В это время звездный свет будет ярким, но мягким, переходя от тихого зеленого к яркому синему цвету. Любой сотрудник, желающий увидеть эти огни самостоятельно, может отправиться в ближайший к ним район с видом на космос. Надеемся, что вам понравится это сияние.",
+	priority_announce("[station_name()]: Безвредное облако ионов приближается к вашей станции, истощая свою энергию и стукаясь о корпус. Nanotrasen разрешает всем сотрудникам сделать короткий перерыв, чтобы расслабиться и понаблюдать за этим редким событием. В это время звездный свет будет ярким, но мягким, переходя от тихого зеленого к яркому синему цвету. Любой сотрудник, желающий увидеть эти огни самостоятельно, может отправиться в ближайший к ним район с видом на космос. Надеемся, что вам понравится это сияние.",
 	sound = 'sound/misc/notice2.ogg',
-	sender_override = "Отдел Метеорологии NanoTrasen")
+	sender_override = "Отдел Метеорологии Nanotrasen")
 	for(var/V in GLOB.player_list)
 		var/mob/M = V
 		if((M.client.prefs.read_preference(/datum/preference/toggle/sound_midi)) && is_station_level(M.z))
@@ -75,7 +75,7 @@
 				fade_to_black(superturfentent)
 	priority_announce("Событие, связанное с Космическим Сиянием, заканчивается. Звездный свет постепенно возвращается в нормальное состояние. Возвращайтесь на свое рабочее место и продолжайте работать в обычном режиме. Приятной смены [station_name()] и спасибо, что посмотрели за этим событием с нами.",
 	sound = 'sound/misc/notice2.ogg',
-	sender_override = "Отдел Метеорологии NanoTrasen")
+	sender_override = "Отдел Метеорологии Nanotrasen")
 
 /datum/round_event/aurora_caelus/proc/fade_to_black(turf/open/space/spess)
 	set waitfor = FALSE

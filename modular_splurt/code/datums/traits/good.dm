@@ -108,8 +108,8 @@
 
 /datum/quirk/dominant_aura/add()
 	. = ..()
-	RegisterSignal(quirk_holder, COMSIG_PARENT_EXAMINE, .proc/on_examine_holder)
-	RegisterSignal(quirk_holder, COMSIG_MOB_EMOTE, .proc/handle_snap)
+	RegisterSignal(quirk_holder, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine_holder))
+	RegisterSignal(quirk_holder, COMSIG_MOB_EMOTE, PROC_REF(handle_snap))
 
 /datum/quirk/dominant_aura/remove()
 	. = ..()

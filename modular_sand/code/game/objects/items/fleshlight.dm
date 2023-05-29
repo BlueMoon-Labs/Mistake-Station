@@ -670,7 +670,7 @@
 			playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 			to_chat(user, "<span class='notice'>[P] был успешно связан.</span>")
 			update_portal()
-			RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/drop_out)
+			RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(drop_out))
 		else
 			to_chat(user, "<span class='notice'>Один из этих предметов уже находится в паре.</span>")
 	else
@@ -714,7 +714,7 @@
 				to_chat(user, "<span class='notice'>Трусики не связаны с Портальным Фонариком.</span>")
 			else
 				update_portal()
-				RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/drop_out)
+				RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(drop_out))
 		else
 			update_portal()
 			UnregisterSignal(user, COMSIG_PARENT_QDELETING)
