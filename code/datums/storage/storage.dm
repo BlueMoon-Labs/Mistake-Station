@@ -1157,10 +1157,3 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/matrix/old_matrix = resolve_parent.transform
 	animate(resolve_parent, time = 1.5, loop = 0, transform = resolve_parent.transform.Scale(1.07, 0.9))
 	animate(time = 2, transform = old_matrix)
-
-/**
-* Gets our max volume
-*/
-
-/datum/storage/proc/get_max_volume()
-	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage, max_total_storage)

@@ -11,17 +11,18 @@
 	can_be_unanchored = TRUE
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
-	idle_power_usage = 250000
-	active_power_usage = 750000
+	idle_power_usage = 2500
+	active_power_usage = 7500
 	var/list/ore_rates = list(
-		/datum/material/iron = 0.5,
-		/datum/material/glass = 0.5,
-		/datum/material/plasma = 0.25,
-		/datum/material/silver = 0.25,
-		/datum/material/gold = 0.01,
-		/datum/material/titanium = 0.1,
-		/datum/material/uranium = 0.1,
-		/datum/material/diamond = 0.05
+		/obj/item/stack/sheet/iron = 0.5,
+		/obj/item/stack/sheet/glass = 0.5,
+		/obj/item/stack/sheet/mineral/plasma = 0.25,
+		/obj/item/stack/sheet/mineral/silver = 0.25,
+		/obj/item/stack/sheet/mineral/titanium = 0.01,
+		/obj/item/stack/sheet/mineral/uranium = 0.01,
+		/obj/item/xenoarch/strange_rock = 0.01,
+		/obj/item/stack/sheet/mineral/gold = 0.01,
+		/obj/item/stack/sheet/mineral/diamond = 0.05
 		)
 	var/datum/component/remote_materials/materials
 	var/multiplier = 0 //Multiplier by tier, has been made fair and everything
@@ -56,9 +57,11 @@
 		stock_amt++
 	multiplier /= stock_amt
 	if(multiplier >= BLUESPACE_MINER_CRYSTAL_TIER)
-		ore_rates[/datum/material/bluespace] = 0.05
+		ore_rates[/obj/item/stack/sheet/bluespace_crystal] = 0.025
+		ore_rates[/obj/item/stack/sheet/mineral/bananium] = 0.025
 	else
-		ore_rates -= /datum/material/bluespace
+		ore_rates -= /obj/item/stack/sheet/bluespace_crystal
+		ore_rates -= /obj/item/stack/sheet/mineral/bananium
 
 	// Apply config multiplier here to not interfere with bluespace material check
 	multiplier *= BLUESPACE_MINER_BONUS_MULT

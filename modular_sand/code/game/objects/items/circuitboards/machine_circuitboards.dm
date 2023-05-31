@@ -30,6 +30,8 @@
 
 /obj/item/circuitboard/machine/bluespace_miner
 	name = "Bluespace Miner (Machine Board)"
+	desc = "The bluespace miner is a machine that, when provided the correct temperature and pressure, will produce materials."
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/mineral/bluespace_miner
 	req_components = list(
 		/datum/stock_part/matter_bin = 5,
@@ -37,7 +39,7 @@
 		/datum/stock_part/servo = 5,
 		/datum/stock_part/scanning_module = 5,
 		/obj/item/stack/ore/bluespace_crystal/refined = 5,
-		ANOMALY_CORE_BLUESPACE = 1)
+		/obj/item/stack/sheet/glass = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/telecomms/message_server

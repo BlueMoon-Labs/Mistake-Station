@@ -198,3 +198,54 @@
 	if (!our_item)
 		return
 	return our_item.Click(location, control, params)
+
+/datum/storage
+	//If not null, all actions act on master and this is just an access point.
+	var/datum/storage/master
+	//Quick if statement in accessible_items to determine if we care at all about what people can access at once.
+	var/limited_random_access = FALSE
+	//If >0, can only access top <x> items
+	var/limited_random_access_stack_position = 0
+	//If TRUE, above becomes bottom <x> items
+	var/limited_random_access_stack_bottom_up = FALSE
+	/// Storage flags, including what kinds of limiters we use for how many items we can hold
+	var/storage_flags = STORAGE_FLAGS_LEGACY_DEFAULT
+	//stack things of the same type and show as a single object with a number.
+	var/display_numerical_stacking = FALSE
+	/// Ui objects by person. mob = list(objects)
+	var/list/ui_by_mob = list()
+
+/datum/storage/proc/master()
+	if(master == src)
+		return			//infinite loops yo.
+	return master
+
+/datum/storage/proc/real_location()
+	var/datum/storage/master = master()
+	return master? master.real_location() : null
+
+/datum/storage/proc/contents()			//ONLY USE IF YOU NEED TO COPY CONTENTS OF REAL LOCATION, COPYING IS NOT AS FAST AS DIRECT ACCESS!
+	var/atom/real_location = real_location()
+	return real_location.contents.Copy()
+
+//What players can access
+//this proc can probably eat a refactor at some point.
+/datum/storage/proc/accessible_items(random_access = TRUE)
+	var/list/contents = contents()
+	if(contents)
+		if(limited_random_access && random_access)
+			if(limited_random_access_stack_position && (length(contents) > limited_random_access_stack_position))
+				if(limited_random_access_stack_bottom_up)
+					contents.Cut(1, limited_random_access_stack_position + 1)
+				else
+					contents.Cut(1, length(contents) - limited_random_access_stack_position + 1)
+	return contents
+
+/**
+  * Gets our max volume
+  */
+/datum/storage/proc/get_max_volume()
+	return max_volume || AUTO_SCALE_STORAGE_VOLUME(max_specific_storage, max_total_storage)
+
+/proc/cmp_numbered_displays_name_asc(datum/numbered_display/A, datum/numbered_display/B)
+	return sorttext(A.sample_object.name, B.sample_object.name)
