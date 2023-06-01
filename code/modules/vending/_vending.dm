@@ -72,6 +72,8 @@
 	var/vend_ready = TRUE
 	///Next world time to send a purchase message
 	var/purchase_message_cooldown
+	//same as ^ but for ads
+	var/ad_message_cooldown
 	///The ref of the last mob to shop with us
 	var/last_shopper
 	var/tilted = FALSE
@@ -125,6 +127,7 @@
 	var/list/hidden_records = list()
 	var/list/coin_records = list()
 	var/list/slogan_list = list()
+	var/list/reply_list = list()
 	///Small ad messages in the vending screen - random chance of popping up whenever you open it
 	var/list/small_ads = list()
 	///Message sent post vend (Thank you for shopping!)
@@ -217,6 +220,10 @@
 	// so if slogantime is 10 minutes, it will say it at somewhere between 10 and 20 minutes after the machine is crated.
 	last_slogan = world.time + rand(0, slogan_delay)
 	power_change()
+
+	reply_list = splittext(vend_reply,";")
+
+	small_ads = splittext(product_ads,";")
 
 	if(onstation_override) //overrides the checks if true.
 		onstation = TRUE
@@ -855,6 +862,12 @@
 	if(seconds_electrified && !(machine_stat & NOPOWER))
 		if(shock(user, 100))
 			return
+	if(prob(10) && ad_message_cooldown < world.time)
+		var/vend_ad = pick(small_ads)
+		speak(vend_ad)
+		ad_message_cooldown = world.time + 5 SECONDS
+
+
 
 	if(tilted && !user.buckled && !isAdminGhostAI(user))
 		to_chat(user, span_notice("You begin righting [src]."))
@@ -1093,7 +1106,7 @@
 			SSeconomy.track_purchase(account, price_to_use, name)
 			log_econ("[price_to_use] credits were inserted into [src] by [account.account_holder] to buy [R].")
 	if(last_shopper != REF(usr) || purchase_message_cooldown < world.time)
-		var/vend_response = vend_reply || "Thank you for shopping with [src]!"
+		var/vend_response = pick(reply_list) || "Thank you for shopping with [src]!"
 		speak(vend_response)
 		purchase_message_cooldown = world.time + 5 SECONDS
 		//This is not the best practice, but it's safe enough here since the chances of two people using a machine with the same ref in 5 seconds is fuck low
