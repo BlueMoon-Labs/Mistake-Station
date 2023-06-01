@@ -428,6 +428,7 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/food/bait/natural,
 	))
+	atom_storage.max_volume = STORAGE_VOLUME_PILL_BOTTLE
 
 /obj/item/storage/pill_bottle/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is trying to get the cap off [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
