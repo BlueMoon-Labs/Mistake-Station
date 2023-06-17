@@ -7776,6 +7776,7 @@
 #include "modular_bluemoon\modules\clothing\hecu\code\hecu_suit.dm"
 #include "modular_bluemoon\modules\clothing\suits\space.dm"
 #include "modular_bluemoon\modules\clothing\suits\cult.dm"
+#include "modular_bluemoon\modules\clothing\donat_soviet.dm"
 #include "modular_bluemoon\modules\customization\datums\keybinding\communication.dm"
 #include "modular_bluemoon\modules\cyrillic_key_fixes\code\communication.dm"
 #include "modular_bluemoon\modules\cyrillic_key_fixes\code\text.dm"

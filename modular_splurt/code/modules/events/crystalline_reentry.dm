@@ -229,7 +229,7 @@
 	tendrilnotify = FALSE
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/tendril
-	fromtendril = TRUE
+	from_spawner = TRUE
 
 //Crystalline Tendrils, which spawn crystalline monsters
 /obj/structure/spawner/crystalline

@@ -86,19 +86,6 @@ GLOBAL_PROTECT(mentor_href_token)
 		if(findtextEx(line, "#", 1, 2))
 			continue
 		new /datum/mentors(line)
-	/*else//Database
-		if(!SSdbcore.Connect())
-			log_world("Failed to connect to database in load_mentors(). Reverting to legacy system.")
-			WRITE_FILE(GLOB.world_game_log, "Failed to connect to database in load_mentors(). Reverting to legacy system.")
-			CONFIG_SET(flag/mentor_legacy_system, TRUE)
-			load_mentors()
-			return
-		var/datum/DBQuery/query_load_mentors = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("mentor")]")
-		if(!query_load_mentors.Execute())
-			return
-		while(query_load_mentors.NextRow())
-			var/ckey = ckey(query_load_mentors.item[1])
-			new /datum/mentors(ckey)*/
 
 /// Proc to save the current mentor list into the config, overwriting it.
 /proc/save_mentors()

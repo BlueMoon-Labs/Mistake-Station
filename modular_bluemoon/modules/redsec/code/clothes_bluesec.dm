@@ -13,6 +13,25 @@
 /*
 * SUITS
 */
+
+/datum/armor/head_security_cap
+	melee = 30
+	bullet = 25
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 20
+	acid = 50
+
+/datum/armor/head_security_garrison
+	melee = 30
+	bullet = 25
+	laser = 25
+	energy = 35
+	bomb = 25
+	fire = 20
+	acid = 50
+
 /obj/item/clothing/suit/hooded/wintercoat/security/bluesec
 	name = "security winter coat"
 	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.  The zipper tab is a small <b>\"Lopland\"</b> logo."

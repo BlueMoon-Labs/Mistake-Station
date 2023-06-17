@@ -17,8 +17,7 @@ GLOBAL_LIST_INIT(medical_positions, list(
 	JOB_PARAMEDIC,
 	JOB_VIROLOGIST,
 	JOB_CHEMIST,
-	JOB_PSYCHOLOGIST,
-	JOB_SECURITY_MEDIC))
+	JOB_PSYCHOLOGIST))
 
 GLOBAL_LIST_INIT(science_positions, list(
 	JOB_RESEARCH_DIRECTOR,
@@ -56,8 +55,7 @@ GLOBAL_LIST_INIT(security_positions, list(
 	JOB_HEAD_OF_SECURITY,
 	JOB_WARDEN,
 	JOB_DETECTIVE,
-	JOB_SECURITY_OFFICER,
-	JOB_SECURITY_MEDIC))
+	JOB_SECURITY_OFFICER))
 
 GLOBAL_LIST_INIT(scum_positions, list(
 	JOB_PRISONER))
@@ -158,7 +156,7 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 		return pick_list_weighted("ambitions/supply.json", job)
 
 	if(owner.assigned_role in (GLOB.security_positions))
-		if(owner.assigned_role == JOB_SECURITY_MEDIC && (prob(chance_other_departament_ambition)))	//шанс что бригмедик возьмёт амбицию мед. отдела.
+		if(prob(chance_other_departament_ambition))	//шанс что бригмедик возьмёт амбицию мед. отдела.
 			job = pick(GLOB.medical_positions)
 			return pick_list_weighted("ambitions/medical.json", job)
 		return pick_list_weighted("ambitions/security.json", job)

@@ -3,6 +3,7 @@
 
 // Game categories
 #define LOG_CATEGORY_GAME_MENTOR "game-mentor"
+#define LOG_CATEGORY_GAME_WHITELIST "game-whitelist"
 #define LOG_CATEGORY_GAME_SUBTLE "game-subtle"
 #define LOG_CATEGORY_GAME_SUBTLER "game-subtler"
 
