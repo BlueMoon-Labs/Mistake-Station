@@ -542,7 +542,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!ispath(request_target))
 		request_target = locate(request_target) in objectives
 		if(istype(request_target))
-			RegisterSignal(request_target, COMSIG_PARENT_QDELETING, .proc/clean_request_from_del_objective)
+			RegisterSignal(request_target, COMSIG_PARENT_QDELETING, PROC_REF(clean_request_from_del_objective))
 	requested_objective_changes[uid] = additions
 
 

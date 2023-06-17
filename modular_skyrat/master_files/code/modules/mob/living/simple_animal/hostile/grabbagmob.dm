@@ -49,6 +49,21 @@
 	name = "Syndicate Stormtrooper Fox"
 	desc = "An anthromorphic fox member of the Syndicate."
 
+/obj/effect/spawner/random/syndicate
+	name = "Hostile Syndicate Spawner"
+	icon_state = "esword_dual"
+	spawn_loot_count = 2
+	spawn_scatter_radius = 5
+	loot = list( // This spawner will scatter garbage around a dirty site.
+		/mob/living/basic/syndicate/melee/anthro = 1,
+		/mob/living/basic/syndicate/melee/sword/anthro = 1,
+		/mob/living/basic/syndicate/ranged/anthro = 1,
+		/mob/living/basic/syndicate/ranged/smg/anthro = 1,
+		/mob/living/basic/syndicate/melee/space/anthro/lizard = 1,
+		/mob/living/basic/syndicate/ranged/space/anthro/cat = 1,
+		/mob/living/basic/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox = 1,
+	)
+
 // Cult
 /mob/living/simple_animal/hostile/cult
 	name = "Blood Cultist"

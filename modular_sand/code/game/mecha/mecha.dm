@@ -1,4 +1,4 @@
-#define MECH_SIZE 1.25
+#define MECH_SIZE 1.5
 
 /obj/vehicle/sealed/mecha/Initialize(mapload)
 	. = ..()

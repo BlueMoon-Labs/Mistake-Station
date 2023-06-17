@@ -46,7 +46,7 @@
 	current_story.mind_actor_list[temporary_human.mind] = src
 	info_button = new(src)
 	info_button.Grant(temporary_human)
-	addtimer(CALLBACK(src, .proc/send_them_in, temporary_human), delay_time)
+	addtimer(CALLBACK(src, PROC_REF(send_them_in), temporary_human), delay_time)
 
 /// Ghost ones are delayed by a few minutes to ensure that the ghosts have time to choose a character and for crew actors to get settled a bit
 /datum/story_actor/ghost/proc/send_them_in(mob/living/carbon/human/to_send_human)

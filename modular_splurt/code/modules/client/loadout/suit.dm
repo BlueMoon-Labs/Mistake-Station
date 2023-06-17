@@ -2,12 +2,6 @@
 /datum/loadout_item/suit/neetsuit
 	restricted_roles = list()
 
-// Suggestion #148
-/datum/loadout_item/suit/techpriest
-	name ="Techpriest robes"
-	item_path = /obj/item/clothing/suit/hooded/techpriest
-	restricted_roles = list("Chief Engineer","Research Director","Scientist", "Roboticist","Atmospheric Technician","Station Engineer", "Chaplain")
-
 // Suggestion #183
 ///datum/loadout_item/suit/dracula
 //	name = "dracula coat"

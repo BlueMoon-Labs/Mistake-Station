@@ -35,7 +35,7 @@
 
 	else
 		set_light((initial(light_range)), initial(light_power), initial(light_color), TRUE)
-	addtimer(CALLBACK(src, .proc/alarm), SENSORS_UPDATE_PERIOD)
+	addtimer(CALLBACK(src, PROC_REF(alarm)), SENSORS_UPDATE_PERIOD)
 	if(prob(1))
 		alert_radio(canalarm, injuredcount)
 	return canalarm

@@ -185,7 +185,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	supports_variations_flags = NONE
 
-/obj/item/reagent_containers/food/drinks/flask/russian
+/obj/item/reagent_containers/cup/glass/flask/russian
 	name = "russian flask"
 	desc = "Every good russian spaceman knows it's a good idea to bring along a couple of pints of whiskey wherever they go."
 	icon = 'icons/obj/custom.dmi'
@@ -208,7 +208,7 @@
 	worn_icon = 'icons/mob/clothing/custom_w.dmi'
 	icon_state = "mgas"
 
-/obj/item/reagent_containers/food/drinks/flask/steel
+/obj/item/reagent_containers/cup/glass/flask/steel
 	name = "The End"
 	desc = "A plain steel flask, sealed by lock and key. The front is inscribed with The End."
 	icon = 'icons/obj/custom.dmi'

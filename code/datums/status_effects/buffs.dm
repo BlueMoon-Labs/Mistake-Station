@@ -50,6 +50,7 @@
 	if(islist(owner.stun_absorption) && owner.stun_absorption["hisgrace"])
 		owner.stun_absorption -= "hisgrace"
 
+#define STATUS_EFFECT_WISH_GRANTERS_GIFT /datum/status_effect/wish_granters_gift //If you're currently resurrecting with the Wish Granter
 
 /datum/status_effect/wish_granters_gift //Fully revives after ten seconds.
 	id = "wish_granters_gift"

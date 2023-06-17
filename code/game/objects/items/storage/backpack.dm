@@ -67,6 +67,7 @@
 	. = ..()
 
 	create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, storage_type = /datum/storage/bag_of_holding)
+	atom_storage.max_volume = STORAGE_VOLUME_BAG_OF_HOLDING
 	atom_storage.allow_big_nesting = TRUE
 
 /obj/item/storage/backpack/holding/suicide_act(mob/living/user)
@@ -405,6 +406,7 @@
 /obj/item/storage/backpack/duffelbag/Initialize(mapload)
 	. = ..()
 	atom_storage.max_total_storage = 30
+	atom_storage.max_volume = STORAGE_VOLUME_DUFFLEBAG
 
 /obj/item/storage/backpack/duffelbag/cursed
 	name = "living duffel bag"
