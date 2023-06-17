@@ -255,7 +255,7 @@
 			var/turf/closed/M = F
 			M.ScrapeAway(null, CHANGETURF_IGNORE_AIR)
 	AddComponent(/datum/component/gps, "Snowy Signal")
-	addtimer(CALLBACK(src, .proc/delayedInitialize), 4 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(delayedInitialize), 4 SECONDS))
 
 /obj/structure/spawner/crystalline/deconstruct(disassembled)
 	new /obj/structure/closet/crate/necropolis/tendril(loc)

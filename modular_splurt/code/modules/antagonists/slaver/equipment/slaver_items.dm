@@ -11,7 +11,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/slaver/gizmo/attack(mob/living/M, mob/user)
-	var/datum/antagonist/slaver/S = locate() in user.mind.antag_datums
+	var/datum/antagonist/S = locate() in user.mind.antag_datums
 	if(!S) // Is not a slaver antag.
 		to_chat(user, "<span class='warning'>You aren't sure how to use this tech!</span>")
 		return
@@ -45,27 +45,6 @@
 		M.forceMove(teleportDestination)
 	else
 		to_chat(user, "<span class='warning'>You need to stand still and uninterrupted for 15 seconds!</span>")
-
-// Buyable gear kits at the slaver console
-/obj/item/storage/box/slaver_teleport
-	name = "boxed emergency teleport implants (x2)"
-
-/obj/item/storage/box/slaver_teleport/PopulateContents()
-	var/obj/item/implanter/O = new(src)
-	O.imp = new /obj/item/implant/slaver(O)
-	O.update_icon()
-
-	O = new(src)
-	O.imp = new /obj/item/implant/slaver(O)
-	O.update_icon()
-
-/obj/item/storage/box/slave_collars
-	name = "boxed slave collars (x3)"
-
-/obj/item/storage/box/slave_collars/PopulateContents()
-	new /obj/item/electropack/shockcollar/slave(src)
-	new /obj/item/electropack/shockcollar/slave(src)
-	new /obj/item/electropack/shockcollar/slave(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/slaver_marksman
 	name = "marksman gear shipment"

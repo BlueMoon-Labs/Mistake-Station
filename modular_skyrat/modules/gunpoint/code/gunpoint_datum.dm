@@ -44,8 +44,8 @@
 	RegisterSignal(source, COMSIG_LIVING_STATUS_PARALYZE, PROC_REF(source_cc))
 	RegisterSignal(source, COMSIG_LIVING_UPDATED_RESTING, PROC_REF(source_updated_resting))
 
-	RegisterSignal(aimed_gun, COMSIG_ITEM_EQUIPPED,PROC_REF(click_destroy))
-	RegisterSignal(aimed_gun, COMSIG_ITEM_DROPPED,PROC_REF(click_destroy))
+	RegisterSignal(aimed_gun, COMSIG_ITEM_EQUIPPED, PROC_REF(click_destroy))
+	RegisterSignal(aimed_gun, COMSIG_ITEM_DROPPED, PROC_REF(click_destroy))
 
 	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(Destroy))
 	RegisterSignal(source, COMSIG_PARENT_QDELETING, PROC_REF(Destroy))

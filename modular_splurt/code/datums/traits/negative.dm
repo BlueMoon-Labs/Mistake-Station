@@ -10,13 +10,14 @@
 	gain_text = span_notice("Неожиданно вам захотелось ощутить семя внутри себя!")
 	lose_text = span_notice("Всё равно сперма была не такой уж и вкусной...")
 	medical_record_text = "У пациента навязчивая одержимость семенными жидкостями."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 	var/timer
 	var/timer_trigger = 15 MINUTES
 
 /datum/quirk/dumb4cum/add()
 	// Set timer
-	timer = addtimer(CALLBACK(src, .proc/crave), timer_trigger, TIMER_STOPPABLE)
+	timer = addtimer(CALLBACK(src, PROC_REF(crave), timer_trigger, TIMER_STOPPABLE))
 
 /datum/quirk/dumb4cum/remove()
 	// Remove status trait
@@ -77,7 +78,7 @@
 	timer = null
 
 	// Add new timer
-	timer = addtimer(CALLBACK(src, .proc/crave), timer_trigger, TIMER_STOPPABLE)
+	timer = addtimer(CALLBACK(src, PROC_REF(crave), timer_trigger, TIMER_STOPPABLE))
 
 // Small issue with this. If the quirk holder has NO_HUNGER or NO_THIRST, this trait can still be taken and they will still get the benefits of it.
 // It's unlikely that someone will be both, especially at round start, but vampirism makes me wary of having these separate.
@@ -88,6 +89,7 @@
 	gain_text = "<span class='danger'>Вы хотите есть и пить чаще.</span>"
 	lose_text = "<span class='notice'>Жир идёт на спад.</span>"
 	medical_record_text = "Пациенту требуется вдвое большее количество еды по сравнению с типичным представителем его вида."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/hungry/add()
 	var/mob/living/carbon/human/H = quirk_holder

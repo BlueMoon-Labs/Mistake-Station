@@ -49,7 +49,6 @@
 		"Syndicate Administrator",
 		"Personnel Manager of Syndicate",
 		"Crew Resource Officer",
-		"Executive Officer",
 		"Captain Attachment",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -63,8 +62,7 @@
 		"Cerberus Leader",
 		"Syndicate Field Commander",
 		"Commissar",
-		"Chief of Security",
-		"Sheriff",
+		"Cumissar",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -116,7 +114,6 @@
 		"Atmos-Slut",
 		"Buttplug",
 		"Disposals Technician",
-		"Life Support Specialist",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -207,7 +204,6 @@
 /datum/job/clown/New()
 	var/list/extra_titles = list(
 		"Jester",
-		"Comedian",
 		"Cumedian",
 		"Sexy Clown",
 		"Entertainer",
@@ -224,8 +220,6 @@
 		"Poissonier",
 		"Baker",
 		"Culinary Artist",
-		"Butcher",
-		"Chef",
 		"Nutritionist",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -344,8 +338,6 @@
 		"Organomegaly Healer",
 		"Hexocrocin Therapist",
 		"Chemi-Slut",
-		"Pharmacist",
-		"Pharmacologist",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -359,8 +351,6 @@
 		"Oral Doctor",
 		"Healing Fleshlight",
 		"Medi-Slut",
-		"Nurse",
-		"Surgeon",
 		"Medical Secretary",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -369,7 +359,6 @@
 /datum/job/psychologist/New()
 	var/list/extra_titles = list(
 		"Therapist",
-		"Psychiatrist",
 		"Hypnotist",
 		"Hypnosis Expert",
 		"Hypnotherapist",
@@ -399,7 +388,6 @@
 		"Emergency Condom Team",
 		"Crocin Deliverer",
 		"Para-Slut",
-		"Emergency Medical Technician",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -412,7 +400,6 @@
 		"Plague Doctor",
 		"Monkey Destroyer",
 		"Viro-Slut",
-		"Pathologist",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -428,8 +415,6 @@
 		"Cinder Dick",
 		"Syndicate Survey Specialist",
 		"Cooperate Auditor",
-		"Forensics Technician",
-		"Private Investigator",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()

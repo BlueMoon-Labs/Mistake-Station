@@ -1152,6 +1152,22 @@ const OtherActions = (props, context) => {
           disabled={!client_ckey}
           onClick={(e) => act('ambitions')}
         />
+        <Button
+          width="100%"
+          content="Make Mentor"
+          p=".5rem"
+          textAlign="center"
+          disabled={!client_ckey}
+          onClick={(e) => act('makementor')}
+        />
+        <Button
+          width="100%"
+          content="Remove Mentor"
+          p=".5rem"
+          textAlign="center"
+          disabled={!client_ckey}
+          onClick={(e) => act('removementor')}
+        />
       </Section>
     </Section>
   );

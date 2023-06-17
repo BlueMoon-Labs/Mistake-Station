@@ -33,7 +33,7 @@
 
 /datum/component/interaction_menu_granter/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON, .proc/open_menu)
+	RegisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON, PROC_REF(open_menu))
 
 /datum/component/interaction_menu_granter/Destroy(force, ...)
 	target = null

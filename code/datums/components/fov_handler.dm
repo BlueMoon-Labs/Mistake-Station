@@ -107,12 +107,13 @@
 	parent_client.screen -= visual_shadow
 
 /**
-  * Byond doc is not entirely correct on the integrated arctan() proc.
-  * When both x and y are negative, the output is also negative, cycling clockwise instead of counter-clockwise.
-  * That's also why I am extensively using the SIMPLIFY_DEGREES macro here.
-  *
-  * Overall this is the main macro that calculates wheter a target is within the shadow cone angle or not.
-  */
+* Byond doc is not entirely correct on the integrated arctan() proc.
+* When both x and y are negative, the output is also negative, cycling clockwise instead of counter-clockwise.
+* That's also why I am extensively using the SIMPLIFY_DEGREES macro here.
+*
+* Overall this is the main macro that calculates wheter a target is within the shadow cone angle or not.
+*/
+
 #define FOV_ANGLE_CHECK(mob, target, zero_x_y_statement, success_statement) \
 	var/turf/T1 = get_turf(target);\
 	var/turf/T2 = get_turf(mob);\

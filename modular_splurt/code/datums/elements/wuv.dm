@@ -28,7 +28,7 @@
 	pet_moodlet = pet_mood
 	punt_moodlet = punt_mood
 
-	RegisterSignal(target, COMSIG_MOB_ATTACK_HAND, .proc/on_attack_hand)
+	RegisterSignal(target, COMSIG_MOB_ATTACK_HAND, PROC_REF(on_attack_hand))
 
 /datum/element/wuv/Detach(datum/source, force)
 	. = ..()
@@ -40,9 +40,9 @@
 	if(L.stat == DEAD)
 		return
 	if(L.combat_mode == TRUE)
-		addtimer(CALLBACK(src, .proc/kick_the_dog, source, user), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(kick_the_dog), source, user), 1 SECONDS)
 	else if(L.combat_mode == FALSE)
-		addtimer(CALLBACK(src, .proc/pet_the_dog, source, user), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(pet_the_dog), source, user), 1 SECONDS)
 
 /datum/element/wuv/proc/pet_the_dog(mob/target, mob/user)
 	if(QDELETED(target) || QDELETED(user) || target.stat != CONSCIOUS)

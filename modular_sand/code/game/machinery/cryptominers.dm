@@ -24,17 +24,12 @@
 	icon_state = "off"
 	density = TRUE
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 40
-	active_power_usage = 400
+	idle_power_usage = 20
+	active_power_usage = 200
 	circuit = /obj/item/circuitboard/machine/cryptominer
 	var/mining = FALSE
-	var/miningtime = 6000
+	var/miningtime = 3000
 	var/miningpoints = 100
-	var/mintemp = TCRYO // 225K equals approximately -55F or -48C
-	var/midtemp = T0C // 273K equals 32F or 0C
-	var/maxtemp = 500 // 500K equals approximately 440F or 226C
-	var/heatingPower = 100 // Heat added each processing
-	var/require_conductivity = TRUE // Prevent use in space
 	var/datum/bank_account/pay_me = null
 	var/obj/item/radio/cargo_radio
 	// Should this machine send messages on cargo radio?
@@ -94,13 +89,6 @@
 
 		// Define ID card
 		var/obj/item/card/id/CARD = id_card
-
-		/*// Check if ID card has banking support 			Не ебу.
-		if(CARD.bank_support != ID_FREE_BANK_ACCOUNT)
-			// Warn in local chat and return
-			say("ERROR: No banking support found on provided ID card.")
-			return
-		*/
 
 		// Check if ID card has a linked account
 		if(!CARD.registered_account)
@@ -220,17 +208,21 @@
 	// Check for temperature effects
 	// Minimum (most likely)
 	if(env_temp <= temp_min)
-		produce_points(CRYPTO_MULT_MAX)
+		say("Критически низкая температура! Экстренное отключение!!") // Ваще холодно, пиздец.
+		playsound(loc, 'sound/machines/beep.ogg', 100, TRUE, -1)
+		set_mining(FALSE)
+	else if((env_temp <= temp_mid) && (env_temp >= temp_min))
+		produce_points(CRYPTO_MULT_MAX) // Чем холоднее, тем больше.
 	// Mid
 	else if((env_temp <= temp_mid) && (env_temp >= temp_min))
 		produce_points(CRYPTO_MULT_MID)
 	// Maximum
 	else if((env_temp <= temp_max) && (env_temp >= temp_mid))
-		produce_points(CRYPTO_MULT_MIN)
+		produce_points(CRYPTO_MULT_MIN) // Чем горячее, тем меньше.
 	// Overheat
 	else if(env_temp >= temp_max)
-		say("Critical overheating detected! Shutting off!")
-		playsound(loc, 'sound/machines/beep.ogg', 50, TRUE, -1)
+		say("Критически высокая температура! Экстренное отключение!!")
+		playsound(loc, 'sound/machines/beep.ogg', 100, TRUE, -1)
 		set_mining(FALSE)
 
 	// Increase heat by heating_power

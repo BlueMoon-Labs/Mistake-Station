@@ -215,6 +215,7 @@
 	atom_storage.max_slots = INFINITY
 	atom_storage.max_specific_storage = INFINITY
 	atom_storage.max_total_storage = INFINITY
+	atom_storage.max_volume = INFINITY
 
 // -----------------------------
 //          Plant bag
@@ -447,6 +448,7 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/syringe,
 		))
+	atom_storage.max_volume = STORAGE_VOLUME_CHEMISTRY_BAG
 
 /*
  *  Biowaste bag (mostly for virologists)

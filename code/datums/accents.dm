@@ -3,7 +3,8 @@
 /datum/accent/proc/modify_speech(list/speech_args, datum/source, mob/living/carbon/owner) //transforms the message in some way
 	return speech_args
 
-/datum/accent/proc/add_accent(message, var/map_accent)
+/datum/accent/proc/add_accent(message)
+	var/map_accent
 	var/message_length // Длинна текущего сообщения
 	var/current_char // Текущий символ обрабатываемой строки
 	var/current_char_ascii // HTML код символа

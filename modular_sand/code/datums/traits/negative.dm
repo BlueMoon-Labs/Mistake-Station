@@ -6,6 +6,7 @@
 	gain_text = "<span class='danger'>Слова других теряют для вас всякий смысл...</span>"
 	lose_text = "<span class='notice'>Вы начинаете собирать воедино то, что говорят люди!</span>"
 	medical_record_text = "Пациент демонстрирует неспособность использовать обычные разговорные языки."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/sheltered/add_unique()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -22,3 +23,4 @@
 	value = -2
 	mob_trait = TRAIT_DNC_ORDER
 	medical_record_text = "Пациент имеет приказ DNC (Не Клонировать), в результате чего попытка воспользоваться клонированием будет отклонена."
+	icon = FA_ICON_QUESTION_CIRCLE

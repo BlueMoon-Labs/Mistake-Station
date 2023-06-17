@@ -109,7 +109,7 @@
 	return TRUE
 
 /obj/machinery/research_table/buckle_mob(mob/living/buckled_mob, force, check_loc)
-	RegisterSignal(buckled_mob, COMSIG_MOB_CAME, .proc/on_cum)
+	RegisterSignal(buckled_mob, COMSIG_MOB_CAME, PROC_REF(on_cum))
 	say("New user detected, tracking data.")
 	. = ..()
 
@@ -149,23 +149,15 @@
 		if(POINT_TYPE_SCIENCE)
 			SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = points_awarded))
 		else
-			if(slaver_mode) // Slaver version generates money for the slavers instead.
-				GLOB.slavers_credits_balance += points_awarded
-			else
-				var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
-				if(D)
-					D.adjust_money(points_awarded)
+			var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+			if(D)
+				D.adjust_money(points_awarded)
 	if(points_awarded)
 		var/add_s = points_awarded == 1 ? "" : "s"
 		say("Obtained [points_awarded] [point_type == POINT_TYPE_SCIENCE ? "point" : "credit"][add_s] from the session.")
 	else
 		say("Obtained no [point_type == POINT_TYPE_SCIENCE ? "points" : "credits"] from the session.") // Probably has no genitals at all
 	playsound(src, 'sound/machines/chime.ogg', 30, 1)
-
-/obj/machinery/research_table/slaver
-	slaver_mode = TRUE
-	point_type = POINT_TYPE_CARGO
-	configured = TRUE
 
 #undef POINT_TYPE_CARGO
 #undef POINT_TYPE_SCIENCE

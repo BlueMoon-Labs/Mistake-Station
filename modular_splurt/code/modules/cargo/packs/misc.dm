@@ -172,13 +172,13 @@
 	name = "Prospacillin Bottle"
 	desc = "An extremely expensive solution of growth serum known as Prospacillin. Effects are permanent upon consumption, and growth is slow."
 	cost = 50000
-	contains = list(/obj/item/reagent_containers/food/drinks/prospacillin)
+	contains = list(/obj/item/reagent_containers/cup/glass/prospacillin)
 
 /datum/supply_pack/misc/diminicillin //size changing should be hard to achieve; so enjoy the price tag.
 	name = "Diminicillin Bottle"
 	desc = "An extremely expensive solution of shrinking serum known as Diminicillin. Effects are permanent upon consumption, and shrinking is slow."
 	cost = 50000
-	contains = list(/obj/item/reagent_containers/food/drinks/diminicillin)
+	contains = list(/obj/item/reagent_containers/cup/glass/diminicillin)
 
 /datum/supply_pack/misc/microbricks
 	name = "Microbricks Crate"

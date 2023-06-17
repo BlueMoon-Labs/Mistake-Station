@@ -5,6 +5,7 @@
 	gain_text = null // Handled by trauma.
 	lose_text = null
 	medical_record_text = "Пациент имеет не поддающееся лечению заболевание мозга, в результате чего он становится чрезвычайно... внушаемым...."
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/hypnotic_stupor/add()
 	var/datum/brain_trauma/severe/hypnotic_stupor/T = new()
@@ -29,6 +30,7 @@
 	mob_trait = TRAIT_ESTROUS_DETECT
 	gain_text = span_love("Ваши органы чувств адаптируются, позволяя вам ощущать фертильность окружающих.")
 	lose_text = span_notice("Ваши особые чувства регрессируют и вы больше не ощущаете фертильность окружающих.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 /datum/quirk/estrous_active
 	name = "Эстральный Цикл"
@@ -37,6 +39,7 @@
 	mob_trait = TRAIT_ESTROUS_ACTIVE
 	gain_text = span_love("Ваше тело горит от желания заняться размножением.")
 	lose_text = span_notice("Вы чувствуете, что лучше контролируете свое тело и мысли.")
+	icon = FA_ICON_QUESTION_CIRCLE
 
 	// Default heat message for examine text
 	var/heat_type = "нахождение в эстральном цикле"
@@ -47,11 +50,11 @@
 
 /datum/quirk/estrous_active/add()
 	// Add examine hook
-	RegisterSignal(quirk_holder, COMSIG_PARENT_EXAMINE, .proc/quirk_examine_estrous_active)
+	RegisterSignal(quirk_holder, COMSIG_PARENT_EXAMINE, PROC_REF(quirk_examine_estrous_active))
 
 	// Add organ change hooks
-	RegisterSignal(quirk_holder, COMSIG_MOB_ORGAN_ADD, .proc/update_heat_type)
-	RegisterSignal(quirk_holder, COMSIG_MOB_ORGAN_REMOVE, .proc/update_heat_type)
+	RegisterSignal(quirk_holder, COMSIG_MOB_ORGAN_ADD, PROC_REF(update_heat_type))
+	RegisterSignal(quirk_holder, COMSIG_MOB_ORGAN_REMOVE, PROC_REF(update_heat_type))
 
 /datum/quirk/estrous_active/remove()
 	// Remove signals

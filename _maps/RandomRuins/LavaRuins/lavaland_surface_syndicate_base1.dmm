@@ -73,7 +73,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock_note_placer{
-	note_info = "You are expected to build the cooling system for the exhaust yourself."
+	default_raw_text = "You are expected to build the cooling system for the exhaust yourself."
 	},
 /turf/open/floor/plating,
 /area/ruin/syndicate_lava_base/engineering)

@@ -1,6 +1,6 @@
 /*
-	Click code cleanup
-	~Sayu
+Click code cleanup
+~Sayu
 */
 
 /mob
@@ -42,16 +42,16 @@
 	next_move = world.time + ((num + adj)*mod)
 
 /**
-  * Checks if we can do another action.
-  * Returns TRUE if we can and FALSE if we cannot.
-  *
-  * @params
-  * * cooldown - Time required since last action. Defaults to 0.5
-  * * from_next_action - Defaults to FALSE. Should we check from the tail end of next_action instead of last_action?
-  * * ignore_mod - Defaults to FALSE. Ignore all adjusts and multipliers. Do not use this unless you know what you are doing and have a good reason.
-  * * ignore_next_action - Defaults to FALSE. Ignore next_action and only care about cooldown param and everything else. Generally unused.
-  * * immediate - Defaults to FALSE. Checks last action using immediate, used on the head end of an attack. This is to prevent colliding attacks in case of sleep. Not that you should sleep() in an attack but.. y'know.
-  */
+* Checks if we can do another action.
+* Returns TRUE if we can and FALSE if we cannot.
+*
+* @params
+* * cooldown - Time required since last action. Defaults to 0.5
+* * from_next_action - Defaults to FALSE. Should we check from the tail end of next_action instead of last_action?
+* * ignore_mod - Defaults to FALSE. Ignore all adjusts and multipliers. Do not use this unless you know what you are doing and have a good reason.
+* * ignore_next_action - Defaults to FALSE. Ignore next_action and only care about cooldown param and everything else. Generally unused.
+* * immediate - Defaults to FALSE. Checks last action using immediate, used on the head end of an attack. This is to prevent colliding attacks in case of sleep. Not that you should sleep() in an attack but.. y'know.
+*/
 /mob/proc/CheckActionCooldown(cooldown = 0.5, from_next_action = FALSE, ignore_mod = FALSE, ignore_next_action = FALSE, immediate = FALSE)
 	return (ignore_next_action || (world.time >= (immediate? next_action_immediate : next_action))) && \
 	(world.time >= ((from_next_action? (immediate? next_action_immediate : next_action) : (immediate? last_action_immediate : last_action)) + max(0, ignore_mod? cooldown : (cooldown * GetActionCooldownMod() + GetActionCooldownAdjust()))))
@@ -62,8 +62,9 @@
 	var/clickdelay_mod_bypass = FALSE
 
 /**
-  * Get estimated time of next attack.
-  */
+* Get estimated time of next attack.
+*/
+
 /mob/proc/EstimatedNextActionTime()
 	var/attack_speed = unarmed_attack_speed * GetActionCooldownMod() + GetActionCooldownAdjust()
 	var/obj/item/I = get_active_held_item()
@@ -74,32 +75,35 @@
 	return max(next_action, next_action_immediate, max(last_action, last_action_immediate) + attack_speed)
 
 /**
-  * Get estimated time that a user has to not attack for to use us
-  */
+* Get estimated time that a user has to not attack for to use us
+*/
+
 /obj/item/proc/GetEstimatedAttackSpeed()
 	return attack_speed
 
 /**
-  * Gets action_cooldown_mod.
-  */
+* Gets action_cooldown_mod.
+*/
+
 /mob/proc/GetActionCooldownMod()
 	return action_cooldown_mod
 
 /**
-  * Gets action_cooldown_adjust
-  */
+	* Gets action_cooldown_adjust
+*/
+
 /mob/proc/GetActionCooldownAdjust()
 	return action_cooldown_adjust
 
 /**
- * Before anything else, defer these calls to a per-mobtype handler.  This allows us to
- * remove istype() spaghetti code, but requires the addition of other handler procs to simplify it.
- *
- * Alternately, you could hardcode every mob's variation in a flat [/mob/proc/ClickOn] proc; however,
- * that's a lot of code duplication and is hard to maintain.
- *
- * Note that this proc can be overridden, and is in the case of screen objects.
- */
+	* Before anything else, defer these calls to a per-mobtype handler.  This allows us to
+	* remove istype() spaghetti code, but requires the addition of other handler procs to simplify it.
+	*
+	* Alternately, you could hardcode every mob's variation in a flat [/mob/proc/ClickOn] proc; however,
+	* that's a lot of code duplication and is hard to maintain.
+	*
+	* Note that this proc can be overridden, and is in the case of screen objects.
+*/
 /atom/Click(location, control, params)
 	if(flags_1 & INITIALIZED_1)
 		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
@@ -115,18 +119,18 @@
 		usr.MouseWheelOn(src, delta_x, delta_y, params)
 
 /**
- * Standard mob ClickOn()
- * Handles exceptions: Buildmode, middle click, modified clicks, mech actions
- *
- * After that, mostly just check your state, check whether you're holding an item,
- * check whether you're adjacent to the target, then pass off the click to whoever
- * is receiving it.
- * The most common are:
- * * [mob/proc/UnarmedAttack] (atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
- * * [atom/proc/attackby] (item,user) - used only when adjacent
- * * [obj/item/proc/afterattack] (atom,user,adjacent,params) - used both ranged and adjacent
- * * [mob/proc/RangedAttack] (atom,modifiers) - used only ranged, only used for tk and laser eyes but could be changed
- */
+	* Standard mob ClickOn()
+	* Handles exceptions: Buildmode, middle click, modified clicks, mech actions
+	*
+	* After that, mostly just check your state, check whether you're holding an item,
+	* check whether you're adjacent to the target, then pass off the click to whoever
+	* is receiving it.
+	* The most common are:
+	* * [mob/proc/UnarmedAttack] (atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
+	* * [atom/proc/attackby] (item,user) - used only when adjacent
+	* * [obj/item/proc/afterattack] (atom,user,adjacent,params) - used both ranged and adjacent
+	* * [mob/proc/RangedAttack] (atom,modifiers) - used only ranged, only used for tk and laser eyes but could be changed
+*/
 /mob/proc/ClickOn( atom/A, params )
 	if(world.time <= next_click)
 		return
