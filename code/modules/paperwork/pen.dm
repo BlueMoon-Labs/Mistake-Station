@@ -218,6 +218,7 @@
 					label.apply_label()
 				to_chat(user, span_notice("You have successfully renamed \the [oldname] to [O]."))
 				O.renamedByPlayer = TRUE
+				O.update_appearance(UPDATE_ICON)
 
 		if(penchoice == "Description")
 			var/input = tgui_input_text(user, "Describe [O]", "Description", "[O.desc]", 280)
@@ -230,6 +231,7 @@
 				O.AddComponent(/datum/component/rename, O.name, input)
 				to_chat(user, span_notice("You have successfully changed [O]'s description."))
 				O.renamedByPlayer = TRUE
+				O.update_appearance(UPDATE_ICON)
 
 		if(penchoice == "Reset")
 			if(QDELETED(O) || !user.can_perform_action(O))
@@ -245,6 +247,7 @@
 
 			to_chat(user, span_notice("You have successfully reset [O]'s name and description."))
 			O.renamedByPlayer = FALSE
+			O.update_appearance(UPDATE_ICON)
 
 /obj/item/pen/get_writing_implement_details()
 	return list(

@@ -80,8 +80,8 @@
 
 /datum/id_trim/job/security_medic
 	assignment = "Security Medic"
-//	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
-//	trim_state = "trim_securitymedic"
+	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_state = "trim_securitymedic"
 	department_color = COLOR_ASSEMBLY_BLACK
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
 	sechud_icon_state = SECHUD_SECURITY_MEDIC

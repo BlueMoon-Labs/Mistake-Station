@@ -89,10 +89,15 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
  *
  * GOT IT MEMORIZED?
  * - Dominion/Cyberboss
+ *
+ * Where to put init shit quick guide:
+ * If you need it to happen before the mc is created: world/Genesis. 
+ * If you need it to happen last: world/New(), 
+ * Otherwise, in a subsystem preinit or init. Subsystems can set an init priority.
  */
 
 /**
- * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN MASTER/NEW() IS DONE
+ * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN SUBSYSTEMS OR WORLD/NEW IS DONE
  * NOWHERE THE FUCK ELSE
  * I DON'T CARE HOW MANY LAYERS OF DEBUG/PROFILE/TRACE WE HAVE, YOU JUST HAVE TO DEAL WITH THIS PROC EXISTING
  * I'M NOT EVEN GOING TO TELL YOU WHERE IT'S CALLED FROM BECAUSE I'M DECLARING THAT FORBIDDEN KNOWLEDGE
@@ -117,6 +122,9 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 
 	// Init the debugger first so we can debug Master
 	init_debugger()
+
+	// Create the logger
+	logger = new
 
 	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
 	Master = new
@@ -218,6 +226,14 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 #endif
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
 
+/// Returns a list of data about the world state, don't clutter
+/world/proc/get_world_state_for_logging()
+	var/data = list()
+	data["tick_usage"] = world.tick_usage
+	data["tick_lag"] = world.tick_lag
+	data["time"] = world.time
+	data["timestamp"] = logger.unix_timestamp_string()
+	return data
 
 /world/proc/SetupLogs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
@@ -241,7 +257,7 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 		GLOB.picture_logging_prefix = "O_[override_dir]_"
 		GLOB.picture_log_directory = "data/picture_logs/[override_dir]"
 
-	GLOB.logger.init_logging()
+	logger.init_logging()
 
 	var/latest_changelog = file("[global.config.directory]/../html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
 	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
@@ -330,8 +346,7 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 	#ifdef UNIT_TESTS
 	FinishTestRun()
 	return
-	#endif
-
+	#else
 	if(TgsAvailable())
 		var/do_hard_reboot
 		// check the hard reboot counter
@@ -362,6 +377,7 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 	TgsReboot() // TGS can decide to kill us right here, so it's important to do it last
 
 	..()
+	#endif
 
 /world/proc/auxcleanup()
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
