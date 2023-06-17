@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;story_type - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/story_type.html#var">Var Details</a> - <a href="datum/story_type.html#proc">Proc Details</a></header>
+<main>
+<h1>story_type <aside>/<a href="datum.html">datum</a>/<a href="datum/story_type.html">story_type</a></aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L1">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/story_type.html#var/actor_datums_to_make">actor_datums_to_make</a></th><td>Assoc list of actor datums to create in the form of 'actor typepath:amount'</td></tr>
+            <tr><th><a href="datum/story_type.html#var/desc">desc</a></th><td>A rough description of the story and what it does</td></tr>
+            <tr><th><a href="datum/story_type.html#var/impact">impact</a></th><td>How impactful the story is (and how much budget it costs)</td></tr>
+            <tr><th><a href="datum/story_type.html#var/maximum_execute_times">maximum_execute_times</a></th><td>How many times this story can execute at most</td></tr>
+            <tr><th><a href="datum/story_type.html#var/mind_actor_list">mind_actor_list</a></th><td>Assoc list of mind ref:actor ref involved in the story</td></tr>
+            <tr><th><a href="datum/story_type.html#var/name">name</a></th><td>Name of the story</td></tr>
+            <tr><th><a href="datum/story_type.html#var/roundstart_eligible">roundstart_eligible</a></th><td>If this can be a round-start story</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/story_type.html#proc/build_html_panel_entry">build_html_panel_entry</a></th><td>Builds the HTML panel entry for the admin verb and round end</td></tr>
+            <tr><th><a href="datum/story_type.html#proc/can_execute">can_execute</a></th><td>General checks to see if we can actually run</td></tr>
+            <tr><th><a href="datum/story_type.html#proc/execute_roundstart_story">execute_roundstart_story</a></th><td>Proc for attempting to execute a story at roundstart, DOES NOT WORK ELSEWHERE</td></tr>
+            <tr><th><a href="datum/story_type.html#proc/execute_story">execute_story</a></th><td>The general proc That Does Things, may get split later</td></tr>
+            <tr><th><a href="datum/story_type.html#proc/get_ghosts">get_ghosts</a></th><td>A proc for getting a list of ghosts and returning an equal amount to <code>ghosts_involved</code></td></tr>
+            <tr><th><a href="datum/story_type.html#proc/get_players">get_players</a></th><td>A proc for getting a list of players and returning an equal amount to <code>players_involved</code></td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/actor_datums_to_make"><aside class="declaration">var </aside>actor_datums_to_make
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L13">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 13"/></a></h3>
+        <p>Assoc list of actor datums to create in the form of 'actor typepath:amount'</p><h3 id="var/desc"><aside class="declaration">var </aside>desc
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L5">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 5"/></a></h3>
+        <p>A rough description of the story and what it does</p><h3 id="var/impact"><aside class="declaration">var </aside>impact
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L7">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 7"/></a></h3>
+        <p>How impactful the story is (and how much budget it costs)</p><h3 id="var/maximum_execute_times"><aside class="declaration">var </aside>maximum_execute_times
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L11">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 11"/></a></h3>
+        <p>How many times this story can execute at most</p><h3 id="var/mind_actor_list"><aside class="declaration">var </aside>mind_actor_list
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L15">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 15"/></a></h3>
+        <p>Assoc list of mind ref:actor ref involved in the story</p><h3 id="var/name"><aside class="declaration">var </aside>name
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L3">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 3"/></a></h3>
+        <p>Name of the story</p><h3 id="var/roundstart_eligible"><aside class="declaration">var </aside>roundstart_eligible
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L9">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 9"/></a></h3>
+        <p>If this can be a round-start story</p><h2 id="proc">Proc Details</h2><h3 id="proc/build_html_panel_entry"><aside class="declaration">proc </aside>build_html_panel_entry<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L169">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 169"/></a></aside>
+        </h3>
+        <p>Builds the HTML panel entry for the admin verb and round end</p><h3 id="proc/can_execute"><aside class="declaration">proc </aside>can_execute<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L21">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 21"/></a></aside>
+        </h3>
+        <p>General checks to see if we can actually run</p><h3 id="proc/execute_roundstart_story"><aside class="declaration">proc </aside>execute_roundstart_story<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L56">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 56"/></a></aside>
+        </h3>
+        <p>Proc for attempting to execute a story at roundstart, DOES NOT WORK ELSEWHERE</p><h3 id="proc/execute_story"><aside class="declaration">proc </aside>execute_story<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L28">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 28"/></a></aside>
+        </h3>
+        <p>The general proc That Does Things, may get split later</p><h3 id="proc/get_ghosts"><aside class="declaration">proc </aside>get_ghosts<aside>(ghosts_to_get) 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L96">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 96"/></a></aside>
+        </h3>
+        <p>A proc for getting a list of ghosts and returning an equal amount to <code>ghosts_involved</code></p><h3 id="proc/get_players"><aside class="declaration">proc </aside>get_players<aside>(players_to_get) 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/story_datums/_story_datums.dm#L113">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;story_datums&#x2F;_story_datums.dm 113"/></a></aside>
+        </h3>
+        <p>A proc for getting a list of players and returning an equal amount to <code>players_involved</code></p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/tree/cde6088aac5260372c7c6549bf41876e406dfc64">cde6088</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.7.3</a></footer>
+</body>
+</html>

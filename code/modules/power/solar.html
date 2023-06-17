@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>code&#x2F;modules&#x2F;power&#x2F;solar.dm - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="code/modules/power/solar.html#define">Define Details</a></header>
+<main>
+<h1>code/modules/power/solar.dm 
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/code/modules/power/solar.dm">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;power&#x2F;solar.dm"/></a></h1>
+
+<table class="summary" cellspacing="0">
+        <tr><th><a href="code/modules/power/solar.html#define/SOLAR_GEN_RATE">SOLAR_GEN_RATE</a></th><td>/Cache defines
+obj/machinery/power/smes
+obj/machinery/power/smes/examine(user)
+obj/machinery/power/smes/Initialize(mapload)
+obj/machinery/power/smes/RefreshParts()
+obj/machinery/power/smes/should_have_node()
+obj/machinery/power/smes/attackby(obj/item/I, mob/user, params)
+obj/machinery/power/smes/wirecutter_act(mob/living/user, obj/item/I)
+obj/machinery/power/smes/default_deconstruction_crowbar(obj/item/crowbar/C)
+obj/machinery/power/smes/on_deconstruction()
+obj/machinery/power/smes/Destroy()
+/ create a terminal object pointing towards the SMES
+/ wires will attach to this
+obj/machinery/power/smes/proc/make_terminal(turf/T)
+obj/machinery/power/smes/disconnect_terminal()
+obj/machinery/power/smes/update_overlays()
+obj/machinery/power/smes/proc/chargedisplay()
+obj/machinery/power/smes/process()
+/ called after all power processes are finished
+/ restores charge level to smes if there was excess this ptick
+obj/machinery/power/smes/proc/restore()
+obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)
+obj/machinery/power/smes/ui_data()
+obj/machinery/power/smes/ui_act(action, params)
+obj/machinery/power/smes/proc/log_smes(mob/user)
+obj/machinery/power/smes/emp_act(severity)
+obj/machinery/power/smes/engineering
+obj/machinery/power/smes/magical
+obj/machinery/power/smes/magical/process()</td></tr></table><h2 id="define">Define Details</h2>
+<h3 id="define/SOLAR_GEN_RATE"><aside class="declaration">#define </aside>SOLAR_GEN_RATE
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/code/modules/power/solar.dm#L1">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;power&#x2F;solar.dm 1"/></a>
+    </h3>
+    <p>/Cache defines
+obj/machinery/power/smes
+obj/machinery/power/smes/examine(user)
+obj/machinery/power/smes/Initialize(mapload)
+obj/machinery/power/smes/RefreshParts()
+obj/machinery/power/smes/should_have_node()
+obj/machinery/power/smes/attackby(obj/item/I, mob/user, params)
+obj/machinery/power/smes/wirecutter_act(mob/living/user, obj/item/I)
+obj/machinery/power/smes/default_deconstruction_crowbar(obj/item/crowbar/C)
+obj/machinery/power/smes/on_deconstruction()
+obj/machinery/power/smes/Destroy()
+/ create a terminal object pointing towards the SMES
+/ wires will attach to this
+obj/machinery/power/smes/proc/make_terminal(turf/T)
+obj/machinery/power/smes/disconnect_terminal()
+obj/machinery/power/smes/update_overlays()
+obj/machinery/power/smes/proc/chargedisplay()
+obj/machinery/power/smes/process()
+/ called after all power processes are finished
+/ restores charge level to smes if there was excess this ptick
+obj/machinery/power/smes/proc/restore()
+obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)
+obj/machinery/power/smes/ui_data()
+obj/machinery/power/smes/ui_act(action, params)
+obj/machinery/power/smes/proc/log_smes(mob/user)
+obj/machinery/power/smes/emp_act(severity)
+obj/machinery/power/smes/engineering
+obj/machinery/power/smes/magical
+obj/machinery/power/smes/magical/process()</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/tree/cde6088aac5260372c7c6549bf41876e406dfc64">cde6088</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.7.3</a></footer>
+</body>
+</html>

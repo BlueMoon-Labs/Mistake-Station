@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;stories - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/controller/subsystem/stories.html#var">Var Details</a> - <a href="datum/controller/subsystem/stories.html#proc">Proc Details</a></header>
+<main>
+<h1>stories <aside>/<a href="datum.html">datum</a>/<a href="datum/controller/subsystem.html">controller/subsystem</a>/<a href="datum/controller/subsystem/stories.html">stories</a></aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L1">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/budget">budget</a></th><td>How much budget the story system has to work with</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/exclude_stories">exclude_stories</a></th><td>Stories to exclude becuase they're parent types</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/initial_budget">initial_budget</a></th><td>For logging purposes, the roundstart budget</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/last_prob">last_prob</a></th><td>The last probability without the divisor</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/to_use_stories">to_use_stories</a></th><td>List of initialized story types to pick from, these are the ones that haven't been used yet</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#var/used_stories">used_stories</a></th><td>Assoc list of stories and how much they've been used in format of instance:amount used</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#proc/execute_roundstart_story">execute_roundstart_story</a></th><td>Attempts to potentially execute a story roundstart</td></tr>
+            <tr><th><a href="datum/controller/subsystem/stories.html#proc/get_stories_info">get_stories_info</a></th><td>Gets info of all currently running stories and who is involved</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/budget"><aside class="declaration">var </aside>budget
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L13">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 13"/></a></h3>
+        <p>How much budget the story system has to work with</p><h3 id="var/exclude_stories"><aside class="declaration">var </aside>exclude_stories
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L22">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 22"/></a></h3>
+        <p>Stories to exclude becuase they're parent types</p><h3 id="var/initial_budget"><aside class="declaration">var </aside>initial_budget
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L16">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 16"/></a></h3>
+        <p>For logging purposes, the roundstart budget</p><h3 id="var/last_prob"><aside class="declaration">var </aside>last_prob
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L19">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 19"/></a></h3>
+        <p>The last probability without the divisor</p><h3 id="var/to_use_stories"><aside class="declaration">var </aside>to_use_stories
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L7">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 7"/></a></h3>
+        <p>List of initialized story types to pick from, these are the ones that haven't been used yet</p><h3 id="var/used_stories"><aside class="declaration">var </aside>used_stories
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L10">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 10"/></a></h3>
+        <p>Assoc list of stories and how much they've been used in format of instance:amount used</p><h2 id="proc">Proc Details</h2><h3 id="proc/execute_roundstart_story"><aside class="declaration">proc </aside>execute_roundstart_story<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L111">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 111"/></a></aside>
+        </h3>
+        <p>Attempts to potentially execute a story roundstart</p><h3 id="proc/get_stories_info"><aside class="declaration">proc </aside>get_stories_info<aside>() 
+        
+    
+            <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/blob/cde6088aac5260372c7c6549bf41876e406dfc64/modular_bluemoon/modules/stories_system/subsystem.dm#L98">
+        <img src="git.png" width="16" height="16" title="modular_bluemoon&#x2F;modules&#x2F;stories_system&#x2F;subsystem.dm 98"/></a></aside>
+        </h3>
+        <p>Gets info of all currently running stories and who is involved</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/tree/cde6088aac5260372c7c6549bf41876e406dfc64">cde6088</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.7.3</a></footer>
+</body>
+</html>
