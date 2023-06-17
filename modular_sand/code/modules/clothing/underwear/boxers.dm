@@ -64,7 +64,6 @@
 /obj/item/clothing/underwear/briefs/panties
 	name = "panties"
 	desc = "Panties."
-	body_parts_covered = GROIN
 	icon_state = "panties"
 
 /obj/item/clothing/underwear/briefs/panties/alt
